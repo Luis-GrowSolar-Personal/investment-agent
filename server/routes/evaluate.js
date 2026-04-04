@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const Anthropic = require('@anthropic-ai/sdk');
+const { requireAuth } = require('@clerk/express');
 
 const router = express.Router();
 const client = new Anthropic();
@@ -10,7 +11,7 @@ const client = new Anthropic();
 const PROMPT_PATH = path.resolve(__dirname, '../../docs/EVALUATION_PROMPT.md');
 const systemPrompt = fs.readFileSync(PROMPT_PATH, 'utf8');
 
-router.post('/', async (req, res) => {
+router.post('/', requireAuth(), async (req, res) => {
   const { transcript } = req.body;
 
   if (!transcript || typeof transcript !== 'string' || transcript.trim().length === 0) {

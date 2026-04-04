@@ -1,4 +1,8 @@
 # Investment Agent — Claude Code Configuration
+## Note
+
+Important note:  Never paste .env contents directly — contains API keys
+
 
 ## Project Overview
 Personal investment analysis and portfolio management tool.

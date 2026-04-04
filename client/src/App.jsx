@@ -1,17 +1,5 @@
 import { useState } from 'react';
-
-const SECTIONS = [
-  'THESIS HEALTH',
-  'MANAGEMENT CREDIBILITY',
-  'STUMBLE CLASSIFICATION',
-  'THREAT MECHANISM TEST',
-  'MITIGATION ARGUMENT TEST',
-  'POSITION TYPE',
-  'POSITION SIZING RECOMMENDATION',
-  'RECOMMENDATION',
-  'FRESH MONEY TEST',
-  'FICTIONAL DETAIL CHECK',
-];
+import { SignIn, SignedIn, SignedOut, useAuth, useUser, useClerk } from '@clerk/clerk-react';
 
 function parseAnalysis(text) {
   const sections = [];
@@ -29,7 +17,6 @@ function parseAnalysis(text) {
   }
   if (current) sections.push(current);
 
-  // If parsing yielded nothing, return raw text as single block
   if (sections.length === 0) {
     return [{ title: null, body: text.split('\n') }];
   }
@@ -89,7 +76,43 @@ function Section({ title, body }) {
   );
 }
 
-export default function App() {
+function Header() {
+  const { user } = useUser();
+  const { signOut } = useClerk();
+  const email = user?.primaryEmailAddress?.emailAddress ?? user?.username ?? '';
+
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      right: 0,
+      padding: '12px 24px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12,
+      fontSize: 13,
+    }}>
+      <span style={{ color: '#64748b' }}>{email}</span>
+      <button
+        onClick={() => signOut()}
+        style={{
+          background: 'transparent',
+          border: '1px solid #2d3748',
+          borderRadius: 5,
+          color: '#94a3b8',
+          fontSize: 12,
+          padding: '4px 10px',
+          cursor: 'pointer',
+        }}
+      >
+        Sign out
+      </button>
+    </div>
+  );
+}
+
+function Evaluator() {
+  const { getToken } = useAuth();
   const [transcript, setTranscript] = useState('');
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -108,9 +131,13 @@ export default function App() {
     setAnalysis(null);
 
     try {
+      const token = await getToken();
       const res = await fetch('http://localhost:3001/api/evaluate', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
         body: JSON.stringify({ transcript }),
       });
       const data = await res.json();
@@ -220,5 +247,26 @@ export default function App() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <>
+      <SignedOut>
+        <div style={{
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <SignIn />
+        </div>
+      </SignedOut>
+      <SignedIn>
+        <Header />
+        <Evaluator />
+      </SignedIn>
+    </>
   );
 }
