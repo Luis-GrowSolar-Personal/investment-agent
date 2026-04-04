@@ -95,6 +95,12 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  function handleClear() {
+    setTranscript('');
+    setAnalysis(null);
+    setError(null);
+  }
+
   async function handleAnalyze() {
     if (!transcript.trim()) return;
     setLoading(true);
@@ -148,24 +154,42 @@ export default function App() {
         }}
       />
 
-      <button
-        onClick={handleAnalyze}
-        disabled={loading || !transcript.trim()}
-        style={{
-          marginTop: 12,
-          padding: '10px 28px',
-          background: loading || !transcript.trim() ? '#334155' : '#3b82f6',
-          color: loading || !transcript.trim() ? '#64748b' : '#fff',
-          border: 'none',
-          borderRadius: 6,
-          fontSize: 14,
-          fontWeight: 600,
-          cursor: loading || !transcript.trim() ? 'not-allowed' : 'pointer',
-          transition: 'background 0.15s',
-        }}
-      >
-        {loading ? 'Analyzing…' : 'Analyze'}
-      </button>
+      <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
+        <button
+          onClick={handleAnalyze}
+          disabled={loading || !transcript.trim()}
+          style={{
+            padding: '10px 28px',
+            background: loading || !transcript.trim() ? '#334155' : '#3b82f6',
+            color: loading || !transcript.trim() ? '#64748b' : '#fff',
+            border: 'none',
+            borderRadius: 6,
+            fontSize: 14,
+            fontWeight: 600,
+            cursor: loading || !transcript.trim() ? 'not-allowed' : 'pointer',
+            transition: 'background 0.15s',
+          }}
+        >
+          {loading ? 'Analyzing…' : 'Analyze'}
+        </button>
+        <button
+          onClick={handleClear}
+          disabled={loading}
+          style={{
+            padding: '10px 20px',
+            background: 'transparent',
+            color: loading ? '#334155' : '#64748b',
+            border: `1px solid ${loading ? '#334155' : '#2d3748'}`,
+            borderRadius: 6,
+            fontSize: 14,
+            fontWeight: 600,
+            cursor: loading ? 'not-allowed' : 'pointer',
+            transition: 'color 0.15s, border-color 0.15s',
+          }}
+        >
+          Clear
+        </button>
+      </div>
 
       {loading && (
         <div style={{ marginTop: 32, color: '#64748b', fontSize: 14 }}>
