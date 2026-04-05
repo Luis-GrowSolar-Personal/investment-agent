@@ -111,24 +111,59 @@ function Header() {
   );
 }
 
+const today = new Date().toISOString().split('T')[0];
+
+const inputStyle = {
+  width: '100%',
+  padding: '9px 12px',
+  background: '#1e2330',
+  border: '1px solid #2d3748',
+  borderRadius: 6,
+  color: '#e2e8f0',
+  fontSize: 13,
+  outline: 'none',
+  fontFamily: 'inherit',
+};
+
+const labelStyle = {
+  display: 'block',
+  fontSize: 11,
+  fontWeight: 600,
+  letterSpacing: '0.06em',
+  color: '#64748b',
+  textTransform: 'uppercase',
+  marginBottom: 5,
+};
+
 function Evaluator() {
   const { getToken } = useAuth();
+  const [tickerSymbol, setTickerSymbol] = useState('');
+  const [tickerName, setTickerName] = useState('');
+  const [callDate, setCallDate] = useState(today);
   const [transcript, setTranscript] = useState('');
   const [analysis, setAnalysis] = useState(null);
+  const [savedIds, setSavedIds] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   function handleClear() {
+    setTickerSymbol('');
+    setTickerName('');
+    setCallDate(today);
     setTranscript('');
     setAnalysis(null);
+    setSavedIds(null);
     setError(null);
   }
 
+  const canSubmit = !loading && transcript.trim().length > 0 && tickerSymbol.trim().length > 0;
+
   async function handleAnalyze() {
-    if (!transcript.trim()) return;
+    if (!canSubmit) return;
     setLoading(true);
     setError(null);
     setAnalysis(null);
+    setSavedIds(null);
 
     try {
       const token = await getToken();
@@ -138,11 +173,16 @@ function Evaluator() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ transcript }),
+        body: JSON.stringify({ transcript, tickerSymbol, tickerName, callDate }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
       setAnalysis(data.analysis);
+      setSavedIds({
+        tickerId: data.tickerId,
+        transcriptId: data.transcriptId,
+        analysisId: data.analysisId,
+      });
     } catch (err) {
       setError(err.message);
     } finally {
@@ -158,9 +198,44 @@ function Evaluator() {
         Earnings Call Evaluator
       </h1>
       <p style={{ fontSize: 13, color: '#64748b', marginBottom: 24 }}>
-        Paste a transcript below and click Analyze.
+        Fill in the ticker details, paste the transcript, and click Analyze.
       </p>
 
+      {/* Ticker fields */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr 1fr', gap: 12, marginBottom: 16 }}>
+        <div>
+          <label style={labelStyle}>Ticker Symbol *</label>
+          <input
+            type="text"
+            value={tickerSymbol}
+            onChange={e => setTickerSymbol(e.target.value.toUpperCase())}
+            placeholder="AMPX"
+            maxLength={10}
+            style={inputStyle}
+          />
+        </div>
+        <div>
+          <label style={labelStyle}>Company Name</label>
+          <input
+            type="text"
+            value={tickerName}
+            onChange={e => setTickerName(e.target.value)}
+            placeholder="Amprius Technologies (optional)"
+            style={inputStyle}
+          />
+        </div>
+        <div>
+          <label style={labelStyle}>Call Date</label>
+          <input
+            type="date"
+            value={callDate}
+            onChange={e => setCallDate(e.target.value)}
+            style={{ ...inputStyle, colorScheme: 'dark' }}
+          />
+        </div>
+      </div>
+
+      {/* Transcript */}
       <textarea
         value={transcript}
         onChange={e => setTranscript(e.target.value)}
@@ -184,16 +259,16 @@ function Evaluator() {
       <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
         <button
           onClick={handleAnalyze}
-          disabled={loading || !transcript.trim()}
+          disabled={!canSubmit}
           style={{
             padding: '10px 28px',
-            background: loading || !transcript.trim() ? '#334155' : '#3b82f6',
-            color: loading || !transcript.trim() ? '#64748b' : '#fff',
+            background: canSubmit ? '#3b82f6' : '#334155',
+            color: canSubmit ? '#fff' : '#64748b',
             border: 'none',
             borderRadius: 6,
             fontSize: 14,
             fontWeight: 600,
-            cursor: loading || !transcript.trim() ? 'not-allowed' : 'pointer',
+            cursor: canSubmit ? 'pointer' : 'not-allowed',
             transition: 'background 0.15s',
           }}
         >
@@ -244,6 +319,19 @@ function Evaluator() {
           {sections.map((s, i) => (
             <Section key={i} title={s.title} body={s.body} />
           ))}
+          {savedIds && (
+            <div style={{
+              marginTop: 16,
+              padding: '10px 14px',
+              background: '#0f2a1a',
+              border: '1px solid #166534',
+              borderRadius: 6,
+              color: '#86efac',
+              fontSize: 12,
+            }}>
+              Saved — Ticker #{savedIds.tickerId}, Transcript #{savedIds.transcriptId}, Analysis #{savedIds.analysisId}
+            </div>
+          )}
         </div>
       )}
     </div>
