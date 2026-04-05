@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const { clerkMiddleware } = require('@clerk/express');
 const evaluateRouter = require('./routes/evaluate');
+const saveRouter = require('./routes/save');
 
 const app = express();
 const PORT = 3001;
@@ -13,6 +14,7 @@ app.use(express.json({ limit: '2mb' }));
 app.use(clerkMiddleware());
 
 app.use('/api/evaluate', evaluateRouter);
+app.use('/api/save', saveRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
