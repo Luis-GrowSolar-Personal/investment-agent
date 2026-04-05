@@ -63,6 +63,20 @@ router.post('/', requireAuth(), async (req, res) => {
       },
     });
 
+    // Enforce 6-transcript limit for watchlist tickers (Design Principle #3)
+    if (ticker.status === 'watchlist') {
+      const existing = await prisma.transcript.findMany({
+        where: { tickerId: ticker.id },
+        orderBy: { callDate: 'asc' }, // oldest first
+        select: { id: true },
+      });
+      if (existing.length >= 6) {
+        const oldest = existing[0];
+        await prisma.analysis.deleteMany({ where: { transcriptId: oldest.id } });
+        await prisma.transcript.delete({ where: { id: oldest.id } });
+      }
+    }
+
     const transcriptRecord = await prisma.transcript.create({
       data: {
         tickerId: ticker.id,
