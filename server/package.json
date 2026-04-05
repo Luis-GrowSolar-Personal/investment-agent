@@ -2,15 +2,22 @@
   "name": "investment-agent-server",
   "version": "1.0.0",
   "type": "commonjs",
-  "scripts": {
-    "dev": "node index.js",
-    "start": "node index.js"
-  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@clerk/express": "^1.7.77",
+    "@prisma/client": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "prisma": "^6.0.0"
+  },
+  "scripts": {
+    "dev": "node index.js",
+    "start": "node index.js",
+    "db:migrate": "prisma migrate dev --env-file ../.env",
+    "db:generate": "prisma generate",
+    "db:studio": "prisma studio --env-file ../.env"
   }
 }

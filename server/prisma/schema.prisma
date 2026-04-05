@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Ticker {
+  id          Int          @id @default(autoincrement())
+  symbol      String       @unique
+  name        String
+  type        String       // "A" or "B"
+  capPercent  Float
+  notes       String?
+  createdAt   DateTime     @default(now())
+  transcripts Transcript[]
+}
+
+model Transcript {
+  id        Int        @id @default(autoincrement())
+  tickerId  Int
+  ticker    Ticker     @relation(fields: [tickerId], references: [id])
+  callDate  DateTime
+  rawText   String
+  createdAt DateTime   @default(now())
+  analyses  Analysis[]
+}
+
+model Analysis {
+  id              Int        @id @default(autoincrement())
+  transcriptId    Int
+  transcript      Transcript @relation(fields: [transcriptId], references: [id])
+  rawOutput       String
+  thesisHealth    String
+  recommendation  String
+  recommendedSize Float?
+  createdAt       DateTime   @default(now())
+}
