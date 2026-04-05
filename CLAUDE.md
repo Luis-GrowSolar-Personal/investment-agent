@@ -79,3 +79,7 @@ python3 backtest.py — run historical backtest
   positions without first checking Layer 3 for a
   higher-conviction alternative
 - Skip the tax cost calculation before any trim recommendation
+
+## Architecture & Design Principles
+Closed architectural decisions are documented in docs/architecture/DESIGN_PRINCIPLES.md.
+Read that file before building any new module that touches the analyst, allocator, concentration rules, or backtest integrity.
