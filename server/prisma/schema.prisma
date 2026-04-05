@@ -13,6 +13,7 @@ model Ticker {
   name        String
   type        String       // "A" or "B"
   capPercent  Float
+  status      String       @default("watchlist")  // "watchlist" or "portfolio"
   notes       String?
   createdAt   DateTime     @default(now())
   transcripts Transcript[]
