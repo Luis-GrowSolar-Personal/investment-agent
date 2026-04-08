@@ -34,6 +34,7 @@ router.get('/tickers', requireAuth(), async (req, res) => {
         id: ticker.id,
         symbol: ticker.symbol,
         name: ticker.name,
+        shortName: ticker.shortName,
         status: ticker.status,
         capPercent: ticker.capPercent,
         type: ticker.type,
@@ -56,6 +57,22 @@ router.get('/tickers', requireAuth(), async (req, res) => {
   }
 });
 
+// GET /api/radar/tickers/by-symbol/:symbol — lightweight lookup for Evaluator counter
+router.get('/tickers/by-symbol/:symbol', requireAuth(), async (req, res) => {
+  const symbol = req.params.symbol.toUpperCase();
+  try {
+    const ticker = await prisma.ticker.findUnique({
+      where: { symbol },
+      include: { _count: { select: { transcripts: true } } },
+    });
+    if (!ticker) return res.json(null);
+    res.json({ id: ticker.id, symbol: ticker.symbol, shortName: ticker.shortName, transcriptCount: ticker._count.transcripts, status: ticker.status });
+  } catch (err) {
+    console.error('Error in GET /api/radar/tickers/by-symbol/:symbol:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // GET /api/radar/tickers/:id/history — full thesis trajectory for one ticker
 router.get('/tickers/:id/history', requireAuth(), async (req, res) => {
   const id = parseInt(req.params.id);
@@ -72,6 +89,7 @@ router.get('/tickers/:id/history', requireAuth(), async (req, res) => {
       t.analyses.map(a => ({
         transcriptId: t.id,
         callDate: t.callDate,
+        title: t.title,
         thesisHealth: a.thesisHealth,
         recommendation: a.recommendation,
         recommendedSize: a.recommendedSize,
@@ -104,6 +122,35 @@ router.patch('/tickers/:id', requireAuth(), async (req, res) => {
     res.json(updated);
   } catch (err) {
     console.error('Error in PATCH /api/radar/tickers/:id:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// PATCH /api/radar/transcripts/:id — update transcript title
+router.patch('/transcripts/:id', requireAuth(), async (req, res) => {
+  const id = parseInt(req.params.id);
+  const { title } = req.body;
+  try {
+    const updated = await prisma.transcript.update({
+      where: { id },
+      data: { title: title?.trim() || null },
+    });
+    res.json({ id: updated.id, title: updated.title });
+  } catch (err) {
+    console.error('Error in PATCH /api/radar/transcripts/:id:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// DELETE /api/radar/transcripts/:id — delete one transcript and its analyses
+router.delete('/transcripts/:id', requireAuth(), async (req, res) => {
+  const id = parseInt(req.params.id);
+  try {
+    await prisma.analysis.deleteMany({ where: { transcriptId: id } });
+    await prisma.transcript.delete({ where: { id } });
+    res.json({ deleted: true });
+  } catch (err) {
+    console.error('Error in DELETE /api/radar/transcripts/:id:', err.message);
     res.status(500).json({ error: err.message });
   }
 });

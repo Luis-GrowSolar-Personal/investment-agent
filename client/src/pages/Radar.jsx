@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useAuth } from '@clerk/clerk-react';
 
 // ── Color helpers ─────────────────────────────────────────────────────────────
@@ -67,26 +67,84 @@ const td = {
 
 // ── Thesis trajectory (expanded row) ─────────────────────────────────────────
 
-function HistoryRow({ tickerId, colSpan, getToken }) {
+function HistoryRow({ tickerId, colSpan, getToken, onLastDeleted }) {
   const [history, setHistory] = useState(null);
   const [error, setError] = useState(null);
+  const [deleting, setDeleting] = useState(null); // transcriptId in flight
+  const [editingId, setEditingId] = useState(null); // transcriptId being edited
+  const [editValue, setEditValue] = useState('');
+  const mountedRef = useRef(true);
 
   useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const token = await getToken();
-        const res = await fetch(`http://localhost:3001/api/radar/tickers/${tickerId}/history`, {
-          headers: { 'Authorization': `Bearer ${token}` },
-        });
-        const data = await res.json();
-        if (!cancelled) setHistory(data);
-      } catch (e) {
-        if (!cancelled) setError(e.message);
-      }
-    })();
-    return () => { cancelled = true; };
+    mountedRef.current = true;
+    return () => { mountedRef.current = false; };
+  }, []);
+
+  const fetchHistory = useCallback(async () => {
+    try {
+      const token = await getToken();
+      const res = await fetch(`http://localhost:3001/api/radar/tickers/${tickerId}/history`, {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+      const data = await res.json();
+      if (mountedRef.current) setHistory(data);
+      return data;
+    } catch (e) {
+      if (mountedRef.current) setError(e.message);
+      return [];
+    }
   }, [tickerId, getToken]);
+
+  useEffect(() => { fetchHistory(); }, [fetchHistory]);
+
+  function startEdit(transcriptId, currentTitle) {
+    setEditingId(transcriptId);
+    setEditValue(currentTitle ?? '');
+  }
+
+  async function commitEdit(transcriptId) {
+    if (editingId !== transcriptId) return;
+    setEditingId(null);
+    try {
+      const token = await getToken();
+      const res = await fetch(`http://localhost:3001/api/radar/transcripts/${transcriptId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+        body: JSON.stringify({ title: editValue }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      // Update local history so the new title shows immediately
+      setHistory(prev => prev.map(e =>
+        e.transcriptId === transcriptId ? { ...e, title: editValue.trim() || null } : e
+      ));
+    } catch (e) {
+      alert(`Failed to save title: ${e.message}`);
+    }
+  }
+
+  function handleEditKeyDown(e, transcriptId) {
+    if (e.key === 'Enter') { e.target.blur(); }
+    if (e.key === 'Escape') { setEditingId(null); }
+  }
+
+  async function handleDelete(transcriptId) {
+    if (!window.confirm('Delete this transcript and its analysis? This cannot be undone.')) return;
+    setDeleting(transcriptId);
+    try {
+      const token = await getToken();
+      const res = await fetch(`http://localhost:3001/api/radar/transcripts/${transcriptId}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const updated = await fetchHistory();
+      if (updated.length === 0) onLastDeleted();
+    } catch (e) {
+      alert(`Failed to delete: ${e.message}`);
+    } finally {
+      if (mountedRef.current) setDeleting(null);
+    }
+  }
 
   return (
     <tr>
@@ -102,26 +160,85 @@ function HistoryRow({ tickerId, colSpan, getToken }) {
           )}
           {history && history.length > 0 && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {history.map((entry, i) => (
-                <div key={i} style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 16,
-                  padding: '8px 12px',
-                  background: '#161b27',
-                  borderRadius: 6,
-                  border: '1px solid #2d3748',
-                }}>
-                  <span style={{ fontSize: 12, color: '#64748b', minWidth: 90 }}>
-                    {new Date(entry.callDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-                  </span>
-                  <Badge value={entry.thesisHealth} color={healthColor(entry.thesisHealth)} />
-                  <Badge value={entry.recommendation} color={recColor(entry.recommendation)} />
-                  {entry.recommendedSize != null && (
-                    <span style={{ fontSize: 12, color: '#94a3b8' }}>{entry.recommendedSize}%</span>
-                  )}
-                </div>
-              ))}
+              {history.map((entry, i) => {
+                const isDeleting = deleting === entry.transcriptId;
+                return (
+                  <div key={i} style={{
+                    display: 'grid',
+                    gridTemplateColumns: '100px 220px 140px 80px 48px 70px',
+                    alignItems: 'center',
+                    gap: '0 12px',
+                    padding: '8px 12px',
+                    background: '#161b27',
+                    borderRadius: 6,
+                    border: '1px solid #2d3748',
+                    opacity: isDeleting ? 0.4 : 1,
+                    transition: 'opacity 0.15s',
+                  }}>
+                    <span style={{ fontSize: 12, color: '#64748b', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {new Date(entry.callDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                    </span>
+                    {editingId === entry.transcriptId ? (
+                      <input
+                        autoFocus
+                        value={editValue}
+                        onChange={e => setEditValue(e.target.value)}
+                        onBlur={() => commitEdit(entry.transcriptId)}
+                        onKeyDown={e => handleEditKeyDown(e, entry.transcriptId)}
+                        style={{
+                          width: '100%',
+                          background: '#0f1117',
+                          border: '1px solid #3b82f6',
+                          borderRadius: 4,
+                          color: '#e2e8f0',
+                          fontSize: 12,
+                          padding: '2px 6px',
+                          outline: 'none',
+                          fontFamily: 'inherit',
+                        }}
+                      />
+                    ) : (
+                      <span
+                        onClick={() => startEdit(entry.transcriptId, entry.title)}
+                        title="Click to edit"
+                        style={{
+                          fontSize: 12,
+                          color: entry.title ? '#94a3b8' : '#334155',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap',
+                          cursor: 'text',
+                          borderBottom: '1px dashed #2d3748',
+                        }}
+                      >
+                        {entry.title ?? 'click to add title'}
+                      </span>
+                    )}
+                    <span><Badge value={entry.thesisHealth} color={healthColor(entry.thesisHealth)} /></span>
+                    <span><Badge value={entry.recommendation} color={recColor(entry.recommendation)} /></span>
+                    <span style={{ fontSize: 12, color: '#94a3b8' }}>
+                      {entry.recommendedSize != null ? `${entry.recommendedSize}%` : '—'}
+                    </span>
+                    <button
+                      onClick={() => handleDelete(entry.transcriptId)}
+                      disabled={!!deleting}
+                      style={{
+                        background: 'transparent',
+                        border: '1px solid #3f2020',
+                        borderRadius: 4,
+                        color: deleting ? '#334155' : '#ef4444',
+                        fontSize: 11,
+                        padding: '2px 8px',
+                        cursor: deleting ? 'not-allowed' : 'pointer',
+                        transition: 'all 0.15s',
+                        justifySelf: 'end',
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -218,7 +335,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
                 </button>
               </td>
               <td style={{ ...td, maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {ticker.name}
+                {ticker.shortName || ticker.name.split(' ')[0] || ticker.symbol}
               </td>
               <td style={td}>{ticker.type ?? '—'}</td>
               <td style={td}>{ticker.capPercent != null ? `${ticker.capPercent}%` : '—'}</td>
@@ -273,6 +390,10 @@ function TickerTable({ tickers, section, onAction, getToken }) {
                 tickerId={ticker.id}
                 colSpan={colSpan}
                 getToken={getToken}
+                onLastDeleted={() => {
+                  setExpandedId(null);
+                  onAction(async () => {});
+                }}
               />
             ),
           ];
@@ -326,16 +447,20 @@ async function apiDelete(id, getToken) {
   if (!res.ok) throw new Error(`DELETE failed: ${res.status}`);
 }
 
+// ── Module-level cache (persists across tab switches) ─────────────────────────
+
+let tickerCache = null;
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 
 export default function Radar() {
   const { getToken } = useAuth();
-  const [tickers, setTickers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [tickers, setTickers] = useState(tickerCache ?? []);
+  const [loading, setLoading] = useState(tickerCache === null);
   const [error, setError] = useState(null);
 
-  const fetchTickers = useCallback(async () => {
-    setLoading(true);
+  const fetchTickers = useCallback(async ({ silent = false } = {}) => {
+    if (!silent) setLoading(true);
     setError(null);
     try {
       const token = await getToken();
@@ -344,6 +469,7 @@ export default function Radar() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      tickerCache = data;
       setTickers(data);
     } catch (err) {
       setError(err.message);
@@ -352,7 +478,10 @@ export default function Radar() {
     }
   }, [getToken]);
 
-  useEffect(() => { fetchTickers(); }, [fetchTickers]);
+  useEffect(() => {
+    // If we have cached data, refresh silently in the background
+    fetchTickers({ silent: tickerCache !== null });
+  }, [fetchTickers]);
 
   // Wrap an action call: run it, then refresh the list
   async function handleAction(actionFn) {
@@ -361,7 +490,7 @@ export default function Radar() {
     } catch (err) {
       alert(`Action failed: ${err.message}`);
     }
-    await fetchTickers();
+    await fetchTickers({ silent: true });
   }
 
   const watchlist  = tickers.filter(t => t.status === 'watchlist');

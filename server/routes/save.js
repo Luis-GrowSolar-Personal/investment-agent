@@ -4,6 +4,8 @@ const prisma = require('../lib/prisma');
 
 const router = express.Router();
 
+// ── Analysis parsers ──────────────────────────────────────────────────────────
+
 function extractSection(text, sectionName) {
   const regex = new RegExp(`##\\s+${sectionName}[\\s\\S]*?(?=\\n##|$)`, 'i');
   const match = text.match(regex);
@@ -32,8 +34,19 @@ function parseRecommendedSize(text) {
   return match ? parseFloat(match[1]) : null;
 }
 
+// ── Title generation ──────────────────────────────────────────────────────────
+
+function generateTitle(shortName, symbol, callDate) {
+  const date = callDate ? new Date(callDate) : new Date();
+  const quarter = Math.floor(date.getMonth() / 3) + 1;
+  const year = date.getFullYear();
+  return `${shortName} (${symbol}) Q${quarter} ${year} Earnings Call Transcript`;
+}
+
+// ── Route ─────────────────────────────────────────────────────────────────────
+
 router.post('/', requireAuth(), async (req, res) => {
-  const { transcript, tickerSymbol, tickerName, callDate, analysis } = req.body;
+  const { transcript, tickerSymbol, tickerName, shortName, callDate, title, analysis, structuredScore } = req.body;
 
   if (!tickerSymbol || typeof tickerSymbol !== 'string' || tickerSymbol.trim().length === 0) {
     return res.status(400).json({ error: 'tickerSymbol is required' });
@@ -47,17 +60,26 @@ router.post('/', requireAuth(), async (req, res) => {
 
   const symbol = tickerSymbol.trim().toUpperCase();
 
-  const thesisHealth = parseThesisHealth(analysis);
-  const recommendation = parseRecommendation(analysis);
+  // shortName fallback: provided → first word of tickerName → symbol
+  const effectiveShortName =
+    shortName?.trim() ||
+    (tickerName?.trim() ? tickerName.trim().split(/\s+/)[0] : symbol);
+
+  const thesisHealth    = parseThesisHealth(analysis);
+  const recommendation  = parseRecommendation(analysis);
   const recommendedSize = parseRecommendedSize(analysis);
 
   try {
     const ticker = await prisma.ticker.upsert({
       where: { symbol },
-      update: {},
+      // Update shortName if provided — it may have been corrected by the user
+      update: {
+        ...(shortName?.trim() && { shortName: shortName.trim() }),
+      },
       create: {
         symbol,
         name: tickerName?.trim() || symbol,
+        shortName: effectiveShortName,
         type: 'A',
         capPercent: 35,
       },
@@ -67,7 +89,7 @@ router.post('/', requireAuth(), async (req, res) => {
     if (ticker.status === 'watchlist') {
       const existing = await prisma.transcript.findMany({
         where: { tickerId: ticker.id },
-        orderBy: { callDate: 'asc' }, // oldest first
+        orderBy: { callDate: 'asc' },
         select: { id: true },
       });
       if (existing.length >= 6) {
@@ -77,28 +99,47 @@ router.post('/', requireAuth(), async (req, res) => {
       }
     }
 
+    // Use saved shortName (may have just been updated) for the title
+    const displayShortName = ticker.shortName || effectiveShortName;
+    const standardTitle = title?.trim() || generateTitle(displayShortName, symbol, callDate);
+
     const transcriptRecord = await prisma.transcript.create({
       data: {
         tickerId: ticker.id,
-        rawText: transcript,
+        rawText:  transcript,
         callDate: callDate ? new Date(callDate) : new Date(),
+        title:    standardTitle,
       },
     });
 
+    const s = structuredScore || {};
     const analysisRecord = await prisma.analysis.create({
       data: {
-        transcriptId: transcriptRecord.id,
-        rawOutput: analysis,
+        transcriptId:    transcriptRecord.id,
+        rawOutput:       analysis,
         thesisHealth,
         recommendation,
         recommendedSize,
+        // Structured score fields (all optional)
+        thesisDelta:                     s.thesisDelta                     ?? null,
+        freshMoneyAllocation:            s.freshMoneyAllocation            ?? null,
+        stumbleType:                     s.stumbleType                     ?? null,
+        threatMechanismImpaired:         s.threatMechanismImpaired         ?? null,
+        credibilityDelta:                s.credibilityDelta                ?? null,
+        activeDriverCount:               s.activeDriverCount               ?? null,
+        ratchetTranche:                  s.ratchetTranche                  ?? null,
+        blindSpotsTriggered:             s.blindSpotsTriggered             ?? null,
+        capPercent:                      s.capPercent                      ?? null,
+        mitigationArgumentPresent:       s.mitigationArgumentPresent       ?? null,
+        mitigationCapabilityTrackRecord: s.mitigationCapabilityTrackRecord ?? null,
       },
     });
 
     res.json({
-      tickerId: ticker.id,
+      tickerId:     ticker.id,
       transcriptId: transcriptRecord.id,
-      analysisId: analysisRecord.id,
+      analysisId:   analysisRecord.id,
+      title:        standardTitle,
     });
   } catch (err) {
     console.error('Error in /api/save:', err.message);

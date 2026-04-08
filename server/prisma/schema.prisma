@@ -14,6 +14,7 @@ model Ticker {
   type        String       // "A" or "B"
   capPercent  Float
   status      String       @default("watchlist")  // "watchlist" or "portfolio"
+  shortName   String?      // e.g. "Amprius" — short display name
   notes       String?
   createdAt   DateTime     @default(now())
   transcripts Transcript[]
@@ -24,6 +25,7 @@ model Transcript {
   tickerId  Int
   ticker    Ticker     @relation(fields: [tickerId], references: [id])
   callDate  DateTime
+  title     String?
   rawText   String
   createdAt DateTime   @default(now())
   analyses  Analysis[]
@@ -38,4 +40,17 @@ model Analysis {
   recommendation  String
   recommendedSize Float?
   createdAt       DateTime   @default(now())
+
+  // Structured score fields (added in add_structured_score_fields migration)
+  thesisDelta                      String?
+  freshMoneyAllocation             Float?
+  stumbleType                      String?
+  threatMechanismImpaired          Boolean?
+  credibilityDelta                 String?
+  activeDriverCount                Int?
+  ratchetTranche                   Int?
+  blindSpotsTriggered              Json?
+  capPercent                       Float?
+  mitigationArgumentPresent        Boolean?
+  mitigationCapabilityTrackRecord  String?
 }

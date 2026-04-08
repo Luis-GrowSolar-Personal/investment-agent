@@ -101,3 +101,52 @@ This is a quality check on the transcript itself.
   are explicitly provided in the same message
 - When prior transcripts are provided, track credibility
   ledger changes across quarters explicitly
+
+---
+
+## STRUCTURED OUTPUT
+After completing all sections above, append this exact block
+with no deviations in formatting. Use null for any field you
+cannot determine from the transcript.
+
+---STRUCTURED---
+{
+  "thesisHealth": "",
+  "thesisDelta": "",
+  "recommendation": "",
+  "recommendedSize": null,
+  "freshMoneyAllocation": null,
+  "typeClassification": "",
+  "stumbleType": "",
+  "threatMechanismImpaired": null,
+  "credibilityDelta": "",
+  "activeDriverCount": null,
+  "ratchetTranche": null,
+  "blindSpotsTriggered": [],
+  "capPercent": null,
+  "mitigationArgumentPresent": null,
+  "mitigationCapabilityTrackRecord": ""
+}
+---END STRUCTURED---
+
+Field definitions:
+- thesisHealth: "Strengthening" | "Intact" | "Weakening" | "Broken"
+- thesisDelta: "up" | "flat" | "down" (vs prior quarter,
+  or "unknown" if no prior transcript provided)
+- recommendation: "Hold" | "Add" | "Trim" | "Exit"
+- recommendedSize: number (max % of portfolio, e.g. 13)
+- freshMoneyAllocation: number (% if starting fresh today)
+- typeClassification: "A" | "B"
+- stumbleType: "Discovery" | "Execution" | "Structural" | "None"
+- threatMechanismImpaired: true | false | null
+- credibilityDelta: "positive" | "neutral" | "negative"
+- activeDriverCount: number (Type B only, null for Type A)
+- ratchetTranche: 1 | 2 | 3 | null
+  (1 = first weakening quarter, 2 = second, 3 = third,
+   null if not in ratchet)
+- blindSpotsTriggered: array of numbers 1-5
+  (which blind spots fired this call)
+- capPercent: number (recommended hard cap for this ticker)
+- mitigationArgumentPresent: true | false
+- mitigationCapabilityTrackRecord: "strong" | "mixed" |
+  "weak" | "unproven" | null
