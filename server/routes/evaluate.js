@@ -12,11 +12,11 @@ const systemPrompt = fs.readFileSync(PROMPT_PATH, 'utf8');
 
 function parseMetadata(raw) {
   const match = raw.match(/---METADATA---\s*(\{[\s\S]*?\})\s*---END METADATA---/);
-  if (!match) return { tickerSymbol: null, companyName: null, callDate: null, shortName: null };
+  if (!match) return { tickerSymbol: null, companyName: null, callDate: null, shortName: null, fiscalQuarter: null, fiscalYear: null };
   try {
     return JSON.parse(match[1]);
   } catch {
-    return { tickerSymbol: null, companyName: null, callDate: null, shortName: null };
+    return { tickerSymbol: null, companyName: null, callDate: null, shortName: null, fiscalQuarter: null, fiscalYear: null };
   }
 }
 
@@ -57,9 +57,11 @@ router.post('/', requireAuth(), async (req, res) => {
             `Please evaluate the following earnings call transcript:\n\n${transcript}\n\n` +
             `After your evaluation, extract the following from the transcript and append it exactly in this format:\n` +
             `---METADATA---\n` +
-            `{"tickerSymbol":"...","companyName":"...","callDate":"YYYY-MM-DD","shortName":"..."}\n` +
+            `{"tickerSymbol":"...","companyName":"...","callDate":"YYYY-MM-DD","shortName":"...","fiscalQuarter":null,"fiscalYear":null}\n` +
             `---END METADATA---\n` +
             `shortName is the short commonly-used name for the company (e.g. "Amprius" not "Amprius Technologies Inc."). ` +
+            `fiscalQuarter is the integer quarter number stated in the call title (e.g. 4 for "Q4 2025 Earnings Call") — do NOT derive it from the call date. ` +
+            `fiscalYear is the fiscal year stated in the call title (e.g. 2025 for "Q4 2025 Earnings Call"). ` +
             `Use null for any field you cannot find.`,
         },
       ],
@@ -78,6 +80,8 @@ router.post('/', requireAuth(), async (req, res) => {
       companyName: metadata.companyName,
       callDate: metadata.callDate,
       shortName: metadata.shortName,
+      fiscalQuarter: metadata.fiscalQuarter ?? null,
+      fiscalYear: metadata.fiscalYear ?? null,
     });
   } catch (err) {
     console.error('Error in /api/evaluate:', err.message);

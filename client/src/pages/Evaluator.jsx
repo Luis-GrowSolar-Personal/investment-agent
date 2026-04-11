@@ -107,6 +107,9 @@ export default function Evaluator() {
   const [companyName, setCompanyName] = useState('');
   const [callDate, setCallDate] = useState('');
   const [shortName, setShortName] = useState('');
+  const [fiscalQuarter, setFiscalQuarter] = useState(null);
+  const [fiscalYear, setFiscalYear] = useState(null);
+  const [formerSymbol, setFormerSymbol] = useState('');
   const [title, setTitle] = useState('');
   const prevGeneratedTitleRef = useRef('');
   const [loading, setLoading] = useState(false);
@@ -116,6 +119,7 @@ export default function Evaluator() {
   const [savedIds, setSavedIds] = useState(null);
   const [transcriptCount, setTranscriptCount] = useState(null); // live count from DB
   const [tickerStatus, setTickerStatus] = useState(null); // 'watchlist' | 'portfolio' | null
+  const [justCleared, setJustCleared] = useState(false);
 
   const fetchTranscriptCount = useCallback(async (symbol) => {
     if (!symbol.trim()) { setTranscriptCount(null); setTickerStatus(null); return; }
@@ -149,15 +153,26 @@ export default function Evaluator() {
 
   // Auto-generate title from formula; respect manual edits
   useEffect(() => {
-    const gen = (shortName && tickerSymbol && callDate)
-      ? `${shortName} (${tickerSymbol}) Q${Math.floor(new Date(callDate).getMonth() / 3) + 1} ${new Date(callDate).getFullYear()} Earnings Call Transcript`
+    // Prefer fiscalQuarter/fiscalYear extracted from transcript header by Claude;
+    // fall back to deriving from callDate only if both are missing.
+    let q = fiscalQuarter;
+    let y = fiscalYear;
+    if ((!q || !y) && callDate) {
+      const d = new Date(callDate + 'T12:00:00'); // noon local to avoid UTC-offset day shift
+      if (!q) q = Math.floor(d.getMonth() / 3) + 1;
+      if (!y) y = d.getFullYear();
+    }
+    const gen = (shortName && tickerSymbol && q && y)
+      ? `${shortName} (${tickerSymbol}) Q${q} ${y} Earnings Call Transcript`
       : '';
     const prevGen = prevGeneratedTitleRef.current; // capture before mutating
     prevGeneratedTitleRef.current = gen;
     setTitle(prev => prev === prevGen ? gen : prev);
-  }, [shortName, tickerSymbol, callDate]);
+  }, [shortName, tickerSymbol, callDate, fiscalQuarter, fiscalYear]);
 
   function handleClear() {
+    setJustCleared(true);
+    setTimeout(() => setJustCleared(false), 1500);
     setTranscript('');
     setAnalysis(null);
     setStructuredScore(null);
@@ -165,6 +180,9 @@ export default function Evaluator() {
     setCompanyName('');
     setCallDate('');
     setShortName('');
+    setFiscalQuarter(null);
+    setFiscalYear(null);
+    setFormerSymbol('');
     setTitle('');
     prevGeneratedTitleRef.current = '';
     setLoading(false);
@@ -199,10 +217,12 @@ export default function Evaluator() {
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
       setAnalysis(data.analysis);
       setStructuredScore(data.structuredScore ?? null);
-      if (data.tickerSymbol) setTickerSymbol(prev => prev.trim() ? prev : data.tickerSymbol);
-      if (data.companyName)  setCompanyName(prev => prev.trim() ? prev : data.companyName);
-      if (data.callDate)     setCallDate(prev => prev.trim() ? prev : data.callDate);
-      if (data.shortName)    setShortName(prev => prev.trim() ? prev : data.shortName);
+      if (data.tickerSymbol)   setTickerSymbol(prev => prev.trim() ? prev : data.tickerSymbol);
+      if (data.companyName)    setCompanyName(prev => prev.trim() ? prev : data.companyName);
+      if (data.callDate)       setCallDate(prev => prev.trim() ? prev : data.callDate);
+      if (data.shortName)      setShortName(prev => prev.trim() ? prev : data.shortName);
+      if (data.fiscalQuarter)  setFiscalQuarter(data.fiscalQuarter);
+      if (data.fiscalYear)     setFiscalYear(data.fiscalYear);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -232,6 +252,7 @@ export default function Evaluator() {
           title,
           analysis,
           structuredScore,
+          formerSymbol: formerSymbol.trim() || undefined,
         }),
       });
       const data = await res.json();
@@ -241,6 +262,7 @@ export default function Evaluator() {
         transcriptId: data.transcriptId,
         analysisId: data.analysisId,
       });
+      window.dispatchEvent(new Event('radar:refresh'));
     } catch (err) {
       setSaveError(err.message);
     } finally {
@@ -249,13 +271,14 @@ export default function Evaluator() {
   }
 
   const sections = analysis ? parseAnalysis(analysis) : [];
-  const canAnalyze = !loading && transcript.trim().length > 0;
+  const canAnalyze = !loading && !analysis && transcript.trim().length > 0;
   const canSave = !saving && !savedIds && !!analysis && tickerSymbol.trim().length > 0;
+  const canClear = !loading && !saving && !justCleared && (!!transcript.trim() || !!analysis);
 
   return (
     <div style={{ maxWidth: 900, margin: '0 auto', padding: '32px 24px' }}>
       <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 4, color: '#f1f5f9' }}>
-        Earnings Call Evaluator
+        Stock Analyst
       </h1>
       <p style={{ fontSize: 13, color: '#64748b', marginBottom: 24 }}>
         Paste a transcript and click Analyze. Review results, then Save.
@@ -282,17 +305,29 @@ export default function Evaluator() {
             </span>
           )}
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr 1fr', gap: 12, marginBottom: 10 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 2fr 1fr', gap: 12, marginBottom: 10 }}>
           <div>
             <label style={labelStyle}>Ticker Symbol *</label>
             <input
               type="text"
               value={tickerSymbol}
               onChange={e => setTickerSymbol(e.target.value.toUpperCase())}
-              placeholder="AMPX"
+              placeholder="SPWR"
               maxLength={10}
               disabled={!!savedIds}
               style={{ ...inputStyle, opacity: savedIds ? 0.5 : 1 }}
+            />
+          </div>
+          <div>
+            <label style={{ ...labelStyle, color: '#475569' }}>Formerly (if renamed)</label>
+            <input
+              type="text"
+              value={formerSymbol}
+              onChange={e => setFormerSymbol(e.target.value.toUpperCase())}
+              placeholder="CSLR"
+              maxLength={10}
+              disabled={!!savedIds}
+              style={{ ...inputStyle, opacity: savedIds ? 0.5 : 1, borderColor: formerSymbol.trim() ? '#f59e0b' : '#2d3748', color: formerSymbol.trim() ? '#fcd34d' : '#e2e8f0' }}
             />
           </div>
           <div>
@@ -343,71 +378,69 @@ export default function Evaluator() {
         </div>
 
         <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+          {/* Analyze */}
           <button
             onClick={handleAnalyze}
-            disabled={!canAnalyze}
+            disabled={loading || !!analysis}
             style={{
               padding: '9px 24px',
-              background: canAnalyze ? '#3b82f6' : '#334155',
-              color: canAnalyze ? '#fff' : '#64748b',
+              background: loading ? '#1d4ed8'
+                        : analysis ? '#15803d'
+                        : canAnalyze ? '#3b82f6'
+                        : '#334155',
+              color: (loading || analysis || canAnalyze) ? '#fff' : '#64748b',
               border: 'none',
               borderRadius: 6,
               fontSize: 14,
               fontWeight: 600,
-              cursor: canAnalyze ? 'pointer' : 'not-allowed',
-              transition: 'background 0.15s',
+              cursor: (loading || !!analysis) ? 'default' : canAnalyze ? 'pointer' : 'not-allowed',
+              transition: 'background 0.2s',
             }}
           >
-            {loading ? 'Analyzing…' : 'Analyze'}
+            {loading ? 'Analyzing…' : analysis ? 'Analyzed ✓' : 'Analyze'}
           </button>
 
-          {!savedIds ? (
-            <button
-              onClick={handleSave}
-              disabled={!canSave}
-              style={{
-                padding: '9px 24px',
-                background: canSave ? '#16a34a' : '#334155',
-                color: canSave ? '#fff' : '#64748b',
-                border: 'none',
-                borderRadius: 6,
-                fontSize: 14,
-                fontWeight: 600,
-                cursor: canSave ? 'pointer' : 'not-allowed',
-                transition: 'background 0.15s',
-              }}
-            >
-              {saving ? 'Saving…' : 'Save'}
-            </button>
-          ) : (
-            <div style={{
-              padding: '8px 14px',
-              background: '#0f2a1a',
-              border: '1px solid #166534',
-              borderRadius: 6,
-              color: '#86efac',
-              fontSize: 12,
-            }}>
-              Saved to RADAR
-            </div>
-          )}
-
+          {/* Save */}
           <button
-            onClick={handleClear}
-            disabled={loading || saving}
+            onClick={handleSave}
+            disabled={!canSave && !savedIds}
             style={{
-              padding: '9px 20px',
-              background: 'transparent',
-              color: (loading || saving) ? '#334155' : '#64748b',
-              border: `1px solid ${(loading || saving) ? '#334155' : '#2d3748'}`,
+              padding: '9px 24px',
+              background: saving ? '#1d4ed8'
+                        : savedIds ? '#15803d'
+                        : canSave ? '#3b82f6'
+                        : '#334155',
+              color: (saving || savedIds || canSave) ? '#fff' : '#64748b',
+              border: 'none',
               borderRadius: 6,
               fontSize: 14,
               fontWeight: 600,
-              cursor: (loading || saving) ? 'not-allowed' : 'pointer',
-              transition: 'color 0.15s, border-color 0.15s',
+              cursor: savedIds ? 'default' : canSave ? 'pointer' : 'not-allowed',
+              transition: 'background 0.2s',
             }}
           >
-            Clear
+            {saving ? 'Saving…' : savedIds ? 'Saved to RADAR ✓' : 'Save'}
+          </button>
+
+          {/* Clear */}
+          <button
+            onClick={handleClear}
+            disabled={!canClear && !justCleared}
+            style={{
+              padding: '9px 20px',
+              background: justCleared ? '#15803d'
+                        : canClear ? '#3b82f6'
+                        : '#334155',
+              color: (justCleared || canClear) ? '#fff' : '#64748b',
+              border: 'none',
+              borderRadius: 6,
+              fontSize: 14,
+              fontWeight: 600,
+              cursor: canClear ? 'pointer' : 'default',
+              transition: 'background 0.2s',
+            }}
+          >
+            {justCleared ? 'Cleared ✓' : 'Clear'}
           </button>
         </div>
 

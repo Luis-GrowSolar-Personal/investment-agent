@@ -4,6 +4,35 @@ const prisma = require('../lib/prisma');
 
 const router = express.Router();
 
+// ── Shared re-scoring helpers ─────────────────────────────────────────────────
+
+function extractSection(text, name) {
+  const regex = new RegExp(`##\\s+${name}[\\s\\S]*?(?=\\n##|$)`, 'i');
+  const m = text.match(regex);
+  return m ? m[0] : '';
+}
+
+function firstLineParse(section, candidates) {
+  const firstLine = section.split('\n').find(l => l.trim() && !l.startsWith('#')) ?? '';
+  // Anchor to the start of the line — the prompt always puts the verdict first
+  // ("Hold - ...", "Add to 15%", "Score: Weakening"). This prevents false matches
+  // from body text like "will add a line" or "previously intact".
+  for (const val of candidates) {
+    if (new RegExp(`^\\s*(score:\\s*)?${val}\\b`, 'i').test(firstLine)) return val;
+  }
+  // Fallback: whole-word match anywhere in the full section
+  for (const val of candidates) {
+    if (new RegExp(`\\b${val}\\b`, 'i').test(section)) return val;
+  }
+  return null;
+}
+
+function rescoreRaw(rawOutput) {
+  const thesisHealth   = firstLineParse(extractSection(rawOutput, 'THESIS HEALTH'),  ['Strengthening', 'Intact', 'Weakening', 'Broken']);
+  const recommendation = firstLineParse(extractSection(rawOutput, 'RECOMMENDATION'), ['Exit', 'Trim', 'Add', 'Hold']);
+  return { thesisHealth, recommendation };
+}
+
 // GET /api/radar/tickers — all tickers with latest analysis + transcript count
 router.get('/tickers', requireAuth(), async (req, res) => {
   try {
@@ -20,13 +49,15 @@ router.get('/tickers', requireAuth(), async (req, res) => {
     });
 
     const result = tickers.map(ticker => {
-      // Find the most recent analysis across all transcripts
+      // Find the analysis from the most recent transcript by callDate.
+      // Transcripts are already ordered callDate desc, so take the first one with an analysis.
+      // Do NOT use analysis.createdAt — a re-evaluated old call would have a fresh timestamp
+      // and would incorrectly outrank a more recent earnings call.
       let latestAnalysis = null;
       for (const t of ticker.transcripts) {
-        for (const a of t.analyses) {
-          if (!latestAnalysis || a.createdAt > latestAnalysis.createdAt) {
-            latestAnalysis = a;
-          }
+        if (t.analyses.length > 0) {
+          latestAnalysis = t.analyses[0]; // analyses ordered createdAt desc; [0] is most recent
+          break;
         }
       }
 
@@ -73,6 +104,33 @@ router.get('/tickers/by-symbol/:symbol', requireAuth(), async (req, res) => {
   }
 });
 
+// GET /api/radar/transcripts/:id — fetch transcript + most recent analysis
+router.get('/transcripts/:id', requireAuth(), async (req, res) => {
+  const id = parseInt(req.params.id);
+  try {
+    const transcript = await prisma.transcript.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        title: true,
+        callDate: true,
+        rawText: true,
+        analyses: {
+          orderBy: { createdAt: 'desc' },
+          take: 1,
+          select: { rawOutput: true, thesisHealth: true, recommendation: true, recommendedSize: true },
+        },
+      },
+    });
+    if (!transcript) return res.status(404).json({ error: 'Not found' });
+    const { analyses, ...rest } = transcript;
+    res.json({ ...rest, analysis: analyses[0] ?? null });
+  } catch (err) {
+    console.error('Error in GET /api/radar/transcripts/:id:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // GET /api/radar/tickers/:id/history — full thesis trajectory for one ticker
 router.get('/tickers/:id/history', requireAuth(), async (req, res) => {
   const id = parseInt(req.params.id);
@@ -107,21 +165,122 @@ router.get('/tickers/:id/history', requireAuth(), async (req, res) => {
 // PATCH /api/radar/tickers/:id — update name, type, capPercent, status
 router.patch('/tickers/:id', requireAuth(), async (req, res) => {
   const id = parseInt(req.params.id);
-  const { name, type, capPercent, status } = req.body;
+  const { symbol, name, type, capPercent, status } = req.body;
 
   try {
+    const newSymbol = symbol?.trim().toUpperCase();
+
+    // If renaming the symbol, check for an existing ticker with that symbol
+    if (newSymbol) {
+      const conflict = await prisma.ticker.findUnique({ where: { symbol: newSymbol } });
+      if (conflict && conflict.id !== id) {
+        // Merge: move all transcripts from current ticker to the existing one, then delete current
+        await prisma.transcript.updateMany({
+          where: { tickerId: id },
+          data: { tickerId: conflict.id },
+        });
+        await prisma.ticker.delete({ where: { id } });
+        // Update the surviving ticker with any additional fields provided
+        const updated = await prisma.ticker.update({
+          where: { id: conflict.id },
+          data: {
+            ...(name       !== undefined && { name }),
+            ...(type       !== undefined && { type }),
+            ...(capPercent !== undefined && { capPercent }),
+            ...(status     !== undefined && { status }),
+          },
+        });
+        return res.json({ ...updated, merged: true });
+      }
+    }
+
     const updated = await prisma.ticker.update({
       where: { id },
       data: {
-        ...(name      !== undefined && { name }),
-        ...(type      !== undefined && { type }),
+        ...(newSymbol  !== undefined && { symbol: newSymbol }),
+        ...(name       !== undefined && { name }),
+        ...(type       !== undefined && { type }),
         ...(capPercent !== undefined && { capPercent }),
-        ...(status    !== undefined && { status }),
+        ...(status     !== undefined && { status }),
       },
     });
     res.json(updated);
   } catch (err) {
     console.error('Error in PATCH /api/radar/tickers/:id:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// POST /api/radar/transcripts/:id/rescore — re-score one transcript's analysis
+router.post('/transcripts/:id/rescore', requireAuth(), async (req, res) => {
+  const id = parseInt(req.params.id);
+  try {
+    const transcript = await prisma.transcript.findUnique({
+      where: { id },
+      include: { analyses: { orderBy: { createdAt: 'desc' }, take: 1 } },
+    });
+    if (!transcript) return res.status(404).json({ error: 'Not found' });
+    const analysis = transcript.analyses[0];
+    if (!analysis) return res.status(404).json({ error: 'No analysis to re-score' });
+
+    const scores = rescoreRaw(analysis.rawOutput);
+    const thesisHealth   = scores.thesisHealth   ?? analysis.thesisHealth;
+    const recommendation = scores.recommendation ?? analysis.recommendation;
+
+    await prisma.analysis.update({ where: { id: analysis.id }, data: { thesisHealth, recommendation } });
+    res.json({ analysisId: analysis.id, thesisHealth, recommendation });
+  } catch (err) {
+    console.error('Error in POST /api/radar/transcripts/:id/rescore:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// POST /api/radar/tickers/:id/rescore — re-score all analyses for one ticker
+router.post('/tickers/:id/rescore', requireAuth(), async (req, res) => {
+  const id = parseInt(req.params.id);
+  try {
+    const transcripts = await prisma.transcript.findMany({
+      where: { tickerId: id },
+      include: { analyses: { orderBy: { createdAt: 'desc' }, take: 1 } },
+    });
+
+    let updated = 0;
+    for (const t of transcripts) {
+      const analysis = t.analyses[0];
+      if (!analysis) continue;
+      const scores = rescoreRaw(analysis.rawOutput);
+      const thesisHealth   = scores.thesisHealth   ?? analysis.thesisHealth;
+      const recommendation = scores.recommendation ?? analysis.recommendation;
+      if (thesisHealth !== analysis.thesisHealth || recommendation !== analysis.recommendation) {
+        await prisma.analysis.update({ where: { id: analysis.id }, data: { thesisHealth, recommendation } });
+        updated++;
+      }
+    }
+    res.json({ updated });
+  } catch (err) {
+    console.error('Error in POST /api/radar/tickers/:id/rescore:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// POST /api/radar/rescore-all — re-score every analysis in the database
+router.post('/rescore-all', requireAuth(), async (req, res) => {
+  try {
+    const analyses = await prisma.analysis.findMany({ select: { id: true, rawOutput: true, thesisHealth: true, recommendation: true } });
+
+    let updated = 0;
+    for (const analysis of analyses) {
+      const scores = rescoreRaw(analysis.rawOutput);
+      const thesisHealth   = scores.thesisHealth   ?? analysis.thesisHealth;
+      const recommendation = scores.recommendation ?? analysis.recommendation;
+      if (thesisHealth !== analysis.thesisHealth || recommendation !== analysis.recommendation) {
+        await prisma.analysis.update({ where: { id: analysis.id }, data: { thesisHealth, recommendation } });
+        updated++;
+      }
+    }
+    res.json({ total: analyses.length, updated });
+  } catch (err) {
+    console.error('Error in POST /api/radar/rescore-all:', err.message);
     res.status(500).json({ error: err.message });
   }
 });

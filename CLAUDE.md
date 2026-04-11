@@ -1,8 +1,10 @@
 # Investment Agent — Claude Code Configuration
-## Note
 
-Important note:  Never paste .env contents directly — contains API keys
-
+## Important Notes
+- Never paste .env contents directly — contains API keys
+- Always read docs/architecture/DESIGN_PRINCIPLES.md before 
+  building any new module that touches the analyst, allocator, 
+  concentration rules, or backtest integrity
 
 ## Project Overview
 Personal investment analysis and portfolio management tool.
@@ -13,27 +15,54 @@ Clerk auth, Anthropic API for AI analysis. Hosted on Railway.
 Personal account — Luis. Separate from Windmar Energy entirely.
 
 ## Tech Stack
-- Frontend: React + Tailwind CSS
+- Frontend: React + Tailwind CSS (Vite)
 - Backend: Node.js + Express
-- Database: PostgreSQL (Railway)
-- Auth: Clerk (password + 2FA)
-- AI: Anthropic API (Claude Sonnet)
+- Database: PostgreSQL (Railway) via Prisma ORM
+- Auth: Clerk (email + password, no SMS)
+- AI: Anthropic API (claude-sonnet-4-20250514)
 - Hosting: Railway (dev and prod services)
-- Transcript source: SEC EDGAR API, copy-paste fallback
+- Transcript source: Manual copy-paste (EDGAR/Polygon.io planned)
 
 ## Repository Structure
-/backtest          — Python backtesting scripts (historical)
-/client            — React frontend
-/server            — Node.js/Express backend
-/server/routes     — API routes
-/server/services   — AI analyst, transcript fetcher, portfolio sync
-/server/db         — Database models and migrations
+investment-agent/
+├── analysis/          — Python backtesting scripts and data
+│   └── data/          — price_cache.json, backtest CSVs
+├── client/            — React frontend (Vite)
+│   └── src/
+│       ├── components/ — NavBar
+│       └── pages/     — Evaluator, Radar
+├── server/            — Node.js/Express backend
+│   ├── routes/        — evaluate, save, radar
+│   ├── lib/           — prisma singleton
+│   └── prisma/        — schema, migrations
+└── docs/
+    ├── EVALUATION_PROMPT.md
+    ├── Investment_Agent_Handoff_Brief.docx
+    └── architecture/
+        └── DESIGN_PRINCIPLES.md
 
 ## Environment Variables
-All credentials live in .env — never committed to GitHub.
-See .env.example for required variable names.
-Railway dev and prod each have environment variables
-set in the Railway dashboard.
+All credentials in root .env — never committed to GitHub.
+client/.env — contains VITE_CLERK_PUBLISHABLE_KEY only.
+Root .env contains:
+  ANTHROPIC_API_KEY
+  DATABASE_URL
+  CLERK_PUBLISHABLE_KEY
+  CLERK_SECRET_KEY
+  VITE_CLERK_PUBLISHABLE_KEY
+  PORT
+  NODE_ENV
+
+## Database Schema (Prisma)
+- Ticker: id, symbol, name, shortName, type, capPercent, 
+  status (watchlist|portfolio), notes, createdAt
+- Transcript: id, tickerId, callDate, title, rawText, createdAt
+- Analysis: id, transcriptId, rawOutput, thesisHealth, 
+  recommendation, recommendedSize, thesisDelta, 
+  freshMoneyAllocation, stumbleType, threatMechanismImpaired,
+  credibilityDelta, activeDriverCount, ratchetTranche,
+  blindSpotsTriggered, capPercent, mitigationArgumentPresent,
+  mitigationCapabilityTrackRecord, createdAt
 
 ## Key Design Decisions — Do Not Re-Derive
 1. Agent operates in Layer 3→2→1 sequence (find → classify
@@ -49,37 +78,58 @@ set in the Railway dashboard.
    total portfolio before confirming hold decision.
 6. Mitigation argument discount: when management claims
    capability X will offset headwind Y, check X's own
-   track record specifically — do not inherit from overall
-   management credibility.
+   track record specifically — not overall management 
+   credibility.
+7. Analyst / Allocator firewall: analyst never receives 
+   portfolio data. Allocator never receives transcripts.
+   They communicate only through the structured score.
+8. Watchlist tickers: max 6 transcripts, oldest auto-discarded.
+   Portfolio tickers: unlimited history.
+9. Enough number: $10M. Active management justified only 
+   below $6M portfolio value.
 
 ## Investment Universe (Circle of Competence)
 Renewable energy, energy storage, defense technology,
 semiconductors, IT/software/cloud, cryptocurrencies.
 Agent never recommends outside this universe.
 
-## Current Portfolio — Urgent Action
-AMPX at ~33% of portfolio requires systematic trim to 15%.
-This is the first action item.
+## ETF Tracking
+ETFs (SPY, QQQ, GLD, SLV, IBIT) tracked in Portfolio module
+only — not in RADAR. No transcript evaluation. Role 
+classification: defensive / growth / commodity.
+Note: Bitcoin ETF and NASDAQ ETF are risk-on and correlated
+to active positions. Gold is the only true defensive hedge.
 
 ## Build Sequence
-1. Earnings call evaluator (proof of concept)
-2. Database + RADAR + dashboard + Clerk auth (v1)
-3. Schwab API + SEC EDGAR + press release monitoring
+Step 1: ✅ Earnings call evaluator (POC) — COMPLETE
+Step 2: ✅ Clerk auth, PostgreSQL, Prisma, RADAR module — COMPLETE
+Step 3: Portfolio module (Schwab CSV upload, position tracking)
+Step 4: Dashboard (allocator, concentration rules, Layer 1)
+Step 5: Alerts module (press releases, thesis classification)
+Step 6: Automated transcript ingestion (EDGAR/Seeking Alpha)
+Step 7: Backtesting module (historical dry run)
+
+## Current Build State
+- Evaluator: working, structured score output, auto-extract metadata
+- RADAR: working, watchlist/portfolio sections, thesis trajectory,
+  color-coded health/recommendation badges, promote/demote/delete
+- Auth: Clerk, email+password, sign-up disabled, invite-only
+- Database: Railway PostgreSQL, all three tables live with data
+- Nav: React Router, Evaluator and RADAR tabs
 
 ## Commands
-npm run dev        — start development server
-npm run build      — production build
-npm test           — run tests
-python3 backtest.py — run historical backtest
+cd server && npm run dev    — start backend (port 3001)
+cd client && npm run dev    — start frontend (port 5173)
+DATABASE_URL=$(grep '^DATABASE_URL' ../.env | cut -d '=' -f2-) npx prisma studio
+                           — open database browser
+DATABASE_URL=$(grep '^DATABASE_URL' ../.env | cut -d '=' -f2-) npx prisma migrate dev --name <name>
+                           — run schema migration
 
 ## Never Do
-- Store credentials in CLAUDE.md or any committed file
+- Store credentials in any committed file
 - Recommend positions outside the circle of competence
-- Redeploy trim proceeds proportionally into existing
-  positions without first checking Layer 3 for a
-  higher-conviction alternative
+- Redeploy trim proceeds proportionally into existing positions
+  without first checking Layer 3 for a higher-conviction alternative
 - Skip the tax cost calculation before any trim recommendation
-
-## Architecture & Design Principles
-Closed architectural decisions are documented in docs/architecture/DESIGN_PRINCIPLES.md.
-Read that file before building any new module that touches the analyst, allocator, concentration rules, or backtest integrity.
+- Pass portfolio data to the analyst (breaks the firewall)
+- Pass transcript data to the allocator (breaks the firewall)

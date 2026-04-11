@@ -40,10 +40,10 @@ export default function NavBar() {
 
       <div style={{ display: 'flex', gap: 4, flex: 1 }}>
         <NavLink to="/" end style={({ isActive }) => tabStyle(isActive)}>
-          Evaluator
+          Stock Analyst
         </NavLink>
         <NavLink to="/radar" style={({ isActive }) => tabStyle(isActive)}>
-          RADAR
+          Stock Radar
         </NavLink>
       </div>
 

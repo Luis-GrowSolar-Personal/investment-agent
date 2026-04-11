@@ -12,20 +12,27 @@ function extractSection(text, sectionName) {
   return match ? match[0] : '';
 }
 
+function parseFirstLine(section, candidates) {
+  const firstLine = section.split('\n').find(l => l.trim() && !l.startsWith('#')) ?? '';
+  // Anchor to line start — verdict always leads ("Hold - ...", "Score: Weakening", "Add to 15%")
+  for (const val of candidates) {
+    if (new RegExp(`^\\s*(score:\\s*)?${val}\\b`, 'i').test(firstLine)) return val;
+  }
+  // Fallback: whole-word match anywhere in full section
+  for (const val of candidates) {
+    if (new RegExp(`\\b${val}\\b`, 'i').test(section)) return val;
+  }
+  return null;
+}
+
 function parseThesisHealth(text) {
   const section = extractSection(text, 'THESIS HEALTH');
-  for (const val of ['Strengthening', 'Intact', 'Weakening', 'Broken']) {
-    if (section.toLowerCase().includes(val.toLowerCase())) return val;
-  }
-  return 'Unknown';
+  return parseFirstLine(section, ['Strengthening', 'Intact', 'Weakening', 'Broken']) ?? 'Unknown';
 }
 
 function parseRecommendation(text) {
   const section = extractSection(text, 'RECOMMENDATION');
-  for (const val of ['Exit', 'Trim', 'Add', 'Hold']) {
-    if (section.toLowerCase().includes(val.toLowerCase())) return val;
-  }
-  return 'Unknown';
+  return parseFirstLine(section, ['Exit', 'Trim', 'Add', 'Hold']) ?? 'Unknown';
 }
 
 function parseRecommendedSize(text) {
@@ -46,7 +53,7 @@ function generateTitle(shortName, symbol, callDate) {
 // ── Route ─────────────────────────────────────────────────────────────────────
 
 router.post('/', requireAuth(), async (req, res) => {
-  const { transcript, tickerSymbol, tickerName, shortName, callDate, title, analysis, structuredScore } = req.body;
+  const { transcript, tickerSymbol, tickerName, shortName, callDate, title, analysis, structuredScore, formerSymbol } = req.body;
 
   if (!tickerSymbol || typeof tickerSymbol !== 'string' || tickerSymbol.trim().length === 0) {
     return res.status(400).json({ error: 'tickerSymbol is required' });
@@ -70,6 +77,28 @@ router.post('/', requireAuth(), async (req, res) => {
   const recommendedSize = parseRecommendedSize(analysis);
 
   try {
+    // If the company changed its ticker, migrate old history to the new symbol
+    if (formerSymbol?.trim()) {
+      const oldSymbol = formerSymbol.trim().toUpperCase();
+      if (oldSymbol !== symbol) {
+        const oldTicker = await prisma.ticker.findUnique({ where: { symbol: oldSymbol } });
+        if (oldTicker) {
+          const newTicker = await prisma.ticker.findUnique({ where: { symbol } });
+          if (newTicker) {
+            // Both old and new symbol exist — move old transcripts to new ticker, delete old
+            await prisma.transcript.updateMany({
+              where: { tickerId: oldTicker.id },
+              data: { tickerId: newTicker.id },
+            });
+            await prisma.ticker.delete({ where: { id: oldTicker.id } });
+          } else {
+            // New symbol doesn't exist yet — simple rename
+            await prisma.ticker.update({ where: { symbol: oldSymbol }, data: { symbol } });
+          }
+        }
+      }
+    }
+
     const ticker = await prisma.ticker.upsert({
       where: { symbol },
       // Update shortName if provided — it may have been corrected by the user
