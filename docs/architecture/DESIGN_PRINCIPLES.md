@@ -50,11 +50,17 @@ failure mode being avoided.
 
 ## 4. Backtest Integrity
 
-The anonymization prompt (docs/EVALUATION_PROMPT.md) must be used 
-for all historical backtesting to prevent Claude's training data from 
-influencing transcript evaluations. Replace ticker symbols, executive 
-names, geographies, and financials before submitting historical 
-transcripts to the analyst.
+Anonymization of transcripts was attempted and abandoned (April 2026).
+Companies like AAPL and TSLA are re-identifiable from financial structure
+alone — revenue figures, margin profile, and segment mix are unique
+fingerprints that survive any name or product replacement. True
+anonymization would require gutting the informational content needed
+for evaluation.
+
+Backtests run with company identity known, which matches production
+conditions. This is a documented limitation, not an oversight.
+The anonymization pipeline is preserved but commented out in
+analysis/backtest_runner.py.
 
 ## 5. Concentration Caps (Layer 1 Rules)
 
@@ -88,3 +94,32 @@ Five blind spots are explicitly encoded in the evaluation prompt:
 
 These are not reminders — they are structural checks built into 
 every transcript evaluation.
+
+## 8. Opportunity Scanner (Layer 3)
+
+The Opportunity Scanner is the entry point for new investment candidates.
+It operates in two modes:
+
+- **Proactive (scanner-sourced):** Periodic trend monitoring across
+  Tier 1 domains (solar, energy storage, semiconductors). Surfaces
+  structural shifts and candidate companies for review.
+
+- **Reactive (user-sourced):** Luis may introduce candidates from his
+  own professional network or research. These enter through the same
+  intake evaluation gate as scanner-sourced candidates.
+
+All candidates — regardless of source — pass through a structured
+intake evaluation before entering the watchlist. The intake evaluation
+produces: one-sentence thesis, primary bear case, Type A/B
+classification hypothesis, and the specific signal needed in the
+first transcript to confirm the thesis is real.
+
+**Domain filter:** The scanner enforces docs/architecture/DOMAIN.md
+as its inclusion criteria. That file is the single authoritative
+source for what is and is not in scope. The scanner never surfaces
+candidates outside the defined domain.
+
+**Radar Inbox:** Scanner output lands in a Radar Inbox — a holding
+area where Luis reviews and approves or discards candidates before
+they become watchlist entries. Approval auto-creates the ticker
+with the intake evaluation attached as context.

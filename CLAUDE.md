@@ -5,6 +5,8 @@
 - Always read docs/architecture/DESIGN_PRINCIPLES.md before 
   building any new module that touches the analyst, allocator, 
   concentration rules, or backtest integrity
+- Always read docs/architecture/DOMAIN.md before building any
+  module that sources, filters, or evaluates investment candidates
 
 ## Project Overview
 Personal investment analysis and portfolio management tool.
@@ -39,7 +41,8 @@ investment-agent/
     ├── EVALUATION_PROMPT.md
     ├── Investment_Agent_Handoff_Brief.docx
     └── architecture/
-        └── DESIGN_PRINCIPLES.md
+        ├── DESIGN_PRINCIPLES.md
+        └── DOMAIN.md
 
 ## Environment Variables
 All credentials in root .env — never committed to GitHub.
@@ -89,8 +92,13 @@ Root .env contains:
    below $6M portfolio value.
 
 ## Investment Universe (Circle of Competence)
-Renewable energy, energy storage, defense technology,
-semiconductors, IT/software/cloud, cryptocurrencies.
+Defined in full in docs/architecture/DOMAIN.md — that file
+is the single authoritative source. Do not re-derive or
+summarize the domain definition here.
+
+Summary: Tier 1 (solar, energy storage, semiconductors),
+Tier 2 (IT/software/cloud, crypto scoped to mass-adoption
+use cases). Defense technology removed as a standalone domain.
 Agent never recommends outside this universe.
 
 ## ETF Tracking
@@ -108,6 +116,8 @@ Step 4: Dashboard (allocator, concentration rules, Layer 1)
 Step 5: Alerts module (press releases, thesis classification)
 Step 6: Automated transcript ingestion (EDGAR/Seeking Alpha)
 Step 7: Backtesting module (historical dry run)
+Step 8: Opportunity Scanner (Layer 3 — trend monitoring, 
+        candidate surfacing, Radar Inbox)
 
 ## Current Build State
 - Evaluator: working, structured score output, auto-extract metadata
@@ -122,12 +132,13 @@ cd server && npm run dev    — start backend (port 3001)
 cd client && npm run dev    — start frontend (port 5173)
 DATABASE_URL=$(grep '^DATABASE_URL' ../.env | cut -d '=' -f2-) npx prisma studio
                            — open database browser
-DATABASE_URL=$(grep '^DATABASE_URL' ../.env | cut -d '=' -f2-) npx prisma migrate dev --name <name>
+DATABASE_URL=$(grep '^DATABASE_URL' ../.env | cut -d '=' -f2-) npx prisma migrate dev --name <n>
                            — run schema migration
 
 ## Never Do
 - Store credentials in any committed file
 - Recommend positions outside the circle of competence
+  (see docs/architecture/DOMAIN.md for authoritative definition)
 - Redeploy trim proceeds proportionally into existing positions
   without first checking Layer 3 for a higher-conviction alternative
 - Skip the tax cost calculation before any trim recommendation
