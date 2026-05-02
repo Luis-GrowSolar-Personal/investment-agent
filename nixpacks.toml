@@ -17,9 +17,13 @@
 nixPkgs = ["nodejs_20"]
 
 [phases.install]
+# --include=dev forces devDependencies even when NODE_ENV=production is set
+# in the Railway environment. We need vite (devDep) for the client build, and
+# Prisma CLI (devDep) for the server's `prisma generate`. The runtime image
+# can still drop devDeps after the build completes.
 cmds = [
-  "cd server && npm ci",
-  "cd client && npm ci",
+  "cd server && npm ci --include=dev",
+  "cd client && npm ci --include=dev",
 ]
 
 [phases.build]
