@@ -1,5 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useAuth } from '@clerk/clerk-react';
+import { Link } from 'react-router-dom';
+
+// API origin: dev reads from .env.development (${API_URL}).
+// Prod reads from .env.production (empty string → same-origin, since the
+// server static-serves the SPA in prod).
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 // ── Color helpers ─────────────────────────────────────────────────────────────
 
@@ -25,6 +31,19 @@ function recColor(value) {
   }
 }
 
+function trajectoryColor(value) {
+  if (!value) return '#64748b';
+  switch (value.toLowerCase()) {
+    case 'improving':     return '#22c55e';
+    case 'stable':        return '#64748b';
+    case 'flattening':    return '#06b6d4';
+    case 'softening':     return '#f59e0b';
+    case 'deteriorating': return '#ef4444';
+    case 'unknown':       return '#475569';
+    default:              return '#64748b';
+  }
+}
+
 function Badge({ value, color }) {
   return (
     <span style={{
@@ -39,6 +58,115 @@ function Badge({ value, color }) {
       border: `1px solid ${color}40`,
     }}>
       {value ?? '—'}
+    </span>
+  );
+}
+
+// Smaller, subdued chip for tier — speculative names get an amber outline,
+// established names get a quiet slate look. Uses smaller padding/font than
+// Badge so it reads as secondary metadata next to the symbol.
+function TierChip({ tier }) {
+  if (!tier) return null;
+  const isSpec = tier === 'speculative';
+  const color = isSpec ? '#f59e0b' : '#64748b';
+  const label = isSpec ? 'SPEC' : 'EST';
+  return (
+    <span
+      title={isSpec
+        ? '3-axis classifier: ≥2 of {high σ, small cap, high P/E}'
+        : 'Established: ≤1 of 3 axes fired'}
+      style={{
+        display: 'inline-block',
+        padding: '1px 5px',
+        borderRadius: 3,
+        fontSize: 9,
+        fontWeight: 700,
+        letterSpacing: '0.08em',
+        color,
+        background: color + '14',
+        border: `1px solid ${color}30`,
+      }}
+    >
+      {label}
+    </span>
+  );
+}
+
+// Clickable column header — toggles sort key/direction. Shows a subtle
+// arrow when this column is the active sort.
+function SortableTh({ sortKey, sort, onClick, children }) {
+  const isActive = sort.key === sortKey;
+  const arrow = isActive ? (sort.dir === 'asc' ? '↑' : '↓') : '';
+  return (
+    <th
+      onClick={() => onClick(sortKey)}
+      style={{
+        ...th,
+        cursor: 'pointer',
+        color: isActive ? '#cbd5e1' : '#475569',
+        userSelect: 'none',
+      }}
+    >
+      {children}
+      {isActive && (
+        <span style={{ marginLeft: 4, fontSize: 10, color: '#3b82f6' }}>{arrow}</span>
+      )}
+    </th>
+  );
+}
+
+// "Expected new transcript" badge — shows when the latest call is old
+// enough that a fresh quarterly transcript should be available. Pre-API-
+// integration version: derived purely from days-since-last-call. When we
+// hook up an earnings calendar later, this can become "transcript exists,
+// not yet uploaded" instead of just "we're due."
+//
+// Thresholds:
+//   < 85 days: no badge (next call not yet expected)
+//   85-99 days: yellow ⏰ ("expected by now, time to check")
+//   ≥ 100 days: red ⏰ ("definitely overdue")
+function StaleTranscriptBadge({ daysSinceLastCall }) {
+  if (daysSinceLastCall == null || daysSinceLastCall < 85) return null;
+  const isOverdue = daysSinceLastCall >= 100;
+  const color = isOverdue ? '#ef4444' : '#fbbf24';
+  const tip = isOverdue
+    ? `Last transcript: ${daysSinceLastCall} days ago. Quarterly companies typically release every 85-95 days — this one is overdue. Time to check your sources for a new earnings call.`
+    : `Last transcript: ${daysSinceLastCall} days ago. Quarterly companies typically release every 85-95 days — a new one is likely available. Time to check your sources.`;
+  return (
+    <span
+      title={tip}
+      style={{
+        color,
+        fontSize: 13,
+        marginLeft: 4,
+        cursor: 'help',
+        lineHeight: 1,
+      }}
+    >
+      ⏰
+    </span>
+  );
+}
+
+// Yellow triangle for advisory rows — "trend layer noticed something but
+// didn't override". Subtle, doesn't compete with the action chip.
+function AdvisoryFlag({ confidence, trajectory, finalAction, perCallRec }) {
+  if (confidence !== 'advisory') return null;
+  const flipped = finalAction && perCallRec && finalAction !== perCallRec;
+  const tip = flipped
+    ? `Advisory: ${trajectory} — final action ${finalAction} (per-call was ${perCallRec})`
+    : `Advisory: ${trajectory} — passthrough, no action change`;
+  return (
+    <span
+      title={tip}
+      style={{
+        color: '#fbbf24',
+        fontSize: 11,
+        marginLeft: 2,
+        cursor: 'help',
+      }}
+    >
+      ⚠
     </span>
   );
 }
@@ -61,7 +189,8 @@ function parseAnalysisSections(text) {
     }
   }
   if (current) sections.push(current);
-  return sections.length ? sections : [{ title: null, body: text.split('\n') }];
+  const filtered = sections.filter(s => s.title?.toUpperCase() !== 'FICTIONAL DETAIL CHECK');
+  return filtered.length ? filtered : [{ title: null, body: text.split('\n') }];
 }
 
 function analysisSectionColor(title, body) {
@@ -118,7 +247,7 @@ function TranscriptModal({ transcriptId, getToken, onClose }) {
     async function load() {
       try {
         const token = await getToken();
-        const res = await fetch(`http://localhost:3001/api/radar/transcripts/${transcriptId}`, {
+        const res = await fetch(`${API_URL}/api/radar/transcripts/${transcriptId}`, {
           headers: { 'Authorization': `Bearer ${token}` },
         });
         const json = await res.json();
@@ -284,7 +413,7 @@ function HistoryRow({ tickerId, colSpan, getToken, onLastDeleted, onRescored }) 
   const fetchHistory = useCallback(async () => {
     try {
       const token = await getToken();
-      const res = await fetch(`http://localhost:3001/api/radar/tickers/${tickerId}/history`, {
+      const res = await fetch(`${API_URL}/api/radar/tickers/${tickerId}/history`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       const data = await res.json();
@@ -308,7 +437,7 @@ function HistoryRow({ tickerId, colSpan, getToken, onLastDeleted, onRescored }) 
     setEditingId(null);
     try {
       const token = await getToken();
-      const res = await fetch(`http://localhost:3001/api/radar/transcripts/${transcriptId}`, {
+      const res = await fetch(`${API_URL}/api/radar/transcripts/${transcriptId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify({ title: editValue }),
@@ -332,7 +461,7 @@ function HistoryRow({ tickerId, colSpan, getToken, onLastDeleted, onRescored }) 
     setRescoring(transcriptId);
     try {
       const token = await getToken();
-      const res = await fetch(`http://localhost:3001/api/radar/transcripts/${transcriptId}/rescore`, {
+      const res = await fetch(`${API_URL}/api/radar/transcripts/${transcriptId}/rescore`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -356,7 +485,7 @@ function HistoryRow({ tickerId, colSpan, getToken, onLastDeleted, onRescored }) 
     setDeleting(transcriptId);
     try {
       const token = await getToken();
-      const res = await fetch(`http://localhost:3001/api/radar/transcripts/${transcriptId}`, {
+      const res = await fetch(`${API_URL}/api/radar/transcripts/${transcriptId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -384,7 +513,7 @@ function HistoryRow({ tickerId, colSpan, getToken, onLastDeleted, onRescored }) 
                 setTickerRescoreState('running');
                 try {
                   const token = await getToken();
-                  const res = await fetch(`http://localhost:3001/api/radar/tickers/${tickerId}/rescore`, {
+                  const res = await fetch(`${API_URL}/api/radar/tickers/${tickerId}/rescore`, {
                     method: 'POST', headers: { 'Authorization': `Bearer ${token}` },
                   });
                   const data = await res.json();
@@ -468,9 +597,9 @@ function HistoryRow({ tickerId, colSpan, getToken, onLastDeleted, onRescored }) 
                 return (
                   <div key={i} style={{
                     display: 'grid',
-                    gridTemplateColumns: '100px 220px 140px 80px 48px 64px 56px 70px',
+                    gridTemplateColumns: '100px 200px 120px 70px 44px 150px 64px 56px 70px',
                     alignItems: 'center',
-                    gap: '0 12px',
+                    gap: '0 10px',
                     padding: '8px 12px',
                     background: '#161b27',
                     borderRadius: 6,
@@ -521,6 +650,34 @@ function HistoryRow({ tickerId, colSpan, getToken, onLastDeleted, onRescored }) 
                     <span><Badge value={entry.recommendation} color={recColor(entry.recommendation)} /></span>
                     <span style={{ fontSize: 12, color: '#94a3b8' }}>
                       {entry.recommendedSize != null ? `${entry.recommendedSize}%` : '—'}
+                    </span>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                      {entry.trajectory ? (
+                        <>
+                          <Badge value={entry.trajectory} color={trajectoryColor(entry.trajectory)} />
+                          {entry.finalAction && entry.finalAction !== entry.recommendation && (
+                            <span
+                              title={`Trend layer override: ${entry.recommendation} → ${entry.finalAction}`}
+                              style={{
+                                fontSize: 10,
+                                color: recColor(entry.finalAction),
+                                fontWeight: 700,
+                                letterSpacing: '0.05em',
+                              }}
+                            >
+                              → {entry.finalAction.toUpperCase()}
+                            </span>
+                          )}
+                          <AdvisoryFlag
+                            confidence={entry.finalConfidence}
+                            trajectory={entry.trajectory}
+                            finalAction={entry.finalAction}
+                            perCallRec={entry.recommendation}
+                          />
+                        </>
+                      ) : (
+                        <span style={{ color: '#334155', fontSize: 11 }}>—</span>
+                      )}
                     </span>
                     <button
                       onClick={() => !isRescoring && handleRescore(entry.transcriptId)}
@@ -593,8 +750,35 @@ function TickerTable({ tickers, section, onAction, getToken }) {
   const [renameSymbol, setRenameSymbol] = useState('');
   const [renameName, setRenameName] = useState('');
   const [renameError, setRenameError] = useState(null);
+  // Sort state: { key: 'symbol'|'type'|'lastUpdated', dir: 'asc'|'desc' }
+  // Click a column header to sort by it. Click again to toggle direction.
+  // Default: by symbol ascending.
+  const [sort, setSort] = useState({ key: 'symbol', dir: 'asc' });
 
-  const colSpan = 9;
+  const colSpan = 10;
+
+  function setSortKey(key) {
+    setSort(prev => prev.key === key
+      ? { key, dir: prev.dir === 'asc' ? 'desc' : 'asc' }
+      : { key, dir: key === 'lastUpdated' ? 'desc' : 'asc' });
+  }
+
+  // Stable secondary sort by symbol asc breaks ties
+  const sortedTickers = [...tickers].sort((a, b) => {
+    let cmp = 0;
+    if (sort.key === 'type') {
+      cmp = (a.type ?? '').localeCompare(b.type ?? '');
+    } else if (sort.key === 'lastUpdated') {
+      const aT = a.latestAnalysis ? new Date(a.latestAnalysis.createdAt).getTime() : 0;
+      const bT = b.latestAnalysis ? new Date(b.latestAnalysis.createdAt).getTime() : 0;
+      cmp = aT - bT;
+    } else {
+      cmp = a.symbol.localeCompare(b.symbol);
+    }
+    if (sort.dir === 'desc') cmp = -cmp;
+    if (cmp !== 0) return cmp;
+    return a.symbol.localeCompare(b.symbol);
+  });
 
   async function handlePromote(ticker) {
     if (!window.confirm(`Promote ${ticker.symbol} to Portfolio? All existing transcripts will be preserved.`)) return;
@@ -632,6 +816,27 @@ function TickerTable({ tickers, section, onAction, getToken }) {
     const sym = renameSymbol.trim().toUpperCase();
     const nm  = renameName.trim();
     if (!sym) { setRenameError('Symbol is required'); return; }
+    // Detect a merge: if the new symbol matches a *different* existing ticker,
+    // the backend will move all transcripts over and delete the source ticker.
+    // Surface this explicitly so the user doesn't merge accidentally.
+    const conflict = tickers.find(t => t.symbol === sym && t.id !== tickerId);
+    if (conflict) {
+      const sourceTicker = tickers.find(t => t.id === tickerId);
+      const sourceSym = sourceTicker?.symbol || '?';
+      const sourceCount = sourceTicker?.transcriptCount || 0;
+      const ok = window.confirm(
+        `MERGE: ${sym} already exists.\n\n` +
+        `This will move ${sourceCount} transcript(s) from ${sourceSym} into ${sym} ` +
+        `and DELETE the ${sourceSym} ticker.\n\n` +
+        `Use this for share-class duplicates (e.g. GOOG → GOOGL) where the same ` +
+        `call was loaded under both symbols.\n\n` +
+        `If this is unintentional, cancel and pick a different symbol.\n\n` +
+        `After merging, run check_db_integrity.py to catch any duplicate ` +
+        `(ticker, callDate) pairs.\n\n` +
+        `Proceed with merge?`
+      );
+      if (!ok) return;
+    }
     setRenameError(null);
     try {
       await onAction(() => apiPatch(tickerId, { symbol: sym, name: nm || sym }, getToken));
@@ -653,19 +858,20 @@ function TickerTable({ tickers, section, onAction, getToken }) {
     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
       <thead>
         <tr>
-          <th style={th}>Symbol</th>
+          <SortableTh sortKey="symbol" sort={sort} onClick={setSortKey}>Symbol</SortableTh>
           <th style={th}>Company</th>
-          <th style={th}>Type</th>
+          <SortableTh sortKey="type" sort={sort} onClick={setSortKey}>Type</SortableTh>
           <th style={th}>Cap %</th>
           <th style={th}>Calls</th>
           <th style={th}>Thesis Health</th>
           <th style={th}>Recommendation</th>
-          <th style={th}>Last Updated</th>
+          <th style={th}>Trend</th>
+          <SortableTh sortKey="lastUpdated" sort={sort} onClick={setSortKey}>Last Updated</SortableTh>
           <th style={th}>Actions</th>
         </tr>
       </thead>
       <tbody>
-        {tickers.map(ticker => {
+        {sortedTickers.map(ticker => {
           const isExpanded = expandedId === ticker.id;
           const isActing = acting === ticker.id;
           const la = ticker.latestAnalysis;
@@ -694,6 +900,12 @@ function TickerTable({ tickers, section, onAction, getToken }) {
                     {isExpanded ? '▲' : '▼'}
                   </span>
                 </button>
+                {la?.tier && (
+                  <span style={{ marginLeft: 6 }}>
+                    <TierChip tier={la.tier} />
+                  </span>
+                )}
+                <StaleTranscriptBadge daysSinceLastCall={ticker.daysSinceLastCall} />
               </td>
               <td style={{ ...td, maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 {ticker.shortName || ticker.name.split(' ')[0] || ticker.symbol}
@@ -714,6 +926,46 @@ function TickerTable({ tickers, section, onAction, getToken }) {
               <td style={td}>
                 {la
                   ? <Badge value={la.recommendation} color={recColor(la.recommendation)} />
+                  : <span style={{ color: '#334155' }}>—</span>}
+              </td>
+              <td style={td}>
+                {la?.trajectory
+                  ? (() => {
+                    const isAdvisory = la.finalConfidence === 'advisory';
+                    const inner = (
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                        <Badge value={la.trajectory} color={trajectoryColor(la.trajectory)} />
+                        {la.finalAction && la.finalAction !== la.recommendation && (
+                          <span
+                            title={`Trend layer overrode per-call ${la.recommendation} → ${la.finalAction}`}
+                            style={{
+                              fontSize: 10,
+                              color: recColor(la.finalAction),
+                              fontWeight: 700,
+                              letterSpacing: '0.05em',
+                            }}
+                          >
+                            → {la.finalAction.toUpperCase()}
+                          </span>
+                        )}
+                        <AdvisoryFlag
+                          confidence={la.finalConfidence}
+                          trajectory={la.trajectory}
+                          finalAction={la.finalAction}
+                          perCallRec={la.recommendation}
+                        />
+                      </span>
+                    );
+                    return isAdvisory && la.id ? (
+                      <Link
+                        to={`/advisories?focus=${la.id}`}
+                        title="Click to open this advisory in the Advisory Feed"
+                        style={{ textDecoration: 'none', cursor: 'pointer' }}
+                      >
+                        {inner}
+                      </Link>
+                    ) : inner;
+                  })()
                   : <span style={{ color: '#334155' }}>—</span>}
               </td>
               <td style={{ ...td, color: '#64748b', fontSize: 12 }}>
@@ -741,6 +993,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
                     color="#a78bfa"
                     onClick={() => startRename(ticker)}
                     disabled={isActing}
+                    title="Rename or merge: changing the symbol to one that already exists will move all transcripts into that ticker and delete this one (with confirmation). Use this for share-class duplicates like GOOG → GOOGL."
                   />
                   <ActionButton
                     label="Delete"
@@ -808,11 +1061,12 @@ function TickerTable({ tickers, section, onAction, getToken }) {
   );
 }
 
-function ActionButton({ label, color, onClick, disabled }) {
+function ActionButton({ label, color, onClick, disabled, title }) {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
+      title={title}
       style={{
         background: 'transparent',
         border: `1px solid ${disabled ? '#2d3748' : color + '60'}`,
@@ -835,7 +1089,7 @@ function ActionButton({ label, color, onClick, disabled }) {
 
 async function apiPatch(id, body, getToken) {
   const token = await getToken();
-  const res = await fetch(`http://localhost:3001/api/radar/tickers/${id}`, {
+  const res = await fetch(`${API_URL}/api/radar/tickers/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
     body: JSON.stringify(body),
@@ -845,7 +1099,7 @@ async function apiPatch(id, body, getToken) {
 
 async function apiDelete(id, getToken) {
   const token = await getToken();
-  const res = await fetch(`http://localhost:3001/api/radar/tickers/${id}`, {
+  const res = await fetch(`${API_URL}/api/radar/tickers/${id}`, {
     method: 'DELETE',
     headers: { 'Authorization': `Bearer ${token}` },
   });
@@ -870,7 +1124,7 @@ export default function Radar() {
     setError(null);
     try {
       const token = await getToken();
-      const res = await fetch('http://localhost:3001/api/radar/tickers', {
+      const res = await fetch(`${API_URL}/api/radar/tickers`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       const data = await res.json();
@@ -921,7 +1175,7 @@ export default function Radar() {
             setRescoreAllState('running');
             try {
               const token = await getToken();
-              const res = await fetch('http://localhost:3001/api/radar/rescore-all', {
+              const res = await fetch(`${API_URL}/api/radar/rescore-all`, {
                 method: 'POST', headers: { 'Authorization': `Bearer ${token}` },
               });
               const data = await res.json();

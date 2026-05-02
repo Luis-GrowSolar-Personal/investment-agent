@@ -1,6 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useAuth } from '@clerk/clerk-react';
 
+// API origin: dev reads from .env.development (http://localhost:3001).
+// Prod reads from .env.production (empty string → same-origin, since the
+// server static-serves the SPA in prod).
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 function parseAnalysis(text) {
   const sections = [];
   const lines = text.split('\n');
@@ -17,10 +22,11 @@ function parseAnalysis(text) {
   }
   if (current) sections.push(current);
 
-  if (sections.length === 0) {
+  const filtered = sections.filter(s => s.title?.toUpperCase() !== 'FICTIONAL DETAIL CHECK');
+  if (filtered.length === 0) {
     return [{ title: null, body: text.split('\n') }];
   }
-  return sections;
+  return filtered;
 }
 
 function scoreColor(title, body) {
@@ -126,7 +132,7 @@ export default function Evaluator() {
     try {
       const token = await getToken();
       const res = await fetch(
-        `http://localhost:3001/api/radar/tickers/by-symbol/${encodeURIComponent(symbol.trim())}`,
+        `${API_URL}/api/radar/tickers/by-symbol/${encodeURIComponent(symbol.trim())}`,
         { headers: { 'Authorization': `Bearer ${token}` } }
       );
       const data = await res.json();
@@ -205,7 +211,7 @@ export default function Evaluator() {
 
     try {
       const token = await getToken();
-      const res = await fetch('http://localhost:3001/api/evaluate', {
+      const res = await fetch(`${API_URL}/api/evaluate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -237,7 +243,7 @@ export default function Evaluator() {
 
     try {
       const token = await getToken();
-      const res = await fetch('http://localhost:3001/api/save', {
+      const res = await fetch(`${API_URL}/api/save`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

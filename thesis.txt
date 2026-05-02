@@ -1,0 +1,3 @@
+❌  No eval found for ENPH 2024-02-06
+    Expected: /Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/evals/ENPH_2024-02-06.txt
+    Run: python3 analysis/read_eval.py --list

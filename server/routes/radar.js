@@ -61,6 +61,17 @@ router.get('/tickers', requireAuth(), async (req, res) => {
         }
       }
 
+      // Days since the latest transcript's call date — drives the
+      // "expected new transcript" badge in the UI. We use the latest
+      // transcript by callDate (whether it has an analysis or not), since
+      // staleness is a property of the call itself.
+      // null when no transcripts exist yet (no badge to show).
+      const latestTranscript = ticker.transcripts[0]; // ordered callDate desc
+      const lastCallDate = latestTranscript ? latestTranscript.callDate : null;
+      const daysSinceLastCall = lastCallDate
+        ? Math.floor((Date.now() - new Date(lastCallDate).getTime()) / (1000 * 60 * 60 * 24))
+        : null;
+
       return {
         id: ticker.id,
         symbol: ticker.symbol,
@@ -70,12 +81,23 @@ router.get('/tickers', requireAuth(), async (req, res) => {
         capPercent: ticker.capPercent,
         type: ticker.type,
         transcriptCount: ticker.transcripts.length,
+        lastCallDate,
+        daysSinceLastCall,
         latestAnalysis: latestAnalysis
           ? {
+              id: latestAnalysis.id,
               thesisHealth: latestAnalysis.thesisHealth,
               recommendation: latestAnalysis.recommendation,
               recommendedSize: latestAnalysis.recommendedSize,
               createdAt: latestAnalysis.createdAt,
+              // Trend-layer fields (populated by sync_trend_to_db.py).
+              // null when no verdict yet (insufficient history or pre-Stage-1 row).
+              tier: latestAnalysis.tier,
+              trajectory: latestAnalysis.trajectory,
+              suggestedOverride: latestAnalysis.suggestedOverride,
+              finalAction: latestAnalysis.finalAction,
+              finalConfidence: latestAnalysis.finalConfidence,
+              trendRationale: latestAnalysis.trendRationale,
             }
           : null,
       };
@@ -131,14 +153,20 @@ router.get('/transcripts/:id', requireAuth(), async (req, res) => {
   }
 });
 
-// GET /api/radar/tickers/:id/history — full thesis trajectory for one ticker
+// GET /api/radar/tickers/:id/history — full thesis trajectory for one ticker.
+// Returns the LATEST analysis per transcript (mirrors the radar list and the
+// sync_trend_to_db.py latest-per-transcript filter). The rebackfill flow
+// deliberately preserves older prompt-version analyses in the DB as an audit
+// trail, but the history view shows only the active (latest createdAt)
+// analysis per call to keep the trajectory readable.
 router.get('/tickers/:id/history', requireAuth(), async (req, res) => {
   const id = parseInt(req.params.id);
   try {
     const transcripts = await prisma.transcript.findMany({
       where: { tickerId: id },
       include: {
-        analyses: { orderBy: { createdAt: 'asc' } },
+        // orderBy createdAt desc + take 1 → the latest analysis per transcript
+        analyses: { orderBy: { createdAt: 'desc' }, take: 1 },
       },
       orderBy: { callDate: 'asc' },
     });
@@ -152,12 +180,67 @@ router.get('/tickers/:id/history', requireAuth(), async (req, res) => {
         recommendation: a.recommendation,
         recommendedSize: a.recommendedSize,
         createdAt: a.createdAt,
+        // Trend-layer fields
+        tier: a.tier,
+        trajectory: a.trajectory,
+        suggestedOverride: a.suggestedOverride,
+        finalAction: a.finalAction,
+        finalConfidence: a.finalConfidence,
+        trendRationale: a.trendRationale,
       }))
     );
 
     res.json(history);
   } catch (err) {
     console.error('Error in GET /api/radar/tickers/:id/history:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// GET /api/radar/advisories — every Analysis where the trend layer noticed
+// a non-stable trajectory but didn't override the per-call recommendation.
+// These are the "noticed something, didn't act" cases worth periodic review
+// for emerging heuristics. Newest first.
+router.get('/advisories', requireAuth(), async (req, res) => {
+  try {
+    const advisories = await prisma.analysis.findMany({
+      where: { finalConfidence: 'advisory' },
+      include: {
+        transcript: {
+          select: {
+            id: true,
+            callDate: true,
+            title: true,
+            ticker: { select: { id: true, symbol: true, shortName: true, status: true } },
+          },
+        },
+      },
+      orderBy: [
+        { transcript: { callDate: 'desc' } },
+      ],
+    });
+
+    const result = advisories.map(a => ({
+      analysisId: a.id,
+      transcriptId: a.transcript.id,
+      callDate: a.transcript.callDate,
+      title: a.transcript.title,
+      tickerId: a.transcript.ticker.id,
+      symbol: a.transcript.ticker.symbol,
+      shortName: a.transcript.ticker.shortName,
+      tickerStatus: a.transcript.ticker.status,
+      perCallRec: a.recommendation,
+      thesisHealth: a.thesisHealth,
+      recommendedSize: a.recommendedSize,
+      tier: a.tier,
+      trajectory: a.trajectory,
+      finalAction: a.finalAction,
+      trendRationale: a.trendRationale,
+    }));
+
+    res.json(result);
+  } catch (err) {
+    console.error('Error in GET /api/radar/advisories:', err.message);
     res.status(500).json({ error: err.message });
   }
 });

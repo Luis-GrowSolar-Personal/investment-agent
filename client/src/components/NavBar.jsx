@@ -45,6 +45,9 @@ export default function NavBar() {
         <NavLink to="/radar" style={({ isActive }) => tabStyle(isActive)}>
           Stock Radar
         </NavLink>
+        <NavLink to="/advisories" style={({ isActive }) => tabStyle(isActive)}>
+          Advisory Feed
+        </NavLink>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>

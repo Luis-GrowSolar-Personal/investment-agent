@@ -1,9 +1,37 @@
 # Earnings Call Evaluation Prompt
-
-This is the validated structured evaluation prompt used by the
-Portfolio Analyst AI analyst. Validated across nine anonymized
-earnings call transcripts with perfect fictional detail detection
-(9/9). Do not modify without re-validating.
+# Version: v6 (stable best after v5→v8 iteration)
+#
+# Iteration log:
+#   v6: added explicit Execution-stumble handling + clarified
+#       no-stumble cases. Backtest: ENPH 6/9 + TTD 3/6 = 9/15 (60%).
+#       Current best.
+#   v7: added Red Flag Protocol (single-flag trigger) to
+#       MANAGEMENT CREDIBILITY to catch TTD 2025-08-07 and
+#       2025-11-06 misses. Fixed both target calls but regressed
+#       TTD 2025-05-08 (Add → Trim on a +37% stock) and several
+#       ENPH calls. Net: 8/15 (53%).
+#   v8: tightened v7 to require 2+ red flags. Same net result
+#       (8/15), because the "flag counting" instruction doesn't
+#       self-limit — the model still downgraded TTD 2025-05-08.
+#
+#   Conclusion: the credibility-to-action gap can't be closed
+#   with a prompt-side rule without regressing clean calls.
+#   The signals that would catch TTD 2025-08-07 / 2025-11-06
+#   (Amazon dismissal, vagueness) also appear on TTD 2025-05-08
+#   where the outcome was positive. A better fix would need
+#   cross-transcript context (e.g., deceleration vs prior Q's
+#   growth) that the current evaluator does not see.
+#
+# Change from v5 (the v6 delta that made v6 the best):
+#   1. Removed the stumble graduation rule block entirely.
+#      v4 added it, v5 clarified it, neither helped on the backtest.
+#      Starting v6 from v3's structure (the best non-baseline version).
+#   2. Decision matrix now covers Execution stumbles explicitly.
+#      An Execution miss is a failure on forecastable data — more
+#      damning than Discovery, not less. Execution + Intact + anything
+#      short of a strong mitigation track record → Trim.
+#   3. Strengthening + No stumble → Add, Intact + No stumble → Hold
+#      are now stated explicitly (previously implicit).
 
 ---
 
@@ -51,6 +79,21 @@ consecutive quarters, discount the mitigation argument
 proportionally. Do not inherit credibility from overall
 management track record.
 
+Apply the three-part test:
+1. SPECIFICITY: Is the mitigation argument concrete and
+   testable, or vague and aspirational?
+2. CAPABILITY TRACK RECORD: Does management have a
+   demonstrated track record on this specific capability —
+   not overall execution, but this specific type of
+   challenge? Strong execution in hardware does not transfer
+   to regulatory navigation or market transition management.
+3. CURRENT TRACTION: Is there evidence in this transcript
+   of the mitigation already working — measurable progress,
+   not just intent?
+
+A specific argument backed by unproven capability scores
+unproven regardless of management confidence level.
+
 ## POSITION TYPE
 Classify as:
 - Type A: single-driver thesis — one primary market, one
@@ -72,6 +115,32 @@ State one: Hold / Add to X% / Trim to X% / Exit
 If trim or exit: state target size and timeframe.
 If hold or add: state the specific measurable condition
 that would change this recommendation next quarter.
+
+Decision matrix (evaluate top to bottom; first match wins):
+- Broken thesis → Exit.
+- Weakening thesis → Trim always, regardless of stumble type.
+- Structural stumble → Trim regardless of thesis health score,
+  because structural problems compound.
+- Execution stumble with Intact thesis:
+    - If mitigation capability track record is "strong" AND there
+      is current-transcript evidence of the mitigation already
+      working → Hold with specific watch condition.
+    - Otherwise (mixed / unproven / weak, OR no current traction
+      yet) → Trim.
+  Rationale: an Execution failure is a miss on something the
+  company had sufficient data to forecast accurately. That is
+  more damning than a Discovery stumble, not less. Patience on
+  an Execution miss requires BOTH a strong capability track
+  record AND measurable traction this quarter.
+- Discovery stumble with Intact thesis:
+    - If mitigation capability track record is "strong" → Hold
+      with specific watch condition.
+    - Otherwise (mixed / unproven / weak) → Trim. Patience
+      requires both an intact thesis AND proven capability,
+      not one or the other.
+- No stumble:
+    - Strengthening thesis → Add.
+    - Intact thesis → Hold.
 
 ## FRESH MONEY TEST
 If you had cash today and no existing position, what

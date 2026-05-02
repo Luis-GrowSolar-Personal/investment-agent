@@ -53,4 +53,20 @@ model Analysis {
   capPercent                       Float?
   mitigationArgumentPresent        Boolean?
   mitigationCapabilityTrackRecord  String?
+
+  // Trend-layer fields (added in add_trend_fields migration). All computed
+  // by analysis/trend_analyst.py and synced via sync_trend_to_db.py.
+  // - tier: "speculative" | "established" (3-axis classifier output)
+  // - trajectory: "deteriorating" | "softening" | "flattening" | "improving" | "stable" | "unknown"
+  // - suggestedOverride: "trim_regardless" | "downgrade_one" | "upgrade_one" | null
+  // - finalAction: "Add" | "Hold" | "Trim" | "Exit" — what the trend layer
+  //   recommends after applying the matrix to the per-call recommendation
+  // - finalConfidence: "confident" | "advisory" | "unknown"
+  // - trendRationale: human-readable rationale string from the trend layer
+  tier              String?
+  trajectory        String?
+  suggestedOverride String?
+  finalAction       String?
+  finalConfidence   String?
+  trendRationale    String?
 }

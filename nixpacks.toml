@@ -1,0 +1,35 @@
+# Railway / Nixpacks build config for the investment agent monorepo.
+#
+# Layout:
+#   server/   — Node/Express API (entry: server/index.js)
+#   client/   — React/Vite SPA (build output: client/dist)
+#
+# In production the server static-serves client/dist at /, so a single
+# Railway service hosts both the API and the SPA. One URL, no CORS.
+#
+# When Railway runs this config:
+#   1. setup    — provision Node 20
+#   2. install  — install deps in both server/ and client/
+#   3. build    — vite build the client (writes client/dist)
+#   4. start    — run the server (which serves the SPA + /api routes)
+
+[phases.setup]
+nixPkgs = ["nodejs_20"]
+
+[phases.install]
+cmds = [
+  "cd server && npm ci",
+  "cd client && npm ci",
+]
+
+[phases.build]
+cmds = [
+  "cd server && npx prisma generate",
+  "cd client && npm run build",
+]
+
+[start]
+cmd = "cd server && node index.js"
+
+[variables]
+NODE_ENV = "production"
