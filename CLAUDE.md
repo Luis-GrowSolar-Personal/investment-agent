@@ -75,8 +75,11 @@ Root .env contains:
 3. Graduated exit ratchet: Weakening → trim to cap. No
    improvement after one quarter → trim 40% more. Second
    quarter deterioration → 3%. Third → exit.
-4. Tax: 20% federal LTCG, Florida (no state tax). Trim
-   tax-advantaged accounts first.
+4. Tax: 15% federal LTCG and 15% STCG (matches owner's
+   blended ordinary marginal rate), Florida (no state tax).
+   Trim tax-advantaged accounts first — even though LTCG and
+   STCG rates are equal, tax-advantaged accounts are 0% so
+   the ordering preference still holds.
 5. 48-hour waiting period for any position above 30% of
    total portfolio before confirming hold decision.
 6. Mitigation argument discount: when management claims
@@ -86,7 +89,8 @@ Root .env contains:
 7. Analyst / Allocator firewall: analyst never receives 
    portfolio data. Allocator never receives transcripts.
    They communicate only through the structured score.
-8. Watchlist tickers: max 6 transcripts, oldest auto-discarded.
+8. Watchlist tickers: max 50 transcripts, oldest auto-discarded
+   (raised from 6 to support historical backtest loading).
    Portfolio tickers: unlimited history.
 9. Enough number: $10M. Active management justified only 
    below $6M portfolio value.
