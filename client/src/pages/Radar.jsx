@@ -913,9 +913,9 @@ function TickerTable({ tickers, section, onAction, getToken }) {
               <td style={td}>{ticker.type ?? '—'}</td>
               <td style={td}>{ticker.capPercent != null ? `${ticker.capPercent}%` : '—'}</td>
               <td style={td}>
-                <span style={{ color: section === 'watchlist' && ticker.transcriptCount >= 6 ? '#f59e0b' : '#94a3b8' }}>
+                <span style={{ color: section === 'watchlist' && ticker.transcriptCount >= 50 ? '#f59e0b' : '#94a3b8' }}>
                   {ticker.transcriptCount}
-                  {section === 'watchlist' && <span style={{ color: '#475569' }}>/6</span>}
+                  {section === 'watchlist' && <span style={{ color: '#475569' }}>/50</span>}
                 </span>
               </td>
               <td style={td}>

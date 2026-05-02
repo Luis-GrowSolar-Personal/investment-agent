@@ -114,14 +114,20 @@ router.post('/', requireAuth(), async (req, res) => {
       },
     });
 
-    // Enforce 6-transcript limit for watchlist tickers (Design Principle #3)
+    // Enforce transcript limit for watchlist tickers (Design Principle #3 in
+    // CLAUDE.md). Cap raised from 6 → 50 to support the historical
+    // backtest-load workflow: a 4-year horizon means ~16 quarters per ticker,
+    // and we want headroom above that. Storage cost is trivial (text-only,
+    // ~50KB per transcript). The cap can stay at 50 indefinitely or get
+    // removed entirely once we've validated the simulator end-to-end.
+    const WATCHLIST_TRANSCRIPT_CAP = 50;
     if (ticker.status === 'watchlist') {
       const existing = await prisma.transcript.findMany({
         where: { tickerId: ticker.id },
         orderBy: { callDate: 'asc' },
         select: { id: true },
       });
-      if (existing.length >= 6) {
+      if (existing.length >= WATCHLIST_TRANSCRIPT_CAP) {
         const oldest = existing[0];
         await prisma.analysis.deleteMany({ where: { transcriptId: oldest.id } });
         await prisma.transcript.delete({ where: { id: oldest.id } });
