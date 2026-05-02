@@ -5,5 +5,15 @@ __pycache__/
 node_modules/
 *.pyc
 .env.local
-.env.production
 client/.env
+
+# Data caches and per-laptop artifacts (kept out of git intentionally)
+analysis/data/
+.envrc.zsh
+cat_output
+diff_output
+
+# Note: client/.env.development and client/.env.production are intentionally
+# committed — they hold non-sensitive build-time config (VITE_API_URL toggle
+# between localhost in dev and same-origin in prod). Vite needs them at
+# build time, including during the Railway deployment build.
