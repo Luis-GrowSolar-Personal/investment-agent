@@ -1,0 +1,206 @@
+{
+  "_meta": {
+    "created": "2026-05-16",
+    "updated": "2026-05-16 — user overrides for TSLA, META",
+    "method": "Claude-generated initial classification based on business-segment knowledge, with user overrides applied",
+    "n_tickers": 32,
+    "decision_rule": "Type B if 4+ independent revenue drivers operating in distinct end markets, OR if valuation reflects multi-driver optionality regardless of current revenue mix; Type A if 1-3 drivers AND one dominant driver (>80% of revenue) AND valuation pegged to that single driver",
+    "confidence_values": "high | medium | low — reflects classifier's certainty about the classification, separate from the trend layer's per-call confidence",
+    "user_overrides": ["TSLA: A→B (valuation reflects multi-platform optionality)", "META: A→B (three platforms target distinct audiences)"],
+    "review_status": "REVIEWED — user accepted with two overrides"
+  },
+  "classifications": {
+    "AAPL": {
+      "type": "B",
+      "drivers": 6,
+      "rationale": "iPhone, Services, Mac, iPad, Wearables/Home/Accessories, plus geographic optionality (China, India). Diversified revenue base; no single product line exceeds 60% of revenue.",
+      "confidence": "high"
+    },
+    "ADBE": {
+      "type": "B",
+      "drivers": 3,
+      "rationale": "Creative Cloud, Document Cloud, Experience Cloud. Three substantial independent product families with different customer bases. Low end of Type B.",
+      "confidence": "medium"
+    },
+    "AMD": {
+      "type": "B",
+      "drivers": 4,
+      "rationale": "Datacenter, Client (CPUs), Gaming (GPUs + semi-custom), Embedded (Xilinx). Four independent end markets.",
+      "confidence": "high"
+    },
+    "AMPX": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Silicon anode battery technology for EVs and aviation. One core thesis.",
+      "confidence": "high"
+    },
+    "AMZN": {
+      "type": "B",
+      "drivers": 5,
+      "rationale": "North America Retail, International Retail, AWS, Advertising, Subscriptions (Prime + content). AWS alone is a $90B+ business; advertising is now ~$50B and growing fast.",
+      "confidence": "high"
+    },
+    "AVGO": {
+      "type": "B",
+      "drivers": 6,
+      "rationale": "Networking semis, Wireless (Apple modems), Storage, Industrial, Cybersecurity (Symantec), Software (VMware/CA). Each is a multi-billion-dollar standalone business.",
+      "confidence": "high"
+    },
+    "BAC": {
+      "type": "B",
+      "drivers": 4,
+      "rationale": "Consumer Banking, Global Wealth & Investment Management, Global Banking (IB), Global Markets. Each is a meaningful independent business line.",
+      "confidence": "high"
+    },
+    "DIS": {
+      "type": "B",
+      "drivers": 5,
+      "rationale": "Parks/Experiences, Studios, Streaming (DTC), Linear TV (ESPN + Cable), Consumer Products. Parks alone is a $30B+ business.",
+      "confidence": "high"
+    },
+    "ENPH": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Microinverters + storage for residential solar. Storage is adjacent but tied to the same thesis (residential solar adoption). Single-driver.",
+      "confidence": "high"
+    },
+    "ENVX": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Silicon anode battery technology. Pre-commercial, single thesis.",
+      "confidence": "high"
+    },
+    "EOSE": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Zinc-bromide battery technology for long-duration storage. Single thesis.",
+      "confidence": "high"
+    },
+    "FSLR": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Thin-film cadmium telluride solar panels. Single product line, single end market.",
+      "confidence": "high"
+    },
+    "GOOGL": {
+      "type": "B",
+      "drivers": 5,
+      "rationale": "Search ads, YouTube ads, Network (programmatic), Cloud, Other Bets (Waymo, etc.). Search still dominates but Cloud and YouTube are each $30B+ businesses.",
+      "confidence": "high"
+    },
+    "HD": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Home improvement retail. Pro vs DIY are customer segments within one business model, not independent drivers. Geographic split (US/Mexico/Canada) is similar.",
+      "confidence": "medium"
+    },
+    "JNJ": {
+      "type": "B",
+      "drivers": 2,
+      "rationale": "Post-Kenvue spinoff (2023): Pharma + MedTech. Only 2 drivers but each is a $50B+ business with independent dynamics. Low end of Type B; cap variable lower (~40%).",
+      "confidence": "medium"
+    },
+    "JPM": {
+      "type": "B",
+      "drivers": 4,
+      "rationale": "Consumer & Community Banking, Corporate & Investment Bank, Commercial Banking, Asset & Wealth Management. Four meaningfully independent businesses.",
+      "confidence": "high"
+    },
+    "MA": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Payment processing network. Many product variants (cards, B2B, real-time payments) but all variations of the core network business model.",
+      "confidence": "medium"
+    },
+    "META": {
+      "type": "B",
+      "drivers": 3,
+      "rationale": "USER OVERRIDE: Facebook, Instagram, WhatsApp target distinct audiences with different growth profiles and monetization maturities. Even though all three monetize via the same ad engine, the platforms are independent revenue drivers. Reality Labs is a 4th sub-driver but small and loss-making — excluded from count.",
+      "confidence": "medium"
+    },
+    "MSFT": {
+      "type": "B",
+      "drivers": 5,
+      "rationale": "Intelligent Cloud (Azure + server products), Productivity (Office/M365), More Personal Computing (Windows + Xbox), LinkedIn, AI/Copilot products. Five+ independent drivers.",
+      "confidence": "high"
+    },
+    "NFLX": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Streaming video subscriptions. Ad-tier is a pricing variation, not an independent driver. Live sports/games are content categories within the same business.",
+      "confidence": "high"
+    },
+    "NVDA": {
+      "type": "B",
+      "drivers": 4,
+      "rationale": "Data Center, Gaming, Professional Visualization, Automotive. Data Center dominates (~85%+) but other segments are substantive multi-billion-$ businesses. Borderline B due to concentration; classify B but watch.",
+      "confidence": "medium"
+    },
+    "ORCL": {
+      "type": "B",
+      "drivers": 4,
+      "rationale": "Cloud Applications (Fusion + NetSuite), Cloud Infrastructure (OCI), Hardware, License & On-Premise Database. OCI growing fast as a separate driver.",
+      "confidence": "high"
+    },
+    "PG": {
+      "type": "B",
+      "drivers": 6,
+      "rationale": "Beauty, Grooming, Health Care, Home Care, Fabric Care, Baby/Family Care. Six distinct consumer-products categories with different end markets and competitive dynamics.",
+      "confidence": "high"
+    },
+    "PYPL": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Digital payments. Venmo is real but same core business model. Braintree is wholesale extension. Single thesis.",
+      "confidence": "high"
+    },
+    "QS": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Solid-state battery technology, pre-commercial. Single thesis.",
+      "confidence": "high"
+    },
+    "RUN": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Residential solar installation + financing. Storage is adjacent. Single thesis.",
+      "confidence": "high"
+    },
+    "SPWR": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Residential solar (post-bankruptcy restructured). Single thesis.",
+      "confidence": "high"
+    },
+    "TSLA": {
+      "type": "B",
+      "drivers": 4,
+      "rationale": "USER OVERRIDE: Auto is 90%+ of current revenue but Tesla's stock valuation reflects multi-driver optionality — FSD/Robotaxi, Energy storage, Optimus, and Auto each carry independent valuation premiums in the market's pricing. Insurance is a 5th sub-driver but small. The thesis is multi-platform even when revenue isn't yet.",
+      "confidence": "high"
+    },
+    "TTD": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Demand-side platform for digital advertising. CTV is a sub-segment within the same DSP business. Single thesis.",
+      "confidence": "high"
+    },
+    "UNH": {
+      "type": "B",
+      "drivers": 4,
+      "rationale": "UnitedHealthcare (insurance), Optum Health (provider services), Optum Rx (PBM), Optum Insight (analytics). Four independent businesses; the Optum segments now exceed UHG insurance in profitability.",
+      "confidence": "high"
+    },
+    "V": {
+      "type": "A",
+      "drivers": 1,
+      "rationale": "Payment processing network. Multiple geographic and product variations but one core network business model.",
+      "confidence": "medium"
+    },
+    "WMT": {
+      "type": "B",
+      "drivers": 5,
+      "rationale": "Walmart US, Walmart International, Sam's Club, Walmart Connect (advertising), Marketplace + e-commerce. Advertising and marketplace are increasingly meaningful independent drivers.",
+      "confidence": "high"
+    }
+  }
+}

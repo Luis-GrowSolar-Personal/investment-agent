@@ -70,8 +70,18 @@ Root .env contains:
 ## Key Design Decisions — Do Not Re-Derive
 1. Agent operates in Layer 3→2→1 sequence (find → classify
    → enforce). Not 1→2→3.
-2. Two position types: Type A (single-driver, fixed ~35% cap)
-   and Type B (multi-driver platform, variable 40-60% cap).
+2. Two position types: Type A (single-driver, fixed 35% cap)
+   and Type B (multi-driver platform, fixed 50% cap). The
+   originally-specified variable 40-60% scheme for Type B was
+   tested 2026-05-17 and retired — empirically vestigial in
+   the presence of the 25% profit-take rule. See
+   PORTFOLIO_ANALYST_SPEC.md → "Variable cap experiment, retired".
+   Classifications are stored in
+   analysis/data/type_classifications.json and consumed by the
+   simulator via type_classifier.build_type_function().
+   "Tesla rule": classify as Type B when valuation reflects
+   multi-driver optionality, even if current revenue is
+   concentrated.
 3. Graduated exit ratchet: Weakening → trim to cap. No
    improvement after one quarter → trim 40% more. Second
    quarter deterioration → 3%. Third → exit.

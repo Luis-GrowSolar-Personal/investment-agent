@@ -65,8 +65,28 @@ analysis/backtest_runner.py.
 ## 5. Concentration Caps (Layer 1 Rules)
 
 - Type A (single-driver thesis): hard cap 35% at peak conviction
-- Type B (multi-driver platform): variable cap 40-60% based on 
-  active driver count
+- Type B (multi-driver platform): hard cap **50% (flat across all
+  Type B tickers)**
+  - **Design-intent variable cap retired (2026-05-17):** This
+    document originally specified Type B with a variable 40-60% cap
+    based on driver count (40% for 2-driver, scaling to 60% for 6+).
+    The scheme was implemented and tested against the full event
+    corpus. Result: essentially zero impact on v3 returns or
+    drawdowns. Mechanism: the 25% profit-take rule (introduced in
+    v2) binds long before the Type B cap binds, making the 40-60%
+    spread vestigial. The two rules are partial substitutes for the
+    same job; profit-take dominates in practice. Production is now
+    flat 50%. See PORTFOLIO_ANALYST_SPEC.md → "Variable cap
+    experiment, retired" for full empirical detail.
+  - Classification source of truth: `analysis/data/type_classifications.json`
+    (curated, user-reviewed). See `PORTFOLIO_ANALYST_SPEC.md`
+    section *Thesis Drivers (Type A/B classification)* for full
+    mechanism, the Tesla rule, the disagreement-badge UI design,
+    and the relationship to Maturity (tier) classification.
+  - "Tesla rule": a ticker can be classified Type B when its
+    valuation reflects multi-driver optionality even if current
+    revenue is concentrated. This is a deliberate deviation from
+    strict revenue-driver counting.
 - Tier 4 (above 30%): 48-hour waiting period before any hold 
   confirmation
 - Tax-aware trim: always trim tax-advantaged accounts first

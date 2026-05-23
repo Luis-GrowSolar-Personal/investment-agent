@@ -1,4 +1,5 @@
 *.log
+*.out
 __pycache__/
 .env
 .DS_Store
@@ -6,9 +7,15 @@ node_modules/
 *.pyc
 .env.local
 client/.env
+.claude/
 
 # Data caches and per-laptop artifacts (kept out of git intentionally)
-analysis/data/
+# NOTE: use analysis/data/* (not analysis/data/) so individual files below
+# can be re-included — git cannot un-ignore a file inside a fully-ignored dir.
+analysis/data/*
+# Exception: type_classifications.json is curated, hand-edited work (the
+# classification source of truth), not a regenerable cache — keep it tracked.
+!analysis/data/type_classifications.json
 .envrc.zsh
 cat_output
 diff_output
