@@ -11,13 +11,27 @@ model Ticker {
   id          Int          @id @default(autoincrement())
   symbol      String       @unique
   name        String
-  type        String       // "A" or "B"
+  type        String       // "A" or "B" — production Type A/B classification; source of truth for live allocator
   capPercent  Float
   status      String       @default("watchlist")  // "watchlist" or "portfolio"
   shortName   String?      // e.g. "Amprius" — short display name
   notes       String?
   createdAt   DateTime     @default(now())
   transcripts Transcript[]
+  positions   Position[]
+
+  // Portfolio Analyst Phase 1 — Ticker metadata
+  inScope            Boolean   @default(true)   // false for legacy/out-of-scope positions
+  activeDriverCount  Int?                        // 1-6+; metadata for UI and future variable-cap work
+  typeReviewedAt     DateTime?                   // when user last confirmed/overrode Type A/B classification
+
+  // Maturity (tier) classification — Phase 1 schema, UI in Phase 2c
+  // tierOverride: user-set value; null means fall back to mechanical classifier
+  // tierMechanical: last computed 3-axis result; stored for disagreement-badge diff
+  tierOverride       String?   // "speculative" | "established" | null
+  tierMechanical     String?   // "speculative" | "established" — last mechanical result
+  tierReviewedAt     DateTime? // when user last confirmed/overrode tier
+  tierRationale      String?   // user's reasoning for override
 }
 
 model Transcript {
@@ -53,6 +67,12 @@ model Analysis {
   capPercent                       Float?
   mitigationArgumentPresent        Boolean?
   mitigationCapabilityTrackRecord  String?
+  typeClassificationRationale      String?   // added in add_type_classification_rationale migration
+
+  // Version stamps (added in add_version_columns migration). Server-controlled —
+  // never from client input. Matches server/lib/versions.js constants.
+  promptVersion  String?   // e.g. "v6" — matches Version header in EVALUATION_PROMPT.md
+  modelVersion   String?   // e.g. "claude-sonnet-4-6" — exact model string sent to Anthropic
 
   // Trend-layer fields (added in add_trend_fields migration). All computed
   // by analysis/trend_analyst.py and synced via sync_trend_to_db.py.
@@ -69,4 +89,47 @@ model Analysis {
   finalAction       String?
   finalConfidence   String?
   trendRationale    String?
+}
+
+// ---------------------------------------------------------------------------
+// Portfolio Analyst — Phase 1 tables
+// ---------------------------------------------------------------------------
+
+// One Position per (ticker × account). A single ticker held in both taxable
+// and IRA would have two Position rows.
+model Position {
+  id        Int       @id @default(autoincrement())
+  tickerId  Int
+  ticker    Ticker    @relation(fields: [tickerId], references: [id])
+  account   String    // "taxable" | "ira" | "roth"
+  status    String    @default("active")  // "active" | "closed"
+  notes     String?
+  createdAt DateTime  @default(now())
+  closedAt  DateTime?
+  lots      Lot[]
+
+  @@unique([tickerId, account])  // one position per ticker+account
+}
+
+// Individual tax lots within a Position. Tracked separately for FIFO
+// gain/loss and LT-vs-ST tax computation at sell time.
+model Lot {
+  id           Int       @id @default(autoincrement())
+  positionId   Int
+  position     Position  @relation(fields: [positionId], references: [id])
+  shares       Float
+  costBasis    Float     // cost basis per share
+  acquiredDate DateTime
+  closedDate   DateTime? // set when lot is fully sold
+  notes        String?
+  createdAt    DateTime  @default(now())
+}
+
+// Available cash by account. One row per account type; upserted on each
+// manual reconciliation.
+model CashBalance {
+  account   String   @id  // "taxable" | "ira" | "roth"
+  balance   Float
+  asOfDate  DateTime
+  updatedAt DateTime @updatedAt
 }

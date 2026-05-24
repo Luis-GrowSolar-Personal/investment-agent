@@ -4,6 +4,7 @@ import NavBar from './components/NavBar.jsx';
 import Evaluator from './pages/Evaluator.jsx';
 import Radar from './pages/Radar.jsx';
 import AdvisoryFeed from './pages/AdvisoryFeed.jsx';
+import Portfolio from './pages/Portfolio.jsx';
 
 export default function App() {
   const location = useLocation();
@@ -33,6 +34,9 @@ export default function App() {
           </div>
           <div style={{ display: location.pathname === '/advisories' ? 'block' : 'none' }}>
             <AdvisoryFeed />
+          </div>
+          <div style={{ display: location.pathname === '/portfolio' ? 'block' : 'none' }}>
+            <Portfolio />
           </div>
         </div>
       </SignedIn>

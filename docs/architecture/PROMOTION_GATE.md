@@ -1,6 +1,6 @@
 # Promotion Gate — Evaluation & Change-Control Methodology
 
-**Status:** Design (pre-implementation). Methodology locked 2026-05-23.
+**Status:** Locked 2026-05-23; two-hurdle extension 2026-05-23b.
 **Purpose:** Nothing in the analyst/allocator stack goes live until a candidate
 beats the incumbent on a *pre-registered* metric, *out-of-sample*, by *more than
 measured noise*. The gate is the disciplined, repeatable version of what has so far
@@ -41,15 +41,33 @@ Cap %, max-per-type, profit-take threshold, a new sizing parameter, etc.
   its keep; ties go to the simpler config — as when the variable Type B cap was
   retired 2026-05-17).
 
-### 2.2 Analyst-layer changes
-A new prompt version, a new Claude model version.
-- Require **re-evaluating transcripts through the LLM** against a version-stamped
-  cache. Costly, non-deterministic, and they change the *inputs* to everything
-  downstream.
-- Few candidates; a model/prompt swap is *not* a parameter search (one fixed thing
-  vs another), so multiple-comparison risk is lower.
-- **Rigor:** full-sample comparison + effect-size threshold + robustness checks
-  is acceptable (no strict holdout required, because there is no search).
+### 2.2 Analyst-layer changes — two sub-classes
+
+Both require **re-evaluating transcripts through the LLM** against a version-stamped
+cache. Costly, non-deterministic, and they change the *inputs* to everything
+downstream.
+
+#### 2.2a  Prompt / eval-logic changes
+A new prompt version, revised scoring criteria.
+- Few candidates; not a parameter search (one fixed thing vs another),
+  so multiple-comparison risk is low.
+- **Hurdle: improvement.** Promote only if the challenger clearly beats the
+  champion — lift must exceed the noise threshold (§6). Ties keep the incumbent.
+- **Rigor:** full-sample comparison + effect-size threshold + robustness checks.
+
+#### 2.2b  Claude model-version changes
+Adopting a newer Claude release (e.g. sonnet-4-20250514 → sonnet-4-6).
+- **Hurdle: equivalence.** Promote unless the challenger clearly *regresses* —
+  i.e., the lift falls more than 1 bootstrap SD *below* the champion.
+- **Rationale:** the incumbent model will eventually be deprecated by Anthropic.
+  A forced, unvalidated migration under time pressure is worse than adopting a
+  statistically equivalent newer model on a known schedule. An equivalent result
+  is sufficient grounds for adoption; only a clear regression blocks it.
+- **Holdout:** skipped for EQUIVALENT results — there is no improvement claim to
+  validate out-of-sample. Holdout is consumed only if the challenger is clearly
+  *better* (PROMOTE verdict on the training window).
+- **Rigor:** same noise threshold and per-ticker robustness as 2.2a, but applied
+  symmetrically (regression detection rather than improvement confirmation).
 
 ---
 
@@ -112,15 +130,45 @@ trade-off is visible.
 
 ## 5. Promotion rule
 
-Promote the candidate over the incumbent only if **all** hold:
-1. the **primary** metric beats the incumbent by **more than the measured noise
-   threshold** (§6) — not "any improvement";
-2. the **secondary** metric does not materially regress;
-3. the gain is **not driven by a single ticker or sub-period** (robustness, §7);
-4. on ties, keep the **simpler incumbent** (complexity penalty).
-
 The decision rule and the primary metric are **pre-registered** — declared before the
 run — so the flattering metric cannot be selected after the fact.
+
+### 5a. Three-verdict system
+
+Every gate run produces one of three training-window verdicts, determined by how far
+the challenger's lift falls from the champion's, measured in bootstrap SDs (§6):
+
+| Δ = challenger lift − champion lift | Verdict | Meaning |
+|---|---|---|
+| Δ > +1 SD | **PROMOTE** | Challenger clearly better |
+| −1 SD ≤ Δ ≤ +1 SD | **EQUIVALENT** | Statistically indistinguishable |
+| Δ < −1 SD | **HOLD** | Challenger clearly worse — regression |
+
+### 5b. Verdict → action mapping (by hurdle type)
+
+The same three verdicts map to different actions depending on *why* the change
+is being made:
+
+| Verdict | Prompt / eval-logic change | Claude model-version change |
+|---|---|---|
+| PROMOTE | **Adopt** | **Adopt** |
+| EQUIVALENT | Hold (no reason to change) | **Adopt** (avoid deprecation risk) |
+| HOLD | Hold | Hold |
+
+**Prompt changes (improvement hurdle):** promote only if clearly better.
+Ties and regressions both keep the incumbent; complexity penalty applies.
+
+**Model-version changes (equivalence hurdle):** promote unless clearly worse.
+EQUIVALENT is sufficient for adoption. Holdout is not consumed for EQUIVALENT
+results — there is no improvement claim to validate.
+
+### 5c. Additional conditions for PROMOTE (both hurdle types)
+
+1. The **secondary** metric does not materially regress (§4).
+2. The gain is **not driven by a single ticker or sub-period** (robustness — §7).
+   For EQUIVALENT model-version results, robustness is checked but not blocking
+   (there is no concentrated gain to worry about).
+3. On ties within the noise band, keep the **simpler incumbent** for prompt changes.
 
 ---
 
@@ -194,10 +242,25 @@ Each step ships and is usable on its own; resist building all at once.
 
 ## 10. Open items / deferred decisions
 
-- **Model-pin decision (active):** revert `evaluate.js` to `claude-sonnet-4-20250514`
-  to freeze, vs deliberately adopt `claude-sonnet-4-6` via a first gate run. The A/B
-  diff script (re-eval cached-4-0 transcripts under 4-6, diff structured scores) is the
-  empirical input to this decision.
+- **Model-pin decision (resolved 2026-05-23):** gate run for sonnet-4-20250514
+  vs sonnet-4-6 under `--hurdle model_version` (equivalence hurdle). Verdict:
+  **HOLD** — challenger regressed by 7.4pp (noise floor 4.2pp); 29% of tickers
+  improved (below 50% robustness threshold). Champion `claude-sonnet-4-20250514`
+  retained. See `data/gate_ledger.json` entry 1. Re-run when sonnet-4-7 or later
+  snapshot is available.
+- **Validation corpus expansion (pre-next-model-gate):** the current 7-ticker set
+  (ENPH, TTD, AMPX, ENVX, EOSE, QS, SPWR) was the original backtest set, not
+  deliberately designed for balance. It skews heavily speculative/small-cap (5 of 7)
+  and both large-cap names (ENPH, TTD) had significant price drawdowns during the
+  evaluation window. This biases the gate toward measuring speculative-thesis
+  evaluation quality only.
+  Before the next model gate run, lock an expanded corpus with deliberate balance
+  across: large-cap established vs. small-cap speculative; Type A (single-driver)
+  vs. Type B (multi-driver platform); and sector coverage within the circle of
+  competence (solar, storage, semiconductors, software/cloud).
+  **Constraint:** the expanded ticker list must be finalized and locked *before*
+  any challenger eval cache is generated. Post-hoc selection after seeing champion
+  performance would introduce bias the gate is designed to prevent.
 - **Analyst ground-truth alternative:** forward *fundamental* confirmation (vs
   forward return) was considered and deferred — more faithful to the thesis claim but
   needs an independent label and is slower. Revisit if return-based grading proves too
@@ -211,3 +274,4 @@ Each step ships and is usable on its own; resist building all at once.
 | Date | Change | Rationale |
 |---|---|---|
 | 2026-05-23 | Initial methodology drafted and locked | Generalizes manual change-testing into a disciplined champion/challenger gate. Triggered by the accidental model bump (4→4.6) exposing un-version-controlled analyst drift. Decisions: manual/on-demand trigger; benchmark-relative 2Q ±5% lift-over-hold analyst metric; return-per-drawdown portfolio metric; recent-holdout + scaled-rigor OOS; metric-to-change mapping per §4. |
+| 2026-05-23b | Two-hurdle extension: split analyst changes into improvement vs equivalence hurdle | If every model version update must clearly beat the incumbent to be adopted, and none ever does, the system would eventually be stranded on a deprecated model with no validated fallback. Model-version changes now use an equivalence hurdle: adopt unless the challenger clearly regresses (Δ < −1 SD). Prompt / eval-logic changes retain the improvement hurdle (Δ > +1 SD to adopt). Three-verdict system (PROMOTE / EQUIVALENT / HOLD) added to §5; holdout skipped for EQUIVALENT results. Implemented in gate_runner.py via --change-class flag. |

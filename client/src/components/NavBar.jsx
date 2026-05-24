@@ -48,6 +48,9 @@ export default function NavBar() {
         <NavLink to="/advisories" style={({ isActive }) => tabStyle(isActive)}>
           Advisory Feed
         </NavLink>
+        <NavLink to="/portfolio" style={({ isActive }) => tabStyle(isActive)}>
+          Portfolio
+        </NavLink>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
