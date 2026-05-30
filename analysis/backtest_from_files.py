@@ -62,7 +62,11 @@ ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 if not ANTHROPIC_API_KEY:
     sys.exit(f"ERROR: ANTHROPIC_API_KEY not found (looked in {ENV_PATH}).")
 
-MODEL = "claude-sonnet-4-20250514"
+MODEL = "claude-sonnet-4-6"
+# MODEL_SLUG: short label used as part of the eval cache subdir name.
+# Strip the "claude-" prefix so subdir names stay readable.
+# e.g. "claude-sonnet-4-20250514" → "sonnet-4-20250514"
+MODEL_SLUG = MODEL.removeprefix("claude-")
 VERSION = "1.3.0-files"
 FORWARD_DAYS = 90
 
@@ -265,7 +269,9 @@ def main() -> int:
             return None
 
         transcript_text = tx_path.read_text()
-        cache_dir = EVALS_DIR / prompt_version
+        # Version-key the cache by (prompt_version, model_slug) so evals from
+        # different model/prompt combos never mix. e.g. "v6_sonnet-4-20250514"
+        cache_dir = EVALS_DIR / f"{prompt_version}_{MODEL_SLUG}"
         cache_path = cache_dir / f"{symbol}_{call_date}.txt"
         raw_output = None
         if args.reuse_cache and cache_path.exists():
@@ -281,8 +287,6 @@ def main() -> int:
         if args.save_evals or args.reuse_cache:
             cache_dir.mkdir(parents=True, exist_ok=True)
             cache_path.write_text(raw_output)
-            (EVALS_DIR).mkdir(parents=True, exist_ok=True)
-            (EVALS_DIR / f"{symbol}_{call_date}.txt").write_text(raw_output)
 
         score = parse_structured_score(raw_output)
 

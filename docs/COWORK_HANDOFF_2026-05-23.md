@@ -45,14 +45,15 @@ specced but **not yet built** (design phase).
   prompt/model changes, portfolio metric gates parameter changes).
 
 ## Open decisions (need Luis)
-- **Model pin:** `evaluate.js` was accidentally bumped `claude-sonnet-4-20250514` →
-  `claude-sonnet-4-6` (drift over the multi-week project, not requested). Decide: revert
-  to the pinned old snapshot (freeze) **or** adopt 4-6 deliberately via a first gate run.
-  `CLAUDE.md` line ~24 still lists the old string — reconcile once decided.
+- **Model pin:** Build the Promotion Gate first; then run the model-pin A/B diff script
+  (4-20250514 vs 4-6) through the gate. Adopt 4-6 deliberately if it clears the bar;
+  revert if not. `CLAUDE.md` line ~24 still lists the old string — reconcile once decided.
+
+## Backlog (deferred, not urgent)
 - **Railway cap=50 deploy:** the watchlist transcript cap was raised to 50 in code/commits
   but the ENPH-won't-load-past-~17 symptom suggests Railway may still run an older build.
-  Worked around by promoting tickers to portfolio status; real fix (verify Railway deploy)
-  deferred.
+  Worked around by promoting tickers to portfolio status; real fix = verify Railway deploy
+  picked up the cap change.
 
 ---
 

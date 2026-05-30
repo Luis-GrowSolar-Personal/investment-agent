@@ -32,6 +32,12 @@ model Ticker {
   tierMechanical     String?   // "speculative" | "established" — last mechanical result
   tierReviewedAt     DateTime? // when user last confirmed/overrode tier
   tierRationale      String?   // user's reasoning for override
+
+  // Portfolio bucket classification — Phase 2
+  // Controls which bucket this ticker appears in on the Portfolio page.
+  // null → fall back to smartDefault(assetType, symbol) at display time.
+  // Values: "equity" | "etf" | "crypto" | "commodity"
+  bucketOverride     String?
 }
 
 model Transcript {
@@ -92,23 +98,59 @@ model Analysis {
 }
 
 // ---------------------------------------------------------------------------
-// Portfolio Analyst — Phase 1 tables
+// Portfolio Analyst — Phase 2 tables
 // ---------------------------------------------------------------------------
 
-// One Position per (ticker × account). A single ticker held in both taxable
-// and IRA would have two Position rows.
-model Position {
-  id        Int       @id @default(autoincrement())
-  tickerId  Int
-  ticker    Ticker    @relation(fields: [tickerId], references: [id])
-  account   String    // "taxable" | "ira" | "roth"
-  status    String    @default("active")  // "active" | "closed"
-  notes     String?
-  createdAt DateTime  @default(now())
-  closedAt  DateTime?
-  lots      Lot[]
+// One Account per named brokerage account. Supports multiple accounts of the
+// same type (e.g. two taxable accounts), multiple owners, and margin tracking.
+model Account {
+  id             Int        @id @default(autoincrement())
+  name           String                   // e.g. "Schwab Taxable 1"
+  type           String                   // "taxable" | "ira" | "roth" | "custodial"
+  owner          String                   // "Luis" | "Sofia" | "Kids"
+  managed        Boolean    @default(false) // true = agent-managed, false = manual/reference
+  ltcgRate       Float?                   // null → use default 0.15
+  stcgRate       Float?                   // null → use default 0.15
 
-  @@unique([tickerId, account])  // one position per ticker+account
+  // Cash position — updated on each import or manual reconciliation
+  cashBalance    Float?
+  cashAsOfDate   DateTime?
+
+  // Margin facility — only present if account has margin enabled
+  marginBalance  Float?                   // current debit balance (positive = borrowed)
+  marginRate     Float?                   // current annualised interest rate (e.g. 0.0825)
+  marginRateAsOf DateTime?               // when current rate took effect
+  marginRateLog  Json?                   // append-only [{rate: Float, effectiveDate: String}]
+  marginAsOfDate DateTime?               // when margin balance was last updated
+
+  notes          String?
+  createdAt      DateTime   @default(now())
+  positions      Position[]
+
+  @@unique([name, owner])
+}
+
+// One Position per (ticker × account). A ticker held in both taxable and IRA
+// has two Position rows.
+model Position {
+  id         Int       @id @default(autoincrement())
+  tickerId   Int
+  ticker     Ticker    @relation(fields: [tickerId], references: [id])
+  accountId  Int
+  account    Account   @relation(fields: [accountId], references: [id])
+  status     String    @default("active")  // "active" | "closed"
+  notes      String?
+  createdAt  DateTime  @default(now())
+  closedAt       DateTime?
+  lots           Lot[]
+
+  // Last-known market price — populated by refresh-prices endpoint
+  lastPrice      Float?
+  lastPriceAsOf  DateTime?
+  dayChangePct   Float?    // e.g. 0.012 = +1.2%
+  dayChangeDollar Float?   // per share
+
+  @@unique([tickerId, accountId])  // one position per ticker+account
 }
 
 // Individual tax lots within a Position. Tracked separately for FIFO
@@ -120,16 +162,8 @@ model Lot {
   shares       Float
   costBasis    Float     // cost basis per share
   acquiredDate DateTime
+  source       String    @default("manual") // "manual" | "import"
   closedDate   DateTime? // set when lot is fully sold
   notes        String?
   createdAt    DateTime  @default(now())
-}
-
-// Available cash by account. One row per account type; upserted on each
-// manual reconciliation.
-model CashBalance {
-  account   String   @id  // "taxable" | "ira" | "roth"
-  balance   Float
-  asOfDate  DateTime
-  updatedAt DateTime @updatedAt
 }

@@ -1,6 +1,7 @@
 const express = require('express');
 const { requireAuth } = require('@clerk/express');
 const prisma = require('../lib/prisma');
+const { PROMPT_VERSION, MODEL_VERSION } = require('../lib/versions');
 
 const router = express.Router();
 
@@ -167,6 +168,10 @@ router.post('/', requireAuth(), async (req, res) => {
         capPercent:                      s.capPercent                      ?? null,
         mitigationArgumentPresent:       s.mitigationArgumentPresent       ?? null,
         mitigationCapabilityTrackRecord: s.mitigationCapabilityTrackRecord ?? null,
+        typeClassificationRationale:     s.typeClassificationRationale     ?? null,
+        // Version stamps — always server-controlled, never from client input
+        promptVersion:                   PROMPT_VERSION,
+        modelVersion:                    MODEL_VERSION,
       },
     });
 

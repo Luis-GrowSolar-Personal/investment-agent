@@ -102,7 +102,7 @@ Classify as:
 - Type B: multi-driver platform thesis — multiple
   independent demand drivers where impairment of one
   can be offset by acceleration of another.
-  Variable cap 40-60% tracking driver count.
+  Fixed cap 50%; profit-take rule at 25% gain binds first.
 
 ## POSITION SIZING RECOMMENDATION
 State a specific maximum position size as a percentage
@@ -186,6 +186,7 @@ cannot determine from the transcript.
   "recommendedSize": null,
   "freshMoneyAllocation": null,
   "typeClassification": "",
+  "typeClassificationRationale": "",
   "stumbleType": "",
   "threatMechanismImpaired": null,
   "credibilityDelta": "",
@@ -206,6 +207,9 @@ Field definitions:
 - recommendedSize: number (max % of portfolio, e.g. 13)
 - freshMoneyAllocation: number (% if starting fresh today)
 - typeClassification: "A" | "B"
+- typeClassificationRationale: 1-2 sentence explanation of why this
+  ticker was classified as Type A or Type B — which specific drivers
+  (or single driver) determined the classification
 - stumbleType: "Discovery" | "Execution" | "Structural" | "None"
 - threatMechanismImpaired: true | false | null
 - credibilityDelta: "positive" | "neutral" | "negative"

@@ -19,7 +19,14 @@ from typing import Optional
 
 from .data import CallEvent
 
-EVALS_DIR = Path(__file__).resolve().parent.parent / "data" / "evals" / "v6"
+_DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "evals"
+# Prefer the versioned subdir; fall back to legacy "v6" dir if rename hasn't been done yet.
+_DEFAULT_EVALS_SUBDIR = "v6_sonnet-4-20250514"
+EVALS_DIR = (
+    _DATA_DIR / _DEFAULT_EVALS_SUBDIR
+    if (_DATA_DIR / _DEFAULT_EVALS_SUBDIR).exists()
+    else _DATA_DIR / "v6"
+)
 STRUCTURED_RE = re.compile(
     r"---STRUCTURED---\s*(\{.*?\})\s*---END STRUCTURED---", re.DOTALL
 )
@@ -35,11 +42,17 @@ def _parse_structured(text: str) -> dict:
         return {}
 
 
-def load_events_from_cache() -> list[CallEvent]:
-    """Walk data/evals/v6/, parse each file, return CallEvents in chronological
-    order. final_action is set later by `attach_trend_verdicts`."""
+def load_events_from_cache(eval_dir: Path | None = None) -> list[CallEvent]:
+    """Walk the eval cache dir, parse each file, return CallEvents in chronological
+    order. final_action is set later by `attach_trend_verdicts`.
+
+    Args:
+        eval_dir: Override the default EVALS_DIR. Used by the gate runner to
+                  load events from a specific versioned cache.
+    """
+    source = eval_dir or EVALS_DIR
     events: list[CallEvent] = []
-    for f in sorted(EVALS_DIR.glob("*.txt")):
+    for f in sorted(source.glob("*.txt")):
         # Filename: TICKER_YYYY-MM-DD.txt
         stem = f.stem
         try:
@@ -123,11 +136,12 @@ def attach_trend_verdicts(
 _field_cache: dict[tuple[str, date], dict] = {}
 
 
-def _read_field(ticker: str, d: date, field: str):
+def _read_field(ticker: str, d: date, field: str, eval_dir: Path | None = None):
     """Cached lookup of a single structured-score field for one eval file."""
-    key = (ticker, d)
+    source = eval_dir or EVALS_DIR
+    key = (source, ticker, d)
     if key not in _field_cache:
-        f = EVALS_DIR / f"{ticker}_{d.isoformat()}.txt"
+        f = source / f"{ticker}_{d.isoformat()}.txt"
         if not f.exists():
             _field_cache[key] = {}
         else:

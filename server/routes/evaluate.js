@@ -4,6 +4,8 @@ const fs = require('fs');
 const Anthropic = require('@anthropic-ai/sdk');
 const { requireAuth } = require('@clerk/express');
 
+const { PROMPT_VERSION, MODEL_VERSION } = require('../lib/versions');
+
 const router = express.Router();
 const client = new Anthropic();
 
@@ -47,7 +49,7 @@ router.post('/', requireAuth(), async (req, res) => {
 
   try {
     const message = await client.messages.create({
-      model: 'claude-sonnet-4-6',
+      model: MODEL_VERSION,
       max_tokens: 4096,
       system: systemPrompt,
       messages: [
@@ -76,6 +78,8 @@ router.post('/', requireAuth(), async (req, res) => {
     res.json({
       analysis,
       structuredScore,
+      promptVersion: PROMPT_VERSION,
+      modelVersion:  MODEL_VERSION,
       tickerSymbol: metadata.tickerSymbol,
       companyName: metadata.companyName,
       callDate: metadata.callDate,
