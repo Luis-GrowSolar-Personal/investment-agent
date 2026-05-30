@@ -61,69 +61,9 @@ async function refreshPrices(prisma, positionIds) {
   let updated   = 0;
   const asOf    = new Date();
 
-  try {
-    // Snapshot endpoint: fetch all symbols in one call
-    const url = `${POLYGON_BASE}/v2/snapshot/locale/us/markets/stocks/tickers`
-      + `?tickers=${symbols.join(',')}&apiKey=${apiKey}`;
-
-    const res = await fetch(url);
-    if (!res.ok) {
-      const body = await res.text();
-      return { updated: 0, errors: [{ symbol: 'ALL', error: `Polygon ${res.status}: ${body.slice(0, 200)}` }] };
-    }
-
-    const data = await res.json();
-    const tickers = data.tickers || [];
-
-    if (!tickers.length) {
-      // May be crypto/ETF symbols — try them individually via previous close
-      // (snapshot only covers US stocks; for others fall back to prev close endpoint)
-      return await refreshViaIndividualQuotes(prisma, symbols, symbolToPositionIds, apiKey, asOf);
-    }
-
-    // Build a map from symbol → quote data
-    const quoteMap = {};
-    for (const t of tickers) {
-      quoteMap[t.ticker] = t;
-    }
-
-    // Update DB for each symbol
-    const updatePromises = [];
-    for (const sym of symbols) {
-      const q = quoteMap[sym];
-      if (!q) {
-        errors.push({ symbol: sym, error: 'Not returned by Polygon snapshot' });
-        continue;
-      }
-
-      // Use lastTrade price, fall back to day close
-      const price          = q.lastTrade?.p ?? q.day?.c ?? null;
-      const dayChangeDollar = q.todaysChange ?? null;
-      const dayChangePct   = q.todaysChangePerc != null ? q.todaysChangePerc / 100 : null;
-
-      if (price == null) {
-        errors.push({ symbol: sym, error: 'No price in snapshot response' });
-        continue;
-      }
-
-      for (const posId of symbolToPositionIds[sym]) {
-        updatePromises.push(
-          prisma.position.update({
-            where: { id: posId },
-            data: { lastPrice: price, lastPriceAsOf: asOf, dayChangePct, dayChangeDollar },
-          })
-        );
-        updated++;
-      }
-    }
-
-    await Promise.all(updatePromises);
-
-  } catch (err) {
-    return { updated: 0, errors: [{ symbol: 'ALL', error: err.message }] };
-  }
-
-  return { updated, errors };
+  // Use prev-close endpoint (free tier) for all symbols in parallel
+  const result = await refreshViaIndividualQuotes(prisma, symbols, symbolToPositionIds, apiKey, asOf);
+  return result;
 }
 
 /**
