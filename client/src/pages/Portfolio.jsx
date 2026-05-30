@@ -856,8 +856,10 @@ function EditPositionModal({ position, token, onSaved, onClose }) {
 
 // ── Account card ──────────────────────────────────────────────────────────────
 
-function AccountCard({ account, expanded, onToggle, token, onRefresh }) {
-  const [showCashEdit, setShowCashEdit] = useState(false);
+function AccountCard({ account, expanded, onToggle, token, onRefresh, onDeleted }) {
+  const [showCashEdit, setShowCashEdit]       = useState(false);
+  const [showDeleteStep1, setShowDeleteStep1] = useState(false);
+  const [showDeleteStep2, setShowDeleteStep2] = useState(false);
 
   const typeLabel = ACCOUNT_TYPE_LABELS[account.type] || account.type;
   const managed   = account.managed;
@@ -901,10 +903,21 @@ function AccountCard({ account, expanded, onToggle, token, onRefresh }) {
               <span style={{ color: gainColor(gain) }}>{fmtDollars(gain)} ({fmtPct(gainPct)})</span>
             </div>
           </div>
-          {/* Right: total MV + chevron */}
-          <div style={{ textAlign: 'right' }}>
+          {/* Right: total MV + chevron + delete */}
+          <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
             <div style={{ fontSize: 20, fontWeight: 700, color: '#f1f5f9' }}>{fmtDollars(totalMV, true)}</div>
-            <div style={{ fontSize: 11, color: '#475569', marginTop: 2 }}>{expanded ? '▲' : '▼'}</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <button
+                onClick={e => { e.stopPropagation(); setShowDeleteStep1(true); }}
+                title="Delete account"
+                style={{ background: 'none', border: 'none', color: '#334155', cursor: 'pointer', fontSize: 12, padding: 0 }}
+                onMouseEnter={e => e.currentTarget.style.color = '#ef4444'}
+                onMouseLeave={e => e.currentTarget.style.color = '#334155'}
+              >
+                Delete account
+              </button>
+              <div style={{ fontSize: 11, color: '#475569' }}>{expanded ? '▲' : '▼'}</div>
+            </div>
           </div>
         </div>
         {/* Bucket pills */}
@@ -946,6 +959,25 @@ function AccountCard({ account, expanded, onToggle, token, onRefresh }) {
           token={token}
           onSaved={() => { setShowCashEdit(false); onRefresh(); }}
           onClose={() => setShowCashEdit(false)}
+        />
+      )}
+
+      {/* Delete step 1 */}
+      {showDeleteStep1 && (
+        <DeleteAccountStep1
+          account={account}
+          onNext={() => { setShowDeleteStep1(false); setShowDeleteStep2(true); }}
+          onClose={() => setShowDeleteStep1(false)}
+        />
+      )}
+
+      {/* Delete step 2 */}
+      {showDeleteStep2 && (
+        <DeleteAccountStep2
+          account={account}
+          token={token}
+          onDeleted={() => { setShowDeleteStep2(false); onDeleted(); }}
+          onClose={() => setShowDeleteStep2(false)}
         />
       )}
     </div>
@@ -1100,6 +1132,103 @@ function readFileText(file) {
   });
 }
 
+// ── Delete account modals ─────────────────────────────────────────────────────
+
+function DeleteAccountStep1({ account, onNext, onClose }) {
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
+      <div style={{ background: '#0f1117', border: '1px solid #3d1515', borderRadius: 10, padding: 28, width: 460, maxWidth: '95vw' }}>
+        <div style={{ fontSize: 18, fontWeight: 700, color: '#fca5a5', marginBottom: 12 }}>⚠ Delete account</div>
+        <p style={{ fontSize: 14, color: '#f1f5f9', lineHeight: 1.6, margin: '0 0 12px' }}>
+          You are about to permanently delete <strong>{account.name}</strong>.
+        </p>
+        <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.6, margin: '0 0 20px' }}>
+          This will erase all positions, tax lots, and cost basis history for this account.
+          Any unrealised gain/loss data and import history will be gone permanently.
+          This action <strong style={{ color: '#fca5a5' }}>cannot be undone</strong>.
+        </p>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+          <button onClick={onClose}
+            style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, padding: '7px 18px', borderRadius: 5, cursor: 'pointer' }}>
+            Cancel
+          </button>
+          <button onClick={onNext}
+            style={{ background: '#7f1d1d', border: '1px solid #ef4444', color: '#fca5a5', fontSize: 13, fontWeight: 600, padding: '7px 18px', borderRadius: 5, cursor: 'pointer' }}>
+            I understand — continue
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DeleteAccountStep2({ account, token, onDeleted, onClose }) {
+  const [typed, setTyped]   = useState('');
+  const [deleting, setDeleting] = useState(false);
+  const [error, setError]   = useState('');
+  const confirmed = typed === account.name;
+
+  async function handleDelete() {
+    setDeleting(true);
+    setError('');
+    try {
+      const res = await fetch(`${API}/api/portfolio/accounts/${account.id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ confirm: true }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      onDeleted();
+    } catch (err) {
+      setError(err.message);
+      setDeleting(false);
+    }
+  }
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
+      <div style={{ background: '#0f1117', border: '1px solid #3d1515', borderRadius: 10, padding: 28, width: 420, maxWidth: '95vw' }}>
+        <div style={{ fontSize: 16, fontWeight: 700, color: '#fca5a5', marginBottom: 12 }}>Final confirmation</div>
+        <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.6, margin: '0 0 16px' }}>
+          Type the account name exactly to confirm deletion:
+        </p>
+        <div style={{ fontSize: 12, color: '#475569', marginBottom: 6, fontFamily: 'monospace' }}>{account.name}</div>
+        <input
+          style={{
+            background: '#0d1018', border: `1px solid ${confirmed ? '#ef4444' : '#2d3748'}`,
+            borderRadius: 5, color: '#f1f5f9', fontSize: 13, padding: '7px 10px',
+            outline: 'none', width: '100%', boxSizing: 'border-box', marginBottom: 16,
+          }}
+          value={typed}
+          onChange={e => setTyped(e.target.value)}
+          placeholder="Type account name here"
+          autoFocus
+        />
+        {error && <div style={{ color: '#ef4444', fontSize: 12, marginBottom: 12 }}>{error}</div>}
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+          <button onClick={onClose}
+            style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, padding: '7px 18px', borderRadius: 5, cursor: 'pointer' }}>
+            Cancel
+          </button>
+          <button
+            onClick={handleDelete}
+            disabled={!confirmed || deleting}
+            style={{
+              background: confirmed && !deleting ? '#ef4444' : '#2d1515',
+              border: 'none', color: confirmed ? '#fff' : '#475569',
+              fontSize: 13, fontWeight: 600, padding: '7px 18px', borderRadius: 5,
+              cursor: confirmed && !deleting ? 'pointer' : 'not-allowed',
+            }}
+          >
+            {deleting ? 'Deleting…' : 'Delete permanently'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Main Portfolio page ───────────────────────────────────────────────────────
 
 export default function Portfolio() {
@@ -1194,6 +1323,7 @@ export default function Portfolio() {
             onToggle={() => toggleExpand(acct.id)}
             token={token}
             onRefresh={fetchAccounts}
+            onDeleted={fetchAccounts}
           />
         ))
       )}

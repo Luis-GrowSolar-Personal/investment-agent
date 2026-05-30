@@ -91,10 +91,16 @@ async function refreshViaIndividualQuotes(prisma, symbols, symbolToPositionIds, 
     try {
       const polygonTicker = toPolygonTicker(sym);
       const url = `${POLYGON_BASE}/v2/aggs/ticker/${polygonTicker}/prev?adjusted=true&apiKey=${apiKey}`;
-      const res = await fetch(url);
+      let res = await fetch(url);
+      // On 429, wait 15s and retry once
+      if (res.status === 429) {
+        console.log(`[priceRefresh] ${sym}: 429 — waiting 15s then retrying`);
+        await sleep(15000);
+        res = await fetch(url);
+      }
       if (!res.ok) {
         errors.push({ symbol: sym, error: `Polygon ${res.status}` });
-        await sleep(250);
+        await sleep(500);
         continue;
       }
       const data = await res.json();
@@ -117,7 +123,7 @@ async function refreshViaIndividualQuotes(prisma, symbols, symbolToPositionIds, 
     } catch (err) {
       errors.push({ symbol: sym, error: err.message });
     }
-    await sleep(250); // 250ms between calls → well under 5 req/min burst limit
+    await sleep(500); // space calls to stay under free-tier burst limit
   }
 
   await Promise.all(updatePromises);

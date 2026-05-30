@@ -182,15 +182,28 @@ router.patch('/accounts/:id', async (req, res) => {
 });
 
 // DELETE /api/portfolio/accounts/:id
+// Cascades: deletes all lots → positions → account
+// Requires { confirm: true } in body as an extra safeguard
 router.delete('/accounts/:id', async (req, res) => {
   const id = parseInt(req.params.id);
+  if (!req.body?.confirm) {
+    return res.status(400).json({ error: 'confirm: true required to delete an account' });
+  }
   try {
-    const count = await prisma.position.count({ where: { accountId: id } });
-    if (count > 0) {
-      return res.status(409).json({ error: 'Cannot delete account with positions. Remove positions first.' });
+    // Find all position IDs for this account
+    const positions = await prisma.position.findMany({
+      where: { accountId: id },
+      select: { id: true },
+    });
+    const positionIds = positions.map(p => p.id);
+
+    // Cascade delete lots → positions → account
+    if (positionIds.length > 0) {
+      await prisma.lot.deleteMany({ where: { positionId: { in: positionIds } } });
+      await prisma.position.deleteMany({ where: { accountId: id } });
     }
     await prisma.account.delete({ where: { id } });
-    res.json({ deleted: id });
+    res.json({ deleted: id, positionsRemoved: positionIds.length });
   } catch (err) {
     console.error('DELETE /accounts/:id error:', err);
     res.status(500).json({ error: err.message });
