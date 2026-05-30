@@ -235,8 +235,25 @@ router.post('/positions', async (req, res) => {
 
   try {
     if (!tickerId && symbol) {
-      const ticker = await prisma.ticker.findUnique({ where: { symbol: symbol.toUpperCase() } });
-      if (!ticker) return res.status(404).json({ error: `Ticker ${symbol} not found. Add it to RADAR first.` });
+      const sym = symbol.toUpperCase();
+      let ticker = await prisma.ticker.findUnique({ where: { symbol: sym } });
+      if (!ticker) {
+        // Auto-create a minimal watchlist entry so Portfolio doesn't require RADAR pre-entry
+        const { smartDefaultBucket } = require('../lib/portfolioImport');
+        const bucket = smartDefaultBucket('', sym);
+        ticker = await prisma.ticker.create({
+          data: {
+            symbol:        sym,
+            name:          sym,
+            shortName:     sym,
+            type:          'A',
+            capPercent:    0,
+            status:        'watchlist',
+            inScope:       false,
+            bucketOverride: bucket !== 'equity' ? bucket : null,
+          },
+        });
+      }
       tickerId = ticker.id;
     }
     if (!tickerId) return res.status(400).json({ error: 'tickerId or symbol is required' });

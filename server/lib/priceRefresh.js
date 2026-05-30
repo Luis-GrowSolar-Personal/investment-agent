@@ -66,28 +66,43 @@ async function refreshPrices(prisma, positionIds) {
   return result;
 }
 
+// Map portfolio symbols to Polygon ticker format
+// Crypto ETFs (IBIT, GBTC) are regular stocks on Polygon — no mapping needed
+// Raw crypto symbols need the X: prefix
+const CRYPTO_RAW = new Set(['BTC', 'ETH', 'SOL', 'DOGE', 'XRP', 'ADA', 'AVAX', 'MATIC']);
+
+function toPolygonTicker(sym) {
+  if (CRYPTO_RAW.has(sym)) return `X:${sym}USD`;
+  return sym;
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
 /**
- * Fallback: fetch each symbol individually via Polygon's previous close endpoint.
- * Used for ETFs/crypto that may not appear in the US stocks snapshot.
+ * Fetch each symbol sequentially via Polygon's previous close endpoint.
+ * Sequential (not parallel) to avoid burst rate limit on free tier.
  */
 async function refreshViaIndividualQuotes(prisma, symbols, symbolToPositionIds, apiKey, asOf) {
   const errors = [];
   let updated  = 0;
   const updatePromises = [];
 
-  await Promise.all(symbols.map(async sym => {
+  for (const sym of symbols) {
     try {
-      const url = `${POLYGON_BASE}/v2/aggs/ticker/${sym}/prev?adjusted=true&apiKey=${apiKey}`;
+      const polygonTicker = toPolygonTicker(sym);
+      const url = `${POLYGON_BASE}/v2/aggs/ticker/${polygonTicker}/prev?adjusted=true&apiKey=${apiKey}`;
       const res = await fetch(url);
       if (!res.ok) {
         errors.push({ symbol: sym, error: `Polygon ${res.status}` });
-        return;
+        await sleep(250);
+        continue;
       }
       const data = await res.json();
       const bar  = data.results?.[0];
       if (!bar) {
         errors.push({ symbol: sym, error: 'No prev-close data' });
-        return;
+        await sleep(250);
+        continue;
       }
       const price = bar.c;
       for (const posId of symbolToPositionIds[sym]) {
@@ -102,7 +117,8 @@ async function refreshViaIndividualQuotes(prisma, symbols, symbolToPositionIds, 
     } catch (err) {
       errors.push({ symbol: sym, error: err.message });
     }
-  }));
+    await sleep(250); // 250ms between calls → well under 5 req/min burst limit
+  }
 
   await Promise.all(updatePromises);
   return { updated, errors };
