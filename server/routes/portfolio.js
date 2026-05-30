@@ -412,8 +412,7 @@ router.post('/accounts/:id/import', async (req, res) => {
 
     const results = {
       imported: 0,
-      skipped: 0,
-      notInRadar: [],
+      autoCreated: [],
       reconciliationWarnings: [],
     };
 
@@ -427,14 +426,23 @@ router.post('/accounts/:id/import', async (req, res) => {
 
     // Upsert each position + lots
     for (const pos of enrichedPositions) {
-      // Look up ticker — must exist in RADAR
-      const ticker = await prisma.ticker.findUnique({
-        where: { symbol: pos.symbol },
-      });
+      // Look up ticker — auto-create if not in RADAR
+      let ticker = await prisma.ticker.findUnique({ where: { symbol: pos.symbol } });
       if (!ticker) {
-        results.notInRadar.push(pos.symbol);
-        results.skipped++;
-        continue;
+        const bucket = smartDefaultBucket(pos.assetType, pos.symbol);
+        ticker = await prisma.ticker.create({
+          data: {
+            symbol:        pos.symbol,
+            name:          pos.description || pos.symbol,
+            shortName:     pos.description ? pos.description.slice(0, 40) : pos.symbol,
+            type:          'A',          // default; user can update in RADAR
+            capPercent:    0,
+            status:        'watchlist',
+            inScope:       false,        // not analyst-evaluated
+            bucketOverride: bucket !== 'equity' ? bucket : null,
+          },
+        });
+        results.autoCreated.push(pos.symbol);
       }
 
       // Upsert position
@@ -482,7 +490,7 @@ router.post('/accounts/:id/import', async (req, res) => {
       cashBalance,
       accountMeta,
       message: `Imported ${results.imported} position(s).` +
-        (results.notInRadar.length ? ` ${results.notInRadar.length} not in RADAR: ${results.notInRadar.join(', ')}.` : '') +
+        (results.autoCreated.length ? ` Auto-created ${results.autoCreated.length} new ticker(s): ${results.autoCreated.join(', ')}.` : '') +
         (results.reconciliationWarnings.length ? ` Lot reconciliation warnings: ${results.reconciliationWarnings.join(', ')}.` : ''),
     });
   } catch (err) {

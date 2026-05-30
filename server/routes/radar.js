@@ -245,6 +245,42 @@ router.get('/advisories', requireAuth(), async (req, res) => {
   }
 });
 
+// POST /api/radar/tickers — create a ticker without a transcript (ETFs, commodities, crypto)
+// Body: { symbol, name, shortName?, bucket?, notes? }
+router.post('/tickers', requireAuth(), async (req, res) => {
+  const { symbol, name, shortName, bucket, notes } = req.body;
+  if (!symbol || !name) {
+    return res.status(400).json({ error: 'symbol and name are required' });
+  }
+  const VALID_BUCKETS = ['equity', 'etf', 'crypto', 'commodity', null, undefined];
+  if (!VALID_BUCKETS.includes(bucket)) {
+    return res.status(400).json({ error: 'bucket must be equity, etf, crypto, commodity, or omitted' });
+  }
+  try {
+    const existing = await prisma.ticker.findUnique({ where: { symbol: symbol.trim().toUpperCase() } });
+    if (existing) {
+      return res.status(409).json({ error: `Ticker ${symbol.toUpperCase()} already exists` });
+    }
+    const ticker = await prisma.ticker.create({
+      data: {
+        symbol:        symbol.trim().toUpperCase(),
+        name:          name.trim(),
+        shortName:     shortName?.trim() || name.trim().slice(0, 40),
+        type:          'A',
+        capPercent:    0,
+        status:        'watchlist',
+        inScope:       false,
+        bucketOverride: bucket || null,
+        notes:         notes || null,
+      },
+    });
+    res.status(201).json(ticker);
+  } catch (err) {
+    console.error('POST /radar/tickers error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // PATCH /api/radar/tickers/:id — update name, type, capPercent, status
 router.patch('/tickers/:id', requireAuth(), async (req, res) => {
   const id = parseInt(req.params.id);

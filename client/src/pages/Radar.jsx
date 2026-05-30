@@ -1118,6 +1118,7 @@ export default function Radar() {
   const [loading, setLoading] = useState(tickerCache === null);
   const [error, setError] = useState(null);
   const [rescoreAllState, setRescoreAllState] = useState(null); // null | 'running' | {total, updated}
+  const [showNewTicker, setShowNewTicker]     = useState(false);
 
   const fetchTickers = useCallback(async ({ silent = false } = {}) => {
     if (!silent) setLoading(true);
@@ -1169,6 +1170,21 @@ export default function Radar() {
         <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>
           Stock Radar
         </h1>
+        <button
+          onClick={() => setShowNewTicker(true)}
+          style={{
+            background: 'transparent',
+            border: '1px solid #2d3748',
+            borderRadius: 5,
+            color: '#60a5fa',
+            fontSize: 11, fontWeight: 600,
+            padding: '4px 12px',
+            cursor: 'pointer',
+            letterSpacing: '0.04em', textTransform: 'uppercase',
+          }}
+        >
+          + New ticker
+        </button>
         <button
           disabled={rescoreAllState === 'running'}
           onClick={async () => {
@@ -1259,6 +1275,125 @@ export default function Radar() {
           </Section>
         </>
       )}
+
+      {showNewTicker && (
+        <NewTickerModal
+          getToken={getToken}
+          onSaved={() => { setShowNewTicker(false); fetchTickers({ silent: true }); }}
+          onClose={() => setShowNewTicker(false)}
+        />
+      )}
+    </div>
+  );
+}
+
+// ── New Ticker modal (ETFs, commodities, crypto — no transcript needed) ────────
+
+function NewTickerModal({ getToken, onSaved, onClose }) {
+  const [symbol,    setSymbol]    = useState('');
+  const [name,      setName]      = useState('');
+  const [shortName, setShortName] = useState('');
+  const [bucket,    setBucket]    = useState('etf');
+  const [notes,     setNotes]     = useState('');
+  const [saving,    setSaving]    = useState(false);
+  const [error,     setError]     = useState('');
+
+  const inputStyle = {
+    background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
+    color: '#f1f5f9', fontSize: 13, padding: '6px 10px', outline: 'none',
+    width: '100%', boxSizing: 'border-box',
+  };
+  const labelStyle = { fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 };
+
+  async function handleSave(e) {
+    e.preventDefault();
+    setError('');
+    setSaving(true);
+    try {
+      const token = await getToken();
+      const res = await fetch(`${API_URL}/api/radar/tickers`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({
+          symbol: symbol.trim().toUpperCase(),
+          name:   name.trim(),
+          shortName: shortName.trim() || name.trim(),
+          bucket,
+          notes: notes.trim() || null,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Save failed');
+      onSaved();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  const BUCKET_OPTIONS = [
+    { value: 'etf',       label: 'ETF' },
+    { value: 'equity',    label: 'Equity' },
+    { value: 'crypto',    label: 'Crypto' },
+    { value: 'commodity', label: 'Commodity' },
+  ];
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
+      <div style={{ background: '#0f1117', border: '1px solid #1e2330', borderRadius: 10, padding: 24, width: 400, maxWidth: '95vw' }}>
+        <div style={{ fontWeight: 600, color: '#f1f5f9', marginBottom: 4, fontSize: 14 }}>Add ticker</div>
+        <div style={{ fontSize: 12, color: '#475569', marginBottom: 16 }}>
+          For ETFs, commodities, and crypto — no earnings call required.
+        </div>
+        <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 10 }}>
+            <div>
+              <label style={labelStyle}>Symbol *</label>
+              <input style={inputStyle} value={symbol}
+                onChange={e => setSymbol(e.target.value.toUpperCase())}
+                placeholder="e.g. GLD" required />
+            </div>
+            <div>
+              <label style={labelStyle}>Asset type *</label>
+              <select style={{ ...inputStyle, cursor: 'pointer' }} value={bucket} onChange={e => setBucket(e.target.value)}>
+                {BUCKET_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+              </select>
+            </div>
+          </div>
+          <div>
+            <label style={labelStyle}>Full name *</label>
+            <input style={inputStyle} value={name}
+              onChange={e => setName(e.target.value)}
+              placeholder="e.g. SPDR Gold Shares" required />
+          </div>
+          <div>
+            <label style={labelStyle}>Short name (optional)</label>
+            <input style={inputStyle} value={shortName}
+              onChange={e => setShortName(e.target.value)}
+              placeholder="e.g. Gold ETF" />
+          </div>
+          <div>
+            <label style={labelStyle}>Notes (optional)</label>
+            <input style={inputStyle} value={notes}
+              onChange={e => setNotes(e.target.value)}
+              placeholder="e.g. Defensive hedge position" />
+          </div>
+
+          {error && <div style={{ color: '#ef4444', fontSize: 12, padding: '6px 10px', background: '#ef444411', borderRadius: 5 }}>{error}</div>}
+
+          <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 4 }}>
+            <button type="button" onClick={onClose}
+              style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, padding: '6px 16px', borderRadius: 5, cursor: 'pointer' }}>
+              Cancel
+            </button>
+            <button type="submit" disabled={saving}
+              style={{ background: saving ? '#1e2330' : '#3b82f6', border: 'none', color: '#f1f5f9', fontSize: 13, fontWeight: 600, padding: '6px 20px', borderRadius: 5, cursor: saving ? 'wait' : 'pointer' }}>
+              {saving ? 'Saving…' : 'Add ticker'}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
