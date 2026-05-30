@@ -160,8 +160,9 @@ function BucketPill({ ticker, onBucketChange }) {
 
 // ── Position row ──────────────────────────────────────────────────────────────
 
-function PositionRow({ pos, onBucketChange }) {
+function PositionRow({ pos, onBucketChange, onDelete }) {
   const [expanded, setExpanded] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   const mktVal    = pos.marketValue ?? pos.totalCost;
   const gain      = pos.unrealisedGain;
@@ -210,7 +211,39 @@ function PositionRow({ pos, onBucketChange }) {
         <td style={{ padding: '9px 8px', color: '#475569', fontSize: 11, textAlign: 'right' }}>
           {expanded ? '▲' : '▼'}
         </td>
+        <td style={{ padding: '9px 8px', textAlign: 'right' }} onClick={e => e.stopPropagation()}>
+          <button
+            onClick={() => setConfirmDelete(true)}
+            title="Remove position (no taxable event)"
+            style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: 14, padding: '0 4px', lineHeight: 1 }}
+            onMouseEnter={e => e.currentTarget.style.color = '#ef4444'}
+            onMouseLeave={e => e.currentTarget.style.color = '#475569'}
+          >
+            ×
+          </button>
+        </td>
       </tr>
+      {confirmDelete && (
+        <tr>
+          <td colSpan={11} style={{ background: '#1a0a0a', padding: '8px 16px', borderBottom: '1px solid #3d1515' }}>
+            <span style={{ fontSize: 12, color: '#fca5a5' }}>
+              Remove <strong>{pos.ticker.symbol}</strong> from tracking? This does not generate a taxable event — it only removes it from the agent's records.
+            </span>
+            <button
+              onClick={() => { setConfirmDelete(false); onDelete(pos.id); }}
+              style={{ marginLeft: 12, background: '#ef4444', border: 'none', color: '#fff', fontSize: 11, fontWeight: 600, padding: '3px 12px', borderRadius: 4, cursor: 'pointer' }}
+            >
+              Remove
+            </button>
+            <button
+              onClick={() => setConfirmDelete(false)}
+              style={{ marginLeft: 6, background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 11, padding: '3px 10px', borderRadius: 4, cursor: 'pointer' }}
+            >
+              Cancel
+            </button>
+          </td>
+        </tr>
+      )}
       {expanded && (
         <tr>
           <td colSpan={10} style={{ background: '#090c12', padding: '0 12px 12px 40px' }}>
@@ -246,7 +279,7 @@ function PositionRow({ pos, onBucketChange }) {
 
 // ── Bucket tab content ────────────────────────────────────────────────────────
 
-function BucketTabContent({ bucket, positions, cashBalance, marginBalance, marginRate, marginAsOfDate, cashAsOfDate, onBucketChange, onUpdateCash }) {
+function BucketTabContent({ bucket, positions, cashBalance, marginBalance, marginRate, marginAsOfDate, cashAsOfDate, onBucketChange, onDeletePosition, onUpdateCash }) {
   if (bucket === 'cash') {
     const net = (cashBalance ?? 0) - (marginBalance ?? 0);
     return (
@@ -292,7 +325,7 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
         <thead>
           <tr style={{ borderBottom: '1px solid #1e2330' }}>
-            {['Symbol', 'Name', 'Shares', 'Price', 'Mkt Value', 'Total G/L', 'Day G/L', '% Acct', 'Bucket', ''].map(h => (
+            {['Symbol', 'Name', 'Shares', 'Price', 'Mkt Value', 'Total G/L', 'Day G/L', '% Acct', 'Bucket', '', ''].map(h => (
               <th key={h} style={{
                 padding: '7px 12px',
                 textAlign: ['Shares', 'Price', 'Mkt Value', 'Total G/L', 'Day G/L', '% Acct'].includes(h) ? 'right' : 'left',
@@ -309,7 +342,7 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
         </thead>
         <tbody>
           {bucketPositions.map(pos => (
-            <PositionRow key={pos.id} pos={pos} onBucketChange={onBucketChange} />
+            <PositionRow key={pos.id} pos={pos} onBucketChange={onBucketChange} onDelete={onDeletePosition} />
           ))}
         </tbody>
       </table>
@@ -341,6 +374,14 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({ bucket }),
+    });
+    onRefresh();
+  }
+
+  async function handleDeletePosition(positionId) {
+    await fetch(`${API}/api/portfolio/positions/${positionId}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token}` },
     });
     onRefresh();
   }
@@ -493,6 +534,7 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
         marginAsOfDate={account.marginAsOfDate}
         cashAsOfDate={account.cashAsOfDate}
         onBucketChange={handleBucketChange}
+        onDeletePosition={handleDeletePosition}
         onUpdateCash={onUpdateCash}
       />
     </div>

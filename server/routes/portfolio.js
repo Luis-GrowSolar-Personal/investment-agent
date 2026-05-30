@@ -82,7 +82,7 @@ router.get('/accounts', async (req, res) => {
         positions: {
           where: { status: 'active' },
           include: {
-            ticker: { select: { symbol: true, shortName: true, name: true, bucketOverride: true } },
+            ticker: { select: { id: true, symbol: true, shortName: true, name: true, bucketOverride: true } },
             lots: { where: { closedDate: null } },
           },
         },
@@ -203,7 +203,7 @@ router.get('/accounts/:id/positions', async (req, res) => {
       include: {
         ticker: {
           select: {
-            symbol: true, shortName: true, name: true, type: true,
+            id: true, symbol: true, shortName: true, name: true, type: true,
             inScope: true, status: true, bucketOverride: true,
           },
         },
