@@ -300,7 +300,7 @@ router.delete('/positions/:id', async (req, res) => {
 // Body: { positionId, shares, costBasis, acquiredDate, source?, notes? }
 router.post('/lots', async (req, res) => {
   const { positionId, shares, costBasis, acquiredDate, source = 'manual', notes } = req.body;
-  if (!positionId || !shares || !costBasis || !acquiredDate) {
+  if (positionId == null || shares == null || costBasis == null || !acquiredDate) {
     return res.status(400).json({ error: 'positionId, shares, costBasis, acquiredDate are required' });
   }
   try {

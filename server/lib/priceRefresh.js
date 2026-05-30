@@ -15,7 +15,15 @@ let _yahooFinance = null;
 async function getYahoo() {
   if (!_yahooFinance) {
     const mod = await import('yahoo-finance2');
-    _yahooFinance = mod.default;
+    // Handle different ESM/CJS interop shapes
+    const candidate = mod?.default ?? mod;
+    // Some bundlers double-wrap: mod.default.default
+    _yahooFinance = (typeof candidate?.quote === 'function')
+      ? candidate
+      : (candidate?.default ?? candidate);
+    if (typeof _yahooFinance?.quote !== 'function') {
+      throw new Error(`yahoo-finance2 loaded but .quote not found. Keys: ${Object.keys(mod).join(', ')}`);
+    }
   }
   return _yahooFinance;
 }

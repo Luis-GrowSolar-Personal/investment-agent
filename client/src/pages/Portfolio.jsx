@@ -796,7 +796,7 @@ function EditPositionModal({ position, token, onSaved, onClose }) {
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
             <thead>
               <tr style={{ borderBottom: '1px solid #1e2330' }}>
-                {['Acquired date', 'Shares', 'Cost/share ($)', 'Notes'].map(h => (
+                {['Acquired date', 'Shares', 'Cost/share ($)', 'Notes', ''].map(h => (
                   <th key={h} style={{ padding: '5px 6px', textAlign: 'left', color: '#64748b', fontWeight: 500 }}>{h}</th>
                 ))}
               </tr>
@@ -819,6 +819,17 @@ function EditPositionModal({ position, token, onSaved, onClose }) {
                   <td style={{ padding: '5px 4px' }}>
                     <input style={inputStyle} placeholder="optional"
                       value={lot.notes} onChange={e => updateLot(idx, 'notes', e.target.value)} />
+                  </td>
+                  <td style={{ padding: '5px 4px', textAlign: 'center' }}>
+                    <button
+                      type="button"
+                      onClick={() => setLots(prev => prev.filter((_, i) => i !== idx))}
+                      disabled={lots.length === 1}
+                      title="Remove this lot"
+                      style={{ background: 'none', border: 'none', color: lots.length === 1 ? '#2d3748' : '#ef4444', cursor: lots.length === 1 ? 'default' : 'pointer', fontSize: 16, lineHeight: 1 }}
+                    >
+                      ×
+                    </button>
                   </td>
                 </tr>
               ))}
