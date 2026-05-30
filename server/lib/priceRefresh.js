@@ -55,15 +55,22 @@ async function refreshPrices(prisma, positionIds) {
   let updated = 0;
   const asOf = new Date();
 
-  // Fetch quotes in parallel (Yahoo Finance handles batching internally)
+  // Fetch quotes in parallel
   const yahooFinance = await getYahoo();
+
+  // Suppress yahoo-finance2's Yup validation noise globally (safe to call multiple times)
+  try {
+    yahooFinance.setGlobalConfig({ validation: { logErrors: false, logOptionsErrors: false } });
+  } catch (_) { /* older versions may not support this */ }
 
   const quotePromises = symbols.map(async sym => {
     try {
       const quote = await yahooFinance.quote(sym, {}, { validateResult: false });
       return { sym, quote };
     } catch (err) {
-      errors.push({ symbol: sym, error: err.message });
+      const msg = err.message || String(err);
+      console.error(`[priceRefresh] ${sym}: ${msg}`);
+      errors.push({ symbol: sym, error: msg });
       return { sym, quote: null };
     }
   });

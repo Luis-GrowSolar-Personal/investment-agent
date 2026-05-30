@@ -160,7 +160,7 @@ function BucketPill({ ticker, onBucketChange }) {
 
 // ── Position row ──────────────────────────────────────────────────────────────
 
-function PositionRow({ pos, onBucketChange, onDelete }) {
+function PositionRow({ pos, onBucketChange, onDelete, onEdit }) {
   const [expanded, setExpanded] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
@@ -211,7 +211,16 @@ function PositionRow({ pos, onBucketChange, onDelete }) {
         <td style={{ padding: '9px 8px', color: '#475569', fontSize: 11, textAlign: 'right' }}>
           {expanded ? '▲' : '▼'}
         </td>
-        <td style={{ padding: '9px 8px', textAlign: 'right' }} onClick={e => e.stopPropagation()}>
+        <td style={{ padding: '9px 8px', textAlign: 'right', whiteSpace: 'nowrap' }} onClick={e => e.stopPropagation()}>
+          <button
+            onClick={() => onEdit(pos)}
+            title="Edit lots"
+            style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: 13, padding: '0 4px', lineHeight: 1 }}
+            onMouseEnter={e => e.currentTarget.style.color = '#60a5fa'}
+            onMouseLeave={e => e.currentTarget.style.color = '#475569'}
+          >
+            ✎
+          </button>
           <button
             onClick={() => setConfirmDelete(true)}
             title="Remove position (no taxable event)"
@@ -279,7 +288,7 @@ function PositionRow({ pos, onBucketChange, onDelete }) {
 
 // ── Bucket tab content ────────────────────────────────────────────────────────
 
-function BucketTabContent({ bucket, positions, cashBalance, marginBalance, marginRate, marginAsOfDate, cashAsOfDate, onBucketChange, onDeletePosition, onUpdateCash }) {
+function BucketTabContent({ bucket, positions, cashBalance, marginBalance, marginRate, marginAsOfDate, cashAsOfDate, onBucketChange, onDeletePosition, onEditPosition, onUpdateCash }) {
   if (bucket === 'cash') {
     const net = (cashBalance ?? 0) - (marginBalance ?? 0);
     return (
@@ -342,7 +351,7 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
         </thead>
         <tbody>
           {bucketPositions.map(pos => (
-            <PositionRow key={pos.id} pos={pos} onBucketChange={onBucketChange} onDelete={onDeletePosition} />
+            <PositionRow key={pos.id} pos={pos} onBucketChange={onBucketChange} onDelete={onDeletePosition} onEdit={onEditPosition} />
           ))}
         </tbody>
       </table>
@@ -359,6 +368,7 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
   const [importing, setImporting]       = useState(false);
   const [importMsg, setImportMsg]       = useState('');
   const [showAddPosition, setShowAddPosition] = useState(false);
+  const [editPosition, setEditPosition]       = useState(null);
   const posFileRef = useRef(null);
   const txFileRef  = useRef(null);
 
@@ -397,7 +407,10 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
-      setRefreshMsg(`Updated ${data.updated} position${data.updated !== 1 ? 's' : ''}.${data.errors?.length ? ` ${data.errors.length} error(s).` : ''}`);
+      const errDetail = data.errors?.length
+        ? ` Errors: ${data.errors.map(e => `${e.symbol}: ${e.error}`).join(' | ')}`
+        : '';
+      setRefreshMsg(`Updated ${data.updated} position${data.updated !== 1 ? 's' : ''}.${errDetail}`);
       onRefresh();
     } catch (err) {
       setRefreshMsg('Error: ' + err.message);
@@ -543,6 +556,7 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
         cashAsOfDate={account.cashAsOfDate}
         onBucketChange={handleBucketChange}
         onDeletePosition={handleDeletePosition}
+        onEditPosition={pos => setEditPosition(pos)}
         onUpdateCash={onUpdateCash}
       />
 
@@ -552,6 +566,15 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
           token={token}
           onSaved={() => { setShowAddPosition(false); onRefresh(); }}
           onClose={() => setShowAddPosition(false)}
+        />
+      )}
+
+      {editPosition && (
+        <EditPositionModal
+          position={editPosition}
+          token={token}
+          onSaved={() => { setEditPosition(null); onRefresh(); }}
+          onClose={() => setEditPosition(null)}
         />
       )}
     </div>
@@ -694,6 +717,124 @@ function AddPositionModal({ accountId, token, onSaved, onClose }) {
             <button type="submit" disabled={saving}
               style={{ background: saving ? '#1e2330' : '#3b82f6', border: 'none', color: '#f1f5f9', fontSize: 13, fontWeight: 600, padding: '6px 20px', borderRadius: 5, cursor: saving ? 'wait' : 'pointer' }}>
               {saving ? 'Saving…' : 'Save position'}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+// ── Edit Position modal ───────────────────────────────────────────────────────
+
+function EditPositionModal({ position, token, onSaved, onClose }) {
+  const openLots = position.lots.filter(l => !l.closedDate);
+  const [lots, setLots] = useState(openLots.map(l => ({
+    id: l.id,
+    shares:      String(l.shares),
+    costBasis:   String(l.costBasis),
+    acquiredDate: l.acquiredDate ? l.acquiredDate.slice(0, 10) : '',
+    notes:       l.notes || '',
+  })));
+  const [saving, setSaving] = useState(false);
+  const [error, setError]   = useState('');
+
+  const inputStyle = {
+    background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
+    color: '#f1f5f9', fontSize: 12, padding: '5px 8px', outline: 'none',
+    width: '100%', boxSizing: 'border-box',
+  };
+
+  function updateLot(idx, field, val) {
+    setLots(prev => prev.map((l, i) => i === idx ? { ...l, [field]: val } : l));
+  }
+
+  async function handleSave(e) {
+    e.preventDefault();
+    setError('');
+    setSaving(true);
+    try {
+      // For each lot: delete and recreate with new values (simplest approach)
+      await Promise.all(lots.map(lot =>
+        fetch(`${API}/api/portfolio/lots/${lot.id}`, {
+          method: 'DELETE',
+          headers: { Authorization: `Bearer ${token}` },
+        })
+      ));
+      await Promise.all(lots.map(lot =>
+        fetch(`${API}/api/portfolio/lots`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+          body: JSON.stringify({
+            positionId:  position.id,
+            shares:      parseFloat(lot.shares),
+            costBasis:   parseFloat(lot.costBasis),
+            acquiredDate: lot.acquiredDate,
+            notes:       lot.notes || null,
+            source:      'manual',
+          }),
+        })
+      ));
+      onSaved();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
+      <div style={{ background: '#0f1117', border: '1px solid #1e2330', borderRadius: 10, padding: 24, width: 580, maxWidth: '95vw', maxHeight: '90vh', overflowY: 'auto' }}>
+        <div style={{ fontWeight: 600, color: '#f1f5f9', marginBottom: 4, fontSize: 14 }}>
+          Edit lots — {position.ticker.symbol}
+        </div>
+        <div style={{ fontSize: 12, color: '#475569', marginBottom: 16 }}>
+          Changes apply to open lots only. Closed lots are preserved.
+        </div>
+        <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid #1e2330' }}>
+                {['Acquired date', 'Shares', 'Cost/share ($)', 'Notes'].map(h => (
+                  <th key={h} style={{ padding: '5px 6px', textAlign: 'left', color: '#64748b', fontWeight: 500 }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {lots.map((lot, idx) => (
+                <tr key={lot.id} style={{ borderBottom: '1px solid #0f1117' }}>
+                  <td style={{ padding: '5px 4px' }}>
+                    <input type="date" style={inputStyle} value={lot.acquiredDate}
+                      onChange={e => updateLot(idx, 'acquiredDate', e.target.value)} required />
+                  </td>
+                  <td style={{ padding: '5px 4px' }}>
+                    <input type="number" step="0.0001" min="0" style={inputStyle}
+                      value={lot.shares} onChange={e => updateLot(idx, 'shares', e.target.value)} required />
+                  </td>
+                  <td style={{ padding: '5px 4px' }}>
+                    <input type="number" step="0.01" min="0" style={inputStyle}
+                      value={lot.costBasis} onChange={e => updateLot(idx, 'costBasis', e.target.value)} required />
+                  </td>
+                  <td style={{ padding: '5px 4px' }}>
+                    <input style={inputStyle} placeholder="optional"
+                      value={lot.notes} onChange={e => updateLot(idx, 'notes', e.target.value)} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {error && <div style={{ color: '#ef4444', fontSize: 12 }}>{error}</div>}
+
+          <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 4 }}>
+            <button type="button" onClick={onClose}
+              style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, padding: '6px 16px', borderRadius: 5, cursor: 'pointer' }}>
+              Cancel
+            </button>
+            <button type="submit" disabled={saving}
+              style={{ background: saving ? '#1e2330' : '#3b82f6', border: 'none', color: '#f1f5f9', fontSize: 13, fontWeight: 600, padding: '6px 20px', borderRadius: 5, cursor: saving ? 'wait' : 'pointer' }}>
+              {saving ? 'Saving…' : 'Save changes'}
             </button>
           </div>
         </form>
