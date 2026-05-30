@@ -353,11 +353,12 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
 // ── Inline account expand panel ───────────────────────────────────────────────
 
 function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
-  const [activeTab, setActiveTab]   = useState('equity');
-  const [refreshing, setRefreshing] = useState(false);
-  const [refreshMsg, setRefreshMsg] = useState('');
-  const [importing, setImporting]   = useState(false);
-  const [importMsg, setImportMsg]   = useState('');
+  const [activeTab, setActiveTab]       = useState('equity');
+  const [refreshing, setRefreshing]     = useState(false);
+  const [refreshMsg, setRefreshMsg]     = useState('');
+  const [importing, setImporting]       = useState(false);
+  const [importMsg, setImportMsg]       = useState('');
+  const [showAddPosition, setShowAddPosition] = useState(false);
   const posFileRef = useRef(null);
   const txFileRef  = useRef(null);
 
@@ -451,6 +452,13 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
           {account.name}
         </div>
         <div style={{ display: 'flex', gap: 8 }}>
+          {/* Add position */}
+          <ActionButton
+            onClick={() => setShowAddPosition(true)}
+            disabled={false}
+            icon="+"
+            label="Add position"
+          />
           {/* Import file */}
           <input ref={posFileRef} type="file" accept=".csv" style={{ display: 'none' }} onChange={onPosFileChange} />
           <ActionButton
@@ -537,6 +545,15 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
         onDeletePosition={handleDeletePosition}
         onUpdateCash={onUpdateCash}
       />
+
+      {showAddPosition && (
+        <AddPositionModal
+          accountId={account.id}
+          token={token}
+          onSaved={() => { setShowAddPosition(false); onRefresh(); }}
+          onClose={() => setShowAddPosition(false)}
+        />
+      )}
     </div>
   );
 }
@@ -562,6 +579,126 @@ function ActionButton({ onClick, disabled, icon, label, title }) {
     >
       <span style={{ fontSize: 13 }}>{icon}</span> {label}
     </button>
+  );
+}
+
+// ── Add Position modal ────────────────────────────────────────────────────────
+
+const emptyLot = () => ({ shares: '', costBasis: '', acquiredDate: '', notes: '' });
+
+function AddPositionModal({ accountId, token, onSaved, onClose }) {
+  const [symbol, setSymbol] = useState('');
+  const [lots, setLots]     = useState([emptyLot()]);
+  const [error, setError]   = useState('');
+  const [saving, setSaving] = useState(false);
+
+  const inputStyle = {
+    background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
+    color: '#f1f5f9', fontSize: 13, padding: '6px 10px', outline: 'none',
+    width: '100%', boxSizing: 'border-box',
+  };
+  const labelStyle = { fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 };
+
+  function updateLot(idx, field, val) {
+    setLots(prev => prev.map((l, i) => i === idx ? { ...l, [field]: val } : l));
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError('');
+    const cleanLots = lots.filter(l => l.shares && l.costBasis && l.acquiredDate);
+    if (!cleanLots.length) { setError('At least one complete lot is required.'); return; }
+    setSaving(true);
+    try {
+      const res = await fetch(`${API}/api/portfolio/positions`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ symbol: symbol.trim().toUpperCase(), accountId, lots: cleanLots }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Save failed');
+      onSaved();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
+      <div style={{ background: '#0f1117', border: '1px solid #1e2330', borderRadius: 10, padding: 24, width: 520, maxWidth: '95vw', maxHeight: '90vh', overflowY: 'auto' }}>
+        <div style={{ fontWeight: 600, color: '#f1f5f9', marginBottom: 16, fontSize: 14 }}>Add position</div>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <div>
+            <label style={labelStyle}>Ticker symbol</label>
+            <input style={{ ...inputStyle, width: 160 }} value={symbol}
+              onChange={e => setSymbol(e.target.value.toUpperCase())}
+              placeholder="e.g. ENPH" required />
+            <div style={{ fontSize: 11, color: '#475569', marginTop: 3 }}>Must already exist in RADAR</div>
+          </div>
+
+          <div>
+            <div style={{ ...labelStyle, marginBottom: 8 }}>Tax lots</div>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+              <thead>
+                <tr style={{ borderBottom: '1px solid #1e2330' }}>
+                  {['Acquired date', 'Shares', 'Cost/share ($)', 'Notes', ''].map(h => (
+                    <th key={h} style={{ padding: '4px 6px', textAlign: 'left', color: '#64748b', fontWeight: 500 }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {lots.map((lot, idx) => (
+                  <tr key={idx}>
+                    <td style={{ padding: '4px 4px' }}>
+                      <input type="date" style={inputStyle} value={lot.acquiredDate}
+                        onChange={e => updateLot(idx, 'acquiredDate', e.target.value)} />
+                    </td>
+                    <td style={{ padding: '4px 4px' }}>
+                      <input type="number" step="0.0001" min="0" style={inputStyle} placeholder="0.0000"
+                        value={lot.shares} onChange={e => updateLot(idx, 'shares', e.target.value)} />
+                    </td>
+                    <td style={{ padding: '4px 4px' }}>
+                      <input type="number" step="0.01" min="0" style={inputStyle} placeholder="0.00"
+                        value={lot.costBasis} onChange={e => updateLot(idx, 'costBasis', e.target.value)} />
+                    </td>
+                    <td style={{ padding: '4px 4px' }}>
+                      <input style={inputStyle} placeholder="optional"
+                        value={lot.notes} onChange={e => updateLot(idx, 'notes', e.target.value)} />
+                    </td>
+                    <td style={{ padding: '4px 4px', textAlign: 'center' }}>
+                      <button type="button" onClick={() => setLots(prev => prev.filter((_, i) => i !== idx))}
+                        disabled={lots.length === 1}
+                        style={{ background: 'none', border: 'none', color: lots.length === 1 ? '#2d3748' : '#ef4444', cursor: lots.length === 1 ? 'default' : 'pointer', fontSize: 16 }}>
+                        ×
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <button type="button" onClick={() => setLots(prev => [...prev, emptyLot()])}
+              style={{ marginTop: 8, background: 'transparent', border: '1px solid #2d3748', color: '#60a5fa', fontSize: 12, padding: '4px 12px', borderRadius: 5, cursor: 'pointer' }}>
+              + Add another lot
+            </button>
+          </div>
+
+          {error && <div style={{ color: '#ef4444', fontSize: 12, padding: '6px 10px', background: '#ef444411', borderRadius: 5 }}>{error}</div>}
+
+          <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+            <button type="button" onClick={onClose}
+              style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, padding: '6px 16px', borderRadius: 5, cursor: 'pointer' }}>
+              Cancel
+            </button>
+            <button type="submit" disabled={saving}
+              style={{ background: saving ? '#1e2330' : '#3b82f6', border: 'none', color: '#f1f5f9', fontSize: 13, fontWeight: 600, padding: '6px 20px', borderRadius: 5, cursor: saving ? 'wait' : 'pointer' }}>
+              {saving ? 'Saving…' : 'Save position'}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
 

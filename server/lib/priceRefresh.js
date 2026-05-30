@@ -60,7 +60,7 @@ async function refreshPrices(prisma, positionIds) {
 
   const quotePromises = symbols.map(async sym => {
     try {
-      const quote = await yahooFinance.quote(sym);
+      const quote = await yahooFinance.quote(sym, {}, { validateResult: false });
       return { sym, quote };
     } catch (err) {
       errors.push({ symbol: sym, error: err.message });
