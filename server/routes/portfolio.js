@@ -430,8 +430,8 @@ router.post('/accounts/:id/import', async (req, res) => {
     const account = await prisma.account.findUnique({ where: { id: accountId } });
     if (!account) return res.status(404).json({ error: 'Account not found' });
 
-    // Parse positions CSV
-    const { accountMeta, cashBalance, positions: rawPositions } = parsePositionsCSV(positionsCSV);
+    // Parse positions CSV via Claude (format-agnostic)
+    const { accountMeta, cashBalance, positions: rawPositions } = await parsePositionsCSV(positionsCSV);
 
     // Parse transactions if provided, and reconstruct lots
     let enrichedPositions = rawPositions;

@@ -1,12 +1,14 @@
 /**
  * portfolioImport.js
  *
- * Parsers for Schwab brokerage exports:
- *   parsePositionsCSV(csvText)      → array of position objects (ground truth)
+ * Parsers for brokerage exports:
+ *   parsePositionsCSV(csvText)      → position objects (via Claude AI — format-agnostic)
  *   parseTransactionsJSON(jsonText) → array of transaction objects
  *   reconstructLots(positions, transactions) → positions enriched with individual lots
  *   smartDefaultBucket(assetType, symbol)    → bucket string
  */
+
+const Anthropic = require('@anthropic-ai/sdk');
 
 // ---------------------------------------------------------------------------
 // Bucket classification
@@ -30,95 +32,95 @@ function smartDefaultBucket(schwabAssetType, symbol) {
 }
 
 // ---------------------------------------------------------------------------
-// Positions CSV parser
+// Positions CSV parser — AI-powered (format-agnostic)
 // ---------------------------------------------------------------------------
 
 /**
- * Parse a Schwab positions CSV export.
- *
- * File format:
- *   Line 1: metadata  "Positions for account {name} ...{last4} as of {time}, {date}"
- *   Line 2: blank
- *   Line 3: column headers
- *   Lines 4–N: position rows
- *   Second-to-last: "Cash & Cash Investments" row → cashBalance
- *   Last: "Positions Total" row → discard
+ * Parse any brokerage positions CSV using Claude.
+ * Handles any column naming convention, any row order, any brokerage.
  *
  * Returns:
  *   {
  *     accountMeta: { name, last4, asOf },
- *     cashBalance: number,
- *     positions: [{ symbol, description, qty, price, mktVal, costBasis,
- *                   gainDollar, gainPct, pctOfAcct, assetType, bucket }]
+ *     cashBalance: number | null,
+ *     positions: [{ symbol, description, qty, price, mktVal, costBasisTotal,
+ *                   costBasisPerShare, gainDollar, gainPct, pctOfAcct,
+ *                   dayChgDollar, dayChgPct, assetType, bucket }]
  *   }
  */
-function parsePositionsCSV(csvText) {
-  const lines = csvText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-  if (lines.length < 3) throw new Error('CSV too short — expected at least 3 lines');
+async function parsePositionsCSV(csvText) {
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-  // Line 0: metadata header
-  const metaLine = lines[0].replace(/^"|"$/g, '');
-  const accountMeta = parseAccountMeta(metaLine);
+  const prompt = `You are parsing a brokerage positions CSV export. Extract all holdings and return ONLY valid JSON — no explanation, no markdown, no code fences.
 
-  // Line 1: column headers (after stripping blank lines, idx 1 in filtered array)
-  // But the blank line 2 is filtered out, so headers are at index 1
-  const headers = parseCSVRow(lines[1]);
-  const idx = buildIndex(headers);
-
-  const positions = [];
-  let cashBalance = null;
-
-  for (let i = 2; i < lines.length; i++) {
-    const cells = parseCSVRow(lines[i]);
-    if (!cells[0]) continue;
-
-    const symbol = cells[idx['Symbol']] || '';
-
-    // Skip "Positions Total" summary row
-    if (symbol.toLowerCase().includes('positions total') ||
-        cells.join('').toLowerCase().includes('positions total')) continue;
-
-    // Cash row
-    const assetType = cells[idx['Asset Type']] || '';
-    if (assetType === 'Cash and Money Market' ||
-        symbol.toLowerCase().includes('cash')) {
-      const rawCash = cells[idx['Mkt Val']] || cells[idx['Market Value']] || '0';
-      cashBalance = parseDollar(rawCash);
-      continue;
+Return this exact structure:
+{
+  "accountMeta": {
+    "name": "<account name from file header, or null>",
+    "last4": "<last 4 digits of account number, or null>",
+    "asOf": "<date/time string from header, or null>"
+  },
+  "cashBalance": <cash & money market balance as a number, or null>,
+  "positions": [
+    {
+      "symbol": "<ticker symbol, uppercase>",
+      "description": "<full security name>",
+      "qty": <number of shares, as a number>,
+      "price": <current price per share, as a number>,
+      "mktVal": <total market value, as a number>,
+      "costBasisTotal": <total cost basis, as a number>,
+      "gainDollar": <unrealised gain in dollars, as a number>,
+      "gainPct": <unrealised gain as decimal, e.g. 0.6594 for 65.94%>,
+      "dayChgDollar": <today's dollar change, as a number>,
+      "dayChgPct": <today's % change as decimal>,
+      "pctOfAcct": <% of account as decimal, e.g. 0.0572 for 5.72%>,
+      "assetType": "<Equity|ETFs & Closed End Funds|Cash and Money Market>"
     }
+  ]
+}
 
-    const qty      = parseFloat(cells[idx['Qty']] || cells[idx['Quantity']] || '0') || 0;
-    const price    = parseDollar(cells[idx['Price']] || '0');
-    const mktVal   = parseDollar(cells[idx['Mkt Val']] || cells[idx['Market Value']] || '0');
-    const costBasisTotal = parseDollar(cells[idx['Cost Basis']] || '0');
-    const gainDollar = parseDollar(cells[idx['Gain $']] || '0');
-    const gainPct    = parsePct(cells[idx['Gain %']] || '0');
-    const pctOfAcct  = parsePct(cells[idx['% Of Acct']] || cells[idx['% of Acct']] || '0');
-    const dayChgDollar = parseDollar(cells[idx['Price Chng $']] || '0');
-    const dayChgPct    = parsePct(cells[idx['Price Chng %']] || '0');
-    const description  = cells[idx['Description']] || '';
+Rules:
+- Exclude the cash/money market row from positions — put its value in cashBalance instead
+- Exclude any "Positions Total" or summary rows
+- Convert dollar strings like "$1,703.52" or "-$47.88" to numbers
+- Convert percentage strings like "65.94%" or "-2.73%" to decimals (divide by 100)
+- Convert qty strings with commas like "1,183" to numbers
+- If a field is missing or "--", use null
 
-    if (!symbol || qty === 0) continue;
+CSV to parse:
+${csvText}`;
 
-    positions.push({
-      symbol: symbol.toUpperCase(),
-      description,
-      qty,
-      price,
-      mktVal,
-      costBasisTotal,   // total cost basis (Schwab authoritative)
-      costBasisPerShare: qty > 0 ? costBasisTotal / qty : 0,
-      gainDollar,
-      gainPct,
-      pctOfAcct,
-      dayChgDollar,
-      dayChgPct,
-      assetType,
-      bucket: smartDefaultBucket(assetType, symbol),
-    });
+  const response = await client.messages.create({
+    model: 'claude-haiku-4-5-20251001',
+    max_tokens: 4096,
+    messages: [{ role: 'user', content: prompt }],
+  });
+
+  const raw = response.content[0].text.trim();
+
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (err) {
+    // Try to extract JSON if Claude wrapped it in anything
+    const match = raw.match(/\{[\s\S]*\}/);
+    if (!match) throw new Error(`AI parser returned non-JSON: ${raw.slice(0, 200)}`);
+    parsed = JSON.parse(match[0]);
   }
 
-  return { accountMeta, cashBalance, positions };
+  // Enrich each position with derived fields
+  const positions = (parsed.positions || []).map(pos => ({
+    ...pos,
+    symbol:           (pos.symbol || '').toUpperCase(),
+    costBasisPerShare: pos.qty > 0 ? (pos.costBasisTotal || 0) / pos.qty : 0,
+    bucket:           smartDefaultBucket(pos.assetType || '', pos.symbol || ''),
+  }));
+
+  return {
+    accountMeta: parsed.accountMeta || {},
+    cashBalance: parsed.cashBalance ?? null,
+    positions,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -260,66 +262,14 @@ function reconstructLots(positions, transactions) {
 }
 
 // ---------------------------------------------------------------------------
-// Helpers
+// Helpers (used by transaction parser)
 // ---------------------------------------------------------------------------
-
-function parseAccountMeta(metaLine) {
-  // "Positions for account Individual-XXXX-1234 as of 09:30 PM ET, 05/30/2026"
-  const last4Match = metaLine.match(/[-\s](\d{4})[\s,]/);
-  const last4 = last4Match ? last4Match[1] : null;
-  const nameMatch = metaLine.match(/Positions for account ([^,]+?) as of/i);
-  const name = nameMatch ? nameMatch[1].trim() : metaLine.slice(0, 40);
-  const asOfMatch = metaLine.match(/as of (.+)$/i);
-  const asOf = asOfMatch ? asOfMatch[1].trim() : null;
-  return { name, last4, asOf };
-}
-
-function parseCSVRow(line) {
-  // Handles quoted fields (including commas inside quotes)
-  const result = [];
-  let current = '';
-  let inQuote = false;
-  for (let i = 0; i < line.length; i++) {
-    const ch = line[i];
-    if (ch === '"') {
-      inQuote = !inQuote;
-    } else if (ch === ',' && !inQuote) {
-      result.push(current.trim());
-      current = '';
-    } else {
-      current += ch;
-    }
-  }
-  result.push(current.trim());
-  return result;
-}
-
-function buildIndex(headers) {
-  const idx = {};
-  headers.forEach((h, i) => {
-    const full = h.trim();
-    idx[full] = i;
-    // Also index by the short name before any parenthetical, e.g.
-    // "Qty (Quantity)" → also register as "Qty"
-    // "Mkt Val (Market Value)" → also register as "Mkt Val"
-    const short = full.replace(/\s*\(.*?\).*$/, '').trim();
-    if (short && short !== full) idx[short] = i;
-  });
-  return idx;
-}
 
 function parseDollar(str) {
   if (str === null || str === undefined) return 0;
   const s = String(str).replace(/[$,\s]/g, '');
   const n = parseFloat(s);
   return isNaN(n) ? 0 : n;
-}
-
-function parsePct(str) {
-  if (str === null || str === undefined) return 0;
-  const s = String(str).replace(/[%\s]/g, '');
-  const n = parseFloat(s);
-  return isNaN(n) ? 0 : n / 100;
 }
 
 /**

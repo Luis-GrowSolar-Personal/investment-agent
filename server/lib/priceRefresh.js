@@ -69,7 +69,10 @@ async function refreshPrices(prisma, positionIds) {
 // Map portfolio symbols to Polygon ticker format
 // Crypto ETFs (IBIT, GBTC) are regular stocks on Polygon — no mapping needed
 // Raw crypto symbols need the X: prefix
-const CRYPTO_RAW = new Set(['BTC', 'ETH', 'SOL', 'DOGE', 'XRP', 'ADA', 'AVAX', 'MATIC']);
+// Raw crypto symbols that need Polygon's X:SYMBOL format.
+// NOTE: Do NOT include ETF tickers like BTC (Grayscale Bitcoin Mini Trust),
+// IBIT, GBTC etc. — those are regular NYSE securities and use the stock endpoint.
+const CRYPTO_RAW = new Set(['ETH', 'SOL', 'DOGE', 'XRP', 'ADA', 'AVAX', 'MATIC']);
 
 function toPolygonTicker(sym) {
   if (CRYPTO_RAW.has(sym)) return `X:${sym}USD`;

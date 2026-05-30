@@ -22,7 +22,7 @@ if (!isProd) {
   app.use(cors({ origin: 'http://localhost:5173' }));
 }
 
-app.use(express.json({ limit: '2mb' }));
+app.use(express.json({ limit: '10mb' }));
 app.use(clerkMiddleware());
 
 app.use('/api/evaluate', evaluateRouter);
