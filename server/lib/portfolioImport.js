@@ -24,7 +24,7 @@ function smartDefaultBucket(schwabAssetType, symbol) {
   const sym = (symbol || '').toUpperCase();
   if (CRYPTO_SYMBOLS.includes(sym))   return 'crypto';
   if (COMMODITY_SYMS.includes(sym))   return 'commodity';
-  if (EQUITY_ETF_SYMS.includes(sym))  return 'equity';
+  if (EQUITY_ETF_SYMS.includes(sym))  return 'etf';
   if (schwabAssetType === 'Equity')   return 'equity';
   return 'etf'; // default for "ETFs & Closed End Funds"
 }

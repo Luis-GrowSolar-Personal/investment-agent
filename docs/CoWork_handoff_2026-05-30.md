@@ -296,6 +296,12 @@ Old routes in `server/routes/portfolio.js` used `account String` enum and `CashB
 
 ## Backlog (future sessions)
 
+- **Asset type dropdown in Add Position modal** — currently all manually-added positions land in Equities by default. Add a "Bucket" dropdown (Equity / ETF / Crypto / Commodity) to the Add Position modal that sets `Ticker.bucketOverride` on save. Pre-populate using `smartDefaultBucket(assetType, symbol)` so common symbols (GLD, QQQ, IBIT) auto-select the right bucket.
+
+- **Add ticker without transcript (RADAR)** — ETFs, commodities, and crypto don't have earnings calls but need to exist as Ticker records so they can be held in Portfolio. Add a simple "Add ticker" button in RADAR that creates a minimal entry (symbol, name, shortName, type, status, inScope) without requiring a transcript. These tickers should be visually distinct in RADAR (e.g. "tracking only" badge) and excluded from thesis/recommendation views.
+
+- **Schwab API integration** — replace CSV import and Polygon price refresh with live Schwab data. Schwab uses 3-legged OAuth (user authorizes via Schwab login). This becomes the "Connect brokerage" button already stubbed in the UI. Covers: real-time quotes, live positions, account balances. Polygon stays as fallback until Schwab is connected. See Schwab Individual Developer API docs at developer.schwab.com.
+
 - **Wire Polygon into 3-axis classifier** — currently the classifier (`analysis/`) reads market data from `price_cache.json` built manually. Replace with live Polygon calls for market cap and P/E so the classifier can run without manual data prep. `POLYGON_API_KEY` is already in Railway env. Relevant endpoints: Ticker Details v3 (market cap), Financials (EPS/revenue for P/E and P/S).
 
 ---

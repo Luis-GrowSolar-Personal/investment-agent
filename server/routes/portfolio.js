@@ -97,6 +97,13 @@ router.get('/accounts', async (req, res) => {
       const totalUnrealised  = positions.reduce((s, p) => s + (p.unrealisedGain ?? 0), 0);
       const totalDayGain     = positions.reduce((s, p) => s + (p.dayGainDollar ?? 0), 0);
 
+      // Compute % of account for each position now that totalMarketValue is known
+      if (totalMarketValue > 0) {
+        for (const pos of positions) {
+          pos.pctOfAcct = (pos.marketValue ?? pos.totalCost) / totalMarketValue;
+        }
+      }
+
       // Bucket pills
       const bucketTotals = { equity: 0, etf: 0, crypto: 0, commodity: 0 };
       for (const p of positions) {
