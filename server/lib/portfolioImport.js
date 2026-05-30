@@ -296,7 +296,15 @@ function parseCSVRow(line) {
 
 function buildIndex(headers) {
   const idx = {};
-  headers.forEach((h, i) => { idx[h.trim()] = i; });
+  headers.forEach((h, i) => {
+    const full = h.trim();
+    idx[full] = i;
+    // Also index by the short name before any parenthetical, e.g.
+    // "Qty (Quantity)" → also register as "Qty"
+    // "Mkt Val (Market Value)" → also register as "Mkt Val"
+    const short = full.replace(/\s*\(.*?\).*$/, '').trim();
+    if (short && short !== full) idx[short] = i;
+  });
   return idx;
 }
 
