@@ -15,14 +15,14 @@ let _yahooFinance = null;
 async function getYahoo() {
   if (!_yahooFinance) {
     const mod = await import('yahoo-finance2');
-    // Handle different ESM/CJS interop shapes
-    const candidate = mod?.default ?? mod;
-    // Some bundlers double-wrap: mod.default.default
-    _yahooFinance = (typeof candidate?.quote === 'function')
-      ? candidate
-      : (candidate?.default ?? candidate);
+    // CJS dynamic import of ESM double-wraps: mod.default.default is the actual yf object
+    const d1 = mod?.default;
+    const d2 = d1?.default;
+    _yahooFinance = (typeof d2?.quote === 'function') ? d2
+                 : (typeof d1?.quote === 'function') ? d1
+                 : mod;
     if (typeof _yahooFinance?.quote !== 'function') {
-      throw new Error(`yahoo-finance2 loaded but .quote not found. Keys: ${Object.keys(mod).join(', ')}`);
+      throw new Error(`yahoo-finance2 .quote not found. Keys: ${Object.keys(mod).join(', ')}, d1 keys: ${Object.keys(d1 || {}).join(', ')}`);
     }
   }
   return _yahooFinance;
