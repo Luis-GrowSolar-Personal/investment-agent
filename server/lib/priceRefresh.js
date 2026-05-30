@@ -10,7 +10,15 @@
  *   // results: { updated: number, errors: [{ symbol, error }] }
  */
 
-const yahooFinance = require('yahoo-finance2').default;
+// yahoo-finance2 is ESM-only — must use dynamic import in a CJS module
+let _yahooFinance = null;
+async function getYahoo() {
+  if (!_yahooFinance) {
+    const mod = await import('yahoo-finance2');
+    _yahooFinance = mod.default;
+  }
+  return _yahooFinance;
+}
 
 /**
  * Refresh prices for a list of positions (by ID).
@@ -48,6 +56,8 @@ async function refreshPrices(prisma, positionIds) {
   const asOf = new Date();
 
   // Fetch quotes in parallel (Yahoo Finance handles batching internally)
+  const yahooFinance = await getYahoo();
+
   const quotePromises = symbols.map(async sym => {
     try {
       const quote = await yahooFinance.quote(sym, {}, { validateResult: false });
