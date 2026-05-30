@@ -419,18 +419,21 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
     }
   }
 
-  async function handleImport(posFile, txFile) {
+  async function handleImport(file) {
     setImporting(true);
     setImportMsg('');
     try {
-      const posCSV = await readFileText(posFile);
-      let txJSON = null;
-      if (txFile) txJSON = await readFileText(txFile);
+      const text = await readFileText(file);
+      const isJSON = file.name.toLowerCase().endsWith('.json');
+
+      const body = isJSON
+        ? { transactionsJSON: text }        // JSON only → lot reconstruction from transactions
+        : { positionsCSV: text };           // CSV only → AI-parsed positions
 
       const res = await fetch(`${API}/api/portfolio/accounts/${account.id}/import`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ positionsCSV: posCSV, transactionsJSON: txJSON }),
+        body: JSON.stringify(body),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
@@ -443,11 +446,10 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
     }
   }
 
-  function onPosFileChange(e) {
-    const posFile = e.target.files[0];
-    if (!posFile) return;
-    // Reset tx file picker — user will pick it next if needed, or click import again
-    handleImport(posFile, null);
+  function onFileChange(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    handleImport(file);
     e.target.value = '';
   }
 
@@ -472,8 +474,8 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
             icon="+"
             label="Add position"
           />
-          {/* Import file */}
-          <input ref={posFileRef} type="file" accept=".csv" style={{ display: 'none' }} onChange={onPosFileChange} />
+          {/* Import file — accepts CSV (positions) or JSON (transactions) */}
+          <input ref={posFileRef} type="file" accept=".csv,.json" style={{ display: 'none' }} onChange={onFileChange} />
           <ActionButton
             onClick={() => posFileRef.current?.click()}
             disabled={importing}

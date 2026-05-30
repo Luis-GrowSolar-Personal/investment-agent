@@ -28,7 +28,7 @@
 const express = require('express');
 const router  = express.Router();
 const prisma  = require('../lib/prisma');
-const { parsePositionsCSV, parseTransactionsJSON, reconstructLots, smartDefaultBucket } = require('../lib/portfolioImport');
+const { parsePositionsCSV, parseTransactionsJSON, reconstructLots, reconstructPositionsFromTransactions, smartDefaultBucket } = require('../lib/portfolioImport');
 const { refreshAccountPrices } = require('../lib/priceRefresh');
 
 // ---------------------------------------------------------------------------
@@ -422,22 +422,36 @@ router.post('/accounts/:id/import', async (req, res) => {
   const accountId = parseInt(req.params.id);
   const { positionsCSV, transactionsJSON } = req.body;
 
-  if (!positionsCSV) {
-    return res.status(400).json({ error: 'positionsCSV is required' });
+  if (!positionsCSV && !transactionsJSON) {
+    return res.status(400).json({ error: 'positionsCSV or transactionsJSON is required' });
   }
 
   try {
     const account = await prisma.account.findUnique({ where: { id: accountId } });
     if (!account) return res.status(404).json({ error: 'Account not found' });
 
-    // Parse positions CSV via Claude (format-agnostic)
-    const { accountMeta, cashBalance, positions: rawPositions } = await parsePositionsCSV(positionsCSV);
+    let enrichedPositions = [];
+    let accountMeta = {};
+    let cashBalance = null;
 
-    // Parse transactions if provided, and reconstruct lots
-    let enrichedPositions = rawPositions;
-    if (transactionsJSON) {
+    if (transactionsJSON && !positionsCSV) {
+      // JSON-only path: reconstruct positions + lots entirely from transaction history
       const transactions = parseTransactionsJSON(transactionsJSON);
-      enrichedPositions = reconstructLots(rawPositions, transactions);
+      enrichedPositions = reconstructPositionsFromTransactions(transactions);
+      accountMeta = { source: 'transactions JSON' };
+    } else {
+      // CSV path (with optional JSON for lot dates)
+      const parsed = await parsePositionsCSV(positionsCSV);
+      accountMeta  = parsed.accountMeta;
+      cashBalance  = parsed.cashBalance;
+      const rawPositions = parsed.positions;
+
+      if (transactionsJSON) {
+        const transactions = parseTransactionsJSON(transactionsJSON);
+        enrichedPositions = reconstructLots(rawPositions, transactions);
+      } else {
+        enrichedPositions = rawPositions;
+      }
     }
 
     const results = {

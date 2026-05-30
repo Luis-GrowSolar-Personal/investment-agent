@@ -137,7 +137,7 @@ function parseTransactionsJSON(jsonText) {
   const data = typeof jsonText === 'string' ? JSON.parse(jsonText) : jsonText;
   const raw = data.BrokerageTransactions || [];
 
-  const INCLUDE_ACTIONS = new Set(['Buy', 'Sell', 'Reverse Split']);
+  const INCLUDE_ACTIONS = new Set(['Buy', 'Sell', 'Reverse Split', 'Reinvest Shares']);
 
   return raw
     .filter(t => INCLUDE_ACTIONS.has(t.Action))
@@ -284,10 +284,91 @@ function parseTradeDate(dateStr) {
 }
 
 // ---------------------------------------------------------------------------
+// Reconstruct positions entirely from transactions JSON (no CSV needed)
+// ---------------------------------------------------------------------------
+
+/**
+ * Build a positions array from transaction history alone.
+ * Uses Buy/Sell/Reverse Split to derive open lots per symbol.
+ * Cost basis per lot = the actual purchase price paid (more accurate than CSV aggregate).
+ *
+ * Returns same shape as reconstructLots() output:
+ *   [{ symbol, description, qty, costBasisTotal, costBasisPerShare, assetType, bucket, lots, reconciled }]
+ */
+function reconstructPositionsFromTransactions(transactions) {
+  // Group by symbol
+  const bySymbol = {};
+  for (const tx of transactions) {
+    if (!tx.symbol) continue;
+    if (!bySymbol[tx.symbol]) bySymbol[tx.symbol] = { txs: [], description: '' };
+    bySymbol[tx.symbol].txs.push(tx);
+    if (tx.description) bySymbol[tx.symbol].description = tx.description;
+  }
+
+  const positions = [];
+
+  for (const [symbol, { txs, description }] of Object.entries(bySymbol)) {
+    const sorted = txs.slice().sort((a, b) => a.date - b.date);
+    const openLots = [];
+
+    for (const tx of sorted) {
+      if (tx.action === 'Reverse Split') {
+        const totalBefore = openLots.reduce((s, l) => s + l.shares, 0);
+        if (totalBefore > 0 && tx.qty > 0) {
+          const factor = tx.qty / totalBefore;
+          for (const lot of openLots) lot.shares *= factor;
+        }
+        continue;
+      }
+      if (tx.action === 'Buy' || tx.action === 'Reinvest Shares') {
+        openLots.push({
+          acquiredDate:     tx.date,
+          shares:           tx.qty,
+          costBasisPerShare: tx.price || 0,
+          source:           'import',
+        });
+      }
+      if (tx.action === 'Sell') {
+        let remaining = tx.qty;
+        while (remaining > 0.0001 && openLots.length > 0) {
+          if (openLots[0].shares <= remaining + 0.0001) {
+            remaining -= openLots[0].shares;
+            openLots.shift();
+          } else {
+            openLots[0].shares -= remaining;
+            remaining = 0;
+          }
+        }
+      }
+    }
+
+    if (!openLots.length) continue; // fully sold — skip
+
+    const totalShares = openLots.reduce((s, l) => s + l.shares, 0);
+    const totalCost   = openLots.reduce((s, l) => s + l.shares * l.costBasisPerShare, 0);
+
+    positions.push({
+      symbol,
+      description,
+      qty:               totalShares,
+      costBasisTotal:    totalCost,
+      costBasisPerShare: totalShares > 0 ? totalCost / totalShares : 0,
+      assetType:         '',  // unknown from transactions alone
+      bucket:            smartDefaultBucket('', symbol),
+      lots:              openLots,
+      reconciled:        true,
+    });
+  }
+
+  return positions;
+}
+
+// ---------------------------------------------------------------------------
 
 module.exports = {
   smartDefaultBucket,
   parsePositionsCSV,
   parseTransactionsJSON,
   reconstructLots,
+  reconstructPositionsFromTransactions,
 };
