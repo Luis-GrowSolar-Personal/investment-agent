@@ -1,47 +1,43 @@
 /**
  * priceRefresh.js
  *
- * Fetches current market prices via yahoo-finance2 and updates
- * Position rows in the database.
+ * Fetches current market prices via Polygon.io (formerly polygon.io, now Massive)
+ * and updates Position rows in the database.
  *
- * Usage:
- *   const { refreshPrices } = require('./priceRefresh');
- *   const results = await refreshPrices(prisma, positionIds);
- *   // results: { updated: number, errors: [{ symbol, error }] }
+ * Uses the snapshot endpoint — one call returns all symbols at once.
+ * Free tier: 15-min delayed data, unlimited calls.
+ *
+ * Env: POLYGON_API_KEY
  */
 
-// yahoo-finance2 is ESM-only — must use dynamic import in a CJS module
-let _yahooFinance = null;
-async function getYahoo() {
-  if (!_yahooFinance) {
-    const mod = await import('yahoo-finance2');
-    // CJS dynamic import of ESM double-wraps: mod.default.default is the actual yf object
-    const d1 = mod?.default;
-    const d2 = d1?.default;
-    _yahooFinance = (typeof d2?.quote === 'function') ? d2
-                 : (typeof d1?.quote === 'function') ? d1
-                 : mod;
-    if (typeof _yahooFinance?.quote !== 'function') {
-      throw new Error(`yahoo-finance2 .quote not found. Keys: ${Object.keys(mod).join(', ')}, d1 keys: ${Object.keys(d1 || {}).join(', ')}`);
-    }
-  }
-  return _yahooFinance;
+const POLYGON_BASE = 'https://api.polygon.io';
+
+/**
+ * Refresh prices for all active positions in an account.
+ *
+ * @param {PrismaClient} prisma
+ * @param {number}       accountId
+ * @returns {{ updated: number, errors: Array<{symbol: string, error: string}> }}
+ */
+async function refreshAccountPrices(prisma, accountId) {
+  const positions = await prisma.position.findMany({
+    where: { accountId, status: 'active' },
+    select: { id: true },
+  });
+  return refreshPrices(prisma, positions.map(p => p.id));
 }
 
 /**
  * Refresh prices for a list of positions (by ID).
- *
- * Fetches quote data from Yahoo Finance for each unique symbol,
- * then updates lastPrice / lastPriceAsOf / dayChangePct / dayChangeDollar
- * on each Position row.
- *
- * @param {PrismaClient} prisma
- * @param {number[]}     positionIds  — IDs of positions to refresh
- * @returns {{ updated: number, errors: Array<{symbol: string, error: string}> }}
  */
 async function refreshPrices(prisma, positionIds) {
   if (!positionIds || positionIds.length === 0) {
     return { updated: 0, errors: [] };
+  }
+
+  const apiKey = process.env.POLYGON_API_KEY;
+  if (!apiKey) {
+    return { updated: 0, errors: [{ symbol: 'ALL', error: 'POLYGON_API_KEY not set' }] };
   }
 
   // Load positions with ticker symbols
@@ -49,6 +45,8 @@ async function refreshPrices(prisma, positionIds) {
     where: { id: { in: positionIds }, status: 'active' },
     include: { ticker: { select: { symbol: true } } },
   });
+
+  if (!positions.length) return { updated: 0, errors: [] };
 
   // Deduplicate symbols
   const symbolToPositionIds = {};
@@ -59,72 +57,115 @@ async function refreshPrices(prisma, positionIds) {
   }
 
   const symbols = Object.keys(symbolToPositionIds);
-  const errors = [];
-  let updated = 0;
-  const asOf = new Date();
+  const errors  = [];
+  let updated   = 0;
+  const asOf    = new Date();
 
-  // Fetch quotes in parallel
-  const yahooFinance = await getYahoo();
-
-  // Suppress yahoo-finance2's Yup validation noise globally (safe to call multiple times)
   try {
-    yahooFinance.setGlobalConfig({ validation: { logErrors: false, logOptionsErrors: false } });
-  } catch (_) { /* older versions may not support this */ }
+    // Snapshot endpoint: fetch all symbols in one call
+    const url = `${POLYGON_BASE}/v2/snapshot/locale/us/markets/stocks/tickers`
+      + `?tickers=${symbols.join(',')}&apiKey=${apiKey}`;
 
-  const quotePromises = symbols.map(async sym => {
-    try {
-      const quote = await yahooFinance.quote(sym, {}, { validateResult: false });
-      return { sym, quote };
-    } catch (err) {
-      const msg = err.message || String(err);
-      console.error(`[priceRefresh] ${sym}: ${msg}`);
-      errors.push({ symbol: sym, error: msg });
-      return { sym, quote: null };
-    }
-  });
-
-  const results = await Promise.all(quotePromises);
-
-  // Update DB
-  const updatePromises = [];
-  for (const { sym, quote } of results) {
-    if (!quote) continue;
-
-    const price          = quote.regularMarketPrice ?? null;
-    const dayChangeDollar = quote.regularMarketChange ?? null;
-    const dayChangePct   = quote.regularMarketChangePercent != null
-      ? quote.regularMarketChangePercent / 100
-      : null;
-
-    if (price == null) {
-      errors.push({ symbol: sym, error: 'No price returned' });
-      continue;
+    const res = await fetch(url);
+    if (!res.ok) {
+      const body = await res.text();
+      return { updated: 0, errors: [{ symbol: 'ALL', error: `Polygon ${res.status}: ${body.slice(0, 200)}` }] };
     }
 
-    for (const posId of symbolToPositionIds[sym]) {
-      updatePromises.push(
-        prisma.position.update({
-          where: { id: posId },
-          data: { lastPrice: price, lastPriceAsOf: asOf, dayChangePct, dayChangeDollar },
-        })
-      );
-      updated++;
+    const data = await res.json();
+    const tickers = data.tickers || [];
+
+    if (!tickers.length) {
+      // May be crypto/ETF symbols — try them individually via previous close
+      // (snapshot only covers US stocks; for others fall back to prev close endpoint)
+      return await refreshViaIndividualQuotes(prisma, symbols, symbolToPositionIds, apiKey, asOf);
     }
+
+    // Build a map from symbol → quote data
+    const quoteMap = {};
+    for (const t of tickers) {
+      quoteMap[t.ticker] = t;
+    }
+
+    // Update DB for each symbol
+    const updatePromises = [];
+    for (const sym of symbols) {
+      const q = quoteMap[sym];
+      if (!q) {
+        errors.push({ symbol: sym, error: 'Not returned by Polygon snapshot' });
+        continue;
+      }
+
+      // Use lastTrade price, fall back to day close
+      const price          = q.lastTrade?.p ?? q.day?.c ?? null;
+      const dayChangeDollar = q.todaysChange ?? null;
+      const dayChangePct   = q.todaysChangePerc != null ? q.todaysChangePerc / 100 : null;
+
+      if (price == null) {
+        errors.push({ symbol: sym, error: 'No price in snapshot response' });
+        continue;
+      }
+
+      for (const posId of symbolToPositionIds[sym]) {
+        updatePromises.push(
+          prisma.position.update({
+            where: { id: posId },
+            data: { lastPrice: price, lastPriceAsOf: asOf, dayChangePct, dayChangeDollar },
+          })
+        );
+        updated++;
+      }
+    }
+
+    await Promise.all(updatePromises);
+
+  } catch (err) {
+    return { updated: 0, errors: [{ symbol: 'ALL', error: err.message }] };
   }
 
-  await Promise.all(updatePromises);
   return { updated, errors };
 }
 
 /**
- * Convenience: refresh all active positions in a single account.
+ * Fallback: fetch each symbol individually via Polygon's previous close endpoint.
+ * Used for ETFs/crypto that may not appear in the US stocks snapshot.
  */
-async function refreshAccountPrices(prisma, accountId) {
-  const positions = await prisma.position.findMany({
-    where: { accountId, status: 'active' },
-    select: { id: true },
-  });
-  return refreshPrices(prisma, positions.map(p => p.id));
+async function refreshViaIndividualQuotes(prisma, symbols, symbolToPositionIds, apiKey, asOf) {
+  const errors = [];
+  let updated  = 0;
+  const updatePromises = [];
+
+  await Promise.all(symbols.map(async sym => {
+    try {
+      const url = `${POLYGON_BASE}/v2/aggs/ticker/${sym}/prev?adjusted=true&apiKey=${apiKey}`;
+      const res = await fetch(url);
+      if (!res.ok) {
+        errors.push({ symbol: sym, error: `Polygon ${res.status}` });
+        return;
+      }
+      const data = await res.json();
+      const bar  = data.results?.[0];
+      if (!bar) {
+        errors.push({ symbol: sym, error: 'No prev-close data' });
+        return;
+      }
+      const price = bar.c;
+      for (const posId of symbolToPositionIds[sym]) {
+        updatePromises.push(
+          prisma.position.update({
+            where: { id: posId },
+            data: { lastPrice: price, lastPriceAsOf: asOf, dayChangePct: null, dayChangeDollar: null },
+          })
+        );
+        updated++;
+      }
+    } catch (err) {
+      errors.push({ symbol: sym, error: err.message });
+    }
+  }));
+
+  await Promise.all(updatePromises);
+  return { updated, errors };
 }
 
 module.exports = { refreshPrices, refreshAccountPrices };

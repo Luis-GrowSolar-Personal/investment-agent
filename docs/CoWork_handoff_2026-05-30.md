@@ -294,6 +294,12 @@ Old routes in `server/routes/portfolio.js` used `account String` enum and `CashB
 
 ---
 
+## Backlog (future sessions)
+
+- **Wire Polygon into 3-axis classifier** — currently the classifier (`analysis/`) reads market data from `price_cache.json` built manually. Replace with live Polygon calls for market cap and P/E so the classifier can run without manual data prep. `POLYGON_API_KEY` is already in Railway env. Relevant endpoints: Ticker Details v3 (market cap), Financials (EPS/revenue for P/E and P/S).
+
+---
+
 ## Key constraints (do not re-derive)
 - Analyst/Allocator firewall: analyst never receives portfolio data; allocator never receives transcripts
 - Tax: 15% federal LTCG and STCG, Florida (no state). Trim tax-advantaged accounts first.
