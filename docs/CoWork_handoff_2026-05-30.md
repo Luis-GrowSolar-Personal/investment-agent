@@ -296,6 +296,10 @@ Old routes in `server/routes/portfolio.js` used `account String` enum and `CashB
 
 ## Backlog (future sessions)
 
+- **ADR cost basis normalization** — For ADR securities like BYDDY, the Schwab transaction JSON records execution price in the foreign underlying's terms, not the USD/ADR cost basis that Schwab uses authoritatively. Result: imported cost basis per share is wrong for ADRs. Fix: after JSON import, if the computed total cost basis differs significantly from the CSV cost basis for the same symbol, flag it for user review. Permanent fix: Schwab API integration, which provides authoritative cost basis directly.
+
+- **Sortable lot detail rows** — within an expanded position row, allow sorting the lot sub-table by Acquired date (asc/desc) or Cost/sh (asc/desc). Currently lots render in whatever order they come from the DB. Clickable column headers, same pattern as the main position table.
+
 - **Asset type dropdown in Add Position modal** — currently all manually-added positions land in Equities by default. Add a "Bucket" dropdown (Equity / ETF / Crypto / Commodity) to the Add Position modal that sets `Ticker.bucketOverride` on save. Pre-populate using `smartDefaultBucket(assetType, symbol)` so common symbols (GLD, QQQ, IBIT) auto-select the right bucket.
 
 - **Add ticker without transcript (RADAR)** — ETFs, commodities, and crypto don't have earnings calls but need to exist as Ticker records so they can be held in Portfolio. Add a simple "Add ticker" button in RADAR that creates a minimal entry (symbol, name, shortName, type, status, inScope) without requiring a transcript. These tickers should be visually distinct in RADAR (e.g. "tracking only" badge) and excluded from thesis/recommendation views.

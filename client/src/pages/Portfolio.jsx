@@ -288,7 +288,29 @@ function PositionRow({ pos, onBucketChange, onDelete, onEdit }) {
 
 // ── Bucket tab content ────────────────────────────────────────────────────────
 
+const SORT_KEYS = {
+  'Symbol':    p => p.ticker.symbol,
+  'Name':      p => p.ticker.shortName || p.ticker.name || '',
+  'Shares':    p => p.totalShares ?? 0,
+  'Price':     p => p.lastPrice ?? 0,
+  'Mkt Value': p => p.marketValue ?? p.totalCost ?? 0,
+  'Total G/L': p => p.unrealisedGain ?? 0,
+  'Day G/L':   p => p.dayGainDollar ?? 0,
+  '% Acct':    p => p.pctOfAcct ?? 0,
+};
+
 function BucketTabContent({ bucket, positions, cashBalance, marginBalance, marginRate, marginAsOfDate, cashAsOfDate, onBucketChange, onDeletePosition, onEditPosition, onUpdateCash }) {
+  const [sortKey, setSortKey] = useState('Symbol');
+  const [sortDir, setSortDir] = useState('asc');
+
+  function handleSort(key) {
+    if (sortKey === key) {
+      setSortDir(d => d === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortKey(key);
+      setSortDir('asc');
+    }
+  }
   if (bucket === 'cash') {
     const net = (cashBalance ?? 0) - (marginBalance ?? 0);
     return (
@@ -324,27 +346,48 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
     );
   }
 
-  const bucketPositions = positions.filter(p => p.effectiveBucket === bucket);
+  const bucketPositions = positions
+    .filter(p => p.effectiveBucket === bucket)
+    .slice()
+    .sort((a, b) => {
+      const fn = SORT_KEYS[sortKey];
+      if (!fn) return 0;
+      const av = fn(a), bv = fn(b);
+      if (typeof av === 'string') return sortDir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+      return sortDir === 'asc' ? av - bv : bv - av;
+    });
+
   if (!bucketPositions.length) {
     return <div style={{ padding: '24px 0', color: '#475569', fontSize: 13 }}>No {BUCKET_LABELS[bucket].toLowerCase()} positions.</div>;
   }
+
+  const HEADERS = ['Symbol', 'Name', 'Shares', 'Price', 'Mkt Value', 'Total G/L', 'Day G/L', '% Acct', 'Bucket', '', ''];
+  const RIGHT_ALIGN = new Set(['Shares', 'Price', 'Mkt Value', 'Total G/L', 'Day G/L', '% Acct']);
+  const SORTABLE = new Set(Object.keys(SORT_KEYS));
 
   return (
     <div style={{ overflowX: 'auto' }}>
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
         <thead>
           <tr style={{ borderBottom: '1px solid #1e2330' }}>
-            {['Symbol', 'Name', 'Shares', 'Price', 'Mkt Value', 'Total G/L', 'Day G/L', '% Acct', 'Bucket', '', ''].map(h => (
-              <th key={h} style={{
-                padding: '7px 12px',
-                textAlign: ['Shares', 'Price', 'Mkt Value', 'Total G/L', 'Day G/L', '% Acct'].includes(h) ? 'right' : 'left',
-                fontSize: 10,
-                fontWeight: 600,
-                color: '#475569',
-                letterSpacing: '0.05em',
-                textTransform: 'uppercase',
-              }}>
-                {h}
+            {HEADERS.map(h => (
+              <th
+                key={h}
+                onClick={SORTABLE.has(h) ? () => handleSort(h) : undefined}
+                style={{
+                  padding: '7px 12px',
+                  textAlign: RIGHT_ALIGN.has(h) ? 'right' : 'left',
+                  fontSize: 10,
+                  fontWeight: 600,
+                  color: sortKey === h ? '#60a5fa' : '#475569',
+                  letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
+                  cursor: SORTABLE.has(h) ? 'pointer' : 'default',
+                  userSelect: 'none',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {h}{sortKey === h ? (sortDir === 'asc' ? ' ▲' : ' ▼') : ''}
               </th>
             ))}
           </tr>
