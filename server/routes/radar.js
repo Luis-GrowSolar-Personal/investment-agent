@@ -281,10 +281,10 @@ router.post('/tickers', requireAuth(), async (req, res) => {
   }
 });
 
-// PATCH /api/radar/tickers/:id — update name, type, capPercent, status
+// PATCH /api/radar/tickers/:id — update name, type, capPercent, status, inScope
 router.patch('/tickers/:id', requireAuth(), async (req, res) => {
   const id = parseInt(req.params.id);
-  const { symbol, name, type, capPercent, status } = req.body;
+  const { symbol, name, type, capPercent, status, inScope } = req.body;
 
   try {
     const newSymbol = symbol?.trim().toUpperCase();
@@ -307,6 +307,7 @@ router.patch('/tickers/:id', requireAuth(), async (req, res) => {
             ...(type       !== undefined && { type }),
             ...(capPercent !== undefined && { capPercent }),
             ...(status     !== undefined && { status }),
+            ...(inScope    !== undefined && { inScope }),
           },
         });
         return res.json({ ...updated, merged: true });
@@ -321,6 +322,7 @@ router.patch('/tickers/:id', requireAuth(), async (req, res) => {
         ...(type       !== undefined && { type }),
         ...(capPercent !== undefined && { capPercent }),
         ...(status     !== undefined && { status }),
+        ...(inScope    !== undefined && { inScope }),
       },
     });
     res.json(updated);
