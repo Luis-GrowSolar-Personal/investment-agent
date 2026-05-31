@@ -444,11 +444,19 @@ router.delete('/transcripts/:id', requireAuth(), async (req, res) => {
 router.delete('/tickers/:id', requireAuth(), async (req, res) => {
   const id = parseInt(req.params.id);
   try {
-    // Must delete in FK dependency order: analyses → transcripts → ticker
+    // Must delete in FK dependency order: analyses → transcripts → lots → positions → ticker
     await prisma.analysis.deleteMany({
       where: { transcript: { tickerId: id } },
     });
     await prisma.transcript.deleteMany({ where: { tickerId: id } });
+    const positionIds = (await prisma.position.findMany({
+      where: { tickerId: id },
+      select: { id: true },
+    })).map(p => p.id);
+    if (positionIds.length) {
+      await prisma.lot.deleteMany({ where: { positionId: { in: positionIds } } });
+      await prisma.position.deleteMany({ where: { tickerId: id } });
+    }
     await prisma.ticker.delete({ where: { id } });
     res.json({ deleted: true });
   } catch (err) {
