@@ -1004,23 +1004,19 @@ function TickerTable({ tickers, section, onAction, getToken }) {
       </tbody>
     </table>
 
-    {renamingId && (() => {
-      const ticker = tickers.find(t => t.id === renamingId);
-      if (!ticker) return null;
-      return (
-        <RenameTickerModal
-          ticker={ticker}
-          tickers={tickers}
-          renameSymbol={renameSymbol}
-          setRenameSymbol={setRenameSymbol}
-          renameName={renameName}
-          setRenameName={setRenameName}
-          renameError={renameError}
-          onSave={() => commitRename(renamingId)}
-          onClose={() => { setRenamingId(null); setRenameError(null); }}
-        />
-      );
-    })()}
+    {renamingId && tickers.find(t => t.id === renamingId) && (
+      <RenameTickerModal
+        ticker={tickers.find(t => t.id === renamingId)}
+        tickers={tickers}
+        renameSymbol={renameSymbol}
+        setRenameSymbol={setRenameSymbol}
+        renameName={renameName}
+        setRenameName={setRenameName}
+        renameError={renameError}
+        onSave={() => commitRename(renamingId)}
+        onClose={() => { setRenamingId(null); setRenameError(null); }}
+      />
+    )}
   );
 }
 
