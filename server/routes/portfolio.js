@@ -92,12 +92,16 @@ router.get('/accounts', async (req, res) => {
 
     const enriched = accounts.map(acct => {
       const positions = acct.positions.map(enrichPosition);
-      const totalMarketValue = positions.reduce((s, p) => s + (p.marketValue ?? p.totalCost), 0);
+      const positionsValue   = positions.reduce((s, p) => s + (p.marketValue ?? p.totalCost), 0);
+      const cashBalance      = acct.cashBalance ?? 0;
+      const marginBalance    = acct.marginBalance ?? 0; // debt — subtract
+      // Total account value = positions + cash - margin debt
+      const totalMarketValue = positionsValue + cashBalance - marginBalance;
       const totalCost        = positions.reduce((s, p) => s + p.totalCost, 0);
       const totalUnrealised  = positions.reduce((s, p) => s + (p.unrealisedGain ?? 0), 0);
       const totalDayGain     = positions.reduce((s, p) => s + (p.dayGainDollar ?? 0), 0);
 
-      // Compute % of account for each position now that totalMarketValue is known
+      // Compute % of account for each position (denominator = total including cash)
       if (totalMarketValue > 0) {
         for (const pos of positions) {
           pos.pctOfAcct = (pos.marketValue ?? pos.totalCost) / totalMarketValue;
