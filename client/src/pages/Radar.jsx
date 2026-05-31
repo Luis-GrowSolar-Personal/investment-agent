@@ -723,11 +723,16 @@ function HistoryRow({ tickerId, colSpan, getToken, onLastDeleted, onRescored }) 
 
 function TickerTable({ tickers, section, onAction, getToken }) {
   const [expandedId, setExpandedId] = useState(null);
-  const [acting, setActing] = useState(null); // ticker id being acted on
+  const [acting, setActing]         = useState(null);
   const [renamingId, setRenamingId] = useState(null);
-  const [renameSymbol, setRenameSymbol] = useState('');
-  const [renameName, setRenameName] = useState('');
-  const [renameError, setRenameError] = useState(null);
+  // Full edit fields
+  const [renameSymbol, setRenameSymbol]   = useState('');
+  const [renameName, setRenameName]       = useState('');
+  const [editType, setEditType]           = useState('A');
+  const [editCapPercent, setEditCapPercent] = useState('');
+  const [editStatus, setEditStatus]       = useState('watchlist');
+  const [editInScope, setEditInScope]     = useState(true);
+  const [renameError, setRenameError]     = useState(null);
   // Sort state: { key: 'symbol'|'type'|'lastUpdated', dir: 'asc'|'desc' }
   // Click a column header to sort by it. Click again to toggle direction.
   // Default: by symbol ascending.
@@ -793,6 +798,10 @@ function TickerTable({ tickers, section, onAction, getToken }) {
     setRenamingId(ticker.id);
     setRenameSymbol(ticker.symbol);
     setRenameName(ticker.name);
+    setEditType(ticker.type ?? 'A');
+    setEditCapPercent(ticker.capPercent != null ? String(ticker.capPercent) : '');
+    setEditStatus(ticker.status ?? 'watchlist');
+    setEditInScope(ticker.inScope !== false);
     setRenameError(null);
   }
 
@@ -800,30 +809,27 @@ function TickerTable({ tickers, section, onAction, getToken }) {
     const sym = renameSymbol.trim().toUpperCase();
     const nm  = renameName.trim();
     if (!sym) { setRenameError('Symbol is required'); return; }
-    // Detect a merge: if the new symbol matches a *different* existing ticker,
-    // the backend will move all transcripts over and delete the source ticker.
-    // Surface this explicitly so the user doesn't merge accidentally.
+
     const conflict = tickers.find(t => t.symbol === sym && t.id !== tickerId);
     if (conflict) {
       const sourceTicker = tickers.find(t => t.id === tickerId);
-      const sourceSym = sourceTicker?.symbol || '?';
-      const sourceCount = sourceTicker?.transcriptCount || 0;
       const ok = window.confirm(
         `MERGE: ${sym} already exists.\n\n` +
-        `This will move ${sourceCount} transcript(s) from ${sourceSym} into ${sym} ` +
-        `and DELETE the ${sourceSym} ticker.\n\n` +
-        `Use this for share-class duplicates (e.g. GOOG → GOOGL) where the same ` +
-        `call was loaded under both symbols.\n\n` +
-        `If this is unintentional, cancel and pick a different symbol.\n\n` +
-        `After merging, run check_db_integrity.py to catch any duplicate ` +
-        `(ticker, callDate) pairs.\n\n` +
+        `This will move ${sourceTicker?.transcriptCount || 0} transcript(s) from ${sourceTicker?.symbol} into ${sym} and DELETE the ${sourceTicker?.symbol} ticker.\n\n` +
         `Proceed with merge?`
       );
       if (!ok) return;
     }
     setRenameError(null);
     try {
-      await onAction(() => apiPatch(tickerId, { symbol: sym, name: nm || sym }, getToken));
+      await onAction(() => apiPatch(tickerId, {
+        symbol:     sym,
+        name:       nm || sym,
+        type:       editType,
+        capPercent: editCapPercent !== '' ? parseFloat(editCapPercent) : undefined,
+        status:     editStatus,
+        inScope:    editInScope,
+      }, getToken));
       setRenamingId(null);
     } catch (err) {
       setRenameError(err.message);
@@ -954,25 +960,10 @@ function TickerTable({ tickers, section, onAction, getToken }) {
                 {la ? new Date(la.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'}
               </td>
               <td style={td}>
-                <div style={{ display: 'flex', gap: 6, flexWrap: 'nowrap' }}>
-                  {section === 'watchlist' ? (
-                    <ActionButton
-                      label="→ Portfolio"
-                      color="#60a5fa"
-                      onClick={() => handlePromote(ticker)}
-                      disabled={isActing}
-                    />
-                  ) : (
-                    <ActionButton
-                      label="→ Watchlist"
-                      color="#94a3b8"
-                      onClick={() => handleDemote(ticker)}
-                      disabled={isActing}
-                    />
-                  )}
+                <div style={{ display: 'flex', gap: 6, flexWrap: 'nowrap', alignItems: 'center' }}>
                   <IconBtn
                     icon={<PencilIcon />}
-                    title="Rename / merge — change symbol to merge transcripts into an existing ticker"
+                    title="Edit ticker — symbol, name, type, cap%, status, scope"
                     onClick={() => startRename(ticker)}
                     disabled={isActing}
                     hoverColor="#a78bfa"
@@ -1009,10 +1000,12 @@ function TickerTable({ tickers, section, onAction, getToken }) {
       <RenameTickerModal
         ticker={tickers.find(t => t.id === renamingId)}
         tickers={tickers}
-        renameSymbol={renameSymbol}
-        setRenameSymbol={setRenameSymbol}
-        renameName={renameName}
-        setRenameName={setRenameName}
+        renameSymbol={renameSymbol}    setRenameSymbol={setRenameSymbol}
+        renameName={renameName}        setRenameName={setRenameName}
+        editType={editType}            setEditType={setEditType}
+        editCapPercent={editCapPercent} setEditCapPercent={setEditCapPercent}
+        editStatus={editStatus}        setEditStatus={setEditStatus}
+        editInScope={editInScope}      setEditInScope={setEditInScope}
         renameError={renameError}
         onSave={() => commitRename(renamingId)}
         onClose={() => { setRenamingId(null); setRenameError(null); }}
@@ -1022,41 +1015,76 @@ function TickerTable({ tickers, section, onAction, getToken }) {
   );
 }
 
-function RenameTickerModal({ ticker, tickers, renameSymbol, setRenameSymbol, renameName, setRenameName, renameError, onSave, onClose }) {
-  const inputStyle = {
+function RenameTickerModal({
+  ticker, tickers,
+  renameSymbol, setRenameSymbol,
+  renameName,   setRenameName,
+  editType,     setEditType,
+  editCapPercent, setEditCapPercent,
+  editStatus,   setEditStatus,
+  editInScope,  setEditInScope,
+  renameError,  onSave, onClose,
+}) {
+  const inp = {
     background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
     color: '#f1f5f9', fontSize: 13, padding: '6px 10px', outline: 'none',
     width: '100%', boxSizing: 'border-box',
   };
+  const lbl = { fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 };
+
   return (
     <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
-      <div style={{ background: '#0f1117', border: '1px solid #1e2330', borderRadius: 10, padding: 24, width: 420, maxWidth: '95vw' }}>
+      <div style={{ background: '#0f1117', border: '1px solid #1e2330', borderRadius: 10, padding: 24, width: 440, maxWidth: '95vw' }}>
         <div style={{ fontWeight: 600, color: '#f1f5f9', marginBottom: 4, fontSize: 14 }}>
-          Rename ticker — {ticker.symbol}
+          Edit ticker — {ticker.symbol}
         </div>
         <div style={{ fontSize: 12, color: '#475569', marginBottom: 16, lineHeight: 1.5 }}>
-          Change the symbol or company name. If the new symbol already exists,
-          all transcripts will be merged into it and this ticker deleted.
+          Changing the symbol to one that already exists will merge all transcripts into it.
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <div>
-            <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 }}>Symbol *</label>
-            <input style={{ ...inputStyle, width: 120, boxSizing: 'border-box' }}
-              value={renameSymbol}
-              onChange={e => setRenameSymbol(e.target.value.toUpperCase())}
-              placeholder="New symbol"
-              maxLength={10}
-              autoFocus
-            />
+          {/* Symbol + Type row */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+            <div>
+              <label style={lbl}>Symbol *</label>
+              <input style={inp} value={renameSymbol}
+                onChange={e => setRenameSymbol(e.target.value.toUpperCase())}
+                maxLength={10} autoFocus />
+            </div>
+            <div>
+              <label style={lbl}>Type</label>
+              <select style={{ ...inp, cursor: 'pointer' }} value={editType} onChange={e => setEditType(e.target.value)}>
+                <option value="A">A — Single-driver (35% cap)</option>
+                <option value="B">B — Platform (50% cap)</option>
+              </select>
+            </div>
           </div>
+          {/* Company name */}
           <div>
-            <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 }}>Company name</label>
-            <input style={inputStyle}
-              value={renameName}
-              onChange={e => setRenameName(e.target.value)}
-              placeholder="Full company name"
-            />
+            <label style={lbl}>Company name</label>
+            <input style={inp} value={renameName} onChange={e => setRenameName(e.target.value)} />
           </div>
+          {/* Cap% + Status row */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+            <div>
+              <label style={lbl}>Cap % override</label>
+              <input type="number" step="1" min="0" max="100" style={inp}
+                value={editCapPercent} onChange={e => setEditCapPercent(e.target.value)}
+                placeholder="e.g. 35" />
+            </div>
+            <div>
+              <label style={lbl}>Status</label>
+              <select style={{ ...inp, cursor: 'pointer' }} value={editStatus} onChange={e => setEditStatus(e.target.value)}>
+                <option value="watchlist">Watchlist</option>
+                <option value="portfolio">Portfolio</option>
+              </select>
+            </div>
+          </div>
+          {/* inScope toggle */}
+          <label style={{ fontSize: 12, color: '#64748b', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}>
+            <input type="checkbox" checked={editInScope} onChange={e => setEditInScope(e.target.checked)} />
+            In scope (analyst-reviewed, not legacy)
+          </label>
+
           {renameError && <div style={{ color: '#ef4444', fontSize: 12 }}>{renameError}</div>}
           <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 4 }}>
             <button onClick={onClose}
@@ -1064,8 +1092,8 @@ function RenameTickerModal({ ticker, tickers, renameSymbol, setRenameSymbol, ren
               Cancel
             </button>
             <button onClick={onSave}
-              style={{ background: '#a78bfa', border: 'none', color: '#0f1117', fontSize: 13, fontWeight: 700, padding: '6px 20px', borderRadius: 5, cursor: 'pointer' }}>
-              Save
+              style={{ background: '#3b82f6', border: 'none', color: '#f1f5f9', fontSize: 13, fontWeight: 600, padding: '6px 20px', borderRadius: 5, cursor: 'pointer' }}>
+              Save changes
             </button>
           </div>
         </div>
@@ -1233,25 +1261,50 @@ export default function Radar() {
 
   return (
     <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 4 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
         <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>
           Stock Radar
         </h1>
-        <button
-          onClick={() => setShowNewTicker(true)}
-          style={{
-            background: 'transparent',
-            border: '1px solid #2d3748',
-            borderRadius: 5,
-            color: '#60a5fa',
-            fontSize: 11, fontWeight: 600,
-            padding: '4px 12px',
-            cursor: 'pointer',
-            letterSpacing: '0.04em', textTransform: 'uppercase',
-          }}
-        >
-          + New ticker
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          {/* Re-score all — grey icon, outside frames */}
+          <IconBtn
+            icon={<ResyncIcon />}
+            title="Re-score all calls"
+            onClick={async () => {
+              setRescoreAllState('running');
+              try {
+                const token = await getToken();
+                const res = await fetch(`${API_URL}/api/radar/rescore-all`, {
+                  method: 'POST', headers: { 'Authorization': `Bearer ${token}` },
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error);
+                setRescoreAllState(data);
+                await fetchTickers({ silent: true });
+              } catch (e) {
+                alert(`Re-score failed: ${e.message}`);
+                setRescoreAllState(null);
+              }
+            }}
+            disabled={rescoreAllState === 'running'}
+            hoverColor="#94a3b8"
+          />
+          {/* + New Ticker — blue button matching Portfolio style */}
+          <button
+            onClick={() => setShowNewTicker(true)}
+            style={{
+              background: '#3b82f6',
+              border: 'none',
+              borderRadius: 6,
+              color: '#fff',
+              fontSize: 13, fontWeight: 600,
+              padding: '7px 18px',
+              cursor: 'pointer',
+            }}
+          >
+            + New Ticker
+          </button>
+        </div>
       </div>
 
       {/* Re-score result banner — persists until next run */}
@@ -1291,27 +1344,7 @@ export default function Radar() {
       {!loading && !error && (
         <>
           {/* ── Portfolio ── */}
-          <Section
-            title="Portfolio"
-            count={portfolio.length}
-            onRescore={async () => {
-              setRescoreAllState('running');
-              try {
-                const token = await getToken();
-                const res = await fetch(`${API_URL}/api/radar/rescore-all`, {
-                  method: 'POST', headers: { 'Authorization': `Bearer ${token}` },
-                });
-                const data = await res.json();
-                if (!res.ok) throw new Error(data.error);
-                setRescoreAllState(data);
-                await fetchTickers({ silent: true });
-              } catch (e) {
-                alert(`Re-score failed: ${e.message}`);
-                setRescoreAllState(null);
-              }
-            }}
-            rescoring={rescoreAllState === 'running'}
-          >
+          <Section title="Portfolio" count={portfolio.length}>
             <TickerTable
               tickers={portfolio}
               section="portfolio"
@@ -1454,6 +1487,61 @@ function NewTickerModal({ getToken, onSaved, onClose }) {
   );
 }
 
+function DragScrollContainer({ children }) {
+  const ref = useRef(null);
+  const drag = useRef({ active: false, startX: 0, scrollLeft: 0, moved: false });
+
+  function onMouseDown(e) {
+    // Only initiate on the container itself or non-interactive children
+    const tag = e.target.tagName.toLowerCase();
+    if (['button', 'a', 'input', 'select', 'textarea'].includes(tag)) return;
+    const el = ref.current;
+    drag.current = { active: true, startX: e.pageX - el.offsetLeft, scrollLeft: el.scrollLeft, moved: false };
+    el.style.cursor = 'grabbing';
+    el.style.userSelect = 'none';
+  }
+
+  function onMouseMove(e) {
+    if (!drag.current.active) return;
+    const el = ref.current;
+    const x = e.pageX - el.offsetLeft;
+    const delta = x - drag.current.startX;
+    if (Math.abs(delta) > 5) drag.current.moved = true;
+    if (drag.current.moved) {
+      e.preventDefault();
+      el.scrollLeft = drag.current.scrollLeft - delta;
+    }
+  }
+
+  function onMouseUp() {
+    if (!ref.current) return;
+    drag.current.active = false;
+    ref.current.style.cursor = 'grab';
+    ref.current.style.userSelect = '';
+  }
+
+  return (
+    <div
+      ref={ref}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseUp}
+      style={{
+        background: '#090c12',
+        border: '1px solid #1e2330',
+        borderTop: 'none',
+        borderRadius: '0 0 10px 10px',
+        padding: '12px 20px 16px',
+        overflowX: 'auto',
+        cursor: 'grab',
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 function Section({ title, count, children, style, onRescore, rescoring }) {
   const [expanded, setExpanded] = useState(true);
   return (
@@ -1499,16 +1587,9 @@ function Section({ title, count, children, style, onRescore, rescoring }) {
         </div>
       </div>
       {expanded && (
-        <div style={{
-          background: '#090c12',
-          border: '1px solid #1e2330',
-          borderTop: 'none',
-          borderRadius: '0 0 10px 10px',
-          padding: '12px 20px 16px',
-          overflowX: 'auto',
-        }}>
+        <DragScrollContainer>
           {children}
-        </div>
+        </DragScrollContainer>
       )}
     </div>
   );
