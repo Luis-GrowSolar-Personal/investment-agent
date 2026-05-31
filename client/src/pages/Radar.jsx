@@ -724,7 +724,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
   // Default: by symbol ascending.
   const [sort, setSort] = useState({ key: 'symbol', dir: 'asc' });
 
-  const colSpan = 10;
+  const colSpan = 11;
 
   function setSortKey(key) {
     setSort(prev => prev.key === key
@@ -833,6 +833,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
       <thead>
         <tr>
+          <th style={{ ...th, width: 24, padding: '10px 6px' }}></th>
           <SortableTh sortKey="symbol" sort={sort} onClick={setSortKey}>Symbol</SortableTh>
           <SortableTh sortKey="company" sort={sort} onClick={setSortKey}>Company</SortableTh>
           <SortableTh sortKey="type" sort={sort} onClick={setSortKey}>Type</SortableTh>
@@ -856,31 +857,27 @@ function TickerTable({ tickers, section, onAction, getToken }) {
               key={ticker.id}
               style={{ opacity: isActing ? 0.5 : 1, transition: 'opacity 0.15s' }}
             >
+              <td
+                style={{ ...td, width: 24, padding: '12px 6px', textAlign: 'center', color: '#475569', fontSize: 10, cursor: 'pointer' }}
+                onClick={() => setExpandedId(isExpanded ? null : ticker.id)}
+              >
+                {isExpanded ? '▼' : '▶'}
+              </td>
               <td style={td}>
-                <button
-                  onClick={() => setExpandedId(isExpanded ? null : ticker.id)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#93c5fd',
-                    fontSize: 13,
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    padding: 0,
-                    letterSpacing: '0.03em',
-                  }}
-                >
-                  {ticker.symbol}
-                  <span style={{ marginLeft: 4, fontSize: 10, color: '#475569' }}>
-                    {isExpanded ? '▲' : '▼'}
-                  </span>
-                </button>
-                {la?.tier && (
-                  <span style={{ marginLeft: 6 }}>
-                    <TierChip tier={la.tier} />
-                  </span>
-                )}
-                <StaleTranscriptBadge daysSinceLastCall={ticker.daysSinceLastCall} />
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, flexWrap: 'nowrap' }}>
+                  <button
+                    onClick={() => setExpandedId(isExpanded ? null : ticker.id)}
+                    style={{
+                      background: 'none', border: 'none', color: '#93c5fd',
+                      fontSize: 13, fontWeight: 700, cursor: 'pointer',
+                      padding: 0, letterSpacing: '0.03em',
+                    }}
+                  >
+                    {ticker.symbol}
+                  </button>
+                  {la?.tier && <TierChip tier={la.tier} />}
+                  <StaleTranscriptBadge daysSinceLastCall={ticker.daysSinceLastCall} />
+                </span>
               </td>
               <td style={{ ...td, maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 {ticker.shortName || ticker.name.split(' ')[0] || ticker.symbol}
@@ -1080,6 +1077,7 @@ function IconBtn({ icon, title, onClick, disabled, hoverColor = '#94a3b8' }) {
         cursor: disabled ? 'not-allowed' : 'pointer',
         padding: '2px 4px',
         lineHeight: 1,
+        fontSize: 14,
         display: 'inline-flex',
         alignItems: 'center',
         transition: 'color 0.15s',

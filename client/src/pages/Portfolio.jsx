@@ -106,7 +106,7 @@ function BucketPill({ ticker, onBucketChange }) {
       <Pill
         color={BUCKET_COLORS[effective]}
         onClick={e => { e.stopPropagation(); setOpen(o => !o); }}
-        style={{ cursor: 'pointer' }}
+        style={{ cursor: 'pointer', whiteSpace: 'nowrap' }}
       >
         {effective} ▾
       </Pill>
@@ -178,9 +178,21 @@ function PositionRow({ pos, onBucketChange, onDelete, onEdit }) {
         onMouseEnter={e => e.currentTarget.style.background = '#0d1018'}
         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
       >
-        <td style={{ padding: '9px 12px', fontWeight: 700, color: '#f1f5f9', fontSize: 13 }}>
-          {pos.ticker.symbol}
-          {!pos.ticker.inScope && <span style={{ marginLeft: 5, fontSize: 10, color: '#ef4444', fontWeight: 400 }}>legacy</span>}
+        {/* Expand chevron — left of symbol */}
+        <td style={{ padding: '9px 6px', width: 24, textAlign: 'center', color: '#475569', fontSize: 10 }}>
+          {expanded ? '▼' : '▶'}
+        </td>
+        <td style={{ padding: '9px 12px' }}>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, flexWrap: 'nowrap' }}>
+            <span style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 13 }}>{pos.ticker.symbol}</span>
+            {!pos.ticker.inScope && (
+              <span style={{
+                display: 'inline-block', padding: '1px 5px', borderRadius: 3,
+                fontSize: 9, fontWeight: 700, letterSpacing: '0.08em',
+                color: '#ef4444', background: '#ef444414', border: '1px solid #ef444430',
+              }}>legacy</span>
+            )}
+          </span>
         </td>
         <td style={{ padding: '9px 12px', color: '#94a3b8', fontSize: 12 }}>
           {pos.ticker.shortName || pos.ticker.name}
@@ -208,33 +220,20 @@ function PositionRow({ pos, onBucketChange, onDelete, onEdit }) {
         <td style={{ padding: '9px 12px' }} onClick={e => e.stopPropagation()}>
           <BucketPill ticker={{ ...pos.ticker, _smartBucket: pos.effectiveBucket }} onBucketChange={onBucketChange} />
         </td>
-        <td style={{ padding: '9px 8px', color: '#475569', fontSize: 11, textAlign: 'right' }}>
-          {expanded ? '▲' : '▼'}
-        </td>
         <td style={{ padding: '9px 8px', textAlign: 'right', whiteSpace: 'nowrap' }} onClick={e => e.stopPropagation()}>
-          <button
-            onClick={() => onEdit(pos)}
-            title="Edit lots"
-            style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: 13, padding: '0 4px', lineHeight: 1 }}
+          <button onClick={() => onEdit(pos)} title="Edit lots"
+            style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: 14, padding: '0 4px', lineHeight: 1 }}
             onMouseEnter={e => e.currentTarget.style.color = '#60a5fa'}
-            onMouseLeave={e => e.currentTarget.style.color = '#475569'}
-          >
-            ✎
-          </button>
-          <button
-            onClick={() => setConfirmDelete(true)}
-            title="Remove position (no taxable event)"
+            onMouseLeave={e => e.currentTarget.style.color = '#475569'}>✎</button>
+          <button onClick={() => setConfirmDelete(true)} title="Remove position (no taxable event)"
             style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: 14, padding: '0 4px', lineHeight: 1 }}
             onMouseEnter={e => e.currentTarget.style.color = '#ef4444'}
-            onMouseLeave={e => e.currentTarget.style.color = '#475569'}
-          >
-            ×
-          </button>
+            onMouseLeave={e => e.currentTarget.style.color = '#475569'}>×</button>
         </td>
       </tr>
       {confirmDelete && (
         <tr>
-          <td colSpan={11} style={{ background: '#1a0a0a', padding: '8px 16px', borderBottom: '1px solid #3d1515' }}>
+          <td colSpan={12} style={{ background: '#1a0a0a', padding: '8px 16px', borderBottom: '1px solid #3d1515' }}>
             <span style={{ fontSize: 12, color: '#fca5a5' }}>
               Remove <strong>{pos.ticker.symbol}</strong> from tracking? This does not generate a taxable event — it only removes it from the agent's records.
             </span>
@@ -255,7 +254,7 @@ function PositionRow({ pos, onBucketChange, onDelete, onEdit }) {
       )}
       {expanded && (
         <tr>
-          <td colSpan={10} style={{ background: '#090c12', padding: '0 12px 12px 40px' }}>
+          <td colSpan={12} style={{ background: '#090c12', padding: '0 12px 12px 40px' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, color: '#94a3b8', marginTop: 8 }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid #1e2330' }}>
@@ -361,7 +360,7 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
     return <div style={{ padding: '24px 0', color: '#475569', fontSize: 13 }}>No {BUCKET_LABELS[bucket].toLowerCase()} positions.</div>;
   }
 
-  const HEADERS = ['Symbol', 'Name', 'Shares', 'Price', 'Mkt Value', 'Total G/L', 'Day G/L', '% Acct', 'Bucket', '', ''];
+  const HEADERS = ['', 'Symbol', 'Name', 'Shares', 'Price', 'Mkt Value', 'Total G/L', 'Day G/L', '% Acct', 'Bucket', ''];
   const RIGHT_ALIGN = new Set(['Shares', 'Price', 'Mkt Value', 'Total G/L', 'Day G/L', '% Acct']);
   const SORTABLE = new Set(Object.keys(SORT_KEYS));
 
@@ -940,6 +939,7 @@ function AccountCard({ account, expanded, onToggle, token, onRefresh, onDeleted 
           {/* Left: name + badges */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+              <span style={{ color: '#475569', fontSize: 10 }}>{expanded ? '▼' : '▶'}</span>
               <span style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 15 }}>{account.name}</span>
               <Pill color="#60a5fa">{typeLabel}</Pill>
               <Pill color="#94a3b8">{account.owner}</Pill>
@@ -953,21 +953,18 @@ function AccountCard({ account, expanded, onToggle, token, onRefresh, onDeleted 
               <span style={{ color: gainColor(gain) }}>{fmtDollars(gain)} ({fmtPct(gainPct)})</span>
             </div>
           </div>
-          {/* Right: total MV + chevron + delete */}
-          <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
+          {/* Right: total MV + delete */}
+          <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
             <div style={{ fontSize: 20, fontWeight: 700, color: '#f1f5f9' }}>{fmtDollars(totalMV, true)}</div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <button
-                onClick={e => { e.stopPropagation(); setShowDeleteStep1(true); }}
-                title="Delete account"
-                style={{ background: 'none', border: 'none', color: '#334155', cursor: 'pointer', fontSize: 12, padding: 0 }}
-                onMouseEnter={e => e.currentTarget.style.color = '#ef4444'}
-                onMouseLeave={e => e.currentTarget.style.color = '#334155'}
-              >
-                Delete account
-              </button>
-              <div style={{ fontSize: 11, color: '#475569' }}>{expanded ? '▲' : '▼'}</div>
-            </div>
+            <button
+              onClick={e => { e.stopPropagation(); setShowDeleteStep1(true); }}
+              title="Delete account"
+              style={{ background: 'none', border: 'none', color: '#334155', cursor: 'pointer', fontSize: 12, padding: 0 }}
+              onMouseEnter={e => e.currentTarget.style.color = '#ef4444'}
+              onMouseLeave={e => e.currentTarget.style.color = '#334155'}
+            >
+              Delete account
+            </button>
           </div>
         </div>
         {/* Bucket pills */}

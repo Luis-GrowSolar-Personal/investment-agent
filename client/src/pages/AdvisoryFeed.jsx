@@ -106,6 +106,27 @@ const td = {
   verticalAlign: 'middle',
 };
 
+function SortableTh({ sortKey, sort, onSort, children }) {
+  const isActive = sort.key === sortKey;
+  const arrow = isActive ? (sort.dir === 'asc' ? '↑' : '↓') : '↕';
+  return (
+    <th
+      onClick={() => onSort(sortKey)}
+      style={{
+        ...th,
+        cursor: 'pointer',
+        color: isActive ? '#cbd5e1' : '#475569',
+        userSelect: 'none',
+      }}
+    >
+      {children}
+      <span style={{ marginLeft: 4, fontSize: 10, color: isActive ? '#3b82f6' : '#334155' }}>
+        {arrow}
+      </span>
+    </th>
+  );
+}
+
 let advisoryCache = null;
 // Cache the rawOutput per analysisId across expand/collapse cycles so we
 // don't re-fetch when the user toggles the same row.
@@ -155,8 +176,16 @@ export default function AdvisoryFeed() {
   const [loading, setLoading] = useState(advisoryCache === null);
   const [error, setError] = useState(null);
   const [statusFilter, setStatusFilter] = useState('all'); // all | portfolio | watchlist
-  // sortMode: 'date' (latest advisory date desc per ticker) or 'symbol' (alpha)
-  const [sortMode, setSortMode] = useState('date');
+  // sort: { key: 'date'|'symbol', dir: 'asc'|'desc' }
+  const [sort, setSort] = useState({ key: 'date', dir: 'desc' });
+
+  function handleSort(key) {
+    setSort(prev =>
+      prev.key === key
+        ? { key, dir: prev.dir === 'asc' ? 'desc' : 'asc' }
+        : { key, dir: key === 'date' ? 'desc' : 'asc' }
+    );
+  }
   // Two levels of expansion: ticker-row → reveal all that ticker's advisory
   // calls; individual call → reveal verbose rationale panel.
   const [expandedTickers, setExpandedTickers] = useState(new Set());
@@ -292,14 +321,14 @@ export default function AdvisoryFeed() {
     }
     // Sort ticker groups by current sort mode
     entries.sort((a, b) => {
-      if (sortMode === 'symbol') {
-        return a.symbol.localeCompare(b.symbol);
+      let cmp;
+      if (sort.key === 'symbol') {
+        cmp = a.symbol.localeCompare(b.symbol);
       } else {
-        // Date: tickers ordered by their latest advisory's date desc;
-        // ties broken by symbol asc
-        const cmp = b.latestTime - a.latestTime;
-        return cmp !== 0 ? cmp : a.symbol.localeCompare(b.symbol);
+        cmp = a.latestTime - b.latestTime;
       }
+      if (sort.dir === 'desc') cmp = -cmp;
+      return cmp !== 0 ? cmp : a.symbol.localeCompare(b.symbol);
     });
     return entries;
   })();
@@ -384,36 +413,8 @@ export default function AdvisoryFeed() {
           <thead>
             <tr>
               <th style={{ ...th, width: 24 }}></th>
-              <th
-                onClick={() => setSortMode('symbol')}
-                title="Sort tickers alphabetically (A→Z)"
-                style={{
-                  ...th,
-                  cursor: 'pointer',
-                  color: sortMode === 'symbol' ? '#cbd5e1' : '#475569',
-                  userSelect: 'none',
-                }}
-              >
-                Symbol
-                {sortMode === 'symbol' && (
-                  <span style={{ marginLeft: 4, fontSize: 10, color: '#3b82f6' }}>↑</span>
-                )}
-              </th>
-              <th
-                onClick={() => setSortMode('date')}
-                title="Sort tickers by their latest advisory date (newest first)"
-                style={{
-                  ...th,
-                  cursor: 'pointer',
-                  color: sortMode === 'date' ? '#cbd5e1' : '#475569',
-                  userSelect: 'none',
-                }}
-              >
-                Date
-                {sortMode === 'date' && (
-                  <span style={{ marginLeft: 4, fontSize: 10, color: '#3b82f6' }}>↓</span>
-                )}
-              </th>
+              <SortableTh sortKey="symbol" sort={sort} onSort={handleSort}>Symbol</SortableTh>
+              <SortableTh sortKey="date" sort={sort} onSort={handleSort}>Date</SortableTh>
               <th style={th}>Per-call</th>
               <th style={th}>Trajectory</th>
               <th style={th}>Final</th>
