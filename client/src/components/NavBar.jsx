@@ -51,6 +51,12 @@ export default function NavBar() {
         <NavLink to="/portfolio" style={({ isActive }) => tabStyle(isActive)}>
           Portfolio
         </NavLink>
+        <NavLink to="/users" style={({ isActive }) => tabStyle(isActive)}>
+          Users
+        </NavLink>
+        <NavLink to="/dashboard" style={({ isActive }) => tabStyle(isActive)}>
+          Dashboard
+        </NavLink>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>

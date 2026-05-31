@@ -36,6 +36,18 @@ const { refreshAccountPrices } = require('../lib/priceRefresh');
 // ---------------------------------------------------------------------------
 
 /**
+ * Ensure an OwnerProfile row exists for the given owner string.
+ * No-op if the row already exists. Called any time a new owner value appears.
+ */
+async function ensureOwnerProfile(owner) {
+  await prisma.ownerProfile.upsert({
+    where:  { owner },
+    update: {},           // nothing to overwrite — user-set fields are preserved
+    create: { owner },
+  });
+}
+
+/**
  * Enrich positions with computed fields: totalShares, avgCostBasis,
  * marketValue, unrealisedGain, and effective bucket.
  */
@@ -148,6 +160,8 @@ router.post('/accounts', async (req, res) => {
     const account = await prisma.account.create({
       data: { name, type, owner, managed, ltcgRate, stcgRate, notes },
     });
+    // Auto-create OwnerProfile for new owners (no-op if already exists)
+    await ensureOwnerProfile(owner);
     res.status(201).json(account);
   } catch (err) {
     if (err.code === 'P2002') {
@@ -496,6 +510,9 @@ router.post('/accounts/:id/import', async (req, res) => {
   try {
     const account = await prisma.account.findUnique({ where: { id: accountId } });
     if (!account) return res.status(404).json({ error: 'Account not found' });
+
+    // Ensure OwnerProfile exists for this account's owner (no-op if already present)
+    await ensureOwnerProfile(account.owner);
 
     let enrichedPositions = [];
     let accountMeta = {};

@@ -101,6 +101,18 @@ model Analysis {
 // Portfolio Analyst — Phase 2 tables
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Owner profiles — one row per distinct owner; created automatically when a
+// new owner value appears in Account, or manually via the Users tab.
+// ---------------------------------------------------------------------------
+model OwnerProfile {
+  owner        String   @id          // matches Account.owner exactly (e.g. "Luis Morales")
+  displayName  String?               // optional friendly override (e.g. "Luis")
+  enoughNumber Float?                // investment goal / "enough number" in dollars
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
 // One Account per named brokerage account. Supports multiple accounts of the
 // same type (e.g. two taxable accounts), multiple owners, and margin tracking.
 model Account {
