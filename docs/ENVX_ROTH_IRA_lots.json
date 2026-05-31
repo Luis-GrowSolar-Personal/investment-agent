@@ -1,0 +1,52 @@
+{
+  "FromDate": "02/25/2021",
+  "ToDate": "10/15/2021",
+  "TotalTransactionsAmount": "-$6,871.66",
+  "TotalFeesAndCommAmount": "$0.00",
+  "BrokerageTransactions": [
+    {
+      "Date": "10/15/2021",
+      "Action": "Buy",
+      "Symbol": "ENVX",
+      "Description": "ENOVIX CORP",
+      "Quantity": "8",
+      "Price": "$19.68",
+      "Fees & Comm": "",
+      "Amount": "-$157.47",
+      "AcctgRuleCd": "1"
+    },
+    {
+      "Date": "07/07/2021",
+      "Action": "Buy",
+      "Symbol": "ENVX",
+      "Description": "ENOVIX CORP",
+      "Quantity": "6",
+      "Price": "$20.03",
+      "Fees & Comm": "",
+      "Amount": "-$120.19",
+      "AcctgRuleCd": "1"
+    },
+    {
+      "Date": "02/25/2021",
+      "Action": "Buy",
+      "Symbol": "ENVX",
+      "Description": "ENOVIX CORP",
+      "Quantity": "352",
+      "Price": "$18.14",
+      "Fees & Comm": "",
+      "Amount": "-$6,383.77",
+      "AcctgRuleCd": "1"
+    },
+    {
+      "Date": "02/25/2021",
+      "Action": "Buy",
+      "Symbol": "ENVX",
+      "Description": "ENOVIX CORP",
+      "Quantity": "13",
+      "Price": "$16.17",
+      "Fees & Comm": "",
+      "Amount": "-$210.23",
+      "AcctgRuleCd": "1"
+    }
+  ]
+}

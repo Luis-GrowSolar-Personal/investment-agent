@@ -936,6 +936,7 @@ function AccountCard({ account, expanded, onToggle, token, onRefresh, onDeleted 
   const [showCashEdit, setShowCashEdit]       = useState(false);
   const [showDeleteStep1, setShowDeleteStep1] = useState(false);
   const [showDeleteStep2, setShowDeleteStep2] = useState(false);
+  const [showEditAccount, setShowEditAccount] = useState(false);
 
   const typeLabel = ACCOUNT_TYPE_LABELS[account.type] || account.type;
   const managed   = account.managed;
@@ -980,18 +981,32 @@ function AccountCard({ account, expanded, onToggle, token, onRefresh, onDeleted 
               <span style={{ color: gainColor(gain) }}>{fmtDollars(gain)} ({fmtPct(gainPct)})</span>
             </div>
           </div>
-          {/* Right: total MV + delete */}
-          <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
+          {/* Right: total MV + edit/delete icons */}
+          <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 8 }}>
             <div style={{ fontSize: 20, fontWeight: 700, color: '#f1f5f9' }}>{fmtDollars(totalMV, true)}</div>
-            <button
-              onClick={e => { e.stopPropagation(); setShowDeleteStep1(true); }}
-              title="Delete account"
-              style={{ background: 'none', border: 'none', color: '#334155', cursor: 'pointer', fontSize: 12, padding: 0 }}
-              onMouseEnter={e => e.currentTarget.style.color = '#ef4444'}
-              onMouseLeave={e => e.currentTarget.style.color = '#334155'}
-            >
-              Delete account
-            </button>
+            <div style={{ display: 'flex', gap: 10 }} onClick={e => e.stopPropagation()}>
+              <button
+                onClick={() => setShowEditAccount(true)}
+                title="Edit account details"
+                style={{ background: 'none', border: 'none', color: '#334155', cursor: 'pointer', fontSize: 15, padding: 0, lineHeight: 1, display: 'inline-flex' }}
+                onMouseEnter={e => e.currentTarget.style.color = '#60a5fa'}
+                onMouseLeave={e => e.currentTarget.style.color = '#334155'}
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </button>
+              <button
+                onClick={() => setShowDeleteStep1(true)}
+                title="Delete account"
+                style={{ background: 'none', border: 'none', color: '#334155', cursor: 'pointer', fontSize: 16, padding: 0, lineHeight: 1 }}
+                onMouseEnter={e => e.currentTarget.style.color = '#ef4444'}
+                onMouseLeave={e => e.currentTarget.style.color = '#334155'}
+              >
+                ×
+              </button>
+            </div>
           </div>
         </div>
         {/* Bucket pills */}
@@ -1033,6 +1048,16 @@ function AccountCard({ account, expanded, onToggle, token, onRefresh, onDeleted 
           token={token}
           onSaved={() => { setShowCashEdit(false); onRefresh(); }}
           onClose={() => setShowCashEdit(false)}
+        />
+      )}
+
+      {/* Edit account modal */}
+      {showEditAccount && (
+        <EditAccountModal
+          account={account}
+          token={token}
+          onSaved={() => { setShowEditAccount(false); onRefresh(); }}
+          onClose={() => setShowEditAccount(false)}
         />
       )}
 
@@ -1282,6 +1307,131 @@ function RenamePositionModal({ position, token, onSaved, onClose }) {
             <button type="submit" disabled={saving}
               style={{ background: saving ? '#1e2330' : '#a78bfa', border: 'none', color: '#0f1117', fontSize: 13, fontWeight: 700, padding: '6px 20px', borderRadius: 5, cursor: saving ? 'wait' : 'pointer' }}>
               {saving ? 'Renaming…' : 'Rename'}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+// ── Edit Account modal ────────────────────────────────────────────────────────
+
+function EditAccountModal({ account, token, onSaved, onClose }) {
+  const [name,    setName]    = useState(account.name);
+  const [type,    setType]    = useState(account.type);
+  const [owner,   setOwner]   = useState(account.owner);
+  const [managed, setManaged] = useState(account.managed);
+  const [saving,  setSaving]  = useState(false);
+  const [error,   setError]   = useState('');
+  const [confirmTypeChange, setConfirmTypeChange] = useState(false);
+
+  const typeChanged = type !== account.type;
+
+  const inputStyle = {
+    background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
+    color: '#f1f5f9', fontSize: 13, padding: '6px 10px', outline: 'none',
+    width: '100%', boxSizing: 'border-box',
+  };
+  const labelStyle = { fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 };
+
+  async function doSave() {
+    setSaving(true);
+    setError('');
+    try {
+      const res = await fetch(`${API}/api/portfolio/accounts/${account.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ name, type, owner, managed }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      onSaved();
+    } catch (err) {
+      setError(err.message);
+      setSaving(false);
+    }
+  }
+
+  function handleSave(e) {
+    e.preventDefault();
+    if (typeChanged) {
+      setConfirmTypeChange(true);
+    } else {
+      doSave();
+    }
+  }
+
+  if (confirmTypeChange) {
+    return (
+      <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
+        <div style={{ background: '#0f1117', border: '1px solid #b45309', borderRadius: 10, padding: 28, width: 420, maxWidth: '95vw' }}>
+          <div style={{ fontSize: 16, fontWeight: 700, color: '#fbbf24', marginBottom: 12 }}>Confirm account type change</div>
+          <p style={{ fontSize: 13, color: '#f1f5f9', lineHeight: 1.6, margin: '0 0 8px' }}>
+            You are changing <strong>{account.name}</strong> from{' '}
+            <strong style={{ color: '#60a5fa' }}>{ACCOUNT_TYPE_LABELS[account.type]}</strong> to{' '}
+            <strong style={{ color: '#60a5fa' }}>{ACCOUNT_TYPE_LABELS[type]}</strong>.
+          </p>
+          <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, margin: '0 0 20px' }}>
+            Account type affects tax calculations, LTCG/STCG rates, and trim order priority.
+            Make sure this reflects the actual account type at your brokerage.
+          </p>
+          {error && <div style={{ color: '#ef4444', fontSize: 12, marginBottom: 12 }}>{error}</div>}
+          <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+            <button onClick={() => setConfirmTypeChange(false)}
+              style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, padding: '7px 16px', borderRadius: 5, cursor: 'pointer' }}>
+              Go back
+            </button>
+            <button onClick={doSave} disabled={saving}
+              style={{ background: saving ? '#1e2330' : '#d97706', border: 'none', color: '#fff', fontSize: 13, fontWeight: 700, padding: '7px 20px', borderRadius: 5, cursor: saving ? 'wait' : 'pointer' }}>
+              {saving ? 'Saving…' : 'Confirm change'}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
+      <div style={{ background: '#0f1117', border: '1px solid #1e2330', borderRadius: 10, padding: 24, width: 400, maxWidth: '95vw' }}>
+        <div style={{ fontWeight: 600, color: '#f1f5f9', marginBottom: 16, fontSize: 14 }}>Edit account</div>
+        <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div>
+            <label style={labelStyle}>Account name</label>
+            <input style={inputStyle} value={name} onChange={e => setName(e.target.value)} required />
+          </div>
+          <div>
+            <label style={labelStyle}>Type</label>
+            <select style={{ ...inputStyle, cursor: 'pointer' }} value={type} onChange={e => setType(e.target.value)}>
+              {Object.entries(ACCOUNT_TYPE_LABELS).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+            </select>
+            {typeChanged && (
+              <div style={{ fontSize: 11, color: '#fbbf24', marginTop: 4 }}>
+                ⚠ Changing account type affects tax calculations — you'll be asked to confirm.
+              </div>
+            )}
+          </div>
+          <div>
+            <label style={labelStyle}>Owner</label>
+            <input style={inputStyle} value={owner} onChange={e => setOwner(e.target.value)} required />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <label style={{ ...labelStyle, marginBottom: 0, cursor: 'pointer' }}>
+              <input type="checkbox" checked={managed} onChange={e => setManaged(e.target.checked)}
+                style={{ marginRight: 6 }} />
+              Agent-managed
+            </label>
+          </div>
+          {error && <div style={{ color: '#ef4444', fontSize: 12 }}>{error}</div>}
+          <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 4 }}>
+            <button type="button" onClick={onClose}
+              style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, padding: '6px 16px', borderRadius: 5, cursor: 'pointer' }}>
+              Cancel
+            </button>
+            <button type="submit" disabled={saving}
+              style={{ background: saving ? '#1e2330' : '#3b82f6', border: 'none', color: '#f1f5f9', fontSize: 13, fontWeight: 600, padding: '6px 20px', borderRadius: 5, cursor: saving ? 'wait' : 'pointer' }}>
+              {saving ? 'Saving…' : 'Save changes'}
             </button>
           </div>
         </form>
