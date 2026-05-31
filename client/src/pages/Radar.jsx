@@ -839,6 +839,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
   }
 
   return (
+    <>
     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
       <thead>
         <tr>
@@ -1017,6 +1018,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
         onClose={() => { setRenamingId(null); setRenameError(null); }}
       />
     )}
+    </>
   );
 }
 
