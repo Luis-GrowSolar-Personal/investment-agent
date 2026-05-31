@@ -1331,7 +1331,7 @@ export default function Radar() {
       )}
 
       <p style={{ fontSize: 13, color: '#64748b', marginBottom: 32 }}>
-        Watchlist tickers cap at 6 transcripts (oldest auto-discarded). Portfolio tickers keep unlimited history.
+        Watchlist tickers cap at 50 transcripts (oldest auto-discarded). Portfolio tickers keep unlimited history.
       </p>
 
       {loading && (
