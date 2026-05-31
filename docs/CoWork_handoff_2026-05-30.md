@@ -296,8 +296,6 @@ Old routes in `server/routes/portfolio.js` used `account String` enum and `CashB
 
 ## Backlog (future sessions)
 
-- **Position ticker rename/merge** — In the Edit Position modal, allow changing the ticker symbol while preserving all lots, gains, and loss history. Use case: corporate actions (spin-offs, conversions, renames) where a position appears under the wrong symbol (e.g. CSLR lots that should be under SPWR). Implementation: add a "Symbol" field to the edit modal; on save, look up or create the target ticker, update the position's tickerId, and if a position already exists for that ticker in the same account, merge the lots into it (same pattern as RADAR's symbol rename which merges transcripts). Handle the tickerId_accountId unique constraint carefully.
-
 - **ADR cost basis normalization** — For ADR securities like BYDDY, the Schwab transaction JSON records execution price in the foreign underlying's terms, not the USD/ADR cost basis that Schwab uses authoritatively. Result: imported cost basis per share is wrong for ADRs. Fix: after JSON import, if the computed total cost basis differs significantly from the CSV cost basis for the same symbol, flag it for user review. Permanent fix: Schwab API integration, which provides authoritative cost basis directly.
 
 - **Sortable lot detail rows** — within an expanded position row, allow sorting the lot sub-table by Acquired date (asc/desc) or Cost/sh (asc/desc). Currently lots render in whatever order they come from the DB. Clickable column headers, same pattern as the main position table.

@@ -160,7 +160,7 @@ function BucketPill({ ticker, onBucketChange }) {
 
 // ── Position row ──────────────────────────────────────────────────────────────
 
-function PositionRow({ pos, onBucketChange, onDelete, onEdit }) {
+function PositionRow({ pos, onBucketChange, onDelete, onEdit, onRename }) {
   const [expanded, setExpanded] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
@@ -221,6 +221,10 @@ function PositionRow({ pos, onBucketChange, onDelete, onEdit }) {
           <BucketPill ticker={{ ...pos.ticker, _smartBucket: pos.effectiveBucket }} onBucketChange={onBucketChange} />
         </td>
         <td style={{ padding: '9px 8px', textAlign: 'right', whiteSpace: 'nowrap' }} onClick={e => e.stopPropagation()}>
+          <button onClick={() => onRename(pos)} title="Rename ticker symbol (e.g. CSLR → SPWR after corporate action)"
+            style={{ background: 'none', border: '1px solid #2d3748', borderRadius: 3, color: '#475569', cursor: 'pointer', fontSize: 10, padding: '1px 4px', lineHeight: 1, fontWeight: 700 }}
+            onMouseEnter={e => { e.currentTarget.style.color = '#a78bfa'; e.currentTarget.style.borderColor = '#a78bfa'; }}
+            onMouseLeave={e => { e.currentTarget.style.color = '#475569'; e.currentTarget.style.borderColor = '#2d3748'; }}>AB</button>
           <button onClick={() => onEdit(pos)} title="Edit lots"
             style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: 14, padding: '0 4px', lineHeight: 1 }}
             onMouseEnter={e => e.currentTarget.style.color = '#60a5fa'}
@@ -298,7 +302,7 @@ const SORT_KEYS = {
   '% Acct':    p => p.pctOfAcct ?? 0,
 };
 
-function BucketTabContent({ bucket, positions, cashBalance, marginBalance, marginRate, marginAsOfDate, cashAsOfDate, onBucketChange, onDeletePosition, onEditPosition, onUpdateCash }) {
+function BucketTabContent({ bucket, positions, cashBalance, marginBalance, marginRate, marginAsOfDate, cashAsOfDate, onBucketChange, onDeletePosition, onEditPosition, onRenamePosition, onUpdateCash }) {
   const [sortKey, setSortKey] = useState('Symbol');
   const [sortDir, setSortDir] = useState('asc');
 
@@ -398,7 +402,7 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
         </thead>
         <tbody>
           {bucketPositions.map(pos => (
-            <PositionRow key={pos.id} pos={pos} onBucketChange={onBucketChange} onDelete={onDeletePosition} onEdit={onEditPosition} />
+            <PositionRow key={pos.id} pos={pos} onBucketChange={onBucketChange} onDelete={onDeletePosition} onEdit={onEditPosition} onRename={onRenamePosition} />
           ))}
         </tbody>
       </table>
@@ -416,6 +420,7 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
   const [importMsg, setImportMsg]       = useState('');
   const [showAddPosition, setShowAddPosition] = useState(false);
   const [editPosition, setEditPosition]       = useState(null);
+  const [renamePosition, setRenamePosition]   = useState(null);
   const posFileRef = useRef(null);
   const txFileRef  = useRef(null);
 
@@ -521,6 +526,13 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
             icon="+"
             label="Add position"
           />
+          {/* Set cash & margin */}
+          <ActionButton
+            onClick={onUpdateCash}
+            disabled={false}
+            icon="$"
+            label="Set cash"
+          />
           {/* Import file — accepts CSV (positions) or JSON (transactions) */}
           <input ref={posFileRef} type="file" accept=".csv,.json" style={{ display: 'none' }} onChange={onFileChange} />
           <ActionButton
@@ -606,6 +618,7 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
         onBucketChange={handleBucketChange}
         onDeletePosition={handleDeletePosition}
         onEditPosition={pos => setEditPosition(pos)}
+        onRenamePosition={pos => setRenamePosition(pos)}
         onUpdateCash={onUpdateCash}
       />
 
@@ -624,6 +637,15 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
           token={token}
           onSaved={() => { setEditPosition(null); onRefresh(); }}
           onClose={() => setEditPosition(null)}
+        />
+      )}
+
+      {renamePosition && (
+        <RenamePositionModal
+          position={renamePosition}
+          token={token}
+          onSaved={() => { setRenamePosition(null); onRefresh(); }}
+          onClose={() => setRenamePosition(null)}
         />
       )}
     </div>
@@ -1177,6 +1199,90 @@ function readFileText(file) {
     reader.onerror = () => reject(new Error('Failed to read file'));
     reader.readAsText(file);
   });
+}
+
+// ── Rename Position modal ─────────────────────────────────────────────────────
+
+function RenamePositionModal({ position, token, onSaved, onClose }) {
+  const [newSymbol, setNewSymbol] = useState('');
+  const [saving, setSaving]       = useState(false);
+  const [error, setError]         = useState('');
+
+  const inputStyle = {
+    background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
+    color: '#f1f5f9', fontSize: 13, padding: '6px 10px', outline: 'none',
+    width: '100%', boxSizing: 'border-box',
+  };
+
+  async function handleSave(e) {
+    e.preventDefault();
+    if (!newSymbol.trim()) { setError('Symbol is required'); return; }
+    setSaving(true);
+    setError('');
+    try {
+      const res = await fetch(`${API}/api/portfolio/positions/${position.id}/rename`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ newSymbol: newSymbol.trim().toUpperCase() }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      onSaved();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
+      <div style={{ background: '#0f1117', border: '1px solid #1e2330', borderRadius: 10, padding: 24, width: 380, maxWidth: '95vw' }}>
+        <div style={{ fontWeight: 600, color: '#f1f5f9', marginBottom: 4, fontSize: 14 }}>
+          Rename ticker — {position.ticker.symbol}
+        </div>
+        <div style={{ fontSize: 12, color: '#475569', marginBottom: 16, lineHeight: 1.5 }}>
+          Use this for corporate actions: ticker renames, spin-offs, symbol changes.
+          All lots are preserved. If the target symbol already has a position in this
+          account, the lots will be merged into it.
+        </div>
+        <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div>
+            <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 }}>
+              Current symbol
+            </label>
+            <div style={{ fontSize: 13, color: '#94a3b8', padding: '6px 0' }}>
+              {position.ticker.symbol}
+            </div>
+          </div>
+          <div>
+            <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 }}>
+              New symbol *
+            </label>
+            <input
+              style={inputStyle}
+              value={newSymbol}
+              onChange={e => setNewSymbol(e.target.value.toUpperCase())}
+              placeholder="e.g. SPWR"
+              autoFocus
+              required
+            />
+          </div>
+          {error && <div style={{ color: '#ef4444', fontSize: 12 }}>{error}</div>}
+          <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 4 }}>
+            <button type="button" onClick={onClose}
+              style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, padding: '6px 16px', borderRadius: 5, cursor: 'pointer' }}>
+              Cancel
+            </button>
+            <button type="submit" disabled={saving}
+              style={{ background: saving ? '#1e2330' : '#a78bfa', border: 'none', color: '#0f1117', fontSize: 13, fontWeight: 700, padding: '6px 20px', borderRadius: 5, cursor: saving ? 'wait' : 'pointer' }}>
+              {saving ? 'Renaming…' : 'Rename'}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 // ── Delete account modals ─────────────────────────────────────────────────────

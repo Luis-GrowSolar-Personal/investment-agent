@@ -136,14 +136,23 @@ function StaleTranscriptBadge({ daysSinceLastCall }) {
     <span
       title={tip}
       style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 14,
+        height: 14,
+        borderRadius: '50%',
+        border: `1.5px solid ${color}`,
         color,
-        fontSize: 13,
+        fontSize: 9,
+        fontWeight: 800,
         marginLeft: 4,
         cursor: 'help',
         lineHeight: 1,
+        flexShrink: 0,
       }}
     >
-      ⏰
+      !
     </span>
   );
 }

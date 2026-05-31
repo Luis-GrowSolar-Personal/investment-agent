@@ -314,6 +314,69 @@ router.patch('/positions/:id', async (req, res) => {
   }
 });
 
+// POST /api/portfolio/positions/:id/rename
+// Body: { newSymbol: string }
+// Reassigns position to a different (or newly created) ticker.
+// If the target ticker already has a position in the same account, merges lots into it.
+router.post('/positions/:id/rename', async (req, res) => {
+  const id = parseInt(req.params.id);
+  const { newSymbol } = req.body;
+  if (!newSymbol) return res.status(400).json({ error: 'newSymbol is required' });
+
+  const sym = newSymbol.trim().toUpperCase();
+
+  try {
+    const position = await prisma.position.findUnique({
+      where: { id },
+      include: { ticker: true, lots: true },
+    });
+    if (!position) return res.status(404).json({ error: 'Position not found' });
+
+    // Find or create the target ticker
+    let targetTicker = await prisma.ticker.findUnique({ where: { symbol: sym } });
+    if (!targetTicker) {
+      targetTicker = await prisma.ticker.create({
+        data: {
+          symbol: sym, name: sym, shortName: sym,
+          type: position.ticker.type,
+          capPercent: position.ticker.capPercent,
+          status: position.ticker.status,
+          inScope: position.ticker.inScope,
+        },
+      });
+    }
+
+    // Check if target ticker already has a position in this account
+    const existingTarget = await prisma.position.findUnique({
+      where: { tickerId_accountId: { tickerId: targetTicker.id, accountId: position.accountId } },
+    });
+
+    if (existingTarget) {
+      // Merge: move all lots from source position to existing target position
+      await prisma.lot.updateMany({
+        where: { positionId: id },
+        data: { positionId: existingTarget.id },
+      });
+      // Soft-delete the source position
+      await prisma.position.update({
+        where: { id },
+        data: { status: 'closed', closedAt: new Date() },
+      });
+      res.json({ merged: true, targetPositionId: existingTarget.id, symbol: sym });
+    } else {
+      // Simple rename: update tickerId on the position
+      const updated = await prisma.position.update({
+        where: { id },
+        data: { tickerId: targetTicker.id },
+      });
+      res.json({ merged: false, position: updated, symbol: sym });
+    }
+  } catch (err) {
+    console.error('POST /positions/:id/rename error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // DELETE /api/portfolio/positions/:id — soft delete
 router.delete('/positions/:id', async (req, res) => {
   const id = parseInt(req.params.id);
