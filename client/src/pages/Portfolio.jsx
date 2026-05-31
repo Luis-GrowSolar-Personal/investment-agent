@@ -387,7 +387,12 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
                   whiteSpace: 'nowrap',
                 }}
               >
-                {h}{sortKey === h ? (sortDir === 'asc' ? ' ▲' : ' ▼') : ''}
+                {h}
+                {SORTABLE.has(h) && (
+                  <span style={{ marginLeft: 3, fontSize: 9, color: sortKey === h ? '#60a5fa' : '#334155' }}>
+                    {sortKey === h ? (sortDir === 'asc' ? '↑' : '↓') : '↕'}
+                  </span>
+                )}
               </th>
             ))}
           </tr>

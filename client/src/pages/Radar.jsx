@@ -96,7 +96,7 @@ function TierChip({ tier }) {
 // arrow when this column is the active sort.
 function SortableTh({ sortKey, sort, onClick, children }) {
   const isActive = sort.key === sortKey;
-  const arrow = isActive ? (sort.dir === 'asc' ? '↑' : '↓') : '';
+  const arrow = isActive ? (sort.dir === 'asc' ? '↑' : '↓') : '↕';
   return (
     <th
       onClick={() => onClick(sortKey)}
@@ -108,9 +108,9 @@ function SortableTh({ sortKey, sort, onClick, children }) {
       }}
     >
       {children}
-      {isActive && (
-        <span style={{ marginLeft: 4, fontSize: 10, color: '#3b82f6' }}>{arrow}</span>
-      )}
+      <span style={{ marginLeft: 4, fontSize: 10, color: isActive ? '#3b82f6' : '#334155' }}>
+        {arrow}
+      </span>
     </th>
   );
 }
