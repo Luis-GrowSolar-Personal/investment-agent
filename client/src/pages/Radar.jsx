@@ -679,57 +679,26 @@ function HistoryRow({ tickerId, colSpan, getToken, onLastDeleted, onRescored }) 
                         <span style={{ color: '#334155', fontSize: 11 }}>—</span>
                       )}
                     </span>
-                    <button
+                    <IconBtn
+                      icon={isRescoring ? '…' : <ResyncIcon />}
+                      title="Re-score: re-parse scores from stored analysis text"
                       onClick={() => !isRescoring && handleRescore(entry.transcriptId)}
                       disabled={isRescoring}
-                      title="Re-parse scores from stored analysis text"
-                      style={{
-                        background: 'transparent',
-                        border: '1px solid #3b2f00',
-                        borderRadius: 4,
-                        color: isRescoring ? '#334155' : '#fbbf24',
-                        fontSize: 11,
-                        padding: '2px 8px',
-                        cursor: isRescoring ? 'not-allowed' : 'pointer',
-                        transition: 'all 0.15s',
-                        justifySelf: 'end',
-                      }}
-                    >
-                      {isRescoring ? '…' : 'Re-score'}
-                    </button>
-                    <button
+                      hoverColor="#fbbf24"
+                    />
+                    <IconBtn
+                      icon={<EyeIcon />}
+                      title="View transcript"
                       onClick={() => setViewingId(entry.transcriptId)}
-                      style={{
-                        background: 'transparent',
-                        border: '1px solid #1e3a5f',
-                        borderRadius: 4,
-                        color: '#60a5fa',
-                        fontSize: 11,
-                        padding: '2px 8px',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s',
-                        justifySelf: 'end',
-                      }}
-                    >
-                      View
-                    </button>
-                    <button
+                      hoverColor="#60a5fa"
+                    />
+                    <IconBtn
+                      icon="×"
+                      title="Remove transcript"
                       onClick={() => handleDelete(entry.transcriptId)}
                       disabled={!!deleting}
-                      style={{
-                        background: 'transparent',
-                        border: '1px solid #3f2020',
-                        borderRadius: 4,
-                        color: deleting ? '#334155' : '#ef4444',
-                        fontSize: 11,
-                        padding: '2px 8px',
-                        cursor: deleting ? 'not-allowed' : 'pointer',
-                        transition: 'all 0.15s',
-                        justifySelf: 'end',
-                      }}
-                    >
-                      Remove
-                    </button>
+                      hoverColor="#ef4444"
+                    />
                   </div>
                 );
               })}
@@ -772,6 +741,12 @@ function TickerTable({ tickers, section, onAction, getToken }) {
       const aT = a.latestAnalysis ? new Date(a.latestAnalysis.createdAt).getTime() : 0;
       const bT = b.latestAnalysis ? new Date(b.latestAnalysis.createdAt).getTime() : 0;
       cmp = aT - bT;
+    } else if (sort.key === 'company') {
+      cmp = (a.shortName || a.name || '').localeCompare(b.shortName || b.name || '');
+    } else if (sort.key === 'cap') {
+      cmp = (a.capPercent ?? 0) - (b.capPercent ?? 0);
+    } else if (sort.key === 'calls') {
+      cmp = (a.transcriptCount ?? 0) - (b.transcriptCount ?? 0);
     } else {
       cmp = a.symbol.localeCompare(b.symbol);
     }
@@ -859,10 +834,10 @@ function TickerTable({ tickers, section, onAction, getToken }) {
       <thead>
         <tr>
           <SortableTh sortKey="symbol" sort={sort} onClick={setSortKey}>Symbol</SortableTh>
-          <th style={th}>Company</th>
+          <SortableTh sortKey="company" sort={sort} onClick={setSortKey}>Company</SortableTh>
           <SortableTh sortKey="type" sort={sort} onClick={setSortKey}>Type</SortableTh>
-          <th style={th}>Cap %</th>
-          <th style={th}>Calls</th>
+          <SortableTh sortKey="cap" sort={sort} onClick={setSortKey}>Cap %</SortableTh>
+          <SortableTh sortKey="calls" sort={sort} onClick={setSortKey}>Calls</SortableTh>
           <th style={th}>Thesis Health</th>
           <th style={th}>Recommendation</th>
           <th style={th}>Trend</th>
@@ -988,18 +963,19 @@ function TickerTable({ tickers, section, onAction, getToken }) {
                       disabled={isActing}
                     />
                   )}
-                  <ActionButton
-                    label="Rename"
-                    color="#a78bfa"
+                  <IconBtn
+                    icon={<PencilIcon />}
+                    title="Rename / merge — change symbol to merge transcripts into an existing ticker"
                     onClick={() => startRename(ticker)}
                     disabled={isActing}
-                    title="Rename or merge: changing the symbol to one that already exists will move all transcripts into that ticker and delete this one (with confirmation). Use this for share-class duplicates like GOOG → GOOGL."
+                    hoverColor="#a78bfa"
                   />
-                  <ActionButton
-                    label="Delete"
-                    color="#ef4444"
+                  <IconBtn
+                    icon="×"
+                    title="Delete ticker and all transcripts"
                     onClick={() => handleDelete(ticker)}
                     disabled={isActing}
+                    hoverColor="#ef4444"
                   />
                 </div>
               </td>
@@ -1058,6 +1034,59 @@ function TickerTable({ tickers, section, onAction, getToken }) {
         })}
       </tbody>
     </table>
+  );
+}
+
+// ── Shared icon set (outline/stroke style — matches ✎ and × in Portfolio) ─────
+
+const EyeIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </svg>
+);
+
+const ResyncIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="1 4 1 10 7 10"/>
+    <path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
+  </svg>
+);
+
+const PencilIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+  </svg>
+);
+
+/**
+ * IconBtn — borderless icon button matching Portfolio's ✎ and × style.
+ * Use for all edit/destructive actions in tables.
+ */
+function IconBtn({ icon, title, onClick, disabled, hoverColor = '#94a3b8' }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      title={title}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        background: 'none',
+        border: 'none',
+        color: disabled ? '#2d3748' : hover ? hoverColor : '#475569',
+        cursor: disabled ? 'not-allowed' : 'pointer',
+        padding: '2px 4px',
+        lineHeight: 1,
+        display: 'inline-flex',
+        alignItems: 'center',
+        transition: 'color 0.15s',
+      }}
+    >
+      {icon}
+    </button>
   );
 }
 
