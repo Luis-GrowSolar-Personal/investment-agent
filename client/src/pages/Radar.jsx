@@ -1252,37 +1252,6 @@ export default function Radar() {
         >
           + New ticker
         </button>
-        <button
-          disabled={rescoreAllState === 'running'}
-          onClick={async () => {
-            setRescoreAllState('running');
-            try {
-              const token = await getToken();
-              const res = await fetch(`${API_URL}/api/radar/rescore-all`, {
-                method: 'POST', headers: { 'Authorization': `Bearer ${token}` },
-              });
-              const data = await res.json();
-              if (!res.ok) throw new Error(data.error);
-              setRescoreAllState(data);
-              await fetchTickers({ silent: true });
-            } catch (e) {
-              alert(`Re-score failed: ${e.message}`);
-              setRescoreAllState(null);
-            }
-          }}
-          style={{
-            background: 'transparent',
-            border: '1px solid #3b2f00',
-            borderRadius: 5,
-            color: rescoreAllState === 'running' ? '#475569' : '#fbbf24',
-            fontSize: 11, fontWeight: 600,
-            padding: '4px 12px',
-            cursor: rescoreAllState === 'running' ? 'not-allowed' : 'pointer',
-            letterSpacing: '0.04em', textTransform: 'uppercase',
-          }}
-        >
-          {rescoreAllState === 'running' ? 'Re-scoring…' : 'Re-score Radar'}
-        </button>
       </div>
 
       {/* Re-score result banner — persists until next run */}
@@ -1322,7 +1291,27 @@ export default function Radar() {
       {!loading && !error && (
         <>
           {/* ── Portfolio ── */}
-          <Section title="Portfolio" count={portfolio.length}>
+          <Section
+            title="Portfolio"
+            count={portfolio.length}
+            onRescore={async () => {
+              setRescoreAllState('running');
+              try {
+                const token = await getToken();
+                const res = await fetch(`${API_URL}/api/radar/rescore-all`, {
+                  method: 'POST', headers: { 'Authorization': `Bearer ${token}` },
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error);
+                setRescoreAllState(data);
+                await fetchTickers({ silent: true });
+              } catch (e) {
+                alert(`Re-score failed: ${e.message}`);
+                setRescoreAllState(null);
+              }
+            }}
+            rescoring={rescoreAllState === 'running'}
+          >
             <TickerTable
               tickers={portfolio}
               section="portfolio"
@@ -1332,7 +1321,7 @@ export default function Radar() {
           </Section>
 
           {/* ── Watchlist ── */}
-          <Section title="Watchlist" count={watchlist.length} style={{ marginTop: 40 }}>
+          <Section title="Watchlist" count={watchlist.length}>
             <TickerTable
               tickers={watchlist}
               section="watchlist"
@@ -1465,21 +1454,62 @@ function NewTickerModal({ getToken, onSaved, onClose }) {
   );
 }
 
-function Section({ title, count, children, style }) {
+function Section({ title, count, children, style, onRescore, rescoring }) {
+  const [expanded, setExpanded] = useState(true);
   return (
-    <div style={style}>
+    <div style={{ marginBottom: 16, ...style }}>
+      {/* Frame card — matches Portfolio account card style */}
       <div style={{
-        display: 'flex',
-        alignItems: 'baseline',
-        gap: 8,
-        marginBottom: 12,
-        paddingBottom: 10,
-        borderBottom: '1px solid #1e2330',
-      }}>
-        <span style={{ fontSize: 15, fontWeight: 700, color: '#e2e8f0' }}>{title}</span>
-        <span style={{ fontSize: 12, color: '#475569' }}>{count} ticker{count !== 1 ? 's' : ''}</span>
+        background: '#0f1117',
+        border: '1px solid #1e2330',
+        borderRadius: expanded ? '10px 10px 0 0' : 10,
+        padding: '14px 20px',
+        cursor: 'pointer',
+        transition: 'border-color 0.15s',
+      }}
+        onClick={() => setExpanded(e => !e)}
+        onMouseEnter={e => { if (!expanded) e.currentTarget.style.borderColor = '#2d3748'; }}
+        onMouseLeave={e => { if (!expanded) e.currentTarget.style.borderColor = '#1e2330'; }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ color: '#475569', fontSize: 10 }}>{expanded ? '▼' : '▶'}</span>
+            <span style={{ fontSize: 15, fontWeight: 700, color: '#e2e8f0' }}>{title}</span>
+            <span style={{ fontSize: 12, color: '#475569' }}>{count} ticker{count !== 1 ? 's' : ''}</span>
+          </div>
+          {onRescore && (
+            <button
+              onClick={e => { e.stopPropagation(); onRescore(); }}
+              disabled={rescoring}
+              title="Re-score all calls"
+              style={{
+                background: 'none', border: 'none',
+                color: rescoring ? '#334155' : '#fbbf24',
+                cursor: rescoring ? 'not-allowed' : 'pointer',
+                fontSize: 16, padding: '2px 4px', lineHeight: 1,
+                display: 'inline-flex', alignItems: 'center',
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="1 4 1 10 7 10"/>
+                <path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
+              </svg>
+            </button>
+          )}
+        </div>
       </div>
-      {children}
+      {expanded && (
+        <div style={{
+          background: '#090c12',
+          border: '1px solid #1e2330',
+          borderTop: 'none',
+          borderRadius: '0 0 10px 10px',
+          padding: '12px 20px 16px',
+          overflowX: 'auto',
+        }}>
+          {children}
+        </div>
+      )}
     </div>
   );
 }

@@ -1157,11 +1157,12 @@ function UpdateCashModal({ account, token, onSaved, onClose }) {
 // ── Add account modal ─────────────────────────────────────────────────────────
 
 function AddAccountModal({ token, onSaved, onClose }) {
-  const [name, setName]     = useState('');
-  const [type, setType]     = useState('taxable');
-  const [owner, setOwner]   = useState('Luis');
-  const [saving, setSaving] = useState(false);
-  const [error, setError]   = useState('');
+  const [name,    setName]    = useState('');
+  const [type,    setType]    = useState('taxable');
+  const [owner,   setOwner]   = useState('Luis');
+  const [managed, setManaged] = useState(false);
+  const [saving,  setSaving]  = useState(false);
+  const [error,   setError]   = useState('');
 
   const inputStyle = {
     background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
@@ -1176,7 +1177,7 @@ function AddAccountModal({ token, onSaved, onClose }) {
       const res = await fetch(`${API}/api/portfolio/accounts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ name, type, owner }),
+        body: JSON.stringify({ name, type, owner, managed }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
@@ -1206,6 +1207,12 @@ function AddAccountModal({ token, onSaved, onClose }) {
           <div>
             <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 }}>Owner</label>
             <input style={inputStyle} value={owner} onChange={e => setOwner(e.target.value)} placeholder="Luis" required />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <label style={{ fontSize: 11, color: '#64748b', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <input type="checkbox" checked={managed} onChange={e => setManaged(e.target.checked)} />
+              Agent-managed
+            </label>
           </div>
           {error && <div style={{ color: '#ef4444', fontSize: 12 }}>{error}</div>}
           <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 4 }}>
