@@ -222,9 +222,14 @@ function PositionRow({ pos, onBucketChange, onDelete, onEdit, onRename }) {
         </td>
         <td style={{ padding: '9px 8px', textAlign: 'right', whiteSpace: 'nowrap' }} onClick={e => e.stopPropagation()}>
           <button onClick={() => onRename(pos)} title="Rename ticker symbol (e.g. CSLR → SPWR after corporate action)"
-            style={{ background: 'none', border: '1px solid #2d3748', borderRadius: 3, color: '#475569', cursor: 'pointer', fontSize: 10, padding: '1px 4px', lineHeight: 1, fontWeight: 700 }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#a78bfa'; e.currentTarget.style.borderColor = '#a78bfa'; }}
-            onMouseLeave={e => { e.currentTarget.style.color = '#475569'; e.currentTarget.style.borderColor = '#2d3748'; }}>AB</button>
+            style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: 14, padding: '0 4px', lineHeight: 1, display: 'inline-flex', alignItems: 'center' }}
+            onMouseEnter={e => e.currentTarget.style.color = '#a78bfa'}
+            onMouseLeave={e => e.currentTarget.style.color = '#475569'}>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </button>
           <button onClick={() => onEdit(pos)} title="Edit lots"
             style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: 14, padding: '0 4px', lineHeight: 1 }}
             onMouseEnter={e => e.currentTarget.style.color = '#60a5fa'}

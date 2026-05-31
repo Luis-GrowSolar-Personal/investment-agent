@@ -145,7 +145,7 @@ function parseTransactionsJSON(jsonText) {
       date:   parseTradeDate(t.Date),
       action: t.Action,
       symbol: (t.Symbol || '').toUpperCase(),
-      qty:    parseFloat(t.Quantity) || 0,
+      qty:    parseFloat(String(t.Quantity || '0').replace(/,/g, '')) || 0,
       price:  parseDollar(t.Price || '0'),
       amount: parseDollar(t.Amount || '0'),
     }))

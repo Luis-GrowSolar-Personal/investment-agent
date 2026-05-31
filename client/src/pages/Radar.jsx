@@ -986,43 +986,6 @@ function TickerTable({ tickers, section, onAction, getToken }) {
                 </div>
               </td>
             </tr>,
-            renamingId === ticker.id && (
-              <tr key={`${ticker.id}-rename`} style={{ background: '#0d1120' }}>
-                <td colSpan={colSpan} style={{ padding: '12px 24px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-                    <span style={{ fontSize: 11, fontWeight: 700, color: '#a78bfa', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-                      Rename
-                    </span>
-                    <input
-                      value={renameSymbol}
-                      onChange={e => setRenameSymbol(e.target.value.toUpperCase())}
-                      placeholder="New symbol"
-                      maxLength={10}
-                      style={{ width: 90, padding: '4px 8px', background: '#1e2330', border: '1px solid #a78bfa', borderRadius: 4, color: '#e2e8f0', fontSize: 13, fontFamily: 'inherit', outline: 'none' }}
-                    />
-                    <input
-                      value={renameName}
-                      onChange={e => setRenameName(e.target.value)}
-                      placeholder="Full company name"
-                      style={{ width: 260, padding: '4px 8px', background: '#1e2330', border: '1px solid #2d3748', borderRadius: 4, color: '#e2e8f0', fontSize: 13, fontFamily: 'inherit', outline: 'none' }}
-                    />
-                    <button
-                      onClick={() => commitRename(ticker.id)}
-                      style={{ padding: '4px 14px', background: '#4c1d95', border: '1px solid #a78bfa', borderRadius: 4, color: '#c4b5fd', fontSize: 12, fontWeight: 600, cursor: 'pointer' }}
-                    >
-                      Save
-                    </button>
-                    <button
-                      onClick={() => { setRenamingId(null); setRenameError(null); }}
-                      style={{ padding: '4px 10px', background: 'transparent', border: '1px solid #2d3748', borderRadius: 4, color: '#64748b', fontSize: 12, cursor: 'pointer' }}
-                    >
-                      Cancel
-                    </button>
-                    {renameError && <span style={{ fontSize: 12, color: '#fca5a5' }}>{renameError}</span>}
-                  </div>
-                </td>
-              </tr>
-            ),
             isExpanded && (
               <HistoryRow
                 key={`${ticker.id}-history`}
@@ -1040,6 +1003,76 @@ function TickerTable({ tickers, section, onAction, getToken }) {
         })}
       </tbody>
     </table>
+
+    {renamingId && (() => {
+      const ticker = tickers.find(t => t.id === renamingId);
+      if (!ticker) return null;
+      return (
+        <RenameTickerModal
+          ticker={ticker}
+          tickers={tickers}
+          renameSymbol={renameSymbol}
+          setRenameSymbol={setRenameSymbol}
+          renameName={renameName}
+          setRenameName={setRenameName}
+          renameError={renameError}
+          onSave={() => commitRename(renamingId)}
+          onClose={() => { setRenamingId(null); setRenameError(null); }}
+        />
+      );
+    })()}
+  );
+}
+
+function RenameTickerModal({ ticker, tickers, renameSymbol, setRenameSymbol, renameName, setRenameName, renameError, onSave, onClose }) {
+  const inputStyle = {
+    background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
+    color: '#f1f5f9', fontSize: 13, padding: '6px 10px', outline: 'none',
+    width: '100%', boxSizing: 'border-box',
+  };
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
+      <div style={{ background: '#0f1117', border: '1px solid #1e2330', borderRadius: 10, padding: 24, width: 420, maxWidth: '95vw' }}>
+        <div style={{ fontWeight: 600, color: '#f1f5f9', marginBottom: 4, fontSize: 14 }}>
+          Rename ticker — {ticker.symbol}
+        </div>
+        <div style={{ fontSize: 12, color: '#475569', marginBottom: 16, lineHeight: 1.5 }}>
+          Change the symbol or company name. If the new symbol already exists,
+          all transcripts will be merged into it and this ticker deleted.
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div>
+            <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 }}>Symbol *</label>
+            <input style={{ ...inputStyle, width: 120, boxSizing: 'border-box' }}
+              value={renameSymbol}
+              onChange={e => setRenameSymbol(e.target.value.toUpperCase())}
+              placeholder="New symbol"
+              maxLength={10}
+              autoFocus
+            />
+          </div>
+          <div>
+            <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 }}>Company name</label>
+            <input style={inputStyle}
+              value={renameName}
+              onChange={e => setRenameName(e.target.value)}
+              placeholder="Full company name"
+            />
+          </div>
+          {renameError && <div style={{ color: '#ef4444', fontSize: 12 }}>{renameError}</div>}
+          <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 4 }}>
+            <button onClick={onClose}
+              style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, padding: '6px 16px', borderRadius: 5, cursor: 'pointer' }}>
+              Cancel
+            </button>
+            <button onClick={onSave}
+              style={{ background: '#a78bfa', border: 'none', color: '#0f1117', fontSize: 13, fontWeight: 700, padding: '6px 20px', borderRadius: 5, cursor: 'pointer' }}>
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
