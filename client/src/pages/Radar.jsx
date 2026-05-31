@@ -62,19 +62,42 @@ function Badge({ value, color }) {
   );
 }
 
-// Smaller, subdued chip for tier — speculative names get an amber outline,
-// established names get a quiet slate look. Uses smaller padding/font than
-// Badge so it reads as secondary metadata next to the symbol.
-function TierChip({ tier }) {
-  if (!tier) return null;
-  const isSpec = tier === 'speculative';
-  const color = isSpec ? '#f59e0b' : '#64748b';
-  const label = isSpec ? 'SPEC' : 'EST';
+// Smaller, subdued chip for tier.
+// Three states:
+//   • tierOverride set            → show override value; amber if it disagrees with mechanical
+//   • tierOverride null, mechanical set → show mechanical value (white/slate)
+//   • both null                   → show muted "?" chip (unclassified)
+function TierChip({ tierOverride, tierMechanical }) {
+  const effective = tierOverride ?? tierMechanical ?? null;
+  const disagreement = tierOverride && tierMechanical && tierOverride !== tierMechanical;
+
+  if (!effective) {
+    // Unclassified — muted chip, no label shown (just nothing, consistent with prior behaviour)
+    return null;
+  }
+
+  const isSpec = effective === 'speculative';
+  const label  = isSpec ? 'SPEC' : 'EST';
+
+  // Color logic:
+  //   disagreement → amber (caution — override conflicts with mechanical)
+  //   established  → slate/muted
+  //   speculative  → amber (unchanged)
+  const color = disagreement
+    ? '#f59e0b'
+    : isSpec ? '#f59e0b' : '#64748b';
+
+  const titleText = disagreement
+    ? `Override: ${effective} — analyst says: ${tierMechanical}`
+    : isSpec
+      ? '3-axis classifier: ≥2 of {high σ, small cap, high P/E}'
+      : tierOverride
+        ? 'Manual override: Established'
+        : 'Established: ≤1 of 3 axes fired';
+
   return (
     <span
-      title={isSpec
-        ? '3-axis classifier: ≥2 of {high σ, small cap, high P/E}'
-        : 'Established: ≤1 of 3 axes fired'}
+      title={titleText}
       style={{
         display: 'inline-block',
         padding: '1px 5px',
@@ -732,6 +755,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
   const [editCapPercent, setEditCapPercent] = useState('');
   const [editStatus, setEditStatus]       = useState('watchlist');
   const [editInScope, setEditInScope]     = useState(true);
+  const [editTierOverride, setEditTierOverride] = useState('');  // '' = auto, 'speculative', 'established'
   const [renameError, setRenameError]     = useState(null);
   // Sort state: { key: 'symbol'|'type'|'lastUpdated', dir: 'asc'|'desc' }
   // Click a column header to sort by it. Click again to toggle direction.
@@ -802,6 +826,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
     setEditCapPercent(ticker.capPercent != null ? String(ticker.capPercent) : '');
     setEditStatus(ticker.status ?? 'watchlist');
     setEditInScope(ticker.inScope !== false);
+    setEditTierOverride(ticker.tierOverride ?? '');
     setRenameError(null);
   }
 
@@ -823,12 +848,13 @@ function TickerTable({ tickers, section, onAction, getToken }) {
     setRenameError(null);
     try {
       await onAction(() => apiPatch(tickerId, {
-        symbol:     sym,
-        name:       nm || sym,
-        type:       editType,
-        capPercent: editCapPercent !== '' ? parseFloat(editCapPercent) : undefined,
-        status:     editStatus,
-        inScope:    editInScope,
+        symbol:      sym,
+        name:        nm || sym,
+        type:        editType,
+        capPercent:  editCapPercent !== '' ? parseFloat(editCapPercent) : undefined,
+        status:      editStatus,
+        inScope:     editInScope,
+        tierOverride: editTierOverride || null,
       }, getToken));
       setRenamingId(null);
     } catch (err) {
@@ -891,7 +917,12 @@ function TickerTable({ tickers, section, onAction, getToken }) {
                   >
                     {ticker.symbol}
                   </button>
-                  {la?.tier && <TierChip tier={la.tier} />}
+                  {(ticker.tierOverride || ticker.tierMechanical || la?.tier) &&
+                    <TierChip
+                      tierOverride={ticker.tierOverride ?? null}
+                      tierMechanical={ticker.tierMechanical ?? la?.tier ?? null}
+                    />
+                  }
                   <StaleTranscriptBadge daysSinceLastCall={ticker.daysSinceLastCall} />
                 </span>
               </td>
@@ -1006,6 +1037,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
         editCapPercent={editCapPercent} setEditCapPercent={setEditCapPercent}
         editStatus={editStatus}        setEditStatus={setEditStatus}
         editInScope={editInScope}      setEditInScope={setEditInScope}
+        editTierOverride={editTierOverride} setEditTierOverride={setEditTierOverride}
         renameError={renameError}
         onSave={() => commitRename(renamingId)}
         onClose={() => { setRenamingId(null); setRenameError(null); }}
@@ -1023,6 +1055,7 @@ function RenameTickerModal({
   editCapPercent, setEditCapPercent,
   editStatus,   setEditStatus,
   editInScope,  setEditInScope,
+  editTierOverride, setEditTierOverride,
   renameError,  onSave, onClose,
 }) {
   const inp = {
@@ -1078,6 +1111,25 @@ function RenameTickerModal({
                 <option value="portfolio">Portfolio</option>
               </select>
             </div>
+          </div>
+          {/* Tier override */}
+          <div>
+            <label style={lbl}>Tier override</label>
+            <select style={{ ...inp, cursor: 'pointer' }} value={editTierOverride} onChange={e => setEditTierOverride(e.target.value)}>
+              <option value="">Auto (use classifier result)</option>
+              <option value="speculative">Speculative</option>
+              <option value="established">Established</option>
+            </select>
+            {ticker.tierMechanical && editTierOverride && editTierOverride !== ticker.tierMechanical && (
+              <div style={{ fontSize: 11, color: '#f59e0b', marginTop: 4 }}>
+                ⚠ Analyst classified this as <strong>{ticker.tierMechanical}</strong>. You're overriding to {editTierOverride}.
+              </div>
+            )}
+            {!ticker.tierMechanical && (
+              <div style={{ fontSize: 11, color: '#475569', marginTop: 4 }}>
+                No classifier result yet — override sets the tier directly.
+              </div>
+            )}
           </div>
           {/* inScope toggle */}
           <label style={{ fontSize: 12, color: '#64748b', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}>

@@ -108,6 +108,20 @@
 
 ---
 
+## UI style guide
+
+**`docs/UI_SPEC.md` is the authoritative style reference. Read it before building any new UI component.**
+
+Key rules (full detail in the spec):
+- **Icons for actions, labels for information** — ✎ edit, × remove, 👁 view, ⟳ resync; all stroke style, 13–15px, grey default, coloured hover
+- **Badges/pills** — text labels with background tint + border; use spec colours for thesis health, recommendation, trajectory
+- **Drill-down** — ▶/▼ left of symbol/name; sort columns use ↑/↓/↕
+- **Tables** — 10–11px uppercase headers, `#1e2330` row borders, `#0d1018` hover, primary data `#f1f5f9`, secondary `#94a3b8`
+- **Modals** — `#0f1117` background, `border-radius: 10px`, cancel + primary button pattern; destructive = red with type-to-confirm
+- **Frames** — collapsible bordered cards (`border: 1px solid #1e2330`, `border-radius: 10px`) for both Portfolio accounts and RADAR sections
+
+---
+
 ## Key constraints (do not re-derive)
 
 - **Analyst/Allocator firewall**: analyst never receives portfolio data; allocator never receives transcripts

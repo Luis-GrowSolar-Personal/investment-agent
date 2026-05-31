@@ -80,6 +80,9 @@ router.get('/tickers', requireAuth(), async (req, res) => {
         status: ticker.status,
         capPercent: ticker.capPercent,
         type: ticker.type,
+        inScope: ticker.inScope,
+        tierOverride: ticker.tierOverride,
+        tierMechanical: ticker.tierMechanical,
         transcriptCount: ticker.transcripts.length,
         lastCallDate,
         daysSinceLastCall,
@@ -281,10 +284,10 @@ router.post('/tickers', requireAuth(), async (req, res) => {
   }
 });
 
-// PATCH /api/radar/tickers/:id — update name, type, capPercent, status, inScope
+// PATCH /api/radar/tickers/:id — update name, type, capPercent, status, inScope, tierOverride
 router.patch('/tickers/:id', requireAuth(), async (req, res) => {
   const id = parseInt(req.params.id);
-  const { symbol, name, type, capPercent, status, inScope } = req.body;
+  const { symbol, name, type, capPercent, status, inScope, tierOverride } = req.body;
 
   try {
     const newSymbol = symbol?.trim().toUpperCase();
@@ -303,11 +306,12 @@ router.patch('/tickers/:id', requireAuth(), async (req, res) => {
         const updated = await prisma.ticker.update({
           where: { id: conflict.id },
           data: {
-            ...(name       !== undefined && { name }),
-            ...(type       !== undefined && { type }),
-            ...(capPercent !== undefined && { capPercent }),
-            ...(status     !== undefined && { status }),
-            ...(inScope    !== undefined && { inScope }),
+            ...(name        !== undefined && { name }),
+            ...(type        !== undefined && { type }),
+            ...(capPercent  !== undefined && { capPercent }),
+            ...(status      !== undefined && { status }),
+            ...(inScope     !== undefined && { inScope }),
+            ...(tierOverride !== undefined && { tierOverride: tierOverride || null }),
           },
         });
         return res.json({ ...updated, merged: true });
@@ -317,12 +321,13 @@ router.patch('/tickers/:id', requireAuth(), async (req, res) => {
     const updated = await prisma.ticker.update({
       where: { id },
       data: {
-        ...(newSymbol  !== undefined && { symbol: newSymbol }),
-        ...(name       !== undefined && { name }),
-        ...(type       !== undefined && { type }),
-        ...(capPercent !== undefined && { capPercent }),
-        ...(status     !== undefined && { status }),
-        ...(inScope    !== undefined && { inScope }),
+        ...(newSymbol    !== undefined && { symbol: newSymbol }),
+        ...(name         !== undefined && { name }),
+        ...(type         !== undefined && { type }),
+        ...(capPercent   !== undefined && { capPercent }),
+        ...(status       !== undefined && { status }),
+        ...(inScope      !== undefined && { inScope }),
+        ...(tierOverride !== undefined && { tierOverride: tierOverride || null }),
       },
     });
     res.json(updated);
