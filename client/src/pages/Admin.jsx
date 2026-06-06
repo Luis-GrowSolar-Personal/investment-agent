@@ -1,14 +1,14 @@
 /**
- * Admin.jsx — Per-owner portfolio configuration
+ * Admin.jsx — Per-owner portfolio configuration (merged with Users)
  *
- * One collapsible card per owner. Each card has four sections:
- *   1. Capital & Sizing       — min position $, max positions, cash reserve
- *   2. Risk Profile           — years to goal, barbell ratio, risk tolerance
- *   3. Tax & Account          — tax sensitivity, account purpose, benchmark
- *   4. Domain & Universe      — domains of interest, rebalancing behavior
+ * One collapsible card per owner. Card header shows portfolio value,
+ * goal progress, and account count. Four config sections per card:
+ *   1. Identity & Capital  — display name, min position $, max positions, cash reserve, goal
+ *   2. Risk Profile        — years to goal, barbell ratio, risk tolerance
+ *   3. Tax & Account       — tax sensitivity, account purpose, benchmark
+ *   4. Domain & Universe   — domains of interest, rebalancing behavior
  *
- * All values feed directly into the allocator and recommended-moves engine.
- * Computed helpers (spec ceiling, effective max positions) shown inline.
+ * Page-level: + New Owner button, delete per card.
  */
 
 import { useState, useEffect, useCallback } from 'react';
@@ -18,9 +18,9 @@ import { useAuth } from '@clerk/clerk-react';
 // Constants
 // ---------------------------------------------------------------------------
 const DOMAINS = [
-  { id: 'solar',           label: 'Solar Energy',         tier: 1 },
-  { id: 'energy_storage',  label: 'Energy Storage',       tier: 1 },
-  { id: 'semiconductors',  label: 'Semiconductors',       tier: 1 },
+  { id: 'solar',           label: 'Solar Energy',          tier: 1 },
+  { id: 'energy_storage',  label: 'Energy Storage',        tier: 1 },
+  { id: 'semiconductors',  label: 'Semiconductors',        tier: 1 },
   { id: 'it_cloud',        label: 'IT / Cloud / Software', tier: 2 },
   { id: 'crypto',          label: 'Crypto (mass adoption)', tier: 2 },
 ];
@@ -28,8 +28,8 @@ const DOMAINS = [
 const DEFAULTS = {
   minPositionDollar: 1500,
   maxPositions:      15,
-  cashReservePct:    5,       // stored as 0-100 in UI, 0.0-1.0 in DB
-  estSpecRatio:      60,      // stored as 0-100 in UI, 0.0-1.0 in DB
+  cashReservePct:    5,
+  estSpecRatio:      60,
   riskTolerance:     'moderate',
   taxSensitivity:    'moderate',
   accountPurpose:    'growth',
@@ -38,7 +38,6 @@ const DEFAULTS = {
   newMoneyBehavior:  'highest_conviction',
 };
 
-// Spec ceiling from years to goal
 function specCeiling(years) {
   if (years == null) return null;
   if (years >= 30) return 50;
@@ -48,11 +47,15 @@ function specCeiling(years) {
   return 5;
 }
 
-// Effective max positions from portfolio value and min position dollar
 function effectiveMaxPositions(portfolioValue, minPosDollar, hardMax) {
   if (!portfolioValue || !minPosDollar) return hardMax ?? DEFAULTS.maxPositions;
   const computed = Math.floor(portfolioValue / minPosDollar);
   return Math.min(computed, hardMax ?? DEFAULTS.maxPositions);
+}
+
+function fmt(n) {
+  if (n == null) return '—';
+  return '$' + Number(n).toLocaleString('en-US', { maximumFractionDigits: 0 });
 }
 
 // ---------------------------------------------------------------------------
@@ -99,31 +102,6 @@ function TextInput({ value, onChange, placeholder, type = 'text', prefix, suffix
       />
       {suffix && <span style={{ fontSize: 12, color: '#475569' }}>{suffix}</span>}
     </div>
-  );
-}
-
-function Select({ value, onChange, options, width = 200 }) {
-  return (
-    <select
-      value={value ?? ''}
-      onChange={e => onChange(e.target.value)}
-      style={{
-        width,
-        background: '#0f1117',
-        border: '1px solid #2d3748',
-        borderRadius: 6,
-        color: value ? '#f1f5f9' : '#475569',
-        fontSize: 13,
-        padding: '7px 10px',
-        outline: 'none',
-        cursor: 'pointer',
-      }}
-    >
-      <option value="">— not set —</option>
-      {options.map(o => (
-        <option key={o.value} value={o.value}>{o.label}</option>
-      ))}
-    </select>
   );
 }
 
@@ -187,13 +165,89 @@ function DomainCheckbox({ domain, checked, onChange }) {
 }
 
 // ---------------------------------------------------------------------------
+// New Owner Modal
+// ---------------------------------------------------------------------------
+function NewOwnerModal({ onClose, onCreated }) {
+  const { getToken } = useAuth();
+  const [owner, setOwner]               = useState('');
+  const [displayName, setDisplayName]   = useState('');
+  const [enoughNumber, setEnoughNumber] = useState('');
+  const [saving, setSaving]             = useState(false);
+  const [err, setErr]                   = useState('');
+
+  const handleCreate = async () => {
+    if (!owner.trim()) { setErr('Owner name is required'); return; }
+    setSaving(true); setErr('');
+    try {
+      const token = await getToken();
+      const r = await fetch('/api/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({
+          owner:        owner.trim(),
+          displayName:  displayName.trim() || null,
+          enoughNumber: enoughNumber ? Number(enoughNumber) : null,
+        }),
+      });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error || 'Create failed');
+      onCreated(data);
+      onClose();
+    } catch (e) {
+      setErr(e.message);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div style={modalOverlay} onClick={e => e.target === e.currentTarget && onClose()}>
+      <div style={modalBox}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: '#f1f5f9' }}>New Owner</span>
+          <button onClick={onClose} style={ghostBtn}>✕</button>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <label style={labelStyle}>
+            Owner key <span style={{ color: '#f87171' }}>*</span>
+            <input value={owner} onChange={e => setOwner(e.target.value)}
+              placeholder="e.g. luis.morales" style={modalInputStyle} autoFocus />
+            <span style={{ fontSize: 11, color: '#475569', marginTop: 2 }}>Unique identifier, lowercase. Cannot be changed.</span>
+          </label>
+          <label style={labelStyle}>
+            Display name
+            <input value={displayName} onChange={e => setDisplayName(e.target.value)}
+              placeholder="e.g. Luis" style={modalInputStyle} />
+          </label>
+          <label style={labelStyle}>
+            Investment goal ($)
+            <input type="number" value={enoughNumber} onChange={e => setEnoughNumber(e.target.value)}
+              placeholder="e.g. 6000000" style={modalInputStyle} />
+          </label>
+        </div>
+
+        {err && <div style={{ color: '#f87171', fontSize: 12, marginTop: 12 }}>{err}</div>}
+
+        <div style={{ display: 'flex', gap: 10, marginTop: 22, justifyContent: 'flex-end' }}>
+          <button onClick={onClose} style={cancelBtn}>Cancel</button>
+          <button onClick={handleCreate} disabled={saving} style={saveBtn}>
+            {saving ? 'Creating…' : 'Create owner'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Owner admin card
 // ---------------------------------------------------------------------------
-function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
+function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount, onDelete }) {
   const { getToken } = useAuth();
   const [open, setOpen]       = useState(true);
   const [profile, setProfile] = useState(initialProfile);
-  const [draft, setDraft]     = useState(null);   // null = not editing
+  const [draft, setDraft]     = useState(null);
   const [saving, setSaving]   = useState(false);
   const [saved, setSaved]     = useState(false);
   const [err, setErr]         = useState('');
@@ -210,16 +264,21 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
       maxPositions:      p.maxPositions      ?? '',
       enoughNumber:      p.enoughNumber      ?? '',
       yearsToGoal:       p.yearsToGoal       ?? '',
+      displayName:       p.displayName       ?? '',
       domainsOfInterest: p.domainsOfInterest ?? [],
     };
   }
 
-  // Convert UI values back to DB format
   function fromUI(d) {
     return {
       ...d,
-      cashReservePct: d.cashReservePct === '' ? null : Number(d.cashReservePct) / 100,
-      estSpecRatio:   d.estSpecRatio   === '' ? null : Number(d.estSpecRatio)   / 100,
+      cashReservePct:    d.cashReservePct === '' ? null : Number(d.cashReservePct) / 100,
+      estSpecRatio:      d.estSpecRatio   === '' ? null : Number(d.estSpecRatio)   / 100,
+      minPositionDollar: d.minPositionDollar === '' ? null : Number(d.minPositionDollar),
+      maxPositions:      d.maxPositions      === '' ? null : Number(d.maxPositions),
+      enoughNumber:      d.enoughNumber      === '' ? null : Number(d.enoughNumber),
+      yearsToGoal:       d.yearsToGoal       === '' ? null : Number(d.yearsToGoal),
+      displayName:       d.displayName.trim() || null,
       domainsOfInterest: d.domainsOfInterest.length > 0 ? d.domainsOfInterest : null,
     };
   }
@@ -227,8 +286,7 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
   const startEdit = () => setDraft(toUI(profile));
   const cancelEdit = () => { setDraft(null); setErr(''); };
 
-  // If draft is null when a field changes, auto-initialize from profile
-  // so every field is populated before applying the delta.
+  // Auto-initialize draft from profile if not already editing
   const set = (key, val) => setDraft(d => ({ ...(d ?? toUI(profile)), [key]: val }));
 
   const toggleDomain = (id, checked) => {
@@ -266,64 +324,120 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
     }
   };
 
-  const p = draft ?? toUI(profile);   // always render from draft if editing
+  const p = draft ?? toUI(profile);
 
   // Computed helpers
-  const specCeil    = specCeiling(p.yearsToGoal !== '' ? Number(p.yearsToGoal) : null);
-  const estRatio    = p.estSpecRatio !== '' ? Number(p.estSpecRatio) : null;
-  const effSpecPct  = estRatio != null ? 100 - estRatio : null;
-  const effMax      = effectiveMaxPositions(
+  const specCeil   = specCeiling(p.yearsToGoal !== '' ? Number(p.yearsToGoal) : null);
+  const estRatio   = p.estSpecRatio !== '' ? Number(p.estSpecRatio) : null;
+  const effSpecPct = estRatio != null ? 100 - estRatio : null;
+  const effMax     = effectiveMaxPositions(
     portfolioValue,
     p.minPositionDollar !== '' ? Number(p.minPositionDollar) : DEFAULTS.minPositionDollar,
-    p.maxPositions !== '' ? Number(p.maxPositions) : DEFAULTS.maxPositions,
+    p.maxPositions      !== '' ? Number(p.maxPositions)      : DEFAULTS.maxPositions,
   );
+
+  // Goal progress (use saved profile value, not draft)
+  const savedGoal = profile.enoughNumber;
+  const goalPct   = savedGoal && portfolioValue
+    ? Math.min(100, (portfolioValue / savedGoal) * 100)
+    : null;
+  const goalColor = goalPct == null ? '#3b82f6' : goalPct >= 100 ? '#4ade80' : goalPct >= 60 ? '#fbbf24' : '#3b82f6';
 
   const displayName = profile.displayName || profile.owner;
 
   return (
     <div style={{ border: '1px solid #1e2330', borderRadius: 10, marginBottom: 20, overflow: 'hidden' }}>
-      {/* Header */}
+      {/* ── Card Header ── */}
       <div
-        style={{ background: '#0f1117', padding: '14px 20px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12 }}
+        style={{ background: '#0f1117', padding: '14px 20px', cursor: 'pointer' }}
         onClick={() => setOpen(o => !o)}
       >
-        <span style={{ color: '#94a3b8', fontSize: 13 }}>{open ? '▼' : '▶'}</span>
-        <span style={{ fontWeight: 700, fontSize: 15, color: '#f1f5f9' }}>{displayName}</span>
-        {portfolioValue != null && (
-          <span style={{ fontSize: 12, color: '#64748b' }}>
-            Portfolio: <strong style={{ color: '#94a3b8' }}>${portfolioValue.toLocaleString('en-US', { maximumFractionDigits: 0 })}</strong>
-          </span>
-        )}
-        {saved && <span style={{ fontSize: 12, color: '#4ade80', marginLeft: 8 }}>✓ Saved</span>}
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
-          {!draft ? (
-            <button
-              onClick={e => { e.stopPropagation(); startEdit(); }}
-              style={editBtn}
-            >✎ Edit</button>
-          ) : (
-            <>
-              <button onClick={e => { e.stopPropagation(); save(); }} disabled={saving} style={saveBtn}>
-                {saving ? 'Saving…' : 'Save'}
-              </button>
-              <button onClick={e => { e.stopPropagation(); cancelEdit(); }} style={cancelBtn}>Cancel</button>
-            </>
+        {/* Top row */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+          <span style={{ color: '#94a3b8', fontSize: 13 }}>{open ? '▼' : '▶'}</span>
+          <span style={{ fontWeight: 700, fontSize: 15, color: '#f1f5f9' }}>{displayName}</span>
+          {profile.displayName && (
+            <span style={{ fontSize: 11, color: '#475569' }}>{profile.owner}</span>
           )}
+
+          {/* Account count pill */}
+          {accountCount != null && (
+            <span style={{
+              fontSize: 11, fontWeight: 600, padding: '1px 7px', borderRadius: 4,
+              background: '#1e293b', border: '1px solid #334155', color: '#94a3b8',
+            }}>
+              {accountCount} acct{accountCount !== 1 ? 's' : ''}
+            </span>
+          )}
+
+          {portfolioValue != null && (
+            <span style={{ fontSize: 12, color: '#64748b' }}>
+              Portfolio: <strong style={{ color: '#94a3b8' }}>{fmt(portfolioValue)}</strong>
+            </span>
+          )}
+
+          {saved && <span style={{ fontSize: 12, color: '#4ade80' }}>✓ Saved</span>}
+
+          <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
+            {!draft ? (
+              <button onClick={e => { e.stopPropagation(); startEdit(); }} style={editBtn}>✎ Edit</button>
+            ) : (
+              <>
+                <button onClick={e => { e.stopPropagation(); save(); }} disabled={saving} style={saveBtn}>
+                  {saving ? 'Saving…' : 'Save'}
+                </button>
+                <button onClick={e => { e.stopPropagation(); cancelEdit(); }} style={cancelBtn}>Cancel</button>
+              </>
+            )}
+            <button
+              onClick={e => { e.stopPropagation(); onDelete(profile.owner, displayName); }}
+              title="Delete owner"
+              style={deleteBtn}
+            >✕</button>
+          </div>
         </div>
+
+        {/* Goal progress bar */}
+        {goalPct != null && (
+          <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 10 }}>
+            <div style={{ flex: 1, maxWidth: 300, height: 3, background: '#1e2330', borderRadius: 2 }}>
+              <div style={{ width: `${goalPct}%`, height: '100%', background: goalColor, borderRadius: 2, transition: 'width 0.3s' }} />
+            </div>
+            <span style={{ fontSize: 11, color: '#64748b' }}>
+              {fmt(portfolioValue)} / {fmt(savedGoal)}
+              <span style={{ marginLeft: 6, color: goalColor, fontWeight: 600 }}>{goalPct.toFixed(1)}%</span>
+            </span>
+          </div>
+        )}
+        {goalPct == null && savedGoal && (
+          <div style={{ marginTop: 6, fontSize: 11, color: '#475569' }}>
+            Goal: {fmt(savedGoal)} — no portfolio data yet
+          </div>
+        )}
       </div>
 
+      {/* ── Card Body ── */}
       {open && (
         <div style={{ background: '#0d1018', padding: '24px 28px' }}>
           {err && <div style={{ color: '#f87171', fontSize: 12, marginBottom: 16 }}>{err}</div>}
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px 48px' }}>
 
-            {/* ── Section 1: Capital & Sizing ── */}
+            {/* ── Section 1: Identity & Capital ── */}
             <div>
               <SectionHeader
-                title="Capital & Sizing"
-                subtitle="Controls position count and minimum meaningful investment size."
+                title="Identity & Capital"
+                subtitle="Owner display name, position count, and minimum meaningful investment size."
               />
+
+              <Field label="Display name" hint="Friendly name shown in the UI. Leave blank to use the owner key.">
+                <TextInput
+                  value={p.displayName}
+                  onChange={v => set('displayName', v)}
+                  placeholder={profile.owner}
+                  width={200}
+                />
+              </Field>
 
               <Field
                 label="Minimum position size"
@@ -337,9 +451,9 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
                   prefix="$"
                   width={140}
                 />
-                {portfolioValue != null && p.minPositionDollar && (
+                {portfolioValue != null && p.minPositionDollar !== '' && (
                   <ComputedBadge
-                    label="Implied max positions from portfolio value:"
+                    label="Implied max from portfolio value:"
                     value={`${Math.floor(portfolioValue / Number(p.minPositionDollar))} positions`}
                     color="#60a5fa"
                   />
@@ -348,7 +462,7 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
 
               <Field
                 label="Hard cap on positions"
-                hint="Even with large portfolio, never exceed this many tickers."
+                hint="Even with a large portfolio, never exceed this many tickers."
               >
                 <TextInput
                   value={p.maxPositions}
@@ -367,10 +481,7 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
                 )}
               </Field>
 
-              <Field
-                label="Cash reserve"
-                hint="Keep this % as dry powder for new opportunities."
-              >
+              <Field label="Cash reserve" hint="Keep this % as dry powder for new opportunities.">
                 <TextInput
                   value={p.cashReservePct}
                   onChange={v => set('cashReservePct', v)}
@@ -383,7 +494,7 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
 
               <Field label="Investment goal">
                 <TextInput
-                  value={p.enoughNumber ?? ''}
+                  value={p.enoughNumber}
                   onChange={v => set('enoughNumber', v)}
                   placeholder="e.g. 6000000"
                   type="number"
@@ -405,7 +516,7 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
                 hint="Automatically sets the maximum speculative allocation ceiling."
               >
                 <TextInput
-                  value={p.yearsToGoal ?? ''}
+                  value={p.yearsToGoal}
                   onChange={v => set('yearsToGoal', v)}
                   placeholder="e.g. 25"
                   type="number"
@@ -425,16 +536,14 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
                 label="Established / speculative split"
                 hint="Barbell ratio. The speculative weight is limited by the ceiling above."
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <TextInput
-                    value={p.estSpecRatio}
-                    onChange={v => set('estSpecRatio', v)}
-                    placeholder={String(DEFAULTS.estSpecRatio)}
-                    type="number"
-                    suffix="% established"
-                    width={80}
-                  />
-                </div>
+                <TextInput
+                  value={p.estSpecRatio}
+                  onChange={v => set('estSpecRatio', v)}
+                  placeholder={String(DEFAULTS.estSpecRatio)}
+                  type="number"
+                  suffix="% established"
+                  width={80}
+                />
                 {estRatio != null && (
                   <div style={{ marginTop: 8, display: 'flex', gap: 8, alignItems: 'center' }}>
                     <div style={{ display: 'flex', height: 8, width: 200, borderRadius: 4, overflow: 'hidden' }}>
@@ -558,8 +667,8 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
                   value={p.specExitSpeed || DEFAULTS.specExitSpeed}
                   onChange={v => set('specExitSpeed', v)}
                   options={[
-                    { value: 'fast',   label: 'Fast' },
-                    { value: 'normal', label: 'Normal' },
+                    { value: 'fast',    label: 'Fast' },
+                    { value: 'normal',  label: 'Normal' },
                     { value: 'patient', label: 'Patient' },
                   ]}
                 />
@@ -567,7 +676,7 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
 
               <Field
                 label="New money behavior"
-                hint="When fresh cash arrives, deploy it to the highest-conviction Add, or spread across all underweight positions."
+                hint="When fresh cash arrives, deploy to the highest-conviction Add, or spread across all underweight positions."
               >
                 <SegmentedControl
                   value={p.newMoneyBehavior || DEFAULTS.newMoneyBehavior}
@@ -580,7 +689,7 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
               </Field>
             </div>
 
-          </div>{/* end grid */}
+          </div>
 
           {/* Save row */}
           {draft && (
@@ -603,49 +712,86 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
 // ---------------------------------------------------------------------------
 export default function Admin() {
   const { getToken } = useAuth();
-  const [profiles, setProfiles]       = useState([]);
+  const [profiles, setProfiles]           = useState([]);
   const [portfolioValues, setPortfolioValues] = useState({});
-  const [loading, setLoading]         = useState(true);
+  const [accountCounts, setAccountCounts] = useState({});
+  const [loading, setLoading]             = useState(true);
+  const [showNew, setShowNew]             = useState(false);
+  const [deleteErr, setDeleteErr]         = useState('');
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const token = await getToken();
-        const [usersRes, dashRes] = await Promise.all([
-          fetch('/api/users',     { headers: { Authorization: `Bearer ${token}` } }),
-          fetch('/api/dashboard', { headers: { Authorization: `Bearer ${token}` } }),
-        ]);
-        const users = await usersRes.json();
-        const dash  = await dashRes.json();
+  const load = useCallback(async () => {
+    setLoading(true);
+    try {
+      const token = await getToken();
+      const [usersRes, dashRes] = await Promise.all([
+        fetch('/api/users',     { headers: { Authorization: `Bearer ${token}` } }),
+        fetch('/api/dashboard', { headers: { Authorization: `Bearer ${token}` } }),
+      ]);
+      const users = await usersRes.json();
+      const dash  = await dashRes.json();
 
-        // Build portfolio value lookup by owner
-        const pvMap = {};
-        for (const d of (Array.isArray(dash) ? dash : [])) {
-          pvMap[d.owner] = d.totalPortfolioValue;
-        }
-
-        if (usersRes.ok) setProfiles(users);
-        setPortfolioValues(pvMap);
-      } finally {
-        setLoading(false);
+      const pvMap = {}, acMap = {};
+      for (const d of (Array.isArray(dash) ? dash : [])) {
+        pvMap[d.owner] = d.totalPortfolioValue;
       }
-    })();
+      // accountCount comes from /api/users enrichment
+      for (const u of (Array.isArray(users) ? users : [])) {
+        acMap[u.owner] = u.accountCount ?? 0;
+      }
+
+      if (usersRes.ok) setProfiles(users);
+      setPortfolioValues(pvMap);
+      setAccountCounts(acMap);
+    } finally {
+      setLoading(false);
+    }
   }, [getToken]);
+
+  useEffect(() => { load(); }, [load]);
+
+  const handleDelete = async (owner, displayName) => {
+    setDeleteErr('');
+    if (!window.confirm(`Delete owner "${displayName}"? This cannot be undone.`)) return;
+    const token = await getToken();
+    const r = await fetch(`/api/users/${encodeURIComponent(owner)}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const data = await r.json();
+    if (!r.ok) { setDeleteErr(data.error || 'Delete failed'); return; }
+    setProfiles(prev => prev.filter(p => p.owner !== owner));
+  };
+
+  const handleCreated = (profile) => {
+    setProfiles(prev => [...prev, { ...profile, accountCount: 0, totalPortfolioValue: 0 }]);
+    setAccountCounts(prev => ({ ...prev, [profile.owner]: 0 }));
+    setPortfolioValues(prev => ({ ...prev, [profile.owner]: 0 }));
+  };
 
   return (
     <div style={{ maxWidth: 1000, margin: '32px auto', padding: '0 24px' }}>
-      <div style={{ marginBottom: 28 }}>
-        <h1 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: '#f1f5f9' }}>Admin</h1>
-        <p style={{ margin: '4px 0 0', fontSize: 13, color: '#64748b' }}>
-          Per-owner portfolio configuration. These settings drive the allocator, recommended moves, and opportunity scanner.
-        </p>
+      {/* Page header */}
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 28 }}>
+        <div>
+          <h1 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: '#f1f5f9' }}>Admin</h1>
+          <p style={{ margin: '4px 0 0', fontSize: 13, color: '#64748b' }}>
+            Per-owner portfolio configuration. These settings drive the allocator, recommended moves, and opportunity scanner.
+          </p>
+        </div>
+        <button onClick={() => setShowNew(true)} style={saveBtn}>+ New Owner</button>
       </div>
+
+      {deleteErr && (
+        <div style={{ background: '#450a0a', border: '1px solid #991b1b', borderRadius: 8, padding: '10px 14px', marginBottom: 16, color: '#f87171', fontSize: 13 }}>
+          {deleteErr}
+        </div>
+      )}
 
       {loading ? (
         <div style={{ color: '#475569', fontSize: 13 }}>Loading…</div>
       ) : profiles.length === 0 ? (
         <div style={{ color: '#475569', fontSize: 13 }}>
-          No owners found. Add owners in the <strong style={{ color: '#94a3b8' }}>Users</strong> tab first.
+          No owners found. Create one with the button above.
         </div>
       ) : (
         profiles.map(p => (
@@ -653,15 +799,21 @@ export default function Admin() {
             key={p.owner}
             profile={p}
             portfolioValue={portfolioValues[p.owner] ?? null}
+            accountCount={accountCounts[p.owner] ?? null}
+            onDelete={handleDelete}
           />
         ))
+      )}
+
+      {showNew && (
+        <NewOwnerModal onClose={() => setShowNew(false)} onCreated={handleCreated} />
       )}
     </div>
   );
 }
 
 // ---------------------------------------------------------------------------
-// Button styles
+// Style tokens
 // ---------------------------------------------------------------------------
 const editBtn = {
   background: 'transparent',
@@ -690,4 +842,54 @@ const cancelBtn = {
   cursor: 'pointer',
   fontSize: 13,
   padding: '7px 14px',
+};
+const deleteBtn = {
+  background: 'transparent',
+  border: '1px solid #2d3748',
+  borderRadius: 6,
+  color: '#475569',
+  cursor: 'pointer',
+  fontSize: 13,
+  padding: '5px 10px',
+  transition: 'color 0.15s',
+};
+const ghostBtn = {
+  background: 'transparent',
+  border: 'none',
+  color: '#475569',
+  cursor: 'pointer',
+  fontSize: 16,
+  padding: '2px 6px',
+};
+const labelStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 4,
+  fontSize: 12,
+  color: '#94a3b8',
+};
+const modalInputStyle = {
+  background: '#0f1117',
+  border: '1px solid #2d3748',
+  borderRadius: 6,
+  color: '#f1f5f9',
+  fontSize: 13,
+  padding: '7px 10px',
+  outline: 'none',
+  width: '100%',
+  boxSizing: 'border-box',
+};
+const modalOverlay = {
+  position: 'fixed', inset: 0,
+  background: 'rgba(0,0,0,0.6)',
+  display: 'flex', alignItems: 'center', justifyContent: 'center',
+  zIndex: 200,
+};
+const modalBox = {
+  background: '#0f1117',
+  border: '1px solid #1e2330',
+  borderRadius: 10,
+  padding: 24,
+  width: 420,
+  maxWidth: '90vw',
 };

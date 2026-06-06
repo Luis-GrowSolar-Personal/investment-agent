@@ -5,7 +5,6 @@ import Evaluator from './pages/Evaluator.jsx';
 import Radar from './pages/Radar.jsx';
 import AdvisoryFeed from './pages/AdvisoryFeed.jsx';
 import Portfolio from './pages/Portfolio.jsx';
-import Users from './pages/Users.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Admin from './pages/Admin.jsx';
 
@@ -40,9 +39,6 @@ export default function App() {
           </div>
           <div style={{ display: location.pathname === '/portfolio' ? 'block' : 'none' }}>
             <Portfolio />
-          </div>
-          <div style={{ display: location.pathname === '/users' ? 'block' : 'none' }}>
-            <Users />
           </div>
           <div style={{ display: location.pathname === '/dashboard' ? 'block' : 'none' }}>
             <Dashboard />
