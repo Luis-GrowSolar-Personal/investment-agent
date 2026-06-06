@@ -202,8 +202,14 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
   function toUI(p) {
     return {
       ...p,
-      cashReservePct: p.cashReservePct != null ? Math.round(p.cashReservePct * 100) : '',
-      estSpecRatio:   p.estSpecRatio   != null ? Math.round(p.estSpecRatio * 100)   : '',
+      // Ratio fields: scale 0.0–1.0 → 0–100 for display
+      cashReservePct:    p.cashReservePct != null ? Math.round(p.cashReservePct * 100) : '',
+      estSpecRatio:      p.estSpecRatio   != null ? Math.round(p.estSpecRatio * 100)   : '',
+      // Numeric fields: normalize null → '' so !== '' guards work correctly
+      minPositionDollar: p.minPositionDollar ?? '',
+      maxPositions:      p.maxPositions      ?? '',
+      enoughNumber:      p.enoughNumber      ?? '',
+      yearsToGoal:       p.yearsToGoal       ?? '',
       domainsOfInterest: p.domainsOfInterest ?? [],
     };
   }
@@ -221,15 +227,20 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue }) {
   const startEdit = () => setDraft(toUI(profile));
   const cancelEdit = () => { setDraft(null); setErr(''); };
 
-  const set = (key, val) => setDraft(d => ({ ...d, [key]: val }));
+  // If draft is null when a field changes, auto-initialize from profile
+  // so every field is populated before applying the delta.
+  const set = (key, val) => setDraft(d => ({ ...(d ?? toUI(profile)), [key]: val }));
 
   const toggleDomain = (id, checked) => {
-    setDraft(d => ({
-      ...d,
-      domainsOfInterest: checked
-        ? [...(d.domainsOfInterest ?? []), id]
-        : (d.domainsOfInterest ?? []).filter(x => x !== id),
-    }));
+    setDraft(d => {
+      const base = d ?? toUI(profile);
+      return {
+        ...base,
+        domainsOfInterest: checked
+          ? [...(base.domainsOfInterest ?? []), id]
+          : (base.domainsOfInterest ?? []).filter(x => x !== id),
+      };
+    });
   };
 
   const save = async () => {
