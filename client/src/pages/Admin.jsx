@@ -17,13 +17,52 @@ import { useAuth } from '@clerk/clerk-react';
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
-const DOMAINS = [
-  { id: 'solar',           label: 'Solar Energy',          tier: 1 },
-  { id: 'energy_storage',  label: 'Energy Storage',        tier: 1 },
-  { id: 'semiconductors',  label: 'Semiconductors',        tier: 1 },
-  { id: 'it_cloud',        label: 'IT / Cloud / Software', tier: 2 },
-  { id: 'crypto',          label: 'Crypto (mass adoption)', tier: 2 },
+// Full industry catalog. IDs are stable — stored in DB domainsOfInterest.
+// The first 5 (solar → crypto) are Luis's existing circle of competence.
+const DOMAIN_CATALOG = [
+  // Clean Energy
+  { id: 'solar',            label: 'Solar Energy',           group: 'Clean Energy' },
+  { id: 'energy_storage',   label: 'Energy Storage',         group: 'Clean Energy' },
+  { id: 'nuclear',          label: 'Nuclear Energy',         group: 'Clean Energy' },
+  { id: 'utilities',        label: 'Utilities',              group: 'Clean Energy' },
+  // Technology
+  { id: 'semiconductors',   label: 'Semiconductors',         group: 'Technology' },
+  { id: 'it_cloud',         label: 'IT / Cloud / Software',  group: 'Technology' },
+  { id: 'ai_ml',            label: 'AI / Machine Learning',  group: 'Technology' },
+  { id: 'crypto',           label: 'Crypto (mass adoption)', group: 'Technology' },
+  { id: 'ev_mobility',      label: 'Electric Vehicles',      group: 'Technology' },
+  { id: 'robotics',         label: 'Robotics / Automation',  group: 'Technology' },
+  { id: 'space',            label: 'Space / Aerospace',      group: 'Technology' },
+  // Healthcare
+  { id: 'biotech',          label: 'Biotechnology',          group: 'Healthcare' },
+  { id: 'pharma',           label: 'Pharmaceuticals',        group: 'Healthcare' },
+  { id: 'medtech',          label: 'Medical Devices',        group: 'Healthcare' },
+  { id: 'healthtech',       label: 'Digital Health',         group: 'Healthcare' },
+  // Financials
+  { id: 'fintech',          label: 'Fintech',                group: 'Financials' },
+  { id: 'banking',          label: 'Banking / Finance',      group: 'Financials' },
+  { id: 'insurance',        label: 'Insurance',              group: 'Financials' },
+  // Consumer
+  { id: 'ecommerce',        label: 'E-commerce / Retail',    group: 'Consumer' },
+  { id: 'consumer_staples', label: 'Consumer Staples',       group: 'Consumer' },
+  { id: 'food_bev',         label: 'Food & Beverage',        group: 'Consumer' },
+  { id: 'media',            label: 'Media / Entertainment',  group: 'Consumer' },
+  // Industrial
+  { id: 'defense',          label: 'Defense',                group: 'Industrial' },
+  { id: 'industrial',       label: 'Industrial / Mfg',       group: 'Industrial' },
+  { id: 'logistics',        label: 'Logistics / Supply Chain', group: 'Industrial' },
+  { id: 'infrastructure',   label: 'Infrastructure',         group: 'Industrial' },
+  // Energy
+  { id: 'oil_gas',          label: 'Oil & Gas',              group: 'Energy' },
+  // Materials & Other
+  { id: 'mining',           label: 'Mining / Metals',        group: 'Materials' },
+  { id: 'chemicals',        label: 'Chemicals',              group: 'Materials' },
+  { id: 'real_estate',      label: 'Real Estate / REITs',    group: 'Real Estate' },
+  { id: 'telecom',          label: 'Telecom',                group: 'Communication' },
 ];
+
+// Unique group order for rendering
+const DOMAIN_GROUPS = [...new Set(DOMAIN_CATALOG.map(d => d.group))];
 
 const DEFAULTS = {
   minPositionDollar: 1500,
@@ -145,21 +184,15 @@ function ComputedBadge({ label, value, color = '#60a5fa' }) {
 }
 
 function DomainCheckbox({ domain, checked, onChange }) {
-  const tierColors = { 1: '#34d399', 2: '#60a5fa' };
   return (
-    <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', marginBottom: 8 }}>
+    <label style={{ display: 'flex', alignItems: 'center', gap: 7, cursor: 'pointer', marginBottom: 5 }}>
       <input
         type="checkbox"
         checked={checked}
         onChange={e => onChange(domain.id, e.target.checked)}
-        style={{ accentColor: tierColors[domain.tier], width: 14, height: 14 }}
+        style={{ accentColor: '#3b82f6', width: 13, height: 13, flexShrink: 0 }}
       />
-      <span style={{ fontSize: 13, color: '#f1f5f9' }}>{domain.label}</span>
-      <span style={{
-        fontSize: 10, fontWeight: 700, padding: '1px 5px', borderRadius: 3,
-        background: tierColors[domain.tier] + '22', color: tierColors[domain.tier],
-        border: `1px solid ${tierColors[domain.tier]}44`,
-      }}>T{domain.tier}</span>
+      <span style={{ fontSize: 12, color: checked ? '#f1f5f9' : '#64748b' }}>{domain.label}</span>
     </label>
   );
 }
@@ -637,16 +670,44 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
                 subtitle="Filters the opportunity scanner and watchlist to your circle of competence."
               />
 
-              <Field label="Domains of interest">
-                {DOMAINS.map(d => (
-                  <DomainCheckbox
-                    key={d.id}
-                    domain={d}
-                    checked={(p.domainsOfInterest ?? []).includes(d.id)}
-                    onChange={toggleDomain}
-                  />
-                ))}
-              </Field>
+              <div style={{ marginBottom: 18 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                  <label style={{ fontSize: 12, color: '#94a3b8', fontWeight: 500 }}>
+                    Domains of interest
+                  </label>
+                  <span style={{ fontSize: 11, color: '#475569' }}>
+                    {(p.domainsOfInterest ?? []).length} selected
+                  </span>
+                </div>
+                {/* Scrollable grouped picker */}
+                <div style={{
+                  border: '1px solid #2d3748', borderRadius: 6,
+                  background: '#0f1117',
+                  maxHeight: 280, overflowY: 'auto',
+                  padding: '8px 12px',
+                }}>
+                  {DOMAIN_GROUPS.map((group, gi) => (
+                    <div key={group} style={{ marginBottom: gi < DOMAIN_GROUPS.length - 1 ? 12 : 0 }}>
+                      <div style={{
+                        fontSize: 10, fontWeight: 700, color: '#334155',
+                        letterSpacing: '0.07em', textTransform: 'uppercase',
+                        marginBottom: 5, paddingBottom: 3,
+                        borderBottom: '1px solid #1e2330',
+                      }}>{group}</div>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px 4px' }}>
+                        {DOMAIN_CATALOG.filter(d => d.group === group).map(d => (
+                          <DomainCheckbox
+                            key={d.id}
+                            domain={d}
+                            checked={(p.domainsOfInterest ?? []).includes(d.id)}
+                            onChange={toggleDomain}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               <SectionHeader
                 title="Rebalancing"
