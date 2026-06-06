@@ -57,6 +57,9 @@ export default function NavBar() {
         <NavLink to="/dashboard" style={({ isActive }) => tabStyle(isActive)}>
           Dashboard
         </NavLink>
+        <NavLink to="/admin" style={({ isActive }) => tabStyle(isActive)}>
+          Admin
+        </NavLink>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>

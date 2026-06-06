@@ -109,8 +109,31 @@ model OwnerProfile {
   owner        String   @id          // matches Account.owner exactly (e.g. "Luis Morales")
   displayName  String?               // optional friendly override (e.g. "Luis")
   enoughNumber Float?                // investment goal / "enough number" in dollars
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+
+  // ── Capital & sizing ──────────────────────────────────────────────────
+  minPositionDollar Float?           // smallest position worth holding (default $1,500)
+  maxPositions      Int?             // hard cap on ticker count (default 15)
+  cashReservePct    Float?           // % of portfolio to keep as dry powder (default 0.05)
+
+  // ── Risk profile ──────────────────────────────────────────────────────
+  yearsToGoal    Int?                // drives speculative ceiling formula
+  estSpecRatio   Float?              // barbell split 0.0–1.0; 0.60 = 60% established (default)
+  riskTolerance  String?             // "conservative" | "moderate" | "aggressive"
+
+  // ── Tax & account behavior ────────────────────────────────────────────
+  taxSensitivity  String?            // "aggressive" | "moderate" | "conservative"
+  accountPurpose  String?            // "growth" | "income" | "preservation"
+
+  // ── Domain & universe ─────────────────────────────────────────────────
+  domainsOfInterest Json?            // string[] — subset of defined domain tiers
+  benchmarkBaseline String?          // "SPY" | "QQQ" | "TMFC" (default "QQQ")
+
+  // ── Rebalancing behavior ──────────────────────────────────────────────
+  specExitSpeed    String?           // "fast" | "normal" | "patient"
+  newMoneyBehavior String?           // "highest_conviction" | "distribute"
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 // One Account per named brokerage account. Supports multiple accounts of the

@@ -88,13 +88,42 @@ router.post('/', async (req, res) => {
 });
 
 // PATCH /api/users/:owner
-// Body: { displayName?, enoughNumber? }
+// Accepts any subset of OwnerProfile fields.
+// Numeric fields: enoughNumber, minPositionDollar, cashReservePct, yearsToGoal, estSpecRatio
+// String fields:  displayName, riskTolerance, taxSensitivity, accountPurpose,
+//                 benchmarkBaseline, specExitSpeed, newMoneyBehavior
+// Int fields:     maxPositions
+// JSON fields:    domainsOfInterest (string[])
 router.patch('/:owner', async (req, res) => {
   const { owner } = req.params;
-  const { displayName, enoughNumber } = req.body;
+  const body = req.body;
   const data = {};
-  if (displayName !== undefined) data.displayName = displayName || null;
-  if (enoughNumber !== undefined) data.enoughNumber = enoughNumber === '' ? null : Number(enoughNumber);
+
+  // String fields — empty string → null
+  const strFields = ['displayName', 'riskTolerance', 'taxSensitivity', 'accountPurpose',
+                     'benchmarkBaseline', 'specExitSpeed', 'newMoneyBehavior'];
+  for (const f of strFields) {
+    if (body[f] !== undefined) data[f] = body[f] === '' ? null : body[f];
+  }
+
+  // Float fields — empty string → null
+  const floatFields = ['enoughNumber', 'minPositionDollar', 'cashReservePct', 'estSpecRatio'];
+  for (const f of floatFields) {
+    if (body[f] !== undefined) data[f] = body[f] === '' || body[f] === null ? null : Number(body[f]);
+  }
+
+  // Int fields
+  if (body.maxPositions !== undefined) {
+    data.maxPositions = body.maxPositions === '' || body.maxPositions === null ? null : parseInt(body.maxPositions);
+  }
+  if (body.yearsToGoal !== undefined) {
+    data.yearsToGoal = body.yearsToGoal === '' || body.yearsToGoal === null ? null : parseInt(body.yearsToGoal);
+  }
+
+  // JSON fields
+  if (body.domainsOfInterest !== undefined) {
+    data.domainsOfInterest = body.domainsOfInterest ?? null;
+  }
 
   try {
     const profile = await prisma.ownerProfile.update({

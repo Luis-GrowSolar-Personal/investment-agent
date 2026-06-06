@@ -7,6 +7,7 @@ import AdvisoryFeed from './pages/AdvisoryFeed.jsx';
 import Portfolio from './pages/Portfolio.jsx';
 import Users from './pages/Users.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import Admin from './pages/Admin.jsx';
 
 export default function App() {
   const location = useLocation();
@@ -45,6 +46,9 @@ export default function App() {
           </div>
           <div style={{ display: location.pathname === '/dashboard' ? 'block' : 'none' }}>
             <Dashboard />
+          </div>
+          <div style={{ display: location.pathname === '/admin' ? 'block' : 'none' }}>
+            <Admin />
           </div>
         </div>
       </SignedIn>
