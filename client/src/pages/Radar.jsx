@@ -1136,9 +1136,9 @@ function RenameTickerModal({
               </div>
             )}
           </div>
-          {/* Bucket override */}
+          {/* Asset class */}
           <div>
-            <label style={lbl}>Asset bucket</label>
+            <label style={lbl}>Asset class</label>
             <select style={{ ...inp, cursor: 'pointer' }} value={editBucketOverride} onChange={e => setEditBucketOverride(e.target.value)}>
               <option value="">Equity (default — individual stock, analyst-scored)</option>
               <option value="etf">ETF / Index fund — fixed target, no analyst score needed</option>

@@ -83,6 +83,7 @@ router.get('/tickers', requireAuth(), async (req, res) => {
         inScope: ticker.inScope,
         tierOverride: ticker.tierOverride,
         tierMechanical: ticker.tierMechanical,
+        bucketOverride: ticker.bucketOverride,
         transcriptCount: ticker.transcripts.length,
         lastCallDate,
         daysSinceLastCall,
