@@ -459,9 +459,9 @@ function generateFixedTargetMove(ticker, positions, totalPortfolioValue, latestA
   const targetPct  = ticker.capPercent ?? 5;
   const overTarget = currentPct > targetPct + MODEL_WEIGHT_TOL;
   const bucket     = getBucket(ticker);
+  const label      = isETF(ticker) ? 'ETF target' : isCommodityOrCrypto(ticker) ? `${bucket} allocation` : 'target';
 
   if (overTarget) {
-    const label = isETF(ticker) ? 'ETF target' : isCommodityOrCrypto(ticker) ? `${bucket} allocation` : 'target';
     return {
       ...makeTrimMove('TRIM_MODEL', isETF(ticker) ? 4 : 4,
         ticker, positions, currentPct, targetPct,
