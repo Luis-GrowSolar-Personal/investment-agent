@@ -1,48 +1,56 @@
 /**
- * InvestmentIdeas.jsx — Wrapper for the three research sub-tabs:
+ * InvestmentIdeas.jsx — Wrapper for the three research sub-tabs.
  *
- *   Ideas       — Stock Radar (watchlist + scores)
- *   Analyst     — Stock Analyst (transcript evaluator)  ← <a> tag so
- *                 right-click → "Open in New Tab" works for parallel uploads.
- *                 Single-click navigates to /analyst (same result, standalone).
- *   Commentary  — Advisory Feed
+ * Each sub-tab has its own URL so right-click → "Open in New Tab" works
+ * on all three — useful for opening multiple Analyst tabs in parallel.
  *
- * Ideas and Commentary stay mounted (display:none) for state persistence.
- * Analyst lives at /analyst — not rendered here to avoid a double-mount.
+ *   /ideas       — Stock Radar (watchlist + scores)
+ *   /analyst     — Stock Analyst (transcript evaluator)
+ *   /commentary  — Advisory Feed
+ *
+ * App.jsx keeps this component mounted for all three paths, so all three
+ * sub-components stay alive (display:none) and state survives tab switches.
  */
 
-import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Radar from './Radar.jsx';
+import Evaluator from './Evaluator.jsx';
 import AdvisoryFeed from './AdvisoryFeed.jsx';
 
-const tabBase = {
-  background: 'none',
-  border: 'none',
-  borderBottom: '2px solid transparent',
-  color: '#475569',
-  cursor: 'pointer',
-  fontSize: 13,
-  fontWeight: 400,
-  marginBottom: -1,
-  padding: '10px 16px',
-  transition: 'color 0.15s',
-  textDecoration: 'none',
-  display: 'inline-block',
-};
+const TABS = [
+  { id: 'ideas',      label: 'Ideas',       href: '/ideas' },
+  { id: 'analyst',    label: 'Analyst',     href: '/analyst' },
+  { id: 'commentary', label: 'Commentary',  href: '/commentary' },
+];
 
-const tabActive = {
-  ...tabBase,
-  borderBottom: '2px solid #3b82f6',
-  color: '#f1f5f9',
-  fontWeight: 600,
-};
+function tabStyle(isActive) {
+  return {
+    background: 'none',
+    border: 'none',
+    borderBottom: isActive ? '2px solid #3b82f6' : '2px solid transparent',
+    color: isActive ? '#f1f5f9' : '#475569',
+    cursor: 'pointer',
+    fontSize: 13,
+    fontWeight: isActive ? 600 : 400,
+    marginBottom: -1,
+    padding: '10px 16px',
+    transition: 'color 0.15s',
+    textDecoration: 'none',
+    display: 'inline-block',
+  };
+}
 
 export default function InvestmentIdeas() {
-  const [active, setActive] = useState('ideas');
+  const { pathname } = useLocation();
+
+  // Derive active sub-tab from URL
+  const active = pathname === '/analyst'    ? 'analyst'
+               : pathname === '/commentary' ? 'commentary'
+               : 'ideas';
 
   return (
     <div>
-      {/* Sub-tab bar */}
+      {/* Sub-tab bar — all tabs are <a> links so right-click works on each */}
       <div style={{
         display: 'flex',
         gap: 0,
@@ -50,31 +58,16 @@ export default function InvestmentIdeas() {
         padding: '0 24px',
         background: '#0a0d13',
       }}>
-        {/* Ideas — button (state-based) */}
-        <button
-          onClick={() => setActive('ideas')}
-          style={active === 'ideas' ? tabActive : tabBase}
-        >
-          Ideas
-        </button>
-
-        {/* Analyst — anchor so right-click → "Open in New Tab" works.
-            Single-click navigates to /analyst (standalone, no sub-tab chrome). */}
-        <a href="/analyst" style={tabBase}>
-          Analyst
-        </a>
-
-        {/* Commentary — button (state-based) */}
-        <button
-          onClick={() => setActive('commentary')}
-          style={active === 'commentary' ? tabActive : tabBase}
-        >
-          Commentary
-        </button>
+        {TABS.map(t => (
+          <a key={t.id} href={t.href} style={tabStyle(active === t.id)}>
+            {t.label}
+          </a>
+        ))}
       </div>
 
-      {/* Sub-pages — mounted, toggled with display */}
+      {/* Sub-pages — all mounted, toggled with display */}
       <div style={{ display: active === 'ideas'      ? 'block' : 'none' }}><Radar /></div>
+      <div style={{ display: active === 'analyst'    ? 'block' : 'none' }}><Evaluator /></div>
       <div style={{ display: active === 'commentary' ? 'block' : 'none' }}><AdvisoryFeed /></div>
     </div>
   );

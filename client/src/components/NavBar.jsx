@@ -1,5 +1,7 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useUser, useClerk } from '@clerk/clerk-react';
+
+const IDEAS_PATHS = ['/ideas', '/analyst', '/commentary'];
 
 function tabStyle(isActive) {
   return {
@@ -18,6 +20,7 @@ function tabStyle(isActive) {
 export default function NavBar() {
   const { user } = useUser();
   const { signOut } = useClerk();
+  const { pathname } = useLocation();
   const email = user?.primaryEmailAddress?.emailAddress ?? user?.username ?? '';
 
   return (
@@ -45,7 +48,8 @@ export default function NavBar() {
         <NavLink to="/accounts" style={({ isActive }) => tabStyle(isActive)}>
           Accounts
         </NavLink>
-        <NavLink to="/ideas" style={({ isActive }) => tabStyle(isActive)}>
+        {/* Highlight for /ideas, /analyst, and /commentary */}
+        <NavLink to="/ideas" style={({ isActive }) => tabStyle(isActive || IDEAS_PATHS.includes(pathname))}>
           Investment Ideas
         </NavLink>
         <NavLink to="/admin" style={({ isActive }) => tabStyle(isActive)}>
