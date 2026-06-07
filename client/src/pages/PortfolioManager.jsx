@@ -1,41 +1,715 @@
 /**
- * PortfolioManager.jsx — Actionable rebalancing plan (Moves engine).
+ * PortfolioManager.jsx — Recommended Moves engine
  *
- * Coming next: per-account buy/sell plan with specific $ amounts,
- * capital flow routing, and tax-aware ordering.
+ * Actionable rebalancing plan per owner:
+ *   - Portfolio summary bar (value, cash, barbell status)
+ *   - Action-required moves (exits, trims, adds) with tax routing
+ *   - Capital flow plan (freed → uses)
+ *   - Watchlist promotion candidates ranked by signal quality
+ *   - Holds (no action needed) and structural warnings
  */
 
-export default function PortfolioManager() {
-  return (
-    <div style={{ maxWidth: 900, margin: '64px auto', padding: '0 24px', textAlign: 'center' }}>
-      <div style={{ fontSize: 32, marginBottom: 16 }}>📋</div>
-      <h1 style={{ margin: '0 0 10px', fontSize: 22, fontWeight: 700, color: '#f1f5f9' }}>
-        Portfolio Manager
-      </h1>
-      <p style={{ margin: '0 0 32px', fontSize: 14, color: '#64748b', maxWidth: 480, margin: '0 auto 32px' }}>
-        Your actionable rebalancing plan — specific buy/sell amounts per account,
-        capital flow routing, and tax-aware ordering. Coming next.
-      </p>
+import { useState, useEffect, useCallback } from 'react';
+import { useAuth } from '@clerk/clerk-react';
 
-      <div style={{
-        display: 'inline-flex', flexDirection: 'column', gap: 12,
-        background: '#0f1117', border: '1px solid #1e2330',
-        borderRadius: 10, padding: '24px 32px', textAlign: 'left',
-      }}>
-        {[
-          'Trim 47 shares SPWR from Taxable → $680 freed, $0 tax (loss position)',
-          'Buy $680 META — Add signal, improving trajectory, Type B',
-          'TSLA at 38% — over Type B cap of 35%, flag for 48h review',
-        ].map((line, i) => (
-          <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-            <span style={{ color: '#334155', fontSize: 12, marginTop: 1, flexShrink: 0 }}>{i + 1}.</span>
-            <span style={{ fontSize: 13, color: '#475569' }}>{line}</span>
-          </div>
-        ))}
-        <div style={{ marginTop: 8, fontSize: 11, color: '#334155', fontStyle: 'italic' }}>
-          Preview of what's coming — not yet live
+// ─── Style tokens ─────────────────────────────────────────────────────────────
+
+const C = {
+  bg:      '#090c12',
+  card:    '#0d1018',
+  border:  '#1e2330',
+  border2: '#252d3e',
+  text:    '#f1f5f9',
+  muted:   '#94a3b8',
+  dim:     '#475569',
+  faint:   '#334155',
+  green:   '#34d399',
+  blue:    '#60a5fa',
+  amber:   '#f59e0b',
+  red:     '#ef4444',
+  purple:  '#a78bfa',
+  slate:   '#64748b',
+};
+
+const MOVE_META = {
+  EXIT:         { label: 'EXIT',  color: C.red   },
+  TRIM_CAP:     { label: 'TRIM',  color: C.amber },
+  TRIM_RATCHET: { label: 'TRIM',  color: C.amber },
+  TRIM_SIGNAL:  { label: 'TRIM',  color: '#fbbf24' },
+  ADD:          { label: 'ADD',   color: C.green },
+  HOLD:         { label: 'HOLD',  color: C.blue  },
+};
+
+const HEALTH_COLORS = {
+  Strengthening: C.green,
+  Intact:        C.blue,
+  Weakening:     C.amber,
+  Broken:        C.red,
+};
+const TRAJ_COLORS = {
+  improving:     C.green,
+  stable:        C.blue,
+  flattening:    C.muted,
+  softening:     C.amber,
+  deteriorating: C.red,
+  unknown:       C.faint,
+};
+
+// ─── Formatting ───────────────────────────────────────────────────────────────
+
+function money(n) {
+  if (n == null) return '—';
+  const abs  = Math.abs(n);
+  const sign = n < 0 ? '-' : '';
+  return sign + '$' + abs.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+function pct(n, d = 1) {
+  if (n == null) return '—';
+  return n.toFixed(d) + '%';
+}
+function TaxLabel({ n }) {
+  if (n == null) return '—';
+  if (n === 0)   return <span style={{ color: C.green }}>$0 tax</span>;
+  if (n < 0)     return <span style={{ color: C.green }}>+{money(-n)} harvest</span>;
+  return <span style={{ color: C.amber }}>{money(n)} tax</span>;
+}
+
+// ─── Small UI atoms ───────────────────────────────────────────────────────────
+
+function Badge({ label, color }) {
+  return (
+    <span style={{
+      display: 'inline-block',
+      padding: '1px 7px',
+      borderRadius: 4,
+      fontSize: 10,
+      fontWeight: 700,
+      letterSpacing: '0.05em',
+      textTransform: 'uppercase',
+      background: color + '1a',
+      border: `1px solid ${color}33`,
+      color,
+      whiteSpace: 'nowrap',
+    }}>{label}</span>
+  );
+}
+
+function TierChip({ tier }) {
+  if (!tier) return null;
+  const est = tier === 'established';
+  return (
+    <span style={{
+      fontSize: 9,
+      fontWeight: 700,
+      padding: '1px 5px',
+      borderRadius: 3,
+      border: `1px solid ${est ? '#33415555' : '#78350f55'}`,
+      color: est ? C.dim : C.amber,
+      background: est ? C.border : '#78350f22',
+      letterSpacing: '0.06em',
+      marginLeft: 5,
+    }}>
+      {est ? 'EST' : 'SPEC'}
+    </span>
+  );
+}
+
+function SectionHeader({ title, count, color }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+      <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: color ?? C.muted }}>
+        {title}
+      </span>
+      {count != null && (
+        <span style={{
+          fontSize: 10, fontWeight: 700,
+          padding: '1px 6px', borderRadius: 10,
+          background: (color ?? C.muted) + '22',
+          color: color ?? C.muted,
+        }}>{count}</span>
+      )}
+    </div>
+  );
+}
+
+// ─── Tax routing detail (collapsible) ────────────────────────────────────────
+
+function TaxRoutingDetail({ accounts }) {
+  if (!accounts || accounts.length === 0) return null;
+  return (
+    <div style={{ marginTop: 10, paddingTop: 10, borderTop: `1px solid ${C.border}` }}>
+      <div style={{ fontSize: 10, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', marginBottom: 6 }}>TAX ROUTING</div>
+      {accounts.map((a, i) => (
+        <div key={i} style={{
+          display: 'flex', gap: 12, alignItems: 'center',
+          padding: '5px 0',
+          borderTop: i > 0 ? `1px solid ${C.border}` : 'none',
+          fontSize: 12, flexWrap: 'wrap',
+        }}>
+          <span style={{ color: C.muted, minWidth: 150 }}>{a.accountName}</span>
+          <span style={{
+            fontSize: 10, fontWeight: 700, padding: '1px 5px', borderRadius: 3,
+            color: a.isTaxAdvantaged ? C.green : C.dim,
+            background: a.isTaxAdvantaged ? C.green + '15' : C.border,
+          }}>
+            {a.isTaxAdvantaged ? 'TAX-FREE' : a.accountType.toUpperCase()}
+          </span>
+          <span style={{ color: C.dim }}>{a.sharesToSell.toFixed(3)} shares</span>
+          <span style={{ color: C.muted, fontWeight: 600 }}>{money(a.dollarAmount)}</span>
+          <span style={{ marginLeft: 'auto' }}><TaxLabel n={a.taxCost} /></span>
+          {!a.isTaxAdvantaged && (a.ltGain !== 0 || a.stGain !== 0) && (
+            <span style={{ fontSize: 10, color: C.dim }}>
+              LT {money(a.ltGain)} · ST {money(a.stGain)}
+            </span>
+          )}
         </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── Move card ────────────────────────────────────────────────────────────────
+
+function MoveCard({ move, idx }) {
+  const [expanded, setExpanded] = useState(false);
+  const meta       = MOVE_META[move.moveType] ?? MOVE_META.HOLD;
+  const hasAccts   = move.accounts && move.accounts.length > 0;
+
+  return (
+    <div style={{
+      border: `1px solid ${meta.color}33`,
+      borderLeft: `3px solid ${meta.color}`,
+      borderRadius: 8,
+      background: meta.color + '08',
+      marginBottom: 10,
+      overflow: 'hidden',
+    }}>
+      {/* Main row */}
+      <div
+        style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px', cursor: hasAccts ? 'pointer' : 'default', flexWrap: 'wrap' }}
+        onClick={() => hasAccts && setExpanded(e => !e)}
+      >
+        <span style={{ fontSize: 11, color: C.faint, minWidth: 18, textAlign: 'right', flexShrink: 0 }}>{idx + 1}.</span>
+        <div style={{ flexShrink: 0 }}><Badge label={meta.label} color={meta.color} /></div>
+        <span style={{ fontWeight: 800, fontSize: 14, color: C.text, flexShrink: 0 }}>{move.symbol}</span>
+        <TierChip tier={move.tier} />
+        <span style={{ fontSize: 12, color: C.muted, flex: 1, minWidth: 120 }}>{move.reason}</span>
+        <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 'auto' }}>
+          <span style={{ fontWeight: 700, fontSize: 15, color: C.text }}>{money(move.dollarAmount)}</span>
+          {move.sharesApprox > 0 && (
+            <div style={{ fontSize: 10, color: C.dim }}>~{move.sharesApprox.toFixed(2)} sh</div>
+          )}
+        </div>
+        <div style={{ textAlign: 'right', minWidth: 80, flexShrink: 0 }}>
+          <TaxLabel n={move.taxCost} />
+        </div>
+        {move.requires48h && (
+          <span style={{ fontSize: 10, color: '#fde68a', fontWeight: 700, background: '#71300015', border: '1px solid #ca8a0433', borderRadius: 4, padding: '1px 6px', flexShrink: 0 }}>
+            48h
+          </span>
+        )}
+        {hasAccts && (
+          <span style={{ color: C.faint, fontSize: 11, flexShrink: 0 }}>{expanded ? '▼' : '▶'}</span>
+        )}
+      </div>
+
+      {/* Signal detail row */}
+      <div style={{ display: 'flex', gap: 8, padding: '0 16px 10px 52px', flexWrap: 'wrap', alignItems: 'center' }}>
+        {move.thesisHealth && move.thesisHealth !== '—' && (
+          <Badge label={move.thesisHealth} color={HEALTH_COLORS[move.thesisHealth] ?? C.muted} />
+        )}
+        {move.trajectory && (
+          <span style={{ fontSize: 11, fontWeight: 600, color: TRAJ_COLORS[move.trajectory] ?? C.dim }}>
+            {move.trajectory}
+          </span>
+        )}
+        {move.ratchetTranche > 0 && (
+          <span style={{ fontSize: 11, color: C.amber }}>ratchet {move.ratchetTranche}</span>
+        )}
+        {move.currentPct != null && (
+          <span style={{ fontSize: 11, color: C.dim }}>
+            {pct(move.currentPct)} current / {pct(move.hardCapPct, 0)} cap
+          </span>
+        )}
+        {move.moveType === 'ADD' && move.targetPct != null && (
+          <span style={{ fontSize: 11, color: C.green }}>→ {pct(move.targetPct, 0)} target</span>
+        )}
+      </div>
+
+      {/* Expanded tax routing */}
+      {expanded && hasAccts && (
+        <div style={{ padding: '0 16px 14px 16px' }}>
+          <TaxRoutingDetail accounts={move.accounts} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Capital flow ─────────────────────────────────────────────────────────────
+
+function CapitalFlow({ flow }) {
+  if (!flow) return null;
+  const hasSources = flow.sources?.length > 0;
+  const hasUses    = flow.uses?.length > 0;
+  if (!hasSources && flow.freeCash <= 0) return null;
+
+  return (
+    <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: '18px 20px' }}>
+      <SectionHeader title="Capital Flow" color={C.blue} />
+
+      {/* Summary metrics */}
+      <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 20 }}>
+        <Metric label="FROM TRIMS"       value={money(flow.totalNetFreed)}   sub="net after tax" />
+        <Metric label="FREE CASH"        value={money(flow.freeCash)}        sub="above reserve" />
+        <div style={{ width: 1, background: C.border, alignSelf: 'stretch' }} />
+        <Metric label="TOTAL DEPLOYABLE" value={money(flow.totalDeployable)} color={C.blue} />
+        {hasUses && <Metric label="TOTAL NEEDED" value={money(flow.totalNeeded)} />}
+        {hasUses && (
+          <Metric
+            label={flow.surplus >= 0 ? 'SURPLUS' : 'SHORTFALL'}
+            value={flow.surplus >= 0 ? money(flow.surplus) : money(flow.shortfall)}
+            color={flow.surplus >= 0 ? C.green : C.red}
+            sub={flow.surplus < 0 ? 'needs new contribution' : null}
+          />
+        )}
+      </div>
+
+      {/* Source → use table */}
+      {(hasSources || hasUses) && (
+        <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+          {hasSources && (
+            <div style={{ flex: 1, minWidth: 160 }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', marginBottom: 8 }}>SOURCES</div>
+              {flow.sources.map((s, i) => (
+                <FlowRow key={i} label={s.label} amount={s.netFreed}
+                  sub={s.taxCost !== 0 ? (s.taxCost < 0 ? `+${money(-s.taxCost)} harvest` : `−${money(s.taxCost)} tax`) : null}
+                  subColor={s.taxCost < 0 ? C.green : C.amber}
+                />
+              ))}
+              {flow.freeCash > 0 && <FlowRow label="Free cash" amount={flow.freeCash} />}
+            </div>
+          )}
+          {hasSources && hasUses && (
+            <div style={{ display: 'flex', alignItems: 'center', color: C.faint, fontSize: 20 }}>→</div>
+          )}
+          {hasUses && (
+            <div style={{ flex: 1, minWidth: 160 }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', marginBottom: 8 }}>USES</div>
+              {flow.uses.map((u, i) => (
+                <FlowRow key={i} label={u.label} amount={u.dollarNeeded} />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Metric({ label, value, sub, color }) {
+  return (
+    <div>
+      <div style={{ fontSize: 10, color: C.dim, fontWeight: 700, letterSpacing: '0.07em', marginBottom: 3 }}>{label}</div>
+      <div style={{ fontSize: 18, fontWeight: 700, color: color ?? C.text }}>{value}</div>
+      {sub && <div style={{ fontSize: 11, color: C.dim }}>{sub}</div>}
+    </div>
+  );
+}
+
+function FlowRow({ label, amount, sub, subColor }) {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: `1px solid ${C.border}`, fontSize: 12 }}>
+      <div>
+        <span style={{ color: C.muted }}>{label}</span>
+        {sub && <span style={{ fontSize: 10, color: subColor ?? C.dim, marginLeft: 6 }}>{sub}</span>}
+      </div>
+      <span style={{ color: C.text, fontWeight: 600 }}>{money(amount)}</span>
+    </div>
+  );
+}
+
+// ─── Watchlist candidates ─────────────────────────────────────────────────────
+
+function WatchlistCandidates({ candidates }) {
+  if (!candidates || candidates.length === 0) return null;
+
+  return (
+    <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, overflow: 'hidden' }}>
+      <div style={{ padding: '18px 20px 12px' }}>
+        <SectionHeader title="Watchlist Candidates" count={candidates.length} color={C.purple} />
+        <div style={{ fontSize: 12, color: C.dim, marginTop: -6, marginBottom: 4 }}>
+          Ranked by signal quality (trajectory + health + type + action)
+        </div>
+      </div>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <thead>
+            <tr style={{ background: '#0b0f18' }}>
+              {['#', 'SYMBOL', 'TYPE', 'HEALTH', 'ACTION', 'TREND', 'SUGGESTED', 'SCORE'].map(h => (
+                <th key={h} style={thSt}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {candidates.map((c, i) => (
+              <tr key={c.tickerId} style={{ borderTop: `1px solid ${C.border}` }}>
+                <td style={{ ...tdSt, color: C.faint }}>#{i + 1}</td>
+                <td style={tdSt}>
+                  <span style={{ fontWeight: 700, color: C.text }}>{c.symbol}</span>
+                  <TierChip tier={c.tier} />
+                </td>
+                <td style={{ ...tdSt, color: C.dim }}>{c.type}</td>
+                <td style={tdSt}>
+                  {c.thesisHealth && c.thesisHealth !== '—'
+                    ? <Badge label={c.thesisHealth} color={HEALTH_COLORS[c.thesisHealth] ?? C.muted} />
+                    : <span style={{ color: C.faint }}>—</span>}
+                </td>
+                <td style={tdSt}>
+                  <Badge label={c.finalAction} color={c.finalAction === 'Add' ? C.green : C.blue} />
+                </td>
+                <td style={tdSt}>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: TRAJ_COLORS[c.trajectory] ?? C.dim }}>
+                    {c.trajectory ?? '—'}
+                  </span>
+                </td>
+                <td style={{ ...tdSt, textAlign: 'right' }}>
+                  <div style={{ fontWeight: 600, color: C.text }}>{money(c.suggestedDollar)}</div>
+                  <div style={{ fontSize: 10, color: C.dim }}>{pct(c.suggestedPct, 0)} of portfolio</div>
+                </td>
+                <td style={{ ...tdSt, textAlign: 'center' }}>
+                  <span style={{
+                    fontSize: 12, fontWeight: 700,
+                    color: c.rankScore >= 12 ? C.green : c.rankScore >= 8 ? C.blue : C.dim,
+                  }}>
+                    {c.rankScore}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
 }
+
+// ─── Holds ────────────────────────────────────────────────────────────────────
+
+function HoldsList({ holds }) {
+  if (!holds || holds.length === 0) return null;
+  return (
+    <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: '16px 20px' }}>
+      <SectionHeader title="No Action Needed" count={holds.length} color={C.dim} />
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+        {holds.map(h => (
+          <div key={h.symbol} style={{
+            display: 'flex', alignItems: 'center', gap: 6,
+            background: C.border, borderRadius: 6,
+            padding: '5px 10px', fontSize: 12,
+          }}>
+            <span style={{ fontWeight: 700, color: C.text }}>{h.symbol}</span>
+            <TierChip tier={h.tier} />
+            {h.thesisHealth && h.thesisHealth !== '—' && (
+              <span style={{ fontSize: 10, color: HEALTH_COLORS[h.thesisHealth] ?? C.dim }}>
+                {h.thesisHealth}
+              </span>
+            )}
+            {h.trajectory && (
+              <span style={{ fontSize: 10, color: TRAJ_COLORS[h.trajectory] ?? C.dim }}>· {h.trajectory}</span>
+            )}
+            <span style={{ fontSize: 11, color: C.dim }}>{pct(h.currentPct)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Warnings ─────────────────────────────────────────────────────────────────
+
+function WarningsList({ warnings }) {
+  if (!warnings || warnings.length === 0) return null;
+  const SEV = {
+    red:    { bg: '#450a0a22', border: '#991b1b55', text: '#f87171',  icon: '⚑' },
+    amber:  { bg: '#78350f22', border: '#d9770655', text: '#fbbf24',  icon: '⚠' },
+    yellow: { bg: '#71300022', border: '#ca8a0455', text: '#fde68a',  icon: '◎' },
+    slate:  { bg: C.border,   border: C.border2,   text: C.muted,    icon: '○' },
+  };
+  return (
+    <div>
+      <SectionHeader title="Structural Flags" count={warnings.length} color={C.amber} />
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        {warnings.map((w, i) => {
+          const s = SEV[w.severity] ?? SEV.slate;
+          return (
+            <div key={i} style={{
+              display: 'flex', gap: 10, padding: '10px 14px',
+              background: s.bg, border: `1px solid ${s.border}`,
+              borderRadius: 8, fontSize: 13,
+            }}>
+              <span style={{ color: s.text, flexShrink: 0 }}>{s.icon}</span>
+              <span style={{ color: s.text }}>{w.message}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─── Portfolio summary bar ────────────────────────────────────────────────────
+
+function PortfolioSummaryBar({ data }) {
+  const bb = data.barbellStatus;
+  return (
+    <div style={{
+      background: C.card,
+      border: `1px solid ${C.border}`,
+      borderRadius: 10,
+      padding: '16px 24px',
+      display: 'flex', gap: 28, alignItems: 'center', flexWrap: 'wrap',
+      marginBottom: 24,
+    }}>
+      <div>
+        <div style={{ fontSize: 10, color: C.dim, fontWeight: 700, letterSpacing: '0.07em', marginBottom: 3 }}>PORTFOLIO</div>
+        <div style={{ fontSize: 22, fontWeight: 800, color: C.text }}>{money(data.totalPortfolioValue)}</div>
+      </div>
+
+      <div style={{ width: 1, height: 36, background: C.border }} />
+
+      <div>
+        <div style={{ fontSize: 10, color: C.dim, fontWeight: 700, letterSpacing: '0.07em', marginBottom: 3 }}>CASH</div>
+        <div style={{ fontSize: 16, fontWeight: 700, color: C.text }}>{money(data.totalCash)}</div>
+        <div style={{ fontSize: 10, color: C.dim }}>{money(data.freeCash)} free · {money(data.cashReserveFloor)} reserved</div>
+      </div>
+
+      <div style={{ width: 1, height: 36, background: C.border }} />
+
+      <div>
+        <div style={{ fontSize: 10, color: C.dim, fontWeight: 700, letterSpacing: '0.07em', marginBottom: 3 }}>POSITIONS</div>
+        <div style={{ fontSize: 16, fontWeight: 700, color: C.text }}>
+          {data.positionCount}
+          <span style={{ fontSize: 12, color: C.dim, fontWeight: 400 }}> / {data.maxPositions}</span>
+        </div>
+      </div>
+
+      <div style={{ width: 1, height: 36, background: C.border }} />
+
+      {bb.estPct != null && bb.specPct != null ? (
+        <div>
+          <div style={{ fontSize: 10, color: C.dim, fontWeight: 700, letterSpacing: '0.07em', marginBottom: 4 }}>
+            BARBELL&nbsp;
+            <span style={{ color: bb.inBalance ? C.green : C.amber }}>{bb.inBalance ? '✓' : '⚠'}</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ fontSize: 11, color: C.dim }}>EST {bb.estPct.toFixed(0)}%</span>
+            <div style={{ position: 'relative', width: 110, height: 6, background: C.border, borderRadius: 3 }}>
+              <div style={{ position: 'absolute', left: 0, top: 0, width: `${Math.min(100, bb.estPct)}%`, height: '100%', background: C.blue, borderRadius: 3 }} />
+              <div style={{ position: 'absolute', top: -2, left: `${bb.estTarget}%`, width: 2, height: 10, background: C.dim, borderRadius: 1 }} />
+            </div>
+            <span style={{ fontSize: 11, color: bb.inBalance ? C.dim : C.amber }}>SPEC {bb.specPct.toFixed(0)}%</span>
+          </div>
+          <div style={{ fontSize: 10, color: C.faint, marginTop: 2 }}>target {bb.estTarget}/{bb.specTarget}</div>
+        </div>
+      ) : (
+        <div style={{ fontSize: 12, color: C.faint, fontStyle: 'italic' }}>barbell: tier data pending</div>
+      )}
+    </div>
+  );
+}
+
+// ─── Owner selector ───────────────────────────────────────────────────────────
+
+function OwnerSelector({ owners, selected, onSelect }) {
+  if (owners.length <= 1) return null;
+  return (
+    <div style={{ display: 'flex', gap: 8, marginBottom: 20, flexWrap: 'wrap' }}>
+      {owners.map(o => (
+        <button
+          key={o.owner}
+          onClick={() => onSelect(o.owner)}
+          style={{
+            padding: '6px 14px', borderRadius: 20,
+            border: `1px solid ${selected === o.owner ? C.blue : C.border}`,
+            background: selected === o.owner ? C.blue + '1a' : 'transparent',
+            color: selected === o.owner ? C.blue : C.muted,
+            fontSize: 13, fontWeight: 600, cursor: 'pointer',
+          }}
+        >
+          {o.displayName}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// ─── Main page ────────────────────────────────────────────────────────────────
+
+export default function PortfolioManager() {
+  const { getToken } = useAuth();
+
+  const [owners,   setOwners]   = useState([]);
+  const [selected, setSelected] = useState(null);
+  const [data,     setData]     = useState(null);
+  const [loading,  setLoading]  = useState(false);
+  const [err,      setErr]      = useState('');
+
+  // Load owner list once
+  useEffect(() => {
+    (async () => {
+      try {
+        const token = await getToken();
+        const r     = await fetch('/api/moves', { headers: { Authorization: `Bearer ${token}` } });
+        const list  = await r.json();
+        if (r.ok && list.length > 0) {
+          setOwners(list);
+          setSelected(list[0].owner);
+        }
+      } catch {
+        setErr('Could not load owner list');
+      }
+    })();
+  }, [getToken]);
+
+  // Load moves for selected owner
+  const loadMoves = useCallback(async () => {
+    if (!selected) return;
+    setLoading(true);
+    setErr('');
+    setData(null);
+    try {
+      const token = await getToken();
+      const r     = await fetch(`/api/moves/${encodeURIComponent(selected)}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error || 'Load failed');
+      setData(d);
+    } catch (e) {
+      setErr(e.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [selected, getToken]);
+
+  useEffect(() => { loadMoves(); }, [loadMoves]);
+
+  const actionMoves = data?.moves ?? [];
+
+  return (
+    <div style={{ maxWidth: 1000, margin: '32px auto', padding: '0 24px' }}>
+
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
+        <div>
+          <h1 style={{ margin: 0, fontSize: 20, fontWeight: 800, color: C.text }}>Portfolio Manager</h1>
+          <p style={{ margin: '4px 0 0', fontSize: 13, color: C.dim }}>
+            Specific buy/sell amounts, tax routing, capital flow. Click any move to see account-level detail.
+          </p>
+        </div>
+        <button
+          onClick={loadMoves}
+          disabled={loading}
+          title="Refresh"
+          style={{ background: 'none', border: `1px solid ${C.border}`, color: C.dim, cursor: 'pointer', fontSize: 16, borderRadius: 6, padding: '6px 10px' }}
+        >⟳</button>
+      </div>
+
+      <OwnerSelector owners={owners} selected={selected} onSelect={setSelected} />
+
+      {loading && (
+        <div style={{ color: C.dim, fontSize: 13, padding: '48px 0', textAlign: 'center' }}>Computing moves…</div>
+      )}
+      {err && !loading && (
+        <div style={{ color: C.red, fontSize: 13 }}>{err}</div>
+      )}
+
+      {data && !loading && (
+        <>
+          <PortfolioSummaryBar data={data} />
+
+          {/* Actions */}
+          <div style={{ marginBottom: 24 }}>
+            <SectionHeader
+              title="Action Required"
+              count={actionMoves.length || undefined}
+              color={
+                actionMoves.some(m => m.moveType === 'EXIT')            ? C.red   :
+                actionMoves.some(m => m.moveType.startsWith('TRIM'))    ? C.amber :
+                actionMoves.length > 0                                  ? C.green :
+                C.dim
+              }
+            />
+            {actionMoves.length > 0
+              ? actionMoves.map((m, i) => (
+                  <MoveCard key={`${m.symbol}-${m.moveType}-${i}`} move={m} idx={i} />
+                ))
+              : (
+                <div style={{
+                  textAlign: 'center', padding: '22px 0',
+                  background: C.card, border: `1px solid ${C.border}`, borderRadius: 10,
+                  color: C.green, fontSize: 14, fontWeight: 600,
+                }}>
+                  ✓ No immediate action required
+                </div>
+              )
+            }
+          </div>
+
+          {/* Capital flow */}
+          {(data.capitalFlow?.sources?.length > 0 || data.capitalFlow?.uses?.length > 0) && (
+            <div style={{ marginBottom: 24 }}>
+              <CapitalFlow flow={data.capitalFlow} />
+            </div>
+          )}
+
+          {/* Watchlist candidates */}
+          {data.watchlistCandidates?.length > 0 && (
+            <div style={{ marginBottom: 24 }}>
+              <WatchlistCandidates candidates={data.watchlistCandidates} />
+            </div>
+          )}
+
+          {/* Holds */}
+          {data.holds?.length > 0 && (
+            <div style={{ marginBottom: 24 }}>
+              <HoldsList holds={data.holds} />
+            </div>
+          )}
+
+          {/* Warnings */}
+          {data.warnings?.length > 0 && (
+            <div style={{ marginBottom: 24 }}>
+              <WarningsList warnings={data.warnings} />
+            </div>
+          )}
+
+          <div style={{ textAlign: 'right', fontSize: 11, color: C.faint }}>
+            Generated {new Date().toLocaleTimeString()}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+// ─── Table tokens ─────────────────────────────────────────────────────────────
+
+const thSt = {
+  padding: '8px 12px',
+  fontSize: 10,
+  fontWeight: 700,
+  color: '#475569',
+  letterSpacing: '0.06em',
+  textTransform: 'uppercase',
+  textAlign: 'center',
+  whiteSpace: 'nowrap',
+  borderBottom: '1px solid #1e2330',
+};
+const tdSt = {
+  padding: '10px 12px',
+  verticalAlign: 'middle',
+  color: '#94a3b8',
+  textAlign: 'center',
+};
