@@ -933,7 +933,7 @@ function PositionCapsSection({ owner, getToken }) {
                         type="number" min="0" max="100" step="1"
                         style={{ ...inp, borderColor: errors[row.tickerId] ? '#ef4444' : '#2d3748' }}
                         value={drafts[row.tickerId] ?? ''}
-                        placeholder={row.globalCapPercent != null ? String(row.globalCapPercent) : '—'}
+                        placeholder={row.globalCapPercent != null ? `e.g. ${row.globalCapPercent}` : 'e.g. 5'}
                         onChange={e => setDrafts(d => ({ ...d, [row.tickerId]: e.target.value }))}
                         onKeyDown={e => e.key === 'Enter' && saveCap(row.tickerId)}
                       />
