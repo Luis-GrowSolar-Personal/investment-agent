@@ -1,17 +1,35 @@
 /**
- * moves.js — Recommended Moves engine (Layer 1 allocator output)
+ * moves.js v2 — Recommended Moves engine (Layer 1 allocator output)
  *
- * Produces a per-owner action plan:
- *   - Specific trim/exit amounts per account with tax routing
- *   - Add amounts for under-target portfolio positions
- *   - Watchlist promotion candidates ranked by signal quality
- *   - Capital flow plan: freed capital → destination
- *   - Structural warnings (barbell, position count, 48h, enough number)
+ * Model portfolio weight architecture:
  *
- * Analyst/Allocator firewall preserved:
- *   analyst scores only — no transcript text passes through here.
+ *   1. Classify each position:
+ *        ETF              → EST pool (fixed target = capPercent)
+ *        Commodity/Crypto → SPEC pool (fixed target = capPercent)
+ *        Individual stock → shares remaining pool by type (A/B) multiplier
  *
- *   GET  /api/moves              list owners with pending move counts
+ *   2. Compute barbell pools:
+ *        estPool  = portfolioValue × estRatio  − sum(ETF targets)
+ *        specPool = portfolioValue × specRatio − sum(Commodity/Crypto targets)
+ *
+ *   3. Model weight for individual stocks:
+ *        baseWeight  = pool% ÷ targetPositionCount
+ *        rawWeight   = baseWeight × typeMultiplier  (B=1.5×, A=1.0×)
+ *        normalised  = rawWeight × (pool% / sum(rawWeights)), capped at hardCapPct
+ *
+ *   4. Move generation (same logic for initial build and ongoing management):
+ *        currentPct > modelWeight + tolerance → TRIM
+ *        currentPct < modelWeight − tolerance → ADD  (only if thesis ≥ Intact)
+ *        Thesis Broken / ratchet ≥ 3           → EXIT regardless
+ *        Hard cap violation                     → TRIM_CAP (always)
+ *
+ *   5. Capital-constrained flow:
+ *        Rank uses by priority, greedily allocate (freeCash + trim proceeds)
+ *        "Funded now" vs "Queue" split — no more phantom $275K shortfall
+ *
+ * Analyst/Allocator firewall preserved — no transcript text.
+ *
+ *   GET  /api/moves              list owners
  *   GET  /api/moves/:owner       full recommended moves for one owner
  */
 
@@ -21,13 +39,37 @@ const prisma  = require('../lib/prisma');
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const DEFAULT_LTCG_RATE   = 0.15;
-const DEFAULT_STCG_RATE   = 0.15;
-const LTCG_HOLD_DAYS      = 365;
-const DEFAULT_CASH_RESERVE = 0.05;   // 5% dry powder floor
-const DEFAULT_EST_RATIO   = 0.60;    // 60% established / 40% speculative
-const DEFAULT_MAX_POS     = 15;
-const DEFAULT_MIN_POS_USD = 1500;
+const DEFAULT_LTCG_RATE    = 0.15;
+const DEFAULT_STCG_RATE    = 0.15;
+const LTCG_HOLD_DAYS       = 365;
+const DEFAULT_CASH_RESERVE = 0.05;
+const DEFAULT_EST_RATIO    = 0.60;
+const DEFAULT_MAX_POS      = 15;
+const DEFAULT_MIN_POS_USD  = 1500;
+const MODEL_WEIGHT_TOL     = 1.0;   // % — ignore drifts smaller than this
+
+// ─── Asset classification ─────────────────────────────────────────────────────
+
+function getBucket(ticker) {
+  return ticker.bucketOverride ?? 'equity';
+}
+function isETF(ticker)             { return getBucket(ticker) === 'etf'; }
+function isCommodityOrCrypto(t)    { return ['commodity', 'crypto'].includes(getBucket(t)); }
+function isFixedTarget(ticker)     { return isETF(ticker) || isCommodityOrCrypto(ticker); }
+
+/**
+ * Returns 'est' | 'spec' | null for a ticker.
+ * ETFs  → est.  Commodity/crypto → spec.
+ * Individual stocks → tierOverride ?? analyst tier.
+ */
+function barbellSide(ticker, latestAnalysis) {
+  if (isETF(ticker))             return 'est';
+  if (isCommodityOrCrypto(ticker)) return 'spec';
+  const tier = ticker.tierOverride ?? latestAnalysis?.tier ?? null;
+  if (tier === 'established')  return 'est';
+  if (tier === 'speculative')  return 'spec';
+  return null;
+}
 
 // ─── Tax helpers ──────────────────────────────────────────────────────────────
 
@@ -35,73 +77,42 @@ function daysBetween(a, b) {
   return Math.abs(b - a) / (1000 * 60 * 60 * 24);
 }
 
-/**
- * FIFO lot tax computation.
- * Returns { taxCost, ltGain, stGain }.
- * Tax-advantaged accounts always return zeroes.
- */
-function computeTrimTax(lots, sharesToSell, currentPrice, ltcgRate, stcgRate, isTaxAdvantaged) {
+function computeTrimTax(lots, sharesToSell, price, ltcgRate, stcgRate, isTaxAdvantaged) {
   if (isTaxAdvantaged) return { taxCost: 0, ltGain: 0, stGain: 0 };
-
   const now    = new Date();
-  const sorted = [...lots]
-    .filter(l => !l.closedDate)
+  const sorted = [...lots].filter(l => !l.closedDate)
     .sort((a, b) => new Date(a.acquiredDate) - new Date(b.acquiredDate));
-
-  let remaining = sharesToSell;
-  let ltGain    = 0;
-  let stGain    = 0;
-
+  let remaining = sharesToSell, ltGain = 0, stGain = 0;
   for (const lot of sorted) {
     if (remaining <= 0) break;
-    const sell  = Math.min(remaining, lot.shares);
-    const gain  = sell * (currentPrice - lot.costBasis);
-    const isLT  = daysBetween(new Date(lot.acquiredDate), now) >= LTCG_HOLD_DAYS;
-    if (isLT) ltGain += gain; else stGain += gain;
-    remaining  -= sell;
+    const sell = Math.min(remaining, lot.shares);
+    const gain = sell * (price - lot.costBasis);
+    if (daysBetween(new Date(lot.acquiredDate), now) >= LTCG_HOLD_DAYS) ltGain += gain;
+    else stGain += gain;
+    remaining -= sell;
   }
-
-  return {
-    taxCost: ltGain * ltcgRate + stGain * stcgRate,
-    ltGain,
-    stGain,
-  };
+  return { taxCost: ltGain * ltcgRate + stGain * stcgRate, ltGain, stGain };
 }
 
-// ─── Trim routing ─────────────────────────────────────────────────────────────
-
-/**
- * Given a list of positions across accounts and the number of shares to sell,
- * distribute the sell across accounts — tax-advantaged first — and compute
- * tax per account.
- *
- * Returns an array of per-account routing rows sorted sell-priority first.
- */
 function buildTrimRouting(positions, sharesToSell, defaultLtcg, defaultStcg) {
-  // Sort: tax-advantaged (IRA/Roth) first
   const sorted = [...positions].sort((a, b) => {
-    const ta = t => ['ira', 'roth'].includes(t?.type);
-    if (ta(a.account) && !ta(b.account)) return -1;
-    if (!ta(a.account) && ta(b.account)) return  1;
-    return 0;
+    const ta = p => ['ira', 'roth'].includes(p?.account?.type);
+    return ta(b) - ta(a);
   });
-
   let remaining = sharesToSell;
-  const rows    = [];
-
+  const rows = [];
   for (const pos of sorted) {
     if (remaining <= 0) break;
-    const openLots    = (pos.lots || []).filter(l => !l.closedDate);
-    const posShares   = openLots.reduce((s, l) => s + l.shares, 0);
+    const openLots  = (pos.lots || []).filter(l => !l.closedDate);
+    const posShares = openLots.reduce((s, l) => s + l.shares, 0);
     if (posShares <= 0) continue;
-
-    const sell        = Math.min(remaining, posShares);
-    const price       = pos.lastPrice ?? 0;
-    const isTaxAdv    = ['ira', 'roth'].includes(pos.account?.type);
-    const ltcg        = pos.account?.ltcgRate ?? defaultLtcg;
-    const stcg        = pos.account?.stcgRate ?? defaultStcg;
-    const tax         = computeTrimTax(openLots, sell, price, ltcg, stcg, isTaxAdv);
-
+    const sell     = Math.min(remaining, posShares);
+    const price    = pos.lastPrice ?? 0;
+    const isTaxAdv = ['ira', 'roth'].includes(pos.account?.type);
+    const tax      = computeTrimTax(openLots, sell, price,
+      pos.account?.ltcgRate ?? defaultLtcg,
+      pos.account?.stcgRate ?? defaultStcg,
+      isTaxAdv);
     rows.push({
       accountId:       pos.accountId,
       accountName:     pos.account?.name   ?? '—',
@@ -115,307 +126,417 @@ function buildTrimRouting(positions, sharesToSell, defaultLtcg, defaultStcg) {
     });
     remaining -= sell;
   }
-
   return rows;
+}
+
+// ─── Position metrics helper ──────────────────────────────────────────────────
+
+function positionMetrics(positions, totalPortfolioValue) {
+  const openLots   = positions.flatMap(p => (p.lots || []).filter(l => !l.closedDate));
+  const shares     = openLots.reduce((s, l) => s + l.shares, 0);
+  const cost       = openLots.reduce((s, l) => s + l.shares * l.costBasis, 0);
+  const pricePos   = positions.find(p => p.lastPrice != null);
+  const price      = pricePos?.lastPrice ?? (shares > 0 ? cost / shares : 0);
+  const mktValue   = shares * price;
+  const currentPct = totalPortfolioValue > 0 ? (mktValue / totalPortfolioValue) * 100 : 0;
+  return { shares, cost, price, mktValue, currentPct };
+}
+
+// ─── Model weight computation ─────────────────────────────────────────────────
+
+/**
+ * Compute model weights (as % of total portfolio) for all individual (non-fixed)
+ * positions. Returns Map<tickerId, modelWeightPct>.
+ *
+ * @param groups       [{ticker, positions, latestAnalysis}] — individual stocks only
+ * @param estPoolPct   % of portfolio available for individual EST stocks
+ * @param specPoolPct  % of portfolio available for individual SPEC stocks
+ * @param targetEst    target # of individual EST positions
+ * @param targetSpec   target # of individual SPEC positions
+ */
+function computeIndividualModelWeights(groups, estPoolPct, specPoolPct, targetEst, targetSpec) {
+  const weights = new Map();
+
+  const estGroup  = groups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === 'est');
+  const specGroup = groups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === 'spec');
+  const unclassified = groups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === null);
+
+  function allocate(group, poolPct, targetCount) {
+    if (poolPct <= 0 || group.length === 0) {
+      group.forEach(g => weights.set(g.ticker.id, 0));
+      return;
+    }
+    // Denominator: whichever is larger — current positions or target count.
+    // This ensures current positions don't over-fill the pool when target > current.
+    const denom = Math.max(group.length, targetCount);
+    const baseWeightPct = poolPct / denom;
+
+    // Raw weights with Type A/B multiplier
+    const raws = group.map(g => ({
+      id:         g.ticker.id,
+      hardCapPct: Math.min(g.ticker.capPercent ?? 100, g.latestAnalysis?.capPercent ?? 100),
+      raw:        baseWeightPct * (g.ticker.type === 'B' ? 1.5 : 1.0),
+    }));
+
+    // Normalize so sum = poolPct
+    const rawSum = raws.reduce((s, r) => s + r.raw, 0);
+    const scale  = rawSum > 0 ? poolPct / rawSum : 1;
+
+    raws.forEach(r => {
+      weights.set(r.id, +Math.min(r.raw * scale, r.hardCapPct).toFixed(2));
+    });
+  }
+
+  allocate(estGroup,  estPoolPct,  targetEst);
+  allocate(specGroup, specPoolPct, targetSpec);
+
+  // Unclassified: split evenly using whichever pool has room, or assign 0
+  unclassified.forEach(g => weights.set(g.ticker.id, 0));
+
+  return weights;
 }
 
 // ─── Watchlist candidate scoring ─────────────────────────────────────────────
 
-const TRAJECTORY_SCORE = {
-  improving:     5,
-  stable:        3,
-  flattening:    2,
-  softening:     1,
-  deteriorating: 0,
-  unknown:       0,
-};
-const HEALTH_SCORE = {
-  Strengthening: 4,
-  Intact:        3,
-  Weakening:     1,
-  Broken:        0,
-};
-const ACTION_SCORE = {
-  Add:  3,
-  Hold: 1,
-  Trim: -2,
-  Exit: -5,
-};
+const TRAJ_SCORE   = { improving: 5, stable: 3, flattening: 2, softening: 1, deteriorating: 0, unknown: 0 };
+const HEALTH_SCORE = { Strengthening: 4, Intact: 3, Weakening: 1, Broken: 0 };
+const ACTION_SCORE = { Add: 3, Hold: 1, Trim: -2, Exit: -5 };
 
-function scoreCandidate(analysis, tickerType) {
-  const traj   = TRAJECTORY_SCORE[analysis?.trajectory]   ?? 0;
-  const health = HEALTH_SCORE[analysis?.thesisHealth]      ?? 0;
-  const action = ACTION_SCORE[analysis?.finalAction || analysis?.recommendation] ?? 0;
-  const type   = tickerType === 'B' ? 2 : 1;
-  return traj + health + action + type;
+function scoreCandidate(a, type) {
+  return (TRAJ_SCORE[a?.trajectory] ?? 0)
+       + (HEALTH_SCORE[a?.thesisHealth] ?? 0)
+       + (ACTION_SCORE[a?.finalAction ?? a?.recommendation] ?? 0)
+       + (type === 'B' ? 2 : 1);
 }
 
-// ─── Move generation ──────────────────────────────────────────────────────────
+// ─── Move builder helpers ─────────────────────────────────────────────────────
+
+function makeTrimMove(moveType, priority, ticker, positions, currentPct, targetPct,
+    mktValue, totalPortfolioValue, latestAnalysis, ownerTaxRates) {
+  const price        = positions.find(p => p.lastPrice != null)?.lastPrice ?? 0;
+  const trimValue    = Math.max(0, mktValue - totalPortfolioValue * (targetPct / 100));
+  const sharesToSell = price > 0 ? trimValue / price : 0;
+  const routing      = buildTrimRouting(positions, sharesToSell, ownerTaxRates.ltcg, ownerTaxRates.stcg);
+  const taxTotal     = routing.reduce((s, r) => s + r.taxCost, 0);
+  const hardCapPct   = Math.min(ticker.capPercent ?? 100, latestAnalysis?.capPercent ?? 100);
+
+  return {
+    moveType,
+    priority,
+    symbol:          ticker.symbol,
+    shortName:       ticker.shortName ?? ticker.name,
+    bucket:          getBucket(ticker),
+    tier:            ticker.tierOverride ?? latestAnalysis?.tier ?? null,
+    thesisHealth:    latestAnalysis?.thesisHealth   ?? '—',
+    finalAction:     latestAnalysis?.finalAction    ?? latestAnalysis?.recommendation ?? '—',
+    trajectory:      latestAnalysis?.trajectory     ?? null,
+    ratchetTranche:  latestAnalysis?.ratchetTranche ?? 0,
+    currentPct:      +currentPct.toFixed(2),
+    targetPct:       +targetPct.toFixed(2),
+    hardCapPct:      +hardCapPct.toFixed(1),
+    currentMktValue: +mktValue.toFixed(2),
+    dollarAmount:    +trimValue.toFixed(2),
+    sharesApprox:    +sharesToSell.toFixed(3),
+    taxCost:         +taxTotal.toFixed(2),
+    netProceeds:     +(trimValue - taxTotal).toFixed(2),
+    accounts:        routing,
+    requires48h:     currentPct > 30,
+  };
+}
+
+function makeAddMove(priority, ticker, positions, currentPct, targetPct,
+    mktValue, totalPortfolioValue, latestAnalysis) {
+  const price      = positions.find(p => p.lastPrice != null)?.lastPrice ?? 0;
+  const addValue   = Math.max(0, totalPortfolioValue * (targetPct / 100) - mktValue);
+  const sharesApprox = price > 0 ? addValue / price : 0;
+  const hardCapPct = Math.min(ticker.capPercent ?? 100, latestAnalysis?.capPercent ?? 100);
+
+  return {
+    moveType:        'ADD',
+    priority,
+    symbol:          ticker.symbol,
+    shortName:       ticker.shortName ?? ticker.name,
+    bucket:          getBucket(ticker),
+    tier:            ticker.tierOverride ?? latestAnalysis?.tier ?? null,
+    thesisHealth:    latestAnalysis?.thesisHealth   ?? '—',
+    finalAction:     latestAnalysis?.finalAction    ?? latestAnalysis?.recommendation ?? '—',
+    trajectory:      latestAnalysis?.trajectory     ?? null,
+    ratchetTranche:  0,
+    currentPct:      +currentPct.toFixed(2),
+    targetPct:       +targetPct.toFixed(2),
+    hardCapPct:      +hardCapPct.toFixed(1),
+    currentMktValue: +mktValue.toFixed(2),
+    dollarAmount:    +addValue.toFixed(2),
+    sharesApprox:    +sharesApprox.toFixed(3),
+    taxCost:         0,
+    netProceeds:     0,
+    accounts:        [],
+    requires48h:     false,
+  };
+}
+
+// ─── Per-ticker move generation ───────────────────────────────────────────────
 
 /**
- * Generates a list of moves for a single ticker position, sorted by priority.
- * Returns an array (usually 0 or 1 items, occasionally 2 for compound situations).
+ * Generate moves for one ticker, given its model weight.
+ * Returns an array (usually 0-2 items).
  */
-function generateTickerMoves(
+function generateMovesForTicker(
   ticker, positions, totalPortfolioValue,
-  latestAnalysis, profile, ownerTaxRates
+  latestAnalysis, modelWeightPct,
+  profile, ownerTaxRates
 ) {
-  const now           = new Date();
-  const specExitSpeed = profile.specExitSpeed ?? 'normal';
+  const { mktValue, currentPct } = positionMetrics(positions, totalPortfolioValue);
+  const specExitSpeed  = profile.specExitSpeed ?? 'normal';
+  const side           = barbellSide(ticker, latestAnalysis);
+  const tier           = ticker.tierOverride ?? latestAnalysis?.tier ?? null;
+  const hardCapPct     = Math.min(ticker.capPercent ?? 100, latestAnalysis?.capPercent ?? 100);
+  const ratchetTranche = latestAnalysis?.ratchetTranche ?? 0;
+  const thesisHealth   = latestAnalysis?.thesisHealth ?? '—';
 
-  // ── Position metrics ────────────────────────────────────────────────────────
-  const openLots    = positions.flatMap(p => (p.lots || []).filter(l => !l.closedDate));
-  const totalShares = openLots.reduce((s, l) => s + l.shares,                0);
-  const totalCost   = openLots.reduce((s, l) => s + l.shares * l.costBasis,  0);
+  let finalAction = latestAnalysis?.finalAction ?? latestAnalysis?.recommendation ?? '—';
 
-  // Use lastPrice from any position that has it
-  const pricePos    = positions.find(p => p.lastPrice != null);
-  const price       = pricePos?.lastPrice ?? (totalShares > 0 ? totalCost / totalShares : 0);
-  const mktValue    = totalShares * price;
-  const currentPct  = totalPortfolioValue > 0 ? (mktValue / totalPortfolioValue) * 100 : 0;
-
-  // ── Cap enforcement ─────────────────────────────────────────────────────────
-  const tickerCap   = ticker.capPercent ?? 100;
-  const analystCap  = latestAnalysis?.capPercent ?? tickerCap;
-  const hardCapPct  = Math.min(tickerCap, analystCap);
-
-  // ── Analysis fields ─────────────────────────────────────────────────────────
-  const thesisHealth    = latestAnalysis?.thesisHealth   ?? '—';
-  const recommendation  = latestAnalysis?.recommendation ?? '—';
-  const finalAction     = latestAnalysis?.finalAction    ?? recommendation;
-  const trajectory      = latestAnalysis?.trajectory     ?? null;
-  const ratchetTranche  = latestAnalysis?.ratchetTranche ?? 0;
-  const recommendedSize = latestAnalysis?.recommendedSize ?? null;  // % of portfolio
-  const tier            = ticker.tierOverride ?? latestAnalysis?.tier ?? null;
-
-  const overCap = currentPct > hardCapPct + 0.5;
-
-  // ── Effective action (specExitSpeed modifier) ───────────────────────────────
-  // For speculative tickers, fast exit speed accelerates ratchet.
-  let effectiveAction = finalAction;
+  // specExitSpeed modifier
   if (tier === 'speculative' && specExitSpeed === 'fast') {
-    if (ratchetTranche >= 1 || trajectory === 'deteriorating') {
-      effectiveAction = 'Exit';
-    }
+    if (ratchetTranche >= 1 || latestAnalysis?.trajectory === 'deteriorating') finalAction = 'Exit';
   }
-  if (tier === 'speculative' && specExitSpeed === 'patient') {
-    // Patient: don't trim on ratchet 1-2 unless over cap
-    if (ratchetTranche <= 2 && !overCap && effectiveAction === 'Trim') {
-      effectiveAction = 'Hold';
-    }
+  if (tier === 'speculative' && specExitSpeed === 'patient' && ratchetTranche <= 2 && currentPct <= hardCapPct) {
+    if (finalAction === 'Trim') finalAction = 'Hold';
   }
 
   const moves = [];
 
-  // ── EXIT ───────────────────────────────────────────────────────────────────
-  if (effectiveAction === 'Exit' || ratchetTranche >= 3) {
-    const routing  = buildTrimRouting(positions, totalShares, ownerTaxRates.ltcg, ownerTaxRates.stcg);
-    const taxTotal = routing.reduce((s, r) => s + r.taxCost, 0);
-
+  // ── 1. EXIT ─────────────────────────────────────────────────────────────────
+  if (finalAction === 'Exit' || ratchetTranche >= 3 || thesisHealth === 'Broken') {
+    const { shares }   = positionMetrics(positions, totalPortfolioValue);
+    const routing      = buildTrimRouting(positions, shares, ownerTaxRates.ltcg, ownerTaxRates.stcg);
+    const taxTotal     = routing.reduce((s, r) => s + r.taxCost, 0);
     moves.push({
-      moveType:    'EXIT',
-      priority:    1,
-      symbol:      ticker.symbol,
-      shortName:   ticker.shortName ?? ticker.name,
-      reason:      ratchetTranche >= 3
-        ? `Ratchet tranche ${ratchetTranche} — graduated exit complete`
-        : `Thesis ${thesisHealth.toLowerCase()}; exit signal confirmed`,
-      thesisHealth,
-      finalAction: effectiveAction,
-      trajectory,
+      moveType:        'EXIT',
+      priority:        1,
+      symbol:          ticker.symbol,
+      shortName:       ticker.shortName ?? ticker.name,
+      bucket:          getBucket(ticker),
       tier,
+      thesisHealth,
+      finalAction:     'Exit',
+      trajectory:      latestAnalysis?.trajectory ?? null,
       ratchetTranche,
-      currentPct:  +currentPct.toFixed(2),
-      hardCapPct:  +hardCapPct.toFixed(1),
+      currentPct:      +currentPct.toFixed(2),
+      targetPct:       0,
+      hardCapPct:      +hardCapPct.toFixed(1),
       currentMktValue: +mktValue.toFixed(2),
       dollarAmount:    +mktValue.toFixed(2),
-      sharesApprox:    +totalShares.toFixed(3),
+      sharesApprox:    +shares.toFixed(3),
       taxCost:         +taxTotal.toFixed(2),
       netProceeds:     +(mktValue - taxTotal).toFixed(2),
       accounts:        routing,
+      requires48h:     currentPct > 30,
+      reason: ratchetTranche >= 3  ? `Ratchet tranche ${ratchetTranche} — graduated exit complete`
+            : thesisHealth === 'Broken' ? 'Thesis broken'
+            : 'Exit signal',
     });
-
     return moves;
   }
 
-  // ── TRIM (over cap) ────────────────────────────────────────────────────────
-  if (overCap) {
-    const targetValue  = totalPortfolioValue * (hardCapPct / 100);
-    const excessValue  = mktValue - targetValue;
-    const sharesToSell = price > 0 ? excessValue / price : 0;
-    const routing      = buildTrimRouting(positions, sharesToSell, ownerTaxRates.ltcg, ownerTaxRates.stcg);
-    const taxTotal     = routing.reduce((s, r) => s + r.taxCost, 0);
-
+  // ── 2. TRIM_CAP — hard cap violation (always enforced) ────────────────────
+  if (currentPct > hardCapPct + 0.5) {
     moves.push({
-      moveType:    'TRIM_CAP',
-      priority:    2,
-      symbol:      ticker.symbol,
-      shortName:   ticker.shortName ?? ticker.name,
-      reason:      `Position at ${currentPct.toFixed(1)}% exceeds ${hardCapPct.toFixed(0)}% cap (Type ${ticker.type})`,
-      thesisHealth,
-      finalAction: 'Trim',
-      trajectory,
-      tier,
-      ratchetTranche,
-      currentPct:  +currentPct.toFixed(2),
-      hardCapPct:  +hardCapPct.toFixed(1),
-      targetPct:   +hardCapPct.toFixed(1),
-      currentMktValue: +mktValue.toFixed(2),
-      dollarAmount:    +excessValue.toFixed(2),
-      sharesApprox:    +sharesToSell.toFixed(3),
-      taxCost:         +taxTotal.toFixed(2),
-      netProceeds:     +(excessValue - taxTotal).toFixed(2),
-      accounts:        routing,
+      ...makeTrimMove('TRIM_CAP', 2, ticker, positions, currentPct, hardCapPct,
+        mktValue, totalPortfolioValue, latestAnalysis, ownerTaxRates),
+      reason: `Position at ${currentPct.toFixed(1)}% exceeds Type ${ticker.type} hard cap of ${hardCapPct.toFixed(0)}%`,
     });
   }
 
-  // ── TRIM (ratchet) ─────────────────────────────────────────────────────────
-  if (ratchetTranche >= 1 && ratchetTranche < 3 && !overCap) {
-    // Ratchet 1: trim to cap.  Ratchet 2: trim 40% of remaining position.
-    let trimValue;
-    if (ratchetTranche === 1) {
-      const targetValue = totalPortfolioValue * (hardCapPct / 100);
-      trimValue = Math.max(0, mktValue - targetValue);
-    } else {
-      trimValue = mktValue * 0.40;
-    }
-
-    if (trimValue > 100) {  // ignore trivial amounts
-      const sharesToSell = price > 0 ? trimValue / price : 0;
-      const routing      = buildTrimRouting(positions, sharesToSell, ownerTaxRates.ltcg, ownerTaxRates.stcg);
-      const taxTotal     = routing.reduce((s, r) => s + r.taxCost, 0);
-
+  // ── 3. TRIM_RATCHET — graduated exit ratchet ─────────────────────────────
+  if (ratchetTranche >= 1 && ratchetTranche < 3 && currentPct <= hardCapPct + 0.5) {
+    const ratchetTarget = ratchetTranche === 1
+      ? Math.min(modelWeightPct, hardCapPct)
+      : currentPct * 0.60; // ratchet 2: trim 40% of position
+    const trimValue = Math.max(0, mktValue - totalPortfolioValue * (ratchetTarget / 100));
+    if (trimValue > 50) {
       moves.push({
-        moveType:    'TRIM_RATCHET',
-        priority:    3,
-        symbol:      ticker.symbol,
-        shortName:   ticker.shortName ?? ticker.name,
-        reason:      ratchetTranche === 1
-          ? `Thesis weakening — trim to ${hardCapPct.toFixed(0)}% cap`
-          : `No improvement after Q2 — trim 40% of position (ratchet ${ratchetTranche})`,
-        thesisHealth,
-        finalAction: 'Trim',
-        trajectory,
-        tier,
-        ratchetTranche,
-        currentPct:  +currentPct.toFixed(2),
-        hardCapPct:  +hardCapPct.toFixed(1),
-        currentMktValue: +mktValue.toFixed(2),
-        dollarAmount:    +trimValue.toFixed(2),
-        sharesApprox:    +sharesToSell.toFixed(3),
-        taxCost:         +taxTotal.toFixed(2),
-        netProceeds:     +(trimValue - taxTotal).toFixed(2),
-        accounts:        routing,
+        ...makeTrimMove('TRIM_RATCHET', 3, ticker, positions, currentPct, ratchetTarget,
+          mktValue, totalPortfolioValue, latestAnalysis, ownerTaxRates),
+        reason: ratchetTranche === 1
+          ? `Thesis weakening — trim to model weight (${modelWeightPct.toFixed(1)}%)`
+          : `No improvement Q2 — trim 40% of position (ratchet ${ratchetTranche})`,
       });
     }
   }
 
-  // ── TRIM (analyst signal, no cap violation, no ratchet) ───────────────────
-  if (effectiveAction === 'Trim' && !overCap && ratchetTranche === 0) {
-    // Trim to recommendedSize, or to 80% of current if no recommendation
-    const targetPct   = recommendedSize != null
-      ? Math.min(recommendedSize, hardCapPct)
-      : currentPct * 0.80;
-    const targetValue = totalPortfolioValue * (targetPct / 100);
-    const trimValue   = Math.max(0, mktValue - targetValue);
+  // ── 4. TRIM to model weight ────────────────────────────────────────────────
+  const overModel  = currentPct > modelWeightPct + MODEL_WEIGHT_TOL;
+  const underModel = currentPct < modelWeightPct - MODEL_WEIGHT_TOL;
 
-    if (trimValue > 100) {
-      const sharesToSell = price > 0 ? trimValue / price : 0;
-      const routing      = buildTrimRouting(positions, sharesToSell, ownerTaxRates.ltcg, ownerTaxRates.stcg);
-      const taxTotal     = routing.reduce((s, r) => s + r.taxCost, 0);
+  if (overModel && moves.length === 0) {
+    // Thesis Strengthening above model weight: advisory (let winner run toward hard cap)
+    const isWinnerRunning = finalAction === 'Add' && thesisHealth === 'Strengthening'
+      && currentPct <= hardCapPct;
 
+    if (isWinnerRunning) {
       moves.push({
-        moveType:    'TRIM_SIGNAL',
-        priority:    4,
-        symbol:      ticker.symbol,
-        shortName:   ticker.shortName ?? ticker.name,
-        reason:      recommendedSize != null
-          ? `Analyst recommends trimming to ${recommendedSize.toFixed(0)}%`
-          : 'Trim signal — analyst recommendation',
-        thesisHealth,
-        finalAction: 'Trim',
-        trajectory,
+        moveType:        'HOLD_ADVISORY',
+        priority:        99,
+        symbol:          ticker.symbol,
+        shortName:       ticker.shortName ?? ticker.name,
+        bucket:          getBucket(ticker),
         tier,
-        ratchetTranche,
-        currentPct:  +currentPct.toFixed(2),
-        hardCapPct:  +hardCapPct.toFixed(1),
-        targetPct:   +targetPct.toFixed(1),
-        currentMktValue: +mktValue.toFixed(2),
-        dollarAmount:    +trimValue.toFixed(2),
-        sharesApprox:    +sharesToSell.toFixed(3),
-        taxCost:         +taxTotal.toFixed(2),
-        netProceeds:     +(trimValue - taxTotal).toFixed(2),
-        accounts:        routing,
-      });
-    }
-  }
-
-  // ── ADD (existing position, analyst says Add, under target) ───────────────
-  if (effectiveAction === 'Add' && currentPct < hardCapPct * 0.90) {
-    const targetPct   = recommendedSize != null
-      ? Math.min(recommendedSize, hardCapPct)
-      : hardCapPct;
-    const targetValue = totalPortfolioValue * (targetPct / 100);
-    const addValue    = Math.max(0, targetValue - mktValue);
-
-    if (addValue >= 100) {
-      const sharesApprox = price > 0 ? addValue / price : 0;
-      moves.push({
-        moveType:    'ADD',
-        priority:    5,
-        symbol:      ticker.symbol,
-        shortName:   ticker.shortName ?? ticker.name,
-        reason:      `Add signal — current ${currentPct.toFixed(1)}% vs target ${targetPct.toFixed(0)}%`,
         thesisHealth,
-        finalAction: 'Add',
-        trajectory,
-        tier,
+        finalAction,
+        trajectory:      latestAnalysis?.trajectory ?? null,
         ratchetTranche,
-        currentPct:  +currentPct.toFixed(2),
-        hardCapPct:  +hardCapPct.toFixed(1),
-        targetPct:   +targetPct.toFixed(1),
+        currentPct:      +currentPct.toFixed(2),
+        targetPct:       +modelWeightPct.toFixed(2),
+        hardCapPct:      +hardCapPct.toFixed(1),
         currentMktValue: +mktValue.toFixed(2),
-        dollarAmount:    +addValue.toFixed(2),
-        sharesApprox:    +sharesApprox.toFixed(3),
+        dollarAmount:    0,
+        sharesApprox:    0,
         taxCost:         0,
         netProceeds:     0,
         accounts:        [],
+        requires48h:     currentPct > 30,
+        reason: `Thesis Strengthening — over model weight (${modelWeightPct.toFixed(1)}%) but holding toward ${hardCapPct.toFixed(0)}% cap`,
+      });
+    } else {
+      moves.push({
+        ...makeTrimMove('TRIM_MODEL', 4, ticker, positions, currentPct, modelWeightPct,
+          mktValue, totalPortfolioValue, latestAnalysis, ownerTaxRates),
+        reason: `At ${currentPct.toFixed(1)}% — over model weight of ${modelWeightPct.toFixed(1)}%`,
       });
     }
   }
 
-  // If no action move was generated, return a HOLD record
+  // ── 5. ADD to model weight ─────────────────────────────────────────────────
+  if (underModel && moves.filter(m => !m.moveType.startsWith('TRIM') && m.moveType !== 'EXIT').length === 0) {
+    // Only add if thesis is at least Intact (not Weakening/Broken)
+    const canAdd = !['Weakening', 'Broken'].includes(thesisHealth) || finalAction === 'Add';
+    if (canAdd) {
+      moves.push({
+        ...makeAddMove(5, ticker, positions, currentPct, modelWeightPct,
+          mktValue, totalPortfolioValue, latestAnalysis),
+        reason: `At ${currentPct.toFixed(1)}% — below model weight of ${modelWeightPct.toFixed(1)}%`,
+      });
+    }
+  }
+
+  // ── 6. HOLD ───────────────────────────────────────────────────────────────
   if (moves.length === 0) {
     moves.push({
-      moveType:    'HOLD',
-      priority:    99,
-      symbol:      ticker.symbol,
-      shortName:   ticker.shortName ?? ticker.name,
-      reason:      finalAction === 'Hold' ? 'Hold — thesis intact'
-        : finalAction === '—'           ? 'No analysis available'
-        : `${finalAction} — no immediate action`,
-      thesisHealth,
-      finalAction:     finalAction,
-      trajectory,
+      moveType:        'HOLD',
+      priority:        99,
+      symbol:          ticker.symbol,
+      shortName:       ticker.shortName ?? ticker.name,
+      bucket:          getBucket(ticker),
       tier,
+      thesisHealth,
+      finalAction,
+      trajectory:      latestAnalysis?.trajectory ?? null,
       ratchetTranche,
-      currentPct:  +currentPct.toFixed(2),
-      hardCapPct:  +hardCapPct.toFixed(1),
+      currentPct:      +currentPct.toFixed(2),
+      targetPct:       +modelWeightPct.toFixed(2),
+      hardCapPct:      +hardCapPct.toFixed(1),
       currentMktValue: +mktValue.toFixed(2),
       dollarAmount:    0,
       sharesApprox:    0,
       taxCost:         0,
       netProceeds:     0,
       accounts:        [],
+      requires48h:     currentPct > 30,
+      reason:          `At model weight — no action`,
     });
   }
 
-  // ── 48h flag ───────────────────────────────────────────────────────────────
-  if (currentPct > 30) {
-    moves.forEach(m => { m.requires48h = true; });
+  return moves;
+}
+
+/**
+ * Generate moves for a fixed-target asset (ETF, commodity, crypto).
+ * These assets count toward their pool but use capPercent as target.
+ */
+function generateFixedTargetMove(ticker, positions, totalPortfolioValue, latestAnalysis, ownerTaxRates) {
+  const { mktValue, currentPct } = positionMetrics(positions, totalPortfolioValue);
+  const targetPct  = ticker.capPercent ?? 5;
+  const overTarget = currentPct > targetPct + MODEL_WEIGHT_TOL;
+  const bucket     = getBucket(ticker);
+
+  if (overTarget) {
+    const label = isETF(ticker) ? 'ETF target' : isCommodityOrCrypto(ticker) ? `${bucket} allocation` : 'target';
+    return {
+      ...makeTrimMove('TRIM_MODEL', isETF(ticker) ? 4 : 4,
+        ticker, positions, currentPct, targetPct,
+        mktValue, totalPortfolioValue, latestAnalysis, ownerTaxRates),
+      reason: `${ticker.symbol} at ${currentPct.toFixed(1)}% — over ${label} of ${targetPct.toFixed(0)}%`,
+    };
   }
 
-  return moves;
+  return {
+    moveType:        'HOLD',
+    priority:        99,
+    symbol:          ticker.symbol,
+    shortName:       ticker.shortName ?? ticker.name,
+    bucket,
+    tier:            ticker.tierOverride ?? latestAnalysis?.tier ?? null,
+    thesisHealth:    '—',
+    finalAction:     '—',
+    trajectory:      null,
+    ratchetTranche:  0,
+    currentPct:      +currentPct.toFixed(2),
+    targetPct:       +targetPct.toFixed(1),
+    hardCapPct:      +targetPct.toFixed(1),
+    currentMktValue: +mktValue.toFixed(2),
+    dollarAmount:    0, sharesApprox: 0, taxCost: 0, netProceeds: 0,
+    accounts:        [],
+    requires48h:     false,
+    reason:          `At or below ${label ?? 'target'} — no action`,
+  };
+}
+
+// ─── Capital flow — funded now vs queue ──────────────────────────────────────
+
+function buildCapitalFlow(trimMoves, addUses, promUses, freeCash) {
+  const sources = trimMoves.map(m => ({
+    label:       `${m.moveType === 'EXIT' ? 'Exit' : 'Trim'} ${m.symbol}`,
+    dollarFreed: m.dollarAmount,
+    taxCost:     m.taxCost,
+    netFreed:    m.netProceeds,
+  }));
+
+  const totalNetFreed  = sources.reduce((s, r) => s + r.netFreed, 0);
+  const totalAvailable = totalNetFreed + freeCash;
+
+  // Rank uses: existing ADD moves first (higher priority), then promotions (by score)
+  const allUses = [
+    ...addUses.map(u => ({ ...u, usePriority: 1 })),
+    ...promUses.map(u => ({ ...u, usePriority: 2 })),
+  ];
+
+  let remaining = totalAvailable;
+  const fundedNow = [];
+  const queue     = [];
+
+  for (const use of allUses) {
+    if (remaining >= use.dollarNeeded) {
+      fundedNow.push({ ...use, status: 'funded', partialAmount: null });
+      remaining -= use.dollarNeeded;
+    } else if (remaining > 50) {
+      fundedNow.push({ ...use, status: 'partial', partialAmount: +remaining.toFixed(2) });
+      remaining = 0;
+    } else {
+      queue.push({ ...use, status: 'queued' });
+    }
+  }
+
+  return {
+    sources,
+    freeCash:         +freeCash.toFixed(2),
+    totalNetFreed:    +totalNetFreed.toFixed(2),
+    totalAvailable:   +totalAvailable.toFixed(2),
+    fundedNow,
+    queue,
+    surplusAfterFunded: +Math.max(0, remaining).toFixed(2),
+    queueTotalNeeded:   +queue.reduce((s, u) => s + u.dollarNeeded, 0).toFixed(2),
+  };
 }
 
 // ─── GET /api/moves ───────────────────────────────────────────────────────────
@@ -423,14 +544,7 @@ function generateTickerMoves(
 router.get('/', async (req, res) => {
   try {
     const profiles = await prisma.ownerProfile.findMany({ orderBy: { owner: 'asc' } });
-
-    // Quick summary: just owner name and whether they have active positions
-    const summaries = profiles.map(p => ({
-      owner:       p.owner,
-      displayName: p.displayName ?? p.owner,
-    }));
-
-    res.json(summaries);
+    res.json(profiles.map(p => ({ owner: p.owner, displayName: p.displayName ?? p.owner })));
   } catch (err) {
     console.error('GET /moves error:', err);
     res.status(500).json({ error: err.message });
@@ -441,36 +555,29 @@ router.get('/', async (req, res) => {
 
 router.get('/:owner', async (req, res) => {
   const owner = decodeURIComponent(req.params.owner);
-
   try {
-    // ── Owner profile ──────────────────────────────────────────────────────
     const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
     if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
 
     const cashReservePct    = profile.cashReservePct    ?? DEFAULT_CASH_RESERVE;
-    const estSpecRatio      = profile.estSpecRatio      ?? DEFAULT_EST_RATIO;  // 0-1, established fraction
+    const estSpecRatio      = profile.estSpecRatio      ?? DEFAULT_EST_RATIO;
     const maxPositions      = profile.maxPositions      ?? DEFAULT_MAX_POS;
     const minPositionDollar = profile.minPositionDollar ?? DEFAULT_MIN_POS_USD;
+    const ownerTaxRates     = { ltcg: DEFAULT_LTCG_RATE, stcg: DEFAULT_STCG_RATE };
 
-    const ownerTaxRates = { ltcg: DEFAULT_LTCG_RATE, stcg: DEFAULT_STCG_RATE };
-
-    // ── Portfolio accounts + positions ────────────────────────────────────
+    // ── Accounts + positions ──────────────────────────────────────────────────
     const accounts = await prisma.account.findMany({
-      where: { owner },
+      where:   { owner },
       include: {
         positions: {
-          where: { status: 'active' },
-          include: {
-            lots:   { where: { closedDate: null } },
-            ticker: true,
-          },
+          where:   { status: 'active' },
+          include: { lots: { where: { closedDate: null } }, ticker: true },
         },
       },
     });
 
-    // ── Portfolio totals ──────────────────────────────────────────────────
-    let totalMktValue = 0;
-    let totalCash     = 0;
+    // ── Portfolio totals ──────────────────────────────────────────────────────
+    let totalMktValue = 0, totalCash = 0;
     for (const acct of accounts) {
       totalCash += acct.cashBalance ?? 0;
       for (const pos of acct.positions) {
@@ -484,272 +591,230 @@ router.get('/:owner', async (req, res) => {
     const cashReserveFloor    = totalPortfolioValue * cashReservePct;
     const freeCash            = Math.max(0, totalCash - cashReserveFloor);
 
-    // ── Group positions by ticker ─────────────────────────────────────────
+    // ── Group positions by ticker ─────────────────────────────────────────────
     const byTicker = new Map();
     for (const acct of accounts) {
       for (const pos of acct.positions) {
-        const tid = pos.tickerId;
-        if (!byTicker.has(tid)) {
-          byTicker.set(tid, { ticker: pos.ticker, positions: [] });
+        if (!byTicker.has(pos.tickerId)) {
+          byTicker.set(pos.tickerId, { ticker: pos.ticker, positions: [] });
         }
-        byTicker.get(tid).positions.push({ ...pos, account: acct });
+        byTicker.get(pos.tickerId).positions.push({ ...pos, account: acct });
       }
     }
 
-    // ── Latest analyst score per portfolio ticker ─────────────────────────
-    const tickerIds      = [...byTicker.keys()];
-    const latestAnalyses = await Promise.all(tickerIds.map(async tickerId => {
+    // ── Latest analyst score per ticker ───────────────────────────────────────
+    const analysisMap = new Map();
+    for (const tickerId of byTicker.keys()) {
       const a = await prisma.analysis.findFirst({
         where:   { transcript: { tickerId } },
         orderBy: { transcript: { callDate: 'desc' } },
         select: {
-          id: true,
-          thesisHealth:    true,
-          recommendation:  true,
-          recommendedSize: true,
-          capPercent:      true,
-          ratchetTranche:  true,
-          trajectory:      true,
-          finalAction:     true,
-          finalConfidence: true,
-          tier:            true,
-          thesisDelta:     true,
+          id: true, thesisHealth: true, recommendation: true,
+          recommendedSize: true, capPercent: true, ratchetTranche: true,
+          trajectory: true, finalAction: true, tier: true,
           transcript: { select: { callDate: true } },
         },
       });
-      return { tickerId, analysis: a };
-    }));
-
-    const analysisMap = new Map(latestAnalyses.map(({ tickerId, analysis }) => [tickerId, analysis]));
-
-    // ── Generate moves ─────────────────────────────────────────────────────
-    const allMoves = [];
-    let estValue   = 0;
-    let specValue  = 0;
-
-    for (const [tickerId, { ticker, positions }] of byTicker.entries()) {
-      const latestAnalysis = analysisMap.get(tickerId) ?? null;
-      const tickerMoves    = generateTickerMoves(
-        ticker, positions, totalPortfolioValue,
-        latestAnalysis, profile, ownerTaxRates
-      );
-      allMoves.push(...tickerMoves);
-
-      // Barbell tracking
-      const openLots  = positions.flatMap(p => (p.lots || []).filter(l => !l.closedDate));
-      const shares    = openLots.reduce((s, l) => s + l.shares, 0);
-      const pricePos  = positions.find(p => p.lastPrice != null);
-      const price     = pricePos?.lastPrice ?? 0;
-      const mktV      = shares * price;
-      const tier      = ticker.tierOverride ?? latestAnalysis?.tier ?? null;
-      if (tier === 'established')  estValue  += mktV;
-      if (tier === 'speculative')  specValue += mktV;
+      analysisMap.set(tickerId, a ?? null);
     }
 
-    // Sort: by priority asc, then by dollar amount desc within same priority
+    // ── Classify positions ────────────────────────────────────────────────────
+    const fixedGroups      = [];  // ETF / commodity / crypto
+    const individualGroups = [];  // equity individual stocks
+
+    for (const [tickerId, { ticker, positions }] of byTicker.entries()) {
+      const latestAnalysis = analysisMap.get(tickerId);
+      const group = { ticker, positions, latestAnalysis };
+      if (isFixedTarget(ticker)) fixedGroups.push(group);
+      else individualGroups.push(group);
+    }
+
+    // ── Barbell pools ─────────────────────────────────────────────────────────
+    const specRatio = 1 - estSpecRatio;
+
+    // Fixed-target contributions to each pool
+    let etfTargetPct       = 0;
+    let commCryptoTargetPct = 0;
+    for (const g of fixedGroups) {
+      const tgt = g.ticker.capPercent ?? 5;
+      if (isETF(g.ticker))              etfTargetPct        += tgt;
+      else if (isCommodityOrCrypto(g.ticker)) commCryptoTargetPct += tgt;
+    }
+
+    const estPoolPct  = Math.max(0, estSpecRatio * 100 - etfTargetPct);
+    const specPoolPct = Math.max(0, specRatio * 100 - commCryptoTargetPct);
+
+    // Target individual position counts
+    const fixedCount      = fixedGroups.length;
+    const targetIndividual = Math.max(0, maxPositions - fixedCount);
+    const targetEstIndividual  = Math.round(targetIndividual * estSpecRatio);
+    const targetSpecIndividual = targetIndividual - targetEstIndividual;
+
+    // ── Model weights ─────────────────────────────────────────────────────────
+    const modelWeights = computeIndividualModelWeights(
+      individualGroups,
+      estPoolPct, specPoolPct,
+      targetEstIndividual, targetSpecIndividual
+    );
+
+    // ── Generate moves ─────────────────────────────────────────────────────────
+    const allMoves = [];
+
+    // Fixed-target assets
+    for (const g of fixedGroups) {
+      const move = generateFixedTargetMove(
+        g.ticker, g.positions, totalPortfolioValue, g.latestAnalysis, ownerTaxRates
+      );
+      allMoves.push(move);
+    }
+
+    // Individual stocks
+    for (const g of individualGroups) {
+      const modelWeightPct = modelWeights.get(g.ticker.id) ?? 0;
+      const moves = generateMovesForTicker(
+        g.ticker, g.positions, totalPortfolioValue,
+        g.latestAnalysis, modelWeightPct, profile, ownerTaxRates
+      );
+      allMoves.push(...moves);
+    }
+
+    // Sort by priority
     allMoves.sort((a, b) => {
       if (a.priority !== b.priority) return a.priority - b.priority;
       return b.dollarAmount - a.dollarAmount;
     });
 
-    // Split into action moves vs holds
-    const actionMoves = allMoves.filter(m => m.moveType !== 'HOLD');
-    const holds       = allMoves.filter(m => m.moveType === 'HOLD');
+    const actionMoves = allMoves.filter(m => !['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
+    const holdMoves   = allMoves.filter(m =>  ['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
 
-    // ── Watchlist candidates ──────────────────────────────────────────────
-    const watchlistTickers = await prisma.ticker.findMany({
-      where: { status: 'watchlist' },
-    });
+    // ── Watchlist candidates ──────────────────────────────────────────────────
+    const watchlistTickers = await prisma.ticker.findMany({ where: { status: 'watchlist' } });
+    const candidates = [];
 
-    const watchlistCandidates = [];
     for (const wt of watchlistTickers) {
       const a = await prisma.analysis.findFirst({
         where:   { transcript: { tickerId: wt.id } },
         orderBy: { transcript: { callDate: 'desc' } },
         select: {
-          thesisHealth:    true,
-          recommendation:  true,
-          finalAction:     true,
-          trajectory:      true,
-          recommendedSize: true,
-          tier:            true,
+          thesisHealth: true, recommendation: true, finalAction: true,
+          trajectory: true, recommendedSize: true, tier: true,
           transcript: { select: { callDate: true } },
         },
       });
-
       if (!a) continue;
+
       const action = a.finalAction ?? a.recommendation ?? '—';
       if (!['Add', 'Hold'].includes(action)) continue;
       if (['Broken', 'Weakening'].includes(a.thesisHealth) && action !== 'Add') continue;
 
-      const score           = scoreCandidate(a, wt.type);
-      const suggestedPct    = a.recommendedSize != null
-        ? Math.min(a.recommendedSize, wt.capPercent)
-        : Math.min(5, wt.capPercent);
-      const suggestedDollar = totalPortfolioValue * (suggestedPct / 100);
+      const score    = scoreCandidate(a, wt.type);
+      const side     = barbellSide(wt, a);
+
+      // Suggested allocation = model weight this candidate would get if promoted
+      const poolPct  = side === 'est' ? estPoolPct : specPoolPct;
+      const poolCount = side === 'est' ? targetEstIndividual : targetSpecIndividual;
+      const baseWeight = poolCount > 0 ? poolPct / poolCount : 0;
+      const rawWeight  = baseWeight * (wt.type === 'B' ? 1.5 : 1.0);
+      const suggestedPct    = +Math.min(rawWeight, wt.capPercent ?? 100).toFixed(1);
+      const suggestedDollar = +(totalPortfolioValue * (suggestedPct / 100)).toFixed(0);
 
       if (suggestedDollar < minPositionDollar) continue;
 
-      watchlistCandidates.push({
-        tickerId:         wt.id,
-        symbol:           wt.symbol,
-        shortName:        wt.shortName ?? wt.name,
-        type:             wt.type,
-        tier:             wt.tierOverride ?? a.tier ?? null,
-        thesisHealth:     a.thesisHealth,
-        finalAction:      action,
-        trajectory:       a.trajectory ?? null,
-        recommendedSize:  a.recommendedSize ?? null,
-        suggestedPct:     +suggestedPct.toFixed(1),
-        suggestedDollar:  +suggestedDollar.toFixed(0),
-        rankScore:        score,
-        latestCallDate:   a.transcript?.callDate ?? null,
-        hardCapPct:       wt.capPercent,
+      candidates.push({
+        tickerId: wt.id, symbol: wt.symbol, shortName: wt.shortName ?? wt.name,
+        type: wt.type, tier: wt.tierOverride ?? a.tier ?? null,
+        side, thesisHealth: a.thesisHealth, finalAction: action,
+        trajectory: a.trajectory ?? null, recommendedSize: a.recommendedSize ?? null,
+        suggestedPct, suggestedDollar, rankScore: score,
+        latestCallDate: a.transcript?.callDate ?? null,
+        hardCapPct: wt.capPercent,
       });
     }
 
-    // newMoneyBehavior = "highest_conviction": only surface top-2 candidates
-    watchlistCandidates.sort((a, b) => b.rankScore - a.rankScore);
-    const finalCandidates = (profile.newMoneyBehavior === 'highest_conviction')
-      ? watchlistCandidates.slice(0, 2)
-      : watchlistCandidates;
+    candidates.sort((a, b) => b.rankScore - a.rankScore);
+    const finalCandidates = profile.newMoneyBehavior === 'highest_conviction'
+      ? candidates.slice(0, 2) : candidates;
 
-    // ── Capital flow plan ─────────────────────────────────────────────────
-    const trimSources  = actionMoves
-      .filter(m => ['EXIT', 'TRIM_CAP', 'TRIM_RATCHET', 'TRIM_SIGNAL'].includes(m.moveType))
-      .map(m => ({
-        label:       `${m.moveType === 'EXIT' ? 'Exit' : 'Trim'} ${m.symbol}`,
-        dollarFreed: m.dollarAmount,
-        taxCost:     m.taxCost,
-        netFreed:    m.netProceeds,
-        moveType:    m.moveType,
-      }));
+    // ── Capital flow ──────────────────────────────────────────────────────────
+    const trimMoves = actionMoves.filter(m =>
+      ['EXIT', 'TRIM_CAP', 'TRIM_RATCHET', 'TRIM_MODEL', 'TRIM_SIGNAL'].includes(m.moveType));
+    const addMoves  = actionMoves.filter(m => m.moveType === 'ADD').map(m => ({
+      label: `Add ${m.symbol}`, dollarNeeded: m.dollarAmount, type: 'add_existing', symbol: m.symbol,
+    }));
+    const promUses  = finalCandidates.filter(c => c.finalAction === 'Add').map(c => ({
+      label: `Open ${c.symbol}`, dollarNeeded: c.suggestedDollar, type: 'promote', symbol: c.symbol,
+    }));
 
-    const totalNetFreed   = trimSources.reduce((s, r) => s + r.netFreed, 0);
-    const totalDeployable = totalNetFreed + freeCash;
+    const capitalFlow = buildCapitalFlow(trimMoves, addMoves, promUses, freeCash);
 
-    // Uses: first existing ADD moves, then watchlist promotions
-    const addUses    = actionMoves
-      .filter(m => m.moveType === 'ADD')
-      .map(m => ({
-        label:       `Add ${m.symbol}`,
-        dollarNeeded: m.dollarAmount,
-        type:        'add_existing',
-      }));
-    const promUses   = finalCandidates
-      .filter(c => c.finalAction === 'Add')
-      .map(c => ({
-        label:       `Promote ${c.symbol}`,
-        dollarNeeded: c.suggestedDollar,
-        type:        'promote',
-      }));
+    // ── Barbell actuals ────────────────────────────────────────────────────────
+    let estValue = 0, specValue = 0;
+    for (const [tickerId, { ticker, positions }] of byTicker.entries()) {
+      const a   = analysisMap.get(tickerId);
+      const { mktValue } = positionMetrics(positions, totalPortfolioValue);
+      const side = barbellSide(ticker, a);
+      if (side === 'est')  estValue  += mktValue;
+      if (side === 'spec') specValue += mktValue;
+    }
+    const classifiedTotal  = estValue + specValue;
+    const estPct  = classifiedTotal > 0 ? (estValue  / classifiedTotal) * 100 : null;
+    const specPct = classifiedTotal > 0 ? (specValue / classifiedTotal) * 100 : null;
+    const specTarget  = (1 - estSpecRatio) * 100;
+    const barbellOk   = specPct == null || Math.abs(specPct - specTarget) <= 7;
 
-    const allUses      = [...addUses, ...promUses];
-    const totalNeeded  = allUses.reduce((s, u) => s + u.dollarNeeded, 0);
-    const surplus      = totalDeployable - totalNeeded;
-
-    // ── Barbell status ─────────────────────────────────────────────────────
-    const classifiedTotal = estValue + specValue;
-    const estPct          = classifiedTotal > 0 ? (estValue  / classifiedTotal) * 100 : null;
-    const specPct         = classifiedTotal > 0 ? (specValue / classifiedTotal) * 100 : null;
-    const specTarget      = (1 - estSpecRatio) * 100;
-    const barbellInBalance = specPct == null || Math.abs(specPct - specTarget) <= 7;
-
-    // ── Warnings ───────────────────────────────────────────────────────────
+    // ── Warnings ──────────────────────────────────────────────────────────────
     const warnings = [];
-
-    // 48h wait
-    const needs48h = actionMoves.filter(m => m.requires48h);
-    for (const m of needs48h) {
-      warnings.push({
-        type:     '48h_wait',
-        symbol:   m.symbol,
-        severity: 'yellow',
-        message:  `${m.symbol} at ${m.currentPct.toFixed(1)}% — 48-hour review required before confirming hold`,
-      });
+    actionMoves.filter(m => m.requires48h).forEach(m => warnings.push({
+      type: '48h_wait', symbol: m.symbol, severity: 'yellow',
+      message: `${m.symbol} at ${m.currentPct.toFixed(1)}% — 48-hour review required before confirming hold`,
+    }));
+    if (!barbellOk && specPct != null) warnings.push({
+      type: 'barbell', symbol: null, severity: 'amber',
+      message: `Portfolio is ${specPct.toFixed(0)}% speculative vs ${specTarget.toFixed(0)}% target`,
+    });
+    if (capitalFlow.queue.length > 0 && byTicker.size + capitalFlow.queue.filter(u => u.type === 'promote').length > maxPositions) {
+      warnings.push({ type: 'max_positions', symbol: null, severity: 'amber',
+        message: `Executing all queued promotions would exceed ${maxPositions}-position limit` });
     }
+    if (estPoolPct <= 0) warnings.push({ type: 'pool_exhausted', symbol: null, severity: 'amber',
+      message: 'ETF allocations have consumed the full EST pool — trim ETFs to make room for individual names' });
+    if (specPoolPct <= 0) warnings.push({ type: 'pool_exhausted', symbol: null, severity: 'amber',
+      message: 'Commodity/crypto allocations have consumed the full SPEC pool — trim them to make room for individual names' });
 
-    // Barbell imbalance
-    if (!barbellInBalance && specPct != null) {
-      warnings.push({
-        type:     'barbell',
-        symbol:   null,
-        severity: 'amber',
-        message:  `Portfolio is ${specPct.toFixed(0)}% speculative vs ${specTarget.toFixed(0)}% target — consider trimming spec positions`,
-      });
-    }
-
-    // Position count
-    const posCount = byTicker.size;
-    if (allUses.length > 0 && posCount + allUses.filter(u => u.type === 'promote').length > maxPositions) {
-      warnings.push({
-        type:     'max_positions',
-        symbol:   null,
-        severity: 'amber',
-        message:  `Adding promotions would exceed max ${maxPositions} positions (currently ${posCount})`,
-      });
-    }
-
-    // Enough number
     const enoughNumber = profile.enoughNumber ?? null;
-    if (enoughNumber && totalPortfolioValue >= enoughNumber) {
-      warnings.push({
-        type:     'enough_number',
-        symbol:   null,
-        severity: 'amber',
-        message:  `Portfolio ($${Math.round(totalPortfolioValue).toLocaleString()}) has reached the enough number ($${Math.round(enoughNumber).toLocaleString()}) — consider transitioning to passive allocation`,
-      });
-    }
+    if (enoughNumber && totalPortfolioValue >= enoughNumber) warnings.push({
+      type: 'enough_number', symbol: null, severity: 'amber',
+      message: `Portfolio (${money(totalPortfolioValue)}) has reached the enough number (${money(enoughNumber)}) — consider transitioning to passive allocation`,
+    });
 
-    // ── Response ───────────────────────────────────────────────────────────
     res.json({
-      owner,
-      displayName:         profile.displayName ?? owner,
+      owner, displayName: profile.displayName ?? owner,
       totalPortfolioValue: +totalPortfolioValue.toFixed(2),
       totalMktValue:       +totalMktValue.toFixed(2),
       totalCash:           +totalCash.toFixed(2),
       cashReserveFloor:    +cashReserveFloor.toFixed(2),
       freeCash:            +freeCash.toFixed(2),
-      positionCount:       posCount,
+      positionCount:       byTicker.size,
       maxPositions,
-      minPositionDollar,
-
       barbellStatus: {
-        estPct:        estPct != null ? +estPct.toFixed(1) : null,
-        specPct:       specPct != null ? +specPct.toFixed(1) : null,
-        estTarget:     +(estSpecRatio * 100).toFixed(0),
-        specTarget:    +specTarget.toFixed(0),
-        inBalance:     barbellInBalance,
-        classifiedPct: classifiedTotal > 0
-          ? +((classifiedTotal / totalMktValue) * 100).toFixed(0)
-          : 0,
+        estPct:    estPct  != null ? +estPct.toFixed(1)  : null,
+        specPct:   specPct != null ? +specPct.toFixed(1) : null,
+        estTarget:  +(estSpecRatio * 100).toFixed(0),
+        specTarget: +specTarget.toFixed(0),
+        inBalance:  barbellOk,
+        estPoolPct:  +estPoolPct.toFixed(1),
+        specPoolPct: +specPoolPct.toFixed(1),
       },
-
       moves:               actionMoves,
-      holds:               holds.map(h => ({
-        symbol:      h.symbol,
-        shortName:   h.shortName,
-        thesisHealth: h.thesisHealth,
-        finalAction: h.finalAction,
-        trajectory:  h.trajectory,
-        tier:        h.tier,
-        currentPct:  h.currentPct,
-        currentMktValue: h.currentMktValue,
+      advisories:          holdMoves.filter(m => m.moveType === 'HOLD_ADVISORY'),
+      holds:               holdMoves.filter(m => m.moveType === 'HOLD').map(h => ({
+        symbol: h.symbol, shortName: h.shortName, bucket: h.bucket,
+        thesisHealth: h.thesisHealth, finalAction: h.finalAction,
+        trajectory: h.trajectory, tier: h.tier,
+        currentPct: h.currentPct, targetPct: h.targetPct, currentMktValue: h.currentMktValue,
       })),
-
       watchlistCandidates: finalCandidates,
-
-      capitalFlow: {
-        sources:          trimSources,
-        freeCash:         +freeCash.toFixed(2),
-        totalNetFreed:    +totalNetFreed.toFixed(2),
-        totalDeployable:  +totalDeployable.toFixed(2),
-        uses:             allUses,
-        totalNeeded:      +totalNeeded.toFixed(2),
-        surplus:          +surplus.toFixed(2),
-        shortfall:        surplus < 0 ? +(-surplus).toFixed(2) : 0,
-      },
-
+      capitalFlow,
       warnings,
     });
   } catch (err) {
@@ -757,5 +822,11 @@ router.get('/:owner', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+// Inline money formatter for warning messages
+function money(n) {
+  if (n == null) return '—';
+  return '$' + Math.abs(n).toLocaleString('en-US', { maximumFractionDigits: 0 });
+}
 
 module.exports = router;

@@ -32,12 +32,14 @@ const C = {
 };
 
 const MOVE_META = {
-  EXIT:         { label: 'EXIT',  color: C.red   },
-  TRIM_CAP:     { label: 'TRIM',  color: C.amber },
-  TRIM_RATCHET: { label: 'TRIM',  color: C.amber },
-  TRIM_SIGNAL:  { label: 'TRIM',  color: '#fbbf24' },
-  ADD:          { label: 'ADD',   color: C.green },
-  HOLD:         { label: 'HOLD',  color: C.blue  },
+  EXIT:          { label: 'EXIT',     color: C.red    },
+  TRIM_CAP:      { label: 'TRIM ⚑',  color: C.red    },
+  TRIM_RATCHET:  { label: 'TRIM',     color: C.amber  },
+  TRIM_SIGNAL:   { label: 'TRIM',     color: '#fbbf24'},
+  TRIM_MODEL:    { label: 'TRIM',     color: C.amber  },
+  ADD:           { label: 'ADD',      color: C.green  },
+  HOLD:          { label: 'HOLD',     color: C.blue   },
+  HOLD_ADVISORY: { label: 'ADVISORY', color: C.slate  },
 };
 
 const HEALTH_COLORS = {
@@ -228,11 +230,13 @@ function MoveCard({ move, idx }) {
         )}
         {move.currentPct != null && (
           <span style={{ fontSize: 11, color: C.dim }}>
-            {pct(move.currentPct)} current / {pct(move.hardCapPct, 0)} cap
+            {pct(move.currentPct)} current
+            {' / '}
+            {move.moveType === 'TRIM_MODEL' || move.moveType === 'ADD'
+              ? <>{pct(move.targetPct, 1)} model</>
+              : <>{pct(move.hardCapPct, 0)} cap</>
+            }
           </span>
-        )}
-        {move.moveType === 'ADD' && move.targetPct != null && (
-          <span style={{ fontSize: 11, color: C.green }}>→ {pct(move.targetPct, 0)} target</span>
         )}
       </div>
 
@@ -246,63 +250,105 @@ function MoveCard({ move, idx }) {
   );
 }
 
-// ─── Capital flow ─────────────────────────────────────────────────────────────
+// ─── Capital flow (funded now / queue split) ──────────────────────────────────
+
+function UseRow({ use, color }) {
+  return (
+    <div style={{
+      display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+      padding: '5px 0', borderBottom: `1px solid ${C.border}`, fontSize: 12,
+    }}>
+      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+        <span style={{ color: C.muted }}>{use.label}</span>
+        {use.status === 'partial' && (
+          <span style={{ fontSize: 9, fontWeight: 700, color: C.amber, background: C.amber + '15',
+            border: `1px solid ${C.amber}33`, borderRadius: 3, padding: '0 4px' }}>PARTIAL</span>
+        )}
+      </div>
+      <div style={{ textAlign: 'right' }}>
+        <span style={{ color: color ?? C.text, fontWeight: 600 }}>
+          {use.status === 'partial' ? money(use.partialAmount) : money(use.dollarNeeded)}
+        </span>
+        {use.status === 'partial' && (
+          <div style={{ fontSize: 10, color: C.dim }}>of {money(use.dollarNeeded)}</div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 function CapitalFlow({ flow }) {
   if (!flow) return null;
-  const hasSources = flow.sources?.length > 0;
-  const hasUses    = flow.uses?.length > 0;
-  if (!hasSources && flow.freeCash <= 0) return null;
+  const hasSources  = flow.sources?.length > 0;
+  const hasFunded   = flow.fundedNow?.length > 0;
+  const hasQueued   = flow.queue?.length > 0;
+  if (!hasSources && flow.freeCash <= 0 && !hasFunded && !hasQueued) return null;
 
   return (
     <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: '18px 20px' }}>
       <SectionHeader title="Capital Flow" color={C.blue} />
 
-      {/* Summary metrics */}
+      {/* Summary bar */}
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 20 }}>
-        <Metric label="FROM TRIMS"       value={money(flow.totalNetFreed)}   sub="net after tax" />
-        <Metric label="FREE CASH"        value={money(flow.freeCash)}        sub="above reserve" />
+        <Metric label="FROM TRIMS"       value={money(flow.totalNetFreed)}  sub="net after tax" />
+        <Metric label="FREE CASH"        value={money(flow.freeCash)}       sub="above reserve" />
         <div style={{ width: 1, background: C.border, alignSelf: 'stretch' }} />
-        <Metric label="TOTAL DEPLOYABLE" value={money(flow.totalDeployable)} color={C.blue} />
-        {hasUses && <Metric label="TOTAL NEEDED" value={money(flow.totalNeeded)} />}
-        {hasUses && (
-          <Metric
-            label={flow.surplus >= 0 ? 'SURPLUS' : 'SHORTFALL'}
-            value={flow.surplus >= 0 ? money(flow.surplus) : money(flow.shortfall)}
-            color={flow.surplus >= 0 ? C.green : C.red}
-            sub={flow.surplus < 0 ? 'needs new contribution' : null}
-          />
+        <Metric label="TOTAL DEPLOYABLE" value={money(flow.totalAvailable)} color={C.blue} />
+        {hasFunded && (
+          <Metric label="DEPLOYED NOW"   value={money(flow.fundedNow.reduce((s, u) => s + (u.partialAmount ?? u.dollarNeeded), 0))}
+            color={C.green} />
+        )}
+        {flow.surplusAfterFunded > 0 && (
+          <Metric label="SURPLUS"        value={money(flow.surplusAfterFunded)} color={C.slate} />
+        )}
+        {hasQueued && (
+          <Metric label="QUEUED"         value={money(flow.queueTotalNeeded)}
+            color={C.amber} sub="needs new contribution" />
         )}
       </div>
 
-      {/* Source → use table */}
-      {(hasSources || hasUses) && (
-        <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
-          {hasSources && (
-            <div style={{ flex: 1, minWidth: 160 }}>
-              <div style={{ fontSize: 10, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', marginBottom: 8 }}>SOURCES</div>
-              {flow.sources.map((s, i) => (
-                <FlowRow key={i} label={s.label} amount={s.netFreed}
-                  sub={s.taxCost !== 0 ? (s.taxCost < 0 ? `+${money(-s.taxCost)} harvest` : `−${money(s.taxCost)} tax`) : null}
-                  subColor={s.taxCost < 0 ? C.green : C.amber}
-                />
-              ))}
-              {flow.freeCash > 0 && <FlowRow label="Free cash" amount={flow.freeCash} />}
+      {/* 3-column layout: sources | funded now | queued */}
+      <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+        {hasSources && (
+          <div style={{ flex: 1, minWidth: 160 }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', marginBottom: 8 }}>SOURCES</div>
+            {flow.sources.map((s, i) => (
+              <FlowRow key={i} label={s.label} amount={s.netFreed}
+                sub={s.taxCost > 0 ? `−${money(s.taxCost)} tax` : s.taxCost < 0 ? `+${money(-s.taxCost)} harvest` : null}
+                subColor={s.taxCost > 0 ? C.amber : C.green}
+              />
+            ))}
+            {flow.freeCash > 0 && <FlowRow label="Free cash" amount={flow.freeCash} />}
+          </div>
+        )}
+
+        {hasSources && (hasFunded || hasQueued) && (
+          <div style={{ display: 'flex', alignItems: 'center', color: C.faint, fontSize: 18 }}>→</div>
+        )}
+
+        {hasFunded && (
+          <div style={{ flex: 1, minWidth: 160 }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: C.green, letterSpacing: '0.06em', marginBottom: 8 }}>
+              FUNDED NOW
             </div>
-          )}
-          {hasSources && hasUses && (
-            <div style={{ display: 'flex', alignItems: 'center', color: C.faint, fontSize: 20 }}>→</div>
-          )}
-          {hasUses && (
-            <div style={{ flex: 1, minWidth: 160 }}>
-              <div style={{ fontSize: 10, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', marginBottom: 8 }}>USES</div>
-              {flow.uses.map((u, i) => (
-                <FlowRow key={i} label={u.label} amount={u.dollarNeeded} />
-              ))}
+            {flow.fundedNow.map((u, i) => (
+              <UseRow key={i} use={u} color={C.green} />
+            ))}
+          </div>
+        )}
+
+        {hasQueued && (
+          <div style={{ flex: 1, minWidth: 160 }}>
+            <div style={{ display: 'flex', gap: 6, alignItems: 'center', marginBottom: 8 }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: C.amber, letterSpacing: '0.06em' }}>QUEUE</div>
+              <span style={{ fontSize: 9, color: C.dim }}>needs new capital</span>
             </div>
-          )}
-        </div>
-      )}
+            {flow.queue.map((u, i) => (
+              <UseRow key={i} use={u} color={C.dim} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -510,7 +556,9 @@ function PortfolioSummaryBar({ data }) {
             </div>
             <span style={{ fontSize: 11, color: bb.inBalance ? C.dim : C.amber }}>SPEC {bb.specPct.toFixed(0)}%</span>
           </div>
-          <div style={{ fontSize: 10, color: C.faint, marginTop: 2 }}>target {bb.estTarget}/{bb.specTarget}</div>
+          <div style={{ fontSize: 10, color: C.faint, marginTop: 2 }}>
+            target {bb.estTarget}/{bb.specTarget} · pool {bb.estPoolPct?.toFixed(0)}%/{bb.specPoolPct?.toFixed(0)}% avail
+          </div>
         </div>
       ) : (
         <div style={{ fontSize: 12, color: C.faint, fontStyle: 'italic' }}>barbell: tier data pending</div>
@@ -657,8 +705,31 @@ export default function PortfolioManager() {
             }
           </div>
 
+          {/* Advisories (HOLD_ADVISORY — winners running) */}
+          {data.advisories?.length > 0 && (
+            <div style={{ marginBottom: 24, padding: '14px 16px', background: C.card,
+              border: `1px solid ${C.slate}44`, borderRadius: 10 }}>
+              <SectionHeader title="Let Run" count={data.advisories.length} color={C.slate} />
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                {data.advisories.map(a => (
+                  <div key={a.symbol} style={{
+                    display: 'flex', alignItems: 'center', gap: 6,
+                    background: C.border, borderRadius: 6, padding: '5px 10px', fontSize: 12,
+                  }}>
+                    <span style={{ fontWeight: 700, color: C.text }}>{a.symbol}</span>
+                    <TierChip tier={a.tier} />
+                    <span style={{ fontSize: 11, color: C.green }}>{pct(a.currentPct)}</span>
+                    <span style={{ fontSize: 10, color: C.dim }}>→ cap {pct(a.hardCapPct, 0)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Capital flow */}
-          {(data.capitalFlow?.sources?.length > 0 || data.capitalFlow?.uses?.length > 0) && (
+          {(data.capitalFlow?.sources?.length > 0 ||
+            data.capitalFlow?.fundedNow?.length > 0 ||
+            data.capitalFlow?.queue?.length > 0) && (
             <div style={{ marginBottom: 24 }}>
               <CapitalFlow flow={data.capitalFlow} />
             </div>
