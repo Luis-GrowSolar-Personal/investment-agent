@@ -895,7 +895,7 @@ function PositionCapsSection({ owner, getToken }) {
   const inp = {
     background: '#0d1018', border: '1px solid #2d3748', borderRadius: 4,
     color: '#f1f5f9', fontSize: 12, padding: '4px 8px',
-    width: 64, textAlign: 'right', outline: 'none',
+    width: 90, textAlign: 'right', outline: 'none',
   };
 
   return (
