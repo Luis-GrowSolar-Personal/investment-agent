@@ -11,6 +11,7 @@ function tabStyle(isActive) {
     background: isActive ? '#1e2330' : 'transparent',
     textDecoration: 'none',
     transition: 'color 0.15s, background 0.15s',
+    whiteSpace: 'nowrap',
   };
 }
 
@@ -32,27 +33,20 @@ export default function NavBar() {
       alignItems: 'center',
       padding: '0 24px',
       zIndex: 100,
-      gap: 24,
+      gap: 4,
     }}>
-      <span style={{ fontSize: 13, fontWeight: 700, color: '#475569', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
-        Portfolio Analyst
-      </span>
-
       <div style={{ display: 'flex', gap: 4, flex: 1 }}>
         <NavLink to="/" end style={({ isActive }) => tabStyle(isActive)}>
-          Stock Analyst
+          Portfolio Manager
         </NavLink>
-        <NavLink to="/radar" style={({ isActive }) => tabStyle(isActive)}>
-          Stock Radar
+        <NavLink to="/glance" style={({ isActive }) => tabStyle(isActive)}>
+          At a Glance
         </NavLink>
-        <NavLink to="/advisories" style={({ isActive }) => tabStyle(isActive)}>
-          Advisory Feed
+        <NavLink to="/accounts" style={({ isActive }) => tabStyle(isActive)}>
+          Accounts
         </NavLink>
-        <NavLink to="/portfolio" style={({ isActive }) => tabStyle(isActive)}>
-          Portfolio
-        </NavLink>
-        <NavLink to="/dashboard" style={({ isActive }) => tabStyle(isActive)}>
-          Dashboard
+        <NavLink to="/ideas" style={({ isActive }) => tabStyle(isActive)}>
+          Investment Ideas
         </NavLink>
         <NavLink to="/admin" style={({ isActive }) => tabStyle(isActive)}>
           Admin
