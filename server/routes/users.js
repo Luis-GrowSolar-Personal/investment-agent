@@ -100,10 +100,15 @@ router.patch('/:owner', async (req, res) => {
   const data = {};
 
   // String fields — empty string → null
-  const strFields = ['displayName', 'riskTolerance', 'taxSensitivity', 'accountPurpose',
-                     'benchmarkBaseline', 'specExitSpeed', 'newMoneyBehavior'];
+  const strFields = ['displayName', 'clerkUserId', 'riskTolerance', 'taxSensitivity',
+                     'accountPurpose', 'benchmarkBaseline', 'specExitSpeed', 'newMoneyBehavior'];
   for (const f of strFields) {
     if (body[f] !== undefined) data[f] = body[f] === '' ? null : body[f];
+  }
+
+  // Role field — never null; default to 'user'
+  if (body.role !== undefined) {
+    data.role = ['admin', 'user'].includes(body.role) ? body.role : 'user';
   }
 
   // Float fields — empty string → null

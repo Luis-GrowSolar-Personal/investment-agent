@@ -298,6 +298,8 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
       enoughNumber:      p.enoughNumber      ?? '',
       yearsToGoal:       p.yearsToGoal       ?? '',
       displayName:       p.displayName       ?? '',
+      clerkUserId:       p.clerkUserId       ?? '',
+      role:              p.role              ?? 'user',
       domainsOfInterest: p.domainsOfInterest ?? [],
     };
   }
@@ -312,6 +314,8 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
       enoughNumber:      d.enoughNumber      === '' ? null : Number(d.enoughNumber),
       yearsToGoal:       d.yearsToGoal       === '' ? null : Number(d.yearsToGoal),
       displayName:       d.displayName.trim() || null,
+      clerkUserId:       d.clerkUserId.trim() || null,
+      role:              d.role || 'user',
       domainsOfInterest: d.domainsOfInterest.length > 0 ? d.domainsOfInterest : null,
     };
   }
@@ -469,6 +473,34 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
                   onChange={v => set('displayName', v)}
                   placeholder={profile.owner}
                   width={200}
+                />
+              </Field>
+
+              <Field
+                label="Role"
+                hint={p.role === 'admin'
+                  ? 'Full access — sees all owners, all accounts, all Admin cards.'
+                  : 'Restricted access — sees only their own Radar, Portfolio, and Admin card.'}
+              >
+                <SegmentedControl
+                  value={p.role || 'user'}
+                  onChange={v => set('role', v)}
+                  options={[
+                    { value: 'user',  label: 'User' },
+                    { value: 'admin', label: 'Admin' },
+                  ]}
+                />
+              </Field>
+
+              <Field
+                label="Clerk user ID"
+                hint="Paste from the Clerk dashboard (Users → select user → copy user_* ID). Links this owner to their login."
+              >
+                <TextInput
+                  value={p.clerkUserId ?? ''}
+                  onChange={v => set('clerkUserId', v)}
+                  placeholder="user_2abc…"
+                  width={220}
                 />
               </Field>
 

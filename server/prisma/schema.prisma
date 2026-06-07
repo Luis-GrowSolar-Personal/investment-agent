@@ -110,6 +110,10 @@ model OwnerProfile {
   displayName  String?               // optional friendly override (e.g. "Luis")
   enoughNumber Float?                // investment goal / "enough number" in dollars
 
+  // ── Access control ────────────────────────────────────────────────────
+  clerkUserId  String?  @unique      // Clerk user_* ID — links a login to this owner
+  role         String   @default("user") // "admin" | "user"
+
   // ── Capital & sizing ──────────────────────────────────────────────────
   minPositionDollar Float?           // smallest position worth holding (default $1,500)
   maxPositions      Int?             // hard cap on ticker count (default 15)
