@@ -784,6 +784,9 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
 
           </div>
 
+          {/* Position caps — always visible when card is open */}
+          <PositionCapsSection owner={profile.owner} getToken={getToken} />
+
           {/* Save row */}
           {draft && (
             <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid #1e2330', display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
@@ -796,6 +799,169 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Position Caps section — per-owner cap % overrides for held positions
+// ---------------------------------------------------------------------------
+
+const BUCKET_LABELS = {
+  etf:       'ETF / Index',
+  commodity: 'Commodity',
+  crypto:    'Crypto',
+  equity:    'Equity',
+};
+const BUCKET_ORDER = ['etf', 'commodity', 'crypto', 'equity'];
+
+function PositionCapsSection({ owner, getToken }) {
+  const [rows,    setRows]    = useState(null);   // null = loading
+  const [drafts,  setDrafts]  = useState({});     // tickerId → string input value
+  const [saving,  setSaving]  = useState({});     // tickerId → bool
+  const [errors,  setErrors]  = useState({});     // tickerId → string
+  const [err,     setErr]     = useState('');
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const token = await getToken();
+        const r = await fetch(`/api/owner-ticker-config/${encodeURIComponent(owner)}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const d = await r.json();
+        if (!r.ok) throw new Error(d.error);
+        setRows(d.rows);
+        // Initialise drafts from current effective cap
+        const init = {};
+        d.rows.forEach(row => {
+          init[row.tickerId] = row.ownerCapPercent != null
+            ? String(row.ownerCapPercent)
+            : '';
+        });
+        setDrafts(init);
+      } catch (e) {
+        setErr(e.message);
+      }
+    })();
+  }, [owner, getToken]);
+
+  async function saveCap(tickerId) {
+    const raw = drafts[tickerId];
+    const val = raw === '' ? null : parseFloat(raw);
+    if (raw !== '' && (isNaN(val) || val < 0 || val > 100)) {
+      setErrors(e => ({ ...e, [tickerId]: '0–100 required' }));
+      return;
+    }
+    setSaving(s => ({ ...s, [tickerId]: true }));
+    setErrors(e => ({ ...e, [tickerId]: null }));
+    try {
+      const token = await getToken();
+      const r = await fetch(
+        `/api/owner-ticker-config/${encodeURIComponent(owner)}/${tickerId}`,
+        {
+          method:  'PUT',
+          headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ capPercent: val }),
+        }
+      );
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error);
+      // Update rows with new effective cap
+      setRows(prev => prev.map(row =>
+        row.tickerId === tickerId
+          ? { ...row, ownerCapPercent: d.capPercent, effectiveCapPct: d.capPercent ?? row.globalCapPercent }
+          : row
+      ));
+    } catch (e) {
+      setErrors(prev => ({ ...prev, [tickerId]: e.message }));
+    } finally {
+      setSaving(s => ({ ...s, [tickerId]: false }));
+    }
+  }
+
+  if (err) return <div style={{ fontSize: 12, color: '#ef4444', padding: '8px 0' }}>{err}</div>;
+  if (!rows) return <div style={{ fontSize: 12, color: '#475569', padding: '8px 0' }}>Loading position caps…</div>;
+  if (rows.length === 0) return <div style={{ fontSize: 12, color: '#475569', padding: '8px 0' }}>No active positions found.</div>;
+
+  // Group by bucket
+  const groups = {};
+  for (const row of rows) {
+    const b = row.bucket ?? 'equity';
+    if (!groups[b]) groups[b] = [];
+    groups[b].push(row);
+  }
+
+  const inp = {
+    background: '#0d1018', border: '1px solid #2d3748', borderRadius: 4,
+    color: '#f1f5f9', fontSize: 12, padding: '4px 8px',
+    width: 64, textAlign: 'right', outline: 'none',
+  };
+
+  return (
+    <div style={{ marginTop: 28, paddingTop: 20, borderTop: '1px solid #1e2330' }}>
+      <SectionHeader
+        title="Position Caps"
+        subtitle="Per-owner target allocation for each held position. Overrides the global cap. Leave blank to use global default."
+      />
+      {BUCKET_ORDER.filter(b => groups[b]).map(bucket => (
+        <div key={bucket} style={{ marginBottom: 20 }}>
+          <div style={{
+            fontSize: 10, fontWeight: 700, color: '#64748b',
+            letterSpacing: '0.08em', textTransform: 'uppercase',
+            marginBottom: 6,
+          }}>
+            {BUCKET_LABELS[bucket] ?? bucket}
+          </div>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid #1e2330' }}>
+                {['Symbol', 'Current', 'Global cap', 'Owner cap', ''].map(h => (
+                  <th key={h} style={{ padding: '4px 8px', color: '#475569', fontWeight: 600, textAlign: h === '' ? 'right' : 'left', fontSize: 10 }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {groups[bucket].map(row => (
+                <tr key={row.tickerId} style={{ borderBottom: '1px solid #0f1319' }}>
+                  <td style={{ padding: '6px 8px', fontWeight: 700, color: '#f1f5f9' }}>{row.symbol}</td>
+                  <td style={{ padding: '6px 8px', color: '#94a3b8' }}>{row.currentPct.toFixed(1)}%</td>
+                  <td style={{ padding: '6px 8px', color: '#475569' }}>{row.globalCapPercent != null ? `${row.globalCapPercent}%` : '—'}</td>
+                  <td style={{ padding: '6px 8px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <input
+                        type="number" min="0" max="100" step="1"
+                        style={{ ...inp, borderColor: errors[row.tickerId] ? '#ef4444' : '#2d3748' }}
+                        value={drafts[row.tickerId] ?? ''}
+                        placeholder={row.globalCapPercent != null ? String(row.globalCapPercent) : '—'}
+                        onChange={e => setDrafts(d => ({ ...d, [row.tickerId]: e.target.value }))}
+                        onKeyDown={e => e.key === 'Enter' && saveCap(row.tickerId)}
+                      />
+                      <span style={{ fontSize: 10, color: '#475569' }}>%</span>
+                      {errors[row.tickerId] && (
+                        <span style={{ fontSize: 10, color: '#ef4444' }}>{errors[row.tickerId]}</span>
+                      )}
+                    </div>
+                  </td>
+                  <td style={{ padding: '6px 8px', textAlign: 'right' }}>
+                    <button
+                      onClick={() => saveCap(row.tickerId)}
+                      disabled={saving[row.tickerId]}
+                      style={{
+                        background: 'transparent', border: '1px solid #2d3748',
+                        color: '#94a3b8', fontSize: 11, padding: '3px 10px',
+                        borderRadius: 4, cursor: 'pointer',
+                      }}
+                    >
+                      {saving[row.tickerId] ? '…' : 'Save'}
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
     </div>
   );
 }

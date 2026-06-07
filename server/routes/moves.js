@@ -565,6 +565,16 @@ router.get('/:owner', async (req, res) => {
     const minPositionDollar = profile.minPositionDollar ?? DEFAULT_MIN_POS_USD;
     const ownerTaxRates     = { ltcg: DEFAULT_LTCG_RATE, stcg: DEFAULT_STCG_RATE };
 
+    // ── Per-owner cap overrides ───────────────────────────────────────────────
+    const ownerConfigs = await prisma.ownerTickerConfig.findMany({ where: { owner } });
+    const ownerCapMap  = new Map(ownerConfigs.map(c => [c.tickerId, c.capPercent]));
+
+    // Helper: effective cap for a ticker for this owner
+    function effectiveCap(ticker) {
+      const ownerCap = ownerCapMap.get(ticker.id);
+      return ownerCap != null ? ownerCap : (ticker.capPercent ?? 100);
+    }
+
     // ── Accounts + positions ──────────────────────────────────────────────────
     const accounts = await prisma.account.findMany({
       where:   { owner },
@@ -636,7 +646,7 @@ router.get('/:owner', async (req, res) => {
     let etfTargetPct       = 0;
     let commCryptoTargetPct = 0;
     for (const g of fixedGroups) {
-      const tgt = g.ticker.capPercent ?? 5;
+      const tgt = effectiveCap(g.ticker);
       if (isETF(g.ticker))              etfTargetPct        += tgt;
       else if (isCommodityOrCrypto(g.ticker)) commCryptoTargetPct += tgt;
     }
@@ -660,10 +670,11 @@ router.get('/:owner', async (req, res) => {
     // ── Generate moves ─────────────────────────────────────────────────────────
     const allMoves = [];
 
-    // Fixed-target assets
+    // Fixed-target assets (inject per-owner cap)
     for (const g of fixedGroups) {
+      const tickerWithOwnerCap = { ...g.ticker, capPercent: effectiveCap(g.ticker) };
       const move = generateFixedTargetMove(
-        g.ticker, g.positions, totalPortfolioValue, g.latestAnalysis, ownerTaxRates
+        tickerWithOwnerCap, g.positions, totalPortfolioValue, g.latestAnalysis, ownerTaxRates
       );
       allMoves.push(move);
     }
@@ -671,8 +682,10 @@ router.get('/:owner', async (req, res) => {
     // Individual stocks
     for (const g of individualGroups) {
       const modelWeightPct = modelWeights.get(g.ticker.id) ?? 0;
+      // Inject per-owner cap so generateMovesForTicker uses it for hardCapPct
+      const tickerWithOwnerCap = { ...g.ticker, capPercent: effectiveCap(g.ticker) };
       const moves = generateMovesForTicker(
-        g.ticker, g.positions, totalPortfolioValue,
+        tickerWithOwnerCap, g.positions, totalPortfolioValue,
         g.latestAnalysis, modelWeightPct, profile, ownerTaxRates
       );
       allMoves.push(...moves);

@@ -11,7 +11,8 @@ const radarRouter     = require('./routes/radar');
 const portfolioRouter = require('./routes/portfolio');
 const usersRouter      = require('./routes/users');
 const dashboardRouter  = require('./routes/dashboard');
-const movesRouter      = require('./routes/moves');
+const movesRouter             = require('./routes/moves');
+const ownerTickerConfigRouter = require('./routes/ownerTickerConfig');
 
 const app = express();
 // Railway sets PORT dynamically; default to 3001 for local dev.
@@ -34,7 +35,8 @@ app.use('/api/radar', radarRouter);
 app.use('/api/portfolio', portfolioRouter);
 app.use('/api/users',     usersRouter);
 app.use('/api/dashboard', dashboardRouter);
-app.use('/api/moves',     movesRouter);
+app.use('/api/moves',              movesRouter);
+app.use('/api/owner-ticker-config', ownerTickerConfigRouter);
 
 // Production: serve the Vite build at /. The build step (defined in
 // nixpacks.toml at repo root) runs `npm run build` in client/, which writes

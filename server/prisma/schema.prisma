@@ -38,6 +38,21 @@ model Ticker {
   // null → fall back to smartDefault(assetType, symbol) at display time.
   // Values: "equity" | "etf" | "crypto" | "commodity"
   bucketOverride     String?
+
+  ownerConfigs       OwnerTickerConfig[]
+}
+
+// Per-owner cap % override for any held position.
+// Falls back to Ticker.capPercent when no row exists for a given owner+ticker pair.
+model OwnerTickerConfig {
+  id         Int    @id @default(autoincrement())
+  owner      String
+  tickerId   Int
+  capPercent Float?            // owner's target allocation % for this ticker
+
+  ticker     Ticker @relation(fields: [tickerId], references: [id], onDelete: Cascade)
+
+  @@unique([owner, tickerId])
 }
 
 model Transcript {
