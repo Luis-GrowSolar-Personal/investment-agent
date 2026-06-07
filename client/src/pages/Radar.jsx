@@ -755,7 +755,8 @@ function TickerTable({ tickers, section, onAction, getToken }) {
   const [editCapPercent, setEditCapPercent] = useState('');
   const [editStatus, setEditStatus]       = useState('watchlist');
   const [editInScope, setEditInScope]     = useState(true);
-  const [editTierOverride, setEditTierOverride] = useState('');  // '' = auto, 'speculative', 'established'
+  const [editTierOverride, setEditTierOverride]     = useState('');  // '' = auto, 'speculative', 'established'
+  const [editBucketOverride, setEditBucketOverride] = useState('');  // '' = equity (default), 'etf', 'commodity', 'crypto'
   const [renameError, setRenameError]     = useState(null);
   // Sort state: { key: 'symbol'|'type'|'lastUpdated', dir: 'asc'|'desc' }
   // Click a column header to sort by it. Click again to toggle direction.
@@ -827,6 +828,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
     setEditStatus(ticker.status ?? 'watchlist');
     setEditInScope(ticker.inScope !== false);
     setEditTierOverride(ticker.tierOverride ?? '');
+    setEditBucketOverride(ticker.bucketOverride ?? '');
     setRenameError(null);
   }
 
@@ -854,7 +856,8 @@ function TickerTable({ tickers, section, onAction, getToken }) {
         capPercent:  editCapPercent !== '' ? parseFloat(editCapPercent) : undefined,
         status:      editStatus,
         inScope:     editInScope,
-        tierOverride: editTierOverride || null,
+        tierOverride:   editTierOverride   || null,
+        bucketOverride: editBucketOverride || null,
       }, getToken));
       setRenamingId(null);
     } catch (err) {
@@ -1037,7 +1040,8 @@ function TickerTable({ tickers, section, onAction, getToken }) {
         editCapPercent={editCapPercent} setEditCapPercent={setEditCapPercent}
         editStatus={editStatus}        setEditStatus={setEditStatus}
         editInScope={editInScope}      setEditInScope={setEditInScope}
-        editTierOverride={editTierOverride} setEditTierOverride={setEditTierOverride}
+        editTierOverride={editTierOverride}   setEditTierOverride={setEditTierOverride}
+        editBucketOverride={editBucketOverride} setEditBucketOverride={setEditBucketOverride}
         renameError={renameError}
         onSave={() => commitRename(renamingId)}
         onClose={() => { setRenamingId(null); setRenameError(null); }}
@@ -1055,7 +1059,8 @@ function RenameTickerModal({
   editCapPercent, setEditCapPercent,
   editStatus,   setEditStatus,
   editInScope,  setEditInScope,
-  editTierOverride, setEditTierOverride,
+  editTierOverride,   setEditTierOverride,
+  editBucketOverride, setEditBucketOverride,
   renameError,  onSave, onClose,
 }) {
   const inp = {
@@ -1131,6 +1136,22 @@ function RenameTickerModal({
               </div>
             )}
           </div>
+          {/* Bucket override */}
+          <div>
+            <label style={lbl}>Asset bucket</label>
+            <select style={{ ...inp, cursor: 'pointer' }} value={editBucketOverride} onChange={e => setEditBucketOverride(e.target.value)}>
+              <option value="">Equity (default — individual stock, analyst-scored)</option>
+              <option value="etf">ETF / Index fund — fixed target, no analyst score needed</option>
+              <option value="commodity">Commodity (gold, silver, etc.) — SPEC pool, fixed target</option>
+              <option value="crypto">Crypto — SPEC pool, fixed target</option>
+            </select>
+            {editBucketOverride && editBucketOverride !== 'equity' && (
+              <div style={{ fontSize: 11, color: '#60a5fa', marginTop: 4 }}>
+                Fixed-target asset: Portfolio Manager will use Cap % as the target allocation, not an analyst model weight.
+              </div>
+            )}
+          </div>
+
           {/* inScope toggle */}
           <label style={{ fontSize: 12, color: '#64748b', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}>
             <input type="checkbox" checked={editInScope} onChange={e => setEditInScope(e.target.checked)} />

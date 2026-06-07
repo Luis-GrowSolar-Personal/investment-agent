@@ -284,10 +284,10 @@ router.post('/tickers', requireAuth(), async (req, res) => {
   }
 });
 
-// PATCH /api/radar/tickers/:id — update name, type, capPercent, status, inScope, tierOverride
+// PATCH /api/radar/tickers/:id — update name, type, capPercent, status, inScope, tierOverride, bucketOverride
 router.patch('/tickers/:id', requireAuth(), async (req, res) => {
   const id = parseInt(req.params.id);
-  const { symbol, name, type, capPercent, status, inScope, tierOverride } = req.body;
+  const { symbol, name, type, capPercent, status, inScope, tierOverride, bucketOverride } = req.body;
 
   try {
     const newSymbol = symbol?.trim().toUpperCase();
@@ -306,12 +306,13 @@ router.patch('/tickers/:id', requireAuth(), async (req, res) => {
         const updated = await prisma.ticker.update({
           where: { id: conflict.id },
           data: {
-            ...(name        !== undefined && { name }),
-            ...(type        !== undefined && { type }),
-            ...(capPercent  !== undefined && { capPercent }),
-            ...(status      !== undefined && { status }),
-            ...(inScope     !== undefined && { inScope }),
-            ...(tierOverride !== undefined && { tierOverride: tierOverride || null }),
+            ...(name           !== undefined && { name }),
+            ...(type           !== undefined && { type }),
+            ...(capPercent     !== undefined && { capPercent }),
+            ...(status         !== undefined && { status }),
+            ...(inScope        !== undefined && { inScope }),
+            ...(tierOverride   !== undefined && { tierOverride:   tierOverride   || null }),
+            ...(bucketOverride !== undefined && { bucketOverride: bucketOverride || null }),
           },
         });
         return res.json({ ...updated, merged: true });
@@ -321,13 +322,14 @@ router.patch('/tickers/:id', requireAuth(), async (req, res) => {
     const updated = await prisma.ticker.update({
       where: { id },
       data: {
-        ...(newSymbol    !== undefined && { symbol: newSymbol }),
-        ...(name         !== undefined && { name }),
-        ...(type         !== undefined && { type }),
-        ...(capPercent   !== undefined && { capPercent }),
-        ...(status       !== undefined && { status }),
-        ...(inScope      !== undefined && { inScope }),
-        ...(tierOverride !== undefined && { tierOverride: tierOverride || null }),
+        ...(newSymbol      !== undefined && { symbol: newSymbol }),
+        ...(name           !== undefined && { name }),
+        ...(type           !== undefined && { type }),
+        ...(capPercent     !== undefined && { capPercent }),
+        ...(status         !== undefined && { status }),
+        ...(inScope        !== undefined && { inScope }),
+        ...(tierOverride   !== undefined && { tierOverride:   tierOverride   || null }),
+        ...(bucketOverride !== undefined && { bucketOverride: bucketOverride || null }),
       },
     });
     res.json(updated);
