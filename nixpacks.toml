@@ -29,6 +29,7 @@ cmds = [
 [phases.build]
 cmds = [
   "cd server && npx prisma generate",
+  "cd server && npx prisma migrate deploy",
   "cd client && npm run build",
 ]
 
