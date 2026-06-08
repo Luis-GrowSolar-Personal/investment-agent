@@ -902,7 +902,7 @@ function PositionCapsSection({ owner, getToken }) {
     <div style={{ marginTop: 28, paddingTop: 20, borderTop: '1px solid #1e2330' }}>
       <SectionHeader
         title="Position Caps"
-        subtitle="Per-owner target allocation for each held position. Overrides the global cap. Leave blank to use global default."
+        subtitle="Per-owner target allocation. ETF / commodity / crypto caps apply whether or not the owner currently holds the asset."
       />
       {BUCKET_ORDER.filter(b => groups[b]).map(bucket => (
         <div key={bucket} style={{ marginBottom: 20 }}>
@@ -922,42 +922,59 @@ function PositionCapsSection({ owner, getToken }) {
               </tr>
             </thead>
             <tbody>
-              {groups[bucket].map(row => (
-                <tr key={row.tickerId} style={{ borderBottom: '1px solid #0f1319' }}>
-                  <td style={{ padding: '6px 8px', fontWeight: 700, color: '#f1f5f9' }}>{row.symbol}</td>
-                  <td style={{ padding: '6px 8px', color: '#94a3b8' }}>{row.currentPct.toFixed(1)}%</td>
-                  <td style={{ padding: '6px 8px', color: '#475569' }}>{row.globalCapPercent != null ? `${row.globalCapPercent}%` : '—'}</td>
-                  <td style={{ padding: '6px 8px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <input
-                        type="number" min="0" max="100" step="1"
-                        style={{ ...inp, borderColor: errors[row.tickerId] ? '#ef4444' : '#2d3748' }}
-                        value={drafts[row.tickerId] ?? ''}
-                        placeholder={row.globalCapPercent != null ? `e.g. ${row.globalCapPercent}` : 'e.g. 5'}
-                        onChange={e => setDrafts(d => ({ ...d, [row.tickerId]: e.target.value }))}
-                        onKeyDown={e => e.key === 'Enter' && saveCap(row.tickerId)}
-                      />
-                      <span style={{ fontSize: 10, color: '#475569' }}>%</span>
-                      {errors[row.tickerId] && (
-                        <span style={{ fontSize: 10, color: '#ef4444' }}>{errors[row.tickerId]}</span>
-                      )}
-                    </div>
-                  </td>
-                  <td style={{ padding: '6px 8px', textAlign: 'right' }}>
-                    <button
-                      onClick={() => saveCap(row.tickerId)}
-                      disabled={saving[row.tickerId]}
-                      style={{
-                        background: 'transparent', border: '1px solid #2d3748',
-                        color: '#94a3b8', fontSize: 11, padding: '3px 10px',
-                        borderRadius: 4, cursor: 'pointer',
-                      }}
-                    >
-                      {saving[row.tickerId] ? '…' : 'Save'}
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {groups[bucket].map(row => {
+                const notHeld = !row.isHeld;
+                return (
+                  <tr key={row.tickerId} style={{ borderBottom: '1px solid #0f1319', opacity: notHeld ? 0.6 : 1 }}>
+                    <td style={{ padding: '6px 8px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ fontWeight: 700, color: notHeld ? '#64748b' : '#f1f5f9' }}>{row.symbol}</span>
+                        {notHeld && (
+                          <span style={{
+                            fontSize: 9, fontWeight: 600, padding: '1px 5px',
+                            borderRadius: 3, background: '#1e2330',
+                            color: '#475569', letterSpacing: '0.05em',
+                            textTransform: 'uppercase',
+                          }}>not held</span>
+                        )}
+                      </div>
+                    </td>
+                    <td style={{ padding: '6px 8px', color: '#64748b' }}>
+                      {notHeld ? '—' : `${row.currentPct.toFixed(1)}%`}
+                    </td>
+                    <td style={{ padding: '6px 8px', color: '#475569' }}>{row.globalCapPercent != null ? `${row.globalCapPercent}%` : '—'}</td>
+                    <td style={{ padding: '6px 8px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <input
+                          type="number" min="0" max="100" step="1"
+                          style={{ ...inp, borderColor: errors[row.tickerId] ? '#ef4444' : '#2d3748' }}
+                          value={drafts[row.tickerId] ?? ''}
+                          placeholder={row.globalCapPercent != null ? `e.g. ${row.globalCapPercent}` : 'e.g. 5'}
+                          onChange={e => setDrafts(d => ({ ...d, [row.tickerId]: e.target.value }))}
+                          onKeyDown={e => e.key === 'Enter' && saveCap(row.tickerId)}
+                        />
+                        <span style={{ fontSize: 10, color: '#475569' }}>%</span>
+                        {errors[row.tickerId] && (
+                          <span style={{ fontSize: 10, color: '#ef4444' }}>{errors[row.tickerId]}</span>
+                        )}
+                      </div>
+                    </td>
+                    <td style={{ padding: '6px 8px', textAlign: 'right' }}>
+                      <button
+                        onClick={() => saveCap(row.tickerId)}
+                        disabled={saving[row.tickerId]}
+                        style={{
+                          background: 'transparent', border: '1px solid #2d3748',
+                          color: '#94a3b8', fontSize: 11, padding: '3px 10px',
+                          borderRadius: 4, cursor: 'pointer',
+                        }}
+                      >
+                        {saving[row.tickerId] ? '…' : 'Save'}
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
