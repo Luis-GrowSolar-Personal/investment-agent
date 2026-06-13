@@ -166,3 +166,9 @@ Small positions (gold, silver, bitcoin) are preserved this way per user preferen
     purposes — they're excluded from `moves.js` (see `inScope` guard added 2026-06-13) but still
     need a home in the UI so they're not just hidden/orphaned. Likely just a filtered view of the
     existing Radar table (`status` unchanged, filter on `inScope === false`), not a new data model.
+
+14. **Rename "Type" → "Drivers" in UI labels** — Wherever the "Type" column/header and A/B values
+    appear (Radar, Portfolio Manager, etc.), relabel for clarity: header "Type" → "Drivers",
+    value "A" → "Single", value "B" → "Multi". Cosmetic only — underlying `Type A`/`Type B`
+    classification, `type_classifications.json`, and `type_classifier.build_type_function()`
+    logic are unchanged.
