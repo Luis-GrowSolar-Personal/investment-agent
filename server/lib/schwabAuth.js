@@ -1,0 +1,200 @@
+/**
+ * schwabAuth.js
+ *
+ * Schwab Trader API — 3-legged OAuth (Phase 1: scaffolding only, no data
+ * sync). Read-only scope is sufficient for everything this app needs
+ * (account positions, balances, quotes) — never request trading scopes.
+ *
+ * Flow:
+ *  1. GET /api/schwab/connect redirects the user to Schwab's authorization
+ *     page (getAuthUrl()).
+ *  2. User logs in with their Schwab brokerage credentials (NOT developer
+ *     portal credentials) and selects which account(s) to link.
+ *  3. Schwab redirects back to SCHWAB_REDIRECT_URI with ?code=...
+ *  4. GET /api/schwab/callback calls exchangeCodeForTokens(), which trades
+ *     the code for an access_token + refresh_token and persists both in the
+ *     single-row SchwabToken table.
+ *  5. Any future Trader API call should go through getValidAccessToken(),
+ *     which transparently refreshes the access_token when it's expired or
+ *     near expiry.
+ *
+ * Env required: SCHWAB_CLIENT_ID, SCHWAB_CLIENT_SECRET, SCHWAB_REDIRECT_URI
+ * (SCHWAB_REDIRECT_URI must exactly match the callback URL registered in the
+ * Schwab developer app.)
+ *
+ * Token lifetimes (per Schwab Trader API docs):
+ *  - access_token:  ~30 minutes
+ *  - refresh_token: ~7 days, and Schwab issues a NEW refresh_token on every
+ *    refresh — the old one becomes invalid, so the new one must be persisted
+ *    every time or the chain breaks and re-authorization (step 1-4) is
+ *    required again.
+ *
+ * Token storage: single shared SchwabToken row (id: 1). One Schwab login is
+ * account-holder level and covers all linked brokerage accounts, so this is
+ * intentionally not scoped per-OwnerProfile.
+ */
+
+const SCHWAB_AUTH_BASE = 'https://api.schwabapi.com/v1/oauth';
+const TOKEN_ROW_ID = 1;
+
+// 60s safety buffer before actual expiry to avoid using a token that expires
+// mid-request.
+const EXPIRY_BUFFER_MS = 60 * 1000;
+
+function requireEnv(name) {
+  const val = process.env[name];
+  if (!val) throw new Error(`${name} is not set`);
+  return val;
+}
+
+function basicAuthHeader() {
+  const id = requireEnv('SCHWAB_CLIENT_ID');
+  const secret = requireEnv('SCHWAB_CLIENT_SECRET');
+  return 'Basic ' + Buffer.from(`${id}:${secret}`).toString('base64');
+}
+
+/**
+ * Builds the Schwab authorization URL the user's browser should be sent to.
+ */
+function getAuthUrl() {
+  const id = requireEnv('SCHWAB_CLIENT_ID');
+  const redirectUri = requireEnv('SCHWAB_REDIRECT_URI');
+  const params = new URLSearchParams({
+    client_id: id,
+    redirect_uri: redirectUri,
+    response_type: 'code',
+  });
+  return `${SCHWAB_AUTH_BASE}/authorize?${params.toString()}`;
+}
+
+/**
+ * Exchanges an authorization code (from the /callback query string) for an
+ * access_token + refresh_token pair, and persists them.
+ */
+async function exchangeCodeForTokens(prisma, code) {
+  const redirectUri = requireEnv('SCHWAB_REDIRECT_URI');
+  const body = new URLSearchParams({
+    grant_type: 'authorization_code',
+    code,
+    redirect_uri: redirectUri,
+  });
+
+  const res = await fetch(`${SCHWAB_AUTH_BASE}/token`, {
+    method: 'POST',
+    headers: {
+      Authorization: basicAuthHeader(),
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: body.toString(),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Schwab token exchange failed (${res.status}): ${text}`);
+  }
+
+  const data = await res.json();
+  await saveTokens(prisma, data);
+  return data;
+}
+
+/**
+ * Uses the stored refresh_token to obtain a new access_token (and a new
+ * refresh_token, which Schwab rotates on every call), and persists both.
+ */
+async function refreshAccessToken(prisma) {
+  const row = await prisma.schwabToken.findUnique({ where: { id: TOKEN_ROW_ID } });
+  if (!row) {
+    throw new Error('Schwab not connected — visit /api/schwab/connect first');
+  }
+
+  const body = new URLSearchParams({
+    grant_type: 'refresh_token',
+    refresh_token: row.refreshToken,
+  });
+
+  const res = await fetch(`${SCHWAB_AUTH_BASE}/token`, {
+    method: 'POST',
+    headers: {
+      Authorization: basicAuthHeader(),
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: body.toString(),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Schwab token refresh failed (${res.status}): ${text}`);
+  }
+
+  const data = await res.json();
+  await saveTokens(prisma, data);
+  return data;
+}
+
+/**
+ * Persists a token response from Schwab into the singleton SchwabToken row.
+ * data shape: { access_token, refresh_token, expires_in, token_type, scope }
+ */
+async function saveTokens(prisma, data) {
+  const expiresAt = new Date(Date.now() + (data.expires_in ?? 1800) * 1000);
+
+  await prisma.schwabToken.upsert({
+    where: { id: TOKEN_ROW_ID },
+    create: {
+      id: TOKEN_ROW_ID,
+      accessToken: data.access_token,
+      refreshToken: data.refresh_token,
+      expiresAt,
+    },
+    update: {
+      accessToken: data.access_token,
+      // Schwab rotates the refresh_token on every refresh. Keep the existing
+      // one only if a response somehow omits it (shouldn't happen).
+      ...(data.refresh_token ? { refreshToken: data.refresh_token } : {}),
+      expiresAt,
+    },
+  });
+}
+
+/**
+ * Returns a valid access_token, transparently refreshing first if the
+ * current one is expired or within EXPIRY_BUFFER_MS of expiring.
+ * Throws if Schwab has never been connected.
+ */
+async function getValidAccessToken(prisma) {
+  const row = await prisma.schwabToken.findUnique({ where: { id: TOKEN_ROW_ID } });
+  if (!row) {
+    throw new Error('Schwab not connected — visit /api/schwab/connect first');
+  }
+
+  if (row.expiresAt.getTime() - EXPIRY_BUFFER_MS > Date.now()) {
+    return row.accessToken;
+  }
+
+  const refreshed = await refreshAccessToken(prisma);
+  return refreshed.access_token;
+}
+
+/**
+ * Connection status for the UI — never returns raw token values.
+ */
+async function getStatus(prisma) {
+  const row = await prisma.schwabToken.findUnique({ where: { id: TOKEN_ROW_ID } });
+  if (!row) return { connected: false };
+
+  return {
+    connected: true,
+    expiresAt: row.expiresAt,
+    accessTokenExpired: row.expiresAt.getTime() <= Date.now(),
+    updatedAt: row.updatedAt,
+  };
+}
+
+module.exports = {
+  getAuthUrl,
+  exchangeCodeForTokens,
+  refreshAccessToken,
+  getValidAccessToken,
+  getStatus,
+};

@@ -214,6 +214,27 @@ model Position {
   @@unique([tickerId, accountId])  // one position per ticker+account
 }
 
+// ---------------------------------------------------------------------------
+// Schwab API integration — Phase 1 (OAuth scaffolding)
+// ---------------------------------------------------------------------------
+
+// Single-row table holding the Schwab OAuth token pair. One Schwab login
+// (account-holder level) covers all linked brokerage accounts, so this is
+// intentionally a singleton (id: 1) rather than per-OwnerProfile.
+//
+// access_token  — ~30 min lifetime, used as Bearer token on Trader API calls.
+// refresh_token — ~7 day lifetime; Schwab issues a NEW refresh_token on every
+//                 refresh and the old one becomes invalid — must be persisted
+//                 every time (see schwabAuth.js refreshAccessToken()).
+model SchwabToken {
+  id           Int      @id @default(autoincrement())
+  accessToken  String
+  refreshToken String
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
 // Individual tax lots within a Position. Tracked separately for FIFO
 // gain/loss and LT-vs-ST tax computation at sell time.
 model Lot {
