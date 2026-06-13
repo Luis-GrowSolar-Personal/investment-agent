@@ -68,7 +68,7 @@ function computeTrimTax(lots, sharesToSell, currentPrice, ltcgRate, stcgRate, is
  *
  * Returns an object with all fields needed by the Dashboard.
  */
-function buildTickerView(ticker, positions, totalPortfolioValue, ownerTaxRates) {
+function buildTickerView(ticker, positions, totalPortfolioValue, ownerTaxRates, ownerCapOverrides) {
   const now = new Date();
 
   // ── Market value across all positions ──────────────────────────────────
@@ -101,9 +101,13 @@ function buildTickerView(ticker, positions, totalPortfolioValue, ownerTaxRates) 
   const latestAnalysis = ticker._latestAnalysis;  // pre-joined by caller
 
   // ── Cap enforcement ────────────────────────────────────────────────────
-  // Hard cap = MIN(ticker.capPercent, analyst recommended cap).
+  // Resulting cap = owner's per-ticker override (OwnerTickerConfig) if set,
+  // else the global ticker.capPercent.
+  // Hard cap = MIN(resulting cap, analyst recommended cap).
   // Both are stored as 0-100 floats; convert to 0-1 for comparison.
-  const tickerCapFraction   = (ticker.capPercent ?? 100) / 100;
+  const ownerCapOverride    = ownerCapOverrides?.get(ticker.id);
+  const resultingCapPercent = ownerCapOverride ?? ticker.capPercent ?? 100;
+  const tickerCapFraction   = resultingCapPercent / 100;
   const analystCapFraction  = latestAnalysis?.capPercent != null
     ? latestAnalysis.capPercent / 100
     : tickerCapFraction;
@@ -300,6 +304,10 @@ router.get('/:owner', async (req, res) => {
       stcg: DEFAULT_STCG_RATE,
     };
 
+    // ── Owner per-ticker cap overrides ─────────────────────────────────
+    const ownerConfigs = await prisma.ownerTickerConfig.findMany({ where: { owner } });
+    const ownerCapOverrides = new Map(ownerConfigs.map(c => [c.tickerId, c.capPercent]));
+
     // ── Group positions by ticker ──────────────────────────────────────
     const byTicker = new Map(); // tickerId → { ticker, positions[] }
     for (const acct of accounts) {
@@ -362,7 +370,7 @@ router.get('/:owner', async (req, res) => {
         ticker._latestAnalysis = ticker._latestAnalysis ?? null;
       }
       tickerViews.push(
-        buildTickerView(ticker, positions, totalPortfolioValue, ownerTaxRates)
+        buildTickerView(ticker, positions, totalPortfolioValue, ownerTaxRates, ownerCapOverrides)
       );
     }
 
