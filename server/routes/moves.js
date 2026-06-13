@@ -410,7 +410,9 @@ function generateMovesForTicker(
   // ── 5. ADD to model weight ─────────────────────────────────────────────────
   if (underModel && moves.filter(m => !m.moveType.startsWith('TRIM') && m.moveType !== 'EXIT').length === 0) {
     // Only add if thesis is at least Intact (not Weakening/Broken)
-    const canAdd = !['Weakening', 'Broken'].includes(thesisHealth) || finalAction === 'Add';
+    // Out-of-scope tickers (regression/test data) never generate new buy recommendations
+    const canAdd = ticker.inScope !== false
+      && (!['Weakening', 'Broken'].includes(thesisHealth) || finalAction === 'Add');
     if (canAdd) {
       moves.push({
         ...makeAddMove(5, ticker, positions, currentPct, modelWeightPct,
@@ -701,7 +703,12 @@ router.get('/:owner', async (req, res) => {
     const holdMoves   = allMoves.filter(m =>  ['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
 
     // ── Watchlist candidates ──────────────────────────────────────────────────
-    const watchlistTickers = await prisma.ticker.findMany({ where: { status: 'watchlist' } });
+    // inScope: false excludes regression/test tickers (e.g. evaluator-prompt
+    // validation set) that are outside the circle of competence — they should
+    // never surface as "Open <symbol>" promotions.
+    const watchlistTickers = await prisma.ticker.findMany({
+      where: { status: 'watchlist', inScope: { not: false } },
+    });
     const candidates = [];
 
     for (const wt of watchlistTickers) {
