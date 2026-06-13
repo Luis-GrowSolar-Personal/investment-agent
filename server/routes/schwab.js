@@ -14,8 +14,10 @@
  * GET /api/schwab/status
  *   Auth required. Connection status only — never returns token values.
  *
- * Phase 1 is scaffolding only: no account/position data is fetched yet.
- * That's Phase 2 (see docs/CoWork_handoff_2026-06-13.md).
+ * GET /api/schwab/accounts
+ *   Auth required. Phase 2 step 1 — READ-ONLY preview of Schwab-linked
+ *   accounts + positions (masked account numbers), alongside existing
+ *   local Account rows for comparison. No DB writes.
  */
 
 const express = require('express');
@@ -23,6 +25,7 @@ const router  = express.Router();
 const prisma  = require('../lib/prisma');
 const { requireAuth } = require('@clerk/express');
 const schwabAuth = require('../lib/schwabAuth');
+const { previewAccounts } = require('../lib/schwabAccounts');
 
 // ── GET /api/schwab/connect ───────────────────────────────────────────────
 
@@ -71,6 +74,18 @@ router.get('/status', requireAuth(), async (req, res) => {
     res.json(status);
   } catch (err) {
     console.error('GET /schwab/status error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ── GET /api/schwab/accounts ──────────────────────────────────────────────
+
+router.get('/accounts', requireAuth(), async (req, res) => {
+  try {
+    const result = await previewAccounts(prisma);
+    res.json(result);
+  } catch (err) {
+    console.error('GET /schwab/accounts error:', err);
     res.status(500).json({ error: err.message });
   }
 });
