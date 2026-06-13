@@ -7,6 +7,16 @@ import { Link } from 'react-router-dom';
 // server static-serves the SPA in prod).
 const API_URL = import.meta.env.VITE_API_URL || '';
 
+// Domain tags — circle-of-competence categories per DOMAIN.md.
+// A ticker can carry more than one (e.g. Tesla → solar + energy_storage).
+const DOMAIN_OPTIONS = [
+  { value: 'solar',             label: 'Solar (residential / C&I / utility)' },
+  { value: 'energy_storage',    label: 'Energy Storage' },
+  { value: 'semiconductors',    label: 'Semiconductors' },
+  { value: 'it_software_cloud', label: 'IT / Software / Cloud' },
+  { value: 'crypto',            label: 'Crypto (scoped)' },
+];
+
 // ── Color helpers ─────────────────────────────────────────────────────────────
 
 function healthColor(value) {
@@ -757,7 +767,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
   const [editInScope, setEditInScope]     = useState(true);
   const [editTierOverride, setEditTierOverride]     = useState('');  // '' = auto, 'speculative', 'established'
   const [editBucketOverride, setEditBucketOverride] = useState('');  // '' = equity (default), 'etf', 'commodity', 'crypto'
-  const [editDomain, setEditDomain]                 = useState('');  // '' = unassigned; see DOMAIN.md for values
+  const [editDomains, setEditDomains]               = useState([]);  // [] = unassigned; see DOMAIN.md for values
   const [renameError, setRenameError]     = useState(null);
   // Sort state: { key: 'symbol'|'type'|'lastUpdated', dir: 'asc'|'desc' }
   // Click a column header to sort by it. Click again to toggle direction.
@@ -830,7 +840,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
     setEditInScope(ticker.inScope !== false);
     setEditTierOverride(ticker.tierOverride ?? '');
     setEditBucketOverride(ticker.bucketOverride ?? '');
-    setEditDomain(ticker.domain ?? '');
+    setEditDomains(ticker.domains ?? []);
     setRenameError(null);
   }
 
@@ -860,7 +870,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
         inScope:     editInScope,
         tierOverride:   editTierOverride   || null,
         bucketOverride: editBucketOverride || null,
-        domain:         editDomain         || null,
+        domains:        editDomains,
       }, getToken));
       setRenamingId(null);
     } catch (err) {
@@ -1045,7 +1055,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
         editInScope={editInScope}      setEditInScope={setEditInScope}
         editTierOverride={editTierOverride}   setEditTierOverride={setEditTierOverride}
         editBucketOverride={editBucketOverride} setEditBucketOverride={setEditBucketOverride}
-        editDomain={editDomain}               setEditDomain={setEditDomain}
+        editDomains={editDomains}             setEditDomains={setEditDomains}
         renameError={renameError}
         onSave={() => commitRename(renamingId)}
         onClose={() => { setRenamingId(null); setRenameError(null); }}
@@ -1065,7 +1075,7 @@ function RenameTickerModal({
   editInScope,  setEditInScope,
   editTierOverride,   setEditTierOverride,
   editBucketOverride, setEditBucketOverride,
-  editDomain,         setEditDomain,
+  editDomains,        setEditDomains,
   renameError,  onSave, onClose,
 }) {
   const inp = {
@@ -1157,17 +1167,24 @@ function RenameTickerModal({
             )}
           </div>
 
-          {/* Domain tag */}
+          {/* Domain tags — multi-select; a ticker can span multiple domains
+              (e.g. Tesla → solar + energy_storage) */}
           <div>
-            <label style={lbl}>Domain</label>
-            <select style={{ ...inp, cursor: 'pointer' }} value={editDomain} onChange={e => setEditDomain(e.target.value)}>
-              <option value="">Unassigned</option>
-              <option value="solar">Solar (residential / C&I / utility)</option>
-              <option value="energy_storage">Energy Storage</option>
-              <option value="semiconductors">Semiconductors</option>
-              <option value="it_software_cloud">IT / Software / Cloud</option>
-              <option value="crypto">Crypto (scoped)</option>
-            </select>
+            <label style={lbl}>Domains (select all that apply)</label>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 14px', padding: '6px 2px' }}>
+              {DOMAIN_OPTIONS.map(opt => (
+                <label key={opt.value} style={{ fontSize: 12, color: '#cbd5e1', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 5 }}>
+                  <input
+                    type="checkbox"
+                    checked={editDomains.includes(opt.value)}
+                    onChange={e => setEditDomains(prev =>
+                      e.target.checked ? [...prev, opt.value] : prev.filter(d => d !== opt.value)
+                    )}
+                  />
+                  {opt.label}
+                </label>
+              ))}
+            </div>
             <div style={{ fontSize: 11, color: '#475569', marginTop: 4 }}>
               Circle-of-competence category per DOMAIN.md — used by the Opportunity Scanner and in/out-of-scope filters.
             </div>

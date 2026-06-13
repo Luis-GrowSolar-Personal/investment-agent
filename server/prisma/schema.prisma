@@ -39,11 +39,12 @@ model Ticker {
   // Values: "equity" | "etf" | "crypto" | "commodity"
   bucketOverride     String?
 
-  // Domain tag — circle of competence classification, per DOMAIN.md
-  // null → unassigned (no domain set yet)
+  // Domain tags — circle of competence classification(s), per DOMAIN.md
+  // [] → unassigned. A ticker may span multiple domains (e.g. Tesla →
+  // solar + energy_storage).
   // Values: "solar" | "energy_storage" | "semiconductors" |
   //         "it_software_cloud" | "crypto"
-  domain             String?
+  domains            String[]  @default([])
 
   ownerConfigs       OwnerTickerConfig[]
 }
