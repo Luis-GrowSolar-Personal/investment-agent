@@ -2,15 +2,40 @@
 
 **Date:** 2026-06-13
 **Picks up from:** CoWork_handoff_2026-06-13.md
-**Session work:** Backlog item 5, Phase 1 — Schwab OAuth scaffolding. DONE (code only — not yet run/tested).
-**Next session focus:** Luis runs `db push` + sets env vars + tests the OAuth round-trip, then Phase 2 (account/position fetch).
+**Session work:** Backlog item 5 — Phase 1 (Schwab OAuth scaffolding) AND Phase 2
+step 1 (read-only accounts/positions preview). Both built, deployed, and
+**confirmed working live** against Luis's real Schwab accounts.
+**Next session focus:** Phase 2 account-mapping/reconciliation (see below).
 
 ---
 
-## What shipped this session (Phase 1)
+## ✅ Confirmed working this session (live test)
 
-Pure scaffolding — no account/position data is fetched yet, and CSV import +
-Polygon pricing are untouched and still the active data path.
+- Registered new Schwab developer app ("AI Powered Portfolio Manager"),
+  selected both **Accounts and Trading Production** and **Market Data
+  Production** API products, callback URL set to
+  `https://investment-agent-dev-production.up.railway.app/api/schwab/callback`.
+- `npx prisma db push` ran clean — `SchwabToken` table live in Railway Postgres.
+- Set `SCHWAB_CLIENT_ID` / `SCHWAB_CLIENT_SECRET` / `SCHWAB_REDIRECT_URI` on
+  Railway, code committed + pushed + deployed.
+- `/api/schwab/connect` → Schwab login → consent → redirected back to
+  `/?schwab=connected`. Token exchange succeeded.
+- `/api/schwab/accounts` (new this session, see below) returned real,
+  correctly-shaped data: multiple accounts with masked numbers, hash values,
+  cash/liquidation balances, and full position lists (symbols, asset types,
+  quantities, market values, average prices) — e.g. SIVR, BYDDY, AMPX, NVDA, etc.
+
+**Important finding:** Luis authorized *every* Schwab account he controls
+during the consent step — including accounts that have never been uploaded
+via CSV and don't exist in the local `Account` table yet. See "Phase 2 next
+steps" below.
+
+---
+
+## What shipped this session (Phase 1 + Phase 2 step 1)
+
+CSV import + Polygon pricing are untouched and still the active data path —
+the new endpoints are read-only and additive.
 
 1. **`server/prisma/schema.prisma`** — new `SchwabToken` model (singleton row,
    id: 1). Holds `accessToken`, `refreshToken`, `expiresAt`. One Schwab login
@@ -44,30 +69,22 @@ Polygon pricing are untouched and still the active data path.
 5. **`.env.example`** — added `SCHWAB_REDIRECT_URI` (must exactly match the
    callback URL registered in the Schwab developer app).
 
+6. **`server/lib/schwabAccounts.js`** (new, Phase 2 step 1) — `previewAccounts(prisma)`:
+   - Calls `GET /trader/v1/accounts/accountNumbers` to map raw account numbers
+     to the `hashValue`s the Trader API requires for account-scoped calls.
+   - Calls `GET /trader/v1/accounts?fields=positions` for full balances + positions.
+   - Returns `{ schwabAccounts, localAccounts }` — `schwabAccounts` masked
+     (`***1234`) with `hashValue`, type, cashBalance, liquidationValue, and
+     position list (symbol, assetType, quantities, marketValue, averagePrice);
+     `localAccounts` is the existing `Account` table (id, name, type, owner,
+     cashBalance) for side-by-side comparison. No DB writes.
+
+7. **`server/routes/schwab.js`** — added `GET /api/schwab/accounts`
+   (auth required) → `previewAccounts(prisma)`.
+
 OAuth endpoint details (auth URL, token URL, Basic-auth header, grant types,
 ~30 min access token / ~7 day rotating refresh token) verified against
 current Schwab Trader API documentation via web search this session.
-
----
-
-## Before this works — Luis to do
-
-1. **Run schema migration** from `server/`:
-   ```
-   DATABASE_URL=$(grep '^DATABASE_URL' ../.env | cut -d '=' -f2-) npx prisma db push
-   ```
-   (per [[prisma_migration_drift]] — `db push`, never `migrate reset`)
-
-2. **Set env vars** (Railway dev service, and local `.env` if used):
-   - `SCHWAB_CLIENT_ID` / `SCHWAB_CLIENT_SECRET` — already registered per
-     Luis (confirmed this session).
-   - `SCHWAB_REDIRECT_URI` — set to `https://<railway-dev-app>/api/schwab/callback`
-     and make sure this **exact** URL is also registered as the callback in
-     the Schwab developer app dashboard.
-
-3. **Test the round-trip**: visit `/api/schwab/connect` while logged in →
-   log into Schwab → approve → should land back on `/?schwab=connected`.
-   Then check `/api/schwab/status` shows `connected: true`.
 
 ---
 
@@ -80,19 +97,42 @@ separately, Luis's call.
 
 ---
 
-## Phase 2 (next up, not started)
+## Phase 2 next steps (account reconciliation — not started)
 
-Read-only account/position fetch:
-- New endpoint (e.g. `GET /api/schwab/sync` or similar) that calls
-  `getValidAccessToken()`, hits `/trader/v1/accounts` (with the
-  `accountNumbers` → hash-value lookup Schwab requires), and maps the result
-  into the existing `Account`/`Position`/`Lot` shape — reusing
-  `smartDefaultBucket()` from `portfolioImport.js`.
-- Runs alongside CSV import initially (not a hard cutover — confirmed last
-  session).
-- Quick check before landing: confirm this still doesn't touch
-  `DESIGN_PRINCIPLES.md`-governed areas (expectation: no, pure data
-  ingestion into the same Position/Lot shape the allocator already consumes).
+Phase 2 step 1 (read-only preview) is done. The live test surfaced the core
+design problem for step 2:
+
+**Problem:** Luis authorized every Schwab account he controls during OAuth
+consent. `/api/schwab/accounts` returns all of them (e.g. `***8439` CASH with
+12 positions incl. SIVR, BYDDY, AMPX, NVDA). But the local `Account` table
+only has the subset populated via CSV upload historically — some
+Schwab-reported accounts have no corresponding local row at all.
+
+**Proposed approach:**
+1. Add `schwabAccountHash String?` (unique, nullable) to the `Account` model
+   — links a local account row to a Schwab `hashValue`.
+2. Matching logic (new sync endpoint, e.g. `GET/POST /api/schwab/sync`):
+   - For each `schwabAccounts[]` entry, check if any local `Account` already
+     has that `hashValue` → update balances/positions.
+   - For Schwab accounts with no match: either (a) surface them in the UI for
+     Luis to confirm before creating a local row, or (b) auto-create with a
+     sensible default name/type/owner and let Luis edit after. Leaning toward
+     (a) — account creation has owner/type implications (tax treatment,
+     allocator scoping) that shouldn't be guessed.
+   - For local accounts with no Schwab match (e.g. manually-tracked or
+     non-Schwab accounts like Kraken — see backlog item 10): leave untouched.
+3. UI: likely lands in the existing "+Add Account" flow / Portfolio page —
+   show a reconciliation view (Schwab account ↔ local account, or "new")
+   before committing any writes.
+4. Once matching exists, decide how positions/lots get written: full
+   replace vs. diff-and-update (affects cost-basis/lot history — check
+   against `Lot` model and `DESIGN_PRINCIPLES.md` before landing, since this
+   starts touching data the allocator consumes).
+
+Quick check before landing: confirm this still doesn't touch
+`DESIGN_PRINCIPLES.md`-governed areas (expectation: pure data ingestion into
+the same Account/Position/Lot shape the allocator already consumes — but the
+lot-history question in (4) above needs a deliberate look).
 
 Phase 3 (quotes via Schwab `marketdata`, replacing Polygon) — unchanged, still
 backlog item 7 territory.
@@ -120,8 +160,9 @@ backlog item 7 territory.
 2. ✅ Domain tag on Ticker — DONE 2026-06-13.
 3. **Owner assignment per ticker** — `users String[]` on Ticker; filter Radar per user.
 4. **MovesCache** — OwnerProfile-scoped JSON cache; invalidate on new Analysis or price refresh.
-5. **Schwab API integration** — Phase 1 ✅ (code, this session, untested). Phase 2
-   (account/position fetch) next.
+5. **Schwab API integration** — Phase 1 ✅ + Phase 2 step 1 ✅ (both confirmed
+   working live against real Schwab accounts, 2026-06-13). Next: Phase 2
+   account reconciliation (see "Phase 2 next steps" above).
 6. **Asset type dropdown in Add Position modal** — manually-added positions default to Equity.
 7. **Wire Polygon into 3-axis classifier** — replace manual price_cache.json with live calls.
 8. **Reinvested dividends (DRIP)** — `Qual Div Reinvest` cash dividends currently ignored.
