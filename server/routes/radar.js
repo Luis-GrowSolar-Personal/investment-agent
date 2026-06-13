@@ -84,6 +84,7 @@ router.get('/tickers', requireAuth(), async (req, res) => {
         tierOverride: ticker.tierOverride,
         tierMechanical: ticker.tierMechanical,
         bucketOverride: ticker.bucketOverride,
+        domain: ticker.domain,
         transcriptCount: ticker.transcripts.length,
         lastCallDate,
         daysSinceLastCall,
@@ -285,10 +286,10 @@ router.post('/tickers', requireAuth(), async (req, res) => {
   }
 });
 
-// PATCH /api/radar/tickers/:id — update name, type, capPercent, status, inScope, tierOverride, bucketOverride
+// PATCH /api/radar/tickers/:id — update name, type, capPercent, status, inScope, tierOverride, bucketOverride, domain
 router.patch('/tickers/:id', requireAuth(), async (req, res) => {
   const id = parseInt(req.params.id);
-  const { symbol, name, type, capPercent, status, inScope, tierOverride, bucketOverride } = req.body;
+  const { symbol, name, type, capPercent, status, inScope, tierOverride, bucketOverride, domain } = req.body;
 
   try {
     const newSymbol = symbol?.trim().toUpperCase();
@@ -314,6 +315,7 @@ router.patch('/tickers/:id', requireAuth(), async (req, res) => {
             ...(inScope        !== undefined && { inScope }),
             ...(tierOverride   !== undefined && { tierOverride:   tierOverride   || null }),
             ...(bucketOverride !== undefined && { bucketOverride: bucketOverride || null }),
+            ...(domain         !== undefined && { domain:         domain         || null }),
           },
         });
         return res.json({ ...updated, merged: true });
@@ -331,6 +333,7 @@ router.patch('/tickers/:id', requireAuth(), async (req, res) => {
         ...(inScope        !== undefined && { inScope }),
         ...(tierOverride   !== undefined && { tierOverride:   tierOverride   || null }),
         ...(bucketOverride !== undefined && { bucketOverride: bucketOverride || null }),
+        ...(domain         !== undefined && { domain:         domain         || null }),
       },
     });
     res.json(updated);

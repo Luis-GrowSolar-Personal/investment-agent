@@ -172,3 +172,13 @@ Small positions (gold, silver, bitcoin) are preserved this way per user preferen
     value "A" → "Single", value "B" → "Multi". Cosmetic only — underlying `Type A`/`Type B`
     classification, `type_classifications.json`, and `type_classifier.build_type_function()`
     logic are unchanged.
+
+15. **Model regression / migration tool** — When a new Anthropic model drops, quickly run the
+    existing regression transcript set through the new model and compare against the current
+    production model's (`claude-sonnet-4-20250514`) baseline scores, to decide whether to migrate.
+    Discussed previously but never formally decided — was assumed to be a shell script wrapping
+    the existing file-based backtest architecture (`dump_transcripts.py` + `backtest_from_files.py`,
+    see [[backtest_file_based]]), parameterized by model string, with a diff report against the
+    saved baseline. No DB dependency needed. Needs: (1) confirm shell-script approach, (2) decide
+    what "decide whether to migrate" means concretely — e.g. % of calls where finalAction changes,
+    thesisHealth disagreement rate, threshold for flagging a regression as significant.

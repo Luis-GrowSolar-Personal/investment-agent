@@ -757,6 +757,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
   const [editInScope, setEditInScope]     = useState(true);
   const [editTierOverride, setEditTierOverride]     = useState('');  // '' = auto, 'speculative', 'established'
   const [editBucketOverride, setEditBucketOverride] = useState('');  // '' = equity (default), 'etf', 'commodity', 'crypto'
+  const [editDomain, setEditDomain]                 = useState('');  // '' = unassigned; see DOMAIN.md for values
   const [renameError, setRenameError]     = useState(null);
   // Sort state: { key: 'symbol'|'type'|'lastUpdated', dir: 'asc'|'desc' }
   // Click a column header to sort by it. Click again to toggle direction.
@@ -829,6 +830,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
     setEditInScope(ticker.inScope !== false);
     setEditTierOverride(ticker.tierOverride ?? '');
     setEditBucketOverride(ticker.bucketOverride ?? '');
+    setEditDomain(ticker.domain ?? '');
     setRenameError(null);
   }
 
@@ -858,6 +860,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
         inScope:     editInScope,
         tierOverride:   editTierOverride   || null,
         bucketOverride: editBucketOverride || null,
+        domain:         editDomain         || null,
       }, getToken));
       setRenamingId(null);
     } catch (err) {
@@ -1042,6 +1045,7 @@ function TickerTable({ tickers, section, onAction, getToken }) {
         editInScope={editInScope}      setEditInScope={setEditInScope}
         editTierOverride={editTierOverride}   setEditTierOverride={setEditTierOverride}
         editBucketOverride={editBucketOverride} setEditBucketOverride={setEditBucketOverride}
+        editDomain={editDomain}               setEditDomain={setEditDomain}
         renameError={renameError}
         onSave={() => commitRename(renamingId)}
         onClose={() => { setRenamingId(null); setRenameError(null); }}
@@ -1061,6 +1065,7 @@ function RenameTickerModal({
   editInScope,  setEditInScope,
   editTierOverride,   setEditTierOverride,
   editBucketOverride, setEditBucketOverride,
+  editDomain,         setEditDomain,
   renameError,  onSave, onClose,
 }) {
   const inp = {
@@ -1150,6 +1155,22 @@ function RenameTickerModal({
                 Fixed-target asset: Portfolio Manager will use Cap % as the target allocation, not an analyst model weight.
               </div>
             )}
+          </div>
+
+          {/* Domain tag */}
+          <div>
+            <label style={lbl}>Domain</label>
+            <select style={{ ...inp, cursor: 'pointer' }} value={editDomain} onChange={e => setEditDomain(e.target.value)}>
+              <option value="">Unassigned</option>
+              <option value="solar">Solar (residential / C&I / utility)</option>
+              <option value="energy_storage">Energy Storage</option>
+              <option value="semiconductors">Semiconductors</option>
+              <option value="it_software_cloud">IT / Software / Cloud</option>
+              <option value="crypto">Crypto (scoped)</option>
+            </select>
+            <div style={{ fontSize: 11, color: '#475569', marginTop: 4 }}>
+              Circle-of-competence category per DOMAIN.md — used by the Opportunity Scanner and in/out-of-scope filters.
+            </div>
           </div>
 
           {/* inScope toggle */}
