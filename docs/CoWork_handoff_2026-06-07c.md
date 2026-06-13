@@ -152,3 +152,17 @@ Small positions (gold, silver, bitcoin) are preserved this way per user preferen
 
 11. **Per-user access control** — non-admin owners see only their own data.
     Schema ready: `OwnerProfile.clerkUserId` + `OwnerProfile.role` added 2026-06-06.
+
+12. **New fixed-target position cap prompt (Option 3)** — when a fixed-target asset (ETF/commodity/crypto)
+    is first detected in an owner's portfolio with no `OwnerTickerConfig` row, surface a highlighted
+    "no cap set" row in the Admin Position Caps table, prompting the user to set one before the
+    Portfolio Manager can generate a meaningful recommendation. Tax-loss harvest scenario (e.g. GLD → IAU)
+    is the primary trigger.
+
+13. **Third Investment Ideas sub-tab: "Out of scope"** — Investment Ideas currently has two views
+    (Portfolio, Watchlist). Add a third: "Out of scope" — tickers with `inScope: false`. These are
+    the regression/test tickers (BAC, JPM, JNJ, V, META, AMZN, ADBE, AMD, QS, etc.) used to validate
+    the evaluator prompt. Their transcripts and analyses stay in the DB for backtesting/regression
+    purposes — they're excluded from `moves.js` (see `inScope` guard added 2026-06-13) but still
+    need a home in the UI so they're not just hidden/orphaned. Likely just a filtered view of the
+    existing Radar table (`status` unchanged, filter on `inScope === false`), not a new data model.
