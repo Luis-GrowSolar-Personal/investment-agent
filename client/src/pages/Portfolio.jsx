@@ -1221,7 +1221,7 @@ function AddAccountModal({ token, onSaved, onClose }) {
 
 // ── Schwab reconciliation modal ────────────────────────────────────────────
 
-function SchwabReconcileModal({ getToken, onClose, onChanged }) {
+function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData }) {
   const [data, setData]       = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState('');
@@ -1270,13 +1270,14 @@ function SchwabReconcileModal({ getToken, onClose, onChanged }) {
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || 'Failed to load Schwab reconciliation');
       setData(json);
+      onReconcileData?.(json);
     } catch (err) {
       console.error('Schwab reconcile error:', err);
       setError(err.message);
     } finally {
       setLoading(false);
     }
-  }, [getToken]);
+  }, [getToken, onReconcileData]);
 
   useEffect(() => { fetchData(); }, [fetchData]);
 
@@ -1437,10 +1438,11 @@ function SchwabReconcileModal({ getToken, onClose, onChanged }) {
           <button onClick={onClose} style={{ background: 'transparent', border: 'none', color: '#64748b', fontSize: 18, cursor: 'pointer' }}>×</button>
         </div>
         <div style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>
-          Cash balances sync automatically for matched accounts. New positions get a single
-          placeholder lot (today's date, Schwab's average cost) — review acquisition dates
-          afterward. Existing lots from CSV import or manual entry are never overwritten;
-          mismatched share counts are flagged for manual review.
+          Matched accounts auto-sync on login if last synced more than 4 hours ago — use
+          "Force sync" below for an immediate refresh. New positions get a single placeholder
+          lot (today's date, Schwab's average cost) — review acquisition dates afterward.
+          Existing lots from CSV import or manual entry are never overwritten; mismatched
+          share counts are flagged for manual review.
         </div>
 
         {loading && <div style={{ color: '#475569', fontSize: 13 }}>Loading…</div>}
@@ -1469,13 +1471,14 @@ function SchwabReconcileModal({ getToken, onClose, onChanged }) {
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
                     <button
                       style={{
-                        ...(m.local.lastSyncedAt ? secondaryBtnStyle : btnStyle),
+                        ...secondaryBtnStyle,
                         opacity: busyKey === m.schwab.hashValue ? 0.6 : 1,
                       }}
                       disabled={busyKey === m.schwab.hashValue}
+                      title="Matched accounts auto-sync on login if last synced >4h ago. Force sync now for an immediate refresh."
                       onClick={() => handleSync(m.local.id, m.schwab.hashValue)}
                     >
-                      {busyKey === m.schwab.hashValue ? 'Syncing…' : 'Sync'}
+                      {busyKey === m.schwab.hashValue ? 'Syncing…' : 'Force sync'}
                     </button>
                     <div style={{ fontSize: 10, color: '#475569' }}>
                       {m.local.lastSyncedAt ? `Synced ${timeAgo(m.local.lastSyncedAt)}` : 'Never synced'}
@@ -2000,6 +2003,11 @@ export default function Portfolio() {
   const [expandedId, setExpandedId] = useState(null);
   const [showAddAccount, setShowAddAccount] = useState(false);
   const [showSchwabSync, setShowSchwabSync] = useState(false);
+  // Count of live Schwab accounts with no local match — drives the header
+  // button's "Link Schwab accounts (N)" state. Checked once per page load
+  // (this page stays mounted for the app's lifetime, like NavBar) and kept
+  // in sync afterward via SchwabReconcileModal's onReconcileData callback.
+  const [unmatchedSchwabCount, setUnmatchedSchwabCount] = useState(0);
 
   useEffect(() => { getToken().then(setToken); }, [getToken]);
 
@@ -2013,6 +2021,24 @@ export default function Portfolio() {
   }, [token]);
 
   useEffect(() => { fetchAccounts(); }, [fetchAccounts]);
+
+  // Check for unmatched Schwab accounts once per page load, to decide
+  // whether the header button should highlight "Link Schwab accounts".
+  useEffect(() => {
+    if (!token) return;
+    (async () => {
+      try {
+        const res = await fetch(`${API}/api/schwab/reconcile`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) return;
+        const json = await res.json();
+        setUnmatchedSchwabCount(json.unmatchedSchwab?.length ?? 0);
+      } catch (err) {
+        console.error('Schwab reconcile check error:', err);
+      }
+    })();
+  }, [token]);
 
   // Summary banner aggregates
   const totalMV        = accounts.reduce((s, a) => s + (a.totalMarketValue ?? 0), 0);
@@ -2039,9 +2065,12 @@ export default function Portfolio() {
         <div style={{ display: 'flex', gap: 8 }}>
           <button
             onClick={() => setShowSchwabSync(true)}
-            style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, fontWeight: 600, padding: '7px 18px', borderRadius: 6, cursor: 'pointer' }}
+            title={unmatchedSchwabCount > 0 ? 'New Schwab accounts found — link or create local accounts for them' : 'Matched accounts auto-sync on login; manage linking and force-sync here'}
+            style={unmatchedSchwabCount > 0
+              ? { background: '#3b82f6', border: 'none', color: '#fff', fontSize: 13, fontWeight: 600, padding: '7px 18px', borderRadius: 6, cursor: 'pointer' }
+              : { background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, fontWeight: 600, padding: '7px 18px', borderRadius: 6, cursor: 'pointer' }}
           >
-            ⟳ Schwab sync
+            {unmatchedSchwabCount > 0 ? `🔗 Link Schwab accounts (${unmatchedSchwabCount})` : '⟳ Schwab sync'}
           </button>
           <button
             onClick={() => setShowAddAccount(true)}
@@ -2113,6 +2142,7 @@ export default function Portfolio() {
           getToken={getToken}
           onClose={() => setShowSchwabSync(false)}
           onChanged={fetchAccounts}
+          onReconcileData={json => setUnmatchedSchwabCount(json.unmatchedSchwab?.length ?? 0)}
         />
       )}
     </div>
