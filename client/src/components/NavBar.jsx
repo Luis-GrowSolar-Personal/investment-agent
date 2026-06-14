@@ -1,7 +1,22 @@
+import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { useUser, useClerk } from '@clerk/clerk-react';
+import { useUser, useClerk, useAuth } from '@clerk/clerk-react';
+
+const API = import.meta.env.VITE_API_URL || '';
 
 const IDEAS_PATHS = ['/ideas', '/analyst', '/commentary'];
+
+// "synced 3m ago" / "synced 2h ago" style relative-time label.
+function timeAgo(timestampMs) {
+  const diffMs = Date.now() - timestampMs;
+  const mins = Math.floor(diffMs / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return `${mins}m ago`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  return `${days}d ago`;
+}
 
 function tabStyle(isActive) {
   return {
@@ -20,8 +35,49 @@ function tabStyle(isActive) {
 export default function NavBar() {
   const { user } = useUser();
   const { signOut } = useClerk();
+  const { getToken } = useAuth();
   const { pathname } = useLocation();
   const email = user?.primaryEmailAddress?.emailAddress ?? user?.username ?? '';
+
+  // Schwab "sync on login" status — visible from any tab, since NavBar is
+  // always rendered. Fires at most once per browser tab session
+  // (sessionStorage gate); the server itself makes no Schwab API calls if
+  // every linked account was synced within the last 4h (autoSyncStaleAccounts).
+  const [schwabStatus, setSchwabStatus] = useState(null); // { label, justSynced } | null
+
+  useEffect(() => {
+    if (sessionStorage.getItem('schwabAutoSyncDone')) return;
+    sessionStorage.setItem('schwabAutoSyncDone', '1');
+
+    (async () => {
+      try {
+        const token = await getToken();
+        const res = await fetch(`${API}/api/schwab/auto-sync`, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error || 'Auto-sync failed');
+
+        const all = [...(json.synced || []), ...(json.skipped || [])];
+        const mostRecentMs = all.reduce((latest, a) => {
+          const t = a.lastSyncedAt ? new Date(a.lastSyncedAt).getTime() : 0;
+          return t > latest ? t : latest;
+        }, 0);
+
+        if (json.synced?.length) {
+          setSchwabStatus({ label: `Schwab synced just now (${json.synced.length})`, justSynced: true });
+        } else if (mostRecentMs > 0) {
+          setSchwabStatus({ label: `Schwab synced ${timeAgo(mostRecentMs)}`, justSynced: false });
+        }
+        if (json.errors?.length) {
+          console.error('Schwab auto-sync errors:', json.errors);
+        }
+      } catch (err) {
+        console.error('Schwab auto-sync error:', err);
+      }
+    })();
+  }, [getToken]);
 
   return (
     <nav style={{
@@ -58,6 +114,11 @@ export default function NavBar() {
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
+        {schwabStatus && (
+          <span style={{ color: schwabStatus.justSynced ? '#4ade80' : '#64748b', fontSize: 12 }}>
+            ⟳ {schwabStatus.label}
+          </span>
+        )}
         <span style={{ color: '#475569', fontSize: 12 }}>{email}</span>
         <button
           onClick={() => signOut()}
