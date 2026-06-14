@@ -40,15 +40,24 @@ export default function NavBar() {
   const email = user?.primaryEmailAddress?.emailAddress ?? user?.username ?? '';
 
   // Schwab "sync on login" status — visible from any tab, since NavBar is
-  // always rendered. Fires at most once per browser tab session
-  // (sessionStorage gate); the server itself makes no Schwab API calls if
-  // every linked account was synced within the last 4h (autoSyncStaleAccounts).
-  const [schwabStatus, setSchwabStatus] = useState(null); // { label, justSynced } | null
+  // always rendered exactly once per page load (mounted once in <SignedIn>,
+  // never remounted by route changes). The server itself makes no Schwab API
+  // calls if every linked account was synced within the last 4h
+  // (autoSyncStaleAccounts), so it's cheap to check on every load.
+  //
+  // Last-known status is cached in sessionStorage and restored immediately
+  // on mount so the indicator survives a full-page reload without a flash of
+  // nothing while the fresh check runs.
+  const [schwabStatus, setSchwabStatus] = useState(() => {
+    try {
+      const cached = sessionStorage.getItem('schwabAutoSyncStatus');
+      return cached ? JSON.parse(cached) : null;
+    } catch {
+      return null;
+    }
+  }); // { label, justSynced } | null
 
   useEffect(() => {
-    if (sessionStorage.getItem('schwabAutoSyncDone')) return;
-    sessionStorage.setItem('schwabAutoSyncDone', '1');
-
     (async () => {
       try {
         const token = await getToken();
@@ -65,11 +74,20 @@ export default function NavBar() {
           return t > latest ? t : latest;
         }, 0);
 
+        let status = null;
         if (json.synced?.length) {
-          setSchwabStatus({ label: `Schwab synced just now (${json.synced.length})`, justSynced: true });
+          status = { label: `Schwab synced just now (${json.synced.length})`, justSynced: true };
         } else if (mostRecentMs > 0) {
-          setSchwabStatus({ label: `Schwab synced ${timeAgo(mostRecentMs)}`, justSynced: false });
+          status = { label: `Schwab synced ${timeAgo(mostRecentMs)}`, justSynced: false };
         }
+
+        setSchwabStatus(status);
+        if (status) {
+          sessionStorage.setItem('schwabAutoSyncStatus', JSON.stringify(status));
+        } else {
+          sessionStorage.removeItem('schwabAutoSyncStatus');
+        }
+
         if (json.errors?.length) {
           console.error('Schwab auto-sync errors:', json.errors);
         }
