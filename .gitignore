@@ -20,6 +20,10 @@ analysis/data/*
 cat_output
 diff_output
 
+# HAR captures (browser network dumps) — used for one-off debugging, get
+# overwritten constantly, not worth tracking in git.
+*.har
+
 # Note: client/.env.development and client/.env.production are intentionally
 # committed — they hold non-sensitive build-time config (VITE_API_URL toggle
 # between localhost in dev and same-origin in prod). Vite needs them at
