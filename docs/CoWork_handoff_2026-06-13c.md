@@ -147,6 +147,60 @@ No schema change, no new migration — just the import-route logic.
 
 ---
 
+## Follow-up fix (same session): stale Clerk token in Schwab Sync modal
+
+**Bug reported by Luis:** intermittent "The string did not match the
+expected pattern." error when opening the Schwab Sync modal or clicking
+"Link" — appears unpredictably, sometimes the modal just doesn't open,
+sometimes the link/sync action errors even though it silently succeeded.
+Signing out and back in sometimes resolves it.
+
+**Diagnosis:**
+- Two HAR files analyzed. The first (`investment-agent-dev-production.up.
+  railway.app.har`, full session) showed only ONE `/api/schwab/*` request
+  ever reached the network (a single successful `GET /api/schwab/reconcile`)
+  despite multiple attempts — meaning most attempts failed client-side
+  before any fetch was sent.
+- The second (`Failed to launch modal.har`, isolated to one failed modal
+  launch) confirms this: only 3 entries total — page load (`GET /`, 200) and
+  two Clerk session-token requests. Zero `/api/schwab/*` requests at all.
+- Root cause: `Portfolio.jsx` captured `getToken()` ONCE on mount into a
+  `token` state variable (`useEffect(() => { getToken().then(setToken) },
+  [getToken])`) and passed that static string down to
+  `SchwabReconcileModal`. Clerk session JWTs are short-lived; by the time
+  the modal is opened later in the session, `token` can be stale/expired —
+  and the gate `{showSchwabSync && token && (...)}` plus the modal's own
+  `fetch()` calls using that stale value explains both "modal doesn't open"
+  (if `token` was ever null) and "action errors after silently succeeding"
+  (stale-but-accepted token on the request that actually went through,
+  retried request rejected).
+
+**Fix (`client/src/pages/Portfolio.jsx`):**
+- `SchwabReconcileModal` now takes a `getToken` function prop instead of a
+  static `token` string.
+- `fetchData`, `handleMatch`, `handleCreate`, and `handleSync` each call
+  `const token = await getToken();` fresh, immediately before their fetch —
+  Clerk's `getToken()` returns a cached-but-refreshed token, never a stale
+  one.
+- Each of the four catch blocks now also calls `console.error(...)` so if
+  this error recurs, the full native error/stack will be visible in DevTools
+  console (previously only `setError`/`setResultMsg` — nothing logged).
+- Render call site no longer gates on `token` — `{showSchwabSync && (
+  <SchwabReconcileModal getToken={getToken} ... />)}` — the modal always
+  renders and fetches its own fresh token.
+
+Verified `Portfolio.jsx` parses cleanly via `@babel/parser` (jsx plugin).
+No schema change.
+
+**Next step for Luis:** deploy and retry the Link/Sync flow. If the error
+recurs, check the browser console for the logged native error — that will
+tell us definitively whether it's a Clerk-internal issue vs. something else
+("The string did not match the expected pattern." reads like a WebKit/Safari
+`Headers`/`URL` validation message, so worth noting browser used if it
+recurs).
+
+---
+
 ## Outstanding from prior sessions (untouched)
 
 `docs/CoWork_handoff_2026-06-07c.md` modification and untracked

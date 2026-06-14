@@ -1221,7 +1221,7 @@ function AddAccountModal({ token, onSaved, onClose }) {
 
 // ── Schwab reconciliation modal ────────────────────────────────────────────
 
-function SchwabReconcileModal({ token, onClose, onChanged }) {
+function SchwabReconcileModal({ getToken, onClose, onChanged }) {
   const [data, setData]       = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState('');
@@ -1247,6 +1247,7 @@ function SchwabReconcileModal({ token, onClose, onChanged }) {
     setLoading(true);
     setError('');
     try {
+      const token = await getToken();
       const res = await fetch(`${API}/api/schwab/reconcile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -1254,11 +1255,12 @@ function SchwabReconcileModal({ token, onClose, onChanged }) {
       if (!res.ok) throw new Error(json.error || 'Failed to load Schwab reconciliation');
       setData(json);
     } catch (err) {
+      console.error('Schwab reconcile error:', err);
       setError(err.message);
     } finally {
       setLoading(false);
     }
-  }, [token]);
+  }, [getToken]);
 
   useEffect(() => { fetchData(); }, [fetchData]);
 
@@ -1268,6 +1270,7 @@ function SchwabReconcileModal({ token, onClose, onChanged }) {
     setBusyKey(hashValue);
     setResultMsg(prev => ({ ...prev, [hashValue]: '' }));
     try {
+      const token = await getToken();
       const res = await fetch(`${API}/api/schwab/match`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -1278,6 +1281,7 @@ function SchwabReconcileModal({ token, onClose, onChanged }) {
       await fetchData();
       onChanged();
     } catch (err) {
+      console.error('Schwab match error:', err);
       setResultMsg(prev => ({ ...prev, [hashValue]: 'Error: ' + err.message }));
     } finally {
       setBusyKey(null);
@@ -1288,6 +1292,7 @@ function SchwabReconcileModal({ token, onClose, onChanged }) {
     setBusyKey(hashValue);
     setResultMsg(prev => ({ ...prev, [hashValue]: '' }));
     try {
+      const token = await getToken();
       const res = await fetch(`${API}/api/schwab/accounts/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -1299,6 +1304,7 @@ function SchwabReconcileModal({ token, onClose, onChanged }) {
       await fetchData();
       onChanged();
     } catch (err) {
+      console.error('Schwab create-account error:', err);
       setResultMsg(prev => ({ ...prev, [hashValue]: 'Error: ' + err.message }));
     } finally {
       setBusyKey(null);
@@ -1309,6 +1315,7 @@ function SchwabReconcileModal({ token, onClose, onChanged }) {
     setBusyKey(hashValue);
     setResultMsg(prev => ({ ...prev, [hashValue]: '' }));
     try {
+      const token = await getToken();
       const res = await fetch(`${API}/api/schwab/sync/${accountId}`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
@@ -1953,9 +1960,9 @@ export default function Portfolio() {
       )}
 
       {/* Schwab reconciliation modal */}
-      {showSchwabSync && token && (
+      {showSchwabSync && (
         <SchwabReconcileModal
-          token={token}
+          getToken={getToken}
           onClose={() => setShowSchwabSync(false)}
           onChanged={fetchAccounts}
         />
