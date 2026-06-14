@@ -2,6 +2,7 @@ const express = require('express');
 const { requireAuth } = require('@clerk/express');
 const prisma = require('../lib/prisma');
 const { PROMPT_VERSION, MODEL_VERSION } = require('../lib/versions');
+const { computeTrendVerdict, applyMatrix, computeFinalConfidence } = require('../lib/trendAnalyst');
 
 const router = express.Router();
 
@@ -174,6 +175,73 @@ router.post('/', requireAuth(), async (req, res) => {
         modelVersion:                    MODEL_VERSION,
       },
     });
+
+    // ── Trend layer recompute (per-ticker, event-driven) ─────────────────
+    // Recompute the trend verdict + finalAction for THIS TICKER ONLY,
+    // writing the 6 trend fields onto the just-created Analysis row. Pure
+    // in-memory operation over this ticker's existing Analysis history — no
+    // price/fundamentals fetch, no full-portfolio sweep. Tier is read-only
+    // here (Ticker.tierOverride ?? Ticker.tierMechanical ?? 'established');
+    // tier *re*classification remains a separate (not-yet-built) cron.
+    // See docs/CoWork_handoff_2026-06-14f.md.
+    try {
+      const transcripts = await prisma.transcript.findMany({
+        where: { tickerId: ticker.id },
+        include: {
+          analyses: { orderBy: { createdAt: 'desc' }, take: 1 },
+        },
+        orderBy: { callDate: 'asc' },
+      });
+
+      const latestTranscript = transcripts[transcripts.length - 1];
+      if (latestTranscript?.id !== transcriptRecord.id) {
+        // Out-of-order insert (backfilling an older quarter than the current
+        // latest). A correct recompute would need to re-walk every later
+        // entry's verdict too — out of scope for this per-save path.
+        console.warn(
+          `[trend] ${symbol}: new transcript is not the chronological latest ` +
+          `for this ticker — skipping trend recompute. Run ` +
+          `"python3 analysis/sync_trend_to_db.py --ticker ${symbol}" to resync ` +
+          `the full history.`
+        );
+      } else {
+        // Latest-per-transcript history, chronological (oldest → newest),
+        // mapped to trend_analyst.py's snake_case schema for fixture parity.
+        const history = transcripts
+          .map(t => t.analyses[0])
+          .filter(Boolean)
+          .map(a => ({
+            thesis_health:           a.thesisHealth,
+            recommendation:          a.recommendation,
+            recommended_size:        a.recommendedSize,
+            fresh_money_allocation:  a.freshMoneyAllocation,
+            credibility_delta:       a.credibilityDelta,
+            mitigation_track_record: a.mitigationCapabilityTrackRecord,
+            thesis_delta:            a.thesisDelta,
+            stumble_type:            a.stumbleType,
+          }));
+
+        const tier = ticker.tierOverride ?? ticker.tierMechanical ?? 'established';
+        const verdict = computeTrendVerdict(history, tier);
+        const [finalAction, finalRationale] = applyMatrix(recommendation, verdict);
+        const finalConfidence = computeFinalConfidence(verdict, recommendation, finalAction);
+
+        await prisma.analysis.update({
+          where: { id: analysisRecord.id },
+          data: {
+            tier,
+            trajectory:        verdict?.trajectory ?? null,
+            suggestedOverride: verdict?.suggested_override ?? null,
+            finalAction,
+            finalConfidence,
+            trendRationale:    finalRationale,
+          },
+        });
+      }
+    } catch (trendErr) {
+      // Best-effort — never block the save on a trend-layer failure.
+      console.error(`[trend] ${symbol}: trend recompute failed:`, trendErr.message);
+    }
 
     res.json({
       tickerId:     ticker.id,

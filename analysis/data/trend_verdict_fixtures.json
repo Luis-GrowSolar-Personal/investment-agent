@@ -1,0 +1,318 @@
+{
+  "_comment": "Shared parity fixtures for analysis/trend_analyst.py and server/lib/trendAnalyst.js. Extracted from trend_analyst.py's run_self_tests() (17 cases). Run analysis/test_trend_fixtures.py and server/lib/trendAnalyst.fixtures.test.js — both must pass after ANY change to verdict/matrix/confidence logic in either language.",
+  "verdict_defaults": {
+    "thesis_health": "Intact",
+    "recommendation": "Hold",
+    "recommended_size": 30,
+    "fresh_money_allocation": 30,
+    "credibility_delta": "neutral",
+    "mitigation_track_record": "mixed",
+    "stumble_type": "None"
+  },
+  "verdict_cases": [
+    {
+      "name": "insufficient history",
+      "tier": "established",
+      "history": [
+        {},
+        {}
+      ],
+      "expected": null
+    },
+    {
+      "name": "weakening defers",
+      "tier": "established",
+      "history": [
+        { "thesis_health": "Strengthening" },
+        { "thesis_health": "Intact" },
+        { "thesis_health": "Weakening" }
+      ],
+      "expected": { "trajectory": "deteriorating", "suggested_override": null }
+    },
+    {
+      "name": "three soft",
+      "tier": "established",
+      "history": [
+        { "recommended_size": 50, "fresh_money_allocation": 50 },
+        { "recommended_size": 46, "fresh_money_allocation": 46 },
+        { "recommended_size": 42, "fresh_money_allocation": 42 },
+        { "recommended_size": 38, "fresh_money_allocation": 38 }
+      ],
+      "expected": { "trajectory": "deteriorating", "suggested_override": "trim_regardless" }
+    },
+    {
+      "name": "three soft gated by Strengthening",
+      "tier": "established",
+      "history": [
+        { "thesis_health": "Strengthening", "recommended_size": 50, "fresh_money_allocation": 50 },
+        { "thesis_health": "Strengthening", "recommended_size": 46, "fresh_money_allocation": 46 },
+        { "thesis_health": "Strengthening", "recommended_size": 42, "fresh_money_allocation": 42 },
+        { "thesis_health": "Strengthening", "recommended_size": 38, "fresh_money_allocation": 38 }
+      ],
+      "expected": { "trajectory": "softening", "suggested_override": null }
+    },
+    {
+      "name": "three soft + S3 on Strengthening still overrides",
+      "tier": "established",
+      "history": [
+        { "thesis_health": "Strengthening", "recommended_size": 50, "fresh_money_allocation": 50, "credibility_delta": "positive" },
+        { "thesis_health": "Strengthening", "recommended_size": 46, "fresh_money_allocation": 46, "credibility_delta": "neutral" },
+        { "thesis_health": "Strengthening", "recommended_size": 42, "fresh_money_allocation": 42, "credibility_delta": "neutral" },
+        { "thesis_health": "Strengthening", "recommended_size": 38, "fresh_money_allocation": 38, "credibility_delta": "negative" }
+      ],
+      "expected": { "trajectory": "deteriorating", "suggested_override": "trim_regardless" }
+    },
+    {
+      "name": "two soft + sharp",
+      "tier": "established",
+      "history": [
+        { "recommended_size": 50, "fresh_money_allocation": 50 },
+        { "recommended_size": 46, "fresh_money_allocation": 46 },
+        { "recommended_size": 40, "fresh_money_allocation": 30 }
+      ],
+      "expected": { "trajectory": "deteriorating", "suggested_override": "trim_regardless" }
+    },
+    {
+      "name": "two soft mild (Intact)",
+      "tier": "established",
+      "history": [
+        { "recommended_size": 50, "fresh_money_allocation": 50 },
+        { "recommended_size": 46, "fresh_money_allocation": 46 },
+        { "recommended_size": 42, "fresh_money_allocation": 42 }
+      ],
+      "expected": { "trajectory": "softening", "suggested_override": "downgrade_one" }
+    },
+    {
+      "name": "two soft mild gated by Strengthening",
+      "tier": "established",
+      "history": [
+        { "thesis_health": "Strengthening", "recommended_size": 50, "fresh_money_allocation": 50 },
+        { "thesis_health": "Strengthening", "recommended_size": 46, "fresh_money_allocation": 46 },
+        { "thesis_health": "Strengthening", "recommended_size": 42, "fresh_money_allocation": 42 }
+      ],
+      "expected": { "trajectory": "softening", "suggested_override": null }
+    },
+    {
+      "name": "latest soft only",
+      "tier": "established",
+      "history": [
+        { "recommended_size": 50, "fresh_money_allocation": 50 },
+        { "recommended_size": 50, "fresh_money_allocation": 50 },
+        { "recommended_size": 46, "fresh_money_allocation": 46 }
+      ],
+      "expected": { "trajectory": "softening", "suggested_override": null }
+    },
+    {
+      "name": "flattening",
+      "tier": "established",
+      "history": [
+        { "thesis_health": "Strengthening", "recommended_size": 45 },
+        { "thesis_health": "Strengthening", "recommended_size": 45 },
+        { "thesis_health": "Intact", "recommended_size": 45 }
+      ],
+      "expected": { "trajectory": "flattening", "suggested_override": null }
+    },
+    {
+      "name": "two improving",
+      "tier": "established",
+      "history": [
+        { "recommended_size": 30, "fresh_money_allocation": 30 },
+        { "recommended_size": 35, "fresh_money_allocation": 35 },
+        { "recommended_size": 40, "fresh_money_allocation": 40 }
+      ],
+      "expected": { "trajectory": "improving", "suggested_override": "upgrade_one" }
+    },
+    {
+      "name": "one improving (established)",
+      "tier": "established",
+      "history": [
+        { "recommended_size": 30, "fresh_money_allocation": 30 },
+        { "recommended_size": 30, "fresh_money_allocation": 30 },
+        { "recommended_size": 35, "fresh_money_allocation": 35 }
+      ],
+      "expected": { "trajectory": "improving", "suggested_override": null }
+    },
+    {
+      "name": "one improving (speculative) upgrade_one",
+      "tier": "speculative",
+      "history": [
+        { "recommended_size": 30, "fresh_money_allocation": 30 },
+        { "recommended_size": 30, "fresh_money_allocation": 30 },
+        { "recommended_size": 35, "fresh_money_allocation": 35 }
+      ],
+      "expected": { "trajectory": "improving", "suggested_override": "upgrade_one" }
+    },
+    {
+      "name": "one improving + S3 on speculative softening passthrough",
+      "tier": "speculative",
+      "history": [
+        { "recommended_size": 30, "fresh_money_allocation": 30, "credibility_delta": "neutral" },
+        { "recommended_size": 30, "fresh_money_allocation": 30, "credibility_delta": "neutral" },
+        { "recommended_size": 35, "fresh_money_allocation": 35, "credibility_delta": "negative" }
+      ],
+      "expected": { "trajectory": "softening", "suggested_override": null }
+    },
+    {
+      "name": "stable",
+      "tier": "established",
+      "history": [
+        { "recommended_size": 30 },
+        { "recommended_size": 30 },
+        { "recommended_size": 30 }
+      ],
+      "expected": { "trajectory": "stable", "suggested_override": null }
+    },
+    {
+      "name": "three soft Strengthening (speculative) gate still holds",
+      "tier": "speculative",
+      "history": [
+        { "thesis_health": "Strengthening", "recommended_size": 50, "fresh_money_allocation": 50 },
+        { "thesis_health": "Strengthening", "recommended_size": 46, "fresh_money_allocation": 46 },
+        { "thesis_health": "Strengthening", "recommended_size": 42, "fresh_money_allocation": 42 },
+        { "thesis_health": "Strengthening", "recommended_size": 38, "fresh_money_allocation": 38 }
+      ],
+      "expected": { "trajectory": "softening", "suggested_override": null }
+    },
+    {
+      "name": "three soft + S3 (speculative) hard signal overrides",
+      "tier": "speculative",
+      "history": [
+        { "thesis_health": "Strengthening", "recommended_size": 50, "fresh_money_allocation": 50, "credibility_delta": "positive" },
+        { "thesis_health": "Strengthening", "recommended_size": 46, "fresh_money_allocation": 46, "credibility_delta": "neutral" },
+        { "thesis_health": "Strengthening", "recommended_size": 42, "fresh_money_allocation": 42, "credibility_delta": "neutral" },
+        { "thesis_health": "Strengthening", "recommended_size": 38, "fresh_money_allocation": 38, "credibility_delta": "negative" }
+      ],
+      "expected": { "trajectory": "deteriorating", "suggested_override": "trim_regardless" }
+    }
+  ],
+  "matrix_cases": [
+    {
+      "name": "matrix Hold+det",
+      "per_call_rec": "Hold",
+      "verdict": { "trajectory": "deteriorating", "suggested_override": "trim_regardless", "rationale": "test" },
+      "layer3_rotation_target": false,
+      "expected_action": "Trim"
+    },
+    {
+      "name": "matrix Add+imp",
+      "per_call_rec": "Add",
+      "verdict": { "trajectory": "improving", "suggested_override": "upgrade_one", "rationale": "test" },
+      "layer3_rotation_target": false,
+      "expected_action": "Add"
+    },
+    {
+      "name": "matrix Hold+imp upgrade",
+      "per_call_rec": "Hold",
+      "verdict": { "trajectory": "improving", "suggested_override": "upgrade_one", "rationale": "test" },
+      "layer3_rotation_target": false,
+      "expected_action": "Add"
+    },
+    {
+      "name": "matrix Trim floor",
+      "per_call_rec": "Trim",
+      "verdict": { "trajectory": "improving", "suggested_override": "upgrade_one", "rationale": "test" },
+      "layer3_rotation_target": false,
+      "expected_action": "Trim"
+    },
+    {
+      "name": "matrix Add+flat no-L3 passthrough",
+      "per_call_rec": "Add",
+      "verdict": { "trajectory": "flattening", "suggested_override": null, "rationale": "test" },
+      "layer3_rotation_target": false,
+      "expected_action": "Add"
+    },
+    {
+      "name": "matrix Hold+flat no-L3 passthrough",
+      "per_call_rec": "Hold",
+      "verdict": { "trajectory": "flattening", "suggested_override": null, "rationale": "test" },
+      "layer3_rotation_target": false,
+      "expected_action": "Hold"
+    },
+    {
+      "name": "matrix Add+flat with-L3",
+      "per_call_rec": "Add",
+      "verdict": { "trajectory": "flattening", "suggested_override": null, "rationale": "test" },
+      "layer3_rotation_target": true,
+      "expected_action": "Hold"
+    },
+    {
+      "name": "matrix Hold+flat with-L3",
+      "per_call_rec": "Hold",
+      "verdict": { "trajectory": "flattening", "suggested_override": null, "rationale": "test" },
+      "layer3_rotation_target": true,
+      "expected_action": "Trim"
+    },
+    {
+      "name": "matrix Add+softening no-override passthrough",
+      "per_call_rec": "Add",
+      "verdict": { "trajectory": "softening", "suggested_override": null, "rationale": "test" },
+      "layer3_rotation_target": false,
+      "expected_action": "Add"
+    },
+    {
+      "name": "matrix Hold+softening no-override passthrough",
+      "per_call_rec": "Hold",
+      "verdict": { "trajectory": "softening", "suggested_override": null, "rationale": "test" },
+      "layer3_rotation_target": false,
+      "expected_action": "Hold"
+    },
+    {
+      "name": "matrix Add+softening downgrade",
+      "per_call_rec": "Add",
+      "verdict": { "trajectory": "softening", "suggested_override": "downgrade_one", "rationale": "test" },
+      "layer3_rotation_target": false,
+      "expected_action": "Hold"
+    },
+    {
+      "name": "matrix Hold+softening downgrade",
+      "per_call_rec": "Hold",
+      "verdict": { "trajectory": "softening", "suggested_override": "downgrade_one", "rationale": "test" },
+      "layer3_rotation_target": false,
+      "expected_action": "Trim"
+    },
+    {
+      "name": "matrix no verdict passthrough",
+      "per_call_rec": "Hold",
+      "verdict": null,
+      "layer3_rotation_target": false,
+      "expected_action": "Hold"
+    }
+  ],
+  "confidence_cases": [
+    {
+      "name": "no verdict -> unknown",
+      "verdict": null,
+      "per_call_rec": "Hold",
+      "final_action": "Hold",
+      "expected": "unknown"
+    },
+    {
+      "name": "stable -> confident",
+      "verdict": { "trajectory": "stable", "suggested_override": null, "rationale": "test" },
+      "per_call_rec": "Hold",
+      "final_action": "Hold",
+      "expected": "confident"
+    },
+    {
+      "name": "override fired and changed action -> confident",
+      "verdict": { "trajectory": "deteriorating", "suggested_override": "trim_regardless", "rationale": "test" },
+      "per_call_rec": "Hold",
+      "final_action": "Trim",
+      "expected": "confident"
+    },
+    {
+      "name": "non-stable, no override -> advisory",
+      "verdict": { "trajectory": "softening", "suggested_override": null, "rationale": "test" },
+      "per_call_rec": "Add",
+      "final_action": "Add",
+      "expected": "advisory"
+    },
+    {
+      "name": "override present but action unchanged -> advisory",
+      "verdict": { "trajectory": "improving", "suggested_override": "upgrade_one", "rationale": "test" },
+      "per_call_rec": "Add",
+      "final_action": "Add",
+      "expected": "advisory"
+    }
+  ]
+}

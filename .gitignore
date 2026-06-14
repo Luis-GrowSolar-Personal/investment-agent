@@ -16,6 +16,10 @@ analysis/data/*
 # Exception: type_classifications.json is curated, hand-edited work (the
 # classification source of truth), not a regenerable cache — keep it tracked.
 !analysis/data/type_classifications.json
+# Exception: trend_verdict_fixtures.json is the shared parity fixture set for
+# trend_analyst.py <-> server/lib/trendAnalyst.js (hand-curated test data,
+# not a regenerable cache) — keep it tracked.
+!analysis/data/trend_verdict_fixtures.json
 .envrc.zsh
 cat_output
 diff_output
