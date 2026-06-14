@@ -127,11 +127,16 @@ Small positions (gold, silver, bitcoin) are preserved this way per user preferen
 
 ## Backlog (updated priority order)
 
-1. **Wire OwnerProfile params into Dashboard allocator (At a Glance tab)** — Dashboard route
-   ignores Admin settings. estSpecRatio, maxPositions, minPositionDollar, taxSensitivity,
-   specExitSpeed should gate Dashboard output too (Moves already consumes them).
+1. ✅ **Dashboard cap flags use OwnerTickerConfig override** — DONE 2026-06-13. Narrowed from
+   "wire all OwnerProfile params" (estSpecRatio/maxPositions/minPositionDollar/taxSensitivity/
+   specExitSpeed don't apply to a positions-display page — see discussion 2026-06-13). Dashboard's
+   `hardCapFraction` now uses `OwnerTickerConfig.capPercent ?? ticker.capPercent` before taking
+   `min()` with the analyst cap.
 
-2. **Domain tag on Ticker** — add `domain String?` to Ticker schema; assign in Radar.
+2. ✅ **Domain tag on Ticker** — DONE 2026-06-13. `Ticker.domains String[]` (multi-select per
+   DOMAIN.md categories: solar, energy_storage, semiconductors, it_software_cloud, crypto).
+   Checkbox picker in Radar edit modal. All current tickers tagged. Not yet consumed by
+   moves.js/Opportunity Scanner — descriptive only for now.
 
 3. **Owner assignment per ticker** — `users String[]` on Ticker; filter Radar per user.
 

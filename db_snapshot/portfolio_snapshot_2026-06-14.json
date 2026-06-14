@@ -1,0 +1,1144 @@
+[
+  {
+    "id": 10,
+    "name": "Luis ROTH IRA",
+    "type": "roth",
+    "owner": "Luis Morales",
+    "managed": false,
+    "ltcgRate": null,
+    "stcgRate": null,
+    "cashBalance": 0.82,
+    "cashAsOfDate": "2026-05-31T18:01:30.174Z",
+    "marginBalance": null,
+    "marginRate": null,
+    "marginRateAsOf": null,
+    "marginRateLog": null,
+    "marginAsOfDate": null,
+    "notes": null,
+    "createdAt": "2026-05-31T17:55:59.829Z",
+    "schwabAccountHash": null,
+    "positions": [
+      {
+        "id": 88,
+        "tickerId": 74,
+        "accountId": 10,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T18:00:05.585Z",
+        "closedAt": null,
+        "lastPrice": 7.98,
+        "lastPriceAsOf": "2026-05-31T18:00:21.387Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "ENVX"
+        },
+        "lots": [
+          {
+            "id": 134,
+            "positionId": 88,
+            "shares": 13,
+            "costBasis": 16.17,
+            "acquiredDate": "2021-02-25T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T18:00:05.602Z"
+          },
+          {
+            "id": 135,
+            "positionId": 88,
+            "shares": 6,
+            "costBasis": 20.03,
+            "acquiredDate": "2021-07-07T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T18:00:05.602Z"
+          },
+          {
+            "id": 136,
+            "positionId": 88,
+            "shares": 8,
+            "costBasis": 19.68,
+            "acquiredDate": "2021-10-15T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T18:00:05.602Z"
+          },
+          {
+            "id": 137,
+            "positionId": 88,
+            "shares": 352,
+            "costBasis": 18.14,
+            "acquiredDate": "2021-02-25T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T18:00:05.602Z"
+          }
+        ]
+      },
+      {
+        "id": 86,
+        "tickerId": 19,
+        "accountId": 10,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T17:56:09.417Z",
+        "closedAt": null,
+        "lastPrice": 1.06,
+        "lastPriceAsOf": "2026-05-31T18:00:21.387Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "SPWR"
+        },
+        "lots": [
+          {
+            "id": 132,
+            "positionId": 86,
+            "shares": 155,
+            "costBasis": 1.8352,
+            "acquiredDate": "2025-07-30T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:56:09.430Z"
+          },
+          {
+            "id": 133,
+            "positionId": 86,
+            "shares": 20115,
+            "costBasis": 1.8102,
+            "acquiredDate": "2024-09-03T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:56:09.445Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Eduardo Custodial",
+    "type": "taxable",
+    "owner": "Eduardo Morales",
+    "managed": false,
+    "ltcgRate": null,
+    "stcgRate": null,
+    "cashBalance": 4884.29,
+    "cashAsOfDate": "2026-05-31T18:03:23.515Z",
+    "marginBalance": null,
+    "marginRate": null,
+    "marginRateAsOf": null,
+    "marginRateLog": null,
+    "marginAsOfDate": null,
+    "notes": null,
+    "createdAt": "2026-05-30T22:13:29.416Z",
+    "schwabAccountHash": null,
+    "positions": [
+      {
+        "id": 67,
+        "tickerId": 741,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.931Z",
+        "closedAt": null,
+        "lastPrice": 11.26,
+        "lastPriceAsOf": "2026-06-06T20:04:24.358Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "BYDDY"
+        },
+        "lots": [
+          {
+            "id": 102,
+            "positionId": 67,
+            "shares": 24,
+            "costBasis": 16.22,
+            "acquiredDate": "2025-04-03T00:00:00.000Z",
+            "source": "manual",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T00:08:19.156Z"
+          }
+        ]
+      },
+      {
+        "id": 60,
+        "tickerId": 742,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.823Z",
+        "closedAt": null,
+        "lastPrice": 64.68,
+        "lastPriceAsOf": "2026-06-06T20:04:24.358Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "SIVR"
+        },
+        "lots": [
+          {
+            "id": 81,
+            "positionId": 60,
+            "shares": 12,
+            "costBasis": 72.795,
+            "acquiredDate": "2026-02-02T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.835Z"
+          }
+        ]
+      },
+      {
+        "id": 63,
+        "tickerId": 737,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.884Z",
+        "closedAt": null,
+        "lastPrice": 75.64,
+        "lastPriceAsOf": "2026-06-06T20:49:16.982Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "TMFC"
+        },
+        "lots": [
+          {
+            "id": 87,
+            "positionId": 63,
+            "shares": 30,
+            "costBasis": 71.8471,
+            "acquiredDate": "2025-12-03T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.890Z"
+          },
+          {
+            "id": 88,
+            "positionId": 63,
+            "shares": 31,
+            "costBasis": 67.5899,
+            "acquiredDate": "2025-08-28T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.890Z"
+          }
+        ]
+      },
+      {
+        "id": 65,
+        "tickerId": 123,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.908Z",
+        "closedAt": null,
+        "lastPrice": 213.68,
+        "lastPriceAsOf": "2026-06-06T20:49:16.982Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "ORCL"
+        },
+        "lots": [
+          {
+            "id": 91,
+            "positionId": 65,
+            "shares": 3,
+            "costBasis": 318.5774,
+            "acquiredDate": "2025-09-22T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.914Z"
+          }
+        ]
+      },
+      {
+        "id": 62,
+        "tickerId": 6,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.857Z",
+        "closedAt": null,
+        "lastPrice": 19.69,
+        "lastPriceAsOf": "2026-06-06T20:49:16.982Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "AMPX"
+        },
+        "lots": [
+          {
+            "id": 85,
+            "positionId": 62,
+            "shares": 81,
+            "costBasis": 12.27,
+            "acquiredDate": "2025-11-12T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.874Z"
+          },
+          {
+            "id": 86,
+            "positionId": 62,
+            "shares": 3,
+            "costBasis": 10.905,
+            "acquiredDate": "2025-12-03T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.874Z"
+          }
+        ]
+      },
+      {
+        "id": 64,
+        "tickerId": 12,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.896Z",
+        "closedAt": null,
+        "lastPrice": 7.08,
+        "lastPriceAsOf": "2026-06-06T20:49:16.982Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "EOSE"
+        },
+        "lots": [
+          {
+            "id": 89,
+            "positionId": 64,
+            "shares": 112,
+            "costBasis": 10.115,
+            "acquiredDate": "2025-09-22T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.903Z"
+          },
+          {
+            "id": 90,
+            "positionId": 64,
+            "shares": 10,
+            "costBasis": 0.9888,
+            "acquiredDate": "2024-06-24T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.903Z"
+          }
+        ]
+      },
+      {
+        "id": 68,
+        "tickerId": 735,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.942Z",
+        "closedAt": null,
+        "lastPrice": 705.06,
+        "lastPriceAsOf": "2026-06-06T20:49:16.982Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "QQQ"
+        },
+        "lots": [
+          {
+            "id": 96,
+            "positionId": 68,
+            "shares": 14,
+            "costBasis": 511.01,
+            "acquiredDate": "2024-12-02T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.947Z"
+          }
+        ]
+      },
+      {
+        "id": 59,
+        "tickerId": 58,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.757Z",
+        "closedAt": null,
+        "lastPrice": 205.1,
+        "lastPriceAsOf": "2026-06-06T20:49:16.982Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "NVDA"
+        },
+        "lots": [
+          {
+            "id": 70,
+            "positionId": 59,
+            "shares": 0.0001,
+            "costBasis": 144.6036,
+            "acquiredDate": "2022-07-05T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.764Z"
+          },
+          {
+            "id": 71,
+            "positionId": 59,
+            "shares": 0.0001,
+            "costBasis": 150.365,
+            "acquiredDate": "2022-12-23T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.764Z"
+          },
+          {
+            "id": 72,
+            "positionId": 59,
+            "shares": 0.0001,
+            "costBasis": 123.4939,
+            "acquiredDate": "2022-09-30T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.764Z"
+          },
+          {
+            "id": 73,
+            "positionId": 59,
+            "shares": 0.0002,
+            "costBasis": 122.3286,
+            "acquiredDate": "2024-10-03T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.764Z"
+          },
+          {
+            "id": 74,
+            "positionId": 59,
+            "shares": 0.0002,
+            "costBasis": 135.7429,
+            "acquiredDate": "2024-12-27T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.764Z"
+          },
+          {
+            "id": 75,
+            "positionId": 59,
+            "shares": 0.0003,
+            "costBasis": 109.09,
+            "acquiredDate": "2025-04-02T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.764Z"
+          },
+          {
+            "id": 76,
+            "positionId": 59,
+            "shares": 0.0002,
+            "costBasis": 124.0761,
+            "acquiredDate": "2024-06-28T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.764Z"
+          },
+          {
+            "id": 77,
+            "positionId": 59,
+            "shares": 0.0002,
+            "costBasis": 175.9096,
+            "acquiredDate": "2026-04-01T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.764Z"
+          },
+          {
+            "id": 78,
+            "positionId": 59,
+            "shares": 0.0002,
+            "costBasis": 189.4546,
+            "acquiredDate": "2025-10-02T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.765Z"
+          },
+          {
+            "id": 79,
+            "positionId": 59,
+            "shares": 0.0002,
+            "costBasis": 160.4779,
+            "acquiredDate": "2025-07-03T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.764Z"
+          },
+          {
+            "id": 80,
+            "positionId": 59,
+            "shares": 0.0002,
+            "costBasis": 191.281,
+            "acquiredDate": "2025-12-26T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.764Z"
+          },
+          {
+            "id": 100,
+            "positionId": 59,
+            "shares": 3.326,
+            "costBasis": 22.25,
+            "acquiredDate": "2021-09-03T00:00:00.000Z",
+            "source": "manual",
+            "closedDate": null,
+            "notes": "starting position",
+            "createdAt": "2026-05-31T00:03:40.896Z"
+          },
+          {
+            "id": 101,
+            "positionId": 59,
+            "shares": 0.001,
+            "costBasis": 10,
+            "acquiredDate": "2022-07-05T00:00:00.000Z",
+            "source": "manual",
+            "closedDate": null,
+            "notes": "",
+            "createdAt": "2026-05-31T00:05:15.528Z"
+          }
+        ]
+      },
+      {
+        "id": 69,
+        "tickerId": 738,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.953Z",
+        "closedAt": null,
+        "lastPrice": 26.69,
+        "lastPriceAsOf": "2026-06-06T20:49:16.982Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "BTC"
+        },
+        "lots": [
+          {
+            "id": 97,
+            "positionId": 69,
+            "shares": 34,
+            "costBasis": 7.505,
+            "acquiredDate": "2024-11-11T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.958Z"
+          }
+        ]
+      },
+      {
+        "id": 66,
+        "tickerId": 74,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.919Z",
+        "closedAt": null,
+        "lastPrice": 7.28,
+        "lastPriceAsOf": "2026-06-06T20:49:16.982Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "ENVX"
+        },
+        "lots": [
+          {
+            "id": 92,
+            "positionId": 66,
+            "shares": 188,
+            "costBasis": 11.0772,
+            "acquiredDate": "2025-08-13T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.925Z"
+          },
+          {
+            "id": 93,
+            "positionId": 66,
+            "shares": 44,
+            "costBasis": 9.165,
+            "acquiredDate": "2025-09-05T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.925Z"
+          },
+          {
+            "id": 94,
+            "positionId": 66,
+            "shares": 39,
+            "costBasis": 10.105,
+            "acquiredDate": "2025-08-28T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.925Z"
+          }
+        ]
+      },
+      {
+        "id": 61,
+        "tickerId": 19,
+        "accountId": 6,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-30T22:14:10.842Z",
+        "closedAt": null,
+        "lastPrice": 0.9507,
+        "lastPriceAsOf": "2026-06-06T20:49:16.982Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "SPWR"
+        },
+        "lots": [
+          {
+            "id": 82,
+            "positionId": 61,
+            "shares": 583,
+            "costBasis": 1.715,
+            "acquiredDate": "2025-11-12T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.847Z"
+          },
+          {
+            "id": 83,
+            "positionId": 61,
+            "shares": 3,
+            "costBasis": 1.845,
+            "acquiredDate": "2025-10-08T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.847Z"
+          },
+          {
+            "id": 84,
+            "positionId": 61,
+            "shares": 558,
+            "costBasis": 1.785,
+            "acquiredDate": "2026-01-20T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-30T22:14:10.847Z"
+          },
+          {
+            "id": 103,
+            "positionId": 61,
+            "shares": 8,
+            "costBasis": 2.22,
+            "acquiredDate": "2024-10-09T00:00:00.000Z",
+            "source": "manual",
+            "closedDate": null,
+            "notes": "was CSLR",
+            "createdAt": "2026-05-31T11:20:53.725Z"
+          },
+          {
+            "id": 104,
+            "positionId": 61,
+            "shares": 31,
+            "costBasis": 2.55,
+            "acquiredDate": "2024-10-06T00:00:00.000Z",
+            "source": "manual",
+            "closedDate": null,
+            "notes": "was CLSR",
+            "createdAt": "2026-05-31T11:20:53.725Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Andrea Custodial",
+    "type": "taxable",
+    "owner": "Andrea Morales",
+    "managed": false,
+    "ltcgRate": null,
+    "stcgRate": null,
+    "cashBalance": 4896.19,
+    "cashAsOfDate": "2026-05-31T18:06:02.575Z",
+    "marginBalance": null,
+    "marginRate": null,
+    "marginRateAsOf": null,
+    "marginRateLog": null,
+    "marginAsOfDate": null,
+    "notes": null,
+    "createdAt": "2026-05-31T17:11:39.843Z",
+    "schwabAccountHash": null,
+    "positions": [
+      {
+        "id": 76,
+        "tickerId": 12,
+        "accountId": 7,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T17:12:31.487Z",
+        "closedAt": null,
+        "lastPrice": 8.43,
+        "lastPriceAsOf": "2026-05-31T17:12:58.926Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "EOSE"
+        },
+        "lots": [
+          {
+            "id": 109,
+            "positionId": 76,
+            "shares": 10,
+            "costBasis": 0.9869,
+            "acquiredDate": "2024-06-24T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:31.760Z"
+          },
+          {
+            "id": 110,
+            "positionId": 76,
+            "shares": 167,
+            "costBasis": 12.4553,
+            "acquiredDate": "2025-12-03T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:31.760Z"
+          }
+        ]
+      },
+      {
+        "id": 74,
+        "tickerId": 742,
+        "accountId": 7,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T17:12:29.993Z",
+        "closedAt": null,
+        "lastPrice": 71.79,
+        "lastPriceAsOf": "2026-05-31T17:12:58.926Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "SIVR"
+        },
+        "lots": [
+          {
+            "id": 105,
+            "positionId": 74,
+            "shares": 12,
+            "costBasis": 72.6703,
+            "acquiredDate": "2026-02-02T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:30.535Z"
+          }
+        ]
+      },
+      {
+        "id": 75,
+        "tickerId": 19,
+        "accountId": 7,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T17:12:30.943Z",
+        "closedAt": null,
+        "lastPrice": 0.9507,
+        "lastPriceAsOf": "2026-06-07T18:35:24.164Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "SPWR"
+        },
+        "lots": [
+          {
+            "id": 106,
+            "positionId": 75,
+            "shares": 731,
+            "costBasis": 1.705,
+            "acquiredDate": "2025-11-12T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:31.216Z"
+          },
+          {
+            "id": 107,
+            "positionId": 75,
+            "shares": 555,
+            "costBasis": 1.7787,
+            "acquiredDate": "2026-01-20T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:31.216Z"
+          },
+          {
+            "id": 108,
+            "positionId": 75,
+            "shares": 5,
+            "costBasis": 1.5264,
+            "acquiredDate": "2025-12-03T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:31.216Z"
+          }
+        ]
+      },
+      {
+        "id": 80,
+        "tickerId": 738,
+        "accountId": 7,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T17:12:33.657Z",
+        "closedAt": null,
+        "lastPrice": 26.69,
+        "lastPriceAsOf": "2026-06-07T18:35:24.164Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "BTC"
+        },
+        "lots": [
+          {
+            "id": 118,
+            "positionId": 80,
+            "shares": 4,
+            "costBasis": 44.16,
+            "acquiredDate": "2024-11-22T00:00:00.000Z",
+            "source": "manual",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:19:37.417Z"
+          },
+          {
+            "id": 119,
+            "positionId": 80,
+            "shares": 34,
+            "costBasis": 37.55,
+            "acquiredDate": "2024-11-11T00:00:00.000Z",
+            "source": "manual",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:19:37.416Z"
+          }
+        ]
+      },
+      {
+        "id": 78,
+        "tickerId": 737,
+        "accountId": 7,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T17:12:32.572Z",
+        "closedAt": null,
+        "lastPrice": 75.64,
+        "lastPriceAsOf": "2026-06-07T18:35:24.164Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "TMFC"
+        },
+        "lots": [
+          {
+            "id": 113,
+            "positionId": 78,
+            "shares": 61,
+            "costBasis": 67.56,
+            "acquiredDate": "2025-08-28T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:32.844Z"
+          },
+          {
+            "id": 114,
+            "positionId": 78,
+            "shares": 14,
+            "costBasis": 70.625,
+            "acquiredDate": "2025-09-22T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:32.844Z"
+          }
+        ]
+      },
+      {
+        "id": 77,
+        "tickerId": 6,
+        "accountId": 7,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T17:12:32.031Z",
+        "closedAt": null,
+        "lastPrice": 19.69,
+        "lastPriceAsOf": "2026-06-07T18:35:24.164Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "AMPX"
+        },
+        "lots": [
+          {
+            "id": 111,
+            "positionId": 77,
+            "shares": 85,
+            "costBasis": 11.7682,
+            "acquiredDate": "2025-09-22T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:32.301Z"
+          },
+          {
+            "id": 112,
+            "positionId": 77,
+            "shares": 82,
+            "costBasis": 12.17,
+            "acquiredDate": "2025-11-12T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:32.301Z"
+          }
+        ]
+      },
+      {
+        "id": 79,
+        "tickerId": 735,
+        "accountId": 7,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T17:12:33.115Z",
+        "closedAt": null,
+        "lastPrice": 705.06,
+        "lastPriceAsOf": "2026-06-07T18:35:24.164Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "QQQ"
+        },
+        "lots": [
+          {
+            "id": 115,
+            "positionId": 79,
+            "shares": 14,
+            "costBasis": 511.01,
+            "acquiredDate": "2024-12-02T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T17:12:33.386Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Eduardo ROTH IRA",
+    "type": "roth",
+    "owner": "Eduardo Morales",
+    "managed": false,
+    "ltcgRate": null,
+    "stcgRate": null,
+    "cashBalance": 3.46,
+    "cashAsOfDate": "2026-05-31T18:14:08.090Z",
+    "marginBalance": null,
+    "marginRate": null,
+    "marginRateAsOf": null,
+    "marginRateLog": null,
+    "marginAsOfDate": null,
+    "notes": null,
+    "createdAt": "2026-05-31T18:09:41.578Z",
+    "schwabAccountHash": null,
+    "positions": [
+      {
+        "id": 91,
+        "tickerId": 19,
+        "accountId": 12,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T18:13:20.683Z",
+        "closedAt": null,
+        "lastPrice": 1.06,
+        "lastPriceAsOf": "2026-05-31T18:14:11.210Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "SPWR"
+        },
+        "lots": [
+          {
+            "id": 140,
+            "positionId": 91,
+            "shares": 1147,
+            "costBasis": 1.9285,
+            "acquiredDate": "2025-06-16T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T18:13:20.691Z"
+          }
+        ]
+      },
+      {
+        "id": 92,
+        "tickerId": 738,
+        "accountId": 12,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T18:13:20.697Z",
+        "closedAt": null,
+        "lastPrice": 32.48,
+        "lastPriceAsOf": "2026-05-31T18:14:11.210Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "BTC"
+        },
+        "lots": [
+          {
+            "id": 141,
+            "positionId": 92,
+            "shares": 158,
+            "costBasis": 44.11,
+            "acquiredDate": "2024-12-06T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T18:13:20.703Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Andrea ROTH IRA",
+    "type": "roth",
+    "owner": "Andrea Morales",
+    "managed": false,
+    "ltcgRate": null,
+    "stcgRate": null,
+    "cashBalance": 2.88,
+    "cashAsOfDate": "2026-05-31T18:15:19.714Z",
+    "marginBalance": null,
+    "marginRate": null,
+    "marginRateAsOf": null,
+    "marginRateLog": null,
+    "marginAsOfDate": null,
+    "notes": null,
+    "createdAt": "2026-05-31T18:09:24.517Z",
+    "schwabAccountHash": null,
+    "positions": [
+      {
+        "id": 89,
+        "tickerId": 19,
+        "accountId": 11,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T18:13:05.129Z",
+        "closedAt": null,
+        "lastPrice": 1.06,
+        "lastPriceAsOf": "2026-05-31T18:14:44.217Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "SPWR"
+        },
+        "lots": [
+          {
+            "id": 138,
+            "positionId": 89,
+            "shares": 1347,
+            "costBasis": 1.9394,
+            "acquiredDate": "2025-06-16T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T18:13:05.140Z"
+          }
+        ]
+      },
+      {
+        "id": 90,
+        "tickerId": 738,
+        "accountId": 11,
+        "status": "active",
+        "notes": null,
+        "createdAt": "2026-05-31T18:13:05.148Z",
+        "closedAt": null,
+        "lastPrice": 32.48,
+        "lastPriceAsOf": "2026-05-31T18:14:44.217Z",
+        "dayChangePct": null,
+        "dayChangeDollar": null,
+        "ticker": {
+          "symbol": "BTC"
+        },
+        "lots": [
+          {
+            "id": 139,
+            "positionId": 90,
+            "shares": 158,
+            "costBasis": 44.095,
+            "acquiredDate": "2024-12-06T00:00:00.000Z",
+            "source": "import",
+            "closedDate": null,
+            "notes": null,
+            "createdAt": "2026-05-31T18:13:05.155Z"
+          }
+        ]
+      }
+    ]
+  }
+]

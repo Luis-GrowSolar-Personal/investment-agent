@@ -98,9 +98,10 @@ async function loadLocalPositions(prisma, accountId) {
  *
  * @param {PrismaClient} prisma
  * @returns {{
- *   matched: Array,        // { schwab, local, positionDiffs, schwabOnly, localOnly }
- *   unmatchedSchwab: Array, // schwab accounts with no local row
+ *   matched: Array,         // { schwab, local, positionDiffs, schwabOnly, localOnly }
+ *   unmatchedSchwab: Array, // schwab accounts with no local row, excluding ignored
  *   unmatchedLocal: Array,  // local accounts with no schwabAccountHash set
+ *   ignoredSchwab: Array,   // schwab accounts the user has dismissed/ignored
  * }}
  */
 async function getReconciliation(prisma) {
@@ -110,13 +111,21 @@ async function getReconciliation(prisma) {
     localAccounts.filter(a => a.schwabAccountHash).map(a => [a.schwabAccountHash, a])
   );
 
+  const ignored = await prisma.ignoredSchwabAccount.findMany();
+  const ignoredHashes = new Set(ignored.map(i => i.schwabAccountHash));
+
   const matched = [];
   const unmatchedSchwab = [];
+  const ignoredSchwab = [];
 
   for (const schwab of schwabAccounts) {
     const local = schwab.hashValue ? localByHash.get(schwab.hashValue) : null;
     if (!local) {
-      unmatchedSchwab.push(schwab);
+      if (schwab.hashValue && ignoredHashes.has(schwab.hashValue)) {
+        ignoredSchwab.push(schwab);
+      } else {
+        unmatchedSchwab.push(schwab);
+      }
       continue;
     }
 
@@ -161,7 +170,38 @@ async function getReconciliation(prisma) {
   // Local accounts that don't have a Schwab hash set yet.
   const unmatchedLocal = localAccounts.filter(a => !a.schwabAccountHash);
 
-  return { matched, unmatchedSchwab, unmatchedLocal };
+  return { matched, unmatchedSchwab, unmatchedLocal, ignoredSchwab };
+}
+
+/**
+ * Marks a Schwab account (by hash) as ignored — it will be excluded from
+ * `unmatchedSchwab` in getReconciliation() until un-ignored. Used for
+ * accounts the user doesn't want to link or manage (e.g. accounts at a
+ * different brokerage tier, or ones not yet ready to track).
+ *
+ * @param {PrismaClient} prisma
+ * @param {string} schwabAccountHash
+ */
+async function ignoreAccount(prisma, schwabAccountHash) {
+  if (!schwabAccountHash) throw new Error('schwabAccountHash is required');
+  return prisma.ignoredSchwabAccount.upsert({
+    where: { schwabAccountHash },
+    update: {},
+    create: { schwabAccountHash },
+  });
+}
+
+/**
+ * Reverses ignoreAccount() — the Schwab account will reappear under
+ * `unmatchedSchwab` on the next reconciliation.
+ *
+ * @param {PrismaClient} prisma
+ * @param {string} schwabAccountHash
+ */
+async function unignoreAccount(prisma, schwabAccountHash) {
+  if (!schwabAccountHash) throw new Error('schwabAccountHash is required');
+  await prisma.ignoredSchwabAccount.deleteMany({ where: { schwabAccountHash } });
+  return { schwabAccountHash };
 }
 
 /**
@@ -232,19 +272,22 @@ async function syncAccount(prisma, accountId) {
 
   await ensureOwnerProfile(prisma, account.owner);
 
-  // Cash balance — always synced, no tax implication.
+  // Cash balance — always synced, no tax implication. lastSyncedAt is
+  // stamped regardless of whether cashBalance is present, so the "Synced X
+  // ago" indicator reflects this sync attempt either way.
+  const accountUpdateData = { lastSyncedAt: new Date() };
   if (schwab.cashBalance != null) {
-    await prisma.account.update({
-      where: { id: accountId },
-      data: { cashBalance: schwab.cashBalance, cashAsOfDate: new Date() },
-    });
+    accountUpdateData.cashBalance = schwab.cashBalance;
+    accountUpdateData.cashAsOfDate = new Date();
   }
+  await prisma.account.update({ where: { id: accountId }, data: accountUpdateData });
 
   const localPositions = await loadLocalPositions(prisma, accountId);
   const localBySymbol = new Map(localPositions.map(p => [p.symbol, p]));
 
   const result = {
     cashBalance: schwab.cashBalance ?? null,
+    lastSyncedAt: accountUpdateData.lastSyncedAt,
     newPositions: [],      // symbols newly created with a placeholder 'schwab' lot
     updatedSchwabLots: [],  // symbols where an existing 'schwab' lot was refreshed
     positionDiffs: [],      // symbols with existing (non-schwab-sourced) lots that disagree on share count
@@ -300,7 +343,14 @@ async function syncAccount(prisma, accountId) {
           capPercent: 0,
           status: 'watchlist',
           inScope: false,
-          bucketOverride: bucket !== 'equity' ? bucket : null,
+          // Store the bucket explicitly. enrichPosition()'s display-time
+          // fallback is smartDefaultBucket(pos.assetType || '', symbol) —
+          // Position has no assetType column, so that call always sees ''
+          // and defaults to 'etf'. Leaving bucketOverride null for
+          // newly-created equities (the old `bucket !== 'equity' ? bucket :
+          // null` pattern) silently misfiled them into the ETFs tab. See
+          // CoWork_handoff_2026-06-13c.md "SPCX in ETFs tab" fix.
+          bucketOverride: bucket,
         },
       });
     }
@@ -328,10 +378,75 @@ async function syncAccount(prisma, accountId) {
   return result;
 }
 
+/**
+ * Accepts a positive Schwab-vs-local share-count diff for an existing
+ * position as a new lot — e.g. a dividend reinvestment (DRIP) that added
+ * a small fractional share count Schwab now reports but the local lots
+ * don't reflect yet.
+ *
+ * Creates ONE additional lot for the diff (source: 'schwab', cost basis =
+ * Schwab's current averagePrice, acquisition date = today as a placeholder),
+ * same flag-for-correction pattern as new positions. Does not touch any
+ * existing lots. Only valid when Schwab reports MORE shares than local
+ * (diff > 0) — for the reverse case (local > Schwab, e.g. a sale not yet
+ * reflected locally), this is not the right tool; surfaced for manual review
+ * instead.
+ *
+ * @param {PrismaClient} prisma
+ * @param {number} accountId
+ * @param {string} symbol
+ */
+async function acceptShareDiff(prisma, accountId, symbol) {
+  const account = await prisma.account.findUnique({ where: { id: accountId } });
+  if (!account) throw new Error('Account not found');
+  if (!account.schwabAccountHash) throw new Error('Account is not linked to a Schwab account');
+
+  const { schwabAccounts } = await previewAccounts(prisma);
+  const schwab = schwabAccounts.find(a => a.hashValue === account.schwabAccountHash);
+  if (!schwab) {
+    throw new Error('Linked Schwab account not found in current Schwab data (hash mismatch or account removed)');
+  }
+
+  const schwabPos = schwab.positions.find(p => p.symbol === symbol);
+  if (!schwabPos) throw new Error(`${symbol} not found in this Schwab account`);
+  const schwabShares = (schwabPos.longQuantity ?? 0) - (schwabPos.shortQuantity ?? 0);
+
+  const ticker = await prisma.ticker.findUnique({ where: { symbol } });
+  if (!ticker) throw new Error(`${symbol} ticker not found locally`);
+
+  const position = await prisma.position.findUnique({
+    where: { tickerId_accountId: { tickerId: ticker.id, accountId } },
+    include: { lots: { where: { closedDate: null } } },
+  });
+  if (!position) throw new Error(`No local position for ${symbol} in this account`);
+
+  const localShares = position.lots.reduce((s, l) => s + l.shares, 0);
+  const diffShares = schwabShares - localShares;
+  if (diffShares <= 0) {
+    throw new Error(`${symbol}: Schwab (${schwabShares}) is not greater than local (${localShares}) — nothing to accept`);
+  }
+
+  await prisma.lot.create({
+    data: {
+      positionId: position.id,
+      shares: diffShares,
+      costBasis: schwabPos.averagePrice ?? 0,
+      acquiredDate: new Date(),
+      source: 'schwab',
+      notes: `Accepted Schwab share-count diff (+${diffShares} shares, likely a dividend reinvestment) — acquisition date is a placeholder (today). Verify/edit for accurate LTCG/STCG treatment.`,
+    },
+  });
+
+  return { symbol, diffShares, newLocalShares: localShares + diffShares };
+}
+
 module.exports = {
   getReconciliation,
   matchAccount,
   createAccountFromSchwab,
   syncAccount,
+  acceptShareDiff,
+  ignoreAccount,
+  unignoreAccount,
   maskAccountNumber,
 };

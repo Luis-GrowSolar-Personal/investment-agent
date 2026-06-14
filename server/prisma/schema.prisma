@@ -193,6 +193,11 @@ model Account {
   // via the reconciliation flow in /api/schwab/reconcile + /match.
   schwabAccountHash String?  @unique
 
+  // Last time syncAccount() successfully ran for this account — drives the
+  // "Synced X ago" indicator in SchwabReconcileModal (replaces the
+  // always-blue Sync button). Null until first sync.
+  lastSyncedAt      DateTime?
+
   @@unique([name, owner])
 }
 
@@ -238,6 +243,17 @@ model SchwabToken {
   expiresAt    DateTime
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+}
+
+// Schwab accounts the user has chosen not to link/manage. Reconciliation
+// (getReconciliation in schwabSync.js) excludes these from
+// `unmatchedSchwab` so they stop reappearing in the Schwab Sync modal every
+// time it opens. Surfaced separately as `ignoredSchwab` for an "un-ignore"
+// toggle in the UI.
+model IgnoredSchwabAccount {
+  id                Int      @id @default(autoincrement())
+  schwabAccountHash String   @unique
+  createdAt         DateTime @default(now())
 }
 
 // Individual tax lots within a Position. Tracked separately for FIFO

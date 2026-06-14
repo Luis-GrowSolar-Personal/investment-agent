@@ -1229,6 +1229,7 @@ function SchwabReconcileModal({ getToken, onClose, onChanged }) {
   const [resultMsg, setResultMsg] = useState({});
   const [createFor, setCreateFor] = useState(null); // hashValue currently showing create form
   const [matchSelections, setMatchSelections] = useState({});
+  const [showIgnored, setShowIgnored] = useState(false);
 
   const inputStyle = {
     background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
@@ -1242,6 +1243,21 @@ function SchwabReconcileModal({ getToken, onClose, onChanged }) {
     background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 12,
     padding: '5px 12px', borderRadius: 5, cursor: 'pointer',
   };
+
+  // "Synced 3m ago" / "Synced yesterday" style relative-time label for
+  // Account.lastSyncedAt. Returns null if never synced (caller shows
+  // "Never synced" in that case).
+  function timeAgo(dateStr) {
+    if (!dateStr) return null;
+    const diffMs = Date.now() - new Date(dateStr).getTime();
+    const mins = Math.floor(diffMs / 60000);
+    if (mins < 1) return 'just now';
+    if (mins < 60) return `${mins}m ago`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    return `${days}d ago`;
+  }
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -1311,6 +1327,74 @@ function SchwabReconcileModal({ getToken, onClose, onChanged }) {
     }
   }
 
+  async function handleAcceptDiff(accountId, symbol, hashValue) {
+    const busyId = `${hashValue}:${symbol}`;
+    setBusyKey(busyId);
+    setResultMsg(prev => ({ ...prev, [hashValue]: '' }));
+    try {
+      const token = await getToken();
+      const res = await fetch(`${API}/api/schwab/accept-diff`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ accountId, symbol }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      setResultMsg(prev => ({
+        ...prev,
+        [hashValue]: `${symbol}: added a placeholder lot for +${json.diffShares} shares (dated today — verify acquisition date for accurate LTCG/STCG treatment).`,
+      }));
+      await fetchData();
+      onChanged();
+    } catch (err) {
+      console.error('Schwab accept-diff error:', err);
+      setResultMsg(prev => ({ ...prev, [hashValue]: 'Error: ' + err.message }));
+    } finally {
+      setBusyKey(null);
+    }
+  }
+
+  async function handleIgnore(hashValue) {
+    setBusyKey(hashValue);
+    setResultMsg(prev => ({ ...prev, [hashValue]: '' }));
+    try {
+      const token = await getToken();
+      const res = await fetch(`${API}/api/schwab/ignore`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ schwabAccountHash: hashValue }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      await fetchData();
+    } catch (err) {
+      console.error('Schwab ignore error:', err);
+      setResultMsg(prev => ({ ...prev, [hashValue]: 'Error: ' + err.message }));
+    } finally {
+      setBusyKey(null);
+    }
+  }
+
+  async function handleUnignore(hashValue) {
+    setBusyKey(hashValue);
+    try {
+      const token = await getToken();
+      const res = await fetch(`${API}/api/schwab/unignore`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ schwabAccountHash: hashValue }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      await fetchData();
+    } catch (err) {
+      console.error('Schwab unignore error:', err);
+      setResultMsg(prev => ({ ...prev, [hashValue]: 'Error: ' + err.message }));
+    } finally {
+      setBusyKey(null);
+    }
+  }
+
   async function handleSync(accountId, hashValue) {
     setBusyKey(hashValue);
     setResultMsg(prev => ({ ...prev, [hashValue]: '' }));
@@ -1338,6 +1422,7 @@ function SchwabReconcileModal({ getToken, onClose, onChanged }) {
       await fetchData();
       onChanged();
     } catch (err) {
+      console.error('Schwab sync error:', err);
       setResultMsg(prev => ({ ...prev, [hashValue]: 'Error: ' + err.message }));
     } finally {
       setBusyKey(null);
@@ -1381,22 +1466,46 @@ function SchwabReconcileModal({ getToken, onClose, onChanged }) {
                       Schwab {m.schwab.accountNumberMasked} · {m.schwab.type} · cash {fmtDollars(m.schwab.cashBalance)}
                     </div>
                   </div>
-                  <button
-                    style={{ ...btnStyle, opacity: busyKey === m.schwab.hashValue ? 0.6 : 1 }}
-                    disabled={busyKey === m.schwab.hashValue}
-                    onClick={() => handleSync(m.local.id, m.schwab.hashValue)}
-                  >
-                    {busyKey === m.schwab.hashValue ? 'Syncing…' : 'Sync'}
-                  </button>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
+                    <button
+                      style={{
+                        ...(m.local.lastSyncedAt ? secondaryBtnStyle : btnStyle),
+                        opacity: busyKey === m.schwab.hashValue ? 0.6 : 1,
+                      }}
+                      disabled={busyKey === m.schwab.hashValue}
+                      onClick={() => handleSync(m.local.id, m.schwab.hashValue)}
+                    >
+                      {busyKey === m.schwab.hashValue ? 'Syncing…' : 'Sync'}
+                    </button>
+                    <div style={{ fontSize: 10, color: '#475569' }}>
+                      {m.local.lastSyncedAt ? `Synced ${timeAgo(m.local.lastSyncedAt)}` : 'Never synced'}
+                    </div>
+                  </div>
                 </div>
                 {m.positionDiffs.length > 0 && (
                   <div style={{ fontSize: 11, color: '#f59e0b', marginTop: 8 }}>
-                    {m.positionDiffs.map(d => (
-                      <div key={d.symbol}>
-                        {d.symbol}: Schwab reports {d.schwabShares} shares, local total is {d.localShares}
-                        {d.status === 'schwab_only' ? ' (no local position — Sync will create one)' : ' (lots untouched — review manually)'}
-                      </div>
-                    ))}
+                    {m.positionDiffs.map(d => {
+                      const acceptBusyId = `${m.schwab.hashValue}:${d.symbol}`;
+                      const canAccept = d.status === 'mismatch' && d.schwabShares > d.localShares;
+                      return (
+                        <div key={d.symbol} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
+                          <div>
+                            {d.symbol}: Schwab reports {d.schwabShares} shares, local total is {d.localShares}
+                            {d.status === 'schwab_only' ? ' (no local position — Sync will create one)' : ' (lots untouched — review manually)'}
+                          </div>
+                          {canAccept && (
+                            <button
+                              style={{ ...secondaryBtnStyle, padding: '2px 8px', fontSize: 11, opacity: busyKey === acceptBusyId ? 0.6 : 1 }}
+                              disabled={busyKey === acceptBusyId}
+                              title="Adds a placeholder lot for the difference (cost = Schwab's current avg price, date = today) — e.g. for a dividend reinvestment. Verify the date afterward."
+                              onClick={() => handleAcceptDiff(m.local.id, d.symbol, m.schwab.hashValue)}
+                            >
+                              {busyKey === acceptBusyId ? 'Adding…' : `Accept +${(d.schwabShares - d.localShares).toFixed(4)} as lot`}
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
                 {m.localOnly.length > 0 && (
@@ -1464,6 +1573,14 @@ function SchwabReconcileModal({ getToken, onClose, onChanged }) {
                     <button style={btnStyle} onClick={() => setCreateFor(s.hashValue)}>
                       + Create local account
                     </button>
+                    <button
+                      style={{ ...secondaryBtnStyle, opacity: busyKey === s.hashValue ? 0.6 : 1 }}
+                      disabled={busyKey === s.hashValue}
+                      title="Hide this account from this list — it won't reappear until un-ignored"
+                      onClick={() => handleIgnore(s.hashValue)}
+                    >
+                      Ignore
+                    </button>
                   </div>
                 )}
                 {resultMsg[s.hashValue] && (
@@ -1473,6 +1590,37 @@ function SchwabReconcileModal({ getToken, onClose, onChanged }) {
                 )}
               </div>
             ))}
+
+            {/* Ignored Schwab accounts */}
+            {data.ignoredSchwab?.length > 0 && (
+              <div style={{ marginTop: 20 }}>
+                <div
+                  style={{ fontSize: 12, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8, cursor: 'pointer', userSelect: 'none' }}
+                  onClick={() => setShowIgnored(v => !v)}
+                >
+                  {showIgnored ? '▾' : '▸'} Ignored accounts ({data.ignoredSchwab.length})
+                </div>
+                {showIgnored && data.ignoredSchwab.map(s => (
+                  <div key={s.hashValue} style={{ border: '1px solid #1e2330', borderRadius: 8, padding: 12, marginBottom: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <div style={{ fontSize: 13, color: '#f1f5f9', fontWeight: 600 }}>
+                        Schwab {s.accountNumberMasked} <span style={{ color: '#475569', fontWeight: 400 }}>({s.type})</span>
+                      </div>
+                      <div style={{ fontSize: 11, color: '#475569', marginTop: 2 }}>
+                        Cash {fmtDollars(s.cashBalance)} · {s.positionCount} position{s.positionCount !== 1 ? 's' : ''}
+                      </div>
+                    </div>
+                    <button
+                      style={{ ...secondaryBtnStyle, opacity: busyKey === s.hashValue ? 0.6 : 1 }}
+                      disabled={busyKey === s.hashValue}
+                      onClick={() => handleUnignore(s.hashValue)}
+                    >
+                      Un-ignore
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {/* Unmatched local accounts */}
             <div style={{ fontSize: 12, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: 20, marginBottom: 8 }}>

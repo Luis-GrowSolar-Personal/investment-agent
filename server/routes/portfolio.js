@@ -568,7 +568,12 @@ router.post('/accounts/:id/import', async (req, res) => {
             capPercent:    0,
             status:        'watchlist',
             inScope:       false,        // not analyst-evaluated
-            bucketOverride: bucket !== 'equity' ? bucket : null,
+            // Store explicitly — see schwabSync.js for why leaving this null
+            // for 'equity' misfiles the position into the ETFs tab at
+            // display time (Position has no assetType column, so
+            // enrichPosition()'s fallback smartDefaultBucket('', symbol)
+            // always returns 'etf').
+            bucketOverride: bucket,
           },
         });
         results.autoCreated.push(pos.symbol);

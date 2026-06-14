@@ -36,6 +36,18 @@
  * POST /api/schwab/sync/:accountId
  *   Auth required. Syncs cash balance + new positions for a matched account.
  *   Never overwrites manual/import lots — see schwabSync.js for details.
+ *
+ * POST /api/schwab/accept-diff
+ *   Auth required. Body: { accountId, symbol }. Accepts a positive
+ *   Schwab-vs-local share-count diff (e.g. a DRIP) as a new placeholder lot
+ *   on an existing position. See schwabSync.acceptShareDiff for details.
+ *
+ * POST /api/schwab/ignore
+ *   Auth required. Body: { schwabAccountHash }. Dismisses an unmatched
+ *   Schwab account so it stops reappearing in the Schwab Sync modal.
+ *
+ * POST /api/schwab/unignore
+ *   Auth required. Body: { schwabAccountHash }. Reverses /ignore.
  */
 
 const express = require('express');
@@ -168,6 +180,54 @@ router.post('/sync/:accountId', requireAuth(), async (req, res) => {
   } catch (err) {
     console.error('POST /schwab/sync/:accountId error:', err);
     res.status(500).json({ error: err.message });
+  }
+});
+
+// ── POST /api/schwab/accept-diff ──────────────────────────────────────────
+
+router.post('/accept-diff', requireAuth(), async (req, res) => {
+  const { accountId, symbol } = req.body;
+  if (!accountId || !symbol) {
+    return res.status(400).json({ error: 'accountId and symbol are required' });
+  }
+  try {
+    const result = await schwabSync.acceptShareDiff(prisma, parseInt(accountId), symbol);
+    res.json(result);
+  } catch (err) {
+    console.error('POST /schwab/accept-diff error:', err);
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// ── POST /api/schwab/ignore ───────────────────────────────────────────────
+
+router.post('/ignore', requireAuth(), async (req, res) => {
+  const { schwabAccountHash } = req.body;
+  if (!schwabAccountHash) {
+    return res.status(400).json({ error: 'schwabAccountHash is required' });
+  }
+  try {
+    await schwabSync.ignoreAccount(prisma, schwabAccountHash);
+    res.json({ schwabAccountHash, ignored: true });
+  } catch (err) {
+    console.error('POST /schwab/ignore error:', err);
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// ── POST /api/schwab/unignore ─────────────────────────────────────────────
+
+router.post('/unignore', requireAuth(), async (req, res) => {
+  const { schwabAccountHash } = req.body;
+  if (!schwabAccountHash) {
+    return res.status(400).json({ error: 'schwabAccountHash is required' });
+  }
+  try {
+    await schwabSync.unignoreAccount(prisma, schwabAccountHash);
+    res.json({ schwabAccountHash, ignored: false });
+  } catch (err) {
+    console.error('POST /schwab/unignore error:', err);
+    res.status(400).json({ error: err.message });
   }
 });
 
