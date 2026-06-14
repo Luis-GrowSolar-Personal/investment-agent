@@ -188,6 +188,11 @@ model Account {
   createdAt      DateTime   @default(now())
   positions      Position[]
 
+  // Schwab API integration — links this local account to a Schwab Trader
+  // API account hash (from /accounts/accountNumbers). Null until matched
+  // via the reconciliation flow in /api/schwab/reconcile + /match.
+  schwabAccountHash String?  @unique
+
   @@unique([name, owner])
 }
 
@@ -244,7 +249,7 @@ model Lot {
   shares       Float
   costBasis    Float     // cost basis per share
   acquiredDate DateTime
-  source       String    @default("manual") // "manual" | "import"
+  source       String    @default("manual") // "manual" | "import" | "schwab"
   closedDate   DateTime? // set when lot is fully sold
   notes        String?
   createdAt    DateTime  @default(now())

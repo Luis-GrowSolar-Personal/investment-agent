@@ -18,6 +18,24 @@
  *   Auth required. Phase 2 step 1 — READ-ONLY preview of Schwab-linked
  *   accounts + positions (masked account numbers), alongside existing
  *   local Account rows for comparison. No DB writes.
+ *
+ * GET /api/schwab/reconcile
+ *   Auth required. Phase 2 step 2 — matches Schwab accounts to local
+ *   Account rows by schwabAccountHash, returns matched/unmatched accounts
+ *   plus position-level share-count diffs for matched accounts. No DB writes.
+ *
+ * POST /api/schwab/match
+ *   Auth required. Body: { accountId, schwabAccountHash }. Links an existing
+ *   local Account to a Schwab account hash.
+ *
+ * POST /api/schwab/accounts/create
+ *   Auth required. Body: { schwabAccountHash, name, type, owner, managed? }.
+ *   Creates a new local Account for an unmatched Schwab account — name/type/
+ *   owner are user-confirmed, never guessed (tax + allocator implications).
+ *
+ * POST /api/schwab/sync/:accountId
+ *   Auth required. Syncs cash balance + new positions for a matched account.
+ *   Never overwrites manual/import lots — see schwabSync.js for details.
  */
 
 const express = require('express');
@@ -26,6 +44,7 @@ const prisma  = require('../lib/prisma');
 const { requireAuth } = require('@clerk/express');
 const schwabAuth = require('../lib/schwabAuth');
 const { previewAccounts } = require('../lib/schwabAccounts');
+const schwabSync = require('../lib/schwabSync');
 
 // ── GET /api/schwab/connect ───────────────────────────────────────────────
 
@@ -86,6 +105,68 @@ router.get('/accounts', requireAuth(), async (req, res) => {
     res.json(result);
   } catch (err) {
     console.error('GET /schwab/accounts error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ── GET /api/schwab/reconcile ─────────────────────────────────────────────
+
+router.get('/reconcile', requireAuth(), async (req, res) => {
+  try {
+    const result = await schwabSync.getReconciliation(prisma);
+    res.json(result);
+  } catch (err) {
+    console.error('GET /schwab/reconcile error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ── POST /api/schwab/match ────────────────────────────────────────────────
+
+router.post('/match', requireAuth(), async (req, res) => {
+  const { accountId, schwabAccountHash } = req.body;
+  if (!accountId || !schwabAccountHash) {
+    return res.status(400).json({ error: 'accountId and schwabAccountHash are required' });
+  }
+  try {
+    const account = await schwabSync.matchAccount(prisma, parseInt(accountId), schwabAccountHash);
+    res.json(account);
+  } catch (err) {
+    if (err.code === 'P2002') {
+      return res.status(409).json({ error: 'That Schwab account is already linked to a different local account' });
+    }
+    console.error('POST /schwab/match error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ── POST /api/schwab/accounts/create ─────────────────────────────────────
+
+router.post('/accounts/create', requireAuth(), async (req, res) => {
+  const { schwabAccountHash, name, type, owner, managed } = req.body;
+  try {
+    const account = await schwabSync.createAccountFromSchwab(prisma, {
+      schwabAccountHash, name, type, owner, managed,
+    });
+    res.status(201).json(account);
+  } catch (err) {
+    if (err.code === 'P2002') {
+      return res.status(409).json({ error: `Account "${name}" already exists for ${owner}, or that Schwab account is already linked` });
+    }
+    console.error('POST /schwab/accounts/create error:', err);
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// ── POST /api/schwab/sync/:accountId ──────────────────────────────────────
+
+router.post('/sync/:accountId', requireAuth(), async (req, res) => {
+  const accountId = parseInt(req.params.accountId);
+  try {
+    const result = await schwabSync.syncAccount(prisma, accountId);
+    res.json(result);
+  } catch (err) {
+    console.error('POST /schwab/sync/:accountId error:', err);
     res.status(500).json({ error: err.message });
   }
 });

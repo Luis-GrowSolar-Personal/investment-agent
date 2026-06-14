@@ -553,14 +553,6 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
             icon="↻"
             label={refreshing ? 'Refreshing…' : 'Refresh prices'}
           />
-          {/* Connect brokerage (placeholder) */}
-          <ActionButton
-            onClick={() => {}}
-            disabled
-            icon="⟳"
-            label="Connect brokerage"
-            title="Coming soon — direct Schwab API sync"
-          />
         </div>
       </div>
 
@@ -1227,6 +1219,305 @@ function AddAccountModal({ token, onSaved, onClose }) {
   );
 }
 
+// ── Schwab reconciliation modal ────────────────────────────────────────────
+
+function SchwabReconcileModal({ token, onClose, onChanged }) {
+  const [data, setData]       = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError]     = useState('');
+  const [busyKey, setBusyKey] = useState(null);
+  const [resultMsg, setResultMsg] = useState({});
+  const [createFor, setCreateFor] = useState(null); // hashValue currently showing create form
+  const [matchSelections, setMatchSelections] = useState({});
+
+  const inputStyle = {
+    background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
+    color: '#f1f5f9', fontSize: 12, padding: '5px 8px', outline: 'none',
+  };
+  const btnStyle = {
+    background: '#3b82f6', border: 'none', color: '#fff', fontSize: 12, fontWeight: 600,
+    padding: '5px 12px', borderRadius: 5, cursor: 'pointer',
+  };
+  const secondaryBtnStyle = {
+    background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 12,
+    padding: '5px 12px', borderRadius: 5, cursor: 'pointer',
+  };
+
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch(`${API}/api/schwab/reconcile`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Failed to load Schwab reconciliation');
+      setData(json);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [token]);
+
+  useEffect(() => { fetchData(); }, [fetchData]);
+
+  async function handleMatch(hashValue) {
+    const accountId = matchSelections[hashValue];
+    if (!accountId) return;
+    setBusyKey(hashValue);
+    setResultMsg(prev => ({ ...prev, [hashValue]: '' }));
+    try {
+      const res = await fetch(`${API}/api/schwab/match`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ accountId: parseInt(accountId), schwabAccountHash: hashValue }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      await fetchData();
+      onChanged();
+    } catch (err) {
+      setResultMsg(prev => ({ ...prev, [hashValue]: 'Error: ' + err.message }));
+    } finally {
+      setBusyKey(null);
+    }
+  }
+
+  async function handleCreate(hashValue, form) {
+    setBusyKey(hashValue);
+    setResultMsg(prev => ({ ...prev, [hashValue]: '' }));
+    try {
+      const res = await fetch(`${API}/api/schwab/accounts/create`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ schwabAccountHash: hashValue, ...form }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      setCreateFor(null);
+      await fetchData();
+      onChanged();
+    } catch (err) {
+      setResultMsg(prev => ({ ...prev, [hashValue]: 'Error: ' + err.message }));
+    } finally {
+      setBusyKey(null);
+    }
+  }
+
+  async function handleSync(accountId, hashValue) {
+    setBusyKey(hashValue);
+    setResultMsg(prev => ({ ...prev, [hashValue]: '' }));
+    try {
+      const res = await fetch(`${API}/api/schwab/sync/${accountId}`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+
+      const parts = [];
+      if (json.newPositions?.length) {
+        parts.push(`Added ${json.newPositions.join(', ')} — placeholder lot dated today; verify acquisition date for accurate LTCG/STCG treatment.`);
+      }
+      if (json.updatedSchwabLots?.length) {
+        parts.push(`Refreshed Schwab-estimated lot for ${json.updatedSchwabLots.join(', ')}.`);
+      }
+      if (json.positionDiffs?.length) {
+        parts.push(`Share count differs (lots untouched): ${json.positionDiffs.map(d => `${d.symbol} Schwab ${d.schwabShares} vs local ${d.localShares}`).join('; ')}.`);
+      }
+      if (!parts.length) parts.push('Cash balance updated. No position changes.');
+      setResultMsg(prev => ({ ...prev, [hashValue]: parts.join(' ') }));
+      await fetchData();
+      onChanged();
+    } catch (err) {
+      setResultMsg(prev => ({ ...prev, [hashValue]: 'Error: ' + err.message }));
+    } finally {
+      setBusyKey(null);
+    }
+  }
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
+      <div style={{ background: '#0f1117', border: '1px solid #1e2330', borderRadius: 10, padding: 24, width: 720, maxWidth: '95vw', maxHeight: '85vh', overflowY: 'auto' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+          <div style={{ fontWeight: 600, color: '#f1f5f9', fontSize: 15 }}>Schwab sync</div>
+          <button onClick={onClose} style={{ background: 'transparent', border: 'none', color: '#64748b', fontSize: 18, cursor: 'pointer' }}>×</button>
+        </div>
+        <div style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>
+          Cash balances sync automatically for matched accounts. New positions get a single
+          placeholder lot (today's date, Schwab's average cost) — review acquisition dates
+          afterward. Existing lots from CSV import or manual entry are never overwritten;
+          mismatched share counts are flagged for manual review.
+        </div>
+
+        {loading && <div style={{ color: '#475569', fontSize: 13 }}>Loading…</div>}
+        {error && <div style={{ color: '#ef4444', fontSize: 12, marginBottom: 12 }}>{error}</div>}
+
+        {data && (
+          <>
+            {/* Matched accounts */}
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: 12, marginBottom: 8 }}>
+              Matched accounts ({data.matched.length})
+            </div>
+            {data.matched.length === 0 && (
+              <div style={{ fontSize: 12, color: '#475569', marginBottom: 12 }}>No matched accounts yet.</div>
+            )}
+            {data.matched.map(m => (
+              <div key={m.schwab.hashValue} style={{ border: '1px solid #1e2330', borderRadius: 8, padding: 12, marginBottom: 10 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div>
+                    <div style={{ fontSize: 13, color: '#f1f5f9', fontWeight: 600 }}>
+                      {m.local.name} <span style={{ color: '#475569', fontWeight: 400 }}>({ACCOUNT_TYPE_LABELS[m.local.type] || m.local.type}, {m.local.owner})</span>
+                    </div>
+                    <div style={{ fontSize: 11, color: '#475569', marginTop: 2 }}>
+                      Schwab {m.schwab.accountNumberMasked} · {m.schwab.type} · cash {fmtDollars(m.schwab.cashBalance)}
+                    </div>
+                  </div>
+                  <button
+                    style={{ ...btnStyle, opacity: busyKey === m.schwab.hashValue ? 0.6 : 1 }}
+                    disabled={busyKey === m.schwab.hashValue}
+                    onClick={() => handleSync(m.local.id, m.schwab.hashValue)}
+                  >
+                    {busyKey === m.schwab.hashValue ? 'Syncing…' : 'Sync'}
+                  </button>
+                </div>
+                {m.positionDiffs.length > 0 && (
+                  <div style={{ fontSize: 11, color: '#f59e0b', marginTop: 8 }}>
+                    {m.positionDiffs.map(d => (
+                      <div key={d.symbol}>
+                        {d.symbol}: Schwab reports {d.schwabShares} shares, local total is {d.localShares}
+                        {d.status === 'schwab_only' ? ' (no local position — Sync will create one)' : ' (lots untouched — review manually)'}
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {m.localOnly.length > 0 && (
+                  <div style={{ fontSize: 11, color: '#64748b', marginTop: 6 }}>
+                    Local-only (not in Schwab): {m.localOnly.map(p => `${p.symbol} (${p.localShares})`).join(', ')}
+                  </div>
+                )}
+                {resultMsg[m.schwab.hashValue] && (
+                  <div style={{ fontSize: 11, color: resultMsg[m.schwab.hashValue].startsWith('Error') ? '#ef4444' : '#34d399', marginTop: 8 }}>
+                    {resultMsg[m.schwab.hashValue]}
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {/* Unmatched Schwab accounts */}
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: 20, marginBottom: 8 }}>
+              Schwab accounts with no local match ({data.unmatchedSchwab.length})
+            </div>
+            {data.unmatchedSchwab.length === 0 && (
+              <div style={{ fontSize: 12, color: '#475569', marginBottom: 12 }}>None — all Schwab accounts are linked.</div>
+            )}
+            {data.unmatchedSchwab.map(s => (
+              <div key={s.hashValue} style={{ border: '1px solid #1e2330', borderRadius: 8, padding: 12, marginBottom: 10 }}>
+                <div style={{ fontSize: 13, color: '#f1f5f9', fontWeight: 600 }}>
+                  Schwab {s.accountNumberMasked} <span style={{ color: '#475569', fontWeight: 400 }}>({s.type})</span>
+                </div>
+                <div style={{ fontSize: 11, color: '#475569', marginTop: 2, marginBottom: 8 }}>
+                  Cash {fmtDollars(s.cashBalance)} · {s.positionCount} position{s.positionCount !== 1 ? 's' : ''}
+                </div>
+
+                {createFor === s.hashValue ? (
+                  <CreateFromSchwabForm
+                    suggestedName={`Schwab ${s.type === 'MARGIN' ? 'Margin' : 'Brokerage'} ${s.accountNumberMasked}`}
+                    busy={busyKey === s.hashValue}
+                    inputStyle={inputStyle}
+                    btnStyle={btnStyle}
+                    secondaryBtnStyle={secondaryBtnStyle}
+                    onCancel={() => setCreateFor(null)}
+                    onCreate={form => handleCreate(s.hashValue, form)}
+                  />
+                ) : (
+                  <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                    {data.unmatchedLocal.length > 0 && (
+                      <>
+                        <select
+                          style={inputStyle}
+                          value={matchSelections[s.hashValue] || ''}
+                          onChange={e => setMatchSelections(prev => ({ ...prev, [s.hashValue]: e.target.value }))}
+                        >
+                          <option value="">Link to existing account…</option>
+                          {data.unmatchedLocal.map(la => (
+                            <option key={la.id} value={la.id}>{la.name} ({ACCOUNT_TYPE_LABELS[la.type] || la.type}, {la.owner})</option>
+                          ))}
+                        </select>
+                        <button
+                          style={{ ...secondaryBtnStyle, opacity: matchSelections[s.hashValue] ? 1 : 0.5 }}
+                          disabled={!matchSelections[s.hashValue] || busyKey === s.hashValue}
+                          onClick={() => handleMatch(s.hashValue)}
+                        >
+                          Link
+                        </button>
+                      </>
+                    )}
+                    <button style={btnStyle} onClick={() => setCreateFor(s.hashValue)}>
+                      + Create local account
+                    </button>
+                  </div>
+                )}
+                {resultMsg[s.hashValue] && (
+                  <div style={{ fontSize: 11, color: resultMsg[s.hashValue].startsWith('Error') ? '#ef4444' : '#34d399', marginTop: 8 }}>
+                    {resultMsg[s.hashValue]}
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {/* Unmatched local accounts */}
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: 20, marginBottom: 8 }}>
+              Local accounts not linked to Schwab ({data.unmatchedLocal.length})
+            </div>
+            {data.unmatchedLocal.length === 0 ? (
+              <div style={{ fontSize: 12, color: '#475569' }}>All local accounts are linked.</div>
+            ) : (
+              <div style={{ fontSize: 12, color: '#64748b' }}>
+                {data.unmatchedLocal.map(la => `${la.name} (${ACCOUNT_TYPE_LABELS[la.type] || la.type}, ${la.owner})`).join(' · ')}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function CreateFromSchwabForm({ suggestedName, busy, inputStyle, btnStyle, secondaryBtnStyle, onCancel, onCreate }) {
+  const [name, setName]       = useState(suggestedName);
+  const [type, setType]       = useState('taxable');
+  const [owner, setOwner]     = useState('Luis');
+  const [managed, setManaged] = useState(false);
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+        <input style={{ ...inputStyle, flex: '1 1 200px' }} value={name} onChange={e => setName(e.target.value)} placeholder="Account name" />
+        <select style={inputStyle} value={type} onChange={e => setType(e.target.value)}>
+          {Object.entries(ACCOUNT_TYPE_LABELS).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+        </select>
+        <input style={{ ...inputStyle, width: 100 }} value={owner} onChange={e => setOwner(e.target.value)} placeholder="Owner" />
+        <label style={{ fontSize: 11, color: '#64748b', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}>
+          <input type="checkbox" checked={managed} onChange={e => setManaged(e.target.checked)} />
+          Agent-managed
+        </label>
+      </div>
+      <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+        <button style={secondaryBtnStyle} onClick={onCancel}>Cancel</button>
+        <button
+          style={{ ...btnStyle, opacity: busy ? 0.6 : 1 }}
+          disabled={busy || !name || !owner}
+          onClick={() => onCreate({ name, type, owner, managed })}
+        >
+          {busy ? 'Creating…' : 'Create account'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function readFileText(file) {
@@ -1553,6 +1844,7 @@ export default function Portfolio() {
   const [loading, setLoading]  = useState(true);
   const [expandedId, setExpandedId] = useState(null);
   const [showAddAccount, setShowAddAccount] = useState(false);
+  const [showSchwabSync, setShowSchwabSync] = useState(false);
 
   useEffect(() => { getToken().then(setToken); }, [getToken]);
 
@@ -1589,12 +1881,20 @@ export default function Portfolio() {
           <div style={{ fontSize: 20, fontWeight: 700, color: '#f1f5f9' }}>Portfolio</div>
           <div style={{ fontSize: 13, color: '#475569', marginTop: 2 }}>Account · Position · Lot tracking</div>
         </div>
-        <button
-          onClick={() => setShowAddAccount(true)}
-          style={{ background: '#3b82f6', border: 'none', color: '#fff', fontSize: 13, fontWeight: 600, padding: '7px 18px', borderRadius: 6, cursor: 'pointer' }}
-        >
-          + Add account
-        </button>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button
+            onClick={() => setShowSchwabSync(true)}
+            style={{ background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, fontWeight: 600, padding: '7px 18px', borderRadius: 6, cursor: 'pointer' }}
+          >
+            ⟳ Schwab sync
+          </button>
+          <button
+            onClick={() => setShowAddAccount(true)}
+            style={{ background: '#3b82f6', border: 'none', color: '#fff', fontSize: 13, fontWeight: 600, padding: '7px 18px', borderRadius: 6, cursor: 'pointer' }}
+          >
+            + Add account
+          </button>
+        </div>
       </div>
 
       {/* Summary banner */}
@@ -1649,6 +1949,15 @@ export default function Portfolio() {
           token={token}
           onSaved={() => { setShowAddAccount(false); fetchAccounts(); }}
           onClose={() => setShowAddAccount(false)}
+        />
+      )}
+
+      {/* Schwab reconciliation modal */}
+      {showSchwabSync && token && (
+        <SchwabReconcileModal
+          token={token}
+          onClose={() => setShowSchwabSync(false)}
+          onChanged={fetchAccounts}
         />
       )}
     </div>

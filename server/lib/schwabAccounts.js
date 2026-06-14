@@ -78,7 +78,7 @@ async function previewAccounts(prisma) {
 
   // Existing local accounts, for side-by-side comparison in the UI/response.
   const localAccounts = await prisma.account.findMany({
-    select: { id: true, name: true, type: true, owner: true, cashBalance: true },
+    select: { id: true, name: true, type: true, owner: true, cashBalance: true, schwabAccountHash: true },
     orderBy: { id: 'asc' },
   });
 
