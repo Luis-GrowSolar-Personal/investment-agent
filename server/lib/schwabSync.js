@@ -33,6 +33,12 @@
  *        source: 'schwab' lots are replaced (full-replace, same pattern as
  *        the existing CSV `source: 'import'` re-import).
  *
+ *    If a CSV with real transaction history is later imported for a position
+ *    that only has a 'schwab' placeholder lot, the import route
+ *    (routes/portfolio.js, /accounts/:id/import) deletes that placeholder
+ *    when it writes the new 'import' lots — the CSV's per-lot data
+ *    supersedes the placeholder, avoiding double-counted shares.
+ *
  *  - Cash balance sync is low-risk (no tax implication) and always applied
  *    for matched accounts.
  */

@@ -542,6 +542,7 @@ router.post('/accounts/:id/import', async (req, res) => {
       imported: 0,
       autoCreated: [],
       reconciliationWarnings: [],
+      clearedSchwabPlaceholders: [],
     };
 
     // Update cash balance on account
@@ -585,6 +586,17 @@ router.post('/accounts/:id/import', async (req, res) => {
         where: { positionId: position.id, source: 'import' },
       });
 
+      // A CSV import supplies real per-lot cost basis/acquisition dates, so
+      // it supersedes any placeholder lot Schwab sync may have created for
+      // this position (source: 'schwab' — see schwabSync.js). Clear it here
+      // to avoid double-counting shares between the two sources.
+      const clearedSchwab = await prisma.lot.deleteMany({
+        where: { positionId: position.id, source: 'schwab' },
+      });
+      if (clearedSchwab.count > 0) {
+        results.clearedSchwabPlaceholders.push(pos.symbol);
+      }
+
       // Create lots
       const lots = pos.lots || [{
         acquiredDate: new Date(),
@@ -619,7 +631,8 @@ router.post('/accounts/:id/import', async (req, res) => {
       accountMeta,
       message: `Imported ${results.imported} position(s).` +
         (results.autoCreated.length ? ` Auto-created ${results.autoCreated.length} new ticker(s): ${results.autoCreated.join(', ')}.` : '') +
-        (results.reconciliationWarnings.length ? ` Lot reconciliation warnings: ${results.reconciliationWarnings.join(', ')}.` : ''),
+        (results.reconciliationWarnings.length ? ` Lot reconciliation warnings: ${results.reconciliationWarnings.join(', ')}.` : '') +
+        (results.clearedSchwabPlaceholders.length ? ` Replaced Schwab placeholder lot(s) with imported lot data for: ${results.clearedSchwabPlaceholders.join(', ')}.` : ''),
     });
   } catch (err) {
     console.error('POST /accounts/:id/import error:', err);

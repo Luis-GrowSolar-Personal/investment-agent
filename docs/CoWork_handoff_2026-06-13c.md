@@ -125,6 +125,28 @@ matches expectations before relying on it for tax decisions.
 
 ---
 
+## Follow-up fix (same session): CSV import now clears Schwab placeholder lots
+
+Discussed: Schwab's live API can't give per-lot history beyond ~60 days, so
+CSV transaction exports remain the source of truth for historical lots.
+Risk identified: if Schwab sync creates a `source: 'schwab'` placeholder lot
+for a brand-new position (no local lots at sync time), and a CSV with real
+transaction history is imported *later* for that same symbol, the old
+import route would leave the placeholder lot in place alongside the new
+`source: 'import'` lots — double-counting shares.
+
+Fix (chosen over a "always import CSV first" workflow rule — Luis preferred
+an enforced mechanism over remembering an ordering convention):
+`server/routes/portfolio.js` `/accounts/:id/import` now also deletes any
+`source: 'schwab'` lots for a position when it writes `source: 'import'`
+lots for that same position. Added `results.clearedSchwabPlaceholders` to
+the response and a corresponding note in the success message. Documented in
+`server/lib/schwabSync.js`'s header comment. Verified with `node --check`.
+
+No schema change, no new migration — just the import-route logic.
+
+---
+
 ## Outstanding from prior sessions (untouched)
 
 `docs/CoWork_handoff_2026-06-07c.md` modification and untracked
