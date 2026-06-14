@@ -48,6 +48,12 @@
  *
  * POST /api/schwab/unignore
  *   Auth required. Body: { schwabAccountHash }. Reverses /ignore.
+ *
+ * POST /api/schwab/auto-sync
+ *   Auth required. Body (optional): { maxAgeHours }. "Sync on login" —
+ *   syncs only matched accounts whose lastSyncedAt is missing or older than
+ *   maxAgeHours (default 4). Makes no Schwab API calls if nothing is stale.
+ *   Intended to be called once per browser session from the Portfolio page.
  */
 
 const express = require('express');
@@ -228,6 +234,22 @@ router.post('/unignore', requireAuth(), async (req, res) => {
   } catch (err) {
     console.error('POST /schwab/unignore error:', err);
     res.status(400).json({ error: err.message });
+  }
+});
+
+// ── POST /api/schwab/auto-sync ────────────────────────────────────────────
+
+router.post('/auto-sync', requireAuth(), async (req, res) => {
+  const maxAgeHours = req.body?.maxAgeHours;
+  try {
+    const result = await schwabSync.autoSyncStaleAccounts(
+      prisma,
+      typeof maxAgeHours === 'number' && maxAgeHours > 0 ? maxAgeHours : undefined
+    );
+    res.json(result);
+  } catch (err) {
+    console.error('POST /schwab/auto-sync error:', err);
+    res.status(500).json({ error: err.message });
   }
 });
 

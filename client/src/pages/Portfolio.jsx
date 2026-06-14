@@ -2000,6 +2000,7 @@ export default function Portfolio() {
   const [expandedId, setExpandedId] = useState(null);
   const [showAddAccount, setShowAddAccount] = useState(false);
   const [showSchwabSync, setShowSchwabSync] = useState(false);
+  const [syncBanner, setSyncBanner] = useState(null);
 
   useEffect(() => { getToken().then(setToken); }, [getToken]);
 
@@ -2013,6 +2014,38 @@ export default function Portfolio() {
   }, [token]);
 
   useEffect(() => { fetchAccounts(); }, [fetchAccounts]);
+
+  // Auto-sync-on-login: once per browser tab session, ask the server to
+  // sync any Schwab-linked accounts whose lastSyncedAt is stale (>4h, server
+  // default). The server makes no Schwab API calls at all if nothing is
+  // stale, so this is cheap on repeat visits within the same tab session.
+  useEffect(() => {
+    if (!token) return;
+    if (sessionStorage.getItem('schwabAutoSyncDone')) return;
+    sessionStorage.setItem('schwabAutoSyncDone', '1');
+
+    (async () => {
+      try {
+        const res = await fetch(`${API}/api/schwab/auto-sync`, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error || 'Auto-sync failed');
+
+        if (json.synced?.length) {
+          const names = json.synced.map(s => s.name).join(', ');
+          setSyncBanner(`Auto-synced ${json.synced.length} Schwab account${json.synced.length !== 1 ? 's' : ''} on login: ${names}.`);
+          fetchAccounts();
+        }
+        if (json.errors?.length) {
+          console.error('Schwab auto-sync errors:', json.errors);
+        }
+      } catch (err) {
+        console.error('Schwab auto-sync error:', err);
+      }
+    })();
+  }, [token, fetchAccounts]);
 
   // Summary banner aggregates
   const totalMV        = accounts.reduce((s, a) => s + (a.totalMarketValue ?? 0), 0);
@@ -2030,6 +2063,23 @@ export default function Portfolio() {
 
   return (
     <div style={{ padding: '72px 32px 48px', maxWidth: 1100, margin: '0 auto' }}>
+      {/* Auto-sync-on-login banner */}
+      {syncBanner && (
+        <div style={{
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          background: '#0f1117', border: '1px solid #1e2330', borderRadius: 8,
+          padding: '8px 14px', marginBottom: 16, fontSize: 12, color: '#94a3b8',
+        }}>
+          <span>⟳ {syncBanner}</span>
+          <button
+            onClick={() => setSyncBanner(null)}
+            style={{ background: 'transparent', border: 'none', color: '#64748b', fontSize: 14, cursor: 'pointer', marginLeft: 12 }}
+          >
+            ×
+          </button>
+        </div>
+      )}
+
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
         <div>

@@ -5,8 +5,13 @@
 **Session work:** Schwab Sync follow-ups — stale-token fix confirmed live,
 SPCX bucket-misclassification bug fixed (+ "accept as new lot" DRIP feature),
 `Account.lastSyncedAt` + UI indicator, dismiss/ignore for unmatched Schwab
-accounts. All code-complete, **not yet pushed/deployed** — needs
-`prisma db push` + git push from Luis's laptop.
+accounts. **Confirmed pushed, `db push`'d, deployed, and working — Luis
+confirmed 2026-06-14.**
+
+**Next session focus:** see "Next session priorities" at the bottom — (1)
+auto-sync-on-login + Sync→Link redesign (item 4, deferred from this session),
+and (2) Phase 3 — replace Polygon price refresh with Schwab `marketdata`,
+keeping Polygon as fallback.
 
 ---
 
@@ -157,39 +162,64 @@ button. A collapsible "Ignored accounts (N)" section (collapsed by default,
 
 ---
 
-## Next steps for Luis
+## Next steps for Luis — ✅ ALL DONE, confirmed 2026-06-14
 
-1. `git pull origin dev` (per parallel git workflow — `client/src/App.jsx`
-   is the high-conflict file; not touched this session, should be clean).
-2. From `server/`, run:
-   ```
-   DATABASE_URL=$(grep '^DATABASE_URL' ../.env | cut -d '=' -f2-) npx prisma db push
-   ```
-   (adds `Account.lastSyncedAt` and the new `IgnoredSchwabAccount` table —
-   never `migrate reset`, see prisma_migration_drift memory)
-3. Commit + push (pull again first in case of parallel commits):
-   ```
-   git add -A
-   git commit -m "Schwab sync: fix bucket misclassification, add accept-diff/lastSyncedAt/ignore"
-   git pull origin dev
-   git push origin dev
-   ```
-4. Deploy to Railway dev, then test:
-   - Open Schwab Sync modal for Eduardo's Custodial account — SPCX should
-     now show in the Equities tab after a re-sync (or after the one-time
-     manual BucketPill fix if it was already created).
-   - Try the "Accept +X as lot" button on the NVDA DRIP diff.
-   - Sync an account, confirm "Synced just now" appears and the button turns
-     gray.
-   - Click "Ignore" on an unmatched account, confirm it disappears and
-     reappears under "Ignored accounts" with "Un-ignore" working.
+1. ✅ `git pull origin dev`, `prisma db push`, commit/push, deploy.
+2. ✅ Live test passed — Luis confirmed "Phase 2 was pushed and it works."
 
 ## Open questions / follow-ups
 
-- Item 4 (auto-sync-on-login + Sync→Link button redesign) — tackle in a
-  future session once items 2-3 are tested live.
-- Existing SPCX ticker needs the one-time manual BucketPill correction
-  described above.
+- Existing SPCX ticker may still need the one-time manual BucketPill
+  correction if it wasn't picked up by re-sync — confirm in next session if
+  not already done.
+
+---
+
+## Next session priorities (2 items)
+
+### 1. Auto-sync-on-login + Sync→Link redesign (item 4, deferred)
+
+Originally proposed: on login, auto-sync prices/positions for all *linked*
+accounts with no user action; the "Sync" button becomes a "Link" button
+focused only on unmatched accounts. Luis chose "foundations now, auto-sync
+later" — the foundations (`lastSyncedAt`, ignore-list) are now live, so this
+is unblocked.
+
+Things to work out:
+- Where to trigger auto-sync — on app mount (`Portfolio.jsx`), or a
+  lightweight backend cron/route hit on first portfolio load per session?
+  Avoid syncing on every page navigation — probably gate on `lastSyncedAt`
+  age (e.g. only auto-sync if >X hours stale).
+- Reuse `syncAccount()` from `server/lib/schwabSync.js` per matched account.
+- UI: decide what "Sync" button becomes once auto-sync exists — likely
+  "Link" (for unmatched accounts only), with a manual "Force sync" still
+  available somewhere for matched accounts.
+
+### 2. Phase 3 — Schwab `marketdata` for price refresh, Polygon as fallback
+
+Replace (or augment) `server/lib/priceRefresh.js`'s Polygon-only
+`refreshViaIndividualQuotes()` with Schwab's `marketdata` quote endpoint for
+symbols held in Schwab-linked accounts, falling back to the existing Polygon
+path for symbols Schwab can't quote (or if the Schwab call/token fails).
+
+Relevant existing pieces:
+- `server/lib/schwabAuth.js` already handles OAuth + token refresh — same
+  token should cover `marketdata` quote calls (per the open question noted
+  in `CoWork_handoff_2026-06-13c.md`).
+- `server/lib/priceRefresh.js` — current Polygon flow: sequential per-symbol
+  `/v2/aggs/ticker/{symbol}/prev` calls, 500ms sleep between, 15s+retry on
+  429. CRYPTO_RAW set maps raw crypto symbols to `X:SYMBOLUSD`.
+
+Design questions to resolve next session:
+- Schwab `marketdata` quotes are real-time (vs. Polygon's 15-min-delayed
+  free tier) — confirm this is desirable / doesn't conflict with anything.
+- Fallback trigger: only on Schwab API error/token failure, or also for
+  symbols Schwab doesn't cover (e.g. raw crypto)?
+- Does this apply per-account (only accounts with a linked Schwab account)
+  or globally (single shared OAuth app token can quote any symbol
+  regardless of account linkage — needs verification)?
+- Keep the existing rate-limit-friendly sequential pattern for the Polygon
+  fallback path; Schwab path likely doesn't need the same throttling.
 
 ---
 

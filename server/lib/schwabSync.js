@@ -440,6 +440,57 @@ async function acceptShareDiff(prisma, accountId, symbol) {
   return { symbol, diffShares, newLocalShares: localShares + diffShares };
 }
 
+/**
+ * Auto-sync entry point for "sync on login" — intended to be called once per
+ * browser session (client-side gating) from the Portfolio page. Cheap when
+ * there's nothing to do: checks `Account.lastSyncedAt` against `maxAgeHours`
+ * using only a local query, and makes NO Schwab API calls at all if every
+ * linked account was synced recently. Only accounts that are stale (or have
+ * never been synced) get a real `syncAccount()` call.
+ *
+ * Does not touch unmatched/unlinked accounts — linking is still a manual
+ * step via the Schwab Sync modal.
+ *
+ * @param {PrismaClient} prisma
+ * @param {number} maxAgeHours
+ * @returns {{
+ *   maxAgeHours: number,
+ *   synced: Array,   // accounts that were stale and got a fresh syncAccount() result
+ *   skipped: Array,  // accounts synced recently enough to skip ({ accountId, name, lastSyncedAt })
+ *   errors: Array,   // accounts where syncAccount() threw ({ accountId, name, error })
+ * }}
+ */
+async function autoSyncStaleAccounts(prisma, maxAgeHours = 4) {
+  const cutoff = new Date(Date.now() - maxAgeHours * 60 * 60 * 1000);
+
+  const linkedAccounts = await prisma.account.findMany({
+    where: { schwabAccountHash: { not: null } },
+    select: { id: true, name: true, lastSyncedAt: true },
+  });
+
+  const stale = linkedAccounts.filter(a => !a.lastSyncedAt || a.lastSyncedAt < cutoff);
+  const fresh = linkedAccounts.filter(a => a.lastSyncedAt && a.lastSyncedAt >= cutoff);
+
+  const synced = [];
+  const errors = [];
+
+  for (const acct of stale) {
+    try {
+      const result = await syncAccount(prisma, acct.id);
+      synced.push({ accountId: acct.id, name: acct.name, ...result });
+    } catch (err) {
+      errors.push({ accountId: acct.id, name: acct.name, error: err.message });
+    }
+  }
+
+  return {
+    maxAgeHours,
+    synced,
+    skipped: fresh.map(a => ({ accountId: a.id, name: a.name, lastSyncedAt: a.lastSyncedAt })),
+    errors,
+  };
+}
+
 module.exports = {
   getReconciliation,
   matchAccount,
@@ -448,5 +499,6 @@ module.exports = {
   acceptShareDiff,
   ignoreAccount,
   unignoreAccount,
+  autoSyncStaleAccounts,
   maskAccountNumber,
 };
