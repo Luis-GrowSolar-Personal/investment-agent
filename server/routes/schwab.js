@@ -205,6 +205,43 @@ router.post('/accept-diff', requireAuth(), async (req, res) => {
   }
 });
 
+// ── GET /api/schwab/lots/:accountId/:symbol ───────────────────────────────────
+//
+// Returns open lots for a position — used to populate the trim lot-picker modal.
+
+router.get('/lots/:accountId/:symbol', requireAuth(), async (req, res) => {
+  const accountId = parseInt(req.params.accountId);
+  const symbol    = req.params.symbol.toUpperCase();
+  try {
+    const lots = await schwabSync.getOpenLots(prisma, accountId, symbol);
+    res.json(lots);
+  } catch (err) {
+    console.error('GET /schwab/lots error:', err);
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// ── POST /api/schwab/accept-trim ─────────────────────────────────────────────
+//
+// Body: { accountId, symbol, saleDate, selections: [{ lotId, sharesSold }] }
+// Closes/reduces exactly the lots the user designated in the lot-picker modal.
+
+router.post('/accept-trim', requireAuth(), async (req, res) => {
+  const { accountId, symbol, saleDate, selections } = req.body;
+  if (!accountId || !symbol || !saleDate || !selections?.length) {
+    return res.status(400).json({ error: 'accountId, symbol, saleDate, and selections are required' });
+  }
+  try {
+    const result = await schwabSync.acceptTrim(
+      prisma, parseInt(accountId), symbol, saleDate, selections
+    );
+    res.json(result);
+  } catch (err) {
+    console.error('POST /schwab/accept-trim error:', err);
+    res.status(400).json({ error: err.message });
+  }
+});
+
 // ── POST /api/schwab/ignore ───────────────────────────────────────────────
 
 router.post('/ignore', requireAuth(), async (req, res) => {

@@ -1221,6 +1221,162 @@ function AddAccountModal({ token, onSaved, onClose }) {
 
 // ── Schwab reconciliation modal ────────────────────────────────────────────
 
+// ── TrimLotPickerModal ────────────────────────────────────────────────────────
+//
+// Lets the user designate exactly which lots cover a Schwab-reported trim,
+// rather than applying FIFO blindly. Backend: GET /api/schwab/lots + POST /api/schwab/accept-trim.
+
+function TrimLotPickerModal({ accountId, symbol, schwabShares, localShares, hashValue, getToken, onAccepted, onClose }) {
+  const deficit = +(localShares - schwabShares).toFixed(6);
+
+  const [lots, setLots]           = useState([]);
+  const [saleDate, setSaleDate]   = useState(new Date().toISOString().slice(0, 10));
+  const [sellAmounts, setSellAmounts] = useState({});
+  const [loading, setLoading]     = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError]         = useState('');
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const token = await getToken();
+        const res = await fetch(`${API}/api/schwab/lots/${accountId}/${symbol}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error);
+        setLots(json);
+        // Pre-fill zeros
+        const init = {};
+        json.forEach(l => { init[l.id] = ''; });
+        setSellAmounts(init);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, [accountId, symbol]);
+
+  const totalEntered = Object.values(sellAmounts)
+    .reduce((sum, v) => sum + (parseFloat(v) || 0), 0);
+  const remaining = +(deficit - totalEntered).toFixed(6);
+  const canSubmit = !submitting && Math.abs(remaining) < 0.0001 && totalEntered > 0;
+
+  async function handleSubmit() {
+    setSubmitting(true);
+    setError('');
+    try {
+      const selections = lots
+        .filter(l => parseFloat(sellAmounts[l.id]) > 0)
+        .map(l => ({ lotId: l.id, sharesSold: parseFloat(sellAmounts[l.id]) }));
+      const token = await getToken();
+      const res = await fetch(`${API}/api/schwab/accept-trim`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ accountId, symbol, saleDate, selections }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      onAccepted(symbol, hashValue, json.totalSold, json.closedLots.length, json.reducedLots.length);
+    } catch (err) {
+      setError(err.message);
+      setSubmitting(false);
+    }
+  }
+
+  const overlay = { position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9100 };
+  const box     = { background: '#111827', border: '1px solid #1e2330', borderRadius: 12, padding: 28, width: 640, maxWidth: '95vw', maxHeight: '85vh', overflowY: 'auto' };
+  const inputS  = { background: '#0d1018', border: '1px solid #334155', borderRadius: 6, color: '#f1f5f9', padding: '5px 10px', fontSize: 13, width: '100%' };
+  const btnS    = { background: '#3b82f6', color: '#fff', border: 'none', borderRadius: 6, padding: '8px 18px', fontSize: 13, fontWeight: 600, cursor: 'pointer' };
+  const secS    = { background: 'transparent', color: '#94a3b8', border: '1px solid #334155', borderRadius: 6, padding: '8px 18px', fontSize: 13, cursor: 'pointer' };
+  const th      = { textAlign: 'left', fontSize: 11, color: '#64748b', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: '4px 8px' };
+  const td      = { fontSize: 13, color: '#e2e8f0', padding: '6px 8px', borderTop: '1px solid #1e2330' };
+
+  return (
+    <div style={overlay}>
+      <div style={box}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+          <div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9' }}>Accept Trim — {symbol}</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>
+              Schwab: {schwabShares} shares &nbsp;·&nbsp; Local: {localShares} shares &nbsp;·&nbsp;
+              <span style={{ color: '#f87171' }}>Deficit: {deficit} shares</span>
+            </div>
+          </div>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#94a3b8', fontSize: 20, cursor: 'pointer' }}>✕</button>
+        </div>
+
+        <div style={{ marginBottom: 16 }}>
+          <label style={{ fontSize: 12, color: '#94a3b8', display: 'block', marginBottom: 4 }}>Sale date</label>
+          <input type="date" value={saleDate} onChange={e => setSaleDate(e.target.value)}
+            style={{ ...inputS, width: 'auto' }} />
+        </div>
+
+        {loading ? (
+          <div style={{ color: '#64748b', fontSize: 13 }}>Loading lots…</div>
+        ) : lots.length === 0 ? (
+          <div style={{ color: '#f87171', fontSize: 13 }}>No open lots found for {symbol}.</div>
+        ) : (
+          <>
+            <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 16 }}>
+              <thead>
+                <tr>
+                  <th style={th}>Acquired</th>
+                  <th style={th}>Shares</th>
+                  <th style={th}>Cost/share</th>
+                  <th style={th}>Source</th>
+                  <th style={th}>Shares to sell</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lots.map(l => (
+                  <tr key={l.id}>
+                    <td style={td}>{l.acquiredDate ? new Date(l.acquiredDate).toLocaleDateString('en-US') : '—'}</td>
+                    <td style={td}>{l.shares}</td>
+                    <td style={td}>{l.costBasis != null ? `$${(+l.costBasis).toFixed(4)}` : '—'}</td>
+                    <td style={td}><span style={{ color: l.source === 'manual' ? '#a78bfa' : l.source === 'import' ? '#34d399' : '#64748b', fontSize: 11, textTransform: 'uppercase', fontWeight: 600 }}>{l.source}</span></td>
+                    <td style={td}>
+                      <input
+                        type="number"
+                        min="0"
+                        max={l.shares}
+                        step="0.0001"
+                        placeholder="0"
+                        value={sellAmounts[l.id] ?? ''}
+                        onChange={e => setSellAmounts(prev => ({ ...prev, [l.id]: e.target.value }))}
+                        style={{ ...inputS, width: 100 }}
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <div style={{ fontSize: 13, marginBottom: 16, color: remaining > 0.0001 ? '#f59e0b' : remaining < -0.0001 ? '#ef4444' : '#34d399' }}>
+              {remaining > 0.0001
+                ? `Still need to account for ${remaining.toFixed(4)} more shares`
+                : remaining < -0.0001
+                ? `Over by ${Math.abs(remaining).toFixed(4)} shares — reduce sell amounts`
+                : '✓ Deficit covered'}
+            </div>
+          </>
+        )}
+
+        {error && <div style={{ color: '#f87171', fontSize: 12, marginBottom: 12 }}>{error}</div>}
+
+        <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
+          <button style={secS} onClick={onClose} disabled={submitting}>Cancel</button>
+          <button style={{ ...btnS, opacity: canSubmit ? 1 : 0.5, cursor: canSubmit ? 'pointer' : 'not-allowed' }}
+            onClick={handleSubmit} disabled={!canSubmit}>
+            {submitting ? 'Saving…' : 'Confirm trim'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData }) {
   const [data, setData]       = useState(null);
   const [loading, setLoading] = useState(true);
@@ -1328,6 +1484,22 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
     }
   }
 
+  const [trimModal, setTrimModal] = useState(null); // { accountId, symbol, hashValue, schwabShares, localShares }
+
+  function openTrimModal(accountId, symbol, hashValue, schwabShares, localShares) {
+    setTrimModal({ accountId, symbol, hashValue, schwabShares, localShares });
+  }
+
+  async function handleTrimAccepted(symbol, hashValue, totalSold, closedCount, reducedCount) {
+    setTrimModal(null);
+    setResultMsg(prev => ({
+      ...prev,
+      [hashValue]: `${symbol}: ${totalSold} shares sold (${closedCount} lot(s) closed, ${reducedCount} reduced). Verify cost basis for LTCG/STCG treatment.`,
+    }));
+    await fetchData();
+    onChanged();
+  }
+
   async function handleAcceptDiff(accountId, symbol, hashValue) {
     const busyId = `${hashValue}:${symbol}`;
     setBusyKey(busyId);
@@ -1415,6 +1587,9 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
       if (json.updatedSchwabLots?.length) {
         parts.push(`Refreshed Schwab-estimated lot for ${json.updatedSchwabLots.join(', ')}.`);
       }
+      if (json.autoAcceptedAdds?.length) {
+        parts.push(`Auto-accepted buy diff for ${json.autoAcceptedAdds.map(a => `${a.symbol} (+${a.diffShares})`).join(', ')} — placeholder lot dated today; verify acquisition date for LTCG/STCG treatment.`);
+      }
       if (json.positionDiffs?.length) {
         parts.push(`Share count differs (lots untouched): ${json.positionDiffs.map(d => `${d.symbol} Schwab ${d.schwabShares} vs local ${d.localShares}`).join('; ')}.`);
       }
@@ -1491,15 +1666,19 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
                 {m.positionDiffs.length > 0 && (
                   <div style={{ fontSize: 11, color: '#f59e0b', marginTop: 8 }}>
                     {m.positionDiffs.map(d => {
-                      const acceptBusyId = `${m.schwab.hashValue}:${d.symbol}`;
-                      const canAccept = d.status === 'mismatch' && d.schwabShares > d.localShares;
+                      const acceptBusyId     = `${m.schwab.hashValue}:${d.symbol}`;
+                      const acceptTrimBusyId = `${m.schwab.hashValue}:${d.symbol}:trim`;
+                      const canAcceptDiff = d.status === 'mismatch' && d.schwabShares > d.localShares;
+                      const canAcceptTrim = d.status === 'mismatch' && d.schwabShares < d.localShares;
                       return (
                         <div key={d.symbol} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
                           <div>
                             {d.symbol}: Schwab reports {d.schwabShares} shares, local total is {d.localShares}
-                            {d.status === 'schwab_only' ? ' (no local position — Sync will create one)' : ' (lots untouched — review manually)'}
+                            {d.status === 'schwab_only' ? ' (no local position — Sync will create one)'
+                              : canAcceptTrim ? ' (trim executed in Schwab — select which lot(s) to close)'
+                              : ' (lots untouched — review manually)'}
                           </div>
-                          {canAccept && (
+                          {canAcceptDiff && (
                             <button
                               style={{ ...secondaryBtnStyle, padding: '2px 8px', fontSize: 11, opacity: busyKey === acceptBusyId ? 0.6 : 1 }}
                               disabled={busyKey === acceptBusyId}
@@ -1507,6 +1686,15 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
                               onClick={() => handleAcceptDiff(m.local.id, d.symbol, m.schwab.hashValue)}
                             >
                               {busyKey === acceptBusyId ? 'Adding…' : `Accept +${(d.schwabShares - d.localShares).toFixed(4)} as lot`}
+                            </button>
+                          )}
+                          {canAcceptTrim && (
+                            <button
+                              style={{ ...secondaryBtnStyle, padding: '2px 8px', fontSize: 11 }}
+                              title="Pick which lot(s) were trimmed so acquisition dates and cost basis are preserved accurately."
+                              onClick={() => openTrimModal(m.local.id, d.symbol, m.schwab.hashValue, d.schwabShares, d.localShares)}
+                            >
+                              {`Accept trim → ${d.schwabShares} shares`}
                             </button>
                           )}
                         </div>
@@ -1642,6 +1830,20 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
           </>
         )}
       </div>
+
+      {/* Lot-picker modal for accepting trims */}
+      {trimModal && (
+        <TrimLotPickerModal
+          accountId={trimModal.accountId}
+          symbol={trimModal.symbol}
+          schwabShares={trimModal.schwabShares}
+          localShares={trimModal.localShares}
+          hashValue={trimModal.hashValue}
+          getToken={getToken}
+          onAccepted={handleTrimAccepted}
+          onClose={() => setTrimModal(null)}
+        />
+      )}
     </div>
   );
 }

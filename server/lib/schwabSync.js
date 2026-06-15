@@ -290,7 +290,8 @@ async function syncAccount(prisma, accountId) {
     lastSyncedAt: accountUpdateData.lastSyncedAt,
     newPositions: [],      // symbols newly created with a placeholder 'schwab' lot
     updatedSchwabLots: [],  // symbols where an existing 'schwab' lot was refreshed
-    positionDiffs: [],      // symbols with existing (non-schwab-sourced) lots that disagree on share count
+    autoAcceptedAdds: [],   // symbols where Schwab showed more shares than local — new lot auto-created for the diff
+    positionDiffs: [],      // symbols where Schwab shows FEWER shares than local (trim) — requires manual Accept Trim
     skippedAssetTypes: [],  // schwab positions we didn't sync (e.g. options, cash equivalents)
     promotedTickers: [],    // watchlist tickers promoted to portfolio because Schwab now shows a real position
   };
@@ -309,8 +310,29 @@ async function syncAccount(prisma, accountId) {
       // those as authoritative and never touch them — just diff.
       const hasManualOrImportLots = localPos.lotSources.some(s => s !== 'schwab');
       if (hasManualOrImportLots) {
-        if (Math.abs(localPos.totalShares - schwabShares) > 0.0001) {
-          result.positionDiffs.push({ symbol, schwabShares, localShares: localPos.totalShares });
+        const diff = schwabShares - localPos.totalShares;
+        if (Math.abs(diff) > 0.0001) {
+          if (diff > 0) {
+            // Schwab reports MORE shares — a buy happened. Auto-accept: create
+            // a new lot for the difference, same as acceptShareDiff() but inline.
+            // Trim (diff < 0) still requires the "Accept trim" button because
+            // FIFO lot selection has tax implications the user should confirm.
+            await prisma.lot.create({
+              data: {
+                positionId: localPos.positionId,
+                shares: diff,
+                costBasis: schwabPos.averagePrice ?? 0,
+                acquiredDate: new Date(),
+                source: 'schwab',
+                notes: `Auto-accepted from sync: Schwab reported +${diff.toFixed(6)} more shares than local. ⚠️ Cost basis here is the POSITION AVERAGE (${(schwabPos.averagePrice ?? 0).toFixed(4)}), NOT the per-lot purchase price — correct it in Edit Lots using Schwab's lot detail view. Acquisition date is also a placeholder (today); update both before any tax calculation.`,
+              },
+            });
+            result.autoAcceptedAdds.push({ symbol, diffShares: +diff.toFixed(6) });
+          } else {
+            // Schwab reports FEWER shares — a trim happened. Flag for manual
+            // acceptance via the "Accept trim → X shares" button in the UI.
+            result.positionDiffs.push({ symbol, schwabShares, localShares: localPos.totalShares, status: 'mismatch' });
+          }
         }
         continue;
       }
@@ -464,6 +486,94 @@ async function acceptShareDiff(prisma, accountId, symbol) {
 }
 
 /**
+ * Returns open lots for a position — used to populate the lot-picker modal
+ * when the user accepts a trim.
+ *
+ * @param {PrismaClient} prisma
+ * @param {number} accountId
+ * @param {string} symbol
+ */
+async function getOpenLots(prisma, accountId, symbol) {
+  const ticker = await prisma.ticker.findUnique({ where: { symbol } });
+  if (!ticker) throw new Error(`${symbol} ticker not found locally`);
+
+  const position = await prisma.position.findUnique({
+    where: { tickerId_accountId: { tickerId: ticker.id, accountId } },
+    include: {
+      lots: {
+        where:   { closedDate: null },
+        orderBy: { acquiredDate: 'asc' },
+      },
+    },
+  });
+  if (!position) throw new Error(`No local position for ${symbol} in this account`);
+  return position.lots;
+}
+
+/**
+ * Accepts a trim by closing/reducing specific lots as designated by the user.
+ * The caller provides explicit lot selections so tax-lot choice is intentional
+ * (not auto-FIFO'd).
+ *
+ * @param {PrismaClient} prisma
+ * @param {number} accountId
+ * @param {string} symbol
+ * @param {string} saleDate   — ISO date string for the closing date on sold lots
+ * @param {{ lotId: number, sharesSold: number }[]} selections
+ */
+async function acceptTrim(prisma, accountId, symbol, saleDate, selections) {
+  if (!selections?.length) throw new Error('No lot selections provided');
+  const closingDate = new Date(saleDate);
+  if (isNaN(closingDate)) throw new Error(`Invalid saleDate: ${saleDate}`);
+
+  const ticker = await prisma.ticker.findUnique({ where: { symbol } });
+  if (!ticker) throw new Error(`${symbol} ticker not found locally`);
+
+  const position = await prisma.position.findUnique({
+    where: { tickerId_accountId: { tickerId: ticker.id, accountId } },
+    include: { lots: { where: { closedDate: null } } },
+  });
+  if (!position) throw new Error(`No local position for ${symbol} in this account`);
+
+  const lotMap = new Map(position.lots.map(l => [l.id, l]));
+  const closed = [], reduced = [];
+
+  for (const { lotId, sharesSold } of selections) {
+    const lot = lotMap.get(lotId);
+    if (!lot) throw new Error(`Lot ${lotId} not found or already closed`);
+    if (sharesSold <= 0) continue;
+
+    if (sharesSold >= lot.shares - 0.00001) {
+      // Close entirely
+      await prisma.lot.update({
+        where: { id: lot.id },
+        data: {
+          closedDate: closingDate,
+          notes: (lot.notes ? lot.notes + ' ' : '') +
+            `Closed ${closingDate.toISOString().slice(0, 10)} via lot-picker trim (${lot.shares} shares sold).`,
+        },
+      });
+      closed.push({ lotId: lot.id, shares: lot.shares });
+    } else {
+      // Partial sell — reduce shares in place
+      const newShares = +(lot.shares - sharesSold).toFixed(6);
+      await prisma.lot.update({
+        where: { id: lot.id },
+        data: {
+          shares: newShares,
+          notes: (lot.notes ? lot.notes + ' ' : '') +
+            `Partially sold ${closingDate.toISOString().slice(0, 10)}: ${lot.shares} → ${newShares} shares (${sharesSold} sold).`,
+        },
+      });
+      reduced.push({ lotId: lot.id, from: lot.shares, to: newShares });
+    }
+  }
+
+  const totalSold = selections.reduce((s, sel) => s + sel.sharesSold, 0);
+  return { symbol, totalSold: +totalSold.toFixed(6), closedLots: closed, reducedLots: reduced };
+}
+
+/**
  * Auto-sync entry point for "sync on login" — intended to be called once per
  * browser session (client-side gating) from the Portfolio page. Cheap when
  * there's nothing to do: checks `Account.lastSyncedAt` against `maxAgeHours`
@@ -520,6 +630,8 @@ module.exports = {
   createAccountFromSchwab,
   syncAccount,
   acceptShareDiff,
+  getOpenLots,
+  acceptTrim,
   ignoreAccount,
   unignoreAccount,
   autoSyncStaleAccounts,
