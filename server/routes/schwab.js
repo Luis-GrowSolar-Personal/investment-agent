@@ -242,6 +242,30 @@ router.post('/accept-trim', requireAuth(), async (req, res) => {
   }
 });
 
+// ── GET /api/schwab/transactions-raw/:accountId ───────────────────────────
+//
+// DEBUG endpoint — returns raw Schwab transaction response for the last 60
+// days. Use this to verify field names and structure before relying on the
+// auto-resolve logic. Remove once confirmed.
+
+router.get('/transactions-raw/:accountId', requireAuth(), async (req, res) => {
+  const accountId = parseInt(req.params.accountId);
+  try {
+    const account = await prisma.account.findUnique({ where: { id: accountId } });
+    if (!account?.schwabAccountHash) {
+      return res.status(400).json({ error: 'Account not linked to Schwab' });
+    }
+    const { getTransactions } = require('../lib/schwabAuth');
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - 60);
+    const txns = await getTransactions(prisma, account.schwabAccountHash, startDate);
+    res.json(txns);
+  } catch (err) {
+    console.error('GET /schwab/transactions-raw error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // ── POST /api/schwab/ignore ───────────────────────────────────────────────
 
 router.post('/ignore', requireAuth(), async (req, res) => {
