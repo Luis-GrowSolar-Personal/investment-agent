@@ -45,6 +45,7 @@
 
 const { previewAccounts, maskAccountNumber } = require('./schwabAccounts');
 const { smartDefaultBucket } = require('./portfolioImport');
+const { getTransactions } = require('./schwabAuth');
 
 /**
  * Mirrors ensureOwnerProfile() in routes/portfolio.js — kept local here to
@@ -290,11 +291,47 @@ async function syncAccount(prisma, accountId) {
     lastSyncedAt: accountUpdateData.lastSyncedAt,
     newPositions: [],      // symbols newly created with a placeholder 'schwab' lot
     updatedSchwabLots: [],  // symbols where an existing 'schwab' lot was refreshed
-    autoAcceptedAdds: [],   // symbols where Schwab showed more shares than local — new lot auto-created for the diff
-    positionDiffs: [],      // symbols where Schwab shows FEWER shares than local (trim) — requires manual Accept Trim
+    autoResolvedAdds: [],  // adds auto-resolved from transaction history: { symbol, shares, price, tradeDate }
+    positionDiffs: [],      // diffs that couldn't be auto-resolved (trim, or add > 60 days old) — require manual action
     skippedAssetTypes: [],  // schwab positions we didn't sync (e.g. options, cash equivalents)
     promotedTickers: [],    // watchlist tickers promoted to portfolio because Schwab now shows a real position
   };
+
+  // Fetch 60 days of trade transactions once per sync — used to resolve add diffs
+  // with exact purchase price + date instead of the position-level averagePrice.
+  let recentTrades = null; // lazy-loaded on first add diff
+  async function ensureRecentTrades() {
+    if (recentTrades !== null) return recentTrades;
+    try {
+      const startDate = new Date();
+      startDate.setDate(startDate.getDate() - 60);
+      const txns = await getTransactions(prisma, schwab.hashValue, startDate);
+      // Build a lookup: symbol -> array of OPENING (buy) trade legs, newest first
+      recentTrades = new Map();
+      for (const txn of (Array.isArray(txns) ? txns : [])) {
+        if (txn.type !== 'TRADE') continue;
+        for (const item of (txn.transferItems ?? [])) {
+          if (item.positionEffect !== 'OPENING') continue;
+          const sym = item.instrument?.symbol;
+          if (!sym) continue;
+          if (!recentTrades.has(sym)) recentTrades.set(sym, []);
+          recentTrades.get(sym).push({
+            tradeDate: txn.tradeDate,
+            shares: Math.abs(item.amount ?? 0),
+            price: item.price ?? null,
+          });
+        }
+      }
+      // Sort each symbol's trades newest-first for matching
+      for (const [, trades] of recentTrades) {
+        trades.sort((a, b) => new Date(b.tradeDate) - new Date(a.tradeDate));
+      }
+    } catch (err) {
+      console.warn('schwabSync: could not fetch transaction history — add diffs will require manual entry:', err.message);
+      recentTrades = new Map(); // empty, falls through to manual path
+    }
+    return recentTrades;
+  }
 
   for (const schwabPos of schwab.positions) {
     const symbol = schwabPos.symbol;
@@ -313,25 +350,46 @@ async function syncAccount(prisma, accountId) {
         const diff = schwabShares - localPos.totalShares;
         if (Math.abs(diff) > 0.0001) {
           if (diff > 0) {
-            // Schwab reports MORE shares — a buy happened. Auto-accept: create
-            // a new lot for the difference, same as acceptShareDiff() but inline.
-            // Trim (diff < 0) still requires the "Accept trim" button because
-            // FIFO lot selection has tax implications the user should confirm.
-            await prisma.lot.create({
-              data: {
-                positionId: localPos.positionId,
-                shares: diff,
-                costBasis: schwabPos.averagePrice ?? 0,
-                acquiredDate: new Date(),
-                source: 'schwab',
-                notes: `Auto-accepted from sync: Schwab reported +${diff.toFixed(6)} more shares than local. ⚠️ Cost basis here is the POSITION AVERAGE (${(schwabPos.averagePrice ?? 0).toFixed(4)}), NOT the per-lot purchase price — correct it in Edit Lots using Schwab's lot detail view. Acquisition date is also a placeholder (today); update both before any tax calculation.`,
-              },
-            });
-            result.autoAcceptedAdds.push({ symbol, diffShares: +diff.toFixed(6) });
+            // Buy detected. Try to resolve from transaction history (exact price + date).
+            const trades = await ensureRecentTrades();
+            const candidates = trades.get(symbol) ?? [];
+            // Find the most recent trade whose share count is within 0.01% of the diff.
+            const match = candidates.find(t => Math.abs(t.shares - diff) / diff < 0.0001);
+            if (match && match.price != null) {
+              await prisma.lot.create({
+                data: {
+                  positionId: localPos.positionId,
+                  shares: diff,
+                  costBasis: match.price,
+                  acquiredDate: new Date(match.tradeDate),
+                  source: 'schwab',
+                  notes: `Auto-resolved from Schwab transaction history: ${diff.toFixed(6)} shares @ $${match.price} on ${match.tradeDate}.`,
+                },
+              });
+              result.autoResolvedAdds.push({ symbol, shares: +diff.toFixed(6), price: match.price, tradeDate: match.tradeDate });
+            } else {
+              // No transaction match — purchase may be >60 days old or quantity didn't align.
+              // Surface for manual entry via "Accept add" button.
+              result.positionDiffs.push({
+                symbol,
+                schwabShares,
+                localShares: localPos.totalShares,
+                status: 'mismatch',
+                diffDirection: 'add',
+                positionAvgPrice: schwabPos.averagePrice ?? null,
+              });
+            }
           } else {
-            // Schwab reports FEWER shares — a trim happened. Flag for manual
-            // acceptance via the "Accept trim → X shares" button in the UI.
-            result.positionDiffs.push({ symbol, schwabShares, localShares: localPos.totalShares, status: 'mismatch' });
+            // Trim detected — always requires lot-picker (we can't know which lot
+            // Schwab matched against for tax purposes).
+            result.positionDiffs.push({
+              symbol,
+              schwabShares,
+              localShares: localPos.totalShares,
+              status: 'mismatch',
+              diffDirection: 'trim',
+              positionAvgPrice: schwabPos.averagePrice ?? null,
+            });
           }
         }
         continue;

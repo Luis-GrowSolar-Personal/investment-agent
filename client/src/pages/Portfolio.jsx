@@ -1587,11 +1587,11 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
       if (json.updatedSchwabLots?.length) {
         parts.push(`Refreshed Schwab-estimated lot for ${json.updatedSchwabLots.join(', ')}.`);
       }
-      if (json.autoAcceptedAdds?.length) {
-        parts.push(`Auto-accepted buy diff for ${json.autoAcceptedAdds.map(a => `${a.symbol} (+${a.diffShares})`).join(', ')} — placeholder lot dated today; verify acquisition date for LTCG/STCG treatment.`);
+      if (json.autoResolvedAdds?.length) {
+        parts.push(`Auto-resolved ${json.autoResolvedAdds.length} add(s) from transaction history: ${json.autoResolvedAdds.map(a => `${a.symbol} +${a.shares} @ $${a.price} on ${new Date(a.tradeDate).toLocaleDateString()}`).join(', ')}.`);
       }
       if (json.positionDiffs?.length) {
-        parts.push(`Share count differs (lots untouched): ${json.positionDiffs.map(d => `${d.symbol} Schwab ${d.schwabShares} vs local ${d.localShares}`).join('; ')}.`);
+        parts.push(`Share count differs (review required): ${json.positionDiffs.map(d => `${d.symbol} Schwab ${d.schwabShares} vs local ${d.localShares}`).join('; ')}.`);
       }
       if (json.promotedTickers?.length) {
         parts.push(`Promoted ${json.promotedTickers.join(', ')} from watchlist → portfolio (Schwab now shows a real position).`);
@@ -1666,29 +1666,29 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
                 {m.positionDiffs.length > 0 && (
                   <div style={{ fontSize: 11, color: '#f59e0b', marginTop: 8 }}>
                     {m.positionDiffs.map(d => {
-                      const acceptBusyId     = `${m.schwab.hashValue}:${d.symbol}`;
-                      const acceptTrimBusyId = `${m.schwab.hashValue}:${d.symbol}:trim`;
-                      const canAcceptDiff = d.status === 'mismatch' && d.schwabShares > d.localShares;
-                      const canAcceptTrim = d.status === 'mismatch' && d.schwabShares < d.localShares;
+                      const isAdd  = d.diffDirection === 'add'  || (d.schwabShares > d.localShares);
+                      const isTrim = d.diffDirection === 'trim' || (d.schwabShares < d.localShares);
+                      const diffShares = Math.abs(d.schwabShares - d.localShares).toFixed(4);
                       return (
                         <div key={d.symbol} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
                           <div>
-                            {d.symbol}: Schwab reports {d.schwabShares} shares, local total is {d.localShares}
-                            {d.status === 'schwab_only' ? ' (no local position — Sync will create one)'
-                              : canAcceptTrim ? ' (trim executed in Schwab — select which lot(s) to close)'
-                              : ' (lots untouched — review manually)'}
+                            {d.symbol}: Schwab {d.schwabShares} vs local {d.localShares}
+                            {d.status === 'schwab_only'
+                              ? ' (no local position — Sync will create one)'
+                              : isAdd
+                              ? ` (+${diffShares} — purchase >60 days old, enter cost manually)`
+                              : ` (trim — select which lot(s) to close)`}
                           </div>
-                          {canAcceptDiff && (
+                          {isAdd && (
                             <button
-                              style={{ ...secondaryBtnStyle, padding: '2px 8px', fontSize: 11, opacity: busyKey === acceptBusyId ? 0.6 : 1 }}
-                              disabled={busyKey === acceptBusyId}
-                              title="Adds a placeholder lot for the difference (cost = Schwab's current avg price, date = today) — e.g. for a dividend reinvestment. Verify the date afterward."
-                              onClick={() => handleAcceptDiff(m.local.id, d.symbol, m.schwab.hashValue)}
+                              style={{ ...secondaryBtnStyle, padding: '2px 8px', fontSize: 11 }}
+                              title="Opens a form to enter the exact purchase price and date for this lot."
+                              onClick={() => openTrimModal(m.local.id, d.symbol, m.schwab.hashValue, d.localShares, d.schwabShares)}
                             >
-                              {busyKey === acceptBusyId ? 'Adding…' : `Accept +${(d.schwabShares - d.localShares).toFixed(4)} as lot`}
+                              {`Enter cost for +${diffShares} shares`}
                             </button>
                           )}
-                          {canAcceptTrim && (
+                          {isTrim && (
                             <button
                               style={{ ...secondaryBtnStyle, padding: '2px 8px', fontSize: 11 }}
                               title="Pick which lot(s) were trimmed so acquisition dates and cost basis are preserved accurately."

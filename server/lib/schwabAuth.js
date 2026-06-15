@@ -191,10 +191,61 @@ async function getStatus(prisma) {
   };
 }
 
+const TRADER_BASE = 'https://api.schwabapi.com/trader/v1';
+
+/**
+ * Fetches trade transactions for a Schwab account within a date range.
+ *
+ * Schwab's transaction history covers approximately the last 60 days.
+ * We use this to get the exact purchase price and date for new lots,
+ * rather than relying on the position-level averagePrice (which is the
+ * blended average across all lots and would corrupt the cost basis).
+ *
+ * @param {PrismaClient} prisma
+ * @param {string} hashValue  - Schwab account hash (from /accounts/accountNumbers)
+ * @param {Date}   startDate  - earliest transaction date to fetch
+ * @param {Date}   endDate    - latest transaction date to fetch (defaults to now)
+ * @returns {Array} Raw Schwab transaction objects filtered to TRADE type
+ *
+ * Each returned object has (at minimum):
+ *   { type, tradeDate, settlementDate,
+ *     netAmount,                       // negative = buy, positive = sell
+ *     transferItems: [
+ *       { instrument: { symbol, assetType }, amount, price, cost, positionEffect }
+ *     ]
+ *   }
+ *
+ * positionEffect values: 'OPENING' (buy), 'CLOSING' (sell).
+ * price is per-share; amount is share count (negative for buys, positive for sells
+ * in the equity leg — sign matches the direction of shares transferred to account).
+ */
+async function getTransactions(prisma, hashValue, startDate, endDate = new Date()) {
+  const accessToken = await getValidAccessToken(prisma);
+
+  const params = new URLSearchParams({
+    types: 'TRADE',
+    startDate: startDate.toISOString().slice(0, 10),
+    endDate:   endDate.toISOString().slice(0, 10),
+  });
+
+  const url = `${TRADER_BASE}/accounts/${hashValue}/transactions?${params}`;
+  const res = await fetch(url, {
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Schwab /transactions failed (${res.status}): ${text}`);
+  }
+
+  return res.json(); // array of transaction objects
+}
+
 module.exports = {
   getAuthUrl,
   exchangeCodeForTokens,
   refreshAccessToken,
   getValidAccessToken,
   getStatus,
+  getTransactions,
 };
