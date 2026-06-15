@@ -154,11 +154,25 @@ async function getReconciliation(prisma) {
         });
       }
     }
-    // Local positions with no corresponding Schwab position (e.g. sold,
-    // or held at a different broker under this account by mistake).
-    const localOnly = localPositions
-      .filter(p => !schwabBySymbol.has(p.symbol))
-      .map(p => ({ symbol: p.symbol, localShares: p.totalShares }));
+    // Local positions with no corresponding Schwab position.
+    // If they have open manual/import lots, surface as a trim-to-zero diff
+    // so the user gets an actionable button. Otherwise just informational.
+    const localOnly = [];
+    for (const localPos of localPositions) {
+      if (schwabBySymbol.has(localPos.symbol)) continue;
+      const hasManualOrImportLots = localPos.lotSources.some(s => s !== 'schwab');
+      if (hasManualOrImportLots && localPos.lotCount > 0) {
+        positionDiffs.push({
+          symbol: localPos.symbol,
+          schwabShares: 0,
+          localShares: localPos.totalShares,
+          status: 'mismatch',
+          diffDirection: 'trim',
+        });
+      } else {
+        localOnly.push({ symbol: localPos.symbol, localShares: localPos.totalShares });
+      }
+    }
 
     matched.push({
       schwab,
