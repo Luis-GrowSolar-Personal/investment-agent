@@ -224,8 +224,8 @@ async function getTransactions(prisma, hashValue, startDate, endDate = new Date(
 
   const params = new URLSearchParams({
     types: 'TRADE',
-    startDate: startDate.toISOString().slice(0, 10),
-    endDate:   endDate.toISOString().slice(0, 10),
+    startDate: startDate.toISOString(),
+    endDate:   endDate.toISOString(),
   });
 
   const url = `${TRADER_BASE}/accounts/${hashValue}/transactions?${params}`;

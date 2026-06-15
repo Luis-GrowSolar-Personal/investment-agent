@@ -478,6 +478,29 @@ async function syncAccount(prisma, accountId) {
     result.newPositions.push(symbol);
   }
 
+  // Detect local positions that Schwab no longer reports at all — i.e. fully
+  // sold positions. Schwab drops a position from /accounts?fields=positions
+  // once shares reach zero, so these never appear in the loop above.
+  // Surface them as trim-to-zero diffs so the user can close the local lots.
+  const schwabSymbols = new Set(schwab.positions.map(p => p.symbol));
+  for (const localPos of localPositions) {
+    if (schwabSymbols.has(localPos.symbol)) continue; // handled in the loop above
+    if (localPos.lotCount === 0) continue;            // already closed locally
+    // Only flag if there are open (non-schwab) lots — a 'schwab'-only position
+    // with no Schwab counterpart just means the placeholder will be cleaned up
+    // on next sync when the position reappears (unlikely but safe to skip).
+    const hasManualOrImportLots = localPos.lotSources.some(s => s !== 'schwab');
+    if (!hasManualOrImportLots) continue;
+    result.positionDiffs.push({
+      symbol: localPos.symbol,
+      schwabShares: 0,
+      localShares: localPos.totalShares,
+      status: 'mismatch',
+      diffDirection: 'trim',
+      positionAvgPrice: null,
+    });
+  }
+
   return result;
 }
 
