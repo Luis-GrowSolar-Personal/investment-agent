@@ -292,6 +292,7 @@ async function syncAccount(prisma, accountId) {
     updatedSchwabLots: [],  // symbols where an existing 'schwab' lot was refreshed
     positionDiffs: [],      // symbols with existing (non-schwab-sourced) lots that disagree on share count
     skippedAssetTypes: [],  // schwab positions we didn't sync (e.g. options, cash equivalents)
+    promotedTickers: [],    // watchlist tickers promoted to portfolio because Schwab now shows a real position
   };
 
   for (const schwabPos of schwab.positions) {
@@ -353,6 +354,18 @@ async function syncAccount(prisma, accountId) {
           bucketOverride: bucket,
         },
       });
+    } else if (ticker.status === 'watchlist') {
+      // Ticker already tracked as a watchlist candidate but Schwab now
+      // reports an actual position for it — promote to portfolio so it
+      // stops appearing as an "Open <symbol>" promotion candidate in the
+      // Capital Flow while simultaneously generating an "Add <symbol>"
+      // from the positions path. Without this, both entries appear and
+      // the allocator double-counts the required capital.
+      ticker = await prisma.ticker.update({
+        where: { id: ticker.id },
+        data:  { status: 'portfolio' },
+      });
+      result.promotedTickers.push(symbol);
     }
 
     const position = await prisma.position.upsert({

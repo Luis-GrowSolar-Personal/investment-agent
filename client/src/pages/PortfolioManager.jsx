@@ -293,7 +293,10 @@ function CapitalFlow({ flow }) {
         <Metric label="FROM TRIMS"       value={money(flow.totalNetFreed)}  sub="net after tax" />
         <Metric label="FREE CASH"        value={money(flow.freeCash)}       sub="above reserve" />
         <div style={{ width: 1, background: C.border, alignSelf: 'stretch' }} />
-        <Metric label="TOTAL DEPLOYABLE" value={money(flow.totalAvailable)} color={C.blue} />
+        <Metric label="TOTAL DEPLOYABLE" value={money(flow.totalAvailable)} color={C.blue}
+          sub={flow.freeCash <= 0 && flow.totalNetFreed > 0 ? 'after executing trims'
+             : flow.freeCash > 0  && flow.totalNetFreed > 0 ? 'trims + free cash'
+             : null} />
         {hasFunded && (
           <Metric label="DEPLOYED NOW"   value={money(flow.fundedNow.reduce((s, u) => s + (u.partialAmount ?? u.dollarNeeded), 0))}
             color={C.green} />

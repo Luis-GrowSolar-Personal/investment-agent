@@ -1418,6 +1418,9 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
       if (json.positionDiffs?.length) {
         parts.push(`Share count differs (lots untouched): ${json.positionDiffs.map(d => `${d.symbol} Schwab ${d.schwabShares} vs local ${d.localShares}`).join('; ')}.`);
       }
+      if (json.promotedTickers?.length) {
+        parts.push(`Promoted ${json.promotedTickers.join(', ')} from watchlist → portfolio (Schwab now shows a real position).`);
+      }
       if (!parts.length) parts.push('Cash balance updated. No position changes.');
       setResultMsg(prev => ({ ...prev, [hashValue]: parts.join(' ') }));
       await fetchData();

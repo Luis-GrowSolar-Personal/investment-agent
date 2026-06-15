@@ -143,3 +143,25 @@ candidates outside the defined domain.
 area where Luis reviews and approves or discards candidates before
 they become watchlist entries. Approval auto-creates the ticker
 with the intake evaluation attached as context.
+
+## 9. Capital Flow Priority: Existing Positions Before New
+
+When allocating freed capital (trim proceeds + free cash), topping up
+an existing underweight position always outranks opening a brand-new
+position from the watchlist — even if the new position would score
+higher on conviction.
+
+- Implemented in `moves.js` → `buildCapitalFlow`: `addUses` (existing
+  positions below model weight, `usePriority: 1`) are placed ahead of
+  `promUses` (watchlist promotions, `usePriority: 2`) in the funding
+  queue, which is filled greedily in array order.
+- Consequence: the same ticker can rank #1 in "Funded Now" in one
+  account (where it's an underweight existing position — "Add X")
+  and fall to "Queue" in another account (where it would be a new
+  position — "Open X"), purely based on whether that account already
+  holds it. This is expected, not a scoring inconsistency.
+- Rationale: an existing position has already cleared the analyst
+  gate and is part of the model weight target — closing that gap is
+  lower-risk than initiating a new position. Consistent with
+  Principle 2's goal of avoiding undisciplined proportional
+  redeployment.
