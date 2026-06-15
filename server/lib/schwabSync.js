@@ -361,9 +361,19 @@ async function syncAccount(prisma, accountId) {
       // Capital Flow while simultaneously generating an "Add <symbol>"
       // from the positions path. Without this, both entries appear and
       // the allocator double-counts the required capital.
+      //
+      // Also backfill bucketOverride if null: watchlist tickers created
+      // before the bucket fix have bucketOverride=null, which causes the
+      // display-time fallback smartDefaultBucket('', symbol) to return
+      // 'etf' for any equity (Position has no assetType column). Use
+      // Schwab's assetType — available here — to set the correct bucket.
+      const updateData = { status: 'portfolio' };
+      if (ticker.bucketOverride == null) {
+        updateData.bucketOverride = smartDefaultBucket(normalizeAssetType(schwabPos.assetType), symbol);
+      }
       ticker = await prisma.ticker.update({
         where: { id: ticker.id },
-        data:  { status: 'portfolio' },
+        data:  updateData,
       });
       result.promotedTickers.push(symbol);
     }
