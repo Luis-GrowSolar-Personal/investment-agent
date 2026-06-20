@@ -667,13 +667,14 @@ router.get('/', async (req, res) => {
   }
 });
 
-// ─── GET /api/moves/:owner ────────────────────────────────────────────────────
+// ─── Core compute function (owner → payload object) ──────────────────────────
+// Extracted so it can be called from both the GET route (cache miss)
+// and POST /:owner/refresh (force recompute), as well as from schwab.js
+// trigger hooks via server/lib/movesCache.js.
 
-router.get('/:owner', async (req, res) => {
-  const owner = decodeURIComponent(req.params.owner);
-  try {
+async function computeMovesPayload(owner) {
     const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
-    if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
+    if (!profile) throw new Error(`Owner "${owner}" not found`);
 
     const cashReservePct    = profile.cashReservePct    ?? DEFAULT_CASH_RESERVE;
     const estSpecRatio      = profile.estSpecRatio      ?? DEFAULT_EST_RATIO;
@@ -921,7 +922,7 @@ router.get('/:owner', async (req, res) => {
       message: `Portfolio (${money(totalPortfolioValue)}) has reached the enough number (${money(enoughNumber)}) — consider transitioning to passive allocation`,
     });
 
-    res.json({
+    return {
       owner, displayName: profile.displayName ?? owner,
       totalPortfolioValue: +totalPortfolioValue.toFixed(2),
       totalMktValue:       +totalMktValue.toFixed(2),
@@ -950,9 +951,54 @@ router.get('/:owner', async (req, res) => {
       watchlistCandidates: finalCandidates,
       capitalFlow,
       warnings,
-    });
+    };
+}
+
+// ─── GET /api/moves/:owner ────────────────────────────────────────────────────
+// Cache-first: serve from MovesCache if available, compute on first miss.
+
+router.get('/:owner', async (req, res) => {
+  const owner = decodeURIComponent(req.params.owner);
+  try {
+    const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
+    if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
+
+    // Check cache
+    const cached = await prisma.movesCache.findUnique({ where: { owner } });
+    if (cached) {
+      return res.json({ ...cached.payload, fromCache: true, computedAt: cached.computedAt });
+    }
+
+    // Cache miss — compute, store, return
+    const payload = await computeMovesPayload(owner);
+    await prisma.movesCache.create({ data: { owner, payload, computedAt: new Date() } });
+    res.json({ ...payload, fromCache: false, computedAt: new Date() });
   } catch (err) {
     console.error(`GET /moves/${owner} error:`, err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ─── POST /api/moves/:owner/refresh ──────────────────────────────────────────
+// Force recompute — called by price refresh, Schwab sync, and manual UI button.
+
+router.post('/:owner/refresh', requireAuth(), async (req, res) => {
+  const owner = decodeURIComponent(req.params.owner);
+  try {
+    const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
+    if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
+
+    const payload     = await computeMovesPayload(owner);
+    const computedAt  = new Date();
+    await prisma.movesCache.upsert({
+      where:  { owner },
+      update: { payload, computedAt },
+      create: { owner, payload, computedAt },
+    });
+    console.log(`[movesCache] refreshed for ${owner}`);
+    res.json({ ...payload, fromCache: false, computedAt });
+  } catch (err) {
+    console.error(`POST /moves/${owner}/refresh error:`, err);
     res.status(500).json({ error: err.message });
   }
 });
@@ -964,3 +1010,4 @@ function money(n) {
 }
 
 module.exports = router;
+module.exports.computeMovesPayload = computeMovesPayload;

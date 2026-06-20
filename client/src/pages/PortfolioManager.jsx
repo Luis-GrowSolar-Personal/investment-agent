@@ -59,6 +59,16 @@ const TRAJ_COLORS = {
 
 // ─── Formatting ───────────────────────────────────────────────────────────────
 
+function timeAgo(ts) {
+  const diff = Date.now() - new Date(ts).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1)  return 'just now';
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24)  return `${hrs}h ago`;
+  return `${Math.floor(hrs / 24)}d ago`;
+}
+
 function money(n) {
   if (n == null) return '—';
   const abs  = Math.abs(n);
@@ -648,11 +658,12 @@ function OwnerSelector({ owners, selected, onSelect }) {
 export default function PortfolioManager() {
   const { getToken } = useAuth();
 
-  const [owners,   setOwners]   = useState([]);
-  const [selected, setSelected] = useState(null);
-  const [data,     setData]     = useState(null);
-  const [loading,  setLoading]  = useState(false);
-  const [err,      setErr]      = useState('');
+  const [owners,     setOwners]     = useState([]);
+  const [selected,   setSelected]   = useState(null);
+  const [data,       setData]       = useState(null);
+  const [loading,    setLoading]    = useState(false);  // initial/owner-switch load
+  const [refreshing, setRefreshing] = useState(false);  // background force-refresh
+  const [err,        setErr]        = useState('');
 
   // Load owner list once
   useEffect(() => {
@@ -671,12 +682,11 @@ export default function PortfolioManager() {
     })();
   }, [getToken]);
 
-  // Load moves for selected owner
+  // Load moves for selected owner — serves from cache instantly
   const loadMoves = useCallback(async () => {
     if (!selected) return;
     setLoading(true);
     setErr('');
-    setData(null);
     try {
       const token = await getToken();
       const r     = await fetch(`/api/moves/${encodeURIComponent(selected)}`, {
@@ -692,6 +702,27 @@ export default function PortfolioManager() {
     }
   }, [selected, getToken]);
 
+  // Force recompute — hits POST /:owner/refresh, replaces stale cache
+  const forceRefresh = useCallback(async () => {
+    if (!selected || refreshing) return;
+    setRefreshing(true);
+    setErr('');
+    try {
+      const token = await getToken();
+      const r     = await fetch(`/api/moves/${encodeURIComponent(selected)}/refresh`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error || 'Refresh failed');
+      setData(d);
+    } catch (e) {
+      setErr(e.message);
+    } finally {
+      setRefreshing(false);
+    }
+  }, [selected, refreshing, getToken]);
+
   useEffect(() => { loadMoves(); }, [loadMoves]);
 
   const actionMoves = data?.moves ?? [];
@@ -703,16 +734,23 @@ export default function PortfolioManager() {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
         <div>
           <h1 style={{ margin: 0, fontSize: 20, fontWeight: 800, color: C.text }}>Portfolio Manager</h1>
-          <p style={{ margin: '4px 0 0', fontSize: 13, color: C.dim }}>
-            Specific buy/sell amounts, tax routing, capital flow. Click any move to see account-level detail.
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 4 }}>
+            <p style={{ margin: 0, fontSize: 13, color: C.dim }}>
+              Specific buy/sell amounts, tax routing, capital flow. Click any move to see account-level detail.
+            </p>
+            {data?.computedAt && (
+              <span style={{ fontSize: 11, color: C.faint, whiteSpace: 'nowrap' }}>
+                {data.fromCache ? 'cached' : 'fresh'} · {timeAgo(data.computedAt)}
+              </span>
+            )}
+          </div>
         </div>
         <button
-          onClick={loadMoves}
-          disabled={loading}
-          title="Refresh"
-          style={{ background: 'none', border: `1px solid ${C.border}`, color: C.dim, cursor: 'pointer', fontSize: 16, borderRadius: 6, padding: '6px 10px' }}
-        >⟳</button>
+          onClick={forceRefresh}
+          disabled={refreshing || loading}
+          title="Recompute recommendations"
+          style={{ background: 'none', border: `1px solid ${C.border}`, color: refreshing ? C.green : C.dim, cursor: 'pointer', fontSize: 16, borderRadius: 6, padding: '6px 10px' }}
+        >{refreshing ? '⟳' : '⟳'}</button>
       </div>
 
       <OwnerSelector owners={owners} selected={selected} onSelect={setSelected} />

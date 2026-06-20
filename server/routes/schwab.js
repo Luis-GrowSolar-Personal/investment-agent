@@ -63,6 +63,7 @@ const { requireAuth } = require('@clerk/express');
 const schwabAuth = require('../lib/schwabAuth');
 const { previewAccounts } = require('../lib/schwabAccounts');
 const schwabSync = require('../lib/schwabSync');
+const { refreshMovesCache, refreshAllMovesCache } = require('../lib/movesCache');
 
 // ── GET /api/schwab/connect ───────────────────────────────────────────────
 
@@ -183,6 +184,9 @@ router.post('/sync/:accountId', requireAuth(), async (req, res) => {
   try {
     const result = await schwabSync.syncAccount(prisma, accountId);
     res.json(result);
+    // Fire-and-forget: refresh moves cache for this account's owner
+    const acct = await prisma.account.findUnique({ where: { id: accountId }, select: { owner: true } });
+    if (acct?.owner) refreshMovesCache(acct.owner);
   } catch (err) {
     console.error('POST /schwab/sync/:accountId error:', err);
     res.status(500).json({ error: err.message });
@@ -312,6 +316,8 @@ router.post('/refresh-prices', requireAuth(), async (req, res) => {
     const { refreshAllPrices } = require('../lib/priceRefresh');
     const result = await refreshAllPrices(prisma);
     res.json(result);
+    // Fire-and-forget: prices changed, so refresh moves cache for all owners
+    refreshAllMovesCache();
   } catch (err) {
     console.error('POST /schwab/refresh-prices error:', err);
     res.status(500).json({ error: err.message });
