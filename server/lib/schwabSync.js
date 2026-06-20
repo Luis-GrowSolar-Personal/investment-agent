@@ -300,9 +300,18 @@ async function syncAccount(prisma, accountId) {
   const localPositions = await loadLocalPositions(prisma, accountId);
   const localBySymbol = new Map(localPositions.map(p => [p.symbol, p]));
 
+  // Detect fractional positions — any non-integer quantity suggests the account
+  // supports fractional share trading. Surfaced to the frontend so it can prompt
+  // the user to enable allowsFractional on this account if not already set.
+  const fractionalDetected = !account.allowsFractional && schwab.positions.some(p => {
+    const qty = (p.longQuantity ?? 0) - (p.shortQuantity ?? 0);
+    return qty > 0 && Math.abs(qty - Math.round(qty)) > 0.0001;
+  });
+
   const result = {
     cashBalance: schwab.cashBalance ?? null,
     lastSyncedAt: accountUpdateData.lastSyncedAt,
+    fractionalDetected,    // true when non-integer shares found but allowsFractional is false
     newPositions: [],      // symbols newly created with a placeholder 'schwab' lot
     updatedSchwabLots: [],  // symbols where an existing 'schwab' lot was refreshed
     autoResolvedAdds: [],  // adds auto-resolved from transaction history: { symbol, shares, price, tradeDate }

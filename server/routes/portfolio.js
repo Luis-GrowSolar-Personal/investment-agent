@@ -148,7 +148,7 @@ router.get('/accounts', async (req, res) => {
 // POST /api/portfolio/accounts
 // Body: { name, type, owner, managed?, ltcgRate?, stcgRate?, notes? }
 router.post('/accounts', async (req, res) => {
-  const { name, type, owner, managed = false, ltcgRate, stcgRate, notes } = req.body;
+  const { name, type, owner, managed = false, ltcgRate, stcgRate, notes, allowsFractional = false } = req.body;
   if (!name || !type || !owner) {
     return res.status(400).json({ error: 'name, type, and owner are required' });
   }
@@ -158,7 +158,7 @@ router.post('/accounts', async (req, res) => {
   }
   try {
     const account = await prisma.account.create({
-      data: { name, type, owner, managed, ltcgRate, stcgRate, notes },
+      data: { name, type, owner, managed, ltcgRate, stcgRate, notes, allowsFractional },
     });
     // Auto-create OwnerProfile for new owners (no-op if already exists)
     await ensureOwnerProfile(owner);
@@ -178,7 +178,7 @@ router.patch('/accounts/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const allowed = ['name', 'type', 'owner', 'managed', 'ltcgRate', 'stcgRate',
                    'cashBalance', 'cashAsOfDate', 'marginBalance', 'marginRate',
-                   'marginRateAsOf', 'marginAsOfDate', 'notes'];
+                   'marginRateAsOf', 'marginAsOfDate', 'notes', 'allowsFractional'];
   const data = {};
   for (const key of allowed) {
     if (req.body[key] !== undefined) data[key] = req.body[key];

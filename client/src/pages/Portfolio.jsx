@@ -1149,12 +1149,13 @@ function UpdateCashModal({ account, token, onSaved, onClose }) {
 // ── Add account modal ─────────────────────────────────────────────────────────
 
 function AddAccountModal({ token, onSaved, onClose }) {
-  const [name,    setName]    = useState('');
-  const [type,    setType]    = useState('taxable');
-  const [owner,   setOwner]   = useState('Luis');
-  const [managed, setManaged] = useState(false);
-  const [saving,  setSaving]  = useState(false);
-  const [error,   setError]   = useState('');
+  const [name,             setName]             = useState('');
+  const [type,             setType]             = useState('taxable');
+  const [owner,            setOwner]            = useState('Luis');
+  const [managed,          setManaged]          = useState(false);
+  const [allowsFractional, setAllowsFractional] = useState(false);
+  const [saving,           setSaving]           = useState(false);
+  const [error,            setError]            = useState('');
 
   const inputStyle = {
     background: '#0d1018', border: '1px solid #2d3748', borderRadius: 5,
@@ -1169,7 +1170,7 @@ function AddAccountModal({ token, onSaved, onClose }) {
       const res = await fetch(`${API}/api/portfolio/accounts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ name, type, owner, managed }),
+        body: JSON.stringify({ name, type, owner, managed, allowsFractional }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
@@ -1200,10 +1201,15 @@ function AddAccountModal({ token, onSaved, onClose }) {
             <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 }}>Owner</label>
             <input style={inputStyle} value={owner} onChange={e => setOwner(e.target.value)} placeholder="Luis" required />
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <label style={{ fontSize: 11, color: '#64748b', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}>
               <input type="checkbox" checked={managed} onChange={e => setManaged(e.target.checked)} />
               Agent-managed
+            </label>
+            <label style={{ fontSize: 11, color: '#64748b', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <input type="checkbox" checked={allowsFractional} onChange={e => setAllowsFractional(e.target.checked)} />
+              Fractional shares supported
+              <span style={{ color: '#334155', fontSize: 10 }}>(e.g. Schwab Stock Slices)</span>
             </label>
           </div>
           {error && <div style={{ color: '#ef4444', fontSize: 12 }}>{error}</div>}
@@ -1602,6 +1608,9 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
       if (json.promotedTickers?.length) {
         parts.push(`Promoted ${json.promotedTickers.join(', ')} from watchlist → portfolio (Schwab now shows a real position).`);
       }
+      if (json.fractionalDetected) {
+        parts.push('⚠ Fractional shares detected in this account. Enable "Fractional shares supported" in account settings so routing recommendations show accurate share counts.');
+      }
       if (!parts.length) parts.push('Cash balance updated. No position changes.');
       setResultMsg(prev => ({ ...prev, [hashValue]: parts.join(' ') }));
       await fetchData();
@@ -1985,12 +1994,13 @@ function RenamePositionModal({ position, token, onSaved, onClose }) {
 // ── Edit Account modal ────────────────────────────────────────────────────────
 
 function EditAccountModal({ account, token, onSaved, onClose }) {
-  const [name,    setName]    = useState(account.name);
-  const [type,    setType]    = useState(account.type);
-  const [owner,   setOwner]   = useState(account.owner);
-  const [managed, setManaged] = useState(account.managed);
-  const [saving,  setSaving]  = useState(false);
-  const [error,   setError]   = useState('');
+  const [name,             setName]             = useState(account.name);
+  const [type,             setType]             = useState(account.type);
+  const [owner,            setOwner]            = useState(account.owner);
+  const [managed,          setManaged]          = useState(account.managed);
+  const [allowsFractional, setAllowsFractional] = useState(account.allowsFractional ?? false);
+  const [saving,           setSaving]           = useState(false);
+  const [error,            setError]            = useState('');
   const [confirmTypeChange, setConfirmTypeChange] = useState(false);
 
   const typeChanged = type !== account.type;
@@ -2009,7 +2019,7 @@ function EditAccountModal({ account, token, onSaved, onClose }) {
       const res = await fetch(`${API}/api/portfolio/accounts/${account.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ name, type, owner, managed }),
+        body: JSON.stringify({ name, type, owner, managed, allowsFractional }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
@@ -2083,11 +2093,15 @@ function EditAccountModal({ account, token, onSaved, onClose }) {
             <label style={labelStyle}>Owner</label>
             <input style={inputStyle} value={owner} onChange={e => setOwner(e.target.value)} required />
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <label style={{ ...labelStyle, marginBottom: 0, cursor: 'pointer' }}>
-              <input type="checkbox" checked={managed} onChange={e => setManaged(e.target.checked)}
-                style={{ marginRight: 6 }} />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <label style={{ ...labelStyle, marginBottom: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <input type="checkbox" checked={managed} onChange={e => setManaged(e.target.checked)} />
               Agent-managed
+            </label>
+            <label style={{ ...labelStyle, marginBottom: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <input type="checkbox" checked={allowsFractional} onChange={e => setAllowsFractional(e.target.checked)} />
+              Fractional shares supported
+              <span style={{ color: '#334155', fontSize: 10 }}>(e.g. Schwab Stock Slices)</span>
             </label>
           </div>
           {error && <div style={{ color: '#ef4444', fontSize: 12 }}>{error}</div>}

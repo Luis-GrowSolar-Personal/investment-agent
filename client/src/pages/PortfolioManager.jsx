@@ -164,6 +164,11 @@ function TaxRoutingDetail({ accounts }) {
               LT {money(a.ltGain)} · ST {money(a.stGain)}
             </span>
           )}
+          {a.requiresFractional && !a.allowsFractional && (
+            <span style={{ fontSize: 10, color: C.amber, fontWeight: 700, width: '100%', marginTop: 2 }}>
+              ⚠ fractional not enabled — enable in account settings or round to {Math.floor(a.sharesToSell)} shares
+            </span>
+          )}
         </div>
       ))}
     </div>
@@ -197,6 +202,11 @@ function AddRoutingDetail({ accounts }) {
           {a.insufficientCash && (
             <span style={{ marginLeft: 'auto', fontSize: 10, color: C.amber, fontWeight: 700 }}>
               ⚠ fund account first
+            </span>
+          )}
+          {a.requiresFractional && !a.allowsFractional && (
+            <span style={{ fontSize: 10, color: C.amber, fontWeight: 700, width: '100%', marginTop: 2 }}>
+              ⚠ fractional not enabled — enable in account settings or round to {Math.floor(a.sharesToBuy)} shares
             </span>
           )}
         </div>

@@ -188,6 +188,11 @@ model Account {
   createdAt      DateTime   @default(now())
   positions      Position[]
 
+  // Fractional share trading — set true for accounts where the brokerage
+  // supports fractional share purchases (e.g. Schwab Stock Slices for S&P 500
+  // stocks). When false, trim/add routing rounds share counts to whole numbers.
+  allowsFractional Boolean  @default(false)
+
   // Schwab API integration — links this local account to a Schwab Trader
   // API account hash (from /accounts/accountNumbers). Null until matched
   // via the reconciliation flow in /api/schwab/reconcile + /match.
