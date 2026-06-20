@@ -236,6 +236,9 @@ function MoveCard({ move, idx }) {
         style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px', cursor: hasAccts ? 'pointer' : 'default', flexWrap: 'wrap' }}
         onClick={() => hasAccts && setExpanded(e => !e)}
       >
+        <span style={{ color: C.faint, fontSize: 11, flexShrink: 0, minWidth: 10 }}>
+          {hasAccts ? (expanded ? '▼' : '▶') : ' '}
+        </span>
         <span style={{ fontSize: 11, color: C.faint, minWidth: 18, textAlign: 'right', flexShrink: 0 }}>{idx + 1}.</span>
         <div style={{ flexShrink: 0 }}><Badge label={meta.label} color={meta.color} /></div>
         <span style={{ fontWeight: 800, fontSize: 14, color: C.text, flexShrink: 0 }}>{move.symbol}</span>
@@ -255,13 +258,10 @@ function MoveCard({ move, idx }) {
             48h
           </span>
         )}
-        {hasAccts && (
-          <span style={{ color: C.faint, fontSize: 11, flexShrink: 0 }}>{expanded ? '▼' : '▶'}</span>
-        )}
       </div>
 
       {/* Signal detail row */}
-      <div style={{ display: 'flex', gap: 8, padding: '0 16px 10px 52px', flexWrap: 'wrap', alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: 8, padding: '0 16px 10px 68px', flexWrap: 'wrap', alignItems: 'center' }}>
         {move.thesisHealth && move.thesisHealth !== '—' && (
           <Badge label={move.thesisHealth} color={HEALTH_COLORS[move.thesisHealth] ?? C.muted} />
         )}
