@@ -191,7 +191,8 @@ async function getStatus(prisma) {
   };
 }
 
-const TRADER_BASE = 'https://api.schwabapi.com/trader/v1';
+const TRADER_BASE  = 'https://api.schwabapi.com/trader/v1';
+const MARKET_BASE  = 'https://api.schwabapi.com/marketdata/v1';
 
 /**
  * Fetches trade transactions for a Schwab account within a date range.
@@ -241,6 +242,46 @@ async function getTransactions(prisma, hashValue, startDate, endDate = new Date(
   return res.json(); // array of transaction objects
 }
 
+/**
+ * Fetches real-time (or delayed) market quotes for a list of symbols via
+ * Schwab's market data API. Returns the raw response object keyed by symbol.
+ *
+ * Response shape (per symbol):
+ *   {
+ *     assetMainType: 'EQUITY' | 'ETF' | ...,
+ *     symbol: 'AAPL',
+ *     quote: {
+ *       lastPrice: 182.5,
+ *       closePrice: 181.0,
+ *       netChange: 1.5,          // dollar change vs prev close
+ *       netPercentChange: 0.829, // percent change (e.g. 0.829 = +0.829%)
+ *       ...
+ *     }
+ *   }
+ *
+ * Symbols that Schwab cannot quote (e.g. raw crypto not listed on exchange)
+ * will simply be absent from the returned object — the caller should treat
+ * missing keys as "no price from Schwab" and fall back to another source.
+ *
+ * @param {PrismaClient} prisma
+ * @param {string[]}     symbols  — up to ~500 per call
+ * @returns {Object}              — { SYMBOL: { quote: { lastPrice, ... } }, ... }
+ */
+async function getQuotes(prisma, symbols) {
+  if (!symbols || symbols.length === 0) return {};
+  const accessToken = await getValidAccessToken(prisma);
+  const params = new URLSearchParams({ symbols: symbols.join(','), fields: 'quote' });
+  const url = `${MARKET_BASE}/quotes?${params}`;
+  const res = await fetch(url, {
+    headers: { Authorization: `Bearer ${accessToken}`, Accept: 'application/json' },
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Schwab /quotes failed (${res.status}): ${text}`);
+  }
+  return res.json();
+}
+
 module.exports = {
   getAuthUrl,
   exchangeCodeForTokens,
@@ -248,4 +289,5 @@ module.exports = {
   getValidAccessToken,
   getStatus,
   getTransactions,
+  getQuotes,
 };

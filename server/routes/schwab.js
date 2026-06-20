@@ -298,6 +298,26 @@ router.post('/unignore', requireAuth(), async (req, res) => {
   }
 });
 
+// ── POST /api/schwab/refresh-prices ──────────────────────────────────────
+//
+// Refreshes lastPrice for ALL active positions:
+//   – Schwab market data quotes API for non-crypto (equities, ETFs, commodities)
+//   – Polygon.io fallback for crypto and any symbol Schwab doesn't return
+//
+// Intended to be called once per session (or on-demand from the UI) instead
+// of doing a full account sync just to get current prices.
+
+router.post('/refresh-prices', requireAuth(), async (req, res) => {
+  try {
+    const { refreshAllPrices } = require('../lib/priceRefresh');
+    const result = await refreshAllPrices(prisma);
+    res.json(result);
+  } catch (err) {
+    console.error('POST /schwab/refresh-prices error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // ── POST /api/schwab/auto-sync ────────────────────────────────────────────
 
 router.post('/auto-sync', requireAuth(), async (req, res) => {

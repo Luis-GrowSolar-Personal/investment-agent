@@ -91,6 +91,17 @@ export default function NavBar() {
         if (json.errors?.length) {
           console.error('Schwab auto-sync errors:', json.errors);
         }
+
+        // After sync, refresh prices in the background (Schwab quotes for
+        // equities; Polygon fallback for crypto). Fire-and-forget — no UI block.
+        fetch(`${API}/api/schwab/refresh-prices`, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}` },
+        })
+          .then(r => r.json())
+          .then(p => console.log(`[priceRefresh] updated=${p.updated} schwab=${p.schwabCount} polygon=${p.polygonCount} errors=${p.errors?.length ?? 0}`))
+          .catch(err => console.warn('[priceRefresh] background price refresh failed:', err.message));
+
       } catch (err) {
         console.error('Schwab auto-sync error:', err);
       }

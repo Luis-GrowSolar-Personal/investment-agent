@@ -1246,9 +1246,15 @@ function TrimLotPickerModal({ accountId, symbol, schwabShares, localShares, hash
         const json = await res.json();
         if (!res.ok) throw new Error(json.error);
         setLots(json);
-        // Pre-fill zeros
+        // Pre-fill FIFO: oldest lots first until deficit is covered
         const init = {};
-        json.forEach(l => { init[l.id] = ''; });
+        let remaining = deficit;
+        for (const l of json) {
+          if (remaining <= 0) { init[l.id] = ''; continue; }
+          const sell = Math.min(l.shares, remaining);
+          init[l.id] = +sell.toFixed(6) === 0 ? '' : String(+sell.toFixed(6));
+          remaining -= sell;
+        }
         setSellAmounts(init);
       } catch (err) {
         setError(err.message);
