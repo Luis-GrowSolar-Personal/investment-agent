@@ -244,12 +244,84 @@ function makeTrimMove(moveType, priority, ticker, positions, currentPct, targetP
   };
 }
 
+/**
+ * Route an ADD move to specific accounts.
+ *
+ * Priority: Roth → IRA → taxable (best tax shelter for new buys).
+ * Within the same account type, prefer the account already holding more
+ * shares of this ticker (consolidate rather than fragment).
+ * Allocation per account is bounded by that account's cash balance.
+ *
+ * If no account has cash, still returns one row (the best candidate)
+ * flagged with insufficientCash: true so the UI can warn the user.
+ */
+function buildAddRouting(positions, addValue, price) {
+  if (!addValue || addValue <= 0 || price <= 0) return [];
+
+  // Deduplicate by accountId
+  const seen    = new Set();
+  const deduped = positions.filter(p => {
+    if (seen.has(p.accountId)) return false;
+    seen.add(p.accountId);
+    return true;
+  });
+
+  const TYPE_ORDER = { roth: 0, ira: 1, taxable: 2, custodial: 3 };
+
+  const sorted = [...deduped].sort((a, b) => {
+    const ta = TYPE_ORDER[a.account?.type] ?? 9;
+    const tb = TYPE_ORDER[b.account?.type] ?? 9;
+    if (ta !== tb) return ta - tb;
+    // Same account type: prefer whichever already holds more shares
+    const sharesA = (a.lots ?? []).filter(l => !l.closedDate).reduce((s, l) => s + l.shares, 0);
+    const sharesB = (b.lots ?? []).filter(l => !l.closedDate).reduce((s, l) => s + l.shares, 0);
+    return sharesB - sharesA;
+  });
+
+  let remaining = addValue;
+  const rows    = [];
+
+  for (const pos of sorted) {
+    if (remaining <= 0) break;
+    const cash = pos.account?.cashBalance ?? 0;
+    if (cash < 1) continue;
+    const allocate   = Math.min(remaining, cash);
+    rows.push({
+      accountId:        pos.accountId,
+      accountName:      pos.account?.name ?? '—',
+      accountType:      pos.account?.type ?? '—',
+      isTaxAdvantaged:  ['ira', 'roth'].includes(pos.account?.type),
+      sharesToBuy:      +(allocate / price).toFixed(3),
+      dollarAmount:     +allocate.toFixed(2),
+      insufficientCash: false,
+    });
+    remaining -= allocate;
+  }
+
+  // No cash anywhere — still surface the best account so the user knows where to buy
+  if (rows.length === 0 && sorted.length > 0) {
+    const best = sorted[0];
+    rows.push({
+      accountId:        best.accountId,
+      accountName:      best.account?.name ?? '—',
+      accountType:      best.account?.type ?? '—',
+      isTaxAdvantaged:  ['ira', 'roth'].includes(best.account?.type),
+      sharesToBuy:      +(addValue / price).toFixed(3),
+      dollarAmount:     +addValue.toFixed(2),
+      insufficientCash: true,
+    });
+  }
+
+  return rows;
+}
+
 function makeAddMove(priority, ticker, positions, currentPct, targetPct,
     mktValue, totalPortfolioValue, latestAnalysis) {
-  const price      = positions.find(p => p.lastPrice != null)?.lastPrice ?? 0;
-  const addValue   = Math.max(0, totalPortfolioValue * (targetPct / 100) - mktValue);
+  const price        = positions.find(p => p.lastPrice != null)?.lastPrice ?? 0;
+  const addValue     = Math.max(0, totalPortfolioValue * (targetPct / 100) - mktValue);
   const sharesApprox = price > 0 ? addValue / price : 0;
-  const hardCapPct = Math.min(ticker.capPercent ?? 100, latestAnalysis?.capPercent ?? 100);
+  const hardCapPct   = Math.min(ticker.capPercent ?? 100, latestAnalysis?.capPercent ?? 100);
+  const accounts     = buildAddRouting(positions, addValue, price);
 
   return {
     moveType:        'ADD',
@@ -270,7 +342,7 @@ function makeAddMove(priority, ticker, positions, currentPct, targetPct,
     sharesApprox:    +sharesApprox.toFixed(3),
     taxCost:         0,
     netProceeds:     0,
-    accounts:        [],
+    accounts,
     requires48h:     false,
   };
 }

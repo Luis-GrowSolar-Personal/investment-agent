@@ -170,6 +170,41 @@ function TaxRoutingDetail({ accounts }) {
   );
 }
 
+// ─── Add routing detail (collapsible, mirrors TaxRoutingDetail for buys) ─────
+
+function AddRoutingDetail({ accounts }) {
+  if (!accounts || accounts.length === 0) return null;
+  return (
+    <div style={{ marginTop: 10, paddingTop: 10, borderTop: `1px solid ${C.border}` }}>
+      <div style={{ fontSize: 10, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', marginBottom: 6 }}>BUY ROUTING</div>
+      {accounts.map((a, i) => (
+        <div key={i} style={{
+          display: 'flex', gap: 12, alignItems: 'center',
+          padding: '5px 0',
+          borderTop: i > 0 ? `1px solid ${C.border}` : 'none',
+          fontSize: 12, flexWrap: 'wrap',
+        }}>
+          <span style={{ color: C.muted, minWidth: 150 }}>{a.accountName}</span>
+          <span style={{
+            fontSize: 10, fontWeight: 700, padding: '1px 5px', borderRadius: 3,
+            color: a.isTaxAdvantaged ? C.green : C.dim,
+            background: a.isTaxAdvantaged ? C.green + '15' : C.border,
+          }}>
+            {a.isTaxAdvantaged ? 'TAX-SHELTERED' : a.accountType.toUpperCase()}
+          </span>
+          <span style={{ color: C.dim }}>{a.sharesToBuy.toFixed(3)} shares</span>
+          <span style={{ color: C.muted, fontWeight: 600 }}>{money(a.dollarAmount)}</span>
+          {a.insufficientCash && (
+            <span style={{ marginLeft: 'auto', fontSize: 10, color: C.amber, fontWeight: 700 }}>
+              ⚠ fund account first
+            </span>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // ─── Move card ────────────────────────────────────────────────────────────────
 
 function MoveCard({ move, idx }) {
@@ -240,10 +275,13 @@ function MoveCard({ move, idx }) {
         )}
       </div>
 
-      {/* Expanded tax routing */}
+      {/* Expanded routing detail */}
       {expanded && hasAccts && (
         <div style={{ padding: '0 16px 14px 16px' }}>
-          <TaxRoutingDetail accounts={move.accounts} />
+          {move.moveType === 'ADD'
+            ? <AddRoutingDetail accounts={move.accounts} />
+            : <TaxRoutingDetail accounts={move.accounts} />
+          }
         </div>
       )}
     </div>
