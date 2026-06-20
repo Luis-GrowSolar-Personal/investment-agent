@@ -95,7 +95,11 @@ function computeTrimTax(lots, sharesToSell, price, ltcgRate, stcgRate, isTaxAdva
 }
 
 function buildTrimRouting(positions, sharesToSell, defaultLtcg, defaultStcg) {
-  const sorted = [...positions].sort((a, b) => {
+  // Only route through agent-managed accounts. Unmanaged accounts are included
+  // in portfolio value totals (for accurate concentration %) but the agent
+  // never tells the user to buy/sell from them.
+  const managed = positions.filter(p => p.account?.managed);
+  const sorted = [...managed].sort((a, b) => {
     const ta = p => ['ira', 'roth'].includes(p?.account?.type);
     return ta(b) - ta(a);
   });
@@ -269,9 +273,12 @@ function makeTrimMove(moveType, priority, ticker, positions, currentPct, targetP
 function buildAddRouting(positions, addValue, price) {
   if (!addValue || addValue <= 0 || price <= 0) return [];
 
+  // Only route through agent-managed accounts (same rule as buildTrimRouting).
+  const managedPositions = positions.filter(p => p.account?.managed);
+
   // Deduplicate by accountId
   const seen    = new Set();
-  const deduped = positions.filter(p => {
+  const deduped = managedPositions.filter(p => {
     if (seen.has(p.accountId)) return false;
     seen.add(p.accountId);
     return true;
