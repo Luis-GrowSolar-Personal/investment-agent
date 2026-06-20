@@ -60,11 +60,16 @@ async function refreshPrices(prisma, positionIds) {
     return { updated: 0, schwabCount: 0, polygonCount: 0, errors: [], sources: {} };
   }
 
-  // Group position IDs by symbol; track crypto flag
+  // Group position IDs by symbol; track whether to use Polygon.
+  // Routing is based on whether the symbol trades on a US exchange Schwab
+  // can quote — NOT on bucketOverride. A crypto ETF like BTC (Grayscale
+  // Bitcoin Mini Trust, NYSE) has bucketOverride='crypto' for allocation
+  // purposes but is exchange-listed, so Schwab quotes it fine.
+  // Only raw crypto held outside Schwab (ETH, SOL, etc.) needs Polygon.
   const symbolMap = new Map(); // symbol → { positionIds: number[], isCrypto: boolean }
   for (const pos of positions) {
     const sym      = pos.ticker.symbol;
-    const isCrypto = pos.ticker.bucketOverride === 'crypto';
+    const isCrypto = CRYPTO_RAW.has(sym); // exchange-listed crypto ETFs → false → Schwab
     if (!symbolMap.has(sym)) symbolMap.set(sym, { positionIds: [], isCrypto });
     symbolMap.get(sym).positionIds.push(pos.id);
   }
