@@ -103,28 +103,37 @@ function buildTrimRouting(positions, sharesToSell, defaultLtcg, defaultStcg) {
   const rows = [];
   for (const pos of sorted) {
     if (remaining <= 0) break;
-    const openLots  = (pos.lots || []).filter(l => !l.closedDate);
-    const posShares = openLots.reduce((s, l) => s + l.shares, 0);
+    const openLots      = (pos.lots || []).filter(l => !l.closedDate);
+    const posShares     = openLots.reduce((s, l) => s + l.shares, 0);
     if (posShares <= 0) continue;
-    const sell     = Math.min(remaining, posShares);
-    const price    = pos.lastPrice ?? 0;
-    const isTaxAdv = ['ira', 'roth'].includes(pos.account?.type);
-    const tax      = computeTrimTax(openLots, sell, price,
+    let sell            = Math.min(remaining, posShares);
+    const price         = pos.lastPrice ?? 0;
+    const isTaxAdv      = ['ira', 'roth'].includes(pos.account?.type);
+    const canFractional = pos.account?.allowsFractional ?? false;
+    // Enforce whole shares when account doesn't support fractional trading.
+    // Floor (conservative) to avoid over-trimming. Skip if nothing left after floor.
+    let roundedToWhole = false;
+    if (!canFractional && !Number.isInteger(+sell.toFixed(4))) {
+      const floored = Math.floor(sell);
+      if (floored <= 0) continue; // fractional < 1 share and no fractional allowed — skip
+      sell          = floored;
+      roundedToWhole = true;
+    }
+    const tax = computeTrimTax(openLots, sell, price,
       pos.account?.ltcgRate ?? defaultLtcg,
       pos.account?.stcgRate ?? defaultStcg,
       isTaxAdv);
     rows.push({
-      accountId:           pos.accountId,
-      accountName:         pos.account?.name   ?? '—',
-      accountType:         pos.account?.type   ?? '—',
-      isTaxAdvantaged:     isTaxAdv,
-      allowsFractional:    pos.account?.allowsFractional ?? false,
-      requiresFractional:  !Number.isInteger(+sell.toFixed(4)),
-      sharesToSell:        +sell.toFixed(4),
-      dollarAmount:        +(sell * price).toFixed(2),
-      taxCost:             +tax.taxCost.toFixed(2),
-      ltGain:              +tax.ltGain.toFixed(2),
-      stGain:              +tax.stGain.toFixed(2),
+      accountId:       pos.accountId,
+      accountName:     pos.account?.name ?? '—',
+      accountType:     pos.account?.type ?? '—',
+      isTaxAdvantaged: isTaxAdv,
+      roundedToWhole,
+      sharesToSell:    +sell.toFixed(4),
+      dollarAmount:    +(sell * price).toFixed(2),
+      taxCost:         +tax.taxCost.toFixed(2),
+      ltGain:          +tax.ltGain.toFixed(2),
+      stGain:          +tax.stGain.toFixed(2),
     });
     remaining -= sell;
   }
@@ -287,36 +296,54 @@ function buildAddRouting(positions, addValue, price) {
     if (remaining <= 0) break;
     const cash = pos.account?.cashBalance ?? 0;
     if (cash < 1) continue;
-    const allocate   = Math.min(remaining, cash);
-    const sharesToBuy = allocate / price;
+    const canFractional  = pos.account?.allowsFractional ?? false;
+    let allocate         = Math.min(remaining, cash);
+    let rawShares        = allocate / price;
+    let roundedToWhole   = false;
+    // Enforce whole shares: floor the share count and recalculate dollar spend.
+    // This leaves the residual in `remaining` for the next account.
+    if (!canFractional) {
+      const wholeShares = Math.floor(rawShares);
+      if (wholeShares <= 0) continue; // not enough cash for even 1 share — skip
+      allocate       = wholeShares * price;
+      rawShares      = wholeShares;
+      roundedToWhole = !Number.isInteger(+(addValue / price).toFixed(3)); // flag only if rounding changed result
+    }
     rows.push({
-      accountId:           pos.accountId,
-      accountName:         pos.account?.name ?? '—',
-      accountType:         pos.account?.type ?? '—',
-      isTaxAdvantaged:     ['ira', 'roth'].includes(pos.account?.type),
-      allowsFractional:    pos.account?.allowsFractional ?? false,
-      requiresFractional:  !Number.isInteger(+sharesToBuy.toFixed(3)),
-      sharesToBuy:         +sharesToBuy.toFixed(3),
-      dollarAmount:        +allocate.toFixed(2),
-      insufficientCash:    false,
+      accountId:       pos.accountId,
+      accountName:     pos.account?.name ?? '—',
+      accountType:     pos.account?.type ?? '—',
+      isTaxAdvantaged: ['ira', 'roth'].includes(pos.account?.type),
+      roundedToWhole,
+      sharesToBuy:     +rawShares.toFixed(3),
+      dollarAmount:    +allocate.toFixed(2),
+      insufficientCash: false,
     });
     remaining -= allocate;
   }
 
   // No cash anywhere — still surface the best account so the user knows where to buy
   if (rows.length === 0 && sorted.length > 0) {
-    const best       = sorted[0];
-    const sharesToBuy = addValue / price;
+    const best          = sorted[0];
+    const canFractional = best.account?.allowsFractional ?? false;
+    let rawShares       = addValue / price;
+    let displayDollar   = addValue;
+    let roundedToWhole  = false;
+    if (!canFractional) {
+      const wholeShares = Math.floor(rawShares);
+      rawShares         = wholeShares;
+      displayDollar     = wholeShares * price;
+      roundedToWhole    = true;
+    }
     rows.push({
-      accountId:           best.accountId,
-      accountName:         best.account?.name ?? '—',
-      accountType:         best.account?.type ?? '—',
-      isTaxAdvantaged:     ['ira', 'roth'].includes(best.account?.type),
-      allowsFractional:    best.account?.allowsFractional ?? false,
-      requiresFractional:  !Number.isInteger(+sharesToBuy.toFixed(3)),
-      sharesToBuy:         +sharesToBuy.toFixed(3),
-      dollarAmount:        +addValue.toFixed(2),
-      insufficientCash:    true,
+      accountId:       best.accountId,
+      accountName:     best.account?.name ?? '—',
+      accountType:     best.account?.type ?? '—',
+      isTaxAdvantaged: ['ira', 'roth'].includes(best.account?.type),
+      roundedToWhole,
+      sharesToBuy:     +rawShares.toFixed(3),
+      dollarAmount:    +displayDollar.toFixed(2),
+      insufficientCash: true,
     });
   }
 
