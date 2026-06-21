@@ -276,7 +276,7 @@ function NewOwnerModal({ onClose, onCreated }) {
 // ---------------------------------------------------------------------------
 // Owner admin card
 // ---------------------------------------------------------------------------
-function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount, onDelete }) {
+function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount, onDelete, clerkUsers = [] }) {
   const { getToken } = useAuth();
   const [open, setOpen]       = useState(true);
   const [profile, setProfile] = useState(initialProfile);
@@ -380,7 +380,8 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
     : null;
   const goalColor = goalPct == null ? '#3b82f6' : goalPct >= 100 ? '#4ade80' : goalPct >= 60 ? '#fbbf24' : '#3b82f6';
 
-  const displayName = profile.displayName || profile.owner;
+  const displayName    = profile.displayName || profile.owner;
+  const linkedClerkUser = clerkUsers.find(u => u.id === profile.clerkUserId) ?? null;
 
   return (
     <div style={{ border: '1px solid #1e2330', borderRadius: 10, marginBottom: 20, overflow: 'hidden' }}>
@@ -414,6 +415,30 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
           )}
 
           {saved && <span style={{ fontSize: 12, color: '#4ade80' }}>✓ Saved</span>}
+
+          {/* Role badge */}
+          <span style={{
+            fontSize: 10, fontWeight: 700, padding: '2px 7px', borderRadius: 4,
+            background: profile.role === 'admin' ? '#1e3a5f44' : '#14532d22',
+            border: `1px solid ${profile.role === 'admin' ? '#2563eb55' : '#16653455'}`,
+            color: profile.role === 'admin' ? '#60a5fa' : '#4ade80',
+            letterSpacing: '0.06em',
+          }}>
+            {(profile.role ?? 'user').toUpperCase()}
+          </span>
+
+          {/* Linked Clerk login */}
+          {linkedClerkUser ? (
+            <span style={{ fontSize: 11, color: '#94a3b8' }}>
+              ✉ {linkedClerkUser.email}
+            </span>
+          ) : profile.clerkUserId ? (
+            <span style={{ fontSize: 11, color: '#f59e0b' }} title={profile.clerkUserId}>
+              ⚠ Clerk ID not matched
+            </span>
+          ) : (
+            <span style={{ fontSize: 11, color: '#475569' }}>No login linked</span>
+          )}
 
           <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
             {!draft ? (
@@ -493,15 +518,41 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
               </Field>
 
               <Field
-                label="Clerk user ID"
-                hint="Paste from the Clerk dashboard (Users → select user → copy user_* ID). Links this owner to their login."
+                label="Linked login"
+                hint="Select the Clerk login to associate with this owner. Determines who can access this profile."
               >
-                <TextInput
-                  value={p.clerkUserId ?? ''}
-                  onChange={v => set('clerkUserId', v)}
-                  placeholder="user_2abc…"
-                  width={220}
-                />
+                {clerkUsers.length > 0 ? (
+                  <select
+                    value={p.clerkUserId ?? ''}
+                    onChange={e => set('clerkUserId', e.target.value)}
+                    style={{
+                      background: '#0f1117',
+                      border: '1px solid #2d3748',
+                      borderRadius: 6,
+                      color: p.clerkUserId ? '#f1f5f9' : '#475569',
+                      fontSize: 13,
+                      padding: '7px 10px',
+                      width: 260,
+                      outline: 'none',
+                    }}
+                  >
+                    <option value="">— Not linked —</option>
+                    {clerkUsers.map(u => (
+                      <option key={u.id} value={u.id}>
+                        {u.email}{(u.firstName || u.lastName)
+                          ? ` (${[u.firstName, u.lastName].filter(Boolean).join(' ')})`
+                          : ''}
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  <TextInput
+                    value={p.clerkUserId ?? ''}
+                    onChange={v => set('clerkUserId', v)}
+                    placeholder="user_2abc… (loading…)"
+                    width={240}
+                  />
+                )}
               </Field>
 
               <Field
@@ -991,6 +1042,7 @@ export default function Admin() {
   const [profiles, setProfiles]           = useState([]);
   const [portfolioValues, setPortfolioValues] = useState({});
   const [accountCounts, setAccountCounts] = useState({});
+  const [clerkUsers, setClerkUsers]       = useState([]);
   const [loading, setLoading]             = useState(true);
   const [showNew, setShowNew]             = useState(false);
   const [deleteErr, setDeleteErr]         = useState('');
@@ -999,12 +1051,17 @@ export default function Admin() {
     setLoading(true);
     try {
       const token = await getToken();
-      const [usersRes, dashRes] = await Promise.all([
-        fetch('/api/users',     { headers: { Authorization: `Bearer ${token}` } }),
-        fetch('/api/dashboard', { headers: { Authorization: `Bearer ${token}` } }),
+      const [usersRes, dashRes, clerkRes] = await Promise.all([
+        fetch('/api/users',              { headers: { Authorization: `Bearer ${token}` } }),
+        fetch('/api/dashboard',          { headers: { Authorization: `Bearer ${token}` } }),
+        fetch('/api/users/clerk-users',  { headers: { Authorization: `Bearer ${token}` } }),
       ]);
       const users = await usersRes.json();
       const dash  = await dashRes.json();
+      if (clerkRes.ok) {
+        const clerkData = await clerkRes.json();
+        setClerkUsers(Array.isArray(clerkData) ? clerkData : []);
+      }
 
       const pvMap = {}, acMap = {};
       for (const d of (Array.isArray(dash) ? dash : [])) {
@@ -1077,6 +1134,7 @@ export default function Admin() {
             portfolioValue={portfolioValues[p.owner] ?? null}
             accountCount={accountCounts[p.owner] ?? null}
             onDelete={handleDelete}
+            clerkUsers={clerkUsers}
           />
         ))
       )}

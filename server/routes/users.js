@@ -10,6 +10,34 @@
 const express = require('express');
 const router  = express.Router();
 const prisma  = require('../lib/prisma');
+const { requireAdmin } = require('../lib/authMiddleware');
+const { clerkClient }  = require('@clerk/express');
+
+// All /api/users routes are admin-only.
+// Bootstrap bypass: if no admin with a Clerk ID exists yet, allow through
+// so the first admin can self-configure (see authMiddleware.js).
+router.use(requireAdmin);
+
+// GET /api/users/clerk-users
+// Lists all Clerk users so the Admin UI can link logins to OwnerProfiles.
+// Must be defined before /:owner routes to avoid being swallowed by the param.
+// Returns: [{ id, email, firstName, lastName, lastActiveAt }]
+router.get('/clerk-users', async (req, res) => {
+  try {
+    const response = await clerkClient.users.getUserList({ limit: 200 });
+    const users = (response.data ?? []).map(u => ({
+      id:           u.id,
+      email:        u.emailAddresses?.[0]?.emailAddress ?? '',
+      firstName:    u.firstName ?? '',
+      lastName:     u.lastName  ?? '',
+      lastActiveAt: u.lastActiveAt ?? null,
+    }));
+    res.json(users);
+  } catch (err) {
+    console.error('GET /users/clerk-users error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
 
 // GET /api/users
 // Returns all OwnerProfile rows, each enriched with account count and
