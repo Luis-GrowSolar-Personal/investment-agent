@@ -17,36 +17,60 @@
 
 const prisma = require('./prisma');
 
+/**
+ * requireAdmin
+ * Uses req.ownerProfile set by autoLinkMiddleware — no extra DB query in the
+ * common case. Falls back to a DB check only when the profile is null (i.e.
+ * the Clerk user isn't linked yet) to support the bootstrap scenario where
+ * the first admin needs to self-configure.
+ */
 async function requireAdmin(req, res, next) {
-  const userId = req.auth?.userId;
-  if (!userId) {
+  if (!req.auth?.userId) {
     return res.status(401).json({ error: 'Unauthenticated' });
   }
 
-  try {
-    // Bootstrap mode: allow through if no admin is configured yet.
-    const adminExists = await prisma.ownerProfile.findFirst({
-      where: { role: 'admin', clerkUserId: { not: null } },
-      select: { owner: true },
-    });
-    if (!adminExists) {
-      return next(); // cold-start — first admin can self-configure
-    }
+  const profile = req.ownerProfile; // set by autoLinkMiddleware
 
-    // Normal mode: caller must be an admin.
-    const profile = await prisma.ownerProfile.findFirst({
-      where: { clerkUserId: userId },
-    });
-    if (!profile || profile.role !== 'admin') {
-      return res.status(403).json({ error: 'Admin access required' });
+  if (!profile) {
+    // Unlinked user — check bootstrap mode (no admin configured at all)
+    try {
+      const adminExists = await prisma.ownerProfile.findFirst({
+        where: { role: 'admin', clerkUserId: { not: null } },
+        select: { owner: true },
+      });
+      if (!adminExists) return next(); // cold-start bypass
+    } catch (err) {
+      console.error('[requireAdmin] bootstrap check error:', err.message);
     }
-
-    req.ownerProfile = profile; // available to route handlers if needed
-    next();
-  } catch (err) {
-    console.error('[requireAdmin] error:', err.message);
-    res.status(500).json({ error: 'Auth check failed' });
+    return res.status(403).json({ error: 'Admin access required' });
   }
+
+  if (profile.role !== 'admin') {
+    return res.status(403).json({ error: 'Admin access required' });
+  }
+
+  next();
 }
 
-module.exports = { requireAdmin };
+/**
+ * enforceOwner
+ * Call inside a route handler to verify the caller may access `targetOwner`.
+ * Admins pass always. Non-admins pass only if their owner matches.
+ * Returns true if access is granted, false if a 403 was already sent.
+ *
+ * Usage:
+ *   if (!enforceOwner(req, res, owner)) return;
+ */
+function enforceOwner(req, res, targetOwner) {
+  const profile = req.ownerProfile;
+  if (!profile) {
+    res.status(401).json({ error: 'Unauthenticated' });
+    return false;
+  }
+  if (profile.role === 'admin') return true;
+  if (profile.owner === targetOwner) return true;
+  res.status(403).json({ error: 'Access denied' });
+  return false;
+}
+
+module.exports = { requireAdmin, enforceOwner };

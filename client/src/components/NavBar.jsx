@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useUser, useClerk, useAuth } from '@clerk/clerk-react';
+import { useAppUser } from '../contexts/AppUserContext.jsx';
 
 const API = import.meta.env.VITE_API_URL || '';
 
@@ -37,6 +38,7 @@ export default function NavBar() {
   const { signOut } = useClerk();
   const { getToken } = useAuth();
   const { pathname } = useLocation();
+  const { isAdmin } = useAppUser();
   const email = user?.primaryEmailAddress?.emailAddress ?? user?.username ?? '';
 
   // Schwab "sync on login" status — visible from any tab, since NavBar is
@@ -137,9 +139,11 @@ export default function NavBar() {
         <NavLink to="/ideas" style={({ isActive }) => tabStyle(isActive || IDEAS_PATHS.includes(pathname))}>
           Investment Ideas
         </NavLink>
-        <NavLink to="/admin" style={({ isActive }) => tabStyle(isActive)}>
-          Admin
-        </NavLink>
+        {isAdmin && (
+          <NavLink to="/admin" style={({ isActive }) => tabStyle(isActive)}>
+            Admin
+          </NavLink>
+        )}
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>

@@ -30,6 +30,7 @@ const router  = express.Router();
 const prisma  = require('../lib/prisma');
 const { parsePositionsCSV, parseTransactionsJSON, reconstructLots, reconstructPositionsFromTransactions, smartDefaultBucket } = require('../lib/portfolioImport');
 const { refreshAccountPrices } = require('../lib/priceRefresh');
+const { enforceOwner } = require('../lib/authMiddleware');
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -89,7 +90,10 @@ function enrichPosition(pos) {
 // GET /api/portfolio/accounts
 router.get('/accounts', async (req, res) => {
   try {
+    const caller  = req.ownerProfile;
+    const isAdmin = caller?.role === 'admin';
     const accounts = await prisma.account.findMany({
+      where: isAdmin ? undefined : { owner: caller?.owner },
       include: {
         positions: {
           where: { status: 'active' },

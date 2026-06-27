@@ -13,7 +13,17 @@ const prisma  = require('../lib/prisma');
 const { requireAdmin } = require('../lib/authMiddleware');
 const { clerkClient }  = require('@clerk/express');
 
-// All /api/users routes are admin-only.
+// GET /api/users/me
+// Returns the caller's own OwnerProfile — available to any authenticated user,
+// not just admins. Must be defined BEFORE router.use(requireAdmin).
+router.get('/me', (req, res) => {
+  if (!req.auth?.userId) return res.status(401).json({ error: 'Unauthenticated' });
+  const profile = req.ownerProfile;
+  if (!profile) return res.status(404).json({ error: 'No owner profile linked to your account' });
+  res.json({ owner: profile.owner, role: profile.role, displayName: profile.displayName ?? null });
+});
+
+// All /api/users routes below this line are admin-only.
 // Bootstrap bypass: if no admin with a Clerk ID exists yet, allow through
 // so the first admin can self-configure (see authMiddleware.js).
 router.use(requireAdmin);

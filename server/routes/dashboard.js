@@ -13,6 +13,7 @@
 const express = require('express');
 const router  = express.Router();
 const prisma  = require('../lib/prisma');
+const { enforceOwner } = require('../lib/authMiddleware');
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -220,7 +221,12 @@ function buildTickerView(ticker, positions, totalPortfolioValue, ownerTaxRates, 
 // ---------------------------------------------------------------------------
 router.get('/', async (req, res) => {
   try {
-    const profiles = await prisma.ownerProfile.findMany({ orderBy: { owner: 'asc' } });
+    const caller  = req.ownerProfile;
+    const isAdmin = caller?.role === 'admin';
+    const profiles = await prisma.ownerProfile.findMany({
+      where: isAdmin ? undefined : { owner: caller?.owner },
+      orderBy: { owner: 'asc' },
+    });
 
     const summaries = await Promise.all(profiles.map(async (p) => {
       const accounts = await prisma.account.findMany({
@@ -266,6 +272,7 @@ router.get('/', async (req, res) => {
 // ---------------------------------------------------------------------------
 router.get('/:owner', async (req, res) => {
   const owner = decodeURIComponent(req.params.owner);
+  if (!enforceOwner(req, res, owner)) return;
 
   try {
     const profile = await prisma.ownerProfile.findUnique({ where: { owner } });

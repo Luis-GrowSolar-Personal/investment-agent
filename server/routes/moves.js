@@ -37,6 +37,7 @@ const express = require('express');
 const router  = express.Router();
 const prisma  = require('../lib/prisma');
 const { requireAuth } = require('@clerk/express');
+const { enforceOwner } = require('../lib/authMiddleware');
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -660,7 +661,12 @@ function buildCapitalFlow(trimMoves, addUses, promUses, freeCash) {
 
 router.get('/', async (req, res) => {
   try {
-    const profiles = await prisma.ownerProfile.findMany({ orderBy: { owner: 'asc' } });
+    const caller  = req.ownerProfile;
+    const isAdmin = caller?.role === 'admin';
+    const profiles = await prisma.ownerProfile.findMany({
+      where: isAdmin ? undefined : { owner: caller?.owner },
+      orderBy: { owner: 'asc' },
+    });
     res.json(profiles.map(p => ({ owner: p.owner, displayName: p.displayName ?? p.owner })));
   } catch (err) {
     console.error('GET /moves error:', err);
@@ -960,6 +966,7 @@ async function computeMovesPayload(owner) {
 
 router.get('/:owner', async (req, res) => {
   const owner = decodeURIComponent(req.params.owner);
+  if (!enforceOwner(req, res, owner)) return;
   try {
     const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
     if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
@@ -985,6 +992,7 @@ router.get('/:owner', async (req, res) => {
 
 router.post('/:owner/refresh', requireAuth(), async (req, res) => {
   const owner = decodeURIComponent(req.params.owner);
+  if (!enforceOwner(req, res, owner)) return;
   try {
     const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
     if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });

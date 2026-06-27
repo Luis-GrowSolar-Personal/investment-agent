@@ -25,33 +25,37 @@ async function autoLinkMiddleware(req, res, next) {
   if (!userId) return next(); // unauthenticated — nothing to do
 
   try {
-    // Fast path: already linked to a profile → skip
-    const linked = await prisma.ownerProfile.findFirst({
+    // Fast path: already linked — fetch full profile and attach to request
+    let profile = await prisma.ownerProfile.findFirst({
       where: { clerkUserId: userId },
-      select: { owner: true },
     });
-    if (linked) return next();
 
-    // Slow path: fetch email from Clerk and check for a pending invite
-    const clerkUser = await clerkClient.users.getUser(userId);
-    const email = clerkUser.emailAddresses?.[0]?.emailAddress;
-    if (!email) return next();
+    if (!profile) {
+      // Slow path: check for pending invite match
+      const clerkUser = await clerkClient.users.getUser(userId);
+      const email = clerkUser.emailAddresses?.[0]?.emailAddress;
+      if (email) {
+        const pending = await prisma.ownerProfile.findFirst({
+          where: { inviteEmail: email.toLowerCase() },
+        });
+        if (pending) {
+          // Auto-link and clear the invite
+          profile = await prisma.ownerProfile.update({
+            where: { owner: pending.owner },
+            data: { clerkUserId: userId, inviteEmail: null },
+          });
+          console.log(`[autoLink] Linked Clerk user ${userId} (${email}) → owner "${profile.owner}"`);
+        }
+      }
+    }
 
-    const profile = await prisma.ownerProfile.findFirst({
-      where: { inviteEmail: email.toLowerCase() },
-      select: { owner: true },
-    });
-    if (!profile) return next();
-
-    // Match found — link and clear the pending invite
-    await prisma.ownerProfile.update({
-      where: { owner: profile.owner },
-      data: { clerkUserId: userId, inviteEmail: null },
-    });
-    console.log(`[autoLink] Linked Clerk user ${userId} (${email}) → owner "${profile.owner}"`);
+    // Attach the caller's OwnerProfile to the request for downstream use.
+    // Routes and middleware can read req.ownerProfile without an extra DB query.
+    req.ownerProfile = profile ?? null;
   } catch (err) {
     // Never block the request — log and continue
     console.error('[autoLink] error:', err.message);
+    req.ownerProfile = null;
   }
 
   next();
