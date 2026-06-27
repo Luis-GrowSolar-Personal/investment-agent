@@ -1138,6 +1138,15 @@ export default function PortfolioManager() {
   }, [getToken]);
 
   const handleAcceptWarning = useCallback(async (warning) => {
+    // Optimistically remove the warning from local state — no recompute needed.
+    // Accepting a position target only creates/updates AccountPositionConfig to
+    // suppress the warning; it doesn't affect move recommendations.
+    setData(prev => prev ? {
+      ...prev,
+      warnings: (prev.warnings ?? []).filter(w =>
+        !(w.type === warning.type && w.accountId === warning.accountId)
+      ),
+    } : prev);
     try {
       const token = await getToken();
       await fetch(`/api/moves/${encodeURIComponent(selected)}/account-config`, {
@@ -1145,11 +1154,11 @@ export default function PortfolioManager() {
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body:    JSON.stringify(warning.actionPayload),
       });
-      await loadMoves(); // recompute — warning should now be suppressed
+      // Server cache is invalidated by the PATCH — next hard refresh will reflect suppression.
     } catch (e) {
       console.error('Accept warning failed:', e);
     }
-  }, [getToken, selected, loadMoves]);
+  }, [getToken, selected]);
 
   useEffect(() => { loadMoves(); }, [loadMoves]);
 
