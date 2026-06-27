@@ -694,12 +694,6 @@ async function computeMovesPayload(owner) {
     const ownerConfigs = await prisma.ownerTickerConfig.findMany({ where: { owner } });
     const ownerCapMap  = new Map(ownerConfigs.map(c => [c.tickerId, c.capPercent]));
 
-    // ── Per-account position config (set when user accepts a position-count warning) ─
-    const acctConfigs  = await prisma.accountPositionConfig.findMany({
-      where: { accountId: { in: accounts.map(a => a.id) } },
-    });
-    const acctConfigMap = new Map(acctConfigs.map(c => [c.accountId, c]));
-
     // Helper: effective cap for a ticker for this owner
     function effectiveCap(ticker) {
       const ownerCap = ownerCapMap.get(ticker.id);
@@ -716,6 +710,12 @@ async function computeMovesPayload(owner) {
         },
       },
     });
+
+    // ── Per-account position config (loaded after accounts so IDs are available) ─
+    const acctConfigs  = await prisma.accountPositionConfig.findMany({
+      where: { accountId: { in: accounts.map(a => a.id) } },
+    });
+    const acctConfigMap = new Map(acctConfigs.map(c => [c.accountId, c]));
 
     // ── Portfolio totals ──────────────────────────────────────────────────────
     let totalMktValue = 0, totalCash = 0;
