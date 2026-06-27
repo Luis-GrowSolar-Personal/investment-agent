@@ -15,6 +15,6 @@
  */
 
 const PROMPT_VERSION = 'v6';
-const MODEL_VERSION  = 'claude-sonnet-4-20250514';
+const MODEL_VERSION  = 'claude-sonnet-4-6'; // 2026-06-27: dated snapshot retired by Anthropic; reverted to sonnet-4-6
 
 module.exports = { PROMPT_VERSION, MODEL_VERSION };
