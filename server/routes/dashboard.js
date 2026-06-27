@@ -221,10 +221,11 @@ function buildTickerView(ticker, positions, totalPortfolioValue, ownerTaxRates, 
 // ---------------------------------------------------------------------------
 router.get('/', async (req, res) => {
   try {
-    const caller  = req.ownerProfile;
-    const isAdmin = caller?.role === 'admin';
+    const caller = req.ownerProfile;
+    if (!caller) return res.status(401).json({ error: 'No owner profile linked to your account' });
+    const isAdmin = caller.role === 'admin';
     const profiles = await prisma.ownerProfile.findMany({
-      where: isAdmin ? undefined : { owner: caller?.owner },
+      where: isAdmin ? undefined : { owner: caller.owner },
       orderBy: { owner: 'asc' },
     });
 

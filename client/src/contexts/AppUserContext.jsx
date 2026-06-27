@@ -15,13 +15,14 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useAuth } from '@clerk/clerk-react';
 
-const AppUserContext = createContext({ myOwner: null, isAdmin: false, loading: true });
+const AppUserContext = createContext({ myOwner: null, isAdmin: false, accessRevoked: false, loading: true });
 
 export function AppUserProvider({ children }) {
   const { getToken, isSignedIn } = useAuth();
-  const [myOwner, setMyOwner]   = useState(null);
-  const [isAdmin, setIsAdmin]   = useState(false);
-  const [loading, setLoading]   = useState(true);
+  const [myOwner,       setMyOwner]       = useState(null);
+  const [isAdmin,       setIsAdmin]       = useState(false);
+  const [accessRevoked, setAccessRevoked] = useState(false);
+  const [loading,       setLoading]       = useState(true);
 
   useEffect(() => {
     if (!isSignedIn) { setLoading(false); return; }
@@ -33,6 +34,10 @@ export function AppUserProvider({ children }) {
           const d = await r.json();
           setMyOwner(d.owner);
           setIsAdmin(d.role === 'admin');
+        } else if (r.status === 404) {
+          // Clerk session is valid but this login is not linked to any owner profile.
+          // Treat as revoked — show the access denied screen.
+          setAccessRevoked(true);
         }
       } catch (err) {
         console.error('[AppUserContext] /api/users/me failed:', err.message);
@@ -43,7 +48,7 @@ export function AppUserProvider({ children }) {
   }, [isSignedIn, getToken]);
 
   return (
-    <AppUserContext.Provider value={{ myOwner, isAdmin, loading }}>
+    <AppUserContext.Provider value={{ myOwner, isAdmin, accessRevoked, loading }}>
       {children}
     </AppUserContext.Provider>
   );

@@ -661,10 +661,11 @@ function buildCapitalFlow(trimMoves, addUses, promUses, freeCash) {
 
 router.get('/', async (req, res) => {
   try {
-    const caller  = req.ownerProfile;
-    const isAdmin = caller?.role === 'admin';
+    const caller = req.ownerProfile;
+    if (!caller) return res.status(401).json({ error: 'No owner profile linked to your account' });
+    const isAdmin = caller.role === 'admin';
     const profiles = await prisma.ownerProfile.findMany({
-      where: isAdmin ? undefined : { owner: caller?.owner },
+      where: isAdmin ? undefined : { owner: caller.owner },
       orderBy: { owner: 'asc' },
     });
     res.json(profiles.map(p => ({ owner: p.owner, displayName: p.displayName ?? p.owner })));
