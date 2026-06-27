@@ -796,7 +796,7 @@ function HoldsList({ holds }) {
 
 // ─── Warnings ─────────────────────────────────────────────────────────────────
 
-function WarningsList({ warnings }) {
+function WarningsList({ warnings, onAcceptWarning }) {
   if (!warnings || warnings.length === 0) return null;
   const SEV = {
     red:    { bg: '#450a0a22', border: '#991b1b55', text: '#f87171',  icon: '⚑' },
@@ -810,14 +810,27 @@ function WarningsList({ warnings }) {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {warnings.map((w, i) => {
           const s = SEV[w.severity] ?? SEV.slate;
+          const isActionable = w.actionType === 'update_position_target' && onAcceptWarning;
           return (
             <div key={i} style={{
               display: 'flex', gap: 10, padding: '10px 14px',
               background: s.bg, border: `1px solid ${s.border}`,
-              borderRadius: 8, fontSize: 13,
+              borderRadius: 8, fontSize: 13, alignItems: 'center', flexWrap: 'wrap',
             }}>
               <span style={{ color: s.text, flexShrink: 0 }}>{s.icon}</span>
-              <span style={{ color: s.text }}>{w.message}</span>
+              <span style={{ color: s.text, flex: 1 }}>{w.message}</span>
+              {isActionable && (
+                <button
+                  onClick={() => onAcceptWarning(w)}
+                  style={{
+                    padding: '4px 12px', borderRadius: 5, flexShrink: 0,
+                    border: `1px solid ${C.green}55`, background: C.green + '15',
+                    color: C.green, fontSize: 11, fontWeight: 700, cursor: 'pointer',
+                  }}
+                >
+                  ✓ Set target to {w.suggestedTarget}
+                </button>
+              )}
             </div>
           );
         })}
@@ -1107,6 +1120,20 @@ export default function PortfolioManager() {
     setDecisions(prev => ({ ...prev, [key]: { status: 'declined', declinedReason: reason } }));
   }, [getToken]);
 
+  const handleAcceptWarning = useCallback(async (warning) => {
+    try {
+      const token = await getToken();
+      await fetch(`/api/moves/${encodeURIComponent(selected)}/account-config`, {
+        method:  'PATCH',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body:    JSON.stringify(warning.actionPayload),
+      });
+      await loadMoves(); // recompute — warning should now be suppressed
+    } catch (e) {
+      console.error('Accept warning failed:', e);
+    }
+  }, [getToken, selected, loadMoves]);
+
   useEffect(() => { loadMoves(); }, [loadMoves]);
 
   const actionMoves = data?.moves ?? [];
@@ -1278,7 +1305,7 @@ export default function PortfolioManager() {
           {/* Warnings */}
           {data.warnings?.length > 0 && (
             <div style={{ marginBottom: 24 }}>
-              <WarningsList warnings={data.warnings} />
+              <WarningsList warnings={data.warnings} onAcceptWarning={handleAcceptWarning} />
             </div>
           )}
 

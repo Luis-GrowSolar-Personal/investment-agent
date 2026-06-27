@@ -210,6 +210,8 @@ model Account {
   // always-blue Sync button). Null until first sync.
   lastSyncedAt      DateTime?
 
+  positionConfig    AccountPositionConfig?
+
   @@unique([name, owner])
 }
 
@@ -276,6 +278,18 @@ model MovesCache {
   payload     Json         // full moves API response
   computedAt  DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+// Per-account position target overrides — created when a user accepts a
+// too_few_positions or over_concentrated_account warning. Suppresses re-warning
+// and feeds the Tier 2 per-account model weights engine (Task #21).
+model AccountPositionConfig {
+  id           Int     @id @default(autoincrement())
+  accountId    Int     @unique
+  account      Account @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  minPositions Int?    // accepted target N — floor for per-account weight formula
+  maxPositions Int?    // ceiling M override (null = use profile default)
+  updatedAt    DateTime @updatedAt
 }
 
 // Owner decisions on move-card recommendations — one row per decision event.

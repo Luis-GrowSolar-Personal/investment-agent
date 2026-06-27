@@ -694,6 +694,12 @@ async function computeMovesPayload(owner) {
     const ownerConfigs = await prisma.ownerTickerConfig.findMany({ where: { owner } });
     const ownerCapMap  = new Map(ownerConfigs.map(c => [c.tickerId, c.capPercent]));
 
+    // ── Per-account position config (set when user accepts a position-count warning) ─
+    const acctConfigs  = await prisma.accountPositionConfig.findMany({
+      where: { accountId: { in: accounts.map(a => a.id) } },
+    });
+    const acctConfigMap = new Map(acctConfigs.map(c => [c.accountId, c]));
+
     // Helper: effective cap for a ticker for this owner
     function effectiveCap(ticker) {
       const ownerCap = ownerCapMap.get(ticker.id);
@@ -930,6 +936,69 @@ async function computeMovesPayload(owner) {
       message: `Portfolio (${money(totalPortfolioValue)}) has reached the enough number (${money(enoughNumber)}) — consider transitioning to passive allocation`,
     });
 
+    // ── Per-account position count warnings ───────────────────────────────────
+    // These fire only when no AccountPositionConfig exists for the account
+    // (i.e. the user has not yet acknowledged/set a target for it).
+    const M_DEFAULT = 10; // default per-account position ceiling
+
+    for (const acct of accounts) {
+      if (!acct.managed) continue;
+      const acctConfig = acctConfigMap.get(acct.id);
+      if (acctConfig) continue; // user already accepted — suppress warning
+
+      // Count active positions with open lots in this account
+      const currentCount = acct.positions.filter(p =>
+        (p.lots || []).reduce((s, l) => s + l.shares, 0) > 0
+      ).length;
+
+      // Account value
+      const posValue = acct.positions.reduce((sum, pos) => {
+        const shares = (pos.lots || []).reduce((s, l) => s + l.shares, 0);
+        return sum + shares * (pos.lastPrice ?? 0);
+      }, 0);
+      const acctValue = posValue + (acct.cashBalance ?? 0);
+      const acctPct   = totalPortfolioValue > 0 ? acctValue / totalPortfolioValue : 0;
+
+      const supportedCount = Math.floor(acctValue / minPositionDollar);
+      const M = M_DEFAULT;
+
+      // Warning 1: too few positions for account size
+      if (supportedCount > 0 && currentCount < supportedCount && currentCount < M) {
+        const suggestedTarget = Math.min(supportedCount, M);
+        warnings.push({
+          type:           'too_few_positions',
+          severity:       'amber',
+          accountId:      acct.id,
+          accountName:    acct.name,
+          accountType:    acct.type,
+          currentCount,
+          supportedCount,
+          suggestedTarget,
+          message: `${acct.name} has ${currentCount} position${currentCount !== 1 ? 's' : ''} but could support up to ${suggestedTarget} at its current value (${money(acctValue)}). Consider adding ${suggestedTarget - currentCount} more from the conviction list.`,
+          actionType:    'update_position_target',
+          actionPayload: { owner, accountId: acct.id, suggestedTarget },
+        });
+      }
+
+      // Warning 2: account over-concentrated in portfolio
+      if (acctPct > 0.40 && currentCount < M) {
+        const suggestedTarget = Math.min(Math.max(currentCount + 2, supportedCount), M);
+        warnings.push({
+          type:           'over_concentrated_account',
+          severity:       'amber',
+          accountId:      acct.id,
+          accountName:    acct.name,
+          accountType:    acct.type,
+          currentCount,
+          acctPct:        +(acctPct * 100).toFixed(1),
+          suggestedTarget,
+          message: `${acct.name} represents ${(acctPct * 100).toFixed(0)}% of your total portfolio with only ${currentCount} position${currentCount !== 1 ? 's' : ''}. Consider raising its position target to reduce concentration risk.`,
+          actionType:    'update_position_target',
+          actionPayload: { owner, accountId: acct.id, suggestedTarget },
+        });
+      }
+    }
+
     // ── Account summaries (for bucket UI) ────────────────────────────────────
     const TYPE_ORDER = { roth: 0, ira: 1, taxable: 2, custodial: 3 };
     const accountSummaries = accounts
@@ -1029,6 +1098,40 @@ router.post('/:owner/refresh', requireAuth(), async (req, res) => {
     res.json({ ...payload, fromCache: false, computedAt });
   } catch (err) {
     console.error(`POST /moves/${owner}/refresh error:`, err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ─── PATCH /api/moves/:owner/account-config ───────────────────────────────────
+// Accept action for position-count warning cards. Upserts AccountPositionConfig
+// with the suggested target, then invalidates the moves cache for this owner.
+
+router.patch('/:owner/account-config', requireAuth(), async (req, res) => {
+  const owner = decodeURIComponent(req.params.owner);
+  if (!enforceOwner(req, res, owner)) return;
+
+  const { accountId, suggestedTarget } = req.body;
+  if (!accountId || !suggestedTarget) {
+    return res.status(400).json({ error: 'accountId and suggestedTarget are required' });
+  }
+
+  try {
+    // Verify the account belongs to this owner
+    const account = await prisma.account.findFirst({ where: { id: accountId, owner } });
+    if (!account) return res.status(404).json({ error: 'Account not found' });
+
+    await prisma.accountPositionConfig.upsert({
+      where:  { accountId },
+      update: { minPositions: suggestedTarget },
+      create: { accountId, minPositions: suggestedTarget },
+    });
+
+    // Invalidate cache so the warning disappears on next load
+    await prisma.movesCache.deleteMany({ where: { owner } });
+
+    res.json({ ok: true, accountId, minPositions: suggestedTarget });
+  } catch (err) {
+    console.error(`PATCH /moves/${owner}/account-config error:`, err);
     res.status(500).json({ error: err.message });
   }
 });
