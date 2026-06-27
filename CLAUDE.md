@@ -8,6 +8,16 @@
 - Always read docs/architecture/DOMAIN.md before building any
   module that sources, filters, or evaluates investment candidates
 
+## Output formatting rules
+- Write a separate `.md` file only when: (a) producing a complex prompt
+  intended for a new Code or chat session, or (b) Luis explicitly asks
+  for a handoff document. When asked, write it to docs/handoffs/ with a
+  date-stamped filename.
+- Do not write handoff documents proactively at the end of a session.
+- For complex terminal commands or SQL scripts, display them in a fenced
+  code block in the chat — not inline prose, and not a separate file —
+  so they're easy to copy.
+
 ## Project Overview
 Personal investment analysis and portfolio management tool.
 React frontend, Node.js/Express backend, PostgreSQL database,
