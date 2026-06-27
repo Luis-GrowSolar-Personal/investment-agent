@@ -5,6 +5,7 @@ const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const { clerkMiddleware } = require('@clerk/express');
+const { autoLinkMiddleware } = require('./lib/autoLink');
 const evaluateRouter  = require('./routes/evaluate');
 const saveRouter      = require('./routes/save');
 const radarRouter     = require('./routes/radar');
@@ -29,6 +30,7 @@ if (!isProd) {
 
 app.use(express.json({ limit: '10mb' }));
 app.use(clerkMiddleware());
+app.use(autoLinkMiddleware); // auto-links Clerk users to OwnerProfiles on first login
 
 app.use('/api/evaluate', evaluateRouter);
 app.use('/api/save', saveRouter);

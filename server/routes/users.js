@@ -115,6 +115,71 @@ router.post('/', async (req, res) => {
   }
 });
 
+// POST /api/users/:owner/invite
+// Body: { email }
+// Two-path logic:
+//   1. Email already has a Clerk account → link clerkUserId directly (no invite email needed).
+//   2. Email is new to Clerk → create an invitation, save inviteEmail on the profile.
+//      autoLinkMiddleware will complete the link when the user accepts and first logs in.
+router.post('/:owner/invite', async (req, res) => {
+  const { owner } = req.params;
+  const email = req.body.email?.trim().toLowerCase();
+  if (!email) return res.status(400).json({ error: 'email is required' });
+
+  try {
+    const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
+    if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
+
+    // Check whether this email already has a Clerk account
+    const existing = await clerkClient.users.getUserList({ emailAddress: [email] });
+    const clerkUser = existing.data?.[0];
+
+    if (clerkUser) {
+      // Already a Clerk user — link directly, no invite needed
+      const updated = await prisma.ownerProfile.update({
+        where: { owner },
+        data: { clerkUserId: clerkUser.id, inviteEmail: null },
+      });
+      return res.json({ ...updated, message: 'User already exists — linked directly.' });
+    }
+
+    // New user — send a Clerk invitation
+    await clerkClient.invitations.createInvitation({ emailAddress: email });
+
+    const updated = await prisma.ownerProfile.update({
+      where: { owner },
+      data: { inviteEmail: email },
+    });
+    res.json({ ...updated, message: `Invite sent to ${email}.` });
+  } catch (err) {
+    // Clerk throws on duplicate active invitations — surface a readable message
+    const clerkMsg = err.errors?.[0]?.longMessage ?? err.errors?.[0]?.message;
+    if (clerkMsg) return res.status(409).json({ error: clerkMsg });
+    console.error('POST /users/:owner/invite error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// DELETE /api/users/:owner/invite
+// Cancels a pending invite by clearing inviteEmail.
+// The Clerk invitation itself is left to expire (7-day TTL) — no Clerk API call needed.
+router.delete('/:owner/invite', async (req, res) => {
+  const { owner } = req.params;
+  try {
+    const updated = await prisma.ownerProfile.update({
+      where: { owner },
+      data: { inviteEmail: null },
+    });
+    res.json(updated);
+  } catch (err) {
+    if (err.code === 'P2025') {
+      return res.status(404).json({ error: `Owner "${owner}" not found` });
+    }
+    console.error('DELETE /users/:owner/invite error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // PATCH /api/users/:owner
 // Accepts any subset of OwnerProfile fields.
 // Numeric fields: enoughNumber, minPositionDollar, cashReservePct, yearsToGoal, estSpecRatio

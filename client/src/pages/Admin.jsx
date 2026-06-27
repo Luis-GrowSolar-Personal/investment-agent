@@ -285,6 +285,12 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
   const [saved, setSaved]     = useState(false);
   const [err, setErr]         = useState('');
 
+  // Invite state — independent of the main edit form
+  const [inviteInput, setInviteInput] = useState('');
+  const [inviting,    setInviting]    = useState(false);
+  const [inviteErr,   setInviteErr]   = useState('');
+  const [inviteMsg,   setInviteMsg]   = useState('');
+
   // Convert DB values (0.0–1.0 ratios) → UI display values (0–100)
   function toUI(p) {
     return {
@@ -361,6 +367,47 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
     }
   };
 
+  const sendInvite = async () => {
+    if (!inviteInput.trim()) { setInviteErr('Email is required'); return; }
+    setInviting(true); setInviteErr(''); setInviteMsg('');
+    try {
+      const token = await getToken();
+      const r = await fetch(`/api/users/${encodeURIComponent(profile.owner)}/invite`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ email: inviteInput.trim() }),
+      });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error || 'Invite failed');
+      setProfile(prev => ({ ...prev, ...data }));
+      setInviteMsg(data.message ?? 'Done');
+      setInviteInput('');
+    } catch (e) {
+      setInviteErr(e.message);
+    } finally {
+      setInviting(false);
+    }
+  };
+
+  const cancelInvite = async () => {
+    setInviting(true); setInviteErr('');
+    try {
+      const token = await getToken();
+      const r = await fetch(`/api/users/${encodeURIComponent(profile.owner)}/invite`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error || 'Cancel failed');
+      setProfile(prev => ({ ...prev, inviteEmail: null }));
+      setInviteMsg('');
+    } catch (e) {
+      setInviteErr(e.message);
+    } finally {
+      setInviting(false);
+    }
+  };
+
   const p = draft ?? toUI(profile);
 
   // Computed helpers
@@ -429,13 +476,11 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
 
           {/* Linked Clerk login */}
           {linkedClerkUser ? (
-            <span style={{ fontSize: 11, color: '#94a3b8' }}>
-              ✉ {linkedClerkUser.email}
-            </span>
+            <span style={{ fontSize: 11, color: '#94a3b8' }}>✉ {linkedClerkUser.email}</span>
           ) : profile.clerkUserId ? (
-            <span style={{ fontSize: 11, color: '#f59e0b' }} title={profile.clerkUserId}>
-              ⚠ Clerk ID not matched
-            </span>
+            <span style={{ fontSize: 11, color: '#f59e0b' }} title={profile.clerkUserId}>⚠ Clerk ID not matched</span>
+          ) : profile.inviteEmail ? (
+            <span style={{ fontSize: 11, color: '#fbbf24' }}>📧 Invite pending: {profile.inviteEmail}</span>
           ) : (
             <span style={{ fontSize: 11, color: '#475569' }}>No login linked</span>
           )}
@@ -519,39 +564,88 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
 
               <Field
                 label="Linked login"
-                hint="Select the Clerk login to associate with this owner. Determines who can access this profile."
+                hint={
+                  profile.clerkUserId
+                    ? 'Linked. Use the dropdown in edit mode to change or unlink.'
+                    : profile.inviteEmail
+                    ? 'Invite sent — user will be auto-linked when they accept and log in.'
+                    : 'Enter an email to invite. If the address already has a Clerk account it will be linked immediately.'
+                }
               >
-                {clerkUsers.length > 0 ? (
-                  <select
-                    value={p.clerkUserId ?? ''}
-                    onChange={e => set('clerkUserId', e.target.value)}
-                    style={{
-                      background: '#0f1117',
-                      border: '1px solid #2d3748',
-                      borderRadius: 6,
-                      color: p.clerkUserId ? '#f1f5f9' : '#475569',
-                      fontSize: 13,
-                      padding: '7px 10px',
-                      width: 260,
-                      outline: 'none',
-                    }}
-                  >
-                    <option value="">— Not linked —</option>
-                    {clerkUsers.map(u => (
-                      <option key={u.id} value={u.id}>
-                        {u.email}{(u.firstName || u.lastName)
-                          ? ` (${[u.firstName, u.lastName].filter(Boolean).join(' ')})`
-                          : ''}
-                      </option>
-                    ))}
-                  </select>
+                {profile.clerkUserId ? (
+                  /* Already linked — view mode shows email, edit mode shows dropdown */
+                  draft ? (
+                    <select
+                      value={p.clerkUserId ?? ''}
+                      onChange={e => set('clerkUserId', e.target.value)}
+                      style={{
+                        background: '#0f1117', border: '1px solid #2d3748', borderRadius: 6,
+                        color: p.clerkUserId ? '#f1f5f9' : '#475569',
+                        fontSize: 13, padding: '7px 10px', width: 260, outline: 'none',
+                      }}
+                    >
+                      <option value="">— Unlink —</option>
+                      {clerkUsers.map(u => (
+                        <option key={u.id} value={u.id}>
+                          {u.email}{(u.firstName || u.lastName)
+                            ? ` (${[u.firstName, u.lastName].filter(Boolean).join(' ')})`
+                            : ''}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <span style={{ fontSize: 13, color: '#60a5fa' }}>
+                      {linkedClerkUser?.email ?? profile.clerkUserId}
+                    </span>
+                  )
+                ) : profile.inviteEmail ? (
+                  /* Invite pending */
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: 13, color: '#fbbf24' }}>📧 {profile.inviteEmail}</span>
+                    <button
+                      onClick={cancelInvite}
+                      disabled={inviting}
+                      style={{
+                        background: 'transparent', border: '1px solid #374151', borderRadius: 5,
+                        color: '#94a3b8', fontSize: 12, padding: '4px 10px', cursor: 'pointer',
+                      }}
+                    >
+                      {inviting ? '…' : 'Cancel invite'}
+                    </button>
+                    {inviteErr && <span style={{ fontSize: 11, color: '#f87171' }}>{inviteErr}</span>}
+                  </div>
                 ) : (
-                  <TextInput
-                    value={p.clerkUserId ?? ''}
-                    onChange={v => set('clerkUserId', v)}
-                    placeholder="user_2abc… (loading…)"
-                    width={240}
-                  />
+                  /* No login — invite form */
+                  <div>
+                    <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                      <input
+                        type="email"
+                        value={inviteInput}
+                        onChange={e => { setInviteInput(e.target.value); setInviteErr(''); setInviteMsg(''); }}
+                        onKeyDown={e => e.key === 'Enter' && sendInvite()}
+                        placeholder="user@example.com"
+                        style={{
+                          width: 200, background: '#0f1117', border: '1px solid #2d3748',
+                          borderRadius: 6, color: '#f1f5f9', fontSize: 13,
+                          padding: '7px 10px', outline: 'none',
+                        }}
+                      />
+                      <button
+                        onClick={sendInvite}
+                        disabled={inviting || !inviteInput.trim()}
+                        style={{
+                          background: '#1d4ed8', border: 'none', borderRadius: 6,
+                          color: '#fff', fontSize: 12, fontWeight: 600,
+                          padding: '7px 14px', cursor: 'pointer',
+                          opacity: inviting || !inviteInput.trim() ? 0.5 : 1,
+                        }}
+                      >
+                        {inviting ? 'Sending…' : 'Send invite'}
+                      </button>
+                    </div>
+                    {inviteErr && <div style={{ fontSize: 11, color: '#f87171', marginTop: 5 }}>{inviteErr}</div>}
+                    {inviteMsg && <div style={{ fontSize: 11, color: '#4ade80', marginTop: 5 }}>✓ {inviteMsg}</div>}
+                  </div>
                 )}
               </Field>
 

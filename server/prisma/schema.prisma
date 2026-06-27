@@ -135,6 +135,7 @@ model OwnerProfile {
   // ── Access control ────────────────────────────────────────────────────
   clerkUserId  String?  @unique      // Clerk user_* ID — links a login to this owner
   role         String   @default("user") // "admin" | "user"
+  inviteEmail  String?  @unique      // pending invite email — cleared when clerkUserId is auto-linked
 
   // ── Capital & sizing ──────────────────────────────────────────────────
   minPositionDollar Float?           // smallest position worth holding (default $1,500)
