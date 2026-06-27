@@ -128,6 +128,7 @@ function SortableTh({ sortKey, sort, onSort, children }) {
 }
 
 let advisoryCache = null;
+let decisionsCache = null;
 // Cache the rawOutput per analysisId across expand/collapse cycles so we
 // don't re-fetch when the user toggles the same row.
 const rawOutputCache = new Map();
@@ -173,6 +174,7 @@ export default function AdvisoryFeed() {
   const { getToken } = useAuth();
   const location = useLocation();
   const [rows, setRows] = useState(advisoryCache ?? []);
+  const [decisions, setDecisions] = useState(decisionsCache ?? []);
   const [loading, setLoading] = useState(advisoryCache === null);
   const [error, setError] = useState(null);
   const [statusFilter, setStatusFilter] = useState('all'); // all | portfolio | watchlist
@@ -198,13 +200,23 @@ export default function AdvisoryFeed() {
     setError(null);
     try {
       const token = await getToken();
-      const res = await fetch(`${API_URL}/api/radar/advisories`, {
-        headers: { 'Authorization': `Bearer ${token}` },
-      });
+      const [res, decRes] = await Promise.all([
+        fetch(`${API_URL}/api/radar/advisories`, {
+          headers: { 'Authorization': `Bearer ${token}` },
+        }),
+        fetch(`${API_URL}/api/radar/decisions`, {
+          headers: { 'Authorization': `Bearer ${token}` },
+        }),
+      ]);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
       advisoryCache = data;
       setRows(data);
+      if (decRes.ok) {
+        const decData = await decRes.json();
+        decisionsCache = decData;
+        setDecisions(decData);
+      }
     } catch (err) {
       setError(err.message);
     } finally {
@@ -333,6 +345,17 @@ export default function AdvisoryFeed() {
     return entries;
   })();
 
+  // Group all OwnerDecision rows by ticker symbol so renderTickerGroup can
+  // look them up efficiently.
+  const decisionsBySymbol = (() => {
+    const map = new Map();
+    for (const d of decisions) {
+      if (!map.has(d.symbol)) map.set(d.symbol, []);
+      map.get(d.symbol).push(d);
+    }
+    return map;
+  })();
+
   // Surfacing the trajectory mix at a glance — these are the cases worth
   // periodically scanning for emerging heuristics
   const trajectoryCounts = filtered.reduce((acc, r) => {
@@ -418,6 +441,7 @@ export default function AdvisoryFeed() {
               <th style={th}>Per-call</th>
               <th style={th}>Trajectory</th>
               <th style={th}>Final</th>
+              <th style={th}>User Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -425,6 +449,7 @@ export default function AdvisoryFeed() {
               renderTickerGroup(group, {
                 expandedTickers, expandedId, expandedRaw,
                 toggleTicker, toggleExpand, rowRefs,
+                decisionsForSymbol: decisionsBySymbol.get(group.symbol) ?? [],
               })
             )}
           </tbody>
@@ -437,11 +462,13 @@ export default function AdvisoryFeed() {
 // ── Render helpers ─────────────────────────────────────────────────────────
 
 // Render one ticker group: a header row + (when ticker is expanded) a
-// sub-row per individual advisory call + (when a call is selected) the
-// verbose Trend Verdict + Analyst Narrative panel.
+// sub-row per individual advisory call or user decision + (when a call is
+// selected) the verbose Trend Verdict + Analyst Narrative panel.
+// Call rows and decision rows are interleaved newest-first by date.
 function renderTickerGroup(group, ctx) {
   const { expandedTickers, expandedId, expandedRaw,
-          toggleTicker, toggleExpand, rowRefs } = ctx;
+          toggleTicker, toggleExpand, rowRefs,
+          decisionsForSymbol = [] } = ctx;
   const isTickerExpanded = expandedTickers.has(group.symbol);
   const result = [];
 
@@ -453,18 +480,34 @@ function renderTickerGroup(group, ctx) {
 
   if (!isTickerExpanded) return result;
 
-  // Expanded: render every advisory call for this ticker as a sub-row,
-  // newest first. Each call's row is also expandable to show the verbose
-  // Trend Verdict + Analyst Narrative panel.
-  for (const call of group.calls) {
-    const isCallExpanded = expandedId === call.analysisId;
-    result.push(renderCallSubRow(call, {
-      isCallExpanded,
-      onToggle: () => toggleExpand(call),
-      rowRefs,
-    }));
-    if (isCallExpanded) {
-      result.push(renderRationalePanel(call, expandedRaw[call.analysisId]));
+  // Merge call rows and decision rows, sort all newest-first by date.
+  const combined = [
+    ...group.calls.map(c => ({
+      type: 'call',
+      date: new Date(c.callDate),
+      data: c,
+    })),
+    ...decisionsForSymbol.map(d => ({
+      type: 'decision',
+      date: new Date(d.decidedAt),
+      data: d,
+    })),
+  ].sort((a, b) => b.date - a.date);
+
+  for (const item of combined) {
+    if (item.type === 'call') {
+      const call = item.data;
+      const isCallExpanded = expandedId === call.analysisId;
+      result.push(renderCallSubRow(call, {
+        isCallExpanded,
+        onToggle: () => toggleExpand(call),
+        rowRefs,
+      }));
+      if (isCallExpanded) {
+        result.push(renderRationalePanel(call, expandedRaw[call.analysisId]));
+      }
+    } else {
+      result.push(renderDecisionSubRow(item.data));
     }
   }
   return result;
@@ -522,6 +565,7 @@ function renderTickerHeaderRow(group, { isExpanded, onToggle }) {
       <td style={td}>
         {renderFinalCell(latest, flipped)}
       </td>
+      <td style={td} />
     </tr>
   );
 }
@@ -567,6 +611,7 @@ function renderCallSubRow(call, { isCallExpanded, onToggle, rowRefs }) {
       <td style={td}>
         {renderFinalCell(call, flipped)}
       </td>
+      <td style={td} />
     </tr>
   );
 }
@@ -612,7 +657,7 @@ function renderRationalePanel(call, expanded) {
                     && call.finalAction !== call.perCallRec;
   return (
     <tr key={`p-${call.analysisId}`} style={{ background: '#0a0d14' }}>
-      <td colSpan={6} style={{ padding: '0 12px 18px 48px' }}>
+      <td colSpan={7} style={{ padding: '0 12px 18px 48px' }}>
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
@@ -712,6 +757,87 @@ function renderRationalePanel(call, expanded) {
             )}
           </div>
         </div>
+      </td>
+    </tr>
+  );
+}
+
+// Decision row — represents a single OwnerDecision event. Rendered inline with
+// call rows, sorted by date. Has date + user-action content only; all
+// analysis columns (per-call, trajectory, final) are blank.
+function renderDecisionSubRow(d) {
+  const DECISION_LABEL = {
+    accepted: 'ACCEPTED',
+    declined: 'DECLINED',
+    deferred: 'DEFERRED',
+  };
+  const DECISION_COLOR = {
+    accepted: '#22c55e',
+    declined: '#f87171',
+    deferred: '#f59e0b',
+  };
+  const color = DECISION_COLOR[d.decision] ?? '#64748b';
+  const label = DECISION_LABEL[d.decision] ?? d.decision.toUpperCase();
+  const moveLabel = d.moveType.replace(/_/g, ' ');
+
+  return (
+    <tr
+      key={`d-${d.id}`}
+      style={{
+        background: '#0c0e18',
+        borderLeft: '2px solid #1e3a5f',
+      }}
+    >
+      {/* no expand toggle */}
+      <td style={{ ...td, width: 24 }} />
+      {/* indent marker */}
+      <td style={{ ...td, paddingLeft: 28, color: '#334155', fontSize: 11 }}>↳</td>
+      {/* decidedAt date */}
+      <td style={{ ...td, color: '#64748b', fontSize: 12, whiteSpace: 'nowrap' }}>
+        {new Date(d.decidedAt).toLocaleDateString('en-US', {
+          year: 'numeric', month: 'short', day: 'numeric',
+        })}
+      </td>
+      {/* per-call — blank */}
+      <td style={td} />
+      {/* trajectory — blank */}
+      <td style={td} />
+      {/* final — blank */}
+      <td style={td} />
+      {/* user actions */}
+      <td style={td}>
+        <span style={{ display: 'inline-flex', flexDirection: 'column', gap: 4 }}>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+            <span style={{
+              display: 'inline-block',
+              padding: '2px 7px',
+              borderRadius: 4,
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: '0.05em',
+              color,
+              background: color + '18',
+              border: `1px solid ${color}40`,
+            }}>
+              {label}
+            </span>
+            <span style={{ fontSize: 10, color: '#475569', letterSpacing: '0.03em' }}>
+              {moveLabel}
+            </span>
+            {d.owner && (
+              <span style={{ fontSize: 10, color: '#334155' }}>· {d.owner}</span>
+            )}
+          </span>
+          {(d.declinedReason || d.acceptedAmount != null) && (
+            <span style={{ fontSize: 11, color: '#94a3b8', fontStyle: 'italic' }}>
+              {d.declinedReason
+                ? `"${d.declinedReason}"`
+                : d.acceptedAmount
+                  ? `$${d.acceptedAmount.toLocaleString()}`
+                  : ''}
+            </span>
+          )}
+        </span>
       </td>
     </tr>
   );

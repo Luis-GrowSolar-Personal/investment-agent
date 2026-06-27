@@ -250,6 +250,36 @@ router.get('/advisories', requireAuth(), async (req, res) => {
   }
 });
 
+// GET /api/radar/decisions — all OwnerDecision rows across all owners, newest
+// first. Used by the Advisory Feed "User Actions" column to show what decisions
+// were taken (or not taken) on each ticker over time.
+router.get('/decisions', requireAuth(), async (req, res) => {
+  try {
+    const decisions = await prisma.ownerDecision.findMany({
+      include: {
+        ticker: { select: { symbol: true } },
+      },
+      orderBy: { decidedAt: 'desc' },
+    });
+
+    const result = decisions.map(d => ({
+      id:             d.id,
+      symbol:         d.ticker.symbol,
+      owner:          d.owner,
+      moveType:       d.moveType,
+      decidedAt:      d.decidedAt,
+      decision:       d.decision,
+      declinedReason: d.declinedReason ?? null,
+      acceptedAmount: d.acceptedAmount ?? null,
+    }));
+
+    res.json(result);
+  } catch (err) {
+    console.error('Error in GET /api/radar/decisions:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // POST /api/radar/tickers — create a ticker without a transcript (ETFs, commodities, crypto)
 // Body: { symbol, name, shortName?, bucket?, notes? }
 router.post('/tickers', requireAuth(), async (req, res) => {
