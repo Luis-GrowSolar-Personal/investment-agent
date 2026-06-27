@@ -227,19 +227,45 @@ function AddRoutingDetail({ accounts }) {
 
 // ─── Move card ────────────────────────────────────────────────────────────────
 
-function MoveCard({ move, idx }) {
-  const [expanded, setExpanded] = useState(false);
-  const meta       = MOVE_META[move.moveType] ?? MOVE_META.HOLD;
-  const hasAccts   = move.accounts && move.accounts.length > 0;
+function MoveCard({ move, idx, decision, onAccept, onDecline }) {
+  const [expanded,      setExpanded]      = useState(false);
+  const [pendingAction, setPendingAction] = useState(null); // null | 'accept' | 'decline'
+  const [inputAmount,   setInputAmount]   = useState('');
+  const [inputReason,   setInputReason]   = useState('');
+  const [submitting,    setSubmitting]    = useState(false);
+
+  const meta      = MOVE_META[move.moveType] ?? MOVE_META.HOLD;
+  const hasAccts  = move.accounts && move.accounts.length > 0;
+  const isDecided = !!decision;
+
+  const borderColor = isDecided && decision.status === 'accepted' ? C.green : meta.color;
+
+  async function confirmAccept() {
+    setSubmitting(true);
+    const amount = parseFloat(inputAmount) || move.dollarAmount;
+    await onAccept(move, amount);
+    setSubmitting(false);
+    setPendingAction(null);
+  }
+
+  async function confirmDecline() {
+    if (!inputReason.trim()) return;
+    setSubmitting(true);
+    await onDecline(move, inputReason.trim());
+    setSubmitting(false);
+    setPendingAction(null);
+  }
 
   return (
     <div style={{
-      border: `1px solid ${meta.color}33`,
-      borderLeft: `3px solid ${meta.color}`,
+      border: `1px solid ${borderColor}33`,
+      borderLeft: `3px solid ${borderColor}`,
       borderRadius: 8,
       background: meta.color + '08',
       marginBottom: 10,
       overflow: 'hidden',
+      opacity: isDecided ? (decision.status === 'declined' ? 0.45 : 0.82) : 1,
+      transition: 'opacity 0.2s',
     }}>
       {/* Main row */}
       <div
@@ -302,6 +328,134 @@ function MoveCard({ move, idx }) {
             ? <AddRoutingDetail accounts={move.accounts} />
             : <TaxRoutingDetail accounts={move.accounts} />
           }
+        </div>
+      )}
+
+      {/* Decision status or Accept/Decline panel */}
+      {isDecided ? (
+        <div style={{
+          padding: '7px 16px 9px 16px',
+          borderTop: `1px solid ${C.border}`,
+          display: 'flex', alignItems: 'center', gap: 10, fontSize: 11,
+        }}>
+          {decision.status === 'accepted' ? (
+            <>
+              <span style={{ color: C.green, fontWeight: 700 }}>✓ Accepted</span>
+              <span style={{ color: C.dim }}>{money(decision.acceptedAmount)}</span>
+            </>
+          ) : (
+            <>
+              <span style={{ color: C.muted, fontWeight: 700 }}>✗ Declined</span>
+              {decision.declinedReason && (
+                <span style={{ color: C.faint, fontStyle: 'italic' }}>{decision.declinedReason}</span>
+              )}
+            </>
+          )}
+        </div>
+      ) : (
+        <div
+          style={{ borderTop: `1px solid ${C.border}`, padding: '0 16px 12px 16px' }}
+          onClick={e => e.stopPropagation()}
+        >
+          {pendingAction === null && (
+            <div style={{ display: 'flex', gap: 8, paddingTop: 9 }}>
+              <button
+                onClick={() => { setPendingAction('accept'); setInputAmount(move.dollarAmount.toFixed(0)); }}
+                style={{
+                  padding: '4px 14px', borderRadius: 5,
+                  border: `1px solid ${C.green}55`, background: C.green + '15',
+                  color: C.green, fontSize: 12, fontWeight: 600, cursor: 'pointer',
+                }}
+              >✓ Accept</button>
+              <button
+                onClick={() => { setPendingAction('decline'); setInputReason(''); }}
+                style={{
+                  padding: '4px 14px', borderRadius: 5,
+                  border: `1px solid ${C.border2}`, background: 'transparent',
+                  color: C.muted, fontSize: 12, fontWeight: 600, cursor: 'pointer',
+                }}
+              >✗ Decline</button>
+            </div>
+          )}
+
+          {pendingAction === 'accept' && (
+            <div style={{ paddingTop: 10 }}>
+              <div style={{ fontSize: 11, color: C.dim, marginBottom: 6 }}>
+                Amount to execute (edit to partially accept):
+              </div>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: 13, color: C.muted }}>$</span>
+                <input
+                  type="number"
+                  value={inputAmount}
+                  onChange={e => setInputAmount(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && confirmAccept()}
+                  autoFocus
+                  style={{
+                    background: C.border, border: `1px solid ${C.border2}`,
+                    borderRadius: 4, color: C.text, fontSize: 13,
+                    padding: '4px 8px', width: 100,
+                  }}
+                />
+                <button
+                  onClick={confirmAccept}
+                  disabled={submitting}
+                  style={{
+                    padding: '4px 14px', borderRadius: 5, border: 'none',
+                    background: C.green, color: '#000', fontSize: 12, fontWeight: 700, cursor: 'pointer',
+                  }}
+                >{submitting ? '…' : 'Confirm'}</button>
+                <button
+                  onClick={() => setPendingAction(null)}
+                  style={{
+                    padding: '4px 10px', borderRadius: 5,
+                    border: `1px solid ${C.border2}`, background: 'transparent',
+                    color: C.dim, fontSize: 12, cursor: 'pointer',
+                  }}
+                >Cancel</button>
+              </div>
+            </div>
+          )}
+
+          {pendingAction === 'decline' && (
+            <div style={{ paddingTop: 10 }}>
+              <div style={{ fontSize: 11, color: C.dim, marginBottom: 6 }}>Reason for declining:</div>
+              <input
+                type="text"
+                value={inputReason}
+                onChange={e => setInputReason(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && inputReason.trim() && confirmDecline()}
+                placeholder="e.g. I think it will turn the corner next quarter"
+                autoFocus
+                style={{
+                  background: C.border, border: `1px solid ${C.border2}`,
+                  borderRadius: 4, color: C.text, fontSize: 12,
+                  padding: '5px 10px', width: '100%', boxSizing: 'border-box', marginBottom: 8,
+                }}
+              />
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button
+                  onClick={confirmDecline}
+                  disabled={submitting || !inputReason.trim()}
+                  style={{
+                    padding: '4px 14px', borderRadius: 5,
+                    border: `1px solid ${C.amber}55`, background: C.amber + '15',
+                    color: C.amber, fontSize: 12, fontWeight: 700,
+                    cursor: inputReason.trim() ? 'pointer' : 'not-allowed',
+                    opacity: inputReason.trim() ? 1 : 0.5,
+                  }}
+                >{submitting ? '…' : 'Confirm Decline'}</button>
+                <button
+                  onClick={() => setPendingAction(null)}
+                  style={{
+                    padding: '4px 10px', borderRadius: 5,
+                    border: `1px solid ${C.border2}`, background: 'transparent',
+                    color: C.dim, fontSize: 12, cursor: 'pointer',
+                  }}
+                >Cancel</button>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -739,6 +893,62 @@ function PortfolioSummaryBar({ data }) {
   );
 }
 
+// ─── Deployable capital bar ───────────────────────────────────────────────────
+
+function DeployableBar({ freeCash, cashReserveFloor, availableNow, decisions, moves }) {
+  const acceptedCount = Object.values(decisions).filter(d => d.status === 'accepted').length;
+  const declinedCount = Object.values(decisions).filter(d => d.status === 'declined').length;
+  const decidedCount  = acceptedCount + declinedCount;
+
+  return (
+    <div style={{
+      background: C.card, border: `1px solid ${C.border}`, borderRadius: 10,
+      padding: '14px 24px', display: 'flex', gap: 24, alignItems: 'center',
+      flexWrap: 'wrap', marginBottom: 16,
+    }}>
+      <div>
+        <div style={{ fontSize: 10, color: C.dim, fontWeight: 700, letterSpacing: '0.07em', marginBottom: 3 }}>
+          AVAILABLE TO DEPLOY
+        </div>
+        <div style={{ fontSize: 18, fontWeight: 700, color: availableNow >= 0 ? C.green : C.red }}>
+          {money(availableNow)}
+        </div>
+        <div style={{ fontSize: 10, color: C.faint }}>
+          {money(freeCash)} free cash
+          {acceptedCount > 0 && ` + accepted proceeds`}
+        </div>
+      </div>
+
+      <div style={{ width: 1, height: 36, background: C.border }} />
+
+      <div>
+        <div style={{ fontSize: 10, color: C.dim, fontWeight: 700, letterSpacing: '0.07em', marginBottom: 3 }}>
+          5% RESERVE
+        </div>
+        <div style={{ fontSize: 18, fontWeight: 700, color: C.amber }}>{money(cashReserveFloor)}</div>
+        <div style={{ fontSize: 10, color: C.faint }}>cash floor · do not deploy</div>
+      </div>
+
+      {decidedCount > 0 && (
+        <>
+          <div style={{ width: 1, height: 36, background: C.border }} />
+          <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
+            {acceptedCount > 0 && (
+              <span style={{ fontSize: 12, color: C.green, fontWeight: 600 }}>✓ {acceptedCount} accepted</span>
+            )}
+            {declinedCount > 0 && (
+              <span style={{ fontSize: 12, color: C.muted, fontWeight: 600 }}>✗ {declinedCount} declined</span>
+            )}
+            {moves.length - decidedCount > 0 && (
+              <span style={{ fontSize: 12, color: C.faint }}>{moves.length - decidedCount} pending</span>
+            )}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 // ─── Owner selector ───────────────────────────────────────────────────────────
 
 function OwnerSelector({ owners, selected, onSelect }) {
@@ -776,6 +986,11 @@ export default function PortfolioManager() {
   const [refreshing,    setRefreshing]    = useState(false);
   const [err,           setErr]           = useState('');
   const [selectedBucket, setSelectedBucket] = useState(null);
+  // Session decisions: key = `${symbol}-${moveType}` → { status, acceptedAmount?, declinedReason? }
+  const [decisions, setDecisions] = useState({});
+
+  // Reset decisions when the owner changes
+  useEffect(() => { setDecisions({}); }, [selected]);
 
   // Load owner list once
   useEffect(() => {
@@ -828,6 +1043,7 @@ export default function PortfolioManager() {
       const d = await r.json();
       if (!r.ok) throw new Error(d.error || 'Refresh failed');
       setData(d);
+      setDecisions({}); // stale decisions after a recompute
     } catch (e) {
       setErr(e.message);
     } finally {
@@ -835,9 +1051,86 @@ export default function PortfolioManager() {
     }
   }, [selected, refreshing, getToken]);
 
+  // ── Decision handlers ──────────────────────────────────────────────────────
+
+  const handleAccept = useCallback(async (move, amount) => {
+    const key = `${move.symbol}-${move.moveType}`;
+    try {
+      const token = await getToken();
+      await fetch('/api/decisions', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({
+          symbol:        move.symbol,
+          moveType:      move.moveType,
+          decision:      'accepted',
+          acceptedAmount: amount,
+          systemSnapshot: {
+            thesisHealth:    move.thesisHealth,
+            trajectory:      move.trajectory,
+            ratchetTranche:  move.ratchetTranche,
+            currentPct:      move.currentPct,
+            dollarAmount:    move.dollarAmount,
+          },
+        }),
+      });
+    } catch (e) {
+      console.error('Accept failed:', e);
+    }
+    setDecisions(prev => ({ ...prev, [key]: { status: 'accepted', acceptedAmount: amount } }));
+  }, [getToken]);
+
+  const handleDecline = useCallback(async (move, reason) => {
+    const key = `${move.symbol}-${move.moveType}`;
+    try {
+      const token = await getToken();
+      await fetch('/api/decisions', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({
+          symbol:        move.symbol,
+          moveType:      move.moveType,
+          decision:      'declined',
+          declinedReason: reason,
+          systemSnapshot: {
+            thesisHealth:    move.thesisHealth,
+            trajectory:      move.trajectory,
+            ratchetTranche:  move.ratchetTranche,
+            currentPct:      move.currentPct,
+            dollarAmount:    move.dollarAmount,
+          },
+        }),
+      });
+    } catch (e) {
+      console.error('Decline failed:', e);
+    }
+    setDecisions(prev => ({ ...prev, [key]: { status: 'declined', declinedReason: reason } }));
+  }, [getToken]);
+
   useEffect(() => { loadMoves(); }, [loadMoves]);
 
   const actionMoves = data?.moves ?? [];
+
+  // ── Running totals (update as decisions are made) ──────────────────────────
+  const IS_TRIM_OR_EXIT = new Set(['EXIT','TRIM_CAP','TRIM_RATCHET','TRIM_SIGNAL','TRIM_MODEL']);
+
+  const acceptedProceedsTotal = actionMoves
+    .filter(m => decisions[`${m.symbol}-${m.moveType}`]?.status === 'accepted' && IS_TRIM_OR_EXIT.has(m.moveType))
+    .reduce((s, m) => {
+      const d        = decisions[`${m.symbol}-${m.moveType}`];
+      const accepted = d.acceptedAmount ?? m.dollarAmount;
+      const ratio    = m.dollarAmount > 0 ? accepted / m.dollarAmount : 1;
+      return s + (m.netProceeds * ratio);
+    }, 0);
+
+  const acceptedSpendTotal = actionMoves
+    .filter(m => decisions[`${m.symbol}-${m.moveType}`]?.status === 'accepted' && m.moveType === 'ADD')
+    .reduce((s, m) => {
+      const d = decisions[`${m.symbol}-${m.moveType}`];
+      return s + (d.acceptedAmount ?? m.dollarAmount);
+    }, 0);
+
+  const availableNow = (data?.freeCash ?? 0) + acceptedProceedsTotal - acceptedSpendTotal;
 
   // Returns true if a move is actionable in a given account type.
   // ADD moves require at least one routing row with actual cash (insufficientCash !== true).
@@ -893,6 +1186,15 @@ export default function PortfolioManager() {
         <>
           <PortfolioSummaryBar data={data} />
 
+          {/* Deployable capital running total */}
+          <DeployableBar
+            freeCash={data.freeCash}
+            cashReserveFloor={data.cashReserveFloor}
+            availableNow={availableNow}
+            decisions={decisions}
+            moves={actionMoves}
+          />
+
           {/* Account buckets */}
           <AccountBuckets
             accountSummaries={data.accountSummaries}
@@ -917,7 +1219,14 @@ export default function PortfolioManager() {
             />
             {displayMoves.length > 0
               ? displayMoves.map((m, i) => (
-                  <MoveCard key={`${m.symbol}-${m.moveType}-${i}`} move={m} idx={i} />
+                  <MoveCard
+                    key={`${m.symbol}-${m.moveType}-${i}`}
+                    move={m}
+                    idx={i}
+                    decision={decisions[`${m.symbol}-${m.moveType}`] ?? null}
+                    onAccept={handleAccept}
+                    onDecline={handleDecline}
+                  />
                 ))
               : (
                 <div style={{

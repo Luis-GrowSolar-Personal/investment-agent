@@ -15,6 +15,7 @@ const dashboardRouter  = require('./routes/dashboard');
 const movesRouter             = require('./routes/moves');
 const ownerTickerConfigRouter = require('./routes/ownerTickerConfig');
 const schwabRouter             = require('./routes/schwab');
+const decisionsRouter          = require('./routes/decisions');
 
 const app = express();
 // Railway sets PORT dynamically; default to 3001 for local dev.
@@ -41,6 +42,7 @@ app.use('/api/dashboard', dashboardRouter);
 app.use('/api/moves',              movesRouter);
 app.use('/api/owner-ticker-config', ownerTickerConfigRouter);
 app.use('/api/schwab',              schwabRouter);
+app.use('/api/decisions',           decisionsRouter);
 
 // Production: serve the Vite build at /. The build step (defined in
 // nixpacks.toml at repo root) runs `npm run build` in client/, which writes

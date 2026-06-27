@@ -47,6 +47,7 @@ model Ticker {
   domains            String[]  @default([])
 
   ownerConfigs       OwnerTickerConfig[]
+  ownerDecisions     OwnerDecision[]
 }
 
 // Per-owner cap % override for any held position.
@@ -275,6 +276,22 @@ model MovesCache {
   payload     Json         // full moves API response
   computedAt  DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+// Owner decisions on move-card recommendations — one row per decision event.
+// A single move may be re-decided (e.g. declined, then accepted later) — each
+// attempt produces a new row; the latest per (owner, tickerId, moveType) wins.
+model OwnerDecision {
+  id             Int      @id @default(autoincrement())
+  owner          String
+  tickerId       Int
+  ticker         Ticker   @relation(fields: [tickerId], references: [id], onDelete: Cascade)
+  moveType       String   // EXIT | TRIM_CAP | TRIM_RATCHET | TRIM_MODEL | ADD | INITIATE
+  decidedAt      DateTime @default(now())
+  decision       String   // "accepted" | "declined" | "deferred"
+  acceptedAmount Float?   // user-overridden dollar amount on accept (null = full recommendation)
+  declinedReason String?  // free text on decline
+  systemSnapshot Json     // snapshot at decision time: thesisHealth, trajectory, ratchetTranche, currentPct, dollarAmount
 }
 
 // Individual tax lots within a Position. Tracked separately for FIFO
