@@ -170,6 +170,7 @@ router.post('/', requireAuth(), async (req, res) => {
         mitigationArgumentPresent:       s.mitigationArgumentPresent       ?? null,
         mitigationCapabilityTrackRecord: s.mitigationCapabilityTrackRecord ?? null,
         typeClassificationRationale:     s.typeClassificationRationale     ?? null,
+        summary:                         s.summary                         ?? null,
         // Version stamps — always server-controlled, never from client input
         promptVersion:                   PROMPT_VERSION,
         modelVersion:                    MODEL_VERSION,

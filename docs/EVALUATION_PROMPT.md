@@ -180,6 +180,7 @@ cannot determine from the transcript.
 
 ---STRUCTURED---
 {
+  "summary": "",
   "thesisHealth": "",
   "thesisDelta": "",
   "recommendation": "",
@@ -200,6 +201,12 @@ cannot determine from the transcript.
 ---END STRUCTURED---
 
 Field definitions:
+- summary: one plain-English sentence (max 25 words) capturing the single most important
+  finding that drove this recommendation. No jargon, no field names. Write it so a
+  non-expert can understand it at a glance. Examples: "Company missed its own guidance
+  on a problem that was fully visible in prior quarter data." / "Revenue and margins
+  both accelerated — management raised guidance and named the specific contracts driving
+  next-quarter growth."
 - thesisHealth: "Strengthening" | "Intact" | "Weakening" | "Broken"
 - thesisDelta: "up" | "flat" | "down" (vs prior quarter,
   or "unknown" if no prior transcript provided)

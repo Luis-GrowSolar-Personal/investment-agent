@@ -117,6 +117,11 @@ model Analysis {
   finalAction       String?
   finalConfidence   String?
   trendRationale    String?
+
+  // Plain-English one-liner summarising the key finding that drove this
+  // recommendation. Populated by the model at eval time — shown in the
+  // Advisory Feed timeline instead of raw field values.
+  summary           String?
 }
 
 // ---------------------------------------------------------------------------
