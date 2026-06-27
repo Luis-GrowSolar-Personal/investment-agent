@@ -274,6 +274,235 @@ function NewOwnerModal({ onClose, onCreated }) {
 }
 
 // ---------------------------------------------------------------------------
+// Per-account type label
+// ---------------------------------------------------------------------------
+const ACCT_TYPE_LABEL = {
+  roth:      'ROTH IRA',
+  ira:       'Traditional IRA',
+  taxable:   'Taxable',
+  custodial: 'Custodial',
+};
+
+// ---------------------------------------------------------------------------
+// AccountConfigTab — min/max positions for one account
+// ---------------------------------------------------------------------------
+function AccountConfigTab({ account, owner, getToken, onSaved }) {
+  const [minPos, setMinPos] = useState(
+    account.config?.minPositions != null ? String(account.config.minPositions) : ''
+  );
+  const [maxPos, setMaxPos] = useState(
+    account.config?.maxPositions != null ? String(account.config.maxPositions) : ''
+  );
+  const [saving, setSaving] = useState(false);
+  const [saved,  setSaved]  = useState(false);
+  const [err,    setErr]    = useState('');
+
+  async function save() {
+    const min = minPos !== '' ? parseInt(minPos, 10) : null;
+    const max = maxPos !== '' ? parseInt(maxPos, 10) : null;
+    if (min != null && (isNaN(min) || min < 1)) { setErr('Min must be ≥ 1'); return; }
+    if (max != null && (isNaN(max) || max < 1)) { setErr('Max must be ≥ 1'); return; }
+    if (min != null && max != null && min > max) { setErr('Min must be ≤ max'); return; }
+    setSaving(true); setErr('');
+    try {
+      const token = await getToken();
+      const r = await fetch(`/api/moves/${encodeURIComponent(owner)}/account-config`, {
+        method:  'PATCH',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body:    JSON.stringify({ accountId: account.id, suggestedTarget: min, maxPositions: max }),
+      });
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error);
+      onSaved({ minPositions: d.minPositions, maxPositions: d.maxPositions });
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+    } catch (e) {
+      setErr(e.message);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function reset() {
+    if (!window.confirm(`Reset position config for "${account.name}"? The warning will reappear until a new target is set.`)) return;
+    setSaving(true); setErr('');
+    try {
+      const token = await getToken();
+      const r = await fetch(
+        `/api/moves/${encodeURIComponent(owner)}/account-config/${account.id}`,
+        { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } }
+      );
+      if (!r.ok) throw new Error((await r.json()).error);
+      setMinPos(''); setMaxPos('');
+      onSaved(null);
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+    } catch (e) {
+      setErr(e.message);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <div>
+      <div style={{ marginBottom: 18 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#475569', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 3 }}>
+          {account.name}
+          {account.type && (
+            <span style={{ marginLeft: 8, fontWeight: 400, color: '#334155' }}>
+              {ACCT_TYPE_LABEL[account.type] ?? account.type}
+            </span>
+          )}
+        </div>
+        <div style={{ fontSize: 11, color: '#334155' }}>
+          Per-account position count overrides. The moves engine uses these to size
+          recommendations appropriately for this account's value.
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', gap: 40, flexWrap: 'wrap' }}>
+        <Field
+          label="Min positions (N floor)"
+          hint="Engine won't recommend fewer than this many positions for this account."
+        >
+          <TextInput
+            value={minPos}
+            onChange={setMinPos}
+            type="number"
+            placeholder="e.g. 3"
+            suffix="positions"
+            width={80}
+          />
+        </Field>
+        <Field
+          label="Max positions (M ceiling)"
+          hint="Hard cap for this account. Overrides the global default of 10."
+        >
+          <TextInput
+            value={maxPos}
+            onChange={setMaxPos}
+            type="number"
+            placeholder="e.g. 10"
+            suffix="positions"
+            width={80}
+          />
+        </Field>
+      </div>
+
+      <div style={{ display: 'flex', gap: 10, marginTop: 8, alignItems: 'center' }}>
+        <button onClick={save} disabled={saving} style={saveBtn}>
+          {saving ? 'Saving…' : 'Save'}
+        </button>
+        {account.config && (
+          <button onClick={reset} disabled={saving} style={cancelBtn}>Reset to default</button>
+        )}
+        {saved && <span style={{ fontSize: 12, color: '#4ade80' }}>✓ Saved</span>}
+        {err   && <span style={{ fontSize: 12, color: '#ef4444' }}>{err}</span>}
+      </div>
+
+      {account.config && (
+        <div style={{ marginTop: 10, fontSize: 11, color: '#4ade80' }}>
+          ● Configured — min {account.config.minPositions ?? 'default'} · max {account.config.maxPositions ?? 'default'}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// TabbedCapSection — Position Caps tab + one tab per managed account
+// ---------------------------------------------------------------------------
+function TabbedCapSection({ owner, getToken }) {
+  const [activeTab, setActiveTab] = useState('caps');
+  const [accounts, setAccounts]   = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const token = await getToken();
+        const r = await fetch(`/api/moves/${encodeURIComponent(owner)}/account-configs`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!r.ok) return;
+        const d = await r.json();
+        setAccounts(d);
+      } catch (_) { /* non-critical — tabs just won't show */ }
+    })();
+  }, [owner, getToken]);
+
+  const managedAccounts = accounts.filter(a => a.managed);
+
+  const tabs = [
+    { id: 'caps', label: 'Position Caps' },
+    ...managedAccounts.map(a => ({
+      id:      `a-${a.id}`,
+      label:   a.name,
+      account: a,
+    })),
+  ];
+
+  return (
+    <div style={{ marginTop: 28, borderTop: '1px solid #1e2330' }}>
+      {/* Tab bar */}
+      <div style={{ display: 'flex', borderBottom: '1px solid #1e2330', paddingTop: 16 }}>
+        {tabs.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            style={{
+              padding: '6px 14px',
+              fontSize: 11,
+              fontWeight: activeTab === tab.id ? 700 : 400,
+              color: activeTab === tab.id ? '#f1f5f9' : '#475569',
+              background: 'transparent',
+              border: 'none',
+              borderBottom: `2px solid ${activeTab === tab.id ? '#3b82f6' : 'transparent'}`,
+              cursor: 'pointer',
+              marginBottom: -1,
+              transition: 'color 0.15s',
+            }}
+          >
+            {tab.label}
+            {tab.account?.config && (
+              <span style={{ marginLeft: 4, fontSize: 9, color: '#4ade80' }}>●</span>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Tab content */}
+      <div style={{ paddingTop: 20 }}>
+        {activeTab === 'caps' && (
+          <>
+            <SectionHeader
+              title="Position Caps"
+              subtitle="Per-owner target allocation. ETF / commodity / crypto caps apply whether or not the owner currently holds the asset."
+            />
+            <PositionCapsSection owner={owner} getToken={getToken} showWrapper={false} />
+          </>
+        )}
+        {managedAccounts.map(a =>
+          activeTab === `a-${a.id}` ? (
+            <AccountConfigTab
+              key={a.id}
+              account={a}
+              owner={owner}
+              getToken={getToken}
+              onSaved={config =>
+                setAccounts(prev =>
+                  prev.map(x => (x.id === a.id ? { ...x, config } : x))
+                )
+              }
+            />
+          ) : null
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Owner admin card
 // ---------------------------------------------------------------------------
 function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount, onDelete, clerkUsers = [] }) {
@@ -929,8 +1158,8 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
 
           </div>
 
-          {/* Position caps — always visible when card is open */}
-          <PositionCapsSection owner={profile.owner} getToken={getToken} />
+          {/* Position caps + per-account config tabs */}
+          <TabbedCapSection owner={profile.owner} getToken={getToken} />
 
           {/* Save row */}
           {draft && (
@@ -960,7 +1189,7 @@ const BUCKET_LABELS = {
 };
 const BUCKET_ORDER = ['etf', 'commodity', 'crypto', 'equity'];
 
-function PositionCapsSection({ owner, getToken }) {
+function PositionCapsSection({ owner, getToken, showWrapper = true }) {
   const [rows,    setRows]    = useState(null);   // null = loading
   const [drafts,  setDrafts]  = useState({});     // tickerId → string input value
   const [saving,  setSaving]  = useState({});     // tickerId → bool
@@ -1043,87 +1272,91 @@ function PositionCapsSection({ owner, getToken }) {
     width: 90, textAlign: 'right', outline: 'none',
   };
 
+  const bucketTables = BUCKET_ORDER.filter(b => groups[b]).map(bucket => (
+    <div key={bucket} style={{ marginBottom: 20 }}>
+      <div style={{
+        fontSize: 10, fontWeight: 700, color: '#64748b',
+        letterSpacing: '0.08em', textTransform: 'uppercase',
+        marginBottom: 6,
+      }}>
+        {BUCKET_LABELS[bucket] ?? bucket}
+      </div>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid #1e2330' }}>
+            {['Symbol', 'Current', 'Global cap', 'Owner cap', ''].map(h => (
+              <th key={h} style={{ padding: '4px 8px', color: '#475569', fontWeight: 600, textAlign: h === '' ? 'right' : 'left', fontSize: 10 }}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {groups[bucket].map(row => {
+            const notHeld = !row.isHeld;
+            return (
+              <tr key={row.tickerId} style={{ borderBottom: '1px solid #0f1319', opacity: notHeld ? 0.6 : 1 }}>
+                <td style={{ padding: '6px 8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ fontWeight: 700, color: notHeld ? '#64748b' : '#f1f5f9' }}>{row.symbol}</span>
+                    {notHeld && (
+                      <span style={{
+                        fontSize: 9, fontWeight: 600, padding: '1px 5px',
+                        borderRadius: 3, background: '#1e2330',
+                        color: '#475569', letterSpacing: '0.05em',
+                        textTransform: 'uppercase',
+                      }}>not held</span>
+                    )}
+                  </div>
+                </td>
+                <td style={{ padding: '6px 8px', color: '#64748b' }}>
+                  {notHeld ? '—' : `${row.currentPct.toFixed(1)}%`}
+                </td>
+                <td style={{ padding: '6px 8px', color: '#475569' }}>{row.globalCapPercent != null ? `${row.globalCapPercent}%` : '—'}</td>
+                <td style={{ padding: '6px 8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <input
+                      type="number" min="0" max="100" step="1"
+                      style={{ ...inp, borderColor: errors[row.tickerId] ? '#ef4444' : '#2d3748' }}
+                      value={drafts[row.tickerId] ?? ''}
+                      placeholder={row.globalCapPercent != null ? `e.g. ${row.globalCapPercent}` : 'e.g. 5'}
+                      onChange={e => setDrafts(d => ({ ...d, [row.tickerId]: e.target.value }))}
+                      onKeyDown={e => e.key === 'Enter' && saveCap(row.tickerId)}
+                    />
+                    <span style={{ fontSize: 10, color: '#475569' }}>%</span>
+                    {errors[row.tickerId] && (
+                      <span style={{ fontSize: 10, color: '#ef4444' }}>{errors[row.tickerId]}</span>
+                    )}
+                  </div>
+                </td>
+                <td style={{ padding: '6px 8px', textAlign: 'right' }}>
+                  <button
+                    onClick={() => saveCap(row.tickerId)}
+                    disabled={saving[row.tickerId]}
+                    style={{
+                      background: 'transparent', border: '1px solid #2d3748',
+                      color: '#94a3b8', fontSize: 11, padding: '3px 10px',
+                      borderRadius: 4, cursor: 'pointer',
+                    }}
+                  >
+                    {saving[row.tickerId] ? '…' : 'Save'}
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  ));
+
+  if (!showWrapper) return <>{bucketTables}</>;
+
   return (
     <div style={{ marginTop: 28, paddingTop: 20, borderTop: '1px solid #1e2330' }}>
       <SectionHeader
         title="Position Caps"
         subtitle="Per-owner target allocation. ETF / commodity / crypto caps apply whether or not the owner currently holds the asset."
       />
-      {BUCKET_ORDER.filter(b => groups[b]).map(bucket => (
-        <div key={bucket} style={{ marginBottom: 20 }}>
-          <div style={{
-            fontSize: 10, fontWeight: 700, color: '#64748b',
-            letterSpacing: '0.08em', textTransform: 'uppercase',
-            marginBottom: 6,
-          }}>
-            {BUCKET_LABELS[bucket] ?? bucket}
-          </div>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
-            <thead>
-              <tr style={{ borderBottom: '1px solid #1e2330' }}>
-                {['Symbol', 'Current', 'Global cap', 'Owner cap', ''].map(h => (
-                  <th key={h} style={{ padding: '4px 8px', color: '#475569', fontWeight: 600, textAlign: h === '' ? 'right' : 'left', fontSize: 10 }}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {groups[bucket].map(row => {
-                const notHeld = !row.isHeld;
-                return (
-                  <tr key={row.tickerId} style={{ borderBottom: '1px solid #0f1319', opacity: notHeld ? 0.6 : 1 }}>
-                    <td style={{ padding: '6px 8px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <span style={{ fontWeight: 700, color: notHeld ? '#64748b' : '#f1f5f9' }}>{row.symbol}</span>
-                        {notHeld && (
-                          <span style={{
-                            fontSize: 9, fontWeight: 600, padding: '1px 5px',
-                            borderRadius: 3, background: '#1e2330',
-                            color: '#475569', letterSpacing: '0.05em',
-                            textTransform: 'uppercase',
-                          }}>not held</span>
-                        )}
-                      </div>
-                    </td>
-                    <td style={{ padding: '6px 8px', color: '#64748b' }}>
-                      {notHeld ? '—' : `${row.currentPct.toFixed(1)}%`}
-                    </td>
-                    <td style={{ padding: '6px 8px', color: '#475569' }}>{row.globalCapPercent != null ? `${row.globalCapPercent}%` : '—'}</td>
-                    <td style={{ padding: '6px 8px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <input
-                          type="number" min="0" max="100" step="1"
-                          style={{ ...inp, borderColor: errors[row.tickerId] ? '#ef4444' : '#2d3748' }}
-                          value={drafts[row.tickerId] ?? ''}
-                          placeholder={row.globalCapPercent != null ? `e.g. ${row.globalCapPercent}` : 'e.g. 5'}
-                          onChange={e => setDrafts(d => ({ ...d, [row.tickerId]: e.target.value }))}
-                          onKeyDown={e => e.key === 'Enter' && saveCap(row.tickerId)}
-                        />
-                        <span style={{ fontSize: 10, color: '#475569' }}>%</span>
-                        {errors[row.tickerId] && (
-                          <span style={{ fontSize: 10, color: '#ef4444' }}>{errors[row.tickerId]}</span>
-                        )}
-                      </div>
-                    </td>
-                    <td style={{ padding: '6px 8px', textAlign: 'right' }}>
-                      <button
-                        onClick={() => saveCap(row.tickerId)}
-                        disabled={saving[row.tickerId]}
-                        style={{
-                          background: 'transparent', border: '1px solid #2d3748',
-                          color: '#94a3b8', fontSize: 11, padding: '3px 10px',
-                          borderRadius: 4, cursor: 'pointer',
-                        }}
-                      >
-                        {saving[row.tickerId] ? '…' : 'Save'}
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      ))}
+      {bucketTables}
     </div>
   );
 }

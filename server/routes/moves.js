@@ -1102,18 +1102,57 @@ router.post('/:owner/refresh', requireAuth(), async (req, res) => {
   }
 });
 
+// ─── GET /api/moves/:owner/account-configs ────────────────────────────────────
+// Returns all accounts for this owner with their AccountPositionConfig (if any).
+// Used by the Admin tab per-account config UI.
+
+router.get('/:owner/account-configs', requireAuth(), async (req, res) => {
+  const owner = decodeURIComponent(req.params.owner);
+  if (!enforceOwner(req, res, owner)) return;
+
+  try {
+    const accounts = await prisma.account.findMany({
+      where:   { owner },
+      include: { positionConfig: true },
+      orderBy: { name: 'asc' },
+    });
+    res.json(accounts.map(a => ({
+      id:          a.id,
+      name:        a.name,
+      type:        a.type,
+      managed:     a.managed,
+      cashBalance: a.cashBalance ?? 0,
+      config: a.positionConfig ? {
+        minPositions: a.positionConfig.minPositions,
+        maxPositions: a.positionConfig.maxPositions,
+      } : null,
+    })));
+  } catch (err) {
+    console.error(`GET /moves/${owner}/account-configs error:`, err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // ─── PATCH /api/moves/:owner/account-config ───────────────────────────────────
-// Accept action for position-count warning cards. Upserts AccountPositionConfig
-// with the suggested target, then invalidates the moves cache for this owner.
+// Accept action for position-count warning cards, and Admin tab manual edits.
+// Upserts AccountPositionConfig with min/max positions, invalidates moves cache.
 
 router.patch('/:owner/account-config', requireAuth(), async (req, res) => {
   const owner = decodeURIComponent(req.params.owner);
   if (!enforceOwner(req, res, owner)) return;
 
-  const { accountId, suggestedTarget } = req.body;
-  if (!accountId || !suggestedTarget) {
-    return res.status(400).json({ error: 'accountId and suggestedTarget are required' });
+  const { accountId, suggestedTarget, maxPositions } = req.body;
+  if (!accountId) {
+    return res.status(400).json({ error: 'accountId is required' });
   }
+
+  const minPos = suggestedTarget != null ? parseInt(suggestedTarget) : undefined;
+  const maxPos = maxPositions    != null ? parseInt(maxPositions)    : undefined;
+
+  // Build update/create data — only set fields that were provided
+  const updateData = {};
+  if (minPos != null && !isNaN(minPos)) updateData.minPositions = minPos;
+  if (maxPos != null && !isNaN(maxPos)) updateData.maxPositions = maxPos;
 
   try {
     // Verify the account belongs to this owner
@@ -1122,16 +1161,41 @@ router.patch('/:owner/account-config', requireAuth(), async (req, res) => {
 
     await prisma.accountPositionConfig.upsert({
       where:  { accountId },
-      update: { minPositions: suggestedTarget },
-      create: { accountId, minPositions: suggestedTarget },
+      update: updateData,
+      create: { accountId, ...updateData },
     });
+
+    // Re-fetch the config to return current values
+    const config = await prisma.accountPositionConfig.findUnique({ where: { accountId } });
 
     // Invalidate cache so the warning disappears on next load
     await prisma.movesCache.deleteMany({ where: { owner } });
 
-    res.json({ ok: true, accountId, minPositions: suggestedTarget });
+    res.json({ ok: true, accountId, minPositions: config.minPositions, maxPositions: config.maxPositions });
   } catch (err) {
     console.error(`PATCH /moves/${owner}/account-config error:`, err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ─── DELETE /api/moves/:owner/account-config/:accountId ───────────────────────
+// Resets per-account position config. Warning will reappear on next load.
+
+router.delete('/:owner/account-config/:accountId', requireAuth(), async (req, res) => {
+  const owner     = decodeURIComponent(req.params.owner);
+  const accountId = parseInt(req.params.accountId);
+  if (!enforceOwner(req, res, owner)) return;
+
+  try {
+    const account = await prisma.account.findFirst({ where: { id: accountId, owner } });
+    if (!account) return res.status(404).json({ error: 'Account not found' });
+
+    await prisma.accountPositionConfig.deleteMany({ where: { accountId } });
+    await prisma.movesCache.deleteMany({ where: { owner } });
+
+    res.json({ ok: true });
+  } catch (err) {
+    console.error(`DELETE /moves/${owner}/account-config/${accountId} error:`, err);
     res.status(500).json({ error: err.message });
   }
 });
