@@ -308,6 +308,110 @@ function MoveCard({ move, idx }) {
   );
 }
 
+// ─── Account buckets ──────────────────────────────────────────────────────────
+
+const ACCT_TYPE_LABEL = {
+  roth:      'ROTH IRA',
+  ira:       'IRA',
+  taxable:   'Taxable',
+  custodial: 'Custodial',
+};
+
+function BucketBadge({ label, count, color }) {
+  if (!count) return null;
+  return (
+    <span style={{
+      fontSize: 11, fontWeight: 700,
+      padding: '3px 8px', borderRadius: 4,
+      background: color + '18',
+      border: `1px solid ${color}33`,
+      color,
+    }}>
+      {label} {count}
+    </span>
+  );
+}
+
+function AccountBuckets({ accountSummaries, moves, selected, onSelect }) {
+  if (!accountSummaries || accountSummaries.length === 0) return null;
+
+  // Group accounts by type (sum cash + mktValue across same-type accounts)
+  const byType = {};
+  for (const acct of accountSummaries) {
+    if (!byType[acct.type]) byType[acct.type] = { cashBalance: 0, marketValue: 0 };
+    byType[acct.type].cashBalance += acct.cashBalance;
+    byType[acct.type].marketValue += acct.marketValue;
+  }
+
+  // Count moves per account type from routing
+  const countsByType = {};
+  for (const move of moves) {
+    const types = new Set((move.accounts || []).map(a => a.accountType));
+    for (const type of types) {
+      if (!countsByType[type]) countsByType[type] = { exit: 0, trim: 0, add: 0 };
+      if (move.moveType === 'EXIT')              countsByType[type].exit++;
+      else if (move.moveType.startsWith('TRIM')) countsByType[type].trim++;
+      else if (move.moveType === 'ADD')          countsByType[type].add++;
+    }
+  }
+
+  const types = Object.keys(byType);
+
+  return (
+    <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 24 }}>
+      {types.map(type => {
+        const info   = byType[type];
+        const counts = countsByType[type] ?? { exit: 0, trim: 0, add: 0 };
+        const isSel  = selected === type;
+        const hasAction = counts.exit + counts.trim + counts.add > 0;
+
+        return (
+          <div
+            key={type}
+            onClick={() => onSelect(isSel ? null : type)}
+            style={{
+              flex: '1 1 170px',
+              background: C.card,
+              border: `1px solid ${isSel ? C.blue : C.border}`,
+              borderRadius: 10,
+              padding: '14px 16px',
+              cursor: 'pointer',
+              transition: 'border-color 0.15s',
+            }}
+          >
+            <div style={{
+              fontSize: 11, fontWeight: 800, letterSpacing: '0.08em',
+              color: isSel ? C.blue : C.muted, marginBottom: 10,
+            }}>
+              {ACCT_TYPE_LABEL[type] ?? type.toUpperCase()}
+            </div>
+
+            <div style={{ display: 'flex', gap: 20, marginBottom: 10 }}>
+              <div>
+                <div style={{ fontSize: 9, color: C.faint, fontWeight: 700, letterSpacing: '0.06em', marginBottom: 2 }}>POSITIONS</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: C.text }}>{money(info.marketValue)}</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 9, color: C.faint, fontWeight: 700, letterSpacing: '0.06em', marginBottom: 2 }}>CASH</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: C.text }}>{money(info.cashBalance)}</div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+              <BucketBadge label="Exit" count={counts.exit} color={C.red}   />
+              <BucketBadge label="Trim" count={counts.trim} color={C.amber} />
+              <BucketBadge label="Add"  count={counts.add}  color={C.green} />
+              {!hasAction && (
+                <span style={{ fontSize: 11, color: C.faint }}>No action needed</span>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 // ─── Capital flow (funded now / queue split) ──────────────────────────────────
 
 function UseRow({ use, color }) {
@@ -588,7 +692,11 @@ function PortfolioSummaryBar({ data }) {
       <div>
         <div style={{ fontSize: 10, color: C.dim, fontWeight: 700, letterSpacing: '0.07em', marginBottom: 3 }}>CASH</div>
         <div style={{ fontSize: 16, fontWeight: 700, color: C.text }}>{money(data.totalCash)}</div>
-        <div style={{ fontSize: 10, color: C.dim }}>{money(data.freeCash)} free · {money(data.cashReserveFloor)} reserved</div>
+        <div style={{ fontSize: 10, marginTop: 2 }}>
+          <span style={{ color: C.amber }}>{money(data.cashReserveFloor)} floor</span>
+          <span style={{ color: C.faint }}> · </span>
+          <span style={{ color: data.freeCash > 0 ? C.green : C.dim }}>{money(data.freeCash)} available</span>
+        </div>
       </div>
 
       <div style={{ width: 1, height: 36, background: C.border }} />
@@ -658,12 +766,13 @@ function OwnerSelector({ owners, selected, onSelect }) {
 export default function PortfolioManager() {
   const { getToken } = useAuth();
 
-  const [owners,     setOwners]     = useState([]);
-  const [selected,   setSelected]   = useState(null);
-  const [data,       setData]       = useState(null);
-  const [loading,    setLoading]    = useState(false);  // initial/owner-switch load
-  const [refreshing, setRefreshing] = useState(false);  // background force-refresh
-  const [err,        setErr]        = useState('');
+  const [owners,        setOwners]        = useState([]);
+  const [selected,      setSelected]      = useState(null);
+  const [data,          setData]          = useState(null);
+  const [loading,       setLoading]       = useState(false);
+  const [refreshing,    setRefreshing]    = useState(false);
+  const [err,           setErr]           = useState('');
+  const [selectedBucket, setSelectedBucket] = useState(null);
 
   // Load owner list once
   useEffect(() => {
@@ -727,6 +836,11 @@ export default function PortfolioManager() {
 
   const actionMoves = data?.moves ?? [];
 
+  // Filter moves to selected bucket; null = show all
+  const displayMoves = selectedBucket
+    ? actionMoves.filter(m => m.accounts?.some(a => a.accountType === selectedBucket))
+    : actionMoves;
+
   return (
     <div style={{ maxWidth: 1000, margin: '32px auto', padding: '0 24px' }}>
 
@@ -766,20 +880,30 @@ export default function PortfolioManager() {
         <>
           <PortfolioSummaryBar data={data} />
 
-          {/* Actions */}
+          {/* Account buckets */}
+          <AccountBuckets
+            accountSummaries={data.accountSummaries}
+            moves={actionMoves}
+            selected={selectedBucket}
+            onSelect={setSelectedBucket}
+          />
+
+          {/* Actions — filtered by selected bucket when one is active */}
           <div style={{ marginBottom: 24 }}>
             <SectionHeader
-              title="Action Required"
-              count={actionMoves.length || undefined}
+              title={selectedBucket
+                ? `${ACCT_TYPE_LABEL[selectedBucket] ?? selectedBucket} — Action Required`
+                : 'Action Required'}
+              count={displayMoves.length || undefined}
               color={
-                actionMoves.some(m => m.moveType === 'EXIT')            ? C.red   :
-                actionMoves.some(m => m.moveType.startsWith('TRIM'))    ? C.amber :
-                actionMoves.length > 0                                  ? C.green :
+                displayMoves.some(m => m.moveType === 'EXIT')         ? C.red   :
+                displayMoves.some(m => m.moveType.startsWith('TRIM')) ? C.amber :
+                displayMoves.length > 0                               ? C.green :
                 C.dim
               }
             />
-            {actionMoves.length > 0
-              ? actionMoves.map((m, i) => (
+            {displayMoves.length > 0
+              ? displayMoves.map((m, i) => (
                   <MoveCard key={`${m.symbol}-${m.moveType}-${i}`} move={m} idx={i} />
                 ))
               : (
@@ -788,7 +912,7 @@ export default function PortfolioManager() {
                   background: C.card, border: `1px solid ${C.border}`, borderRadius: 10,
                   color: C.green, fontSize: 14, fontWeight: 600,
                 }}>
-                  ✓ No immediate action required
+                  ✓ No action required{selectedBucket ? ` in ${ACCT_TYPE_LABEL[selectedBucket] ?? selectedBucket}` : ''}
                 </div>
               )
             }

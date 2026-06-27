@@ -930,6 +930,25 @@ async function computeMovesPayload(owner) {
       message: `Portfolio (${money(totalPortfolioValue)}) has reached the enough number (${money(enoughNumber)}) — consider transitioning to passive allocation`,
     });
 
+    // ── Account summaries (for bucket UI) ────────────────────────────────────
+    const TYPE_ORDER = { roth: 0, ira: 1, taxable: 2, custodial: 3 };
+    const accountSummaries = accounts
+      .sort((a, b) => (TYPE_ORDER[a.type] ?? 9) - (TYPE_ORDER[b.type] ?? 9))
+      .map(acct => {
+        const posValue = acct.positions.reduce((sum, pos) => {
+          const shares = (pos.lots || []).reduce((s, l) => s + l.shares, 0);
+          return sum + shares * (pos.lastPrice ?? 0);
+        }, 0);
+        return {
+          id:          acct.id,
+          name:        acct.name,
+          type:        acct.type,
+          managed:     acct.managed,
+          cashBalance: +(acct.cashBalance ?? 0).toFixed(2),
+          marketValue: +posValue.toFixed(2),
+        };
+      });
+
     return {
       owner, displayName: profile.displayName ?? owner,
       totalPortfolioValue: +totalPortfolioValue.toFixed(2),
@@ -937,6 +956,7 @@ async function computeMovesPayload(owner) {
       totalCash:           +totalCash.toFixed(2),
       cashReserveFloor:    +cashReserveFloor.toFixed(2),
       freeCash:            +freeCash.toFixed(2),
+      accountSummaries,
       positionCount:       byTicker.size,
       maxPositions,
       barbellStatus: {
