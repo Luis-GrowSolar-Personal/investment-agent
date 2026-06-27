@@ -1230,6 +1230,13 @@ export default function PortfolioManager() {
         <>
           <PortfolioSummaryBar data={data} />
 
+          {/* Structural flags — shown immediately after portfolio summary */}
+          {data.warnings?.length > 0 && (
+            <div style={{ marginBottom: 24 }}>
+              <WarningsList warnings={data.warnings} onAcceptWarning={handleAcceptWarning} />
+            </div>
+          )}
+
           {/* Deployable capital running total */}
           <DeployableBar
             freeCash={data.freeCash}
@@ -1319,12 +1326,6 @@ export default function PortfolioManager() {
             </div>
           )}
 
-          {/* Warnings */}
-          {data.warnings?.length > 0 && (
-            <div style={{ marginBottom: 24 }}>
-              <WarningsList warnings={data.warnings} onAcceptWarning={handleAcceptWarning} />
-            </div>
-          )}
 
           <div style={{ textAlign: 'right', fontSize: 11, color: C.faint }}>
             Generated {new Date().toLocaleTimeString()}
