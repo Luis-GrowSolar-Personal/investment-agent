@@ -944,7 +944,8 @@ async function computeMovesPayload(owner) {
     for (const acct of accounts) {
       if (!acct.managed) continue;
       const acctConfig = acctConfigMap.get(acct.id);
-      if (acctConfig) continue; // user already accepted — suppress warning
+      // Suppress only when user has set a meaningful target (not a null-value placeholder row)
+      if (acctConfig?.minPositions != null) continue;
 
       // Count active positions with open lots in this account
       const currentCount = acct.positions.filter(p =>
@@ -1068,9 +1069,14 @@ router.get('/:owner', async (req, res) => {
     }
 
     // Cache miss — compute, store, return
-    const payload = await computeMovesPayload(owner);
-    await prisma.movesCache.create({ data: { owner, payload, computedAt: new Date() } });
-    res.json({ ...payload, fromCache: false, computedAt: new Date() });
+    const payload    = await computeMovesPayload(owner);
+    const computedAt = new Date();
+    await prisma.movesCache.upsert({
+      where:  { owner },
+      update: { payload, computedAt },
+      create: { owner, payload, computedAt },
+    });
+    res.json({ ...payload, fromCache: false, computedAt });
   } catch (err) {
     console.error(`GET /moves/${owner} error:`, err);
     res.status(500).json({ error: err.message });
@@ -1153,6 +1159,11 @@ router.patch('/:owner/account-config', requireAuth(), async (req, res) => {
   const updateData = {};
   if (minPos != null && !isNaN(minPos)) updateData.minPositions = minPos;
   if (maxPos != null && !isNaN(maxPos)) updateData.maxPositions = maxPos;
+
+  // Don't write an empty row — nothing to suppress if no values provided
+  if (Object.keys(updateData).length === 0) {
+    return res.status(400).json({ error: 'At least one of minPositions or maxPositions is required' });
+  }
 
   try {
     // Verify the account belongs to this owner
