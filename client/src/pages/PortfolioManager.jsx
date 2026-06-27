@@ -343,15 +343,18 @@ function AccountBuckets({ accountSummaries, moves, selected, onSelect }) {
     byType[acct.type].marketValue += acct.marketValue;
   }
 
-  // Count moves per account type from routing
+  // Count actionable moves per account type.
+  // ADD only counted if the account type has at least one routing row with cash.
   const countsByType = {};
   for (const move of moves) {
-    const types = new Set((move.accounts || []).map(a => a.accountType));
-    for (const type of types) {
+    const accountTypes = new Set((move.accounts || []).map(a => a.accountType));
+    for (const type of accountTypes) {
       if (!countsByType[type]) countsByType[type] = { exit: 0, trim: 0, add: 0 };
+      const rows = (move.accounts || []).filter(a => a.accountType === type);
       if (move.moveType === 'EXIT')              countsByType[type].exit++;
       else if (move.moveType.startsWith('TRIM')) countsByType[type].trim++;
-      else if (move.moveType === 'ADD')          countsByType[type].add++;
+      else if (move.moveType === 'ADD' && rows.some(a => !a.insufficientCash))
+                                                 countsByType[type].add++;
     }
   }
 
@@ -836,9 +839,19 @@ export default function PortfolioManager() {
 
   const actionMoves = data?.moves ?? [];
 
+  // Returns true if a move is actionable in a given account type.
+  // ADD moves require at least one routing row with actual cash (insufficientCash !== true).
+  // TRIM/EXIT moves just need to touch that account type.
+  function moveAppliesToBucket(move, accountType) {
+    const rows = (move.accounts || []).filter(a => a.accountType === accountType);
+    if (rows.length === 0) return false;
+    if (move.moveType === 'ADD') return rows.some(a => !a.insufficientCash);
+    return true;
+  }
+
   // Filter moves to selected bucket; null = show all
   const displayMoves = selectedBucket
-    ? actionMoves.filter(m => m.accounts?.some(a => a.accountType === selectedBucket))
+    ? actionMoves.filter(m => moveAppliesToBucket(m, selectedBucket))
     : actionMoves;
 
   return (
@@ -936,15 +949,6 @@ export default function PortfolioManager() {
                   </div>
                 ))}
               </div>
-            </div>
-          )}
-
-          {/* Capital flow */}
-          {(data.capitalFlow?.sources?.length > 0 ||
-            data.capitalFlow?.fundedNow?.length > 0 ||
-            data.capitalFlow?.queue?.length > 0) && (
-            <div style={{ marginBottom: 24 }}>
-              <CapitalFlow flow={data.capitalFlow} />
             </div>
           )}
 
