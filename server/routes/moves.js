@@ -828,6 +828,25 @@ async function computeMovesPayload(owner) {
       return b.dollarAmount - a.dollarAmount;
     });
 
+    // ── Attach prior owner decisions (latest declined/deferred per symbol+moveType) ─
+    // Lets the frontend surface the prior reasoning inline without suppressing the move.
+    const priorDecisionRows = await prisma.ownerDecision.findMany({
+      where:   { owner, decision: { in: ['declined', 'deferred'] } },
+      include: { ticker: { select: { symbol: true } } },
+      orderBy: { decidedAt: 'desc' },
+    });
+    const priorMap = new Map();
+    for (const d of priorDecisionRows) {
+      const key = `${d.ticker.symbol}:${d.moveType}`;
+      if (!priorMap.has(key)) {
+        priorMap.set(key, { decision: d.decision, reason: d.declinedReason ?? null, decidedAt: d.decidedAt });
+      }
+    }
+    for (const m of allMoves) {
+      const prior = priorMap.get(`${m.symbol}:${m.moveType}`);
+      if (prior) m.priorDecision = prior;
+    }
+
     const actionMoves = allMoves.filter(m => !['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
     const holdMoves   = allMoves.filter(m =>  ['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
 

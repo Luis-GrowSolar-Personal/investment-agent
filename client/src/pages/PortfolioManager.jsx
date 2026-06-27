@@ -321,6 +321,23 @@ function MoveCard({ move, idx, decision, onAccept, onDecline }) {
         )}
       </div>
 
+      {/* Prior decline/defer reason */}
+      {move.priorDecision && !isDecided && (
+        <div style={{ padding: '0 16px 8px 68px', display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span style={{ fontSize: 10, color: C.amber, fontWeight: 700, flexShrink: 0 }}>
+            {move.priorDecision.decision === 'deferred' ? 'DEFERRED' : 'PREVIOUSLY DECLINED'}
+          </span>
+          {move.priorDecision.reason && (
+            <span style={{ fontSize: 11, color: C.faint, fontStyle: 'italic' }}>
+              "{move.priorDecision.reason}"
+            </span>
+          )}
+          <span style={{ fontSize: 10, color: C.dim, flexShrink: 0 }}>
+            · {timeAgo(move.priorDecision.decidedAt)}
+          </span>
+        </div>
+      )}
+
       {/* Expanded routing detail */}
       {expanded && hasAccts && (
         <div style={{ padding: '0 16px 14px 16px' }}>
