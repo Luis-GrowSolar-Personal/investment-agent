@@ -10,7 +10,7 @@ import Admin from './pages/Admin.jsx';
 
 // Sub-paths that belong to Investment Ideas — InvestmentIdeas stays mounted
 // across all three so Radar/Evaluator/AdvisoryFeed state survives tab switches.
-const IDEAS_PATHS = ['/ideas', '/analyst', '/commentary'];
+const IDEAS_PATHS = ['/ideas', '/analyst', '/commentary', '/track-record'];
 
 // Shown when a Clerk session exists but no OwnerProfile is linked to it.
 function AccessRevoked() {

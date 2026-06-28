@@ -1101,6 +1101,7 @@ export default function PortfolioManager() {
             ratchetTranche:  move.ratchetTranche,
             currentPct:      move.currentPct,
             dollarAmount:    move.dollarAmount,
+            pricePerShare:   move.pricePerShare ?? null,
           },
         }),
       });
@@ -1128,6 +1129,7 @@ export default function PortfolioManager() {
             ratchetTranche:  move.ratchetTranche,
             currentPct:      move.currentPct,
             dollarAmount:    move.dollarAmount,
+            pricePerShare:   move.pricePerShare ?? null,
           },
         }),
       });

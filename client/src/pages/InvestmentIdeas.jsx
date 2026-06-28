@@ -16,11 +16,13 @@ import { useLocation } from 'react-router-dom';
 import Radar from './Radar.jsx';
 import Evaluator from './Evaluator.jsx';
 import AdvisoryFeed from './AdvisoryFeed.jsx';
+import DecisionAnalytics from './DecisionAnalytics.jsx';
 
 const TABS = [
-  { id: 'ideas',      label: 'Ideas',       href: '/ideas' },
-  { id: 'analyst',    label: 'Analyst',     href: '/analyst' },
-  { id: 'commentary', label: 'Commentary',  href: '/commentary' },
+  { id: 'ideas',        label: 'Ideas',         href: '/ideas' },
+  { id: 'analyst',      label: 'Analyst',       href: '/analyst' },
+  { id: 'commentary',   label: 'Commentary',    href: '/commentary' },
+  { id: 'track-record', label: 'Track Record',  href: '/track-record' },
 ];
 
 function tabStyle(isActive) {
@@ -44,8 +46,9 @@ export default function InvestmentIdeas() {
   const { pathname } = useLocation();
 
   // Derive active sub-tab from URL
-  const active = pathname === '/analyst'    ? 'analyst'
-               : pathname === '/commentary' ? 'commentary'
+  const active = pathname === '/analyst'      ? 'analyst'
+               : pathname === '/commentary'   ? 'commentary'
+               : pathname === '/track-record' ? 'track-record'
                : 'ideas';
 
   return (
@@ -66,9 +69,10 @@ export default function InvestmentIdeas() {
       </div>
 
       {/* Sub-pages — all mounted, toggled with display */}
-      <div style={{ display: active === 'ideas'      ? 'block' : 'none' }}><Radar /></div>
-      <div style={{ display: active === 'analyst'    ? 'block' : 'none' }}><Evaluator /></div>
-      <div style={{ display: active === 'commentary' ? 'block' : 'none' }}><AdvisoryFeed /></div>
+      <div style={{ display: active === 'ideas'        ? 'block' : 'none' }}><Radar /></div>
+      <div style={{ display: active === 'analyst'      ? 'block' : 'none' }}><Evaluator /></div>
+      <div style={{ display: active === 'commentary'   ? 'block' : 'none' }}><AdvisoryFeed /></div>
+      <div style={{ display: active === 'track-record' ? 'block' : 'none' }}><DecisionAnalytics /></div>
     </div>
   );
 }

@@ -254,6 +254,7 @@ function makeTrimMove(moveType, priority, ticker, positions, currentPct, targetP
     currentMktValue: +mktValue.toFixed(2),
     dollarAmount:    +trimValue.toFixed(2),
     sharesApprox:    +sharesToSell.toFixed(3),
+    pricePerShare:   +price.toFixed(4),
     taxCost:         +taxTotal.toFixed(2),
     netProceeds:     +(trimValue - taxTotal).toFixed(2),
     accounts:        routing,
@@ -384,6 +385,7 @@ function makeAddMove(priority, ticker, positions, currentPct, targetPct,
     currentMktValue: +mktValue.toFixed(2),
     dollarAmount:    +addValue.toFixed(2),
     sharesApprox:    +sharesApprox.toFixed(3),
+    pricePerShare:   +price.toFixed(4),
     taxCost:         0,
     netProceeds:     0,
     accounts,
@@ -424,7 +426,7 @@ function generateMovesForTicker(
 
   // ── 1. EXIT ─────────────────────────────────────────────────────────────────
   if (finalAction === 'Exit' || ratchetTranche >= 3 || thesisHealth === 'Broken') {
-    const { shares }   = positionMetrics(positions, totalPortfolioValue);
+    const { shares, price: exitPrice } = positionMetrics(positions, totalPortfolioValue);
     const routing      = buildTrimRouting(positions, shares, ownerTaxRates.ltcg, ownerTaxRates.stcg);
     const taxTotal     = routing.reduce((s, r) => s + r.taxCost, 0);
     moves.push({
@@ -444,6 +446,7 @@ function generateMovesForTicker(
       currentMktValue: +mktValue.toFixed(2),
       dollarAmount:    +mktValue.toFixed(2),
       sharesApprox:    +shares.toFixed(3),
+      pricePerShare:   +exitPrice.toFixed(4),
       taxCost:         +taxTotal.toFixed(2),
       netProceeds:     +(mktValue - taxTotal).toFixed(2),
       accounts:        routing,
