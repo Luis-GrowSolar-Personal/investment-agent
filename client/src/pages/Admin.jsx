@@ -1362,6 +1362,133 @@ function PositionCapsSection({ owner, getToken, showWrapper = true }) {
 }
 
 // ---------------------------------------------------------------------------
+// Broker Connections — reconnect OAuth-linked brokerage/exchange accounts.
+// Token storage is a single shared row per broker (not per-owner), so this
+// lives at page level rather than inside an owner card.
+// ---------------------------------------------------------------------------
+const BROKERS = [
+  {
+    id:          'schwab',
+    label:       'Charles Schwab',
+    statusPath:  '/api/schwab/status',
+    connectPath: '/api/schwab/connect',
+    enabled:     true,
+  },
+  {
+    id:          'kraken',
+    label:       'Kraken',
+    statusPath:  null,
+    connectPath: null,
+    enabled:     false,
+  },
+];
+
+function fmtDate(d) {
+  if (!d) return '—';
+  return new Date(d).toLocaleString('en-US', {
+    month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit',
+  });
+}
+
+function BrokerConnections() {
+  const { getToken } = useAuth();
+  const [brokerId, setBrokerId] = useState('schwab');
+  const [status, setStatus]     = useState(null); // null = loading/unknown
+  const [loading, setLoading]   = useState(false);
+  const [err, setErr]           = useState('');
+
+  const broker = BROKERS.find(b => b.id === brokerId);
+
+  const loadStatus = useCallback(async () => {
+    if (!broker?.statusPath) { setStatus(null); return; }
+    setLoading(true); setErr('');
+    try {
+      const token = await getToken();
+      const r = await fetch(broker.statusPath, { headers: { Authorization: `Bearer ${token}` } });
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error || 'Status check failed');
+      setStatus(d);
+    } catch (e) {
+      setErr(e.message);
+      setStatus(null);
+    } finally {
+      setLoading(false);
+    }
+  }, [broker, getToken]);
+
+  useEffect(() => { loadStatus(); }, [loadStatus]);
+
+  const reconnect = () => {
+    if (!broker?.connectPath) return;
+    // Full page navigation, not fetch — this kicks off a redirect chain
+    // through Schwab's own login page, which can't happen via XHR/fetch.
+    window.location.href = broker.connectPath;
+  };
+
+  const tokenExpired = status?.connected && status?.accessTokenExpired;
+
+  return (
+    <div style={{ border: '1px solid #1e2330', borderRadius: 10, marginBottom: 24, padding: '18px 20px', background: '#0f1117' }}>
+      <SectionHeader
+        title="Broker Connections"
+        subtitle="OAuth link to your brokerage/exchange accounts. Kept alive automatically — reconnect here only if the connection lapses."
+      />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
+        <select
+          value={brokerId}
+          onChange={e => setBrokerId(e.target.value)}
+          style={{
+            background: '#0d1018', border: '1px solid #2d3748', borderRadius: 6,
+            color: '#f1f5f9', fontSize: 13, padding: '7px 10px', outline: 'none', width: 220,
+          }}
+        >
+          {BROKERS.map(b => (
+            <option key={b.id} value={b.id}>
+              {b.label}{!b.enabled ? ' (coming soon)' : ''}
+            </option>
+          ))}
+        </select>
+
+        <button
+          onClick={reconnect}
+          disabled={!broker.enabled}
+          style={{
+            ...saveBtn,
+            opacity: broker.enabled ? 1 : 0.4,
+            cursor: broker.enabled ? 'pointer' : 'not-allowed',
+          }}
+          title={broker.enabled ? undefined : 'Not yet supported'}
+        >
+          Reconnect
+        </button>
+
+        {/* Status pill */}
+        {broker.enabled && (
+          loading ? (
+            <span style={{ fontSize: 12, color: '#475569' }}>Checking…</span>
+          ) : err ? (
+            <span style={{ fontSize: 12, color: '#f87171' }}>{err}</span>
+          ) : status?.connected ? (
+            <span style={{ fontSize: 12, color: tokenExpired ? '#f59e0b' : '#4ade80' }}>
+              ● Connected
+              {tokenExpired && ' — access token expired, will auto-refresh on next use'}
+              <span style={{ color: '#475569', marginLeft: 8 }}>
+                last refreshed {fmtDate(status.updatedAt)}
+              </span>
+            </span>
+          ) : (
+            <span style={{ fontSize: 12, color: '#64748b' }}>○ Not connected</span>
+          )
+        )}
+        {!broker.enabled && (
+          <span style={{ fontSize: 12, color: '#475569' }}>Not yet supported</span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Main page
 // ---------------------------------------------------------------------------
 export default function Admin() {
@@ -1446,6 +1573,8 @@ export default function Admin() {
           {deleteErr}
         </div>
       )}
+
+      <BrokerConnections />
 
       {loading ? (
         <div style={{ color: '#475569', fontSize: 13 }}>Loading…</div>
