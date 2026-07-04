@@ -124,6 +124,9 @@ async function refreshAccessToken(prisma) {
 
   if (!res.ok) {
     const text = await res.text();
+    if (text.includes('invalid_grant') || text.includes('Refresh token is invalid')) {
+      throw new Error('SCHWAB_TOKEN_EXPIRED');
+    }
     throw new Error(`Schwab token refresh failed (${res.status}): ${text}`);
   }
 
@@ -174,6 +177,39 @@ async function getValidAccessToken(prisma) {
 
   const refreshed = await refreshAccessToken(prisma);
   return refreshed.access_token;
+}
+
+// Well inside the ~7-day refresh_token lifetime. Without a proactive refresh,
+// the token only rotates lazily when a user-triggered Schwab call happens —
+// if nobody opens the app for a week, the refresh_token goes unused long
+// enough to expire, and the only fix at that point is a full re-authorization
+// via /api/schwab/connect. This interval keeps it alive indefinitely so the
+// app can go dark for arbitrarily long stretches without breaking sync.
+const KEEP_ALIVE_INTERVAL_MS = 24 * 60 * 60 * 1000; // 24h
+
+/**
+ * Proactively refreshes the Schwab token on a fixed interval, independent of
+ * any user request. Safe to call even if Schwab has never been connected —
+ * it just skips silently until a connection exists.
+ *
+ * Call once at server boot (see server/index.js). Runs for the lifetime of
+ * the process — Railway's persistent Node service makes this reliable; a
+ * serverless/cold-start deployment would need a real cron trigger instead.
+ */
+function startTokenKeepAlive(prisma) {
+  const tick = async () => {
+    try {
+      const row = await prisma.schwabToken.findUnique({ where: { id: TOKEN_ROW_ID } });
+      if (!row) return; // not connected yet — nothing to keep alive
+      await refreshAccessToken(prisma);
+      console.log('[schwabAuth] keep-alive refresh succeeded');
+    } catch (err) {
+      console.error('[schwabAuth] keep-alive refresh failed:', err.message);
+    }
+  };
+
+  tick(); // run once shortly after boot, then on the fixed interval
+  setInterval(tick, KEEP_ALIVE_INTERVAL_MS);
 }
 
 /**
@@ -287,6 +323,7 @@ module.exports = {
   exchangeCodeForTokens,
   refreshAccessToken,
   getValidAccessToken,
+  startTokenKeepAlive,
   getStatus,
   getTransactions,
   getQuotes,

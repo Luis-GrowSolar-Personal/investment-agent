@@ -16,6 +16,8 @@ const movesRouter             = require('./routes/moves');
 const ownerTickerConfigRouter = require('./routes/ownerTickerConfig');
 const schwabRouter             = require('./routes/schwab');
 const decisionsRouter          = require('./routes/decisions');
+const schwabAuth                = require('./lib/schwabAuth');
+const prisma                    = require('./lib/prisma');
 
 const app = express();
 // Railway sets PORT dynamically; default to 3001 for local dev.
@@ -60,3 +62,9 @@ if (isProd && fs.existsSync(clientDistPath)) {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT} (NODE_ENV=${process.env.NODE_ENV || 'development'})`);
 });
+
+// Keeps the Schwab refresh_token alive indefinitely by proactively rotating
+// it every 24h, regardless of whether anyone is using the app. Without this,
+// the refresh_token (~7 day lifetime) expires from disuse if nobody logs in
+// for a week, forcing a full manual re-authorization via /api/schwab/connect.
+schwabAuth.startTokenKeepAlive(prisma);
