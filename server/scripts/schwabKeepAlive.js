@@ -54,4 +54,14 @@ main()
     console.error('[schwabKeepAlive] unexpected error:', err);
     process.exitCode = 1;
   })
-  .finally(() => prisma.$disconnect());
+  .finally(async () => {
+    await prisma.$disconnect();
+    // prisma.$disconnect() does not always guarantee the process actually
+    // exits -- the query engine can leave a socket/child-process handle open
+    // that keeps Node's event loop alive. Observed in practice: the script's
+    // own log line prints in under a second, but the container (and Railway's
+    // cron run status) sat "running" for minutes afterward. Forcing an exit
+    // here makes completion unambiguous instead of hoping the event loop
+    // drains on its own.
+    process.exit(process.exitCode ?? 0);
+  });
