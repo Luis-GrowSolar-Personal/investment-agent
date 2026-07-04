@@ -1,7 +1,4 @@
 {
   "$schema": "https://schema.railpack.com",
-  "provider": "node",
-  "deploy": {
-    "startCommand": "node server/scripts/schwabKeepAlive.js"
-  }
+  "provider": "node"
 }
