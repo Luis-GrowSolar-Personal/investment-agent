@@ -468,11 +468,13 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
           </span>
         )}
       </div>
+      {/* Current/Target are always dollars — consistent units across every
+          row, whether or not a live price is available for share counts. */}
       <div style={{ ...cellBase, textAlign: 'right', color: C.muted }}>
-        {move.currentShares != null ? move.currentShares.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}
+        {money(move.currentMktValue)}
       </div>
       <div style={{ ...cellBase, textAlign: 'right', color: C.text, fontWeight: 600 }}>
-        {move.targetShares != null ? move.targetShares.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}
+        {money(move.targetValue)}
       </div>
       <div style={{ ...cellBase, textAlign: 'right', color: C.text, fontWeight: 600 }}>
         {money(move.dollarAmount)}

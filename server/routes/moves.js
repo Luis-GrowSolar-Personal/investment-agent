@@ -831,18 +831,29 @@ async function computeMovesPayload(owner) {
       return b.dollarAmount - a.dollarAmount;
     });
 
-    // ── Derive current/target share counts ──────────────────────────────────
+    // ── Derive current/target share counts AND dollar values ────────────────
     // All move builders already compute currentMktValue, pricePerShare, and
-    // sharesApprox (the size of the delta) — this generically derives the
-    // before/after share counts from those instead of duplicating the math
-    // per move type. ADD moves toward more shares, everything else (TRIM*,
-    // EXIT) moves toward fewer. HOLD_ADVISORY has sharesApprox 0, so target
-    // == current, correctly showing no change.
+    // sharesApprox (the size of the delta) — this generically derives both
+    // before/after share counts and before/after dollar values from those,
+    // instead of duplicating the math per move type. ADD moves toward more
+    // shares/value, everything else (TRIM*, EXIT) moves toward fewer/less.
+    // HOLD_ADVISORY has sharesApprox 0 and dollarAmount 0, so target ==
+    // current either way, correctly showing no change.
+    //
+    // targetValue (dollars) is the one guaranteed to exist for every row,
+    // including brand-new opens with no live price — currentShares/
+    // targetShares are null in that case (no price to derive a share count
+    // from). The Moves table renders targetValue as the primary column so
+    // units stay consistent across every row; share counts are kept in the
+    // payload for later use (e.g. once a live quote is fetched at
+    // ticket-generation time) but aren't the table's source of truth.
     for (const m of allMoves) {
-      const currentShares = m.pricePerShare > 0 ? m.currentMktValue / m.pricePerShare : 0;
-      const delta         = m.sharesApprox ?? 0;
-      m.currentShares = +currentShares.toFixed(3);
-      m.targetShares   = +(m.moveType === 'ADD' ? currentShares + delta : currentShares - delta).toFixed(3);
+      const hasPrice       = m.pricePerShare > 0;
+      const currentShares  = hasPrice ? m.currentMktValue / m.pricePerShare : 0;
+      const delta          = m.sharesApprox ?? 0;
+      m.currentShares = hasPrice ? +currentShares.toFixed(3) : null;
+      m.targetShares  = hasPrice ? +(m.moveType === 'ADD' ? currentShares + delta : currentShares - delta).toFixed(3) : null;
+      m.targetValue   = +(m.moveType === 'ADD' ? m.currentMktValue + m.dollarAmount : m.currentMktValue - m.dollarAmount).toFixed(2);
     }
 
     // ── Attach prior owner decisions (latest per symbol+moveType, any status) ─
@@ -995,9 +1006,10 @@ async function computeMovesPayload(owner) {
       hardCapPct:      c.hardCapPct,
       currentMktValue: 0,
       dollarAmount:    c.suggestedDollar,
+      targetValue:     c.suggestedDollar,
       sharesApprox:    0,
       pricePerShare:   0,
-      currentShares:   0,
+      currentShares:   null,
       targetShares:    null,
       taxCost:         0,
       netProceeds:     0,
