@@ -227,7 +227,29 @@ function AddRoutingDetail({ accounts }) {
 
 // ─── Move card ────────────────────────────────────────────────────────────────
 
-function MoveCard({ move, idx, decision, onAccept, onDecline }) {
+// Diff table for Action Required — one grid track shared by the header and
+// every row so columns line up. Each MoveRow returns a Fragment of direct
+// grid children (no wrapping <div>) so CSS Grid lays multi-line rows
+// (main line + optional full-width detail line) into the same column set.
+const MOVE_GRID_COLS = '18px minmax(150px,1.4fr) 100px 100px 100px 90px 34px 200px';
+
+function MoveTableHeader() {
+  const th = { fontSize: 10, fontWeight: 700, color: C.dim, textTransform: 'uppercase', letterSpacing: '0.06em', padding: '0 4px 8px 4px' };
+  return (
+    <div style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: MOVE_GRID_COLS, alignItems: 'end', borderBottom: `1px solid ${C.border}`, marginBottom: 4 }}>
+      <div />
+      <div style={th}>Ticker</div>
+      <div style={{ ...th, textAlign: 'right' }}>Current</div>
+      <div style={{ ...th, textAlign: 'right' }}>Target</div>
+      <div style={{ ...th, textAlign: 'right' }}>Amount</div>
+      <div style={{ ...th, textAlign: 'right' }}>Tax</div>
+      <div />
+      <div style={th}>Decision</div>
+    </div>
+  );
+}
+
+function MoveRow({ move, idx, decision, onAccept, onDecline }) {
   const [expanded,      setExpanded]      = useState(false);
   const [pendingAction, setPendingAction] = useState(null); // null | 'accept' | 'decline'
   const [inputAmount,   setInputAmount]   = useState('');
@@ -237,8 +259,10 @@ function MoveCard({ move, idx, decision, onAccept, onDecline }) {
   const meta      = MOVE_META[move.moveType] ?? MOVE_META.HOLD;
   const hasAccts  = move.accounts && move.accounts.length > 0;
   const isDecided = !!decision;
-
-  const borderColor = isDecided && decision.status === 'accepted' ? C.green : meta.color;
+  const isEditing = pendingAction !== null;
+  // Detail (signal badges / routing / decide-form) opens either because the
+  // row was clicked to expand, or because Accept/Decline/Change was clicked.
+  const showDetail = expanded || isEditing;
 
   async function confirmAccept() {
     setSubmitting(true);
@@ -256,150 +280,126 @@ function MoveCard({ move, idx, decision, onAccept, onDecline }) {
     setPendingAction(null);
   }
 
+  const rowBg = idx % 2 === 0 ? 'transparent' : C.card + '80';
+  const cellBase = { padding: '9px 4px', borderTop: `1px solid ${C.border}`, background: rowBg, fontSize: 12.5 };
+
   return (
-    <div style={{
-      border: `1px solid ${borderColor}33`,
-      borderLeft: `3px solid ${borderColor}`,
-      borderRadius: 8,
-      background: meta.color + '08',
-      marginBottom: 10,
-      overflow: 'hidden',
-      opacity: isDecided ? (decision.status === 'declined' ? 0.45 : 0.82) : 1,
-      transition: 'opacity 0.2s',
-    }}>
-      {/* Main row */}
+    <>
+      {/* Main line */}
       <div
-        style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px', cursor: hasAccts ? 'pointer' : 'default', flexWrap: 'wrap' }}
-        onClick={() => hasAccts && setExpanded(e => !e)}
+        style={{ ...cellBase, cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+        onClick={() => setExpanded(e => !e)}
       >
-        <span style={{ color: C.faint, fontSize: 11, flexShrink: 0, minWidth: 10 }}>
-          {hasAccts ? (expanded ? '▼' : '▶') : ' '}
-        </span>
-        <span style={{ fontSize: 11, color: C.faint, minWidth: 18, textAlign: 'right', flexShrink: 0 }}>{idx + 1}.</span>
-        <div style={{ flexShrink: 0 }}><Badge label={meta.label} color={meta.color} /></div>
-        <span style={{ fontWeight: 800, fontSize: 14, color: C.text, flexShrink: 0 }}>{move.symbol}</span>
+        <span style={{ color: C.faint, fontSize: 10 }}>{showDetail ? '▼' : '▶'}</span>
+      </div>
+      <div style={{ ...cellBase, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', cursor: 'pointer' }}
+           onClick={() => setExpanded(e => !e)}>
+        <Badge label={meta.label} color={meta.color} />
+        <span style={{ fontWeight: 800, color: C.text }}>{move.symbol}</span>
         <TierChip tier={move.tier} />
-        <span style={{ fontSize: 12, color: C.muted, flex: 1, minWidth: 120 }}>{move.reason}</span>
-        <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 'auto' }}>
-          <span style={{ fontWeight: 700, fontSize: 15, color: C.text }}>{money(move.dollarAmount)}</span>
-          {move.sharesApprox > 0 && (
-            <div style={{ fontSize: 10, color: C.dim }}>~{move.sharesApprox.toFixed(2)} sh</div>
-          )}
-        </div>
-        <div style={{ textAlign: 'right', minWidth: 80, flexShrink: 0 }}>
-          <TaxLabel n={move.taxCost} />
-        </div>
+      </div>
+      <div style={{ ...cellBase, textAlign: 'right', color: C.muted }}>
+        {move.currentShares != null ? move.currentShares.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}
+      </div>
+      <div style={{ ...cellBase, textAlign: 'right', color: C.text, fontWeight: 600 }}>
+        {move.targetShares != null ? move.targetShares.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}
+      </div>
+      <div style={{ ...cellBase, textAlign: 'right', color: C.text, fontWeight: 600 }}>
+        {money(move.dollarAmount)}
+      </div>
+      <div style={{ ...cellBase, textAlign: 'right' }}>
+        <TaxLabel n={move.taxCost} />
+      </div>
+      <div style={{ ...cellBase, textAlign: 'center' }}>
         {move.requires48h && (
-          <span style={{ fontSize: 10, color: '#fde68a', fontWeight: 700, background: '#71300015', border: '1px solid #ca8a0433', borderRadius: 4, padding: '1px 6px', flexShrink: 0 }}>
+          <span title="48-hour waiting period (position above 30%)" style={{ fontSize: 9, color: '#fde68a', fontWeight: 700, background: '#71300015', border: '1px solid #ca8a0433', borderRadius: 4, padding: '1px 4px' }}>
             48h
           </span>
         )}
       </div>
-
-      {/* Signal detail row */}
-      <div style={{ display: 'flex', gap: 8, padding: '0 16px 10px 68px', flexWrap: 'wrap', alignItems: 'center' }}>
-        {move.thesisHealth && move.thesisHealth !== '—' && (
-          <Badge label={move.thesisHealth} color={HEALTH_COLORS[move.thesisHealth] ?? C.muted} />
-        )}
-        {move.trajectory && (
-          <span style={{ fontSize: 11, fontWeight: 600, color: TRAJ_COLORS[move.trajectory] ?? C.dim }}>
-            {move.trajectory}
-          </span>
-        )}
-        {move.ratchetTranche > 0 && (
-          <span style={{ fontSize: 11, color: C.amber }}>ratchet {move.ratchetTranche}</span>
-        )}
-        {move.currentPct != null && (
-          <span style={{ fontSize: 11, color: C.dim }}>
-            {pct(move.currentPct)} current
-            {' / '}
-            {move.moveType === 'TRIM_MODEL' || move.moveType === 'ADD'
-              ? <>{pct(move.targetPct, 1)} model</>
-              : <>{pct(move.hardCapPct, 0)} cap</>
-            }
-          </span>
+      <div style={{ ...cellBase, display: 'flex', alignItems: 'center', gap: 6 }} onClick={e => e.stopPropagation()}>
+        {isDecided && !isEditing ? (
+          <>
+            {decision.status === 'accepted' ? (
+              <span style={{ color: C.green, fontWeight: 700, fontSize: 11 }}>✓ Accepted {money(decision.acceptedAmount)}</span>
+            ) : (
+              <span style={{ color: C.muted, fontWeight: 700, fontSize: 11 }}>✗ Declined</span>
+            )}
+            <button
+              onClick={() => {
+                setPendingAction(decision.status === 'accepted' ? 'accept' : 'decline');
+                setInputAmount((decision.acceptedAmount ?? move.dollarAmount).toFixed(0));
+                setInputReason(decision.declinedReason ?? '');
+                setExpanded(true);
+              }}
+              style={{ background: 'none', border: 'none', color: C.faint, fontSize: 10, textDecoration: 'underline', cursor: 'pointer', padding: 0 }}
+            >change</button>
+          </>
+        ) : !isEditing ? (
+          <>
+            <button
+              onClick={() => { setPendingAction('accept'); setInputAmount(move.dollarAmount.toFixed(0)); setExpanded(true); }}
+              style={{ padding: '3px 10px', borderRadius: 5, border: `1px solid ${C.green}55`, background: C.green + '15', color: C.green, fontSize: 11, fontWeight: 600, cursor: 'pointer' }}
+            >✓ Accept</button>
+            <button
+              onClick={() => { setPendingAction('decline'); setInputReason(''); setExpanded(true); }}
+              style={{ padding: '3px 10px', borderRadius: 5, border: `1px solid ${C.border2}`, background: 'transparent', color: C.muted, fontSize: 11, fontWeight: 600, cursor: 'pointer' }}
+            >✗ Decline</button>
+          </>
+        ) : (
+          <span style={{ fontSize: 11, color: C.dim }}>editing below…</span>
         )}
       </div>
 
-      {/* Prior decline/defer reason */}
-      {move.priorDecision && !isDecided && (
-        <div style={{ padding: '0 16px 8px 68px', display: 'flex', alignItems: 'center', gap: 6 }}>
-          <span style={{ fontSize: 10, color: C.amber, fontWeight: 700, flexShrink: 0 }}>
-            {move.priorDecision.decision === 'deferred' ? 'DEFERRED' : 'PREVIOUSLY DECLINED'}
-          </span>
-          {move.priorDecision.reason && (
-            <span style={{ fontSize: 11, color: C.faint, fontStyle: 'italic' }}>
-              "{move.priorDecision.reason}"
-            </span>
-          )}
-          <span style={{ fontSize: 10, color: C.dim, flexShrink: 0 }}>
-            · {timeAgo(move.priorDecision.decidedAt)}
-          </span>
-        </div>
-      )}
+      {/* Expanded detail — spans the full row width */}
+      {showDetail && (
+        <div style={{ gridColumn: '1 / -1', background: rowBg, borderTop: `1px dashed ${C.border}`, padding: '4px 4px 12px 34px' }}
+             onClick={e => e.stopPropagation()}>
 
-      {/* Expanded routing detail */}
-      {expanded && hasAccts && (
-        <div style={{ padding: '0 16px 14px 16px' }}>
-          {move.moveType === 'ADD'
-            ? <AddRoutingDetail accounts={move.accounts} />
-            : <TaxRoutingDetail accounts={move.accounts} />
-          }
-        </div>
-      )}
+          {/* Signal detail */}
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', marginBottom: 6 }}>
+            <span style={{ fontSize: 11, color: C.faint }}>{move.reason}</span>
+            {move.thesisHealth && move.thesisHealth !== '—' && (
+              <Badge label={move.thesisHealth} color={HEALTH_COLORS[move.thesisHealth] ?? C.muted} />
+            )}
+            {move.trajectory && (
+              <span style={{ fontSize: 11, fontWeight: 600, color: TRAJ_COLORS[move.trajectory] ?? C.dim }}>{move.trajectory}</span>
+            )}
+            {move.ratchetTranche > 0 && (
+              <span style={{ fontSize: 11, color: C.amber }}>ratchet {move.ratchetTranche}</span>
+            )}
+            {move.currentPct != null && (
+              <span style={{ fontSize: 11, color: C.dim }}>
+                {pct(move.currentPct)} current / {move.moveType === 'TRIM_MODEL' || move.moveType === 'ADD'
+                  ? <>{pct(move.targetPct, 1)} model</> : <>{pct(move.hardCapPct, 0)} cap</>}
+              </span>
+            )}
+          </div>
 
-      {/* Decision status or Accept/Decline panel */}
-      {isDecided ? (
-        <div style={{
-          padding: '7px 16px 9px 16px',
-          borderTop: `1px solid ${C.border}`,
-          display: 'flex', alignItems: 'center', gap: 10, fontSize: 11,
-        }}>
-          {decision.status === 'accepted' ? (
-            <>
-              <span style={{ color: C.green, fontWeight: 700 }}>✓ Accepted</span>
-              <span style={{ color: C.dim }}>{money(decision.acceptedAmount)}</span>
-            </>
-          ) : (
-            <>
-              <span style={{ color: C.muted, fontWeight: 700 }}>✗ Declined</span>
-              {decision.declinedReason && (
-                <span style={{ color: C.faint, fontStyle: 'italic' }}>{decision.declinedReason}</span>
+          {/* Prior decision note (only relevant if we're re-deciding and it differs from what's shown above) */}
+          {move.priorDecision && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+              <span style={{ fontSize: 10, color: C.amber, fontWeight: 700 }}>
+                LAST DECISION: {move.priorDecision.decision.toUpperCase()}
+              </span>
+              {move.priorDecision.reason && (
+                <span style={{ fontSize: 11, color: C.faint, fontStyle: 'italic' }}>"{move.priorDecision.reason}"</span>
               )}
-            </>
-          )}
-        </div>
-      ) : (
-        <div
-          style={{ borderTop: `1px solid ${C.border}`, padding: '0 16px 12px 16px' }}
-          onClick={e => e.stopPropagation()}
-        >
-          {pendingAction === null && (
-            <div style={{ display: 'flex', gap: 8, paddingTop: 9 }}>
-              <button
-                onClick={() => { setPendingAction('accept'); setInputAmount(move.dollarAmount.toFixed(0)); }}
-                style={{
-                  padding: '4px 14px', borderRadius: 5,
-                  border: `1px solid ${C.green}55`, background: C.green + '15',
-                  color: C.green, fontSize: 12, fontWeight: 600, cursor: 'pointer',
-                }}
-              >✓ Accept</button>
-              <button
-                onClick={() => { setPendingAction('decline'); setInputReason(''); }}
-                style={{
-                  padding: '4px 14px', borderRadius: 5,
-                  border: `1px solid ${C.border2}`, background: 'transparent',
-                  color: C.muted, fontSize: 12, fontWeight: 600, cursor: 'pointer',
-                }}
-              >✗ Decline</button>
+              <span style={{ fontSize: 10, color: C.dim }}>· {timeAgo(move.priorDecision.decidedAt)}</span>
             </div>
           )}
 
+          {/* Account routing */}
+          {hasAccts && (
+            move.moveType === 'ADD'
+              ? <AddRoutingDetail accounts={move.accounts} />
+              : <TaxRoutingDetail accounts={move.accounts} />
+          )}
+
+          {/* Decide / revise forms */}
           {pendingAction === 'accept' && (
             <div style={{ paddingTop: 10 }}>
-              <div style={{ fontSize: 11, color: C.dim, marginBottom: 6 }}>
-                Amount to execute (edit to partially accept):
-              </div>
+              <div style={{ fontSize: 11, color: C.dim, marginBottom: 6 }}>Amount to execute (edit to partially accept):</div>
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
                 <span style={{ fontSize: 13, color: C.muted }}>$</span>
                 <input
@@ -408,27 +408,13 @@ function MoveCard({ move, idx, decision, onAccept, onDecline }) {
                   onChange={e => setInputAmount(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && confirmAccept()}
                   autoFocus
-                  style={{
-                    background: C.border, border: `1px solid ${C.border2}`,
-                    borderRadius: 4, color: C.text, fontSize: 13,
-                    padding: '4px 8px', width: 100,
-                  }}
+                  style={{ background: C.border, border: `1px solid ${C.border2}`, borderRadius: 4, color: C.text, fontSize: 13, padding: '4px 8px', width: 100 }}
                 />
-                <button
-                  onClick={confirmAccept}
-                  disabled={submitting}
-                  style={{
-                    padding: '4px 14px', borderRadius: 5, border: 'none',
-                    background: C.green, color: '#000', fontSize: 12, fontWeight: 700, cursor: 'pointer',
-                  }}
+                <button onClick={confirmAccept} disabled={submitting}
+                  style={{ padding: '4px 14px', borderRadius: 5, border: 'none', background: C.green, color: '#000', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}
                 >{submitting ? '…' : 'Confirm'}</button>
-                <button
-                  onClick={() => setPendingAction(null)}
-                  style={{
-                    padding: '4px 10px', borderRadius: 5,
-                    border: `1px solid ${C.border2}`, background: 'transparent',
-                    color: C.dim, fontSize: 12, cursor: 'pointer',
-                  }}
+                <button onClick={() => setPendingAction(null)}
+                  style={{ padding: '4px 10px', borderRadius: 5, border: `1px solid ${C.border2}`, background: 'transparent', color: C.dim, fontSize: 12, cursor: 'pointer' }}
                 >Cancel</button>
               </div>
             </div>
@@ -444,38 +430,21 @@ function MoveCard({ move, idx, decision, onAccept, onDecline }) {
                 onKeyDown={e => e.key === 'Enter' && inputReason.trim() && confirmDecline()}
                 placeholder="e.g. I think it will turn the corner next quarter"
                 autoFocus
-                style={{
-                  background: C.border, border: `1px solid ${C.border2}`,
-                  borderRadius: 4, color: C.text, fontSize: 12,
-                  padding: '5px 10px', width: '100%', boxSizing: 'border-box', marginBottom: 8,
-                }}
+                style={{ background: C.border, border: `1px solid ${C.border2}`, borderRadius: 4, color: C.text, fontSize: 12, padding: '5px 10px', width: '100%', boxSizing: 'border-box', marginBottom: 8 }}
               />
               <div style={{ display: 'flex', gap: 8 }}>
-                <button
-                  onClick={confirmDecline}
-                  disabled={submitting || !inputReason.trim()}
-                  style={{
-                    padding: '4px 14px', borderRadius: 5,
-                    border: `1px solid ${C.amber}55`, background: C.amber + '15',
-                    color: C.amber, fontSize: 12, fontWeight: 700,
-                    cursor: inputReason.trim() ? 'pointer' : 'not-allowed',
-                    opacity: inputReason.trim() ? 1 : 0.5,
-                  }}
+                <button onClick={confirmDecline} disabled={submitting || !inputReason.trim()}
+                  style={{ padding: '4px 14px', borderRadius: 5, border: `1px solid ${C.amber}55`, background: C.amber + '15', color: C.amber, fontSize: 12, fontWeight: 700, cursor: inputReason.trim() ? 'pointer' : 'not-allowed', opacity: inputReason.trim() ? 1 : 0.5 }}
                 >{submitting ? '…' : 'Confirm Decline'}</button>
-                <button
-                  onClick={() => setPendingAction(null)}
-                  style={{
-                    padding: '4px 10px', borderRadius: 5,
-                    border: `1px solid ${C.border2}`, background: 'transparent',
-                    color: C.dim, fontSize: 12, cursor: 'pointer',
-                  }}
+                <button onClick={() => setPendingAction(null)}
+                  style={{ padding: '4px 10px', borderRadius: 5, border: `1px solid ${C.border2}`, background: 'transparent', color: C.dim, fontSize: 12, cursor: 'pointer' }}
                 >Cancel</button>
               </div>
             </div>
           )}
         </div>
       )}
-    </div>
+    </>
   );
 }
 
@@ -1039,6 +1008,24 @@ export default function PortfolioManager() {
     })();
   }, [getToken]);
 
+  // Rebuild the `decisions` map from each move's `priorDecision` (server-side,
+  // sourced from OwnerDecision — the actual DB record, not local-only state).
+  // This is what makes accept/decline persist across page visits: the row
+  // shows up already checked/unchecked with its reason on load, instead of
+  // resetting to "undecided" and asking you to re-click through everything
+  // you already decided last time.
+  function hydrateDecisions(moves) {
+    const next = {};
+    for (const m of moves ?? []) {
+      if (!m.priorDecision) continue;
+      const key = `${m.symbol}-${m.moveType}`;
+      next[key] = m.priorDecision.decision === 'accepted'
+        ? { status: 'accepted', acceptedAmount: m.priorDecision.acceptedAmount ?? m.dollarAmount }
+        : { status: 'declined', declinedReason: m.priorDecision.reason };
+    }
+    return next;
+  }
+
   // Load moves for selected owner — serves from cache instantly
   const loadMoves = useCallback(async () => {
     if (!selected) return;
@@ -1052,6 +1039,7 @@ export default function PortfolioManager() {
       const d = await r.json();
       if (!r.ok) throw new Error(d.error || 'Load failed');
       setData(d);
+      setDecisions(hydrateDecisions(d.moves));
     } catch (e) {
       setErr(e.message);
     } finally {
@@ -1073,7 +1061,9 @@ export default function PortfolioManager() {
       const d = await r.json();
       if (!r.ok) throw new Error(d.error || 'Refresh failed');
       setData(d);
-      setDecisions({}); // stale decisions after a recompute
+      // Rehydrate from the DB record rather than blanking — a recompute
+      // changes the move's numbers, not your prior decision on it.
+      setDecisions(hydrateDecisions(d.moves));
     } catch (e) {
       setErr(e.message);
     } finally {
@@ -1280,16 +1270,21 @@ export default function PortfolioManager() {
               }
             />
             {displayMoves.length > 0
-              ? displayMoves.map((m, i) => (
-                  <MoveCard
-                    key={`${m.symbol}-${m.moveType}-${i}`}
-                    move={m}
-                    idx={i}
-                    decision={decisions[`${m.symbol}-${m.moveType}`] ?? null}
-                    onAccept={handleAccept}
-                    onDecline={handleDecline}
-                  />
-                ))
+              ? (
+                <div style={{ display: 'grid', gridTemplateColumns: MOVE_GRID_COLS, background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 12px 4px 12px' }}>
+                  <MoveTableHeader />
+                  {displayMoves.map((m, i) => (
+                    <MoveRow
+                      key={`${m.symbol}-${m.moveType}-${i}`}
+                      move={m}
+                      idx={i}
+                      decision={decisions[`${m.symbol}-${m.moveType}`] ?? null}
+                      onAccept={handleAccept}
+                      onDecline={handleDecline}
+                    />
+                  ))}
+                </div>
+              )
               : (
                 <div style={{
                   textAlign: 'center', padding: '22px 0',

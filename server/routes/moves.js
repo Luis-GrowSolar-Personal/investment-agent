@@ -831,10 +831,28 @@ async function computeMovesPayload(owner) {
       return b.dollarAmount - a.dollarAmount;
     });
 
-    // ── Attach prior owner decisions (latest declined/deferred per symbol+moveType) ─
-    // Lets the frontend surface the prior reasoning inline without suppressing the move.
+    // ── Derive current/target share counts ──────────────────────────────────
+    // All move builders already compute currentMktValue, pricePerShare, and
+    // sharesApprox (the size of the delta) — this generically derives the
+    // before/after share counts from those instead of duplicating the math
+    // per move type. ADD moves toward more shares, everything else (TRIM*,
+    // EXIT) moves toward fewer. HOLD_ADVISORY has sharesApprox 0, so target
+    // == current, correctly showing no change.
+    for (const m of allMoves) {
+      const currentShares = m.pricePerShare > 0 ? m.currentMktValue / m.pricePerShare : 0;
+      const delta         = m.sharesApprox ?? 0;
+      m.currentShares = +currentShares.toFixed(3);
+      m.targetShares   = +(m.moveType === 'ADD' ? currentShares + delta : currentShares - delta).toFixed(3);
+    }
+
+    // ── Attach prior owner decisions (latest per symbol+moveType, any status) ─
+    // Lets the frontend hydrate accept/decline state (and the reason) on load
+    // instead of resetting to "undecided" every visit — the move itself still
+    // regenerates live from current portfolio state (it's a diff, not a
+    // suppressible event), but your last call on it should already be
+    // reflected rather than making you re-decide every time you open the tab.
     const priorDecisionRows = await prisma.ownerDecision.findMany({
-      where:   { owner, decision: { in: ['declined', 'deferred'] } },
+      where:   { owner },
       include: { ticker: { select: { symbol: true } } },
       orderBy: { decidedAt: 'desc' },
     });
@@ -842,7 +860,12 @@ async function computeMovesPayload(owner) {
     for (const d of priorDecisionRows) {
       const key = `${d.ticker.symbol}:${d.moveType}`;
       if (!priorMap.has(key)) {
-        priorMap.set(key, { decision: d.decision, reason: d.declinedReason ?? null, decidedAt: d.decidedAt });
+        priorMap.set(key, {
+          decision:       d.decision,
+          reason:         d.declinedReason ?? null,
+          acceptedAmount: d.acceptedAmount ?? null,
+          decidedAt:      d.decidedAt,
+        });
       }
     }
     for (const m of allMoves) {
@@ -860,7 +883,10 @@ async function computeMovesPayload(owner) {
     const watchlistTickers = await prisma.ticker.findMany({
       where: { status: 'watchlist', inScope: { not: false } },
     });
-    const candidates = [];
+
+    // Eligibility pass only — sizing happens after, once we know how many
+    // candidates are actually competing for each barbell pool (see below).
+    const eligible = { est: [], spec: [] };
 
     for (const wt of watchlistTickers) {
       const a = await prisma.analysis.findFirst({
@@ -878,33 +904,60 @@ async function computeMovesPayload(owner) {
       if (!['Add', 'Hold'].includes(action)) continue;
       if (['Broken', 'Weakening'].includes(a.thesisHealth) && action !== 'Add') continue;
 
-      const score    = scoreCandidate(a, wt.type);
-      const side     = barbellSide(wt, a);
+      const score = scoreCandidate(a, wt.type);
+      const side  = barbellSide(wt, a);
 
-      // Suggested allocation = model weight this candidate would get if promoted
-      const poolPct  = side === 'est' ? estPoolPct : specPoolPct;
-      const poolCount = side === 'est' ? targetEstIndividual : targetSpecIndividual;
-      const baseWeight = poolCount > 0 ? poolPct / poolCount : 0;
-      const rawWeight  = baseWeight * (wt.type === 'B' ? 1.5 : 1.0);
-      const suggestedPct    = +Math.min(rawWeight, wt.capPercent ?? 100).toFixed(1);
-      const suggestedDollar = +(totalPortfolioValue * (suggestedPct / 100)).toFixed(0);
-
-      if (suggestedDollar < minPositionDollar) continue;
-
-      candidates.push({
+      eligible[side].push({
         tickerId: wt.id, symbol: wt.symbol, shortName: wt.shortName ?? wt.name,
         type: wt.type, tier: wt.tierOverride ?? a.tier ?? null,
         side, thesisHealth: a.thesisHealth, finalAction: action,
         trajectory: a.trajectory ?? null, recommendedSize: a.recommendedSize ?? null,
-        suggestedPct, suggestedDollar, rankScore: score,
-        latestCallDate: a.transcript?.callDate ?? null,
+        rankScore: score, latestCallDate: a.transcript?.callDate ?? null,
         hardCapPct: wt.capPercent,
       });
     }
 
+    // Dynamic pool division: divide each side's pool by however many
+    // candidates are actually eligible (capped at the Admin target count),
+    // not always the fixed target count. A candidate that still can't clear
+    // minPositionDollar after concentrating the pool is dropped and the pool
+    // is re-divided among the survivors — so a thin candidate list doesn't
+    // silently orphan capital, it just makes each remaining position bigger.
+    // If nothing on a side ever clears the floor, that side's pool share
+    // goes unallocated (reported, not hidden) rather than force-filled with
+    // weak names or diluted equally.
+    function sizeSide(list, poolPct, targetCount) {
+      let active = list.slice();
+      for (;;) {
+        const poolCount  = Math.min(targetCount, active.length);
+        if (poolCount === 0) return [];
+        const baseWeight = poolPct / poolCount;
+        const sized = active.map(c => {
+          const rawWeight       = baseWeight * (c.type === 'B' ? 1.5 : 1.0);
+          const suggestedPct    = +Math.min(rawWeight, c.hardCapPct ?? 100).toFixed(1);
+          const suggestedDollar = +(totalPortfolioValue * (suggestedPct / 100)).toFixed(0);
+          return { ...c, suggestedPct, suggestedDollar };
+        });
+        const survivors = sized.filter(c => c.suggestedDollar >= minPositionDollar);
+        if (survivors.length === active.length) return survivors; // converged
+        if (survivors.length === 0) return []; // pool too small for this side, period
+        active = survivors; // shrink and re-divide the pool among fewer, bigger positions
+      }
+    }
+
+    const candidates = [
+      ...sizeSide(eligible.est,  estPoolPct,  targetEstIndividual),
+      ...sizeSide(eligible.spec, specPoolPct, targetSpecIndividual),
+    ];
+
     candidates.sort((a, b) => b.rankScore - a.rankScore);
-    const finalCandidates = profile.newMoneyBehavior === 'highest_conviction'
-      ? candidates.slice(0, 2) : candidates;
+    // Throttling by conviction rank is no longer applied here — every
+    // eligible, model-sized candidate surfaces as a recommended open. The
+    // human filters via accept/decline per row, not an algorithmic top-N
+    // pre-selection (matches how existing-position ADD/TRIM moves already
+    // work — the engine proposes the full model-compliant move, the owner
+    // disposes).
+    const finalCandidates = candidates;
 
     // ── Capital flow ──────────────────────────────────────────────────────────
     const trimMoves = actionMoves.filter(m =>

@@ -136,7 +136,14 @@ router.get('/reconcile', requireAuth(), async (req, res) => {
     res.json(result);
   } catch (err) {
     console.error('GET /schwab/reconcile error:', err);
-    res.status(500).json({ error: err.message });
+    // Schwab's refresh_token has a hard 7-day expiration from the original
+    // authorization -- rotating it on refresh does not reset that clock, so
+    // this is an expected recurring state, not a broken connection. Surface
+    // it as such instead of the raw error code.
+    const message = err.message === 'SCHWAB_TOKEN_EXPIRED'
+      ? 'Broker connection needs reconnecting — Schwab requires manual reconnection at least every 7 days. Use "Reconnect" in Admin > Broker Connections.'
+      : err.message;
+    res.status(500).json({ error: message });
   }
 });
 

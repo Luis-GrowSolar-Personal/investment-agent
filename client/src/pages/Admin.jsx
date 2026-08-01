@@ -74,7 +74,6 @@ const DEFAULTS = {
   accountPurpose:    'growth',
   benchmarkBaseline: 'QQQ',
   specExitSpeed:     'normal',
-  newMoneyBehavior:  'highest_conviction',
 };
 
 function specCeiling(years) {
@@ -1140,20 +1139,6 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
                   ]}
                 />
               </Field>
-
-              <Field
-                label="New money behavior"
-                hint="When fresh cash arrives, deploy to the highest-conviction Add, or spread across all underweight positions."
-              >
-                <SegmentedControl
-                  value={p.newMoneyBehavior || DEFAULTS.newMoneyBehavior}
-                  onChange={v => set('newMoneyBehavior', v)}
-                  options={[
-                    { value: 'highest_conviction', label: 'Top pick first' },
-                    { value: 'distribute',          label: 'Distribute' },
-                  ]}
-                />
-              </Field>
             </div>
 
           </div>
@@ -1471,7 +1456,7 @@ function BrokerConnections() {
           ) : status?.connected ? (
             <span style={{ fontSize: 12, color: tokenExpired ? '#f59e0b' : '#4ade80' }}>
               ● Connected
-              {tokenExpired && ' — access token expired, will auto-refresh on next use'}
+              {tokenExpired && ' — access token expired, will auto-refresh on next use. Broker requires manual reconnection at least every 7 days.'}
               <span style={{ color: '#475569', marginLeft: 8 }}>
                 last refreshed {fmtDate(status.updatedAt)}
               </span>

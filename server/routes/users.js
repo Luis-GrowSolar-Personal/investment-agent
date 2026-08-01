@@ -194,9 +194,13 @@ router.delete('/:owner/invite', async (req, res) => {
 // Accepts any subset of OwnerProfile fields.
 // Numeric fields: enoughNumber, minPositionDollar, cashReservePct, yearsToGoal, estSpecRatio
 // String fields:  displayName, riskTolerance, taxSensitivity, accountPurpose,
-//                 benchmarkBaseline, specExitSpeed, newMoneyBehavior
+//                 benchmarkBaseline, specExitSpeed
 // Int fields:     maxPositions
 // JSON fields:    domainsOfInterest (string[])
+// Note: newMoneyBehavior (OwnerProfile column) is no longer read by the moves
+// engine — the highest_conviction top-2 throttle was removed 2026-08-01 so
+// all eligible watchlist candidates surface at once. Column left in the DB
+// schema as inert legacy rather than requiring a migration for a no-op field.
 router.patch('/:owner', async (req, res) => {
   const { owner } = req.params;
   const body = req.body;
@@ -204,7 +208,7 @@ router.patch('/:owner', async (req, res) => {
 
   // String fields — empty string → null
   const strFields = ['displayName', 'clerkUserId', 'riskTolerance', 'taxSensitivity',
-                     'accountPurpose', 'benchmarkBaseline', 'specExitSpeed', 'newMoneyBehavior'];
+                     'accountPurpose', 'benchmarkBaseline', 'specExitSpeed'];
   for (const f of strFields) {
     if (body[f] !== undefined) data[f] = body[f] === '' ? null : body[f];
   }
