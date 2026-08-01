@@ -969,9 +969,18 @@ async function computeMovesPayload(owner) {
           return { ...c, suggestedPct, suggestedDollar };
         });
         const survivors = sized.filter(c => c.suggestedDollar >= minPositionDollar);
-        if (survivors.length === active.length) return survivors; // converged
-        if (survivors.length === 0) return []; // pool too small for this side, period
-        active = survivors; // shrink and re-divide the pool among fewer, bigger positions
+        if (survivors.length === active.length) return survivors; // converged — everyone clears the floor
+        if (survivors.length > 0) { active = survivors; continue; } // some cleared — re-divide among them
+        // Nobody cleared the floor at this split — don't give up outright.
+        // Two candidates splitting a small pool can both land under the
+        // floor individually while either one alone, with the WHOLE pool,
+        // would clear it easily (e.g. $1,988 pool / 2 = ~$994 each, both
+        // under a $1,500 floor, but $1,988 for just the top-ranked one is
+        // comfortably above it). Drop only the single worst-ranked
+        // candidate and retry with one fewer, rather than assuming the
+        // pool can't support anyone.
+        if (active.length === 0) return [];
+        active = active.slice(0, -1); // ranked worst-last — drop the tail
       }
     }
 
