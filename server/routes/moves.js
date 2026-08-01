@@ -360,6 +360,69 @@ function buildAddRouting(positions, addValue, price) {
   return rows;
 }
 
+/**
+ * Routes a brand-new position (no existing Position rows for this ticker,
+ * e.g. a watchlist candidate) across the owner's managed accounts by cash
+ * availability and account-type priority (Roth -> IRA -> taxable ->
+ * custodial) — same priority order as buildAddRouting, but without the
+ * "prefers an account that already holds shares" tie-break (nothing holds
+ * this ticker yet) and without a share count, since there's no live price
+ * for an un-held ticker. Account routing never actually depended on price —
+ * only the dollars-to-shares conversion within a row did — so this doesn't
+ * need to wait on the live-quote-fetch work to be useful.
+ *
+ * @param {Array} accounts   raw account rows (same shape used elsewhere in
+ *                           computeMovesPayload — .id, .name, .type,
+ *                           .managed, .cashBalance)
+ * @param {number} dollarAmount
+ */
+function buildNewPositionRouting(accounts, dollarAmount) {
+  if (!dollarAmount || dollarAmount <= 0) return [];
+
+  const TYPE_ORDER = { roth: 0, ira: 1, taxable: 2, custodial: 3 };
+  const managed = accounts
+    .filter(a => a.managed)
+    .sort((a, b) => (TYPE_ORDER[a.type] ?? 9) - (TYPE_ORDER[b.type] ?? 9));
+
+  let remaining = dollarAmount;
+  const rows = [];
+
+  for (const acct of managed) {
+    if (remaining <= 0) break;
+    const cash = acct.cashBalance ?? 0;
+    if (cash < 1) continue;
+    const allocate = Math.min(remaining, cash);
+    rows.push({
+      accountId:        acct.id,
+      accountName:      acct.name ?? '—',
+      accountType:      acct.type ?? '—',
+      isTaxAdvantaged:  ['ira', 'roth'].includes(acct.type),
+      sharesToBuy:      null, // no live price for a not-yet-held ticker
+      dollarAmount:     +allocate.toFixed(2),
+      insufficientCash: false,
+    });
+    remaining -= allocate;
+  }
+
+  // No cash anywhere — still surface the best (highest-priority) account so
+  // the user knows where this would go once funded, same fallback pattern
+  // as buildAddRouting.
+  if (rows.length === 0 && managed.length > 0) {
+    const best = managed[0];
+    rows.push({
+      accountId:        best.id,
+      accountName:      best.name ?? '—',
+      accountType:      best.type ?? '—',
+      isTaxAdvantaged:  ['ira', 'roth'].includes(best.type),
+      sharesToBuy:      null,
+      dollarAmount:     +dollarAmount.toFixed(2),
+      insufficientCash: true,
+    });
+  }
+
+  return rows;
+}
+
 function makeAddMove(priority, ticker, positions, currentPct, targetPct,
     mktValue, totalPortfolioValue, latestAnalysis) {
   const price        = positions.find(p => p.lastPrice != null)?.lastPrice ?? 0;
@@ -1013,9 +1076,10 @@ async function computeMovesPayload(owner) {
     // (you execute the trade, Schwab sync auto-promotes the ticker once it
     // sees a real position — see schwabSync.js `promotedTickers`), not as a
     // prerequisite for the engine recommending it. currentShares/targetShares
-    // are left null (no live quote source for a ticker with no position yet);
-    // accounts is empty for the same reason — no per-account cash routing
-    // until a price is available. Both are known gaps, not silent omissions.
+    // are left null (no live quote source for a ticker with no position yet).
+    // Account routing itself doesn't need a price though — only the
+    // dollars-to-shares conversion does — so buildNewPositionRouting fills
+    // in accounts by cash + account-type priority alone.
     const openMoves = candidates.map(c => ({
       moveType:        'ADD',
       priority:        6,
@@ -1039,7 +1103,7 @@ async function computeMovesPayload(owner) {
       targetShares:    null,
       taxCost:         0,
       netProceeds:     0,
-      accounts:        [],
+      accounts:        buildNewPositionRouting(accounts, c.suggestedDollar),
       requires48h:     false,
       isNewPosition:   true,
       reason: `New position — ${c.side === 'est' ? 'established' : 'speculative'} pool, rank score ${c.rankScore}`,

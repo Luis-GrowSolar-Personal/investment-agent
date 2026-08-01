@@ -207,7 +207,9 @@ function AddRoutingDetail({ accounts }) {
           }}>
             {a.isTaxAdvantaged ? 'TAX-SHELTERED' : a.accountType.toUpperCase()}
           </span>
-          <span style={{ color: C.dim }}>{a.sharesToBuy.toFixed(3)} shares</span>
+          {a.sharesToBuy != null && (
+            <span style={{ color: C.dim }}>{a.sharesToBuy.toFixed(3)} shares</span>
+          )}
           <span style={{ color: C.muted, fontWeight: 600 }}>{money(a.dollarAmount)}</span>
           {a.insufficientCash && (
             <span style={{ marginLeft: 'auto', fontSize: 10, color: C.amber, fontWeight: 700 }}>

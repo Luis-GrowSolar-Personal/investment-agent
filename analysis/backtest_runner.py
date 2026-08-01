@@ -73,7 +73,14 @@ import pandas as pd
 # Constants
 # ---------------------------------------------------------------------------
 
-MODEL = "claude-sonnet-4-20250514"
+# Must be kept in sync with MODEL_VERSION in server/lib/versions.js -- that
+# file is the single source of truth for the production model string, but
+# it's JS and this is Python, so there's no automated way to share the
+# constant across the two. This drifted once already: this file still had
+# claude-sonnet-4-20250514 (retired by Anthropic) weeks after versions.js
+# was updated to claude-sonnet-4-6 on 2026-06-27. Check versions.js before
+# assuming this value is current.
+MODEL = "claude-sonnet-4-6"
 VERSION = "1.3.0"
 FORWARD_DAYS = 90          # days ahead to measure return
 OUTPUT_DIR = script_dir / "data"
@@ -88,12 +95,22 @@ def get_connection():
 
 
 def fetch_portfolio_tickers(conn, symbol_filter=None):
-    """Return list of portfolio tickers, optionally filtered by symbol."""
+    """Return list of tickers to backtest.
+
+    With no symbol_filter: only 'portfolio' status tickers (unchanged
+    default behavior for a full regression run).
+
+    With a symbol_filter (--ticker SYMBOL): status is NOT constrained.
+    Naming a specific ticker is an explicit request for that ticker
+    regardless of its current portfolio/watchlist status -- e.g. for
+    one-off benchmark/variance runs (see MODEL_SELECTION_BENCHMARK_SPEC.md
+    Step 0) against tickers that have since been demoted to watchlist.
+    """
     with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
         if symbol_filter:
             cur.execute(
-                'SELECT id, symbol, name FROM "Ticker" WHERE status = %s AND symbol = %s ORDER BY symbol',
-                ('portfolio', symbol_filter.upper())
+                'SELECT id, symbol, name FROM "Ticker" WHERE symbol = %s ORDER BY symbol',
+                (symbol_filter.upper(),)
             )
         else:
             cur.execute(
@@ -414,7 +431,14 @@ def evaluate_transcript(client, transcript_text, evaluation_prompt):
 
     response = client.messages.create(
         model=MODEL,
-        max_tokens=4096,
+        # Raised from 4096 -> 8192 on 2026-07-05 (v10 gate): v9's longer
+        # required narrative (5-step stumble test, 3 named sub-scores)
+        # pushed some completions right up against 4096, causing
+        # intermittent stop_reason=max_tokens truncation before the
+        # ---STRUCTURED--- block -- same transcript, same prompt,
+        # temperature=0, truncated in one run and not in another. See
+        # EVALUATION_PROMPT.md v10 iteration log entry.
+        max_tokens=8192,
         temperature=0,
         messages=[{
             "role": "user",
@@ -422,7 +446,15 @@ def evaluate_transcript(client, transcript_text, evaluation_prompt):
         }]
     )
     result = response.content[0].text.strip()
-    print("done")
+    if response.stop_reason == "max_tokens":
+        # Response was cut off before the model finished -- if the
+        # ---STRUCTURED--- block is missing downstream, this is why:
+        # truncation, not a formatting/instruction-following miss. Longer
+        # prompts (more required narrative sections, explicit sub-scoring)
+        # push completions closer to the 4096 ceiling.
+        print(f"done (⚠️  stop_reason=max_tokens, {response.usage.output_tokens} output tokens)")
+    else:
+        print(f"done (stop_reason={response.stop_reason})")
     return result
 
 
