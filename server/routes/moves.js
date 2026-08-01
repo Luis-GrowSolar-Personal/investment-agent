@@ -947,9 +947,26 @@ async function computeMovesPayload(owner) {
       }
     }
 
+    // targetEstIndividual/targetSpecIndividual are TOTAL target slot counts
+    // (held + new) per side — not just "how many new ones to recommend".
+    // Subtract what's already held on each side before capping candidates,
+    // so the engine doesn't recommend more opens than could actually fit
+    // under maxPositions even before you decide on any of them. Without
+    // this, sizeSide's per-side cap alone can still recommend candidates
+    // that push held+new past the position limit — which is what the
+    // max_positions warning was catching after the fact.
+    let heldEst = 0, heldSpec = 0;
+    for (const g of individualGroups) {
+      const side = barbellSide(g.ticker, g.latestAnalysis);
+      if (side === 'est')  heldEst++;
+      if (side === 'spec') heldSpec++;
+    }
+    const remainingEstSlots  = Math.max(0, targetEstIndividual  - heldEst);
+    const remainingSpecSlots = Math.max(0, targetSpecIndividual - heldSpec);
+
     const candidates = [
-      ...sizeSide(eligible.est,  estPoolPct,  targetEstIndividual),
-      ...sizeSide(eligible.spec, specPoolPct, targetSpecIndividual),
+      ...sizeSide(eligible.est,  estPoolPct,  remainingEstSlots),
+      ...sizeSide(eligible.spec, specPoolPct, remainingSpecSlots),
     ];
     candidates.sort((a, b) => b.rankScore - a.rankScore);
 
