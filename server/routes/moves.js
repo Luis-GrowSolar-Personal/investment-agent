@@ -891,9 +891,17 @@ async function computeMovesPayload(owner) {
     // inScope: false excludes regression/test tickers (e.g. evaluator-prompt
     // validation set) that are outside the circle of competence — they should
     // never surface as "Open <symbol>" promotions.
-    const watchlistTickers = await prisma.ticker.findMany({
+    //
+    // Ticker.status is global (shared across all owners), not owner-specific
+    // — a ticker can still say "watchlist" even after THIS owner has a real
+    // position in it (e.g. before the next Schwab-sync auto-promotion runs,
+    // or if another owner's sync hasn't touched it). Excluding anything
+    // already in this owner's byTicker map prevents recommending a "new
+    // open" for a ticker already held — which would double-count it and
+    // crowd a real candidate out of the sized/ranked slots.
+    const watchlistTickers = (await prisma.ticker.findMany({
       where: { status: 'watchlist', inScope: { not: false } },
-    });
+    })).filter(wt => !byTicker.has(wt.id));
 
     // Eligibility pass only — sizing happens after, once we know how many
     // candidates are actually competing for each barbell pool (see below).
@@ -945,9 +953,18 @@ async function computeMovesPayload(owner) {
         const poolCount  = Math.min(targetCount, active.length);
         if (poolCount === 0) return [];
         const baseWeight = poolPct / poolCount;
-        const sized = active.map(c => {
-          const rawWeight       = baseWeight * (c.type === 'B' ? 1.5 : 1.0);
-          const suggestedPct    = +Math.min(rawWeight, c.hardCapPct ?? 100).toFixed(1);
+        // Raw weights with the Type A/B multiplier, then RESCALED so the
+        // group sums back to poolPct before clamping to individual hard
+        // caps — mirrors computeIndividualModelWeights.allocate() (used for
+        // existing holdings). Without this rescale, Type B's 1.5x inflates
+        // the total past the pool whenever any candidate is Type B — e.g.
+        // two Type B candidates at baseWeight 15% each become 22.5% each
+        // (45% combined) instead of being rescaled down to fit the pool.
+        const raws   = active.map(c => ({ c, raw: baseWeight * (c.type === 'B' ? 1.5 : 1.0) }));
+        const rawSum = raws.reduce((s, r) => s + r.raw, 0);
+        const scale  = rawSum > 0 ? poolPct / rawSum : 1;
+        const sized = raws.map(({ c, raw }) => {
+          const suggestedPct    = +Math.min(raw * scale, c.hardCapPct ?? 100).toFixed(1);
           const suggestedDollar = +(totalPortfolioValue * (suggestedPct / 100)).toFixed(0);
           return { ...c, suggestedPct, suggestedDollar };
         });
