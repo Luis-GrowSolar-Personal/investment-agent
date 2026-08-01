@@ -275,6 +275,7 @@ function AllocationView({ data }) {
   const alloc = data?.allocation;
   if (!alloc) return null;
   const total = data.totalPortfolioValue || 0;
+  const accountSummaries = data.accountSummaries ?? [];
 
   const rows = alloc.buckets.map(b => {
     const currentPct  = total > 0 ? (b.currentValue / total) * 100 : 0;
@@ -288,7 +289,11 @@ function AllocationView({ data }) {
     };
   });
 
-  const gridCols = '18px 1fr 110px 90px 110px 90px 90px';
+  const gridCols = '18px 18px 1fr 110px 90px 110px 90px 90px';
+  const holdingsByBucket = {};
+  for (const h of alloc.holdings ?? []) {
+    (holdingsByBucket[h.bucketKey] ??= []).push(h);
+  }
 
   return (
     <div style={{ marginBottom: 24 }}>
@@ -297,7 +302,7 @@ function AllocationView({ data }) {
 
       <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, overflow: 'hidden', marginTop: 14 }}>
         <div style={{ display: 'grid', gridTemplateColumns: gridCols, padding: '9px 14px', borderBottom: `1px solid ${C.border}`, fontSize: 10, fontWeight: 700, color: C.dim, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-          <div />
+          <div /><div />
           <div>Bucket</div>
           <div style={{ textAlign: 'right' }}>Current $</div>
           <div style={{ textAlign: 'right' }}>Current %</div>
@@ -306,24 +311,14 @@ function AllocationView({ data }) {
           <div style={{ textAlign: 'right' }}>Δ</div>
         </div>
         {rows.map((r, i) => (
-          <div key={r.key} style={{
-            display: 'grid', gridTemplateColumns: gridCols, padding: '9px 14px', alignItems: 'center',
-            fontSize: 12.5, borderTop: i > 0 ? `1px solid ${C.border}` : 'none',
-            background: i % 2 ? C.bg + '60' : 'transparent',
-          }}>
-            <div style={{ width: 10, height: 10, borderRadius: 3, background: r.color }} />
-            <div style={{ color: C.text, fontWeight: 600 }}>{r.label}</div>
-            <div style={{ textAlign: 'right', color: C.muted }}>{money(r.currentValue)}</div>
-            <div style={{ textAlign: 'right', color: C.muted }}>{pct(r.currentPct)}</div>
-            <div style={{ textAlign: 'right', color: C.text }}>{money(r.targetValue)}</div>
-            <div style={{ textAlign: 'right', color: C.text }}>{pct(r.targetPct)}</div>
-            <div style={{
-              textAlign: 'right', fontWeight: 700,
-              color: Math.abs(r.deltaPct) <= 2 ? C.green : r.deltaPct > 0 ? C.amber : C.blue,
-            }}>
-              {r.deltaPct > 0 ? '+' : ''}{r.deltaPct.toFixed(1)}%
-            </div>
-          </div>
+          <AllocationBucketRow
+            key={r.key}
+            row={r}
+            idx={i}
+            gridCols={gridCols}
+            holdings={r.key === 'cash' ? null : (holdingsByBucket[r.key] ?? [])}
+            accountSummaries={r.key === 'cash' ? accountSummaries : null}
+          />
         ))}
       </div>
 
@@ -333,6 +328,65 @@ function AllocationView({ data }) {
         close these gaps.
       </div>
     </div>
+  );
+}
+
+function AllocationBucketRow({ row: r, idx, gridCols, holdings, accountSummaries }) {
+  const [expanded, setExpanded] = useState(false);
+  const hasDetail = (holdings && holdings.length > 0) || (accountSummaries && accountSummaries.length > 0);
+
+  return (
+    <>
+      <div
+        onClick={() => hasDetail && setExpanded(e => !e)}
+        style={{
+          display: 'grid', gridTemplateColumns: gridCols, padding: '9px 14px', alignItems: 'center',
+          fontSize: 12.5, borderTop: idx > 0 ? `1px solid ${C.border}` : 'none',
+          background: idx % 2 ? C.bg + '60' : 'transparent',
+          cursor: hasDetail ? 'pointer' : 'default',
+        }}
+      >
+        <span style={{ color: C.faint, fontSize: 10 }}>{hasDetail ? (expanded ? '▼' : '▶') : ''}</span>
+        <div style={{ width: 10, height: 10, borderRadius: 3, background: r.color }} />
+        <div style={{ color: C.text, fontWeight: 600 }}>{r.label}</div>
+        <div style={{ textAlign: 'right', color: C.muted }}>{money(r.currentValue)}</div>
+        <div style={{ textAlign: 'right', color: C.muted }}>{pct(r.currentPct)}</div>
+        <div style={{ textAlign: 'right', color: C.text }}>{money(r.targetValue)}</div>
+        <div style={{ textAlign: 'right', color: C.text }}>{pct(r.targetPct)}</div>
+        <div style={{
+          textAlign: 'right', fontWeight: 700,
+          color: Math.abs(r.deltaPct) <= 2 ? C.green : r.deltaPct > 0 ? C.amber : C.blue,
+        }}>
+          {r.deltaPct > 0 ? '+' : ''}{r.deltaPct.toFixed(1)}%
+        </div>
+      </div>
+
+      {expanded && holdings && (
+        <div style={{ gridColumn: '1 / -1', background: C.bg + '80', borderTop: `1px dashed ${C.border}`, padding: '8px 14px 10px 40px' }}>
+          {holdings.map(h => (
+            <div key={h.symbol} style={{ display: 'flex', gap: 12, alignItems: 'center', padding: '4px 0', fontSize: 12 }}>
+              <span style={{ fontWeight: 700, color: C.text, minWidth: 60 }}>{h.symbol}</span>
+              <span style={{ color: C.faint, flex: 1 }}>{h.shortName}</span>
+              <span style={{ color: C.dim }}>{h.shares.toLocaleString(undefined, { maximumFractionDigits: 2 })} sh</span>
+              <span style={{ color: C.muted, minWidth: 80, textAlign: 'right' }}>{money(h.mktValue)}</span>
+              <span style={{ color: C.faint, minWidth: 50, textAlign: 'right' }}>{pct(h.currentPct)}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {expanded && accountSummaries && (
+        <div style={{ gridColumn: '1 / -1', background: C.bg + '80', borderTop: `1px dashed ${C.border}`, padding: '8px 14px 10px 40px' }}>
+          {accountSummaries.filter(a => a.cashBalance > 0).map(a => (
+            <div key={a.id} style={{ display: 'flex', gap: 12, alignItems: 'center', padding: '4px 0', fontSize: 12 }}>
+              <span style={{ fontWeight: 700, color: C.text, flex: 1 }}>{a.name}</span>
+              <span style={{ color: C.faint }}>{a.type}</span>
+              <span style={{ color: C.muted, minWidth: 80, textAlign: 'right' }}>{money(a.cashBalance)}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </>
   );
 }
 
@@ -408,6 +462,11 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
         <Badge label={meta.label} color={meta.color} />
         <span style={{ fontWeight: 800, color: C.text }}>{move.symbol}</span>
         <TierChip tier={move.tier} />
+        {move.isNewPosition && (
+          <span title="Not currently held — opening a new position" style={{ fontSize: 9, fontWeight: 700, color: C.purple, border: `1px solid ${C.purple}55`, background: C.purple + '15', borderRadius: 3, padding: '1px 5px' }}>
+            NEW
+          </span>
+        )}
       </div>
       <div style={{ ...cellBase, textAlign: 'right', color: C.muted }}>
         {move.currentShares != null ? move.currentShares.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}
@@ -796,68 +855,11 @@ function FlowRow({ label, amount, sub, subColor }) {
 
 // ─── Watchlist candidates ─────────────────────────────────────────────────────
 
-function WatchlistCandidates({ candidates }) {
-  if (!candidates || candidates.length === 0) return null;
-
-  return (
-    <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, overflow: 'hidden' }}>
-      <div style={{ padding: '18px 20px 12px' }}>
-        <SectionHeader title="Watchlist Candidates" count={candidates.length} color={C.purple} />
-        <div style={{ fontSize: 12, color: C.dim, marginTop: -6, marginBottom: 4 }}>
-          Ranked by signal quality (trajectory + health + type + action)
-        </div>
-      </div>
-      <div style={{ overflowX: 'auto' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
-          <thead>
-            <tr style={{ background: '#0b0f18' }}>
-              {['#', 'SYMBOL', 'TYPE', 'HEALTH', 'ACTION', 'TREND', 'SUGGESTED', 'SCORE'].map(h => (
-                <th key={h} style={thSt}>{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {candidates.map((c, i) => (
-              <tr key={c.tickerId} style={{ borderTop: `1px solid ${C.border}` }}>
-                <td style={{ ...tdSt, color: C.faint }}>#{i + 1}</td>
-                <td style={tdSt}>
-                  <span style={{ fontWeight: 700, color: C.text }}>{c.symbol}</span>
-                  <TierChip tier={c.tier} />
-                </td>
-                <td style={{ ...tdSt, color: C.dim }}>{c.type}</td>
-                <td style={tdSt}>
-                  {c.thesisHealth && c.thesisHealth !== '—'
-                    ? <Badge label={c.thesisHealth} color={HEALTH_COLORS[c.thesisHealth] ?? C.muted} />
-                    : <span style={{ color: C.faint }}>—</span>}
-                </td>
-                <td style={tdSt}>
-                  <Badge label={c.finalAction} color={c.finalAction === 'Add' ? C.green : C.blue} />
-                </td>
-                <td style={tdSt}>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: TRAJ_COLORS[c.trajectory] ?? C.dim }}>
-                    {c.trajectory ?? '—'}
-                  </span>
-                </td>
-                <td style={{ ...tdSt, textAlign: 'right' }}>
-                  <div style={{ fontWeight: 600, color: C.text }}>{money(c.suggestedDollar)}</div>
-                  <div style={{ fontSize: 10, color: C.dim }}>{pct(c.suggestedPct, 0)} of portfolio</div>
-                </td>
-                <td style={{ ...tdSt, textAlign: 'center' }}>
-                  <span style={{
-                    fontSize: 12, fontWeight: 700,
-                    color: c.rankScore >= 12 ? C.green : c.rankScore >= 8 ? C.blue : C.dim,
-                  }}>
-                    {c.rankScore}
-                  </span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
+// Watchlist candidates no longer render as a separate read-only section —
+// they're folded directly into Action Required as real ADD moves (see
+// server/routes/moves.js `openMoves`). A position moves from watchlist to
+// portfolio as a *result* of accepting a move here, not as a prerequisite
+// for the engine recommending it.
 
 // ─── Holds ────────────────────────────────────────────────────────────────────
 
@@ -1343,13 +1345,6 @@ export default function PortfolioManager() {
         <>
           <PortfolioSummaryBar data={data} />
 
-          {/* Structural flags — shown immediately after portfolio summary, on both tabs */}
-          {data.warnings?.length > 0 && (
-            <div style={{ marginBottom: 24 }}>
-              <WarningsList warnings={data.warnings} onAcceptWarning={handleAcceptWarning} />
-            </div>
-          )}
-
           {/* Allocation / Moves tab switcher */}
           <div style={{ display: 'flex', gap: 8, marginBottom: 20, borderBottom: `1px solid ${C.border}` }}>
             {[
@@ -1374,6 +1369,14 @@ export default function PortfolioManager() {
 
           {view === 'moves' && (
             <>
+          {/* Structural flags — actionable/move-related only; the barbell-drift
+              warning was retired since the Allocation tab shows that directly */}
+          {data.warnings?.length > 0 && (
+            <div style={{ marginBottom: 24 }}>
+              <WarningsList warnings={data.warnings} onAcceptWarning={handleAcceptWarning} />
+            </div>
+          )}
+
           {/* Deployable capital running total */}
           <DeployableBar
             freeCash={data.freeCash}
@@ -1451,13 +1454,6 @@ export default function PortfolioManager() {
                   </div>
                 ))}
               </div>
-            </div>
-          )}
-
-          {/* Watchlist candidates */}
-          {data.watchlistCandidates?.length > 0 && (
-            <div style={{ marginBottom: 24 }}>
-              <WatchlistCandidates candidates={data.watchlistCandidates} />
             </div>
           )}
 

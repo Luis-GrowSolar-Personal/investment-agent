@@ -873,8 +873,8 @@ async function computeMovesPayload(owner) {
       if (prior) m.priorDecision = prior;
     }
 
-    const actionMoves = allMoves.filter(m => !['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
-    const holdMoves   = allMoves.filter(m =>  ['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
+    let actionMoves  = allMoves.filter(m => !['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
+    const holdMoves  = allMoves.filter(m =>  ['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
 
     // ── Watchlist candidates ──────────────────────────────────────────────────
     // inScope: false excludes regression/test tickers (e.g. evaluator-prompt
@@ -917,17 +917,19 @@ async function computeMovesPayload(owner) {
       });
     }
 
-    // Dynamic pool division: divide each side's pool by however many
-    // candidates are actually eligible (capped at the Admin target count),
-    // not always the fixed target count. A candidate that still can't clear
-    // minPositionDollar after concentrating the pool is dropped and the pool
-    // is re-divided among the survivors — so a thin candidate list doesn't
-    // silently orphan capital, it just makes each remaining position bigger.
-    // If nothing on a side ever clears the floor, that side's pool share
-    // goes unallocated (reported, not hidden) rather than force-filled with
-    // weak names or diluted equally.
+    // Dynamic pool division: cap each side to its best `targetCount`
+    // candidates by rank FIRST (targetCount is the real ceiling — derived
+    // from the Admin maxPositions setting — on how many new names this side
+    // should carry), then shrink from there if any of those can't individually
+    // clear minPositionDollar, re-dividing the pool among the survivors so a
+    // thin candidate list doesn't silently orphan capital. Capping the count
+    // up front (not just using it as a divisor) matters: without it, every
+    // eligible watchlist ticker would get sized as if only targetCount
+    // existed but still be returned in full — both overshooting the position
+    // count and making individual weights no longer sum to the pool.
     function sizeSide(list, poolPct, targetCount) {
-      let active = list.slice();
+      const ranked = [...list].sort((a, b) => b.rankScore - a.rankScore);
+      let active = ranked.slice(0, targetCount);
       for (;;) {
         const poolCount  = Math.min(targetCount, active.length);
         if (poolCount === 0) return [];
@@ -949,27 +951,63 @@ async function computeMovesPayload(owner) {
       ...sizeSide(eligible.est,  estPoolPct,  targetEstIndividual),
       ...sizeSide(eligible.spec, specPoolPct, targetSpecIndividual),
     ];
-
     candidates.sort((a, b) => b.rankScore - a.rankScore);
-    // Throttling by conviction rank is no longer applied here — every
-    // eligible, model-sized candidate surfaces as a recommended open. The
-    // human filters via accept/decline per row, not an algorithmic top-N
-    // pre-selection (matches how existing-position ADD/TRIM moves already
-    // work — the engine proposes the full model-compliant move, the owner
-    // disposes).
-    const finalCandidates = candidates;
+
+    // Watchlist candidates are folded directly into actionMoves as real ADD
+    // moves — not a separate read-only "suggestions" list. A position moves
+    // from watchlist to portfolio as a *result* of accepting a move here
+    // (you execute the trade, Schwab sync auto-promotes the ticker once it
+    // sees a real position — see schwabSync.js `promotedTickers`), not as a
+    // prerequisite for the engine recommending it. currentShares/targetShares
+    // are left null (no live quote source for a ticker with no position yet);
+    // accounts is empty for the same reason — no per-account cash routing
+    // until a price is available. Both are known gaps, not silent omissions.
+    const openMoves = candidates.map(c => ({
+      moveType:        'ADD',
+      priority:        6,
+      symbol:          c.symbol,
+      shortName:       c.shortName,
+      bucket:          null,
+      tier:            c.tier,
+      thesisHealth:    c.thesisHealth,
+      finalAction:     c.finalAction,
+      trajectory:      c.trajectory,
+      ratchetTranche:  0,
+      currentPct:      0,
+      targetPct:       c.suggestedPct,
+      hardCapPct:      c.hardCapPct,
+      currentMktValue: 0,
+      dollarAmount:    c.suggestedDollar,
+      sharesApprox:    0,
+      pricePerShare:   0,
+      currentShares:   0,
+      targetShares:    null,
+      taxCost:         0,
+      netProceeds:     0,
+      accounts:        [],
+      requires48h:     false,
+      isNewPosition:   true,
+      reason: `New position — ${c.side === 'est' ? 'established' : 'speculative'} pool, rank score ${c.rankScore}`,
+    }));
+    for (const m of openMoves) {
+      const prior = priorMap.get(`${m.symbol}:${m.moveType}`);
+      if (prior) m.priorDecision = prior;
+    }
+    actionMoves = [...actionMoves, ...openMoves]
+      .sort((a, b) => a.priority !== b.priority ? a.priority - b.priority : b.dollarAmount - a.dollarAmount);
 
     // ── Capital flow ──────────────────────────────────────────────────────────
+    // addMoves now includes both top-ups to existing positions and brand-new
+    // opens (openMoves above) uniformly — both just need funding, no reason
+    // to treat "promote" as a separate capital-flow category anymore.
     const trimMoves = actionMoves.filter(m =>
       ['EXIT', 'TRIM_CAP', 'TRIM_RATCHET', 'TRIM_MODEL', 'TRIM_SIGNAL'].includes(m.moveType));
     const addMoves  = actionMoves.filter(m => m.moveType === 'ADD').map(m => ({
-      label: `Add ${m.symbol}`, dollarNeeded: m.dollarAmount, type: 'add_existing', symbol: m.symbol,
-    }));
-    const promUses  = finalCandidates.filter(c => c.finalAction === 'Add').map(c => ({
-      label: `Open ${c.symbol}`, dollarNeeded: c.suggestedDollar, type: 'promote', symbol: c.symbol,
+      label: `${m.isNewPosition ? 'Open' : 'Add'} ${m.symbol}`, dollarNeeded: m.dollarAmount,
+      type: m.isNewPosition ? 'promote' : 'add_existing', symbol: m.symbol,
     }));
 
-    const capitalFlow = buildCapitalFlow(trimMoves, addMoves, promUses, freeCash);
+    const capitalFlow = buildCapitalFlow(trimMoves, addMoves, [], freeCash);
 
     // ── Barbell actuals ────────────────────────────────────────────────────────
     let estValue = 0, specValue = 0;
@@ -998,19 +1036,28 @@ async function computeMovesPayload(owner) {
     // display reconciliation, not a change to how targets are computed
     // elsewhere in the engine.
     let estEquityValue = 0, specEquityValue = 0, etfValue = 0, cryptoValue = 0, commodityValue = 0;
+    const holdings = []; // per-ticker detail for the Allocation tab's bucket drill-down
     for (const [tickerId, { ticker, positions }] of byTicker.entries()) {
       const a = analysisMap.get(tickerId);
-      const { mktValue } = positionMetrics(positions, totalPortfolioValue);
+      const { shares, mktValue, currentPct } = positionMetrics(positions, totalPortfolioValue);
       const bucket = getBucket(ticker);
-      if (bucket === 'etf')            etfValue       += mktValue;
-      else if (bucket === 'crypto')    cryptoValue    += mktValue;
-      else if (bucket === 'commodity') commodityValue += mktValue;
+      let bucketKey;
+      if (bucket === 'etf')            { etfValue       += mktValue; bucketKey = 'etf'; }
+      else if (bucket === 'crypto')    { cryptoValue    += mktValue; bucketKey = 'crypto'; }
+      else if (bucket === 'commodity') { commodityValue += mktValue; bucketKey = 'commodity'; }
       else {
         const side = barbellSide(ticker, a);
-        if (side === 'est')  estEquityValue  += mktValue;
-        if (side === 'spec') specEquityValue += mktValue;
+        if (side === 'est')  { estEquityValue  += mktValue; bucketKey = 'established'; }
+        if (side === 'spec') { specEquityValue += mktValue; bucketKey = 'speculative'; }
+      }
+      if (bucketKey) {
+        holdings.push({
+          bucketKey, symbol: ticker.symbol, shortName: ticker.shortName ?? ticker.name,
+          shares: +shares.toFixed(3), mktValue: +mktValue.toFixed(2), currentPct: +currentPct.toFixed(2),
+        });
       }
     }
+    holdings.sort((a, b) => b.mktValue - a.mktValue);
     const cryptoTargetPct    = fixedGroups.filter(g => getBucket(g.ticker) === 'crypto')
       .reduce((s, g) => s + effectiveCap(g.ticker), 0);
     const commodityTargetPct = fixedGroups.filter(g => getBucket(g.ticker) === 'commodity')
@@ -1019,6 +1066,7 @@ async function computeMovesPayload(owner) {
 
     const allocation = {
       cashReservePct: +(cashReservePct * 100).toFixed(1),
+      holdings,
       buckets: [
         { key: 'established', label: 'Established Equities', currentValue: +estEquityValue.toFixed(2),  targetPct: +(estPoolPct        * investedScale).toFixed(1) },
         { key: 'speculative',  label: 'Speculative Equities',  currentValue: +specEquityValue.toFixed(2), targetPct: +(specPoolPct       * investedScale).toFixed(1) },
@@ -1035,10 +1083,10 @@ async function computeMovesPayload(owner) {
       type: '48h_wait', symbol: m.symbol, severity: 'yellow',
       message: `${m.symbol} at ${m.currentPct.toFixed(1)}% — 48-hour review required before confirming hold`,
     }));
-    if (!barbellOk && specPct != null) warnings.push({
-      type: 'barbell', symbol: null, severity: 'amber',
-      message: `Portfolio is ${specPct.toFixed(0)}% speculative vs ${specTarget.toFixed(0)}% target`,
-    });
+    // Barbell-drift warning removed — the Allocation tab now shows current
+    // vs. target per bucket directly and more precisely (it doesn't lump ETF
+    // into "established" the way barbellStatus below does), so a duplicate
+    // text warning here was redundant and could show conflicting numbers.
     if (capitalFlow.queue.length > 0 && byTicker.size + capitalFlow.queue.filter(u => u.type === 'promote').length > maxPositions) {
       warnings.push({ type: 'max_positions', symbol: null, severity: 'amber',
         message: `Executing all queued promotions would exceed ${maxPositions}-position limit` });
@@ -1165,7 +1213,6 @@ async function computeMovesPayload(owner) {
         trajectory: h.trajectory, tier: h.tier,
         currentPct: h.currentPct, targetPct: h.targetPct, currentMktValue: h.currentMktValue,
       })),
-      watchlistCandidates: finalCandidates,
       capitalFlow,
       warnings,
     };
