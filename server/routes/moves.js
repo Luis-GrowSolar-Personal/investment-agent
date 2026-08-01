@@ -986,6 +986,49 @@ async function computeMovesPayload(owner) {
     const specTarget  = (1 - estSpecRatio) * 100;
     const barbellOk   = specPct == null || Math.abs(specPct - specTarget) <= 7;
 
+    // ── Allocation summary (six buckets, current vs. target) ──────────────────
+    // Same taxonomy the rest of the engine already uses (bucketOverride +
+    // tier), just aggregated for the Allocation tab instead of per-ticker
+    // moves. estPoolPct/specPoolPct/etfTargetPct already sum to 100% of
+    // *deployable* capital (the existing model targets fully invested, 0%
+    // cash, with the reserve as a separate liquidity floor — see
+    // cashReserveFloor above). To show cash as a real sixth slice that sums
+    // to 100% of TOTAL portfolio value, the five invested targets are scaled
+    // down by (1 - cashReservePct) and cash fills the remainder. This is a
+    // display reconciliation, not a change to how targets are computed
+    // elsewhere in the engine.
+    let estEquityValue = 0, specEquityValue = 0, etfValue = 0, cryptoValue = 0, commodityValue = 0;
+    for (const [tickerId, { ticker, positions }] of byTicker.entries()) {
+      const a = analysisMap.get(tickerId);
+      const { mktValue } = positionMetrics(positions, totalPortfolioValue);
+      const bucket = getBucket(ticker);
+      if (bucket === 'etf')            etfValue       += mktValue;
+      else if (bucket === 'crypto')    cryptoValue    += mktValue;
+      else if (bucket === 'commodity') commodityValue += mktValue;
+      else {
+        const side = barbellSide(ticker, a);
+        if (side === 'est')  estEquityValue  += mktValue;
+        if (side === 'spec') specEquityValue += mktValue;
+      }
+    }
+    const cryptoTargetPct    = fixedGroups.filter(g => getBucket(g.ticker) === 'crypto')
+      .reduce((s, g) => s + effectiveCap(g.ticker), 0);
+    const commodityTargetPct = fixedGroups.filter(g => getBucket(g.ticker) === 'commodity')
+      .reduce((s, g) => s + effectiveCap(g.ticker), 0);
+    const investedScale = 1 - cashReservePct;
+
+    const allocation = {
+      cashReservePct: +(cashReservePct * 100).toFixed(1),
+      buckets: [
+        { key: 'established', label: 'Established Equities', currentValue: +estEquityValue.toFixed(2),  targetPct: +(estPoolPct        * investedScale).toFixed(1) },
+        { key: 'speculative',  label: 'Speculative Equities',  currentValue: +specEquityValue.toFixed(2), targetPct: +(specPoolPct       * investedScale).toFixed(1) },
+        { key: 'etf',          label: 'ETF',                   currentValue: +etfValue.toFixed(2),        targetPct: +(etfTargetPct      * investedScale).toFixed(1) },
+        { key: 'crypto',       label: 'Crypto',                currentValue: +cryptoValue.toFixed(2),     targetPct: +(cryptoTargetPct   * investedScale).toFixed(1) },
+        { key: 'commodity',    label: 'Commodities',           currentValue: +commodityValue.toFixed(2),  targetPct: +(commodityTargetPct * investedScale).toFixed(1) },
+        { key: 'cash',         label: 'Cash',                  currentValue: +totalCash.toFixed(2),       targetPct: +(cashReservePct * 100).toFixed(1) },
+      ],
+    };
+
     // ── Warnings ──────────────────────────────────────────────────────────────
     const warnings = [];
     actionMoves.filter(m => m.requires48h).forEach(m => warnings.push({
@@ -1113,6 +1156,7 @@ async function computeMovesPayload(owner) {
         estPoolPct:  +estPoolPct.toFixed(1),
         specPoolPct: +specPoolPct.toFixed(1),
       },
+      allocation,
       moves:               actionMoves,
       advisories:          holdMoves.filter(m => m.moveType === 'HOLD_ADVISORY'),
       holds:               holdMoves.filter(m => m.moveType === 'HOLD').map(h => ({

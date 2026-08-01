@@ -225,6 +225,117 @@ function AddRoutingDetail({ accounts }) {
   );
 }
 
+// ─── Allocation tab ───────────────────────────────────────────────────────────
+// Current vs. target across the six buckets the engine already models
+// (bucketOverride: etf/crypto/commodity, plus established/speculative equity
+// tiers, plus cash). Data comes from `data.allocation` in the /api/moves
+// payload — see server/routes/moves.js.
+
+const BUCKET_COLORS = {
+  established: C.blue,
+  speculative: C.amber,
+  etf:         C.purple,
+  crypto:      C.green,
+  commodity:   '#2dd4bf',
+  cash:        C.slate,
+};
+
+function AllocationBar({ title, segments }) {
+  return (
+    <div style={{ marginBottom: 16 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, color: C.dim, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>
+        {title}
+      </div>
+      <div style={{ display: 'flex', height: 40, borderRadius: 8, overflow: 'hidden', border: `1px solid ${C.border}`, background: C.bg }}>
+        {segments.map(s => (
+          <div
+            key={s.key}
+            title={`${s.label}: ${pct(s.pct)} · ${money(s.value)}`}
+            style={{
+              width: `${Math.max(s.pct, 0.6)}%`,
+              background: s.color + '33',
+              borderRight: `1px solid ${C.bg}`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              overflow: 'hidden',
+            }}
+          >
+            {s.pct > 8 && (
+              <span style={{ fontSize: 10, fontWeight: 700, color: s.color, whiteSpace: 'nowrap' }}>
+                {pct(s.pct, 0)}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function AllocationView({ data }) {
+  const alloc = data?.allocation;
+  if (!alloc) return null;
+  const total = data.totalPortfolioValue || 0;
+
+  const rows = alloc.buckets.map(b => {
+    const currentPct  = total > 0 ? (b.currentValue / total) * 100 : 0;
+    const targetValue = total * (b.targetPct / 100);
+    return {
+      ...b,
+      color: BUCKET_COLORS[b.key] ?? C.muted,
+      currentPct,
+      targetValue,
+      deltaPct: currentPct - b.targetPct,
+    };
+  });
+
+  const gridCols = '18px 1fr 110px 90px 110px 90px 90px';
+
+  return (
+    <div style={{ marginBottom: 24 }}>
+      <AllocationBar title="Current allocation" segments={rows.map(r => ({ key: r.key, label: r.label, pct: r.currentPct, value: r.currentValue, color: r.color }))} />
+      <AllocationBar title="Target allocation"  segments={rows.map(r => ({ key: r.key, label: r.label, pct: r.targetPct,  value: r.targetValue,  color: r.color }))} />
+
+      <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, overflow: 'hidden', marginTop: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: gridCols, padding: '9px 14px', borderBottom: `1px solid ${C.border}`, fontSize: 10, fontWeight: 700, color: C.dim, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+          <div />
+          <div>Bucket</div>
+          <div style={{ textAlign: 'right' }}>Current $</div>
+          <div style={{ textAlign: 'right' }}>Current %</div>
+          <div style={{ textAlign: 'right' }}>Target $</div>
+          <div style={{ textAlign: 'right' }}>Target %</div>
+          <div style={{ textAlign: 'right' }}>Δ</div>
+        </div>
+        {rows.map((r, i) => (
+          <div key={r.key} style={{
+            display: 'grid', gridTemplateColumns: gridCols, padding: '9px 14px', alignItems: 'center',
+            fontSize: 12.5, borderTop: i > 0 ? `1px solid ${C.border}` : 'none',
+            background: i % 2 ? C.bg + '60' : 'transparent',
+          }}>
+            <div style={{ width: 10, height: 10, borderRadius: 3, background: r.color }} />
+            <div style={{ color: C.text, fontWeight: 600 }}>{r.label}</div>
+            <div style={{ textAlign: 'right', color: C.muted }}>{money(r.currentValue)}</div>
+            <div style={{ textAlign: 'right', color: C.muted }}>{pct(r.currentPct)}</div>
+            <div style={{ textAlign: 'right', color: C.text }}>{money(r.targetValue)}</div>
+            <div style={{ textAlign: 'right', color: C.text }}>{pct(r.targetPct)}</div>
+            <div style={{
+              textAlign: 'right', fontWeight: 700,
+              color: Math.abs(r.deltaPct) <= 2 ? C.green : r.deltaPct > 0 ? C.amber : C.blue,
+            }}>
+              {r.deltaPct > 0 ? '+' : ''}{r.deltaPct.toFixed(1)}%
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ fontSize: 11, color: C.faint, marginTop: 8 }}>
+        Cash target reflects the {pct(alloc.cashReservePct, 0)} reserve floor — the other five buckets' targets are
+        scaled down so all six sum to 100% of total portfolio value. See the Moves tab for the specific trades that
+        close these gaps.
+      </div>
+    </div>
+  );
+}
+
 // ─── Move card ────────────────────────────────────────────────────────────────
 
 // Diff table for Action Required — one grid track shared by the header and
@@ -985,6 +1096,7 @@ export default function PortfolioManager() {
   const [refreshing,    setRefreshing]    = useState(false);
   const [err,           setErr]           = useState('');
   const [selectedBucket, setSelectedBucket] = useState(null);
+  const [view, setView] = useState('allocation'); // 'allocation' | 'moves'
   // Session decisions: key = `${symbol}-${moveType}` → { status, acceptedAmount?, declinedReason? }
   const [decisions, setDecisions] = useState({});
 
@@ -1231,13 +1343,37 @@ export default function PortfolioManager() {
         <>
           <PortfolioSummaryBar data={data} />
 
-          {/* Structural flags — shown immediately after portfolio summary */}
+          {/* Structural flags — shown immediately after portfolio summary, on both tabs */}
           {data.warnings?.length > 0 && (
             <div style={{ marginBottom: 24 }}>
               <WarningsList warnings={data.warnings} onAcceptWarning={handleAcceptWarning} />
             </div>
           )}
 
+          {/* Allocation / Moves tab switcher */}
+          <div style={{ display: 'flex', gap: 8, marginBottom: 20, borderBottom: `1px solid ${C.border}` }}>
+            {[
+              { key: 'allocation', label: 'Allocation' },
+              { key: 'moves',      label: `Recommended Moves${actionMoves.length ? ` (${actionMoves.length})` : ''}` },
+            ].map(t => (
+              <button
+                key={t.key}
+                onClick={() => setView(t.key)}
+                style={{
+                  background: 'none', border: 'none', cursor: 'pointer',
+                  padding: '8px 4px 10px 4px', marginRight: 16,
+                  fontSize: 13, fontWeight: 700,
+                  color: view === t.key ? C.text : C.dim,
+                  borderBottom: view === t.key ? `2px solid ${C.blue}` : '2px solid transparent',
+                }}
+              >{t.label}</button>
+            ))}
+          </div>
+
+          {view === 'allocation' && <AllocationView data={data} />}
+
+          {view === 'moves' && (
+            <>
           {/* Deployable capital running total */}
           <DeployableBar
             freeCash={data.freeCash}
@@ -1331,7 +1467,8 @@ export default function PortfolioManager() {
               <HoldsList holds={data.holds} />
             </div>
           )}
-
+            </>
+          )}
 
           <div style={{ textAlign: 'right', fontSize: 11, color: C.faint }}>
             Generated {new Date().toLocaleTimeString()}
