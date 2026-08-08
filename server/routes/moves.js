@@ -1534,7 +1534,15 @@ router.post('/:owner/refresh', requireAuth(), async (req, res) => {
     const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
     if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
 
-    const payload     = await computeMovesPayload(owner);
+    // Preserve re-baseline mode across a manual refresh — same reasoning as
+    // lib/movesCache.js's refreshMovesCache: if the cache currently holds a
+    // just-confirmed re-baseline, a plain refresh (e.g. after a price
+    // update) shouldn't silently revert it to the everyday winner-protected
+    // computation out from under the user.
+    const existingCache = await prisma.movesCache.findUnique({ where: { owner } });
+    const bypassWinnerProtection = existingCache?.payload?.isRebaseline === true;
+
+    const payload     = await computeMovesPayload(owner, { bypassWinnerProtection });
     const computedAt  = new Date();
     await prisma.movesCache.upsert({
       where:  { owner },
