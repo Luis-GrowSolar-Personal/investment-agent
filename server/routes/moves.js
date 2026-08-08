@@ -782,6 +782,17 @@ async function computeMovesPayload(owner, options = {}) {
     if (!profile) throw new Error(`Owner "${owner}" not found`);
 
     const cashReservePct    = profile.cashReservePct    ?? DEFAULT_CASH_RESERVE;
+    // Every top-down bucket target below is expressed as a % of *deployable*
+    // (post-cash-reserve) capital, then scaled down by investedScale so the
+    // five invested buckets + cash sum to 100% of TOTAL portfolio value.
+    // This must be applied ONCE, right here, before any pool percentage is
+    // handed to computeIndividualModelWeights/splitBucketTarget/sizeSide —
+    // previously those consumed the raw (unscaled) percentages while the
+    // Allocation-tab/re-baseline summary display applied investedScale on
+    // top, so individual move targets never summed to the bucket totals
+    // shown on screen (off by the cash-reserve %, ~5 pts). Caught 2026-08-08
+    // via Luis's live math-check on the re-baseline confirm screen.
+    const investedScale     = 1 - cashReservePct;
     const estSpecRatio      = profile.estSpecRatio      ?? DEFAULT_EST_RATIO;
     const maxPositions      = profile.maxPositions      ?? DEFAULT_MAX_POS;
     const minPositionDollar = profile.minPositionDollar ?? DEFAULT_MIN_POS_USD;
@@ -881,10 +892,14 @@ async function computeMovesPayload(owner, options = {}) {
     // ETF/crypto/commodity sizing at all. Per-ticker capPercent is demoted to
     // an in-bucket ceiling (see splitBucketTarget below), not the bucket's
     // source of truth for total size.
-    const equitiesTargetPct  = (profile.equitiesTargetPct    ?? DEFAULT_EQUITIES_TARGET)  * 100;
-    const etfTargetPct       = (profile.etfTargetPct         ?? DEFAULT_ETF_TARGET)       * 100;
-    const cryptoTargetPct    = (profile.cryptoTargetPct      ?? DEFAULT_CRYPTO_TARGET)    * 100;
-    const commodityTargetPct = (profile.commoditiesTargetPct ?? DEFAULT_COMMODITY_TARGET) * 100;
+    // Raw Admin inputs are % of deployable (post-reserve) capital — scale by
+    // investedScale immediately so every downstream consumer (individual
+    // equity weights, fixed-bucket splits, bucket-level ADD moves, and the
+    // summary display) works off the same % of TOTAL portfolio value.
+    const equitiesTargetPct  = (profile.equitiesTargetPct    ?? DEFAULT_EQUITIES_TARGET)  * 100 * investedScale;
+    const etfTargetPct       = (profile.etfTargetPct         ?? DEFAULT_ETF_TARGET)       * 100 * investedScale;
+    const cryptoTargetPct    = (profile.cryptoTargetPct      ?? DEFAULT_CRYPTO_TARGET)    * 100 * investedScale;
+    const commodityTargetPct = (profile.commoditiesTargetPct ?? DEFAULT_COMMODITY_TARGET) * 100 * investedScale;
 
     const estPoolPct  = equitiesTargetPct * estSpecRatio;
     const specPoolPct = equitiesTargetPct * (1 - estSpecRatio);
@@ -1271,14 +1286,14 @@ async function computeMovesPayload(owner, options = {}) {
     // ── Allocation summary (six buckets, current vs. target) ──────────────────
     // Same taxonomy the rest of the engine already uses (bucketOverride +
     // tier), just aggregated for the Allocation tab instead of per-ticker
-    // moves. estPoolPct/specPoolPct/etfTargetPct already sum to 100% of
-    // *deployable* capital (the existing model targets fully invested, 0%
-    // cash, with the reserve as a separate liquidity floor — see
-    // cashReserveFloor above). To show cash as a real sixth slice that sums
-    // to 100% of TOTAL portfolio value, the five invested targets are scaled
-    // down by (1 - cashReservePct) and cash fills the remainder. This is a
-    // display reconciliation, not a change to how targets are computed
-    // elsewhere in the engine.
+    // moves. estPoolPct/specPoolPct/etfTargetPct/cryptoTargetPct/
+    // commodityTargetPct are already scaled by investedScale (see where
+    // they're computed, above) so they're % of TOTAL portfolio value —
+    // cash fills the remainder as the sixth slice. bucketEntry below no
+    // longer re-applies investedScale; that used to happen twice (once here,
+    // once implicitly wherever these pcts were consumed for moves), which is
+    // exactly why individual move $ targets didn't sum to the bucket totals
+    // shown here (caught 2026-08-08 via Luis's live math-check).
     let estEquityValue = 0, specEquityValue = 0, etfValue = 0, cryptoValue = 0, commodityValue = 0;
     const holdings = []; // per-ticker detail for the Allocation tab's bucket drill-down
     for (const [tickerId, { ticker, positions }] of byTicker.entries()) {
@@ -1303,8 +1318,8 @@ async function computeMovesPayload(owner, options = {}) {
     }
     holdings.sort((a, b) => b.mktValue - a.mktValue);
     // cryptoTargetPct/commodityTargetPct/etfTargetPct are the top-down Admin
-    // targets computed earlier — no longer re-derived bottom-up here.
-    const investedScale = 1 - cashReservePct;
+    // targets computed earlier (already investedScale-adjusted) — no longer
+    // re-derived bottom-up here.
 
     // targetValue is computed here from full-precision pool percentages
     // (before the display rounding applied to targetPct below) so a
@@ -1313,8 +1328,7 @@ async function computeMovesPayload(owner, options = {}) {
     // rounding into a visible few-dollar gap (caught 2026-08-08 — the
     // re-baseline confirm screen was re-deriving dollars from the rounded
     // targetPct instead of using this).
-    function bucketEntry(key, label, currentValue, rawPct) {
-      const scaledPct = rawPct * investedScale;
+    function bucketEntry(key, label, currentValue, scaledPct) {
       return {
         key, label,
         currentValue: +currentValue.toFixed(2),
