@@ -1602,7 +1602,9 @@ export default function PortfolioManager() {
               onClose={() => setRebaselineOpen(false)}
               onApplied={async () => {
                 setRebaselineOpen(false);
-                setView('moves');
+                // Stay on whatever tab the user opened re-baseline from (Allocation
+                // or Moves) — don't force-switch to Moves, that's a jarring jump
+                // away from where they were. Just refresh the data underneath.
                 await loadMoves(); // re-baseline already persisted to MovesCache — this just reads it back
               }}
             />
