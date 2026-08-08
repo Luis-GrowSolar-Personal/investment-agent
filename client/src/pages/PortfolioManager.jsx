@@ -1199,9 +1199,38 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
   const th      = { textAlign: 'right', fontSize: 10, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '4px 8px' };
   const td      = { textAlign: 'right', fontSize: 13, color: C.text, padding: '6px 8px', borderTop: `1px solid ${C.border}` };
 
-  function BucketTable({ data }) {
+  // Recompute target %/$ on the fly from the in-progress draft, mirroring the
+  // server's bucketEntry() math (moves.js ~line 1307-1336) exactly:
+  //   investedScale = 1 - cashReservePct
+  //   estPoolPct/specPoolPct = equitiesTargetPct split by estSpecRatio
+  //   scaledPct = rawPct * investedScale ; targetValue = totalPV * scaledPct/100
+  // This only re-derives dollar/percent targets — it does NOT call the moves
+  // engine, so it's instant. The actual position-level moves (which do need
+  // the engine) still only refresh on Confirm.
+  function liveTargets(draft, preview) {
+    const cashReservePct = (preview.allocation?.cashReservePct ?? 0) / 100; // 0-1
+    const investedScale  = 1 - cashReservePct;
+    const estSpecFrac    = (draft.estSpecRatio ?? 0) / 100;
+    const rawPctByKey = {
+      established: draft.equitiesTargetPct * estSpecFrac,
+      speculative: draft.equitiesTargetPct * (1 - estSpecFrac),
+      etf:         draft.etfTargetPct,
+      crypto:      draft.cryptoTargetPct,
+      commodity:   draft.commoditiesTargetPct,
+    };
+    const map = {};
+    for (const [key, rawPct] of Object.entries(rawPctByKey)) {
+      const scaledPct = rawPct * investedScale;
+      map[key] = { targetPct: scaledPct };
+    }
+    map.cash = { targetPct: cashReservePct * 100 };
+    return map;
+  }
+
+  function BucketTable({ data, draft }) {
     const totalPV = data.totalPortfolioValue ?? 0;
     const buckets = data.allocation?.buckets ?? [];
+    const live = draft ? liveTargets(draft, data) : null;
     return (
       <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 8, marginBottom: 8 }}>
         <thead>
@@ -1214,13 +1243,14 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
         </thead>
         <tbody>
           {buckets.map(b => {
-            const targetValue = b.targetValue ?? (totalPV * (b.targetPct / 100));
+            const targetPct   = live ? live[b.key]?.targetPct ?? b.targetPct : b.targetPct;
+            const targetValue = live ? totalPV * (targetPct / 100) : (b.targetValue ?? (totalPV * (b.targetPct / 100)));
             const delta = targetValue - b.currentValue;
             return (
               <tr key={b.key}>
                 <td style={{ ...td, textAlign: 'left', color: C.muted }}>{b.label}</td>
                 <td style={td}>{money(b.currentValue)} <span style={{ color: C.dim }}>({pct(totalPV > 0 ? b.currentValue / totalPV * 100 : 0)})</span></td>
-                <td style={td}>{money(targetValue)} <span style={{ color: C.dim }}>({pct(b.targetPct)})</span></td>
+                <td style={td}>{money(targetValue)} <span style={{ color: C.dim }}>({pct(targetPct)})</span></td>
                 <td style={{ ...td, color: Math.abs(delta) < 50 ? C.dim : delta > 0 ? C.green : C.amber, fontWeight: 600 }}>
                   {Math.abs(delta) < 50 ? '—' : (delta > 0 ? '+' : '') + money(delta)}
                 </td>
@@ -1288,9 +1318,9 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
             </div>
 
             <div style={{ fontSize: 11, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-              Current vs. target (at last-saved settings — edit above and confirm to recompute)
+              Current vs. target (updates live as you edit above — confirm to generate actual moves)
             </div>
-            <BucketTable data={preview} />
+            <BucketTable data={preview} draft={draft} />
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10, marginTop: 16 }}>
               <button onClick={onClose} style={secS}>Cancel</button>

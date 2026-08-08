@@ -204,9 +204,20 @@ function computeIndividualModelWeights(groups, estPoolPct, specPoolPct, targetEs
       raw:        baseWeightPct * (g.ticker.type === 'B' ? 1.5 : 1.0),
     }));
 
-    // Normalize so sum = poolPct
+    // Normalize so the group sums to its FAIR SHARE of the pool
+    // (baseWeightPct * group.length), not the full poolPct — rescaling to
+    // poolPct unconditionally defeats the whole point of `denom` above: with
+    // fewer holdings than targetCount, this group should only claim
+    // group.length/denom of the pool, leaving the rest genuinely reserved for
+    // new opens. (Caught 2026-08-08 via re-baseline: rescaling to poolPct
+    // meant existing holdings alone always consumed the entire established
+    // pool, so new opens' allocation — sized separately — was pure double
+    // counting on top, not a fair split.) When group.length >= targetCount,
+    // denom = group.length, so fairShareSum reduces to exactly poolPct —
+    // unchanged from before in that case.
+    const fairShareSum = baseWeightPct * group.length;
     const rawSum = raws.reduce((s, r) => s + r.raw, 0);
-    const scale  = rawSum > 0 ? poolPct / rawSum : 1;
+    const scale  = rawSum > 0 ? fairShareSum / rawSum : 1;
 
     raws.forEach(r => {
       weights.set(r.id, +Math.min(r.raw * scale, r.hardCapPct).toFixed(2));
