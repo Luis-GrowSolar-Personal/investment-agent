@@ -216,6 +216,29 @@ router.post('/accept-diff', requireAuth(), async (req, res) => {
   }
 });
 
+// ── POST /api/schwab/accept-add ───────────────────────────────────────────────
+//
+// Body: { accountId, symbol, acquiredDate, costPerShare }
+// Manual-entry counterpart to /accept-diff: user supplies the real purchase
+// date and cost/share for a Schwab-ahead-of-local diff instead of relying on
+// Schwab's blended averagePrice + a placeholder date.
+
+router.post('/accept-add', requireAuth(), async (req, res) => {
+  const { accountId, symbol, acquiredDate, costPerShare } = req.body;
+  if (!accountId || !symbol || !acquiredDate || costPerShare == null) {
+    return res.status(400).json({ error: 'accountId, symbol, acquiredDate, and costPerShare are required' });
+  }
+  try {
+    const result = await schwabSync.acceptAddWithCost(
+      prisma, parseInt(accountId), symbol, acquiredDate, parseFloat(costPerShare)
+    );
+    res.json(result);
+  } catch (err) {
+    console.error('POST /schwab/accept-add error:', err);
+    res.status(400).json({ error: err.message });
+  }
+});
+
 // ── GET /api/schwab/lots/:accountId/:symbol ───────────────────────────────────
 //
 // Returns open lots for a position — used to populate the trim lot-picker modal.

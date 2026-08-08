@@ -590,6 +590,68 @@ async function acceptShareDiff(prisma, accountId, symbol) {
 }
 
 /**
+ * Same "Schwab has more shares than local" case as acceptShareDiff, but for
+ * the manual-entry flow: the user supplies the actual acquisition date and
+ * cost/share for the missed purchase (Schwab's averagePrice is a blended
+ * figure across all lots, not the price for specifically this diff, so it's
+ * often wrong for a single missed lot — this is the accurate alternative to
+ * acceptShareDiff's placeholder).
+ *
+ * @param {PrismaClient} prisma
+ * @param {number} accountId
+ * @param {string} symbol
+ * @param {string} acquiredDate  — ISO date string the user entered
+ * @param {number} costPerShare  — user-entered cost basis per share
+ */
+async function acceptAddWithCost(prisma, accountId, symbol, acquiredDate, costPerShare) {
+  const acquired = new Date(acquiredDate);
+  if (isNaN(acquired)) throw new Error(`Invalid acquiredDate: ${acquiredDate}`);
+  if (costPerShare == null || costPerShare < 0) throw new Error('costPerShare must be >= 0');
+
+  const account = await prisma.account.findUnique({ where: { id: accountId } });
+  if (!account) throw new Error('Account not found');
+  if (!account.schwabAccountHash) throw new Error('Account is not linked to a Schwab account');
+
+  const { schwabAccounts } = await previewAccounts(prisma);
+  const schwab = schwabAccounts.find(a => a.hashValue === account.schwabAccountHash);
+  if (!schwab) {
+    throw new Error('Linked Schwab account not found in current Schwab data (hash mismatch or account removed)');
+  }
+
+  const schwabPos = schwab.positions.find(p => p.symbol === symbol);
+  if (!schwabPos) throw new Error(`${symbol} not found in this Schwab account`);
+  const schwabShares = (schwabPos.longQuantity ?? 0) - (schwabPos.shortQuantity ?? 0);
+
+  const ticker = await prisma.ticker.findUnique({ where: { symbol } });
+  if (!ticker) throw new Error(`${symbol} ticker not found locally`);
+
+  const position = await prisma.position.findUnique({
+    where: { tickerId_accountId: { tickerId: ticker.id, accountId } },
+    include: { lots: { where: { closedDate: null } } },
+  });
+  if (!position) throw new Error(`No local position for ${symbol} in this account`);
+
+  const localShares = position.lots.reduce((s, l) => s + l.shares, 0);
+  const diffShares = +(schwabShares - localShares).toFixed(6);
+  if (diffShares <= 0) {
+    throw new Error(`${symbol}: Schwab (${schwabShares}) is not greater than local (${localShares}) — nothing to add`);
+  }
+
+  await prisma.lot.create({
+    data: {
+      positionId: position.id,
+      shares: diffShares,
+      costBasis: costPerShare,
+      acquiredDate: acquired,
+      source: 'manual',
+      notes: `Added to reconcile Schwab share-count diff (+${diffShares} shares) — cost/date entered manually.`,
+    },
+  });
+
+  return { symbol, diffShares, newLocalShares: localShares + diffShares };
+}
+
+/**
  * Returns open lots for a position — used to populate the lot-picker modal
  * when the user accepts a trim.
  *
@@ -734,6 +796,7 @@ module.exports = {
   createAccountFromSchwab,
   syncAccount,
   acceptShareDiff,
+  acceptAddWithCost,
   getOpenLots,
   acceptTrim,
   ignoreAccount,
