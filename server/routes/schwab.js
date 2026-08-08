@@ -218,20 +218,20 @@ router.post('/accept-diff', requireAuth(), async (req, res) => {
 
 // ── POST /api/schwab/accept-add ───────────────────────────────────────────────
 //
-// Body: { accountId, symbol, acquiredDate, costPerShare }
+// Body: { accountId, symbol, lots: [{ acquiredDate, shares, costPerShare }] }
 // Manual-entry counterpart to /accept-diff: user supplies the real purchase
-// date and cost/share for a Schwab-ahead-of-local diff instead of relying on
-// Schwab's blended averagePrice + a placeholder date.
+// date(s), share count(s), and cost/share for a Schwab-ahead-of-local diff
+// instead of relying on Schwab's blended averagePrice + a placeholder date.
+// Accepts multiple lots because a single diff is often several distinct
+// purchases, not one.
 
 router.post('/accept-add', requireAuth(), async (req, res) => {
-  const { accountId, symbol, acquiredDate, costPerShare } = req.body;
-  if (!accountId || !symbol || !acquiredDate || costPerShare == null) {
-    return res.status(400).json({ error: 'accountId, symbol, acquiredDate, and costPerShare are required' });
+  const { accountId, symbol, lots } = req.body;
+  if (!accountId || !symbol || !lots?.length) {
+    return res.status(400).json({ error: 'accountId, symbol, and at least one lot are required' });
   }
   try {
-    const result = await schwabSync.acceptAddWithCost(
-      prisma, parseInt(accountId), symbol, acquiredDate, parseFloat(costPerShare)
-    );
+    const result = await schwabSync.acceptAddWithCost(prisma, parseInt(accountId), symbol, lots);
     res.json(result);
   } catch (err) {
     console.error('POST /schwab/accept-add error:', err);

@@ -1230,34 +1230,56 @@ function AddAccountModal({ token, onSaved, onClose }) {
 // ── AddLotModal ─────────────────────────────────────────────────────────────
 //
 // Opposite of TrimLotPickerModal: Schwab reports MORE shares than local, so
-// there's a purchase that was never recorded locally. Lets the user enter
-// the real acquisition date and cost/share for the missing lot instead of
-// guessing which existing lots were involved (there aren't any — this is a
-// new lot). Backend: POST /api/schwab/accept-add.
+// one or more purchases were never recorded locally. A diff is frequently
+// the SUM of several real lots (DRIP reinvestments, multiple buys spread
+// over months/years — see the Schwab "Cost Basis" lot detail view for the
+// real breakdown), so this lets the user enter multiple rows (date, shares,
+// cost/share) rather than assuming it's one purchase. Submit is only
+// enabled once the rows sum exactly to the diff. Backend: POST
+// /api/schwab/accept-add.
 
 function AddLotModal({ accountId, symbol, schwabShares, localShares, hashValue, getToken, onAccepted, onClose }) {
   const diffShares = +(schwabShares - localShares).toFixed(6);
+  const today = new Date().toISOString().slice(0, 10);
 
-  const [acquiredDate, setAcquiredDate] = useState(new Date().toISOString().slice(0, 10));
-  const [costPerShare, setCostPerShare] = useState('');
-  const [submitting, setSubmitting]     = useState(false);
-  const [error, setError]               = useState('');
+  const [rows, setRows]             = useState([{ acquiredDate: today, shares: String(diffShares), costPerShare: '' }]);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError]           = useState('');
 
-  const canSubmit = !submitting && acquiredDate && parseFloat(costPerShare) >= 0 && costPerShare !== '';
+  function updateRow(i, field, value) {
+    setRows(prev => prev.map((r, idx) => idx === i ? { ...r, [field]: value } : r));
+  }
+  function addRow() {
+    setRows(prev => [...prev, { acquiredDate: today, shares: '', costPerShare: '' }]);
+  }
+  function removeRow(i) {
+    setRows(prev => prev.filter((_, idx) => idx !== i));
+  }
+
+  const totalEntered = +rows.reduce((s, r) => s + (parseFloat(r.shares) || 0), 0).toFixed(6);
+  const remaining    = +(diffShares - totalEntered).toFixed(6);
+  const rowsValid    = rows.length > 0 && rows.every(r =>
+    r.acquiredDate && parseFloat(r.shares) > 0 && r.costPerShare !== '' && parseFloat(r.costPerShare) >= 0);
+  const canSubmit = !submitting && rowsValid && Math.abs(remaining) < 0.0001;
 
   async function handleSubmit() {
     setSubmitting(true);
     setError('');
     try {
       const token = await getToken();
+      const lots = rows.map(r => ({
+        acquiredDate: r.acquiredDate,
+        shares: parseFloat(r.shares),
+        costPerShare: parseFloat(r.costPerShare),
+      }));
       const res = await fetch(`${API}/api/schwab/accept-add`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ accountId, symbol, acquiredDate, costPerShare: parseFloat(costPerShare) }),
+        body: JSON.stringify({ accountId, symbol, lots }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error);
-      onAccepted(symbol, hashValue, json.diffShares);
+      onAccepted(symbol, hashValue, json.diffShares, json.lotsAdded);
     } catch (err) {
       setError(err.message);
       setSubmitting(false);
@@ -1265,35 +1287,71 @@ function AddLotModal({ accountId, symbol, schwabShares, localShares, hashValue, 
   }
 
   const overlay = { position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9100 };
-  const box     = { background: '#111827', border: '1px solid #1e2330', borderRadius: 12, padding: 28, width: 480, maxWidth: '95vw' };
+  const box     = { background: '#111827', border: '1px solid #1e2330', borderRadius: 12, padding: 28, width: 620, maxWidth: '95vw', maxHeight: '85vh', overflowY: 'auto' };
   const inputS  = { background: '#0d1018', border: '1px solid #334155', borderRadius: 6, color: '#f1f5f9', padding: '5px 10px', fontSize: 13, width: '100%' };
   const btnS    = { background: '#3b82f6', color: '#fff', border: 'none', borderRadius: 6, padding: '8px 18px', fontSize: 13, fontWeight: 600, cursor: 'pointer' };
   const secS    = { background: 'transparent', color: '#94a3b8', border: '1px solid #334155', borderRadius: 6, padding: '8px 18px', fontSize: 13, cursor: 'pointer' };
+  const th      = { textAlign: 'left', fontSize: 11, color: '#64748b', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: '4px 6px' };
 
   return (
     <div style={overlay}>
       <div style={box}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9' }}>Add Lot — {symbol}</div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: '#f1f5f9' }}>Add Lot(s) — {symbol}</div>
             <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>
               Schwab: {schwabShares} shares &nbsp;·&nbsp; Local: {localShares} shares &nbsp;·&nbsp;
-              <span style={{ color: '#34d399' }}>Adding: {diffShares} shares</span>
+              <span style={{ color: '#34d399' }}>Diff to add: {diffShares} shares</span>
+            </div>
+            <div style={{ fontSize: 11, color: '#64748b', marginTop: 6 }}>
+              This diff may be one purchase or several. Check Schwab's Cost Basis / lot detail view for {symbol}
+              and enter each distinct lot below — rows must sum exactly to {diffShares}.
             </div>
           </div>
           <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#94a3b8', fontSize: 20, cursor: 'pointer' }}>✕</button>
         </div>
 
-        <div style={{ marginBottom: 14 }}>
-          <label style={{ fontSize: 12, color: '#94a3b8', display: 'block', marginBottom: 4 }}>Purchase date</label>
-          <input type="date" value={acquiredDate} onChange={e => setAcquiredDate(e.target.value)}
-            style={{ ...inputS, width: 'auto' }} />
-        </div>
+        <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 12 }}>
+          <thead>
+            <tr>
+              <th style={th}>Acquired</th>
+              <th style={th}>Shares</th>
+              <th style={th}>Cost/share</th>
+              <th style={th}></th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r, i) => (
+              <tr key={i}>
+                <td style={{ padding: '4px 6px' }}>
+                  <input type="date" value={r.acquiredDate} onChange={e => updateRow(i, 'acquiredDate', e.target.value)} style={inputS} />
+                </td>
+                <td style={{ padding: '4px 6px' }}>
+                  <input type="number" step="0.0001" min="0" placeholder="0" value={r.shares}
+                    onChange={e => updateRow(i, 'shares', e.target.value)} style={{ ...inputS, width: 110 }} />
+                </td>
+                <td style={{ padding: '4px 6px' }}>
+                  <input type="number" step="0.01" min="0" placeholder="0.00" value={r.costPerShare}
+                    onChange={e => updateRow(i, 'costPerShare', e.target.value)} style={{ ...inputS, width: 100 }} />
+                </td>
+                <td style={{ padding: '4px 6px' }}>
+                  {rows.length > 1 && (
+                    <button onClick={() => removeRow(i)} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', fontSize: 14 }}>✕</button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
-        <div style={{ marginBottom: 20 }}>
-          <label style={{ fontSize: 12, color: '#94a3b8', display: 'block', marginBottom: 4 }}>Cost per share</label>
-          <input type="number" step="0.01" min="0" placeholder="0.00" value={costPerShare}
-            onChange={e => setCostPerShare(e.target.value)} style={{ ...inputS, width: 160 }} />
+        <button onClick={addRow} style={{ ...secS, padding: '4px 12px', fontSize: 12, marginBottom: 16 }}>+ Add another lot</button>
+
+        <div style={{ fontSize: 13, marginBottom: 16, color: remaining > 0.0001 ? '#f59e0b' : remaining < -0.0001 ? '#ef4444' : '#34d399' }}>
+          {remaining > 0.0001
+            ? `Still need to account for ${remaining.toFixed(4)} more shares`
+            : remaining < -0.0001
+            ? `Over by ${Math.abs(remaining).toFixed(4)} shares — reduce share counts`
+            : '✓ Rows match the diff exactly'}
         </div>
 
         {error && <div style={{ color: '#f87171', fontSize: 12, marginBottom: 12 }}>{error}</div>}
@@ -1301,7 +1359,7 @@ function AddLotModal({ accountId, symbol, schwabShares, localShares, hashValue, 
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
           <button onClick={onClose} style={secS}>Cancel</button>
           <button onClick={handleSubmit} disabled={!canSubmit} style={{ ...btnS, opacity: canSubmit ? 1 : 0.5, cursor: canSubmit ? 'pointer' : 'not-allowed' }}>
-            {submitting ? 'Adding…' : `Add ${diffShares} shares`}
+            {submitting ? 'Adding…' : `Add ${rows.length} lot${rows.length > 1 ? 's' : ''}`}
           </button>
         </div>
       </div>
@@ -1600,11 +1658,11 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
     setAddLotModal({ accountId, symbol, hashValue, schwabShares, localShares });
   }
 
-  async function handleAddLotAccepted(symbol, hashValue, diffShares) {
+  async function handleAddLotAccepted(symbol, hashValue, diffShares, lotsAdded) {
     setAddLotModal(null);
     setResultMsg(prev => ({
       ...prev,
-      [hashValue]: `${symbol}: added +${diffShares} shares as a new lot.`,
+      [hashValue]: `${symbol}: added +${diffShares} shares across ${lotsAdded} lot${lotsAdded > 1 ? 's' : ''}.`,
     }));
     await fetchData();
     onChanged();
@@ -1789,7 +1847,7 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
                             {d.status === 'schwab_only'
                               ? ' (no local position — Sync will create one)'
                               : isAdd
-                              ? ` (+${diffShares} — purchase >60 days old, enter cost manually)`
+                              ? ` (+${diffShares} — no matching transaction in the last 60 days; may be one lot or several, enter manually)`
                               : ` (trim — select which lot(s) to close)`}
                           </div>
                           {isAdd && (

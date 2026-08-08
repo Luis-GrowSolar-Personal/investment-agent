@@ -391,8 +391,12 @@ async function syncAccount(prisma, accountId) {
               });
               result.autoResolvedAdds.push({ symbol, shares: +diff.toFixed(6), price: match.price, tradeDate: match.tradeDate });
             } else {
-              // No transaction match — purchase may be >60 days old or quantity didn't align.
-              // Surface for manual entry via "Accept add" button.
+              // No single trade in the last 60 days matches the diff exactly. This
+              // could mean the purchase predates the 60-day window, OR — just as
+              // likely — the diff is the sum of several separate lots (DRIP
+              // reinvestments, multiple buys) rather than one trade. We can't tell
+              // which from here; surface for manual entry and let the user consult
+              // Schwab's own lot detail to enter each real lot.
               result.positionDiffs.push({
                 symbol,
                 schwabShares,
@@ -591,22 +595,31 @@ async function acceptShareDiff(prisma, accountId, symbol) {
 
 /**
  * Same "Schwab has more shares than local" case as acceptShareDiff, but for
- * the manual-entry flow: the user supplies the actual acquisition date and
- * cost/share for the missed purchase (Schwab's averagePrice is a blended
- * figure across all lots, not the price for specifically this diff, so it's
- * often wrong for a single missed lot — this is the accurate alternative to
- * acceptShareDiff's placeholder).
+ * the manual-entry flow: the user supplies the actual acquisition date(s)
+ * and cost/share for the missed purchase(s) (Schwab's averagePrice is a
+ * blended figure across all lots, not the price for any one of them, so
+ * it's often wrong for a single missed lot — this is the accurate
+ * alternative to acceptShareDiff's placeholder).
+ *
+ * A single share-count diff is frequently the sum of SEVERAL distinct lots
+ * (e.g. multiple DRIP reinvestments, or a position that was never fully
+ * imported), not one missed trade — Schwab's own lot detail (schwab.com,
+ * Cost Basis view) will show the real breakdown. So this accepts an array
+ * of lots rather than a single date/cost pair, and verifies the entered
+ * shares sum to the actual diff before creating anything.
  *
  * @param {PrismaClient} prisma
  * @param {number} accountId
  * @param {string} symbol
- * @param {string} acquiredDate  — ISO date string the user entered
- * @param {number} costPerShare  — user-entered cost basis per share
+ * @param {{ acquiredDate: string, shares: number, costPerShare: number }[]} lots
  */
-async function acceptAddWithCost(prisma, accountId, symbol, acquiredDate, costPerShare) {
-  const acquired = new Date(acquiredDate);
-  if (isNaN(acquired)) throw new Error(`Invalid acquiredDate: ${acquiredDate}`);
-  if (costPerShare == null || costPerShare < 0) throw new Error('costPerShare must be >= 0');
+async function acceptAddWithCost(prisma, accountId, symbol, lots) {
+  if (!lots?.length) throw new Error('At least one lot is required');
+  for (const l of lots) {
+    if (isNaN(new Date(l.acquiredDate))) throw new Error(`Invalid acquiredDate: ${l.acquiredDate}`);
+    if (!(l.shares > 0)) throw new Error('Each lot must have shares > 0');
+    if (l.costPerShare == null || l.costPerShare < 0) throw new Error('Each lot must have costPerShare >= 0');
+  }
 
   const account = await prisma.account.findUnique({ where: { id: accountId } });
   if (!account) throw new Error('Account not found');
@@ -637,18 +650,25 @@ async function acceptAddWithCost(prisma, accountId, symbol, acquiredDate, costPe
     throw new Error(`${symbol}: Schwab (${schwabShares}) is not greater than local (${localShares}) — nothing to add`);
   }
 
-  await prisma.lot.create({
-    data: {
-      positionId: position.id,
-      shares: diffShares,
-      costBasis: costPerShare,
-      acquiredDate: acquired,
-      source: 'manual',
-      notes: `Added to reconcile Schwab share-count diff (+${diffShares} shares) — cost/date entered manually.`,
-    },
-  });
+  const enteredTotal = +lots.reduce((s, l) => s + l.shares, 0).toFixed(6);
+  if (Math.abs(enteredTotal - diffShares) > 0.0001) {
+    throw new Error(`Entered lots total ${enteredTotal} shares but the diff is ${diffShares} shares — they must match exactly`);
+  }
 
-  return { symbol, diffShares, newLocalShares: localShares + diffShares };
+  await prisma.$transaction(
+    lots.map(l => prisma.lot.create({
+      data: {
+        positionId: position.id,
+        shares: l.shares,
+        costBasis: l.costPerShare,
+        acquiredDate: new Date(l.acquiredDate),
+        source: 'manual',
+        notes: `Added to reconcile Schwab share-count diff (part of +${diffShares} shares total) — cost/date entered manually.`,
+      },
+    }))
+  );
+
+  return { symbol, diffShares, lotsAdded: lots.length, newLocalShares: localShares + diffShares };
 }
 
 /**
