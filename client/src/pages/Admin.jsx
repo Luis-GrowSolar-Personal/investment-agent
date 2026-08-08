@@ -74,6 +74,12 @@ const DEFAULTS = {
   accountPurpose:    'growth',
   benchmarkBaseline: 'QQQ',
   specExitSpeed:     'normal',
+  // Top-level 4-bucket target model (2026-08-08 design) — must sum to 100.
+  // User-owned; deliberately independent of yearsToGoal/riskTolerance.
+  equitiesTargetPct:    50,
+  etfTargetPct:         20,
+  cryptoTargetPct:      15,
+  commoditiesTargetPct: 15,
 };
 
 function specCeiling(years) {
@@ -526,6 +532,10 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
       // Ratio fields: scale 0.0–1.0 → 0–100 for display
       cashReservePct:    p.cashReservePct != null ? Math.round(p.cashReservePct * 100) : '',
       estSpecRatio:      p.estSpecRatio   != null ? Math.round(p.estSpecRatio * 100)   : '',
+      equitiesTargetPct:    p.equitiesTargetPct    != null ? Math.round(p.equitiesTargetPct * 100)    : '',
+      etfTargetPct:         p.etfTargetPct         != null ? Math.round(p.etfTargetPct * 100)         : '',
+      cryptoTargetPct:      p.cryptoTargetPct      != null ? Math.round(p.cryptoTargetPct * 100)      : '',
+      commoditiesTargetPct: p.commoditiesTargetPct != null ? Math.round(p.commoditiesTargetPct * 100) : '',
       // Numeric fields: normalize null → '' so !== '' guards work correctly
       minPositionDollar: p.minPositionDollar ?? '',
       maxPositions:      p.maxPositions      ?? '',
@@ -543,6 +553,10 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
       ...d,
       cashReservePct:    d.cashReservePct === '' ? null : Number(d.cashReservePct) / 100,
       estSpecRatio:      d.estSpecRatio   === '' ? null : Number(d.estSpecRatio)   / 100,
+      equitiesTargetPct:    d.equitiesTargetPct    === '' ? null : Number(d.equitiesTargetPct)    / 100,
+      etfTargetPct:         d.etfTargetPct         === '' ? null : Number(d.etfTargetPct)         / 100,
+      cryptoTargetPct:      d.cryptoTargetPct      === '' ? null : Number(d.cryptoTargetPct)      / 100,
+      commoditiesTargetPct: d.commoditiesTargetPct === '' ? null : Number(d.commoditiesTargetPct) / 100,
       minPositionDollar: d.minPositionDollar === '' ? null : Number(d.minPositionDollar),
       maxPositions:      d.maxPositions      === '' ? null : Number(d.maxPositions),
       enoughNumber:      d.enoughNumber      === '' ? null : Number(d.enoughNumber),
@@ -647,6 +661,15 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
     p.minPositionDollar !== '' ? Number(p.minPositionDollar) : DEFAULTS.minPositionDollar,
     p.maxPositions      !== '' ? Number(p.maxPositions)      : DEFAULTS.maxPositions,
   );
+
+  // Top-level 4-bucket allocation target — must sum to 100
+  const bucketPct = {
+    equities:    p.equitiesTargetPct    !== '' ? Number(p.equitiesTargetPct)    : DEFAULTS.equitiesTargetPct,
+    etf:         p.etfTargetPct         !== '' ? Number(p.etfTargetPct)         : DEFAULTS.etfTargetPct,
+    crypto:      p.cryptoTargetPct      !== '' ? Number(p.cryptoTargetPct)      : DEFAULTS.cryptoTargetPct,
+    commodities: p.commoditiesTargetPct !== '' ? Number(p.commoditiesTargetPct) : DEFAULTS.commoditiesTargetPct,
+  };
+  const bucketTotal = bucketPct.equities + bucketPct.etf + bucketPct.crypto + bucketPct.commodities;
 
   // Goal progress (use saved profile value, not draft)
   const savedGoal = profile.enoughNumber;
@@ -942,11 +965,79 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
               </Field>
             </div>
 
+            {/* ── Section 1b: Target Allocation Model ── */}
+            <div style={{ marginBottom: 32 }}>
+              <SectionHeader
+                title="Target Allocation Model"
+                subtitle="Top-level target across the whole portfolio. Independent of years-to-goal / risk tolerance below — this is your call, not a computed suggestion."
+              />
+
+              <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+                <Field label="Equities">
+                  <TextInput
+                    value={p.equitiesTargetPct}
+                    onChange={v => set('equitiesTargetPct', v)}
+                    placeholder={String(DEFAULTS.equitiesTargetPct)}
+                    type="number"
+                    suffix="%"
+                    width={80}
+                  />
+                </Field>
+                <Field label="ETF">
+                  <TextInput
+                    value={p.etfTargetPct}
+                    onChange={v => set('etfTargetPct', v)}
+                    placeholder={String(DEFAULTS.etfTargetPct)}
+                    type="number"
+                    suffix="%"
+                    width={80}
+                  />
+                </Field>
+                <Field label="Crypto">
+                  <TextInput
+                    value={p.cryptoTargetPct}
+                    onChange={v => set('cryptoTargetPct', v)}
+                    placeholder={String(DEFAULTS.cryptoTargetPct)}
+                    type="number"
+                    suffix="%"
+                    width={80}
+                  />
+                </Field>
+                <Field label="Commodities">
+                  <TextInput
+                    value={p.commoditiesTargetPct}
+                    onChange={v => set('commoditiesTargetPct', v)}
+                    placeholder={String(DEFAULTS.commoditiesTargetPct)}
+                    type="number"
+                    suffix="%"
+                    width={80}
+                  />
+                </Field>
+              </div>
+
+              <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div style={{ display: 'flex', height: 8, width: 300, borderRadius: 4, overflow: 'hidden', border: '1px solid #2d3748' }}>
+                  <div style={{ width: `${Math.min(100, bucketPct.equities)}%`,    background: '#60a5fa' }} />
+                  <div style={{ width: `${Math.min(100, bucketPct.etf)}%`,         background: '#a78bfa' }} />
+                  <div style={{ width: `${Math.min(100, bucketPct.crypto)}%`,      background: '#4ade80' }} />
+                  <div style={{ width: `${Math.min(100, bucketPct.commodities)}%`, background: '#2dd4bf' }} />
+                </div>
+                <span style={{ fontSize: 12, fontWeight: 700, color: Math.abs(bucketTotal - 100) < 0.5 ? '#4ade80' : '#f87171' }}>
+                  {bucketTotal.toFixed(0)}% total
+                </span>
+              </div>
+              {Math.abs(bucketTotal - 100) >= 0.5 && (
+                <div style={{ marginTop: 6, fontSize: 11, color: '#f87171' }}>
+                  ⚠ Buckets must sum to 100% — currently {bucketTotal.toFixed(0)}%
+                </div>
+              )}
+            </div>
+
             {/* ── Section 2: Risk Profile ── */}
             <div>
               <SectionHeader
                 title="Risk Profile"
-                subtitle="Sets the barbell ratio between established platforms and speculative names."
+                subtitle="Sub-splits the Equities target above into established platforms vs. speculative names. Does not affect ETF/Crypto/Commodities sizing."
               />
 
               <Field

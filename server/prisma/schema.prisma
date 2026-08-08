@@ -151,7 +151,21 @@ model OwnerProfile {
   // ── Risk profile ──────────────────────────────────────────────────────
   yearsToGoal    Int?                // drives speculative ceiling formula
   estSpecRatio   Float?              // barbell split 0.0–1.0; 0.60 = 60% established (default)
+                                      // sub-split WITHIN the Equities bucket only — see below
   riskTolerance  String?             // "conservative" | "moderate" | "aggressive"
+
+  // ── Top-level allocation targets (0.0–1.0, must sum to 1.0) ────────────
+  // Replaces the old bottom-up derivation (summing per-ticker capPercent on
+  // whatever ETF/crypto is currently held) with an explicit, user-owned
+  // target. Independent of yearsToGoal/riskTolerance by design — Luis,
+  // 2026-08-08: "One user might set 90% crypto / 10% everything else;
+  // another the inverse. The system does not second-guess this."
+  // estSpecRatio above only subdivides equitiesTargetPct into established
+  // vs speculative; it no longer influences ETF/crypto/commodity sizing.
+  equitiesTargetPct    Float?        // default 0.50
+  etfTargetPct         Float?        // default 0.20
+  cryptoTargetPct      Float?        // default 0.15
+  commoditiesTargetPct Float?        // default 0.15
 
   // ── Tax & account behavior ────────────────────────────────────────────
   taxSensitivity  String?            // "aggressive" | "moderate" | "conservative"

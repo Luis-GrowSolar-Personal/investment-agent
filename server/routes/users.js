@@ -103,6 +103,22 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET /api/users/:owner
+// Returns a single OwnerProfile row, unenriched. Used by the re-baseline
+// confirm screen (PortfolioManager) to read the raw target-model fields
+// (equitiesTargetPct etc.) for display/editing without fetching every owner.
+router.get('/:owner', async (req, res) => {
+  try {
+    const owner = decodeURIComponent(req.params.owner);
+    const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
+    if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
+    res.json(profile);
+  } catch (err) {
+    console.error(`GET /users/${req.params.owner} error:`, err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // POST /api/users
 // Body: { owner, displayName?, enoughNumber? }
 // Creates a new OwnerProfile manually (without needing an account first).
@@ -192,10 +208,15 @@ router.delete('/:owner/invite', async (req, res) => {
 
 // PATCH /api/users/:owner
 // Accepts any subset of OwnerProfile fields.
-// Numeric fields: enoughNumber, minPositionDollar, cashReservePct, yearsToGoal, estSpecRatio
+// Numeric fields: enoughNumber, minPositionDollar, cashReservePct, yearsToGoal, estSpecRatio,
+//                 equitiesTargetPct, etfTargetPct, cryptoTargetPct, commoditiesTargetPct
 // String fields:  displayName, riskTolerance, taxSensitivity, accountPurpose,
 //                 benchmarkBaseline, specExitSpeed
 // Int fields:     maxPositions
+// Note: equitiesTargetPct/etfTargetPct/cryptoTargetPct/commoditiesTargetPct are the
+// top-level 4-bucket allocation model (2026-08-08 design) — must sum to 1.0. Caller
+// (Admin.jsx / re-baseline confirm screen) is responsible for that validation; this
+// route accepts them independently like any other float field.
 // JSON fields:    domainsOfInterest (string[])
 // Note: newMoneyBehavior (OwnerProfile column) is no longer read by the moves
 // engine — the highest_conviction top-2 throttle was removed 2026-08-01 so
@@ -219,7 +240,8 @@ router.patch('/:owner', async (req, res) => {
   }
 
   // Float fields — empty string → null
-  const floatFields = ['enoughNumber', 'minPositionDollar', 'cashReservePct', 'estSpecRatio'];
+  const floatFields = ['enoughNumber', 'minPositionDollar', 'cashReservePct', 'estSpecRatio',
+                       'equitiesTargetPct', 'etfTargetPct', 'cryptoTargetPct', 'commoditiesTargetPct'];
   for (const f of floatFields) {
     if (body[f] !== undefined) data[f] = body[f] === '' || body[f] === null ? null : Number(body[f]);
   }

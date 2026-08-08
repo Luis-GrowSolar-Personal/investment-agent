@@ -48,6 +48,15 @@ const DEFAULT_CASH_RESERVE = 0.05;
 const DEFAULT_EST_RATIO    = 0.60;
 const DEFAULT_MAX_POS      = 15;
 const DEFAULT_MIN_POS_USD  = 1500;
+
+// Top-level 4-bucket allocation target (2026-08-08 design) — must sum to 1.0.
+// Mirrors client/src/pages/Admin.jsx DEFAULTS. User-owned; independent of
+// yearsToGoal/riskTolerance by design (see docs/handoffs or memory for the
+// 2026-08-08 design discussion — not tied to time horizon on purpose).
+const DEFAULT_EQUITIES_TARGET  = 0.50;
+const DEFAULT_ETF_TARGET       = 0.20;
+const DEFAULT_CRYPTO_TARGET    = 0.15;
+const DEFAULT_COMMODITY_TARGET = 0.15;
 const MODEL_WEIGHT_TOL     = 1.0;   // % — ignore drifts smaller than this
 
 // ─── Asset classification ─────────────────────────────────────────────────────
@@ -465,7 +474,7 @@ function makeAddMove(priority, ticker, positions, currentPct, targetPct,
 function generateMovesForTicker(
   ticker, positions, totalPortfolioValue,
   latestAnalysis, modelWeightPct,
-  profile, ownerTaxRates
+  profile, ownerTaxRates, bypassWinnerProtection = false
 ) {
   const { mktValue, currentPct } = positionMetrics(positions, totalPortfolioValue);
   const specExitSpeed  = profile.specExitSpeed ?? 'normal';
@@ -552,8 +561,12 @@ function generateMovesForTicker(
   const underModel = currentPct < modelWeightPct - MODEL_WEIGHT_TOL;
 
   if (overModel && moves.length === 0) {
-    // Thesis Strengthening above model weight: advisory (let winner run toward hard cap)
-    const isWinnerRunning = finalAction === 'Add' && thesisHealth === 'Strengthening'
+    // Thesis Strengthening above model weight: advisory (let winner run toward hard
+    // cap) — UNLESS this is a re-baseline pass (bypassWinnerProtection), where the
+    // user has explicitly asked to reset to target regardless of momentum. See
+    // memory/small_account_diversification.md, "re-baseline bypasses the
+    // Strengthening exception" (2026-08-08 design decision).
+    const isWinnerRunning = !bypassWinnerProtection && finalAction === 'Add' && thesisHealth === 'Strengthening'
       && currentPct <= hardCapPct;
 
     if (isWinnerRunning) {
@@ -746,7 +759,14 @@ router.get('/', async (req, res) => {
 // and POST /:owner/refresh (force recompute), as well as from schwab.js
 // trigger hooks via server/lib/movesCache.js.
 
-async function computeMovesPayload(owner) {
+async function computeMovesPayload(owner, options = {}) {
+    // bypassWinnerProtection: true only for an explicit, user-triggered
+    // re-baseline pass (see memory/small_account_diversification.md). Every
+    // other caller (the everyday GET /api/moves, the cache refresh, schwab
+    // sync hooks) leaves this false, preserving the "let a Strengthening
+    // thesis run to its hard cap" protection.
+    const bypassWinnerProtection = options.bypassWinnerProtection === true;
+
     const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
     if (!profile) throw new Error(`Owner "${owner}" not found`);
 
@@ -836,26 +856,56 @@ async function computeMovesPayload(owner) {
       else individualGroups.push(group);
     }
 
-    // ── Barbell pools ─────────────────────────────────────────────────────────
-    const specRatio = 1 - estSpecRatio;
+    // ── Top-level allocation targets (2026-08-08 design) ────────────────────────
+    // Equities / ETF / Crypto / Commodities are independent top-level targets
+    // set directly in Admin (OwnerProfile.equitiesTargetPct etc.) — no longer
+    // derived bottom-up from summing whatever per-ticker capPercent happens to
+    // be configured on currently-held tickers. estSpecRatio only sub-splits
+    // the Equities pool into established vs speculative; it no longer touches
+    // ETF/crypto/commodity sizing at all. Per-ticker capPercent is demoted to
+    // an in-bucket ceiling (see splitBucketTarget below), not the bucket's
+    // source of truth for total size.
+    const equitiesTargetPct  = (profile.equitiesTargetPct    ?? DEFAULT_EQUITIES_TARGET)  * 100;
+    const etfTargetPct       = (profile.etfTargetPct         ?? DEFAULT_ETF_TARGET)       * 100;
+    const cryptoTargetPct    = (profile.cryptoTargetPct      ?? DEFAULT_CRYPTO_TARGET)    * 100;
+    const commodityTargetPct = (profile.commoditiesTargetPct ?? DEFAULT_COMMODITY_TARGET) * 100;
 
-    // Fixed-target contributions to each pool
-    let etfTargetPct       = 0;
-    let commCryptoTargetPct = 0;
-    for (const g of fixedGroups) {
-      const tgt = effectiveCap(g.ticker);
-      if (isETF(g.ticker))              etfTargetPct        += tgt;
-      else if (isCommodityOrCrypto(g.ticker)) commCryptoTargetPct += tgt;
-    }
+    const estPoolPct  = equitiesTargetPct * estSpecRatio;
+    const specPoolPct = equitiesTargetPct * (1 - estSpecRatio);
 
-    const estPoolPct  = Math.max(0, estSpecRatio * 100 - etfTargetPct);
-    const specPoolPct = Math.max(0, specRatio * 100 - commCryptoTargetPct);
-
-    // Target individual position counts
-    const fixedCount      = fixedGroups.length;
-    const targetIndividual = Math.max(0, maxPositions - fixedCount);
+    // Equity headcount is now fully decoupled from ETF/crypto/commodity
+    // holdings — maxPositions governs established+speculative equity count
+    // only. (Previously subtracted currently-held fixed-target ticker count
+    // from the equity slot budget, which coupled headcount to whatever
+    // ETFs/crypto happened to be held — a symptom of the old bottom-up model,
+    // not something worth preserving.)
+    const targetIndividual = Math.max(0, maxPositions);
     const targetEstIndividual  = Math.round(targetIndividual * estSpecRatio);
     const targetSpecIndividual = targetIndividual - targetEstIndividual;
+
+    // Splits a bucket's top-level target evenly across its currently-held
+    // tickers, then applies each ticker's own configured capPercent (if any)
+    // strictly as a ceiling — not as the bucket's source of truth. This is an
+    // interim simplification for the (uncommon) case of multiple tickers in
+    // one ETF/crypto/commodity bucket; which specific ticker to hold, and how
+    // to weight several of them, stays outside the agent's scope per the
+    // 2026-08-08 design discussion (ticker selection within these buckets is
+    // the user's call, not the allocator's).
+    function splitBucketTarget(groups, bucketTargetPct) {
+      const map = new Map();
+      if (groups.length === 0) return map;
+      const evenShare = bucketTargetPct / groups.length;
+      for (const g of groups) {
+        const configuredCap = ownerCapMap.get(g.ticker.id) ?? g.ticker.capPercent ?? null;
+        map.set(g.ticker.id, configuredCap != null ? Math.min(evenShare, configuredCap) : evenShare);
+      }
+      return map;
+    }
+    const fixedTargetMap = new Map([
+      ...splitBucketTarget(fixedGroups.filter(g => isETF(g.ticker)), etfTargetPct),
+      ...splitBucketTarget(fixedGroups.filter(g => isCommodityOrCrypto(g.ticker) && getBucket(g.ticker) === 'crypto'), cryptoTargetPct),
+      ...splitBucketTarget(fixedGroups.filter(g => isCommodityOrCrypto(g.ticker) && getBucket(g.ticker) === 'commodity'), commodityTargetPct),
+    ]);
 
     // ── Model weights ─────────────────────────────────────────────────────────
     const modelWeights = computeIndividualModelWeights(
@@ -867,13 +917,46 @@ async function computeMovesPayload(owner) {
     // ── Generate moves ─────────────────────────────────────────────────────────
     const allMoves = [];
 
-    // Fixed-target assets (inject per-owner cap)
+    // Fixed-target assets (inject top-down bucket target, split across
+    // currently-held tickers in that bucket — see splitBucketTarget above)
     for (const g of fixedGroups) {
-      const tickerWithOwnerCap = { ...g.ticker, capPercent: effectiveCap(g.ticker) };
+      const tickerWithOwnerCap = { ...g.ticker, capPercent: fixedTargetMap.get(g.ticker.id) ?? effectiveCap(g.ticker) };
       const move = generateFixedTargetMove(
         tickerWithOwnerCap, g.positions, totalPortfolioValue, g.latestAnalysis, ownerTaxRates
       );
       allMoves.push(move);
+    }
+
+    // Bucket-level ADD for an under-target ETF/Crypto/Commodity bucket with no
+    // specific ticker to recommend — picking which ETF/crypto/commodity to
+    // buy is explicitly outside the agent's scope (2026-08-08 design, see
+    // memory/small_account_diversification.md). Only surfaced during a
+    // re-baseline pass: the everyday engine doesn't proactively nag about
+    // opening a bucket the user hasn't started, only re-baseline's "here's
+    // your full target vs. current, both trims and adds" view does.
+    if (bypassWinnerProtection) {
+      const fixedBuckets = [
+        { key: 'etf',       label: 'ETF',          targetPct: etfTargetPct,       groups: fixedGroups.filter(g => isETF(g.ticker)) },
+        { key: 'crypto',    label: 'Crypto',       targetPct: cryptoTargetPct,    groups: fixedGroups.filter(g => getBucket(g.ticker) === 'crypto') },
+        { key: 'commodity', label: 'Commodities',  targetPct: commodityTargetPct, groups: fixedGroups.filter(g => getBucket(g.ticker) === 'commodity') },
+      ];
+      for (const b of fixedBuckets) {
+        const currentValue = b.groups.reduce((s, g) => s + positionMetrics(g.positions, totalPortfolioValue).mktValue, 0);
+        const targetValue  = totalPortfolioValue * (b.targetPct / 100);
+        const shortfall    = targetValue - currentValue;
+        if (shortfall > minPositionDollar) {
+          const currentPct = totalPortfolioValue > 0 ? (currentValue / totalPortfolioValue) * 100 : 0;
+          allMoves.push({
+            moveType: 'ADD', priority: 5, symbol: null, shortName: `${b.label} (unallocated)`,
+            bucket: b.key, tier: null, thesisHealth: '—', finalAction: '—', trajectory: null,
+            ratchetTranche: 0, currentPct: +currentPct.toFixed(2), targetPct: +b.targetPct.toFixed(1),
+            hardCapPct: +b.targetPct.toFixed(1), currentMktValue: +currentValue.toFixed(2),
+            dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
+            accounts: [], requires48h: false, isBucketLevel: true,
+            reason: `${b.label} at ${currentPct.toFixed(1)}% — below target of ${b.targetPct.toFixed(1)}%. Pick a specific ${b.label.toLowerCase()} ticker to fund this (outside agent scope).`,
+          });
+        }
+      }
     }
 
     // Individual stocks
@@ -883,7 +966,7 @@ async function computeMovesPayload(owner) {
       const tickerWithOwnerCap = { ...g.ticker, capPercent: effectiveCap(g.ticker) };
       const moves = generateMovesForTicker(
         tickerWithOwnerCap, g.positions, totalPortfolioValue,
-        g.latestAnalysis, modelWeightPct, profile, ownerTaxRates
+        g.latestAnalysis, modelWeightPct, profile, ownerTaxRates, bypassWinnerProtection
       );
       allMoves.push(...moves);
     }
@@ -1122,8 +1205,10 @@ async function computeMovesPayload(owner) {
     const trimMoves = actionMoves.filter(m =>
       ['EXIT', 'TRIM_CAP', 'TRIM_RATCHET', 'TRIM_MODEL', 'TRIM_SIGNAL'].includes(m.moveType));
     const addMoves  = actionMoves.filter(m => m.moveType === 'ADD').map(m => ({
-      label: `${m.isNewPosition ? 'Open' : 'Add'} ${m.symbol}`, dollarNeeded: m.dollarAmount,
-      type: m.isNewPosition ? 'promote' : 'add_existing', symbol: m.symbol,
+      label: m.isBucketLevel ? `Fund ${m.shortName}` : `${m.isNewPosition ? 'Open' : 'Add'} ${m.symbol}`,
+      dollarNeeded: m.dollarAmount,
+      type: m.isBucketLevel ? 'bucket_level' : m.isNewPosition ? 'promote' : 'add_existing',
+      symbol: m.symbol,
     }));
 
     const capitalFlow = buildCapitalFlow(trimMoves, addMoves, [], freeCash);
@@ -1177,10 +1262,8 @@ async function computeMovesPayload(owner) {
       }
     }
     holdings.sort((a, b) => b.mktValue - a.mktValue);
-    const cryptoTargetPct    = fixedGroups.filter(g => getBucket(g.ticker) === 'crypto')
-      .reduce((s, g) => s + effectiveCap(g.ticker), 0);
-    const commodityTargetPct = fixedGroups.filter(g => getBucket(g.ticker) === 'commodity')
-      .reduce((s, g) => s + effectiveCap(g.ticker), 0);
+    // cryptoTargetPct/commodityTargetPct/etfTargetPct are the top-down Admin
+    // targets computed earlier — no longer re-derived bottom-up here.
     const investedScale = 1 - cashReservePct;
 
     const allocation = {
@@ -1334,6 +1417,7 @@ async function computeMovesPayload(owner) {
       })),
       capitalFlow,
       warnings,
+      isRebaseline: bypassWinnerProtection,
     };
 }
 
@@ -1389,6 +1473,32 @@ router.post('/:owner/refresh', requireAuth(), async (req, res) => {
     res.json({ ...payload, fromCache: false, computedAt });
   } catch (err) {
     console.error(`POST /moves/${owner}/refresh error:`, err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ─── POST /api/moves/:owner/rebaseline ────────────────────────────────────────
+// User-triggered full-precision reset (2026-08-08 design — see
+// memory/small_account_diversification.md). Bypasses the "Strengthening →
+// don't trim" winner-protection exception for this one computation so every
+// overweight holding gets sized exactly to its model weight, regardless of
+// thesis momentum. Deliberately NEVER touches MovesCache — this is a preview
+// the user reviews and confirms/adjusts before anything is acted on; writing
+// it to the everyday cache would make the normal Moves tab show trims on
+// healthy winners the next time anyone loads the page, which is not what a
+// preview should do.
+
+router.post('/:owner/rebaseline', requireAuth(), async (req, res) => {
+  const owner = decodeURIComponent(req.params.owner);
+  if (!enforceOwner(req, res, owner)) return;
+  try {
+    const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
+    if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
+
+    const payload = await computeMovesPayload(owner, { bypassWinnerProtection: true });
+    res.json({ ...payload, fromCache: false, computedAt: new Date() });
+  } catch (err) {
+    console.error(`POST /moves/${owner}/rebaseline error:`, err);
     res.status(500).json({ error: err.message });
   }
 });

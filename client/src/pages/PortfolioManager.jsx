@@ -1092,6 +1092,248 @@ function OwnerSelector({ owners, selected, onSelect }) {
 
 // ─── Main page ────────────────────────────────────────────────────────────────
 
+// ─── RebaselineModal ───────────────────────────────────────────────────────────
+//
+// User-triggered, owner-level, full-precision reset (2026-08-08 design — see
+// memory/small_account_diversification.md). Working name only — "re-baseline"
+// hasn't been finalized as user-facing copy.
+//
+// Flow: load current target model + a preview computed with it → let the user
+// confirm or edit the four top-level targets (writes back to Admin on confirm,
+// there is exactly one stored target model, not a session-local override) →
+// show the resulting trims/adds, bypassing the "Strengthening → don't trim"
+// exception for this one pass.
+
+const REBASELINE_DEFAULTS = { equitiesTargetPct: 50, etfTargetPct: 20, cryptoTargetPct: 15, commoditiesTargetPct: 15, estSpecRatio: 60 };
+
+function RebaselineModal({ owner, getToken, onClose }) {
+  const [step, setStep]     = useState('loading'); // loading | confirm | computing | results | error
+  const [draft, setDraft]   = useState(null);       // { equitiesTargetPct, etfTargetPct, cryptoTargetPct, commoditiesTargetPct, estSpecRatio } as 0-100
+  const [preview, setPreview] = useState(null);      // last computed rebaseline payload
+  const [err, setErr]       = useState('');
+
+  const toUI = (p) => ({
+    equitiesTargetPct:    p.equitiesTargetPct    != null ? Math.round(p.equitiesTargetPct    * 100) : REBASELINE_DEFAULTS.equitiesTargetPct,
+    etfTargetPct:         p.etfTargetPct         != null ? Math.round(p.etfTargetPct         * 100) : REBASELINE_DEFAULTS.etfTargetPct,
+    cryptoTargetPct:      p.cryptoTargetPct      != null ? Math.round(p.cryptoTargetPct      * 100) : REBASELINE_DEFAULTS.cryptoTargetPct,
+    commoditiesTargetPct: p.commoditiesTargetPct != null ? Math.round(p.commoditiesTargetPct * 100) : REBASELINE_DEFAULTS.commoditiesTargetPct,
+    estSpecRatio:         p.estSpecRatio         != null ? Math.round(p.estSpecRatio         * 100) : REBASELINE_DEFAULTS.estSpecRatio,
+  });
+
+  async function loadPreview() {
+    const token = await getToken();
+    const r = await fetch(`/api/moves/${encodeURIComponent(owner)}/rebaseline`, {
+      method: 'POST', headers: { Authorization: `Bearer ${token}` },
+    });
+    const json = await r.json();
+    if (!r.ok) throw new Error(json.error || 'Failed to compute preview');
+    return json;
+  }
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const token = await getToken();
+        const [profileRes, previewData] = await Promise.all([
+          fetch(`/api/users/${encodeURIComponent(owner)}`, { headers: { Authorization: `Bearer ${token}` } }),
+          loadPreview(),
+        ]);
+        const profile = await profileRes.json();
+        if (!profileRes.ok) throw new Error(profile.error || 'Failed to load target model');
+        setDraft(toUI(profile));
+        setPreview(previewData);
+        setStep('confirm');
+      } catch (e) {
+        setErr(e.message);
+        setStep('error');
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [owner]);
+
+  const total = draft ? draft.equitiesTargetPct + draft.etfTargetPct + draft.cryptoTargetPct + draft.commoditiesTargetPct : 0;
+  const totalOk = Math.abs(total - 100) < 0.5;
+
+  async function handleConfirm() {
+    setStep('computing');
+    setErr('');
+    try {
+      const token = await getToken();
+      const body = {
+        equitiesTargetPct:    draft.equitiesTargetPct    / 100,
+        etfTargetPct:         draft.etfTargetPct         / 100,
+        cryptoTargetPct:      draft.cryptoTargetPct      / 100,
+        commoditiesTargetPct: draft.commoditiesTargetPct / 100,
+        estSpecRatio:         draft.estSpecRatio         / 100,
+      };
+      const r = await fetch(`/api/users/${encodeURIComponent(owner)}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify(body),
+      });
+      const json = await r.json();
+      if (!r.ok) throw new Error(json.error || 'Failed to save target model');
+      const fresh = await loadPreview();
+      setPreview(fresh);
+      setStep('results');
+    } catch (e) {
+      setErr(e.message);
+      setStep('confirm');
+    }
+  }
+
+  const overlay = { position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9200 };
+  const box     = { background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, padding: 28, width: 720, maxWidth: '95vw', maxHeight: '88vh', overflowY: 'auto' };
+  const inputS  = { background: '#0d1018', border: `1px solid ${C.border2 ?? C.border}`, borderRadius: 6, color: C.text, fontSize: 13, padding: '6px 10px', width: 80 };
+  const btnS    = { background: C.blue, color: '#fff', border: 'none', borderRadius: 6, padding: '8px 18px', fontSize: 13, fontWeight: 600, cursor: 'pointer' };
+  const secS    = { background: 'transparent', color: C.muted, border: `1px solid ${C.border2 ?? C.border}`, borderRadius: 6, padding: '8px 18px', fontSize: 13, cursor: 'pointer' };
+  const th      = { textAlign: 'right', fontSize: 10, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '4px 8px' };
+  const td      = { textAlign: 'right', fontSize: 13, color: C.text, padding: '6px 8px', borderTop: `1px solid ${C.border}` };
+
+  function BucketTable({ data }) {
+    const totalPV = data.totalPortfolioValue ?? 0;
+    const buckets = data.allocation?.buckets ?? [];
+    return (
+      <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 8, marginBottom: 8 }}>
+        <thead>
+          <tr>
+            <th style={{ ...th, textAlign: 'left' }}>Bucket</th>
+            <th style={th}>Current</th>
+            <th style={th}>Target</th>
+            <th style={th}>Δ</th>
+          </tr>
+        </thead>
+        <tbody>
+          {buckets.map(b => {
+            const targetValue = totalPV * (b.targetPct / 100);
+            const delta = targetValue - b.currentValue;
+            return (
+              <tr key={b.key}>
+                <td style={{ ...td, textAlign: 'left', color: C.muted }}>{b.label}</td>
+                <td style={td}>{money(b.currentValue)} <span style={{ color: C.dim }}>({pct(totalPV > 0 ? b.currentValue / totalPV * 100 : 0)})</span></td>
+                <td style={td}>{money(targetValue)} <span style={{ color: C.dim }}>({pct(b.targetPct)})</span></td>
+                <td style={{ ...td, color: Math.abs(delta) < 50 ? C.dim : delta > 0 ? C.green : C.amber, fontWeight: 600 }}>
+                  {Math.abs(delta) < 50 ? '—' : (delta > 0 ? '+' : '') + money(delta)}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    );
+  }
+
+  return (
+    <div style={overlay}>
+      <div style={box}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+          <div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: C.text }}>Re-baseline — {owner}</div>
+            <div style={{ fontSize: 12, color: C.dim, marginTop: 4 }}>
+              Full reset to your target allocation, including trims on positions that would otherwise be protected while their thesis strengthens.
+            </div>
+          </div>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: C.dim, fontSize: 20, cursor: 'pointer' }}>✕</button>
+        </div>
+
+        {step === 'loading' && <div style={{ color: C.dim, fontSize: 13, padding: '24px 0' }}>Loading current allocation…</div>}
+
+        {step === 'error' && (
+          <div style={{ color: C.red, fontSize: 13, padding: '12px 0' }}>{err}</div>
+        )}
+
+        {(step === 'confirm' || step === 'computing') && draft && preview && (
+          <>
+            <div style={{ fontSize: 11, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 8 }}>
+              Target model
+            </div>
+            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 6 }}>
+              {[
+                ['Equities', 'equitiesTargetPct'],
+                ['ETF', 'etfTargetPct'],
+                ['Crypto', 'cryptoTargetPct'],
+                ['Commodities', 'commoditiesTargetPct'],
+              ].map(([label, key]) => (
+                <div key={key}>
+                  <label style={{ display: 'block', fontSize: 11, color: C.dim, marginBottom: 4 }}>{label}</label>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                    <input type="number" value={draft[key]}
+                      onChange={e => setDraft(d => ({ ...d, [key]: e.target.value === '' ? 0 : Number(e.target.value) }))}
+                      style={inputS} />
+                    <span style={{ fontSize: 12, color: C.dim }}>%</span>
+                  </div>
+                </div>
+              ))}
+              <div>
+                <label style={{ display: 'block', fontSize: 11, color: C.dim, marginBottom: 4 }}>Est / Spec split</label>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <input type="number" value={draft.estSpecRatio}
+                    onChange={e => setDraft(d => ({ ...d, estSpecRatio: e.target.value === '' ? 0 : Number(e.target.value) }))}
+                    style={inputS} />
+                  <span style={{ fontSize: 12, color: C.dim }}>% est</span>
+                </div>
+              </div>
+            </div>
+            <div style={{ fontSize: 12, fontWeight: 600, color: totalOk ? C.green : C.red, marginBottom: 16 }}>
+              {total.toFixed(0)}% total {totalOk ? '' : '— must sum to 100% (Equities + ETF + Crypto + Commodities)'}
+            </div>
+
+            <div style={{ fontSize: 11, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+              Current vs. target (at last-saved settings — edit above and confirm to recompute)
+            </div>
+            <BucketTable data={preview} />
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10, marginTop: 16 }}>
+              <button onClick={onClose} style={secS}>Cancel</button>
+              <button onClick={handleConfirm} disabled={!totalOk || step === 'computing'}
+                style={{ ...btnS, opacity: totalOk && step !== 'computing' ? 1 : 0.5, cursor: totalOk ? 'pointer' : 'not-allowed' }}>
+                {step === 'computing' ? 'Computing…' : 'Confirm & generate moves'}
+              </button>
+            </div>
+          </>
+        )}
+
+        {step === 'results' && preview && (
+          <>
+            <BucketTable data={preview} />
+            <div style={{ fontSize: 11, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', textTransform: 'uppercase', margin: '16px 0 8px' }}>
+              Recommended moves ({preview.moves?.length ?? 0})
+            </div>
+            {(!preview.moves || preview.moves.length === 0) && (
+              <div style={{ fontSize: 13, color: C.dim }}>Already at target — nothing to do.</div>
+            )}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {(preview.moves ?? []).map((m, i) => (
+                <div key={i} style={{
+                  display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                  padding: '8px 10px', borderRadius: 6, background: '#0d1018', fontSize: 13,
+                }}>
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span style={{ fontWeight: 600, color: C.text }}>
+                      {m.isBucketLevel ? m.shortName : m.symbol}
+                      {m.isNewPosition && <span style={{ marginLeft: 6, fontSize: 9, color: C.green }}>NEW</span>}
+                    </span>
+                    <span style={{ fontSize: 11, color: C.dim }}>{m.reason}</span>
+                  </div>
+                  <div style={{ textAlign: 'right' }}>
+                    <div style={{ fontWeight: 700, color: m.moveType === 'ADD' ? C.green : C.amber }}>
+                      {m.moveType === 'ADD' ? '+' : '−'}{money(m.dollarAmount)}
+                    </div>
+                    {m.taxCost > 0 && <div style={{ fontSize: 10, color: C.red }}>−{money(m.taxCost)} tax</div>}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 16 }}>
+              <button onClick={onClose} style={btnS}>Done</button>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function PortfolioManager() {
   const { getToken } = useAuth();
 
@@ -1103,6 +1345,7 @@ export default function PortfolioManager() {
   const [err,           setErr]           = useState('');
   const [selectedBucket, setSelectedBucket] = useState(null);
   const [view, setView] = useState('allocation'); // 'allocation' | 'moves'
+  const [rebaselineOpen, setRebaselineOpen] = useState(false);
   // Session decisions: key = `${symbol}-${moveType}` → { status, acceptedAmount?, declinedReason? }
   const [decisions, setDecisions] = useState({});
 
@@ -1350,24 +1593,39 @@ export default function PortfolioManager() {
           <PortfolioSummaryBar data={data} />
 
           {/* Allocation / Moves tab switcher */}
-          <div style={{ display: 'flex', gap: 8, marginBottom: 20, borderBottom: `1px solid ${C.border}` }}>
-            {[
-              { key: 'allocation', label: 'Allocation' },
-              { key: 'moves',      label: `Recommended Moves${actionMoves.length ? ` (${actionMoves.length})` : ''}` },
-            ].map(t => (
-              <button
-                key={t.key}
-                onClick={() => setView(t.key)}
-                style={{
-                  background: 'none', border: 'none', cursor: 'pointer',
-                  padding: '8px 4px 10px 4px', marginRight: 16,
-                  fontSize: 13, fontWeight: 700,
-                  color: view === t.key ? C.text : C.dim,
-                  borderBottom: view === t.key ? `2px solid ${C.blue}` : '2px solid transparent',
-                }}
-              >{t.label}</button>
-            ))}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 20, borderBottom: `1px solid ${C.border}` }}>
+            <div style={{ display: 'flex', gap: 8 }}>
+              {[
+                { key: 'allocation', label: 'Allocation' },
+                { key: 'moves',      label: `Recommended Moves${actionMoves.length ? ` (${actionMoves.length})` : ''}` },
+              ].map(t => (
+                <button
+                  key={t.key}
+                  onClick={() => setView(t.key)}
+                  style={{
+                    background: 'none', border: 'none', cursor: 'pointer',
+                    padding: '8px 4px 10px 4px', marginRight: 16,
+                    fontSize: 13, fontWeight: 700,
+                    color: view === t.key ? C.text : C.dim,
+                    borderBottom: view === t.key ? `2px solid ${C.blue}` : '2px solid transparent',
+                  }}
+                >{t.label}</button>
+              ))}
+            </div>
+            <button
+              onClick={() => setRebaselineOpen(true)}
+              title="Full reset to target allocation — bypasses winner-protection for one pass"
+              style={{
+                background: 'transparent', border: `1px solid ${C.border2 ?? C.border}`, borderRadius: 6,
+                color: C.muted, cursor: 'pointer', fontSize: 12, fontWeight: 600,
+                padding: '6px 12px', marginBottom: 8,
+              }}
+            >Re-baseline</button>
           </div>
+
+          {rebaselineOpen && (
+            <RebaselineModal owner={selected} getToken={getToken} onClose={() => setRebaselineOpen(false)} />
+          )}
 
           {view === 'allocation' && <AllocationView data={data} />}
 
