@@ -830,9 +830,14 @@ async function computeMovesPayload(owner, options = {}) {
     }
 
     // ── Latest analyst score per ticker ───────────────────────────────────────
-    const analysisMap = new Map();
-    for (const tickerId of byTicker.keys()) {
-      const a = await prisma.analysis.findFirst({
+    // Fired concurrently (Promise.all), not awaited one at a time — this loop
+    // is one DB round trip per held ticker, and over a remote Postgres
+    // connection (Railway proxy) that adds up fast. Re-baseline exposed this:
+    // it recomputes from scratch twice per confirm (no cache to hide behind),
+    // so a slow sequential loop here is felt directly as multi-second latency.
+    const tickerIds = [...byTicker.keys()];
+    const analysisResults = await Promise.all(tickerIds.map(tickerId =>
+      prisma.analysis.findFirst({
         where:   { transcript: { tickerId } },
         orderBy: { transcript: { callDate: 'desc' } },
         select: {
@@ -841,9 +846,9 @@ async function computeMovesPayload(owner, options = {}) {
           trajectory: true, finalAction: true, tier: true,
           transcript: { select: { callDate: true } },
         },
-      });
-      analysisMap.set(tickerId, a ?? null);
-    }
+      })
+    ));
+    const analysisMap = new Map(tickerIds.map((id, i) => [id, analysisResults[i] ?? null]));
 
     // ── Classify positions ────────────────────────────────────────────────────
     const fixedGroups      = [];  // ETF / commodity / crypto
@@ -1051,10 +1056,12 @@ async function computeMovesPayload(owner, options = {}) {
 
     // Eligibility pass only — sizing happens after, once we know how many
     // candidates are actually competing for each barbell pool (see below).
+    // Analysis lookups fire concurrently (Promise.all) rather than one at a
+    // time — same reasoning as the held-ticker loop above.
     const eligible = { est: [], spec: [] };
 
-    for (const wt of watchlistTickers) {
-      const a = await prisma.analysis.findFirst({
+    const watchlistAnalyses = await Promise.all(watchlistTickers.map(wt =>
+      prisma.analysis.findFirst({
         where:   { transcript: { tickerId: wt.id } },
         orderBy: { transcript: { callDate: 'desc' } },
         select: {
@@ -1062,7 +1069,12 @@ async function computeMovesPayload(owner, options = {}) {
           trajectory: true, recommendedSize: true, tier: true,
           transcript: { select: { callDate: true } },
         },
-      });
+      })
+    ));
+
+    for (let i = 0; i < watchlistTickers.length; i++) {
+      const wt = watchlistTickers[i];
+      const a  = watchlistAnalyses[i];
       if (!a) continue;
 
       const action = a.finalAction ?? a.recommendation ?? '—';
@@ -1147,9 +1159,26 @@ async function computeMovesPayload(owner, options = {}) {
     const remainingEstSlots  = Math.max(0, targetEstIndividual  - heldEst);
     const remainingSpecSlots = Math.max(0, targetSpecIndividual - heldSpec);
 
+    // Existing holdings (computeIndividualModelWeights, above) already claim
+    // heldEst/targetEstIndividual of estPoolPct — computeIndividualModelWeights
+    // deliberately divides by targetEstIndividual (not heldEst) specifically so
+    // it DOESN'T over-fill the pool when there are fewer holdings than slots,
+    // leaving room for new opens. New opens are only entitled to what's left:
+    // estPoolPct * (remainingEstSlots / targetEstIndividual) — NOT the full
+    // estPoolPct divided by remainingEstSlots, which double-counts against
+    // existing holdings' share (caught 2026-08-08 via re-baseline: established
+    // bucket target was $7,470 but individual EST rows summed to $15,763 —
+    // existing holdings and new opens were each being sized against the full
+    // pool independently). Scaling here preserves sizeSide's own "push scarce
+    // candidates up proportionally" behavior — it still shrinks poolCount to
+    // active.length when supply is short — just within the correctly-sized
+    // remaining slice instead of the whole pool.
+    const remainingEstPoolPct  = targetEstIndividual  > 0 ? estPoolPct  * (remainingEstSlots  / targetEstIndividual)  : 0;
+    const remainingSpecPoolPct = targetSpecIndividual > 0 ? specPoolPct * (remainingSpecSlots / targetSpecIndividual) : 0;
+
     const candidates = [
-      ...sizeSide(eligible.est,  estPoolPct,  remainingEstSlots),
-      ...sizeSide(eligible.spec, specPoolPct, remainingSpecSlots),
+      ...sizeSide(eligible.est,  remainingEstPoolPct,  remainingEstSlots),
+      ...sizeSide(eligible.spec, remainingSpecPoolPct, remainingSpecSlots),
     ];
     candidates.sort((a, b) => b.rankScore - a.rankScore);
 
