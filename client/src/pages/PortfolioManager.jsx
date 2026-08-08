@@ -462,7 +462,7 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
       <div style={{ ...cellBase, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', cursor: 'pointer' }}
            onClick={() => setExpanded(e => !e)}>
         <Badge label={meta.label} color={meta.color} />
-        <span style={{ fontWeight: 800, color: C.text }}>{move.symbol}</span>
+        <span style={{ fontWeight: 800, color: C.text }}>{move.symbol || move.shortName}</span>
         <TierChip tier={move.tier} />
         {move.isNewPosition && (
           <span title="Not currently held — opening a new position" style={{ fontSize: 9, fontWeight: 700, color: C.purple, border: `1px solid ${C.purple}55`, background: C.purple + '15', borderRadius: 3, padding: '1px 5px' }}>
@@ -492,7 +492,11 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
         )}
       </div>
       <div style={{ ...cellBase, display: 'flex', alignItems: 'center', gap: 6 }} onClick={e => e.stopPropagation()}>
-        {isDecided && !isEditing ? (
+        {move.isBucketLevel ? (
+          <span style={{ fontSize: 11, color: C.dim }} title="No specific ticker — pick which one to fund manually, outside agent scope">
+            Outside agent scope
+          </span>
+        ) : isDecided && !isEditing ? (
           <>
             {decision.status === 'accepted' ? (
               <span style={{ color: C.green, fontWeight: 700, fontSize: 11 }}>✓ Accepted {money(decision.acceptedAmount)}</span>
@@ -1101,15 +1105,19 @@ function OwnerSelector({ owners, selected, onSelect }) {
 // Flow: load current target model + a preview computed with it → let the user
 // confirm or edit the four top-level targets (writes back to Admin on confirm,
 // there is exactly one stored target model, not a session-local override) →
-// show the resulting trims/adds, bypassing the "Strengthening → don't trim"
-// exception for this one pass.
+// on confirm, persist the bypassed computation as THE Recommended Moves list
+// (not a separate copy shown only here — see 2026-08-08 fix: previously this
+// modal showed its own read-only move list while the Moves tab kept serving
+// the un-bypassed cache, so the two disagreed on count for no reason a user
+// could tell). The parent (PortfolioManager) reloads and switches to the
+// Moves tab once this closes successfully.
 
 const REBASELINE_DEFAULTS = { equitiesTargetPct: 50, etfTargetPct: 20, cryptoTargetPct: 15, commoditiesTargetPct: 15, estSpecRatio: 60 };
 
-function RebaselineModal({ owner, getToken, onClose }) {
-  const [step, setStep]     = useState('loading'); // loading | confirm | computing | results | error
+function RebaselineModal({ owner, getToken, onClose, onApplied }) {
+  const [step, setStep]     = useState('loading'); // loading | confirm | computing | error
   const [draft, setDraft]   = useState(null);       // { equitiesTargetPct, etfTargetPct, cryptoTargetPct, commoditiesTargetPct, estSpecRatio } as 0-100
-  const [preview, setPreview] = useState(null);      // last computed rebaseline payload
+  const [preview, setPreview] = useState(null);      // last computed rebaseline preview (for the comparison table only)
   const [err, setErr]       = useState('');
 
   const toUI = (p) => ({
@@ -1120,10 +1128,12 @@ function RebaselineModal({ owner, getToken, onClose }) {
     estSpecRatio:         p.estSpecRatio         != null ? Math.round(p.estSpecRatio         * 100) : REBASELINE_DEFAULTS.estSpecRatio,
   });
 
-  async function loadPreview() {
+  async function loadPreview(persist = false) {
     const token = await getToken();
     const r = await fetch(`/api/moves/${encodeURIComponent(owner)}/rebaseline`, {
-      method: 'POST', headers: { Authorization: `Bearer ${token}` },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+      body: JSON.stringify({ persist }),
     });
     const json = await r.json();
     if (!r.ok) throw new Error(json.error || 'Failed to compute preview');
@@ -1173,9 +1183,8 @@ function RebaselineModal({ owner, getToken, onClose }) {
       });
       const json = await r.json();
       if (!r.ok) throw new Error(json.error || 'Failed to save target model');
-      const fresh = await loadPreview();
-      setPreview(fresh);
-      setStep('results');
+      const fresh = await loadPreview(true); // persist — this becomes the real Recommended Moves list
+      onApplied(fresh.moves?.length ?? 0);
     } catch (e) {
       setErr(e.message);
       setStep('confirm');
@@ -1205,7 +1214,7 @@ function RebaselineModal({ owner, getToken, onClose }) {
         </thead>
         <tbody>
           {buckets.map(b => {
-            const targetValue = totalPV * (b.targetPct / 100);
+            const targetValue = b.targetValue ?? (totalPV * (b.targetPct / 100));
             const delta = targetValue - b.currentValue;
             return (
               <tr key={b.key}>
@@ -1289,43 +1298,6 @@ function RebaselineModal({ owner, getToken, onClose }) {
                 style={{ ...btnS, opacity: totalOk && step !== 'computing' ? 1 : 0.5, cursor: totalOk ? 'pointer' : 'not-allowed' }}>
                 {step === 'computing' ? 'Computing…' : 'Confirm & generate moves'}
               </button>
-            </div>
-          </>
-        )}
-
-        {step === 'results' && preview && (
-          <>
-            <BucketTable data={preview} />
-            <div style={{ fontSize: 11, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', textTransform: 'uppercase', margin: '16px 0 8px' }}>
-              Recommended moves ({preview.moves?.length ?? 0})
-            </div>
-            {(!preview.moves || preview.moves.length === 0) && (
-              <div style={{ fontSize: 13, color: C.dim }}>Already at target — nothing to do.</div>
-            )}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-              {(preview.moves ?? []).map((m, i) => (
-                <div key={i} style={{
-                  display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                  padding: '8px 10px', borderRadius: 6, background: '#0d1018', fontSize: 13,
-                }}>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ fontWeight: 600, color: C.text }}>
-                      {m.isBucketLevel ? m.shortName : m.symbol}
-                      {m.isNewPosition && <span style={{ marginLeft: 6, fontSize: 9, color: C.green }}>NEW</span>}
-                    </span>
-                    <span style={{ fontSize: 11, color: C.dim }}>{m.reason}</span>
-                  </div>
-                  <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontWeight: 700, color: m.moveType === 'ADD' ? C.green : C.amber }}>
-                      {m.moveType === 'ADD' ? '+' : '−'}{money(m.dollarAmount)}
-                    </div>
-                    {m.taxCost > 0 && <div style={{ fontSize: 10, color: C.red }}>−{money(m.taxCost)} tax</div>}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 16 }}>
-              <button onClick={onClose} style={btnS}>Done</button>
             </div>
           </>
         )}
@@ -1624,7 +1596,16 @@ export default function PortfolioManager() {
           </div>
 
           {rebaselineOpen && (
-            <RebaselineModal owner={selected} getToken={getToken} onClose={() => setRebaselineOpen(false)} />
+            <RebaselineModal
+              owner={selected}
+              getToken={getToken}
+              onClose={() => setRebaselineOpen(false)}
+              onApplied={async () => {
+                setRebaselineOpen(false);
+                setView('moves');
+                await loadMoves(); // re-baseline already persisted to MovesCache — this just reads it back
+              }}
+            />
           )}
 
           {view === 'allocation' && <AllocationView data={data} />}

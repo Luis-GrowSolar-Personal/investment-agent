@@ -1266,16 +1266,34 @@ async function computeMovesPayload(owner, options = {}) {
     // targets computed earlier — no longer re-derived bottom-up here.
     const investedScale = 1 - cashReservePct;
 
+    // targetValue is computed here from full-precision pool percentages
+    // (before the display rounding applied to targetPct below) so a
+    // consumer summing bucket targetValues gets an exact match to
+    // totalPortfolioValue, rather than compounding the 1-decimal display
+    // rounding into a visible few-dollar gap (caught 2026-08-08 — the
+    // re-baseline confirm screen was re-deriving dollars from the rounded
+    // targetPct instead of using this).
+    function bucketEntry(key, label, currentValue, rawPct) {
+      const scaledPct = rawPct * investedScale;
+      return {
+        key, label,
+        currentValue: +currentValue.toFixed(2),
+        targetPct:    +scaledPct.toFixed(1),
+        targetValue:  +(totalPortfolioValue * (scaledPct / 100)).toFixed(2),
+      };
+    }
     const allocation = {
       cashReservePct: +(cashReservePct * 100).toFixed(1),
       holdings,
       buckets: [
-        { key: 'established', label: 'Established Equities', currentValue: +estEquityValue.toFixed(2),  targetPct: +(estPoolPct        * investedScale).toFixed(1) },
-        { key: 'speculative',  label: 'Speculative Equities',  currentValue: +specEquityValue.toFixed(2), targetPct: +(specPoolPct       * investedScale).toFixed(1) },
-        { key: 'etf',          label: 'ETF',                   currentValue: +etfValue.toFixed(2),        targetPct: +(etfTargetPct      * investedScale).toFixed(1) },
-        { key: 'crypto',       label: 'Crypto',                currentValue: +cryptoValue.toFixed(2),     targetPct: +(cryptoTargetPct   * investedScale).toFixed(1) },
-        { key: 'commodity',    label: 'Commodities',           currentValue: +commodityValue.toFixed(2),  targetPct: +(commodityTargetPct * investedScale).toFixed(1) },
-        { key: 'cash',         label: 'Cash',                  currentValue: +totalCash.toFixed(2),       targetPct: +(cashReservePct * 100).toFixed(1) },
+        bucketEntry('established', 'Established Equities', estEquityValue,  estPoolPct),
+        bucketEntry('speculative', 'Speculative Equities',  specEquityValue, specPoolPct),
+        bucketEntry('etf',         'ETF',                   etfValue,        etfTargetPct),
+        bucketEntry('crypto',      'Crypto',                cryptoValue,     cryptoTargetPct),
+        bucketEntry('commodity',   'Commodities',           commodityValue,  commodityTargetPct),
+        { key: 'cash', label: 'Cash', currentValue: +totalCash.toFixed(2),
+          targetPct: +(cashReservePct * 100).toFixed(1),
+          targetValue: +(totalPortfolioValue * cashReservePct).toFixed(2) },
       ],
     };
 
@@ -1496,7 +1514,24 @@ router.post('/:owner/rebaseline', requireAuth(), async (req, res) => {
     if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
 
     const payload = await computeMovesPayload(owner, { bypassWinnerProtection: true });
-    res.json({ ...payload, fromCache: false, computedAt: new Date() });
+    const computedAt = new Date();
+
+    // persist:true means the user has actually confirmed (not just previewing
+    // while adjusting target %) — this becomes THE Recommended Moves list, not
+    // a second copy living only in the re-baseline modal. Without this, the
+    // confirm screen and the Moves tab would show two different move counts
+    // for no reason a user could tell (caught 2026-08-08: 15 vs 9 moves,
+    // because the Moves tab was still serving the un-bypassed cache).
+    if (req.body?.persist === true) {
+      await prisma.movesCache.upsert({
+        where:  { owner },
+        update: { payload, computedAt },
+        create: { owner, payload, computedAt },
+      });
+      console.log(`[movesCache] re-baselined for ${owner}`);
+    }
+
+    res.json({ ...payload, fromCache: false, computedAt });
   } catch (err) {
     console.error(`POST /moves/${owner}/rebaseline error:`, err);
     res.status(500).json({ error: err.message });
