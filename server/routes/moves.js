@@ -1242,9 +1242,27 @@ async function computeMovesPayload(owner, options = {}) {
         { side: 'established', label: 'Established Equities', poolPct: estPoolPct,  heldGroup: individualGroups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === 'est'),  sideCandidates: estCandidates },
         { side: 'speculative', label: 'Speculative Equities',  poolPct: specPoolPct, heldGroup: individualGroups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === 'spec'), sideCandidates: specCandidates },
       ];
+      // Per-ticker ACHIEVABLE target — the final resting value each held
+      // ticker's own move actually lands on (allMoves[*].targetValue, set
+      // by the generic derivation loop above from currentMktValue ±
+      // dollarAmount), NOT modelWeights.get()'s raw pre-ratchet weight.
+      // These differ whenever a ticker's displayed move takes a different
+      // path than a plain TRIM_MODEL-to-model-weight — e.g. TRIM_RATCHET
+      // (graduated exit ratchet, currentPct × 0.60 for tranche 2) trims
+      // further than the raw model weight would. Summing raw model weights
+      // overstated heldTargetSum by exactly the ratchet's extra cut,
+      // producing an achievableValue that didn't match "once recommended
+      // trims/holds are applied" as promised (caught 2026-08-09 via recon
+      // — see wrap-ups/recon-spec-achievable-gap-out.md).
+      const targetValueBySymbol = new Map(
+        allMoves.filter(m => m.symbol != null).map(m => [m.symbol, m.targetValue])
+      );
       for (const b of barbellBuckets) {
         const heldValue = b.heldGroup.reduce((s, g) => s + positionMetrics(g.positions, totalPortfolioValue).mktValue, 0);
-        const heldTargetSum = b.heldGroup.reduce((s, g) => s + (modelWeights.get(g.ticker.id) ?? 0) / 100 * totalPortfolioValue, 0);
+        const heldTargetSum = b.heldGroup.reduce((s, g) => {
+          const displayed = targetValueBySymbol.get(g.ticker.symbol);
+          return s + (displayed != null ? displayed : (modelWeights.get(g.ticker.id) ?? 0) / 100 * totalPortfolioValue);
+        }, 0);
         const newOpenSum = b.sideCandidates.reduce((s, c) => s + c.suggestedDollar, 0);
         const achievableValue = heldTargetSum + newOpenSum;
         const bucketTargetValue = totalPortfolioValue * (b.poolPct / 100);
