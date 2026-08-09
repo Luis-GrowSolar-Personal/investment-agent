@@ -478,8 +478,14 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
         )}
       </div>
       {/* Current/Target are always dollars — consistent units across every
-          row, whether or not a live price is available for share counts. */}
-      <div style={{ ...cellBase, textAlign: 'right', color: C.muted }}>
+          row, whether or not a live price is available for share counts.
+          For a scarcity-gap row, "Current" is the ACHIEVABLE position
+          (held + any sized new opens, post other recommended moves in this
+          bucket) — not the bucket's raw current value, which can sit above
+          target while this row is about a reserved slot nothing qualifies
+          to fill (see wrap-ups/fix-scarcity-row-framing-out.md). */}
+      <div style={{ ...cellBase, textAlign: 'right', color: C.muted }}
+           title={move.isScarcityGap ? 'Achievable position — held + any new opens, once other recommended moves in this bucket land' : undefined}>
         {money(move.currentMktValue)}
       </div>
       <div style={{ ...cellBase, textAlign: 'right', color: C.text, fontWeight: 600 }}>

@@ -994,6 +994,7 @@ async function computeMovesPayload(owner, options = {}) {
             ratchetTranche: 0, currentPct: +currentPct.toFixed(2), targetPct: +b.targetPct.toFixed(1),
             hardCapPct: +b.targetPct.toFixed(1), currentMktValue: +currentValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
+            currentShares: null, targetShares: null, targetValue: +targetValue.toFixed(2),
             accounts: [], requires48h: false, isBucketLevel: true,
             reason: `${b.label} at ${currentPct.toFixed(1)}% — held tickers are capped below the ${b.targetPct.toFixed(1)}% target (per-ticker caps leave ${shortfall > 0 ? 'room' : 'no room'} unclaimed). Pick a specific ${b.label.toLowerCase()} ticker to fund this (outside agent scope).`,
           });
@@ -1035,7 +1036,15 @@ async function computeMovesPayload(owner, options = {}) {
     // units stay consistent across every row; share counts are kept in the
     // payload for later use (e.g. once a live quote is fetched at
     // ticket-generation time) but aren't the table's source of truth.
+    // isBucketLevel rows (fixed-target "(unallocated)" and scarcity-gap rows)
+    // set their own targetValue explicitly, below/above — their dollarAmount
+    // isn't "how much more to add to reach currentMktValue + dollarAmount",
+    // it's a structural shortfall against the bucket's own target, so the
+    // generic current±delta derivation produces a nonsensical number for
+    // them (caught 2026-08-09: e.g. ETF unallocated showed $9,420.54 here
+    // instead of the real 30% target of $9,436.29).
     for (const m of allMoves) {
+      if (m.isBucketLevel) continue;
       const hasPrice       = m.pricePerShare > 0;
       const currentShares  = hasPrice ? m.currentMktValue / m.pricePerShare : 0;
       const delta          = m.sharesApprox ?? 0;
@@ -1241,15 +1250,33 @@ async function computeMovesPayload(owner, options = {}) {
         const bucketTargetValue = totalPortfolioValue * (b.poolPct / 100);
         const shortfall = bucketTargetValue - achievableValue;
         if (shortfall > minPositionDollar && b.sideCandidates.length === 0) {
-          const currentPct = totalPortfolioValue > 0 ? (heldValue / totalPortfolioValue) * 100 : 0;
+          // Compare against ACHIEVABLE (what held positions' own model
+          // weight + any sized new opens land on, post other recommended
+          // trims/holds in this bucket), not raw current $/%. Comparing
+          // against raw current value reads backwards whenever the bucket
+          // is aggregate overweight from a concentrated holding that's
+          // simultaneously being trimmed elsewhere (Andrea's case: SPWR
+          // trim pulls the bucket toward achievableValue, not away from
+          // it) — "at 29.7%, below target of 18.0%" is self-contradictory
+          // when 29.7% actually exceeds 18.0%. achievableValue is always
+          // <= bucketTargetValue whenever shortfall > 0, by construction,
+          // so this framing can't produce that contradiction. This row is
+          // still correct to fire even while the bucket is currently
+          // overweight: the reserved new-open slot is empty regardless,
+          // and stays empty (or gets MORE exposed) once the overweight
+          // holding's trim lands — suppressing it until the trim executes
+          // would just delay surfacing a real, standing gap. Caught
+          // 2026-08-09 — see wrap-ups/fix-scarcity-row-framing-out.md.
+          const achievablePct = totalPortfolioValue > 0 ? (achievableValue / totalPortfolioValue) * 100 : 0;
           actionMoves.push({
             moveType: 'ADD', priority: 5, symbol: null, shortName: `${b.label} (unallocated)`,
             bucket: b.side, tier: b.side, thesisHealth: '—', finalAction: '—', trajectory: null,
-            ratchetTranche: 0, currentPct: +currentPct.toFixed(2), targetPct: +b.poolPct.toFixed(1),
-            hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +heldValue.toFixed(2),
+            ratchetTranche: 0, currentPct: +achievablePct.toFixed(2), targetPct: +b.poolPct.toFixed(1),
+            hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
+            currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
             accounts: [], requires48h: false, isBucketLevel: true, isScarcityGap: true,
-            reason: `${b.label} at ${currentPct.toFixed(1)}% — below target of ${b.poolPct.toFixed(1)}%, but no ${b.side} watchlist candidate currently clears the conviction bar to fill the gap. Needs new names sourced (Layer 3 / Opportunity Scanner), not a bigger allocation to what's already held.`,
+            reason: `${b.label}: once recommended trims/holds are applied, held positions plus any new opens account for ${achievablePct.toFixed(1)}% against a ${b.poolPct.toFixed(1)}% target — the remaining ${(b.poolPct - achievablePct).toFixed(1)}% has no watchlist candidate that currently clears the conviction bar. Needs new names sourced (Layer 3 / Opportunity Scanner), not a bigger allocation to what's already held.`,
           });
         }
       }
