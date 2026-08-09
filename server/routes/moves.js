@@ -984,7 +984,25 @@ async function computeMovesPayload(owner, options = {}) {
         // showed up here for Eduardo's ETF bucket (QQQ+TMFC both capped at
         // 10%, so 20% max achievable vs. a 25% target, with no ADD row to
         // flag the unreachable 5%).
-        const achievableValue = b.groups.reduce((s, g) => s + (fixedTargetMap.get(g.ticker.id) ?? 0) / 100 * totalPortfolioValue, 0);
+        //
+        // But the capped target is only actually reachable when the ticker
+        // is OVER its cap — a real TRIM lands it exactly there. When a
+        // ticker is UNDER its cap, nothing moves it up:
+        // generateFixedTargetMove has no ADD branch (ticker selection for
+        // these buckets is outside agent scope — see the reason string
+        // below), so an under-cap ticker just HOLDs at its current value.
+        // Assuming it contributes its full capped amount overstates
+        // achievableValue and understates the "(unallocated)" gap shown to
+        // the user. Math.min(currentValue, cappedTarget) picks whichever
+        // actually applies: the cap when over (soon-to-be-trimmed there),
+        // the current value when under (nothing will move it). Caught
+        // 2026-08-09 via server/scripts/verify-allocation-math.sh's first
+        // production run — see wrap-ups/fix-fixed-bucket-undercap-achievable-out.md.
+        const achievableValue = b.groups.reduce((s, g) => {
+          const cappedTarget = (fixedTargetMap.get(g.ticker.id) ?? 0) / 100 * totalPortfolioValue;
+          const tickerCurrentValue = positionMetrics(g.positions, totalPortfolioValue).mktValue;
+          return s + Math.min(tickerCurrentValue, cappedTarget);
+        }, 0);
         const shortfall    = targetValue - achievableValue;
         if (shortfall > minPositionDollar) {
           const currentPct = totalPortfolioValue > 0 ? (currentValue / totalPortfolioValue) * 100 : 0;
