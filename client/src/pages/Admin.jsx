@@ -672,6 +672,19 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
   };
   const bucketTotal = bucketPct.equities + bucketPct.etf + bucketPct.crypto + bucketPct.commodities;
 
+  // Cash reserve is a floor off the top of the whole portfolio; Equities/ETF/Crypto/Commodities
+  // are a split of what's left. Effective % (of total portfolio) is shown so all five visibly sum to 100.
+  const cashPct = p.cashReservePct !== '' ? Number(p.cashReservePct) : DEFAULTS.cashReservePct;
+  const investedScale = 1 - cashPct / 100;
+  const effPct = {
+    equities:    bucketPct.equities    * investedScale,
+    etf:         bucketPct.etf         * investedScale,
+    crypto:      bucketPct.crypto      * investedScale,
+    commodities: bucketPct.commodities * investedScale,
+    cash:        cashPct,
+  };
+  const effTotal = effPct.equities + effPct.etf + effPct.crypto + effPct.commodities + effPct.cash;
+
   // Goal progress (use saved profile value, not draft)
   const savedGoal = profile.enoughNumber;
   const goalPct   = savedGoal && portfolioValue
@@ -943,17 +956,6 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
                 )}
               </Field>
 
-              <Field label="Cash reserve" hint="Keep this % as dry powder for new opportunities.">
-                <TextInput
-                  value={p.cashReservePct}
-                  onChange={v => set('cashReservePct', v)}
-                  placeholder={String(DEFAULTS.cashReservePct)}
-                  type="number"
-                  suffix="% of portfolio"
-                  width={80}
-                />
-              </Field>
-
               <Field label="Investment goal">
                 <TextInput
                   value={p.enoughNumber}
@@ -970,7 +972,7 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
             <div style={{ marginBottom: 32 }}>
               <SectionHeader
                 title="Target Allocation Model"
-                subtitle="Top-level target across the whole portfolio. Independent of years-to-goal / risk tolerance below — this is your call, not a computed suggestion."
+                subtitle="Top-level target across the whole portfolio, including the cash reserve. Independent of years-to-goal / risk tolerance below — this is your call, not a computed suggestion."
               />
 
               <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
@@ -1014,22 +1016,33 @@ function OwnerAdminCard({ profile: initialProfile, portfolioValue, accountCount,
                     width={80}
                   />
                 </Field>
+                <Field label="Cash" hint="Dry powder for new opportunities.">
+                  <TextInput
+                    value={p.cashReservePct}
+                    onChange={v => set('cashReservePct', v)}
+                    placeholder={String(DEFAULTS.cashReservePct)}
+                    type="number"
+                    suffix="%"
+                    width={80}
+                  />
+                </Field>
               </div>
 
               <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 10 }}>
                 <div style={{ display: 'flex', height: 8, width: 300, borderRadius: 4, overflow: 'hidden', border: '1px solid #2d3748' }}>
-                  <div style={{ width: `${Math.min(100, bucketPct.equities)}%`,    background: '#60a5fa' }} />
-                  <div style={{ width: `${Math.min(100, bucketPct.etf)}%`,         background: '#a78bfa' }} />
-                  <div style={{ width: `${Math.min(100, bucketPct.crypto)}%`,      background: '#4ade80' }} />
-                  <div style={{ width: `${Math.min(100, bucketPct.commodities)}%`, background: '#2dd4bf' }} />
+                  <div style={{ width: `${Math.min(100, effPct.equities)}%`,    background: '#60a5fa' }} />
+                  <div style={{ width: `${Math.min(100, effPct.etf)}%`,         background: '#a78bfa' }} />
+                  <div style={{ width: `${Math.min(100, effPct.crypto)}%`,      background: '#4ade80' }} />
+                  <div style={{ width: `${Math.min(100, effPct.commodities)}%`, background: '#2dd4bf' }} />
+                  <div style={{ width: `${Math.min(100, effPct.cash)}%`,        background: '#94a3b8' }} />
                 </div>
                 <span style={{ fontSize: 12, fontWeight: 700, color: Math.abs(bucketTotal - 100) < 0.5 ? '#4ade80' : '#f87171' }}>
-                  {bucketTotal.toFixed(0)}% total
+                  {effTotal.toFixed(0)}% total
                 </span>
               </div>
               {Math.abs(bucketTotal - 100) >= 0.5 && (
                 <div style={{ marginTop: 6, fontSize: 11, color: '#f87171' }}>
-                  ⚠ Buckets must sum to 100% — currently {bucketTotal.toFixed(0)}%
+                  ⚠ Equities + ETF + Crypto + Commodities must sum to 100% — currently {bucketTotal.toFixed(0)}%
                 </div>
               )}
             </div>

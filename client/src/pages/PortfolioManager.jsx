@@ -1170,6 +1170,9 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
 
   const total = draft ? draft.equitiesTargetPct + draft.etfTargetPct + draft.cryptoTargetPct + draft.commoditiesTargetPct : 0;
   const totalOk = Math.abs(total - 100) < 0.5;
+  const cashPct = preview ? (preview.allocation?.cashReservePct ?? 0) : 0; // already 0-100
+  const investedScale = 1 - cashPct / 100;
+  const effTotal = total * investedScale + cashPct;
 
   async function handleConfirm() {
     setStep('computing');
@@ -1325,9 +1328,20 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
                   <span style={{ fontSize: 12, color: C.dim }}>% est</span>
                 </div>
               </div>
+              <div>
+                <label style={{ display: 'block', fontSize: 11, color: C.dim, marginBottom: 4 }}>Cash</label>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <input type="number" value={cashPct} disabled
+                    style={{ ...inputS, opacity: 0.6, cursor: 'not-allowed' }} />
+                  <span style={{ fontSize: 12, color: C.dim }}>%</span>
+                </div>
+              </div>
+            </div>
+            <div style={{ fontSize: 11, color: C.dim, marginBottom: 4 }}>
+              Cash reserve is set in Admin and applied as a floor off the top — Equities/ETF/Crypto/Commodities split the rest.
             </div>
             <div style={{ fontSize: 12, fontWeight: 600, color: totalOk ? C.green : C.red, marginBottom: 16 }}>
-              {total.toFixed(0)}% total {totalOk ? '' : '— must sum to 100% (Equities + ETF + Crypto + Commodities)'}
+              {effTotal.toFixed(0)}% total (incl. cash) {totalOk ? '' : '— Equities + ETF + Crypto + Commodities must sum to 100%'}
             </div>
 
             <div style={{ fontSize: 11, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
