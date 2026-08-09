@@ -10,6 +10,7 @@
  */
 
 import { useState, useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useAuth } from '@clerk/clerk-react';
 
 // ─── Style tokens ─────────────────────────────────────────────────────────────
@@ -1338,6 +1339,8 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
 
 export default function PortfolioManager() {
   const { getToken } = useAuth();
+  const location = useLocation();
+  const isVisible = location.pathname === '/';
 
   const [owners,        setOwners]        = useState([]);
   const [selected,      setSelected]      = useState(null);
@@ -1354,8 +1357,15 @@ export default function PortfolioManager() {
   // Reset decisions when the owner changes
   useEffect(() => { setDecisions({}); }, [selected]);
 
-  // Load owner list once
+  // Load owner list — re-fires every time this tab becomes visible, not just
+  // on first mount. Pages stay permanently mounted (see App.jsx — display:none
+  // toggle, not route unmount, so in-flight fetches/form state survive tab
+  // switches), so a plain "once on mount" effect here would only ever run
+  // once per full page load, silently going stale if e.g. a new owner is
+  // added in Admin while this tab sits hidden. Preserves the current
+  // selection across a refetch instead of resetting to owners[0].
   useEffect(() => {
+    if (!isVisible) return;
     (async () => {
       try {
         const token = await getToken();
@@ -1363,13 +1373,13 @@ export default function PortfolioManager() {
         const list  = await r.json();
         if (r.ok && list.length > 0) {
           setOwners(list);
-          setSelected(list[0].owner);
+          setSelected(prev => (prev && list.some(o => o.owner === prev)) ? prev : list[0].owner);
         }
       } catch {
         setErr('Could not load owner list');
       }
     })();
-  }, [getToken]);
+  }, [getToken, isVisible]);
 
   // Rebuild the `decisions` map from each move's `priorDecision` (server-side,
   // sourced from OwnerDecision — the actual DB record, not local-only state).
@@ -1515,7 +1525,10 @@ export default function PortfolioManager() {
     }
   }, [getToken, selected]);
 
-  useEffect(() => { loadMoves(); }, [loadMoves]);
+  // Same reasoning as the owner-list effect above: re-fires whenever this
+  // tab becomes visible (owner switch, or returning from Admin/Accounts/etc.
+  // after something changed the underlying data), not just on first mount.
+  useEffect(() => { if (isVisible) loadMoves(); }, [loadMoves, isVisible]);
 
   const actionMoves = data?.moves ?? [];
 

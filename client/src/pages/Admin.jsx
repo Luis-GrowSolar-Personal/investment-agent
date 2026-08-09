@@ -12,6 +12,7 @@
  */
 
 import { useState, useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useAuth } from '@clerk/clerk-react';
 
 // ---------------------------------------------------------------------------
@@ -1569,6 +1570,8 @@ function BrokerConnections() {
 // ---------------------------------------------------------------------------
 export default function Admin() {
   const { getToken } = useAuth();
+  const location  = useLocation();
+  const isVisible = location.pathname === '/admin';
   const [profiles, setProfiles]           = useState([]);
   const [portfolioValues, setPortfolioValues] = useState({});
   const [accountCounts, setAccountCounts] = useState({});
@@ -1610,7 +1613,16 @@ export default function Admin() {
     }
   }, [getToken]);
 
-  useEffect(() => { load(); }, [load]);
+  // Re-fires whenever the Admin tab becomes visible, not just on first
+  // mount. App.jsx keeps every page permanently mounted (display:none
+  // toggle, not route unmount, so in-flight fetches/form state survive tab
+  // switches) — without this gate, a "once on mount" effect only ever runs
+  // once per full page load, so e.g. a target-model % changed via
+  // re-baseline's PATCH (from the Portfolio Manager tab) would sit stale
+  // here until a full browser reload. Caught 2026-08-08 chasing what looked
+  // like a re-baseline math bug but was actually Admin showing a saved
+  // value from before the PATCH.
+  useEffect(() => { if (isVisible) load(); }, [load, isVisible]);
 
   const handleDelete = async (owner, displayName) => {
     setDeleteErr('');
