@@ -971,7 +971,21 @@ async function computeMovesPayload(owner, options = {}) {
       for (const b of fixedBuckets) {
         const currentValue = b.groups.reduce((s, g) => s + positionMetrics(g.positions, totalPortfolioValue).mktValue, 0);
         const targetValue  = totalPortfolioValue * (b.targetPct / 100);
-        const shortfall    = targetValue - currentValue;
+        // achievableValue is what the CURRENTLY-HELD tickers can reach at
+        // their own per-ticker caps (fixedTargetMap, computed above via
+        // splitBucketTarget) — not their raw current mkt value. Comparing
+        // against raw currentValue understates the gap whenever held
+        // tickers are individually capped below an even split of the
+        // bucket target: e.g. two ETFs each capped at 10% can only ever
+        // reach 20% combined even if a 25% bucket target is currently
+        // "covered" on paper because both are temporarily overweight and
+        // about to be trimmed down to their caps. Caught 2026-08-09 via
+        // recon into Established/Speculative shortfall — same pattern
+        // showed up here for Eduardo's ETF bucket (QQQ+TMFC both capped at
+        // 10%, so 20% max achievable vs. a 25% target, with no ADD row to
+        // flag the unreachable 5%).
+        const achievableValue = b.groups.reduce((s, g) => s + (fixedTargetMap.get(g.ticker.id) ?? 0) / 100 * totalPortfolioValue, 0);
+        const shortfall    = targetValue - achievableValue;
         if (shortfall > minPositionDollar) {
           const currentPct = totalPortfolioValue > 0 ? (currentValue / totalPortfolioValue) * 100 : 0;
           allMoves.push({
@@ -981,7 +995,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.targetPct.toFixed(1), currentMktValue: +currentValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             accounts: [], requires48h: false, isBucketLevel: true,
-            reason: `${b.label} at ${currentPct.toFixed(1)}% — below target of ${b.targetPct.toFixed(1)}%. Pick a specific ${b.label.toLowerCase()} ticker to fund this (outside agent scope).`,
+            reason: `${b.label} at ${currentPct.toFixed(1)}% — held tickers are capped below the ${b.targetPct.toFixed(1)}% target (per-ticker caps leave ${shortfall > 0 ? 'room' : 'no room'} unclaimed). Pick a specific ${b.label.toLowerCase()} ticker to fund this (outside agent scope).`,
           });
         }
       }
