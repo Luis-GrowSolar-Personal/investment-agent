@@ -1016,6 +1016,29 @@ async function computeMovesPayload(owner, options = {}) {
             accounts: [], requires48h: false, isBucketLevel: true,
             reason: `${b.label} at ${currentPct.toFixed(1)}% — held tickers are capped below the ${b.targetPct.toFixed(1)}% target (per-ticker caps leave ${shortfall > 0 ? 'room' : 'no room'} unclaimed). Pick a specific ${b.label.toLowerCase()} ticker to fund this (outside agent scope).`,
           });
+        } else if (shortfall > 0) {
+          // Real, permanent gap (nothing will ever close it — held tickers
+          // are already at the most they can reach) but too small to
+          // justify a new position. Without this row the gap is just
+          // silent — Luis's framing: "3 months from now I'll be wondering
+          // why isn't it recommending an add." Distinct from the
+          // actionable "(unallocated)" row above (isBucketLevel only) and
+          // from the Established/Speculative isScarcityGap rows below
+          // (that's "nothing qualifies on thesis"; this is "the dollar
+          // amount itself isn't worth a position"). Caught 2026-08-09 via
+          // Eduardo's Commodities case — see
+          // wrap-ups/fix-below-floor-gap-message-out.md.
+          const currentPct = totalPortfolioValue > 0 ? (currentValue / totalPortfolioValue) * 100 : 0;
+          allMoves.push({
+            moveType: 'ADD', priority: 6, symbol: null, shortName: `${b.label} (below minimum)`,
+            bucket: b.key, tier: null, thesisHealth: '—', finalAction: '—', trajectory: null,
+            ratchetTranche: 0, currentPct: +currentPct.toFixed(2), targetPct: +b.targetPct.toFixed(1),
+            hardCapPct: +b.targetPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
+            dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
+            currentShares: null, targetShares: null, targetValue: +targetValue.toFixed(2),
+            accounts: [], requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            reason: `${b.label} is $${shortfall.toFixed(0)} short of target, but that's below the $${minPositionDollar} minimum position size — not worth a new position. Will stay this way until either the target model changes or ${b.label.toLowerCase()} holdings grow enough on their own.`,
+          });
         }
       }
     }
@@ -1313,6 +1336,26 @@ async function computeMovesPayload(owner, options = {}) {
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
             accounts: [], requires48h: false, isBucketLevel: true, isScarcityGap: true,
             reason: `${b.label}: once recommended trims/holds are applied, held positions plus any new opens account for ${achievablePct.toFixed(1)}% against a ${b.poolPct.toFixed(1)}% target — the remaining ${(b.poolPct - achievablePct).toFixed(1)}% has no watchlist candidate that currently clears the conviction bar. Needs new names sourced (Layer 3 / Opportunity Scanner), not a bigger allocation to what's already held.`,
+          });
+        } else if (shortfall > 0) {
+          // Same "real but too small to act on" case as the fixed-bucket
+          // block above, for the barbell equity pools. Distinct from the
+          // isScarcityGap row: that one means "nothing qualifies on
+          // thesis"; this means "the leftover dollar amount itself isn't
+          // worth a position," which can be true even with candidates
+          // available (a partial fill from sizeSide's own minPositionDollar
+          // floor can leave a small remainder here too). Caught 2026-08-09
+          // — see wrap-ups/fix-below-floor-gap-message-out.md.
+          const achievablePct = totalPortfolioValue > 0 ? (achievableValue / totalPortfolioValue) * 100 : 0;
+          actionMoves.push({
+            moveType: 'ADD', priority: 6, symbol: null, shortName: `${b.label} (below minimum)`,
+            bucket: b.side, tier: b.side, thesisHealth: '—', finalAction: '—', trajectory: null,
+            ratchetTranche: 0, currentPct: +achievablePct.toFixed(2), targetPct: +b.poolPct.toFixed(1),
+            hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
+            dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
+            currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
+            accounts: [], requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            reason: `${b.label} is $${shortfall.toFixed(0)} short of target, but that's below the $${minPositionDollar} minimum position size — not worth a new position. Will stay this way until either the target model changes or ${b.label.toLowerCase()} holdings grow enough on their own.`,
           });
         }
       }

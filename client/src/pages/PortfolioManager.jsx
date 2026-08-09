@@ -512,6 +512,13 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
           >
             NO QUALIFYING CANDIDATES
           </span>
+        ) : move.isBucketLevel && move.isBelowFloor ? (
+          <span
+            style={{ fontSize: 9, fontWeight: 700, color: C.dim, border: `1px solid ${C.dim}55`, background: C.dim + '15', borderRadius: 3, padding: '1px 5px' }}
+            title="The gap is real but too small to justify a new position — will stay this way until the target model changes or holdings grow enough on their own"
+          >
+            BELOW MINIMUM
+          </span>
         ) : move.isBucketLevel ? (
           <span style={{ fontSize: 11, color: C.dim }} title="No specific ticker — pick which one to fund manually, outside agent scope">
             Outside agent scope
