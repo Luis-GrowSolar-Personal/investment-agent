@@ -282,7 +282,13 @@ function AllocationView({ data }) {
 
   const rows = alloc.buckets.map(b => {
     const currentPct  = total > 0 ? (b.currentValue / total) * 100 : 0;
-    const targetValue = total * (b.targetPct / 100);
+    // Use the server's precise targetValue, not a client-side recompute from
+    // b.targetPct — that field is rounded to 1 decimal for display, and
+    // total * roundedPct can drift ~$15-20 off the true target on a ~$30k
+    // portfolio (caught 2026-08-09: Established/Speculative showed $7,486
+    // here vs $7,470.40 from the server, traced to 23.75% rounding to 23.8%
+    // before this multiplication).
+    const targetValue = b.targetValue ?? total * (b.targetPct / 100);
     return {
       ...b,
       color: BUCKET_COLORS[b.key] ?? C.muted,
@@ -1176,6 +1182,12 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
         cryptoTargetPct:      draft.cryptoTargetPct      / 100,
         commoditiesTargetPct: draft.commoditiesTargetPct / 100,
         estSpecRatio:         draft.estSpecRatio         / 100,
+        // The very next call below (loadPreview(true)) does its own bypassed
+        // recompute-and-persist, which is more specific than the server's
+        // generic post-PATCH cache refresh — skip that generic one so it
+        // can't land after and silently overwrite the bypassed result with
+        // a normal (winner-protected) computation.
+        skipMovesRefresh: true,
       };
       const r = await fetch(`/api/users/${encodeURIComponent(owner)}`, {
         method: 'PATCH',

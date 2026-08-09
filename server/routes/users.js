@@ -12,6 +12,23 @@ const router  = express.Router();
 const prisma  = require('../lib/prisma');
 const { requireAdmin } = require('../lib/authMiddleware');
 const { clerkClient }  = require('@clerk/express');
+const { refreshMovesCache } = require('../lib/movesCache');
+
+// Any OwnerProfile field that feeds computeMovesPayload — if a PATCH touches
+// one of these, MovesCache is stale the instant the save succeeds and needs
+// to be recomputed, or the Allocation/Moves tabs keep showing whatever was
+// cached before the edit (caught 2026-08-09: Admin's own "Save changes"
+// button updates the target-model %'s directly, with no follow-up recompute
+// — unlike the re-baseline modal's PATCH, which happens to trigger one as
+// its next step regardless. A plain Admin edit had no such follow-up, so it
+// could silently drift out of sync with the Allocation tab until something
+// unrelated — a manual re-baseline, Force Recompute, or the next background
+// price refresh — happened to recompute it).
+const MOVES_AFFECTING_FIELDS = [
+  'equitiesTargetPct', 'etfTargetPct', 'cryptoTargetPct', 'commoditiesTargetPct',
+  'estSpecRatio', 'cashReservePct', 'maxPositions', 'minPositionDollar',
+  'riskTolerance', 'taxSensitivity', 'specExitSpeed',
+];
 
 // GET /api/users/me
 // Returns the caller's own OwnerProfile — available to any authenticated user,
@@ -265,6 +282,25 @@ router.patch('/:owner', async (req, res) => {
       data,
     });
     res.json(profile);
+
+    // Fire-and-forget: if this edit touched anything computeMovesPayload
+    // reads, refresh MovesCache so the Allocation/Moves tabs reflect it on
+    // next view instead of silently serving a pre-edit snapshot. Response
+    // already sent above — this doesn't block the PATCH's own round trip.
+    //
+    // Skipped when the caller passes `skipMovesRefresh: true` — the
+    // re-baseline modal's PATCH is immediately followed by its own
+    // bypassed recompute-and-persist call, which is more specific (it knows
+    // to preserve full-precision/bypass mode) than this generic refresh.
+    // Without the opt-out, this fire-and-forget refresh could land *after*
+    // that bypassed persist and silently overwrite it with a normal
+    // computation — the same MovesCache race already fixed once for the
+    // background price-refresh path (2026-08-08), reopened here through a
+    // second path if left unguarded.
+    if (body.skipMovesRefresh !== true
+        && Object.keys(data).some(f => MOVES_AFFECTING_FIELDS.includes(f))) {
+      refreshMovesCache(owner);
+    }
   } catch (err) {
     if (err.code === 'P2025') {
       return res.status(404).json({ error: `Owner "${owner}" not found` });
