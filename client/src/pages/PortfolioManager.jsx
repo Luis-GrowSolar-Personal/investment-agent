@@ -499,7 +499,14 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
         )}
       </div>
       <div style={{ ...cellBase, display: 'flex', alignItems: 'center', gap: 6 }} onClick={e => e.stopPropagation()}>
-        {move.isBucketLevel ? (
+        {move.isBucketLevel && move.isScarcityGap ? (
+          <span
+            style={{ fontSize: 9, fontWeight: 700, color: C.amber, border: `1px solid ${C.amber}55`, background: C.amber + '15', borderRadius: 3, padding: '1px 5px' }}
+            title="No held or watchlist candidate on this side currently clears the conviction bar — needs new names sourced, not a bigger allocation to what's already held"
+          >
+            NO QUALIFYING CANDIDATES
+          </span>
+        ) : move.isBucketLevel ? (
           <span style={{ fontSize: 11, color: C.dim }} title="No specific ticker — pick which one to fund manually, outside agent scope">
             Outside agent scope
           </span>

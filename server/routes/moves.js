@@ -1213,11 +1213,47 @@ async function computeMovesPayload(owner, options = {}) {
     const remainingEstPoolPct  = targetEstIndividual  > 0 ? estPoolPct  * (remainingEstSlots  / targetEstIndividual)  : 0;
     const remainingSpecPoolPct = targetSpecIndividual > 0 ? specPoolPct * (remainingSpecSlots / targetSpecIndividual) : 0;
 
-    const candidates = [
-      ...sizeSide(eligible.est,  remainingEstPoolPct,  remainingEstSlots),
-      ...sizeSide(eligible.spec, remainingSpecPoolPct, remainingSpecSlots),
-    ];
+    const estCandidates  = sizeSide(eligible.est,  remainingEstPoolPct,  remainingEstSlots);
+    const specCandidates = sizeSide(eligible.spec, remainingSpecPoolPct, remainingSpecSlots);
+    const candidates = [...estCandidates, ...specCandidates];
     candidates.sort((a, b) => b.rankScore - a.rankScore);
+
+    // Established/Speculative "(unallocated)" scarcity-gap rows — mirrors the
+    // ETF/Crypto/Commodity "(unallocated)" block above, but for a different
+    // reason: those buckets are short because ticker selection is outside
+    // agent scope (user's call); these are short because no held OR eligible
+    // watchlist candidate currently clears the conviction bar to fill the
+    // remaining pool — a Radar/sourcing gap, not a user-choice gap (hence the
+    // separate `isScarcityGap` flag so the frontend can word it differently).
+    // Re-baseline-only (bypassWinnerProtection), same as the fixed-bucket
+    // block: this is a full current-vs-target reconciliation concept, not
+    // something the everyday Moves tab should proactively nag about.
+    if (bypassWinnerProtection) {
+      const barbellBuckets = [
+        { side: 'established', label: 'Established Equities', poolPct: estPoolPct,  heldGroup: individualGroups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === 'est'),  sideCandidates: estCandidates },
+        { side: 'speculative', label: 'Speculative Equities',  poolPct: specPoolPct, heldGroup: individualGroups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === 'spec'), sideCandidates: specCandidates },
+      ];
+      for (const b of barbellBuckets) {
+        const heldValue = b.heldGroup.reduce((s, g) => s + positionMetrics(g.positions, totalPortfolioValue).mktValue, 0);
+        const heldTargetSum = b.heldGroup.reduce((s, g) => s + (modelWeights.get(g.ticker.id) ?? 0) / 100 * totalPortfolioValue, 0);
+        const newOpenSum = b.sideCandidates.reduce((s, c) => s + c.suggestedDollar, 0);
+        const achievableValue = heldTargetSum + newOpenSum;
+        const bucketTargetValue = totalPortfolioValue * (b.poolPct / 100);
+        const shortfall = bucketTargetValue - achievableValue;
+        if (shortfall > minPositionDollar && b.sideCandidates.length === 0) {
+          const currentPct = totalPortfolioValue > 0 ? (heldValue / totalPortfolioValue) * 100 : 0;
+          actionMoves.push({
+            moveType: 'ADD', priority: 5, symbol: null, shortName: `${b.label} (unallocated)`,
+            bucket: b.side, tier: b.side, thesisHealth: '—', finalAction: '—', trajectory: null,
+            ratchetTranche: 0, currentPct: +currentPct.toFixed(2), targetPct: +b.poolPct.toFixed(1),
+            hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +heldValue.toFixed(2),
+            dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
+            accounts: [], requires48h: false, isBucketLevel: true, isScarcityGap: true,
+            reason: `${b.label} at ${currentPct.toFixed(1)}% — below target of ${b.poolPct.toFixed(1)}%, but no ${b.side} watchlist candidate currently clears the conviction bar to fill the gap. Needs new names sourced (Layer 3 / Opportunity Scanner), not a bigger allocation to what's already held.`,
+          });
+        }
+      }
+    }
 
     // Watchlist candidates are folded directly into actionMoves as real ADD
     // moves — not a separate read-only "suggestions" list. A position moves
