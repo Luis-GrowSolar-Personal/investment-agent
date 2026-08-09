@@ -332,9 +332,9 @@ function AllocationView({ data }) {
       </div>
 
       <div style={{ fontSize: 11, color: C.faint, marginTop: 8 }}>
-        Cash target reflects the {pct(alloc.cashReservePct, 0)} reserve floor — the other five buckets' targets are
-        scaled down so all six sum to 100% of total portfolio value. See the Moves tab for the specific trades that
-        close these gaps.
+        Cash is a {pct(alloc.cashReservePct, 0)} target set in Admin, on equal footing with the other five buckets —
+        all six targets are direct percentages of total portfolio value and sum to 100%. See the Moves tab for the
+        specific trades that close these gaps.
       </div>
     </div>
   );
