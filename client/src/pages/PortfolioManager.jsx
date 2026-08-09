@@ -1169,10 +1169,11 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
   }, [owner]);
 
   const total = draft ? draft.equitiesTargetPct + draft.etfTargetPct + draft.cryptoTargetPct + draft.commoditiesTargetPct : 0;
-  const totalOk = Math.abs(total - 100) < 0.5;
   const cashPct = preview ? (preview.allocation?.cashReservePct ?? 0) : 0; // already 0-100
-  const investedScale = 1 - cashPct / 100;
-  const effTotal = total * investedScale + cashPct;
+  // Equities/ETF/Crypto/Commodities/Cash are each a direct % of TOTAL portfolio
+  // value — all five must sum to 100 together (cash is fixed here, set in Admin).
+  const effTotal = total + cashPct;
+  const totalOk = Math.abs(effTotal - 100) < 0.5;
 
   async function handleConfirm() {
     setStep('computing');
@@ -1217,15 +1218,15 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
 
   // Recompute target %/$ on the fly from the in-progress draft, mirroring the
   // server's bucketEntry() math (moves.js ~line 1307-1336) exactly:
-  //   investedScale = 1 - cashReservePct
   //   estPoolPct/specPoolPct = equitiesTargetPct split by estSpecRatio
-  //   scaledPct = rawPct * investedScale ; targetValue = totalPV * scaledPct/100
-  // This only re-derives dollar/percent targets — it does NOT call the moves
-  // engine, so it's instant. The actual position-level moves (which do need
-  // the engine) still only refresh on Confirm.
+  //   targetValue = totalPV * rawPct/100
+  // Equities/ETF/Crypto/Commodities/Cash are each already a direct % of TOTAL
+  // portfolio value (no additional scaling) — this only re-derives dollar/
+  // percent targets, it does NOT call the moves engine, so it's instant. The
+  // actual position-level moves (which do need the engine) still only refresh
+  // on Confirm.
   function liveTargets(draft, preview) {
-    const cashReservePct = (preview.allocation?.cashReservePct ?? 0) / 100; // 0-1
-    const investedScale  = 1 - cashReservePct;
+    const cashReservePct = preview.allocation?.cashReservePct ?? 0; // 0-100
     const estSpecFrac    = (draft.estSpecRatio ?? 0) / 100;
     const rawPctByKey = {
       established: draft.equitiesTargetPct * estSpecFrac,
@@ -1236,10 +1237,9 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
     };
     const map = {};
     for (const [key, rawPct] of Object.entries(rawPctByKey)) {
-      const scaledPct = rawPct * investedScale;
-      map[key] = { targetPct: scaledPct };
+      map[key] = { targetPct: rawPct };
     }
-    map.cash = { targetPct: cashReservePct * 100 };
+    map.cash = { targetPct: cashReservePct };
     return map;
   }
 
@@ -1338,10 +1338,10 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
               </div>
             </div>
             <div style={{ fontSize: 11, color: C.dim, marginBottom: 4 }}>
-              Cash reserve is set in Admin and applied as a floor off the top — Equities/ETF/Crypto/Commodities split the rest.
+              Cash is a fixed target set in Admin, shown here for reference — Equities/ETF/Crypto/Commodities above must leave room for it to sum to 100%.
             </div>
             <div style={{ fontSize: 12, fontWeight: 600, color: totalOk ? C.green : C.red, marginBottom: 16 }}>
-              {effTotal.toFixed(0)}% total (incl. cash) {totalOk ? '' : '— Equities + ETF + Crypto + Commodities must sum to 100%'}
+              {effTotal.toFixed(0)}% total {totalOk ? '' : '— Equities + ETF + Crypto + Commodities + Cash must sum to 100%'}
             </div>
 
             <div style={{ fontSize: 11, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
