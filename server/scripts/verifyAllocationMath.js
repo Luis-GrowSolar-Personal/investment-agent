@@ -92,8 +92,8 @@ function reconstructBucket(def, allRows) {
   return sum;
 }
 
-async function verifyOwner(prisma, owner) {
-  const payload = await computeMovesPayload(owner, { bypassWinnerProtection: true });
+async function verifyOwner(prisma, owner, opts = {}) {
+  const payload = await computeMovesPayload(owner, { bypassWinnerProtection: true, freshStart: opts.freshStart === true });
   const allRows = [...payload.moves, ...payload.holds, ...payload.advisories];
 
   const results = [];
@@ -141,6 +141,28 @@ async function main() {
         continue;
       }
       for (const r of results) {
+        const status = r.pass ? 'PASS' : 'FAIL';
+        if (!r.pass) allPass = false;
+        const line = `  [${status}] ${r.label.padEnd(22)} target=$${r.target ?? 'n/a'}  reconstructed=$${r.reconstructed ?? 'n/a'}  diff=$${r.diff ?? 'n/a'}`;
+        console.log(r.note ? `${line}  (${r.note})` : line);
+      }
+
+      // Full-reset (freshStart) pass — same bucket-level reconciliation, run
+      // against the freshStart algorithm. ETF/Crypto/Commodities/Cash should
+      // reproduce the identical PASS/FAIL pattern as the normal re-baseline
+      // pass above (those code paths are untouched by freshStart); only
+      // Established/Speculative are expected to differ in *which* tickers
+      // fund the bucket, not in whether the bucket total itself reconciles.
+      console.log(`  -- freshStart (full reset) --`);
+      let fsResults;
+      try {
+        fsResults = await verifyOwner(prisma, o.owner, { freshStart: true });
+      } catch (e) {
+        console.log(`  ERROR computing freshStart payload: ${e.message}`);
+        allPass = false;
+        continue;
+      }
+      for (const r of fsResults) {
         const status = r.pass ? 'PASS' : 'FAIL';
         if (!r.pass) allPass = false;
         const line = `  [${status}] ${r.label.padEnd(22)} target=$${r.target ?? 'n/a'}  reconstructed=$${r.reconstructed ?? 'n/a'}  diff=$${r.diff ?? 'n/a'}`;

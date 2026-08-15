@@ -476,6 +476,48 @@ function makeAddMove(priority, ticker, positions, currentPct, targetPct,
   };
 }
 
+/**
+ * Full-liquidation SELL for a currently-held equity ticker that did NOT make
+ * the cut in a "full reset" (freshStart) fresh-build selection. Distinct from
+ * the normal EXIT path (thesis-driven) — this ticker may have a perfectly
+ * healthy thesis, it just didn't rank into the fresh top-N against the FULL
+ * bucket target. Still gets the same tax-cost calc and tax-advantaged-first
+ * account routing as any other full exit (Principle 5) — this is the case
+ * where that calculation matters most, not an exception to it.
+ */
+function buildFreshStartSellMove(ticker, positions, totalPortfolioValue, latestAnalysis, ownerTaxRates) {
+  const { mktValue, currentPct, shares, price } = positionMetrics(positions, totalPortfolioValue);
+  const routing    = buildTrimRouting(positions, shares, ownerTaxRates.ltcg, ownerTaxRates.stcg);
+  const taxTotal   = routing.reduce((s, r) => s + r.taxCost, 0);
+  const hardCapPct = Math.min(ticker.capPercent ?? 100, latestAnalysis?.capPercent ?? 100);
+
+  return {
+    moveType:        'EXIT',
+    priority:        1,
+    symbol:          ticker.symbol,
+    shortName:       ticker.shortName ?? ticker.name,
+    bucket:          getBucket(ticker),
+    tier:            ticker.tierOverride ?? latestAnalysis?.tier ?? null,
+    thesisHealth:    latestAnalysis?.thesisHealth   ?? '—',
+    finalAction:     latestAnalysis?.finalAction    ?? latestAnalysis?.recommendation ?? '—',
+    trajectory:      latestAnalysis?.trajectory     ?? null,
+    ratchetTranche:  latestAnalysis?.ratchetTranche ?? 0,
+    currentPct:      +currentPct.toFixed(2),
+    targetPct:       0,
+    hardCapPct:      +hardCapPct.toFixed(1),
+    currentMktValue: +mktValue.toFixed(2),
+    dollarAmount:    +mktValue.toFixed(2),
+    sharesApprox:    +shares.toFixed(3),
+    pricePerShare:   +price.toFixed(4),
+    taxCost:         +taxTotal.toFixed(2),
+    netProceeds:     +(mktValue - taxTotal).toFixed(2),
+    accounts:        routing,
+    requires48h:     currentPct > 30,
+    isFreshStartSell: true,
+    reason: 'Full reset — not selected in the fresh build (higher-conviction candidates filled the full bucket target); full liquidation.',
+  };
+}
+
 // ─── Per-ticker move generation ───────────────────────────────────────────────
 
 /**
@@ -776,7 +818,18 @@ async function computeMovesPayload(owner, options = {}) {
     // other caller (the everyday GET /api/moves, the cache refresh, schwab
     // sync hooks) leaves this false, preserving the "let a Strengthening
     // thesis run to its hard cap" protection.
-    const bypassWinnerProtection = options.bypassWinnerProtection === true;
+    // freshStart ("Full reset" mode): assume every currently-held equity is
+    // sold to cash and rebuild Established/Speculative purely from the full
+    // ranked candidate universe (held + watchlist, on equal footing) against
+    // the FULL bucket-side target dollar amount — zero preference for what
+    // happens to already be held. Deliberate, one-time override of Principle
+    // 9 (existing-positions-before-new), scoped to this mode only. Implies
+    // bypassWinnerProtection (a fresh build has no "let a winner run" concept
+    // — everything is resized/replaced to the fresh target regardless of
+    // momentum). ETF/Crypto/Commodities/Cash are untouched by this flag —
+    // see the equity-only branch below.
+    const freshStart = options.freshStart === true;
+    const bypassWinnerProtection = options.bypassWinnerProtection === true || freshStart;
 
     const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
     if (!profile) throw new Error(`Owner "${owner}" not found`);
@@ -1043,16 +1096,244 @@ async function computeMovesPayload(owner, options = {}) {
       }
     }
 
+    // Dynamic pool division: cap each side to its best `targetCount`
+    // candidates by rank FIRST (targetCount is the real ceiling — derived
+    // from the Admin maxPositions setting — on how many new names this side
+    // should carry), then shrink from there if any of those can't individually
+    // clear minPositionDollar, re-dividing the pool among the survivors so a
+    // thin candidate list doesn't silently orphan capital. Capping the count
+    // up front (not just using it as a divisor) matters: without it, every
+    // eligible watchlist ticker would get sized as if only targetCount
+    // existed but still be returned in full — both overshooting the position
+    // count and making individual weights no longer sum to the pool.
+    //
+    // Declared here (before both the freshStart branch and the normal
+    // watchlist-candidates block below) so both can call it — it's a plain
+    // greedy sizing helper with no freshStart-specific behavior; only the
+    // pool/targetCount it's invoked with differs between the two callers.
+    function sizeSide(list, poolPct, targetCount) {
+      const ranked = [...list].sort((a, b) => b.rankScore - a.rankScore);
+      let active = ranked.slice(0, targetCount);
+      for (;;) {
+        const poolCount  = Math.min(targetCount, active.length);
+        if (poolCount === 0) return [];
+        const baseWeight = poolPct / poolCount;
+        // Raw weights with the Type A/B multiplier, then RESCALED so the
+        // group sums back to poolPct before clamping to individual hard
+        // caps — mirrors computeIndividualModelWeights.allocate() (used for
+        // existing holdings). Without this rescale, Type B's 1.5x inflates
+        // the total past the pool whenever any candidate is Type B — e.g.
+        // two Type B candidates at baseWeight 15% each become 22.5% each
+        // (45% combined) instead of being rescaled down to fit the pool.
+        const raws   = active.map(c => ({ c, raw: baseWeight * (c.type === 'B' ? 1.5 : 1.0) }));
+        const rawSum = raws.reduce((s, r) => s + r.raw, 0);
+        const scale  = rawSum > 0 ? poolPct / rawSum : 1;
+        const sized = raws.map(({ c, raw }) => {
+          const suggestedPct    = +Math.min(raw * scale, c.hardCapPct ?? 100).toFixed(1);
+          const suggestedDollar = +(totalPortfolioValue * (suggestedPct / 100)).toFixed(0);
+          return { ...c, suggestedPct, suggestedDollar };
+        });
+        const survivors = sized.filter(c => c.suggestedDollar >= minPositionDollar);
+        if (survivors.length === active.length) return survivors; // converged — everyone clears the floor
+        if (survivors.length > 0) { active = survivors; continue; } // some cleared — re-divide among them
+        // Nobody cleared the floor at this split — don't give up outright.
+        // Two candidates splitting a small pool can both land under the
+        // floor individually while either one alone, with the WHOLE pool,
+        // would clear it easily (e.g. $1,988 pool / 2 = ~$994 each, both
+        // under a $1,500 floor, but $1,988 for just the top-ranked one is
+        // comfortably above it). Drop only the single worst-ranked
+        // candidate and retry with one fewer, rather than assuming the
+        // pool can't support anyone.
+        if (active.length === 0) return [];
+        active = active.slice(0, -1); // ranked worst-last — drop the tail
+      }
+    }
+
     // Individual stocks
-    for (const g of individualGroups) {
-      const modelWeightPct = modelWeights.get(g.ticker.id) ?? 0;
-      // Inject per-owner cap so generateMovesForTicker uses it for hardCapPct
-      const tickerWithOwnerCap = { ...g.ticker, capPercent: effectiveCap(g.ticker) };
-      const moves = generateMovesForTicker(
-        tickerWithOwnerCap, g.positions, totalPortfolioValue,
-        g.latestAnalysis, modelWeightPct, profile, ownerTaxRates, bypassWinnerProtection
-      );
-      allMoves.push(...moves);
+    // fsSelectedByTickerId / fsOpenCandidates are populated below when
+    // freshStart is active, and referenced later by the watchlist-candidates
+    // block (which is skipped entirely in freshStart mode — see there).
+    let fsSelectedByTickerId = null;
+    let fsOpenCandidates     = [];
+
+    if (freshStart) {
+      // ── Full reset: build the candidate universe (held + watchlist, equal
+      // footing) using the SAME eligibility gate and ranking (scoreCandidate)
+      // as the normal new-open watchlist path — no new ranking scheme, only
+      // the pool it competes for changes (full bucket target, not leftover
+      // gap). Then greedily fill each side's FULL pool via sizeSide (same
+      // greedy-array-order mechanism used elsewhere), completely ignoring
+      // whether a ticker is currently held.
+      const fsWatchlistTickers = (await prisma.ticker.findMany({
+        where: { status: 'watchlist', inScope: { not: false } },
+      })).filter(wt => !byTicker.has(wt.id));
+      const fsWatchlistAnalyses = await Promise.all(fsWatchlistTickers.map(wt =>
+        prisma.analysis.findFirst({
+          where:   { transcript: { tickerId: wt.id } },
+          orderBy: { transcript: { callDate: 'desc' } },
+          select: {
+            thesisHealth: true, recommendation: true, finalAction: true,
+            trajectory: true, recommendedSize: true, tier: true,
+            transcript: { select: { callDate: true } },
+          },
+        })
+      ));
+
+      const fsUniverse = { est: [], spec: [] };
+
+      function fsEligible(action, thesisHealth) {
+        if (!['Add', 'Hold'].includes(action)) return false;
+        if (['Broken', 'Weakening'].includes(thesisHealth) && action !== 'Add') return false;
+        return true;
+      }
+
+      // Held equities compete on equal footing with watchlist candidates —
+      // "no preference to what's currently held" (Luis, confirmed).
+      for (const g of individualGroups) {
+        const a      = g.latestAnalysis;
+        const action = a?.finalAction ?? a?.recommendation ?? '—';
+        if (!fsEligible(action, a?.thesisHealth)) continue;
+        const side = barbellSide(g.ticker, a);
+        if (!side) continue;
+        fsUniverse[side].push({
+          tickerId: g.ticker.id, symbol: g.ticker.symbol, shortName: g.ticker.shortName ?? g.ticker.name,
+          type: g.ticker.type, tier: g.ticker.tierOverride ?? a?.tier ?? null, side,
+          thesisHealth: a?.thesisHealth, finalAction: action, trajectory: a?.trajectory ?? null,
+          rankScore: scoreCandidate(a, g.ticker.type), hardCapPct: effectiveCap(g.ticker),
+          isHeld: true,
+        });
+      }
+      for (let i = 0; i < fsWatchlistTickers.length; i++) {
+        const wt = fsWatchlistTickers[i];
+        const a  = fsWatchlistAnalyses[i];
+        if (!a) continue;
+        const action = a.finalAction ?? a.recommendation ?? '—';
+        if (!fsEligible(action, a.thesisHealth)) continue;
+        const side = barbellSide(wt, a);
+        if (!side) continue;
+        fsUniverse[side].push({
+          tickerId: wt.id, symbol: wt.symbol, shortName: wt.shortName ?? wt.name,
+          type: wt.type, tier: wt.tierOverride ?? a.tier ?? null, side,
+          thesisHealth: a.thesisHealth, finalAction: action, trajectory: a.trajectory ?? null,
+          rankScore: scoreCandidate(a, wt.type), hardCapPct: wt.capPercent,
+          isHeld: false,
+        });
+      }
+
+      // FULL pool + FULL target slot count — not the leftover-gap sizing the
+      // normal path uses. This is the one deliberate change to the ranking
+      // mechanism per the spec: same sizeSide, different (full) denominator.
+      const fsEst  = sizeSide(fsUniverse.est,  estPoolPct,  targetEstIndividual);
+      const fsSpec = sizeSide(fsUniverse.spec, specPoolPct, targetSpecIndividual);
+      const fsSelected = [...fsEst, ...fsSpec];
+      fsSelectedByTickerId = new Map(fsSelected.map(c => [c.tickerId, c]));
+      fsOpenCandidates = fsSelected.filter(c => !c.isHeld);
+
+      // Scarcity-gap rows — mirrors the normal path's Established/Speculative
+      // "(unallocated)" block: if the fresh-build candidate universe (held +
+      // watchlist, both gated the same way) is too thin to fill a side's
+      // FULL pool, that shortfall is real and should be visible, not
+      // silently absorbed. Without this, a thin candidate list would just
+      // under-fill the bucket with no explanation on screen, and the bucket
+      // reconciliation check (verify-allocation-math.sh) would fail even
+      // though nothing is actually wrong.
+      const fsBuckets = [
+        { side: 'established', label: 'Established Equities', poolPct: estPoolPct,  sideSelected: fsEst },
+        { side: 'speculative', label: 'Speculative Equities',  poolPct: specPoolPct, sideSelected: fsSpec },
+      ];
+      for (const b of fsBuckets) {
+        const bucketTargetValue = totalPortfolioValue * (b.poolPct / 100);
+        const achievableValue   = b.sideSelected.reduce((s, c) => s + c.suggestedDollar, 0);
+        const shortfall         = bucketTargetValue - achievableValue;
+        if (shortfall > minPositionDollar) {
+          const achievablePct = totalPortfolioValue > 0 ? (achievableValue / totalPortfolioValue) * 100 : 0;
+          allMoves.push({
+            moveType: 'ADD', priority: 5, symbol: null, shortName: `${b.label} (unallocated)`,
+            bucket: b.side, tier: b.side, thesisHealth: '—', finalAction: '—', trajectory: null,
+            ratchetTranche: 0, currentPct: +achievablePct.toFixed(2), targetPct: +b.poolPct.toFixed(1),
+            hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
+            dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
+            currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
+            accounts: [], requires48h: false, isBucketLevel: true, isScarcityGap: true,
+            reason: `${b.label}: full reset filled ${achievablePct.toFixed(1)}% against a ${b.poolPct.toFixed(1)}% target — not enough eligible candidates (held + watchlist) to fill the rest. Needs new names sourced (Layer 3 / Opportunity Scanner).`,
+          });
+        } else if (shortfall > 0) {
+          const achievablePct = totalPortfolioValue > 0 ? (achievableValue / totalPortfolioValue) * 100 : 0;
+          allMoves.push({
+            moveType: 'ADD', priority: 6, symbol: null, shortName: `${b.label} (below minimum)`,
+            bucket: b.side, tier: b.side, thesisHealth: '—', finalAction: '—', trajectory: null,
+            ratchetTranche: 0, currentPct: +achievablePct.toFixed(2), targetPct: +b.poolPct.toFixed(1),
+            hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
+            dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
+            currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
+            accounts: [], requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            reason: `${b.label} is $${shortfall.toFixed(0)} short of target after the full reset, but that's below the $${minPositionDollar} minimum position size — not worth a new position.`,
+          });
+        }
+      }
+
+      for (const g of individualGroups) {
+        const sel = fsSelectedByTickerId.get(g.ticker.id);
+        const tickerWithOwnerCap = { ...g.ticker, capPercent: effectiveCap(g.ticker) };
+        if (sel) {
+          // Made the fresh-build cut — normal ADD/TRIM/HOLD sizing, just fed
+          // by the fresh-build weight instead of the existing-holdings-first
+          // model weight.
+          const moves = generateMovesForTicker(
+            tickerWithOwnerCap, g.positions, totalPortfolioValue,
+            g.latestAnalysis, sel.suggestedPct, profile, ownerTaxRates, true
+          );
+          allMoves.push(...moves);
+        } else {
+          // Didn't make the cut — full liquidation, tagged isFreshStartSell.
+          allMoves.push(buildFreshStartSellMove(
+            tickerWithOwnerCap, g.positions, totalPortfolioValue, g.latestAnalysis, ownerTaxRates
+          ));
+        }
+      }
+
+      // Fresh-build selections not currently held at all — normal new-open
+      // ADD move, same shape/path as today's watchlist-promotion opens.
+      const fsOpenMoves = fsOpenCandidates.map(c => ({
+        moveType:        'ADD',
+        priority:        6,
+        symbol:          c.symbol,
+        shortName:       c.shortName,
+        bucket:          null,
+        tier:            c.tier,
+        thesisHealth:    c.thesisHealth,
+        finalAction:     c.finalAction,
+        trajectory:      c.trajectory,
+        ratchetTranche:  0,
+        currentPct:      0,
+        targetPct:       c.suggestedPct,
+        hardCapPct:      c.hardCapPct,
+        currentMktValue: 0,
+        dollarAmount:    c.suggestedDollar,
+        targetValue:     c.suggestedDollar,
+        sharesApprox:    0,
+        pricePerShare:   0,
+        currentShares:   null,
+        targetShares:    null,
+        taxCost:         0,
+        netProceeds:     0,
+        accounts:        buildNewPositionRouting(accounts, c.suggestedDollar),
+        requires48h:     false,
+        isNewPosition:   true,
+        reason: `Full reset — new position, ${c.side === 'est' ? 'established' : 'speculative'} pool, rank score ${c.rankScore}`,
+      }));
+      allMoves.push(...fsOpenMoves);
+    } else {
+      for (const g of individualGroups) {
+        const modelWeightPct = modelWeights.get(g.ticker.id) ?? 0;
+        // Inject per-owner cap so generateMovesForTicker uses it for hardCapPct
+        const tickerWithOwnerCap = { ...g.ticker, capPercent: effectiveCap(g.ticker) };
+        const moves = generateMovesForTicker(
+          tickerWithOwnerCap, g.positions, totalPortfolioValue,
+          g.latestAnalysis, modelWeightPct, profile, ownerTaxRates, bypassWinnerProtection
+        );
+        allMoves.push(...moves);
+      }
     }
 
     // Sort by priority
@@ -1126,6 +1407,17 @@ async function computeMovesPayload(owner, options = {}) {
     const holdMoves  = allMoves.filter(m =>  ['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
 
     // ── Watchlist candidates ──────────────────────────────────────────────────
+    // Skipped entirely in freshStart mode: the fresh-build candidate universe
+    // (held + watchlist, full pool) was already computed and folded into
+    // allMoves above (fsSelectedByTickerId / fsOpenCandidates) — running the
+    // normal leftover-gap watchlist logic here too would double-count
+    // candidates and produce a second, contradictory set of "new open" rows
+    // sized against the wrong (remaining-slots) pool.
+    if (freshStart) {
+      // Nothing further to do here for freshStart — trimMoves/addMoves below
+      // are derived generically from actionMoves, which already contains the
+      // full-reset move set.
+    } else {
     // inScope: false excludes regression/test tickers (e.g. evaluator-prompt
     // validation set) that are outside the circle of competence — they should
     // never surface as "Open <symbol>" promotions.
@@ -1181,53 +1473,11 @@ async function computeMovesPayload(owner, options = {}) {
       });
     }
 
-    // Dynamic pool division: cap each side to its best `targetCount`
-    // candidates by rank FIRST (targetCount is the real ceiling — derived
-    // from the Admin maxPositions setting — on how many new names this side
-    // should carry), then shrink from there if any of those can't individually
-    // clear minPositionDollar, re-dividing the pool among the survivors so a
-    // thin candidate list doesn't silently orphan capital. Capping the count
-    // up front (not just using it as a divisor) matters: without it, every
-    // eligible watchlist ticker would get sized as if only targetCount
-    // existed but still be returned in full — both overshooting the position
-    // count and making individual weights no longer sum to the pool.
-    function sizeSide(list, poolPct, targetCount) {
-      const ranked = [...list].sort((a, b) => b.rankScore - a.rankScore);
-      let active = ranked.slice(0, targetCount);
-      for (;;) {
-        const poolCount  = Math.min(targetCount, active.length);
-        if (poolCount === 0) return [];
-        const baseWeight = poolPct / poolCount;
-        // Raw weights with the Type A/B multiplier, then RESCALED so the
-        // group sums back to poolPct before clamping to individual hard
-        // caps — mirrors computeIndividualModelWeights.allocate() (used for
-        // existing holdings). Without this rescale, Type B's 1.5x inflates
-        // the total past the pool whenever any candidate is Type B — e.g.
-        // two Type B candidates at baseWeight 15% each become 22.5% each
-        // (45% combined) instead of being rescaled down to fit the pool.
-        const raws   = active.map(c => ({ c, raw: baseWeight * (c.type === 'B' ? 1.5 : 1.0) }));
-        const rawSum = raws.reduce((s, r) => s + r.raw, 0);
-        const scale  = rawSum > 0 ? poolPct / rawSum : 1;
-        const sized = raws.map(({ c, raw }) => {
-          const suggestedPct    = +Math.min(raw * scale, c.hardCapPct ?? 100).toFixed(1);
-          const suggestedDollar = +(totalPortfolioValue * (suggestedPct / 100)).toFixed(0);
-          return { ...c, suggestedPct, suggestedDollar };
-        });
-        const survivors = sized.filter(c => c.suggestedDollar >= minPositionDollar);
-        if (survivors.length === active.length) return survivors; // converged — everyone clears the floor
-        if (survivors.length > 0) { active = survivors; continue; } // some cleared — re-divide among them
-        // Nobody cleared the floor at this split — don't give up outright.
-        // Two candidates splitting a small pool can both land under the
-        // floor individually while either one alone, with the WHOLE pool,
-        // would clear it easily (e.g. $1,988 pool / 2 = ~$994 each, both
-        // under a $1,500 floor, but $1,988 for just the top-ranked one is
-        // comfortably above it). Drop only the single worst-ranked
-        // candidate and retry with one fewer, rather than assuming the
-        // pool can't support anyone.
-        if (active.length === 0) return [];
-        active = active.slice(0, -1); // ranked worst-last — drop the tail
-      }
-    }
+    // (sizeSide moved above, before the freshStart/individual-stocks branch,
+    // so both the normal watchlist path below AND the freshStart fresh-build
+    // path can call it — it's a plain greedy sizing helper with no
+    // freshStart-specific behavior; only the pool/targetCount it's called
+    // with differs.)
 
     // targetEstIndividual/targetSpecIndividual are TOTAL target slot counts
     // (held + new) per side — not just "how many new ones to recommend".
@@ -1405,6 +1655,7 @@ async function computeMovesPayload(owner, options = {}) {
     }
     actionMoves = [...actionMoves, ...openMoves]
       .sort((a, b) => a.priority !== b.priority ? a.priority - b.priority : b.dollarAmount - a.dollarAmount);
+    } // end !freshStart watchlist-candidates block
 
     // ── Capital flow ──────────────────────────────────────────────────────────
     // addMoves now includes both top-ups to existing positions and brand-new
@@ -1639,6 +1890,7 @@ async function computeMovesPayload(owner, options = {}) {
       capitalFlow,
       warnings,
       isRebaseline: bypassWinnerProtection,
+      isFreshStart: freshStart,
     };
 }
 
@@ -1690,8 +1942,9 @@ router.post('/:owner/refresh', requireAuth(), async (req, res) => {
     // computation out from under the user.
     const existingCache = await prisma.movesCache.findUnique({ where: { owner } });
     const bypassWinnerProtection = existingCache?.payload?.isRebaseline === true;
+    const freshStart             = existingCache?.payload?.isFreshStart === true;
 
-    const payload     = await computeMovesPayload(owner, { bypassWinnerProtection });
+    const payload     = await computeMovesPayload(owner, { bypassWinnerProtection, freshStart });
     const computedAt  = new Date();
     await prisma.movesCache.upsert({
       where:  { owner },
@@ -1724,7 +1977,8 @@ router.post('/:owner/rebaseline', requireAuth(), async (req, res) => {
     const profile = await prisma.ownerProfile.findUnique({ where: { owner } });
     if (!profile) return res.status(404).json({ error: `Owner "${owner}" not found` });
 
-    const payload = await computeMovesPayload(owner, { bypassWinnerProtection: true });
+    const freshStart = req.body?.freshStart === true;
+    const payload = await computeMovesPayload(owner, { bypassWinnerProtection: true, freshStart });
     const computedAt = new Date();
 
     // persist:true means the user has actually confirmed (not just previewing

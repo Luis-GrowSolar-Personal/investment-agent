@@ -1146,6 +1146,14 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
   const [draft, setDraft]   = useState(null);       // { equitiesTargetPct, etfTargetPct, cryptoTargetPct, commoditiesTargetPct, estSpecRatio } as 0-100
   const [preview, setPreview] = useState(null);      // last computed rebaseline preview (for the comparison table only)
   const [err, setErr]       = useState('');
+  // Mode toggle: 'rebalance' (default, incremental — existing behavior) or
+  // 'freshStart' (Full reset — sell all held equities, rebuild from best
+  // ideas against the full bucket target). Deliberately NOT persisted/sticky
+  // across modal opens given how consequential freshStart is — always
+  // defaults back to 'rebalance' (this component remounts fresh each time
+  // the modal opens, so plain useState default already achieves this).
+  const [mode, setMode] = useState('rebalance');
+  const [ackFreshStart, setAckFreshStart] = useState(false);
 
   const toUI = (p) => ({
     equitiesTargetPct:    p.equitiesTargetPct    != null ? Math.round(p.equitiesTargetPct    * 100) : REBASELINE_DEFAULTS.equitiesTargetPct,
@@ -1155,12 +1163,12 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
     estSpecRatio:         p.estSpecRatio         != null ? Math.round(p.estSpecRatio         * 100) : REBASELINE_DEFAULTS.estSpecRatio,
   });
 
-  async function loadPreview(persist = false) {
+  async function loadPreview(persist = false, freshStart = false) {
     const token = await getToken();
     const r = await fetch(`/api/moves/${encodeURIComponent(owner)}/rebaseline`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ persist }),
+      body: JSON.stringify({ persist, freshStart }),
     });
     const json = await r.json();
     if (!r.ok) throw new Error(json.error || 'Failed to compute preview');
@@ -1220,7 +1228,7 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
       });
       const json = await r.json();
       if (!r.ok) throw new Error(json.error || 'Failed to save target model');
-      const fresh = await loadPreview(true); // persist — this becomes the real Recommended Moves list
+      const fresh = await loadPreview(true, mode === 'freshStart'); // persist — this becomes the real Recommended Moves list
       onApplied(fresh.moves?.length ?? 0);
     } catch (e) {
       setErr(e.message);
@@ -1319,6 +1327,38 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
 
         {(step === 'confirm' || step === 'computing') && draft && preview && (
           <>
+            <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
+              {[
+                ['rebalance', 'Rebalance existing'],
+                ['freshStart', 'Full reset — sell all, rebuild from best ideas'],
+              ].map(([key, label]) => (
+                <button key={key} onClick={() => setMode(key)}
+                  disabled={step === 'computing'}
+                  style={{
+                    flex: 1, padding: '8px 12px', fontSize: 12, fontWeight: 600,
+                    borderRadius: 6, cursor: step === 'computing' ? 'not-allowed' : 'pointer',
+                    border: `1px solid ${mode === key ? C.blue : (C.border2 ?? C.border)}`,
+                    background: mode === key ? C.blue : 'transparent',
+                    color: mode === key ? '#fff' : C.muted,
+                  }}>
+                  {label}
+                </button>
+              ))}
+            </div>
+
+            {mode === 'freshStart' && (
+              <div style={{
+                background: 'rgba(220,38,38,0.10)', border: `1px solid ${C.red ?? '#dc2626'}`,
+                borderRadius: 8, padding: '10px 14px', marginBottom: 16, fontSize: 12, color: C.text,
+              }}>
+                This will generate a SELL for every currently held equity position not
+                selected in the fresh build, and rebuild your equity holdings from your
+                highest-conviction watchlist names. All gains and losses on sold
+                positions will be realized. ETF, Crypto, Commodities, and Cash are
+                unaffected.
+              </div>
+            )}
+
             <div style={{ fontSize: 11, fontWeight: 700, color: C.dim, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 8 }}>
               Target model
             </div>
@@ -1369,12 +1409,28 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
             </div>
             <BucketTable data={preview} draft={draft} />
 
+            {mode === 'freshStart' && (
+              <label style={{ display: 'flex', alignItems: 'flex-start', gap: 8, marginTop: 12, fontSize: 12, color: C.text, cursor: 'pointer' }}>
+                <input type="checkbox" checked={ackFreshStart}
+                  onChange={e => setAckFreshStart(e.target.checked)}
+                  style={{ marginTop: 2 }} />
+                I understand this liquidates equity holdings not selected in the fresh build
+              </label>
+            )}
+
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10, marginTop: 16 }}>
               <button onClick={onClose} style={secS}>Cancel</button>
-              <button onClick={handleConfirm} disabled={!totalOk || step === 'computing'}
-                style={{ ...btnS, opacity: totalOk && step !== 'computing' ? 1 : 0.5, cursor: totalOk ? 'pointer' : 'not-allowed' }}>
-                {step === 'computing' ? 'Computing…' : 'Confirm & generate moves'}
-              </button>
+              {(() => {
+                const confirmDisabled = !totalOk || step === 'computing' || (mode === 'freshStart' && !ackFreshStart);
+                return (
+                  <button onClick={handleConfirm} disabled={confirmDisabled}
+                    style={{ ...btnS, opacity: confirmDisabled ? 0.5 : 1, cursor: confirmDisabled ? 'not-allowed' : 'pointer' }}>
+                    {step === 'computing'
+                      ? 'Computing…'
+                      : mode === 'freshStart' ? 'Confirm & generate full reset' : 'Confirm & generate moves'}
+                  </button>
+                );
+              })()}
             </div>
           </>
         )}
