@@ -1414,7 +1414,7 @@ function RebaselineModal({ owner, getToken, onClose, onApplied }) {
                 <input type="checkbox" checked={ackFreshStart}
                   onChange={e => setAckFreshStart(e.target.checked)}
                   style={{ marginTop: 2 }} />
-                I understand this liquidates equity holdings not selected in the fresh build
+                This will likely trigger a full sell of many existing positions
               </label>
             )}
 
