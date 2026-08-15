@@ -183,9 +183,12 @@ function positionMetrics(positions, totalPortfolioValue) {
 function computeIndividualModelWeights(groups, estPoolPct, specPoolPct, targetEst, targetSpec) {
   const weights = new Map();
 
-  const estGroup  = groups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === 'est');
-  const specGroup = groups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === 'spec');
-  const unclassified = groups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === null);
+  const estGroup  = groups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === 'est'  && g.ticker.inScope !== false);
+  const specGroup = groups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === 'spec' && g.ticker.inScope !== false);
+  // Out-of-scope held tickers get 0 weight, same bucket as unclassified —
+  // they shouldn't claim any of the pool's fair share or get Principle 9
+  // funding priority just because they're already held.
+  const unclassified = groups.filter(g => barbellSide(g.ticker, g.latestAnalysis) === null || g.ticker.inScope === false);
 
   function allocate(group, poolPct, targetCount) {
     if (poolPct <= 0 || group.length === 0) {
@@ -1431,12 +1434,18 @@ async function computeMovesPayload(owner, options = {}) {
     // Ticker.status is global (shared across all owners), not owner-specific
     // — a ticker can still say "watchlist" even after THIS owner has a real
     // position in it (e.g. before the next Schwab-sync auto-promotion runs,
-    // or if another owner's sync hasn't touched it). Excluding anything
-    // already in this owner's byTicker map prevents recommending a "new
-    // open" for a ticker already held — which would double-count it and
-    // crowd a real candidate out of the sized/ranked slots.
+    // or if another owner's sync hasn't touched it). Worse, once ANY owner
+    // holds a ticker it flips to 'portfolio' everywhere, which would hide it
+    // from every OTHER owner's new-open candidates even though nothing about
+    // THEIR situation changed (Luis, confirmed — same bug fixed for
+    // freshStart, applies here too). So status plays no role in eligibility;
+    // scoping is by !byTicker.has(wt.id) below (does THIS owner already hold
+    // it) — excluding anything already in this owner's byTicker map prevents
+    // recommending a "new open" for a ticker already held, which would
+    // double-count it and crowd a real candidate out of the sized/ranked
+    // slots.
     const watchlistTickers = (await prisma.ticker.findMany({
-      where: { status: 'watchlist', inScope: { not: false } },
+      where: { inScope: { not: false } },
     })).filter(wt => !byTicker.has(wt.id));
 
     // Eligibility pass only — sizing happens after, once we know how many
