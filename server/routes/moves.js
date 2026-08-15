@@ -1164,8 +1164,13 @@ async function computeMovesPayload(owner, options = {}) {
       // gap). Then greedily fill each side's FULL pool via sizeSide (same
       // greedy-array-order mechanism used elsewhere), completely ignoring
       // whether a ticker is currently held.
+      // Ticker.status is a global promotion-workflow flag, not per-owner —
+      // once ANY owner holds a ticker it flips to 'portfolio' everywhere, so
+      // filtering on status here would hide it from every OTHER owner who
+      // doesn't hold it. freshStart eligibility is owner-scoped via the
+      // !byTicker.has(wt.id) filter below, so status plays no role here.
       const fsWatchlistTickers = (await prisma.ticker.findMany({
-        where: { status: 'watchlist', inScope: { not: false } },
+        where: { inScope: { not: false } },
       })).filter(wt => !byTicker.has(wt.id));
       const fsWatchlistAnalyses = await Promise.all(fsWatchlistTickers.map(wt =>
         prisma.analysis.findFirst({
@@ -1192,6 +1197,7 @@ async function computeMovesPayload(owner, options = {}) {
       for (const g of individualGroups) {
         const a      = g.latestAnalysis;
         const action = a?.finalAction ?? a?.recommendation ?? '—';
+        if (g.ticker.inScope === false) continue;
         if (!fsEligible(action, a?.thesisHealth)) continue;
         const side = barbellSide(g.ticker, a);
         if (!side) continue;
