@@ -125,7 +125,7 @@ export default function NavBar() {
       zIndex: 100,
       gap: 4,
     }}>
-      <div style={{ display: 'flex', gap: 4, flex: 1 }}>
+      <div className="navbar-tabs" style={{ display: 'flex', gap: 4, flex: 1, minWidth: 0 }}>
         <NavLink to="/" end style={({ isActive }) => tabStyle(isActive)}>
           Portfolio Manager
         </NavLink>
