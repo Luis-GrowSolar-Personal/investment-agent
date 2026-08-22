@@ -195,7 +195,17 @@ function PositionRow({ pos, onBucketChange, onDelete, onEdit, onRename }) {
           </span>
         </td>
         <td style={{ padding: '9px 12px', color: '#94a3b8', fontSize: 12 }}>
-          {pos.ticker.shortName || pos.ticker.name}
+          {/* Cap the name's width so one unusually long broker-supplied name
+              (e.g. BYDDY's "BYD CO LTD FUNSPONSORED ADR 1 ADR REPS 1") can't
+              inflate this column and squeeze the actions column off-screen.
+              The cap lives on an inner block element because max-width on a
+              <td> is unreliable under table-layout:auto. Full name on hover. */}
+          <span
+            title={pos.ticker.shortName || pos.ticker.name}
+            style={{ display: 'block', maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+          >
+            {pos.ticker.shortName || pos.ticker.name}
+          </span>
         </td>
         <td style={{ padding: '9px 12px', color: '#94a3b8', fontSize: 12, textAlign: 'right' }}>
           {fmtShares(pos.totalShares)}
@@ -375,7 +385,11 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
 
   return (
     <div style={{ overflowX: 'auto' }}>
-      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+      {/* minWidth (not width) so the table can exceed the container when a row's
+          content genuinely demands it — the overflowX:'auto' wrapper above then
+          gives a real horizontal scrollbar instead of the last column being
+          squeezed/clipped out of reach. Normal-width tables still fill 100%. */}
+      <table style={{ minWidth: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
         <thead>
           <tr style={{ borderBottom: '1px solid #1e2330' }}>
             {HEADERS.map(h => (
