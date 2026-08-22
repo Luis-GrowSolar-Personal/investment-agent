@@ -66,9 +66,15 @@ function enrichPosition(pos) {
     ? totalShares * pos.dayChangeDollar
     : null;
 
-  // Effective bucket: override wins, else smart default
+  // Effective bucket: override wins, else smart default. Position has no
+  // assetType column, so passing 'Equity' here (not pos.assetType, which
+  // never exists) makes smartDefaultBucket's known-symbol checks (crypto/
+  // commodity/well-known ETFs) still apply, while any other symbol with no
+  // override correctly defaults to 'equity' instead of silently falling
+  // through to 'etf' (see "Reset to default"/RADAR's blank "Equity (default)"
+  // option, which both write bucketOverride: null intending equity).
   const effectiveBucket = pos.ticker.bucketOverride
-    ?? smartDefaultBucket(pos.assetType || '', pos.ticker.symbol);
+    ?? smartDefaultBucket('Equity', pos.ticker.symbol);
 
   return {
     ...pos,
