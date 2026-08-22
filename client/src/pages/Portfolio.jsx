@@ -184,7 +184,18 @@ function PositionRow({ pos, onBucketChange, onDelete, onEdit, onRename }) {
         </td>
         <td style={{ padding: '9px 12px' }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, flexWrap: 'nowrap' }}>
-            <span style={{ fontWeight: 700, color: '#f1f5f9', fontSize: 13 }}>{pos.ticker.symbol}</span>
+            {/* Same truncate-with-tooltip treatment as the Name cell below.
+                Symbol is normally a 2-5 char ticker code, but broker feeds
+                sometimes supply a long descriptive string instead (e.g. "EOS
+                ENERGY ENTERP 26 XXX *MATURED*"), which otherwise wraps across
+                several lines and inflates the whole row's height. 130px still
+                fits a CUSIP (9 chars) or ISIN (12) uncut. Full value on hover. */}
+            <span
+              title={pos.ticker.symbol}
+              style={{ display: 'block', maxWidth: 130, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontWeight: 700, color: '#f1f5f9', fontSize: 13 }}
+            >
+              {pos.ticker.symbol}
+            </span>
             {!pos.ticker.inScope && (
               <span style={{
                 display: 'inline-block', padding: '1px 5px', borderRadius: 3,
