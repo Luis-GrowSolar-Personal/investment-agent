@@ -101,8 +101,33 @@ async function exchangeCodeForTokens(prisma, code) {
 /**
  * Uses the stored refresh_token to obtain a new access_token (and a new
  * refresh_token, which Schwab rotates on every call), and persists both.
+ *
+ * Schwab's refresh_token is single-use: two concurrent callers reading the
+ * same row and both hitting Schwab's /token endpoint means only the first
+ * succeeds — the second gets invalid_grant, indistinguishable from a truly
+ * expired token. Two layers guard against this:
+ *  - `refreshInFlight` serializes concurrent callers WITHIN this process
+ *    (e.g. two near-simultaneous requests, or a user-triggered refresh
+ *    racing the in-process keep-alive tick in startTokenKeepAlive()).
+ *  - The invalid_grant recovery check below handles the cross-process case
+ *    (this web service vs. the separate schwabKeepAlive.js Railway cron job,
+ *    or an ad-hoc script) — those don't share this module's in-memory state,
+ *    so if Schwab rejects our refresh_token, we re-read the row: if another
+ *    process already rotated it, use that result instead of failing.
  */
+let refreshInFlight = null;
+
 async function refreshAccessToken(prisma) {
+  if (refreshInFlight) return refreshInFlight;
+  refreshInFlight = doRefreshAccessToken(prisma);
+  try {
+    return await refreshInFlight;
+  } finally {
+    refreshInFlight = null;
+  }
+}
+
+async function doRefreshAccessToken(prisma) {
   const row = await prisma.schwabToken.findUnique({ where: { id: TOKEN_ROW_ID } });
   if (!row) {
     throw new Error('Schwab not connected — visit /api/schwab/connect first');
@@ -125,6 +150,13 @@ async function refreshAccessToken(prisma) {
   if (!res.ok) {
     const text = await res.text();
     if (text.includes('invalid_grant') || text.includes('Refresh token is invalid')) {
+      // Another process may have already consumed and rotated this exact
+      // refresh_token (see comment above refreshAccessToken). Re-check the
+      // row before giving up.
+      const fresh = await prisma.schwabToken.findUnique({ where: { id: TOKEN_ROW_ID } });
+      if (fresh && fresh.refreshToken !== row.refreshToken) {
+        return { access_token: fresh.accessToken, refresh_token: fresh.refreshToken };
+      }
       throw new Error('SCHWAB_TOKEN_EXPIRED');
     }
     throw new Error(`Schwab token refresh failed (${res.status}): ${text}`);
