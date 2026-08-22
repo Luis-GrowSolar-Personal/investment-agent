@@ -315,30 +315,36 @@ async function syncAccount(prisma, accountId) {
     newPositions: [],      // symbols newly created with a placeholder 'schwab' lot
     updatedSchwabLots: [],  // symbols where an existing 'schwab' lot was refreshed
     autoResolvedAdds: [],  // adds auto-resolved from transaction history: { symbol, shares, price, tradeDate }
+    autoClosedFullExits: [], // full exits auto-closed (Schwab shows 0 shares, no ambiguity about which lots): { symbol, lotsClosed, shares, matched }
     positionDiffs: [],      // diffs that couldn't be auto-resolved (trim, or add > 60 days old) — require manual action
     skippedAssetTypes: [],  // schwab positions we didn't sync (e.g. options, cash equivalents)
     promotedTickers: [],    // watchlist tickers promoted to portfolio because Schwab now shows a real position
   };
 
   // Fetch 60 days of trade transactions once per sync — used to resolve add diffs
-  // with exact purchase price + date instead of the position-level averagePrice.
-  let recentTrades = null; // lazy-loaded on first add diff
+  // with exact purchase price + date instead of the position-level averagePrice,
+  // and full-exit trims with the real sale price + date instead of a placeholder.
+  let recentTrades = null; // lazy-loaded on first add/exit diff: { opening: Map, closing: Map }
   async function ensureRecentTrades() {
     if (recentTrades !== null) return recentTrades;
     try {
       const startDate = new Date();
       startDate.setDate(startDate.getDate() - 60);
       const txns = await getTransactions(prisma, schwab.hashValue, startDate);
-      // Build a lookup: symbol -> array of OPENING (buy) trade legs, newest first
-      recentTrades = new Map();
+      // Build lookups: symbol -> array of OPENING (buy) / CLOSING (sell) trade legs
+      const opening = new Map();
+      const closing = new Map();
       for (const txn of (Array.isArray(txns) ? txns : [])) {
         if (txn.type !== 'TRADE') continue;
         for (const item of (txn.transferItems ?? [])) {
-          if (item.positionEffect !== 'OPENING') continue;
           const sym = item.instrument?.symbol;
           if (!sym) continue;
-          if (!recentTrades.has(sym)) recentTrades.set(sym, []);
-          recentTrades.get(sym).push({
+          const map = item.positionEffect === 'OPENING' ? opening
+            : item.positionEffect === 'CLOSING' ? closing
+            : null;
+          if (!map) continue;
+          if (!map.has(sym)) map.set(sym, []);
+          map.get(sym).push({
             tradeDate: txn.tradeDate,
             shares: Math.abs(item.amount ?? 0),
             price: item.price ?? null,
@@ -346,12 +352,15 @@ async function syncAccount(prisma, accountId) {
         }
       }
       // Sort each symbol's trades newest-first for matching
-      for (const [, trades] of recentTrades) {
-        trades.sort((a, b) => new Date(b.tradeDate) - new Date(a.tradeDate));
+      for (const map of [opening, closing]) {
+        for (const [, trades] of map) {
+          trades.sort((a, b) => new Date(b.tradeDate) - new Date(a.tradeDate));
+        }
       }
+      recentTrades = { opening, closing };
     } catch (err) {
-      console.warn('schwabSync: could not fetch transaction history — add diffs will require manual entry:', err.message);
-      recentTrades = new Map(); // empty, falls through to manual path
+      console.warn('schwabSync: could not fetch transaction history — add/exit diffs will require manual entry:', err.message);
+      recentTrades = { opening: new Map(), closing: new Map() }; // empty, falls through to manual path
     }
     return recentTrades;
   }
@@ -375,7 +384,7 @@ async function syncAccount(prisma, accountId) {
           if (diff > 0) {
             // Buy detected. Try to resolve from transaction history (exact price + date).
             const trades = await ensureRecentTrades();
-            const candidates = trades.get(symbol) ?? [];
+            const candidates = trades.opening.get(symbol) ?? [];
             // Find the most recent trade whose share count is within 0.01% of the diff.
             const match = candidates.find(t => Math.abs(t.shares - diff) / diff < 0.0001);
             if (match && match.price != null) {
@@ -533,7 +542,12 @@ async function syncAccount(prisma, accountId) {
   // Detect local positions that Schwab no longer reports at all — i.e. fully
   // sold positions. Schwab drops a position from /accounts?fields=positions
   // once shares reach zero, so these never appear in the loop above.
-  // Surface them as trim-to-zero diffs so the user can close the local lots.
+  // This is a full exit — every open lot closed, with no ambiguity about
+  // WHICH lots close (unlike a partial trim) — so auto-close them rather
+  // than requiring the manual lot-picker. Try to find the real Schwab
+  // CLOSING transaction(s) for accurate sale price/date; if none matches
+  // cleanly, still auto-close (the "which lots" question has only one
+  // answer regardless) but say so honestly in the note.
   const schwabSymbols = new Set(schwab.positions.map(p => p.symbol));
   for (const localPos of localPositions) {
     if (schwabSymbols.has(localPos.symbol)) continue; // handled in the loop above
@@ -543,14 +557,29 @@ async function syncAccount(prisma, accountId) {
     // on next sync when the position reappears (unlikely but safe to skip).
     const hasManualOrImportLots = localPos.lotSources.some(s => s !== 'schwab');
     if (!hasManualOrImportLots) continue;
-    result.positionDiffs.push({
-      symbol: localPos.symbol,
-      schwabShares: 0,
-      localShares: localPos.totalShares,
-      status: 'mismatch',
-      diffDirection: 'trim',
-      positionAvgPrice: null,
+
+    const openLots = await prisma.lot.findMany({
+      where: { positionId: localPos.positionId, closedDate: null },
     });
+    const trades = await ensureRecentTrades();
+    const closingLegs = (trades.closing.get(localPos.symbol) ?? []).filter(t => t.price != null);
+    const closingSum = closingLegs.reduce((sum, t) => sum + t.shares, 0);
+    const matched = closingLegs.length > 0 && Math.abs(closingSum - localPos.totalShares) / localPos.totalShares < 0.0001;
+    const closingDate = matched ? new Date(closingLegs[0].tradeDate) : new Date();
+    const noteSuffix = matched
+      ? `Closed ${closingDate.toISOString().slice(0, 10)} — full exit auto-accepted (Schwab reports 0 shares). Matched Schwab closing transaction history: ${closingSum.toFixed(6)} shares across ${closingLegs.length} fill(s) @ ~$${(closingLegs.reduce((s, t) => s + t.shares * t.price, 0) / closingSum).toFixed(4)} avg.`
+      : `Closed ${closingDate.toISOString().slice(0, 10)} — full exit auto-accepted (Schwab reports 0 shares). No matching closing transaction found in the last 60 days; closing date is a placeholder (today). Verify actual sale date/price in Schwab's transaction history for accurate LTCG/STCG treatment.`;
+
+    await prisma.$transaction(
+      openLots.map(lot => prisma.lot.update({
+        where: { id: lot.id },
+        data: {
+          closedDate: closingDate,
+          notes: (lot.notes ? lot.notes + ' ' : '') + noteSuffix,
+        },
+      }))
+    );
+    result.autoClosedFullExits.push({ symbol: localPos.symbol, lotsClosed: openLots.length, shares: localPos.totalShares, matched });
   }
 
   return result;
