@@ -570,15 +570,24 @@ async function syncAccount(prisma, accountId) {
       ? `Closed ${closingDate.toISOString().slice(0, 10)} — full exit auto-accepted (Schwab reports 0 shares). Matched Schwab closing transaction history: ${closingSum.toFixed(6)} shares across ${closingLegs.length} fill(s) @ ~$${(closingLegs.reduce((s, t) => s + t.shares * t.price, 0) / closingSum).toFixed(4)} avg.`
       : `Closed ${closingDate.toISOString().slice(0, 10)} — full exit auto-accepted (Schwab reports 0 shares). No matching closing transaction found in the last 60 days; closing date is a placeholder (today). Verify actual sale date/price in Schwab's transaction history for accurate LTCG/STCG treatment.`;
 
-    await prisma.$transaction(
-      openLots.map(lot => prisma.lot.update({
+    await prisma.$transaction([
+      ...openLots.map(lot => prisma.lot.update({
         where: { id: lot.id },
         data: {
           closedDate: closingDate,
           notes: (lot.notes ? lot.notes + ' ' : '') + noteSuffix,
         },
-      }))
-    );
+      })),
+      // Every open lot just closed above — close the Position itself too
+      // (same status/closedAt pattern as the manual DELETE route in
+      // portfolio.js), so it stops showing as a zero-share 'active' ghost
+      // and stops being counted as "currently held" by the allocator/RADAR
+      // eligibility gate (both filter on Position.status === 'active').
+      prisma.position.update({
+        where: { id: localPos.positionId },
+        data: { status: 'closed', closedAt: closingDate },
+      }),
+    ]);
     result.autoClosedFullExits.push({ symbol: localPos.symbol, lotsClosed: openLots.length, shares: localPos.totalShares, matched });
   }
 
