@@ -24,10 +24,18 @@
  *
  * Token lifetimes (per Schwab Trader API docs):
  *  - access_token:  ~30 minutes
- *  - refresh_token: ~7 days, and Schwab issues a NEW refresh_token on every
- *    refresh — the old one becomes invalid, so the new one must be persisted
- *    every time or the chain breaks and re-authorization (step 1-4) is
- *    required again.
+ *  - refresh_token: ~7 days per the docs, and the docs describe it as rotating
+ *    on every refresh (old one invalidated). MEASURED 2026-08-22 against the
+ *    live API, this did NOT hold: across four real refreshes the stored
+ *    refresh_token never changed (checked on three of them), and inspecting
+ *    one response body showed Schwab does return a refresh_token field — just
+ *    the same value, not a rotated one. That same refresh_token had by then
+ *    been refreshing fine for ~70 days, well past the documented 7 (the 7 days
+ *    may be an INACTIVITY window that the keep-alive below keeps resetting).
+ *    Treat rotation as possible but not guaranteed: always persist whatever
+ *    comes back (saveTokens does), and don't assume a concurrent refresh
+ *    consumes/invalidates another caller's token.
+ *    See wrap-ups/fix-keepalive-unconditional-refresh-out.md.
  *
  * Token storage: single shared SchwabToken row (id: 1). One Schwab login is
  * account-holder level and covers all linked brokerage accounts, so this is
@@ -99,13 +107,17 @@ async function exchangeCodeForTokens(prisma, code) {
 }
 
 /**
- * Uses the stored refresh_token to obtain a new access_token (and a new
- * refresh_token, which Schwab rotates on every call), and persists both.
+ * Uses the stored refresh_token to obtain a new access_token (and whatever
+ * refresh_token Schwab returns with it), and persists both.
  *
- * Schwab's refresh_token is single-use: two concurrent callers reading the
- * same row and both hitting Schwab's /token endpoint means only the first
- * succeeds — the second gets invalid_grant, indistinguishable from a truly
- * expired token. Two layers guard against this:
+ * The guards below are retained as defensive hygiene, though the premise that
+ * motivated them turned out to be wrong: they were added believing Schwab's
+ * refresh_token is single-use, so a second concurrent caller would get
+ * invalid_grant off an already-consumed token. Live measurement on 2026-08-22
+ * showed the refresh_token does not rotate per-refresh (see the header
+ * comment), so that particular collision does not appear to occur. They still
+ * cost nothing, still avoid pointless duplicate API calls, and still cover the
+ * case where Schwab does rotate (the docs say it should). Two layers:
  *  - `refreshInFlight` serializes concurrent callers WITHIN this process
  *    (e.g. two near-simultaneous requests, or a user-triggered refresh
  *    racing the in-process keep-alive tick in startTokenKeepAlive()).
@@ -184,8 +196,10 @@ async function saveTokens(prisma, data) {
     },
     update: {
       accessToken: data.access_token,
-      // Schwab rotates the refresh_token on every refresh. Keep the existing
-      // one only if a response somehow omits it (shouldn't happen).
+      // Persist whatever refresh_token comes back. Observed 2026-08-22: Schwab
+      // returns one every time, but the same value rather than a rotated one
+      // (see header comment) — so this is usually a no-op write. Keep the
+      // existing one if a response ever omits it.
       ...(data.refresh_token ? { refreshToken: data.refresh_token } : {}),
       expiresAt,
     },
@@ -233,6 +247,13 @@ function startTokenKeepAlive(prisma) {
     try {
       const row = await prisma.schwabToken.findUnique({ where: { id: TOKEN_ROW_ID } });
       if (!row) return; // not connected yet — nothing to keep alive
+      // Same buffer check getValidAccessToken() already applies — skip the
+      // refresh if the current token still has meaningful life left. Without
+      // this, every tick (including the boot-time one) forced a real Schwab
+      // refresh regardless of need, which on a frequently-redeployed service
+      // meant far more refreshes — and far more chances to collide with a
+      // concurrent refresh from elsewhere — than the 24h cadence implies.
+      if (row.expiresAt.getTime() - EXPIRY_BUFFER_MS > Date.now()) return;
       await refreshAccessToken(prisma);
       console.log('[schwabAuth] keep-alive refresh succeeded');
     } catch (err) {
