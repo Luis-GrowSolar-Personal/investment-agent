@@ -1783,7 +1783,7 @@ function SchwabReconcileModal({ getToken, onClose, onChanged, onReconcileData })
     <div style={{ position: 'fixed', inset: 0, background: '#00000099', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 200 }}>
       <div style={{ background: '#0f1117', border: '1px solid #1e2330', borderRadius: 10, padding: 24, width: 720, maxWidth: '95vw', maxHeight: '85vh', overflowY: 'auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
-          <div style={{ fontWeight: 600, color: '#f1f5f9', fontSize: 15 }}>Schwab sync</div>
+          <div style={{ fontWeight: 600, color: '#f1f5f9', fontSize: 15 }}>Reconcile Brokerage</div>
           <button onClick={onClose} style={{ background: 'transparent', border: 'none', color: '#64748b', fontSize: 18, cursor: 'pointer' }}>×</button>
         </div>
         <div style={{ fontSize: 12, color: '#64748b', marginBottom: 16 }}>
@@ -2465,7 +2465,7 @@ export default function Portfolio() {
               ? { background: '#3b82f6', border: 'none', color: '#fff', fontSize: 13, fontWeight: 600, padding: '7px 18px', borderRadius: 6, cursor: 'pointer' }
               : { background: 'transparent', border: '1px solid #2d3748', color: '#94a3b8', fontSize: 13, fontWeight: 600, padding: '7px 18px', borderRadius: 6, cursor: 'pointer' }}
           >
-            {unmatchedSchwabCount > 0 ? `🔗 Link Schwab accounts (${unmatchedSchwabCount})` : '⟳ Schwab sync'}
+            {unmatchedSchwabCount > 0 ? `🔗 Link Schwab accounts (${unmatchedSchwabCount})` : '⟳ Reconcile Brokerage'}
           </button>
           <button
             onClick={() => setShowAddAccount(true)}
