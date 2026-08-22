@@ -392,19 +392,44 @@ async function syncAccount(prisma, accountId) {
               result.autoResolvedAdds.push({ symbol, shares: +diff.toFixed(6), price: match.price, tradeDate: match.tradeDate });
             } else {
               // No single trade in the last 60 days matches the diff exactly. This
-              // could mean the purchase predates the 60-day window, OR — just as
-              // likely — the diff is the sum of several separate lots (DRIP
-              // reinvestments, multiple buys) rather than one trade. We can't tell
-              // which from here; surface for manual entry and let the user consult
-              // Schwab's own lot detail to enter each real lot.
-              result.positionDiffs.push({
-                symbol,
-                schwabShares,
-                localShares: localPos.totalShares,
-                status: 'mismatch',
-                diffDirection: 'add',
-                positionAvgPrice: schwabPos.averagePrice ?? null,
-              });
+              // commonly happens when a broker splits one logical buy into multiple
+              // fills (partial fills, large orders, lower-liquidity tickers). Try
+              // summing ALL same-symbol OPENING legs in the window — if the total
+              // closes the diff, create one Lot per leg (never merge/average: each
+              // fill has its own real price and trade date, which matters for
+              // LTCG/STCG holding period and cost basis).
+              const pricedCandidates = candidates.filter(t => t.price != null);
+              const legSum = pricedCandidates.reduce((sum, t) => sum + t.shares, 0);
+              if (pricedCandidates.length > 1 && Math.abs(legSum - diff) / diff < 0.0001) {
+                for (let i = 0; i < pricedCandidates.length; i++) {
+                  const leg = pricedCandidates[i];
+                  await prisma.lot.create({
+                    data: {
+                      positionId: localPos.positionId,
+                      shares: leg.shares,
+                      costBasis: leg.price,
+                      acquiredDate: new Date(leg.tradeDate),
+                      source: 'schwab',
+                      notes: `Auto-resolved from Schwab transaction history (${i + 1} of ${pricedCandidates.length} fills): ${leg.shares.toFixed(6)} shares @ $${leg.price} on ${leg.tradeDate}.`,
+                    },
+                  });
+                  result.autoResolvedAdds.push({ symbol, shares: +leg.shares.toFixed(6), price: leg.price, tradeDate: leg.tradeDate });
+                }
+              } else {
+                // Could mean the purchase predates the 60-day window, OR the
+                // candidate legs are a mix of unrelated fills we can't safely
+                // attribute (e.g. some belong to an earlier, already-resolved
+                // diff) — don't guess which legs belong together. Surface for
+                // manual entry and let the user consult Schwab's own lot detail.
+                result.positionDiffs.push({
+                  symbol,
+                  schwabShares,
+                  localShares: localPos.totalShares,
+                  status: 'mismatch',
+                  diffDirection: 'add',
+                  positionAvgPrice: schwabPos.averagePrice ?? null,
+                });
+              }
             }
           } else {
             // Trim detected — always requires lot-picker (we can't know which lot
