@@ -447,11 +447,19 @@ function AccountPanel({ account, token, onRefresh, onUpdateCash }) {
   }
 
   async function handleDeletePosition(positionId) {
-    await fetch(`${API}/api/portfolio/positions/${positionId}`, {
-      method: 'DELETE',
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    onRefresh();
+    try {
+      const res = await fetch(`${API}/api/portfolio/positions/${positionId}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || `Failed to remove position (${res.status})`);
+      }
+      onRefresh();
+    } catch (err) {
+      setRefreshMsg('Error: ' + err.message);
+    }
   }
 
   async function handleRefreshPrices() {
