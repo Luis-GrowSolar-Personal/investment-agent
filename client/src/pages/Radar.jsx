@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useAuth } from '@clerk/clerk-react';
 import { Link } from 'react-router-dom';
+import DragScrollContainer from '../components/DragScrollContainer';
 
 // API origin: dev reads from .env.development (${API_URL}).
 // Prod reads from .env.production (empty string → same-origin, since the
@@ -1598,60 +1599,17 @@ function NewTickerModal({ getToken, onSaved, onClose }) {
   );
 }
 
-function DragScrollContainer({ children }) {
-  const ref = useRef(null);
-  const drag = useRef({ active: false, startX: 0, scrollLeft: 0, moved: false });
-
-  function onMouseDown(e) {
-    // Only initiate on the container itself or non-interactive children
-    const tag = e.target.tagName.toLowerCase();
-    if (['button', 'a', 'input', 'select', 'textarea'].includes(tag)) return;
-    const el = ref.current;
-    drag.current = { active: true, startX: e.pageX - el.offsetLeft, scrollLeft: el.scrollLeft, moved: false };
-    el.style.cursor = 'grabbing';
-    el.style.userSelect = 'none';
-  }
-
-  function onMouseMove(e) {
-    if (!drag.current.active) return;
-    const el = ref.current;
-    const x = e.pageX - el.offsetLeft;
-    const delta = x - drag.current.startX;
-    if (Math.abs(delta) > 5) drag.current.moved = true;
-    if (drag.current.moved) {
-      e.preventDefault();
-      el.scrollLeft = drag.current.scrollLeft - delta;
-    }
-  }
-
-  function onMouseUp() {
-    if (!ref.current) return;
-    drag.current.active = false;
-    ref.current.style.cursor = 'grab';
-    ref.current.style.userSelect = '';
-  }
-
-  return (
-    <div
-      ref={ref}
-      onMouseDown={onMouseDown}
-      onMouseMove={onMouseMove}
-      onMouseUp={onMouseUp}
-      onMouseLeave={onMouseUp}
-      style={{
-        background: '#090c12',
-        border: '1px solid #1e2330',
-        borderTop: 'none',
-        borderRadius: '0 0 10px 10px',
-        padding: '12px 20px 16px',
-        overflowX: 'auto',
-        cursor: 'grab',
-      }}
-    >
-      {children}
-    </div>
-  );
-}
+// DragScrollContainer moved to components/DragScrollContainer.jsx so Portfolio
+// and PortfolioManager can share it. The card chrome that used to be hardcoded
+// inside it is now passed in below (RADAR_SCROLL_CHROME), keeping this section's
+// rendering byte-for-byte what it was.
+const RADAR_SCROLL_CHROME = {
+  background: '#090c12',
+  border: '1px solid #1e2330',
+  borderTop: 'none',
+  borderRadius: '0 0 10px 10px',
+  padding: '12px 20px 16px',
+};
 
 function Section({ title, count, children, style, onRescore, rescoring }) {
   const [expanded, setExpanded] = useState(true);
@@ -1698,7 +1656,7 @@ function Section({ title, count, children, style, onRescore, rescoring }) {
         </div>
       </div>
       {expanded && (
-        <DragScrollContainer>
+        <DragScrollContainer style={RADAR_SCROLL_CHROME}>
           {children}
         </DragScrollContainer>
       )}

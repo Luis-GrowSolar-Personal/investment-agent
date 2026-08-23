@@ -12,6 +12,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '@clerk/clerk-react';
+import DragScrollContainer from '../components/DragScrollContainer';
 
 // ─── Style tokens ─────────────────────────────────────────────────────────────
 
@@ -1800,19 +1801,25 @@ export default function PortfolioManager() {
             />
             {displayMoves.length > 0
               ? (
-                <div style={{ display: 'grid', gridTemplateColumns: MOVE_GRID_COLS, background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 12px 4px 12px' }}>
-                  <MoveTableHeader />
-                  {displayMoves.map((m, i) => (
-                    <MoveRow
-                      key={`${m.symbol}-${m.moveType}-${i}`}
-                      move={m}
-                      idx={i}
-                      decision={decisions[`${m.symbol}-${m.moveType}`] ?? null}
-                      onAccept={handleAccept}
-                      onDecline={handleDecline}
-                    />
-                  ))}
-                </div>
+                // MOVE_GRID_COLS has fixed-px tracks and a 150px floor on Ticker,
+                // so the grid can't shrink below ~792px — on a narrow viewport it
+                // overflowed with nothing catching it. suppressClickAfterDrag
+                // because MoveRow's cells toggle expand on click.
+                <DragScrollContainer suppressClickAfterDrag>
+                  <div style={{ display: 'grid', gridTemplateColumns: MOVE_GRID_COLS, background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 12px 4px 12px' }}>
+                    <MoveTableHeader />
+                    {displayMoves.map((m, i) => (
+                      <MoveRow
+                        key={`${m.symbol}-${m.moveType}-${i}`}
+                        move={m}
+                        idx={i}
+                        decision={decisions[`${m.symbol}-${m.moveType}`] ?? null}
+                        onAccept={handleAccept}
+                        onDecline={handleDecline}
+                      />
+                    ))}
+                  </div>
+                </DragScrollContainer>
               )
               : (
                 <div style={{

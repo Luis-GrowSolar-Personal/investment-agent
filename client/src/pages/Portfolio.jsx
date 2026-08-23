@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useAuth } from '@clerk/clerk-react';
+import DragScrollContainer from '../components/DragScrollContainer';
 
 const API = import.meta.env.VITE_API_URL || '';
 
@@ -395,11 +396,14 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
   const SORTABLE = new Set(Object.keys(SORT_KEYS));
 
   return (
-    <div style={{ overflowX: 'auto' }}>
+    // suppressClickAfterDrag: each <tr> below toggles expand/collapse on click,
+    // so without it a horizontal drag would also open whatever row you panned across.
+    <DragScrollContainer suppressClickAfterDrag>
       {/* minWidth (not width) so the table can exceed the container when a row's
-          content genuinely demands it — the overflowX:'auto' wrapper above then
-          gives a real horizontal scrollbar instead of the last column being
-          squeezed/clipped out of reach. Normal-width tables still fill 100%. */}
+          content genuinely demands it — the DragScrollContainer wrapper then
+          gives a real horizontal scrollbar (and drag-to-pan) instead of the last
+          column being squeezed/clipped out of reach. Normal-width tables still
+          fill 100%. */}
       <table style={{ minWidth: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
         <thead>
           <tr style={{ borderBottom: '1px solid #1e2330' }}>
@@ -436,7 +440,7 @@ function BucketTabContent({ bucket, positions, cashBalance, marginBalance, margi
           ))}
         </tbody>
       </table>
-    </div>
+    </DragScrollContainer>
   );
 }
 
