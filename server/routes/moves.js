@@ -815,6 +815,69 @@ router.get('/', async (req, res) => {
 // and POST /:owner/refresh (force recompute), as well as from schwab.js
 // trigger hooks via server/lib/movesCache.js.
 
+// A confirmed Full Reset is a frozen snapshot, not a live mode: it is served
+// verbatim for this long after its computedAt, then expires back to normal
+// everyday computation. Measured from GENERATION, never from last view —
+// a sliding window would silently recreate the indefinite stickiness this
+// replaces. See memory/freshstart_mode_sticky_ux_question.md.
+const FULL_RESET_TTL_MS = 24 * 60 * 60 * 1000;
+
+function isFrozenFullReset(cacheRow) {
+  if (cacheRow?.payload?.isFreshStart !== true) return false;
+  return Date.now() - new Date(cacheRow.computedAt).getTime() < FULL_RESET_TTL_MS;
+}
+
+/**
+ * Latest OwnerDecision per symbol+moveType for an owner, keyed "SYMBOL:MOVETYPE".
+ *
+ * Split out of computeMovesPayload so the frozen-snapshot path in GET /:owner
+ * can overlay CURRENT decision state onto a stored payload — a frozen payload
+ * is not recomputed, so without re-applying this, a decision made during the
+ * 24h window would vanish from the UI on the next reload.
+ */
+async function buildPriorDecisionMap(owner) {
+  const rows = await prisma.ownerDecision.findMany({
+    where:   { owner },
+    include: { ticker: { select: { symbol: true } } },
+    orderBy: { decidedAt: 'desc' },
+  });
+  const map = new Map();
+  for (const d of rows) {
+    const key = `${d.ticker.symbol}:${d.moveType}`;
+    if (!map.has(key)) {
+      map.set(key, {
+        decision:       d.decision,
+        reason:         d.declinedReason ?? null,
+        acceptedAmount: d.acceptedAmount ?? null,
+        decidedAt:      d.decidedAt,
+        // The recommended dollar amount AT DECISION TIME. acceptedAmount is
+        // null whenever the user took the full recommendation rather than a
+        // partial, so without this the frontend can only fall back to today's
+        // freshly recomputed number — which would misreport a live figure as
+        // the historical one in the "accepted at $X" tooltip. Only the amount
+        // is lifted out of systemSnapshot; the rest of that blob (thesisHealth,
+        // trajectory, ratchetTranche, currentPct) has no client consumer.
+        snapshotAmount: d.systemSnapshot?.dollarAmount ?? null,
+      });
+    }
+  }
+  return map;
+}
+
+/**
+ * Attach prior owner decisions onto moves, so the frontend hydrates
+ * accept/decline state (and the reason) on load instead of resetting to
+ * "undecided" every visit. In live computation the move itself still
+ * regenerates from current portfolio state (it's a diff, not a suppressible
+ * event) — only your last call on it is carried forward.
+ */
+function applyPriorDecisions(moves, priorMap) {
+  for (const m of moves ?? []) {
+    const prior = priorMap.get(`${m.symbol}:${m.moveType}`);
+    if (prior) m.priorDecision = prior;
+  }
+}
+
 async function computeMovesPayload(owner, options = {}) {
     // bypassWinnerProtection: true only for an explicit, user-triggered
     // re-baseline pass (see memory/small_account_diversification.md). Every
@@ -1390,35 +1453,8 @@ async function computeMovesPayload(owner, options = {}) {
     // regenerates live from current portfolio state (it's a diff, not a
     // suppressible event), but your last call on it should already be
     // reflected rather than making you re-decide every time you open the tab.
-    const priorDecisionRows = await prisma.ownerDecision.findMany({
-      where:   { owner },
-      include: { ticker: { select: { symbol: true } } },
-      orderBy: { decidedAt: 'desc' },
-    });
-    const priorMap = new Map();
-    for (const d of priorDecisionRows) {
-      const key = `${d.ticker.symbol}:${d.moveType}`;
-      if (!priorMap.has(key)) {
-        priorMap.set(key, {
-          decision:       d.decision,
-          reason:         d.declinedReason ?? null,
-          acceptedAmount: d.acceptedAmount ?? null,
-          decidedAt:      d.decidedAt,
-          // The recommended dollar amount AT DECISION TIME. acceptedAmount is
-          // null whenever the user took the full recommendation rather than a
-          // partial, so without this the frontend can only fall back to today's
-          // freshly recomputed number — which would misreport a live figure as
-          // the historical one in the "accepted at $X" tooltip. Only the amount
-          // is lifted out of systemSnapshot; the rest of that blob (thesisHealth,
-          // trajectory, ratchetTranche, currentPct) has no client consumer.
-          snapshotAmount: d.systemSnapshot?.dollarAmount ?? null,
-        });
-      }
-    }
-    for (const m of allMoves) {
-      const prior = priorMap.get(`${m.symbol}:${m.moveType}`);
-      if (prior) m.priorDecision = prior;
-    }
+    const priorMap = await buildPriorDecisionMap(owner);
+    applyPriorDecisions(allMoves, priorMap);
 
     let actionMoves  = allMoves.filter(m => !['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
     const holdMoves  = allMoves.filter(m =>  ['HOLD', 'HOLD_ADVISORY'].includes(m.moveType));
@@ -1672,10 +1708,7 @@ async function computeMovesPayload(owner, options = {}) {
       isNewPosition:   true,
       reason: `New position — ${c.side === 'est' ? 'established' : 'speculative'} pool, rank score ${c.rankScore}`,
     }));
-    for (const m of openMoves) {
-      const prior = priorMap.get(`${m.symbol}:${m.moveType}`);
-      if (prior) m.priorDecision = prior;
-    }
+    applyPriorDecisions(openMoves, priorMap);
     actionMoves = [...actionMoves, ...openMoves]
       .sort((a, b) => a.priority !== b.priority ? a.priority - b.priority : b.dollarAmount - a.dollarAmount);
     } // end !freshStart watchlist-candidates block
@@ -1930,7 +1963,32 @@ router.get('/:owner', async (req, res) => {
     // Check cache
     const cached = await prisma.movesCache.findUnique({ where: { owner } });
     if (cached) {
-      return res.json({ ...cached.payload, fromCache: true, computedAt: cached.computedAt });
+      // A Full Reset that has aged past its 24h window expires back to normal
+      // everyday computation and is persisted as such, so isFreshStart clears
+      // itself going forward — no separate "expired" state to carry around.
+      // Decisions already recorded during the window are untouched: they live
+      // in OwnerDecision, not in the payload.
+      if (cached.payload?.isFreshStart === true && !isFrozenFullReset(cached)) {
+        const payload    = await computeMovesPayload(owner, { bypassWinnerProtection: false, freshStart: false });
+        const computedAt = new Date();
+        await prisma.movesCache.upsert({
+          where:  { owner },
+          update: { payload, computedAt },
+          create: { owner, payload, computedAt },
+        });
+        console.log(`[movesCache] full-reset window expired for ${owner} — reverted to normal mode`);
+        return res.json({ ...payload, fromCache: false, computedAt });
+      }
+
+      // Serve the stored payload, but overlay CURRENT decision state — the
+      // frozen payload is never recomputed, so accepts/declines made during
+      // the window would otherwise disappear on reload. Overlaid in memory
+      // only; deliberately not written back, since rewriting the row would
+      // serve no purpose and computedAt (the expiry clock) must not move.
+      const payload   = { ...cached.payload };
+      const priorMap  = await buildPriorDecisionMap(owner);
+      applyPriorDecisions(payload.moves, priorMap);
+      return res.json({ ...payload, fromCache: true, computedAt: cached.computedAt });
     }
 
     // Cache miss — compute, store, return
@@ -1964,8 +2022,26 @@ router.post('/:owner/refresh', requireAuth(), async (req, res) => {
     // update) shouldn't silently revert it to the everyday winner-protected
     // computation out from under the user.
     const existingCache = await prisma.movesCache.findUnique({ where: { owner } });
-    const bypassWinnerProtection = existingCache?.payload?.isRebaseline === true;
-    const freshStart             = existingCache?.payload?.isFreshStart === true;
+
+    // A Full Reset inside its 24h window is a frozen snapshot — recomputing it
+    // here would replace the exact numbers the user is deciding against while
+    // the banner still advertises the original generation date. Serve it back
+    // untouched (with current decisions overlaid) and leave computedAt alone,
+    // so a refresh can never extend the expiry clock either.
+    if (isFrozenFullReset(existingCache)) {
+      const frozen   = { ...existingCache.payload };
+      const priorMap = await buildPriorDecisionMap(owner);
+      applyPriorDecisions(frozen.moves, priorMap);
+      console.log(`[movesCache] refresh skipped for ${owner} — full-reset snapshot still frozen`);
+      return res.json({ ...frozen, fromCache: true, computedAt: existingCache.computedAt });
+    }
+
+    // Past the frozen check above, any isFreshStart entry has expired — recompute
+    // it in normal mode rather than preserving the flag, or this refresh would
+    // stamp a fresh computedAt and restart the 24h window (a sliding expiry).
+    const expiredFullReset       = existingCache?.payload?.isFreshStart === true;
+    const bypassWinnerProtection = !expiredFullReset && existingCache?.payload?.isRebaseline === true;
+    const freshStart             = false;
 
     const payload     = await computeMovesPayload(owner, { bypassWinnerProtection, freshStart });
     const computedAt  = new Date();
@@ -2137,3 +2213,4 @@ function money(n) {
 
 module.exports = router;
 module.exports.computeMovesPayload = computeMovesPayload;
+module.exports.isFrozenFullReset   = isFrozenFullReset;

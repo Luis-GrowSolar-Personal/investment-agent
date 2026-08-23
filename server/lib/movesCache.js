@@ -38,10 +38,28 @@ const prisma = require('./prisma');
  */
 async function refreshMovesCache(owner) {
   try {
-    const { computeMovesPayload } = require('../routes/moves');
+    const { computeMovesPayload, isFrozenFullReset } = require('../routes/moves');
     const existing = await prisma.movesCache.findUnique({ where: { owner } });
-    const bypassWinnerProtection = existing?.payload?.isRebaseline === true;
-    const freshStart             = existing?.payload?.isFreshStart === true;
+
+    // A Full Reset inside its 24h window is a frozen snapshot the user is
+    // actively deciding against. These are fire-and-forget background triggers
+    // (Schwab sync, price refresh, profile PATCH) — exactly the callers that
+    // must not silently swap the numbers out mid-review. Leaving the row alone
+    // also leaves computedAt alone, so background activity can never extend
+    // the expiry clock. GET /:owner handles the expiry itself once it lapses.
+    if (isFrozenFullReset(existing)) {
+      console.log(`[movesCache] refresh skipped for ${owner} — full-reset snapshot still frozen`);
+      return;
+    }
+
+    // Past the early return, any isFreshStart entry is an EXPIRED full reset.
+    // It must not be recomputed in freshStart mode: that would write a new
+    // computedAt and restart the 24h window from a background trigger, turning
+    // the fixed window into a sliding one. Expired means normal mode, both
+    // flags off — matching GET /:owner's expiry path.
+    const expiredFullReset       = existing?.payload?.isFreshStart === true;
+    const bypassWinnerProtection = !expiredFullReset && existing?.payload?.isRebaseline === true;
+    const freshStart             = false;
     const payload    = await computeMovesPayload(owner, { bypassWinnerProtection, freshStart });
     const computedAt = new Date();
     await prisma.movesCache.upsert({
@@ -49,7 +67,7 @@ async function refreshMovesCache(owner) {
       update: { payload, computedAt },
       create: { owner, payload, computedAt },
     });
-    const preserved = freshStart ? ' (preserved full-reset mode)'
+    const preserved = expiredFullReset ? ' (full-reset window expired — reverted to normal mode)'
       : bypassWinnerProtection ? ' (preserved re-baseline mode)'
       : '';
     console.log(`[movesCache] refreshed for ${owner}${preserved}`);

@@ -431,13 +431,15 @@ function MoveTableHeader() {
 // rather than introducing a second banner mechanism. Returns null for any mode
 // without copy yet, so an unhandled mode renders nothing rather than the wrong
 // explanation.
-function MovesBanner({ mode }) {
-  if (mode !== 'everyday') return null;
+function MovesBanner({ mode, computedAt }) {
+  if (mode !== 'everyday' && mode !== 'freshStart') return null;
+  const isFullReset = mode === 'freshStart';
+  const generatedOn = computedAt ? new Date(computedAt).toLocaleDateString() : null;
   return (
     <div style={{
       background: C.card,
       border: `1px solid ${C.border}`,
-      borderLeft: `3px solid ${C.blue}`,
+      borderLeft: `3px solid ${isFullReset ? C.amber : C.blue}`,
       borderRadius: 6,
       padding: '9px 12px',
       marginBottom: 10,
@@ -445,8 +447,20 @@ function MovesBanner({ mode }) {
       lineHeight: 1.5,
       color: C.muted,
     }}>
-      These are today's recommended trades to bring your allocation back toward
-      target, based on current prices. Declining any trade requires a logged reason.
+      {isFullReset ? (
+        <>
+          This view reflects a <strong style={{ color: C.amber }}>full reset</strong> of the
+          account{generatedOn ? `, generated on ${generatedOn}` : ''} — potentially selling every
+          existing position and rebuilding from your highest-conviction ideas. These
+          recommendations expire 24 hours after generation unless acted upon. Declining any
+          trade still requires a logged reason.
+        </>
+      ) : (
+        <>
+          These are today's recommended trades to bring your allocation back toward
+          target, based on current prices. Declining any trade requires a logged reason.
+        </>
+      )}
     </div>
   );
 }
@@ -1852,7 +1866,10 @@ export default function PortfolioManager() {
               }
             />
             {displayMoves.length > 0 && (
-              <MovesBanner mode={data.isFreshStart ? 'freshStart' : 'everyday'} />
+              <MovesBanner
+                mode={data.isFreshStart ? 'freshStart' : 'everyday'}
+                computedAt={data.computedAt}
+              />
             )}
             {displayMoves.length > 0
               ? (
