@@ -29,20 +29,30 @@ const prisma = require('./prisma');
  * Fix: read whether the CURRENT cache entry was itself a re-baseline
  * (payload.isRebaseline) and, if so, recompute in that same mode instead of
  * silently resetting to the everyday winner-protected mode.
+ *
+ * 2026-08-23: the same treatment extended to payload.isFreshStart ("Full
+ * reset" mode), which was added after the 2026-08-08 fix above and never
+ * wired in here — so any profile PATCH or Schwab sync silently dropped an
+ * owner out of Full reset back into plain re-baseline. GET /:owner in
+ * routes/moves.js already preserved both; this brings the two paths in line.
  */
 async function refreshMovesCache(owner) {
   try {
     const { computeMovesPayload } = require('../routes/moves');
     const existing = await prisma.movesCache.findUnique({ where: { owner } });
     const bypassWinnerProtection = existing?.payload?.isRebaseline === true;
-    const payload    = await computeMovesPayload(owner, { bypassWinnerProtection });
+    const freshStart             = existing?.payload?.isFreshStart === true;
+    const payload    = await computeMovesPayload(owner, { bypassWinnerProtection, freshStart });
     const computedAt = new Date();
     await prisma.movesCache.upsert({
       where:  { owner },
       update: { payload, computedAt },
       create: { owner, payload, computedAt },
     });
-    console.log(`[movesCache] refreshed for ${owner}${bypassWinnerProtection ? ' (preserved re-baseline mode)' : ''}`);
+    const preserved = freshStart ? ' (preserved full-reset mode)'
+      : bypassWinnerProtection ? ' (preserved re-baseline mode)'
+      : '';
+    console.log(`[movesCache] refreshed for ${owner}${preserved}`);
   } catch (err) {
     console.error(`[movesCache] refresh failed for ${owner}:`, err.message);
   }
