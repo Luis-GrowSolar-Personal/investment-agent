@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useAuth } from '@clerk/clerk-react';
 import { Link } from 'react-router-dom';
 import DragScrollContainer from '../components/DragScrollContainer';
+import CircledBangBadge from '../components/CircledBangBadge';
 
 // API origin: dev reads from .env.development (${API_URL}).
 // Prod reads from .env.production (empty string → same-origin, since the
@@ -166,29 +167,10 @@ function StaleTranscriptBadge({ daysSinceLastCall }) {
   const tip = isOverdue
     ? `Last transcript: ${daysSinceLastCall} days ago. Quarterly companies typically release every 85-95 days — this one is overdue. Time to check your sources for a new earnings call.`
     : `Last transcript: ${daysSinceLastCall} days ago. Quarterly companies typically release every 85-95 days — a new one is likely available. Time to check your sources.`;
-  return (
-    <span
-      title={tip}
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 14,
-        height: 14,
-        borderRadius: '50%',
-        border: `1.5px solid ${color}`,
-        color,
-        fontSize: 9,
-        fontWeight: 800,
-        marginLeft: 4,
-        cursor: 'help',
-        lineHeight: 1,
-        flexShrink: 0,
-      }}
-    >
-      !
-    </span>
-  );
+  // Visual lives in components/CircledBangBadge (shared with the Moves tab's
+  // pending-execution badge). The thresholds and copy above stay here — they're
+  // what this badge *means*, which is Radar-specific.
+  return <CircledBangBadge color={color} title={tip} />;
 }
 
 // Yellow triangle for advisory rows — "trend layer noticed something but

@@ -1404,6 +1404,14 @@ async function computeMovesPayload(owner, options = {}) {
           reason:         d.declinedReason ?? null,
           acceptedAmount: d.acceptedAmount ?? null,
           decidedAt:      d.decidedAt,
+          // The recommended dollar amount AT DECISION TIME. acceptedAmount is
+          // null whenever the user took the full recommendation rather than a
+          // partial, so without this the frontend can only fall back to today's
+          // freshly recomputed number — which would misreport a live figure as
+          // the historical one in the "accepted at $X" tooltip. Only the amount
+          // is lifted out of systemSnapshot; the rest of that blob (thesisHealth,
+          // trajectory, ratchetTranche, currentPct) has no client consumer.
+          snapshotAmount: d.systemSnapshot?.dollarAmount ?? null,
         });
       }
     }

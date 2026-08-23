@@ -13,6 +13,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '@clerk/clerk-react';
 import DragScrollContainer from '../components/DragScrollContainer';
+import CircledBangBadge from '../components/CircledBangBadge';
 
 // ─── Style tokens ─────────────────────────────────────────────────────────────
 
@@ -424,6 +425,32 @@ function MoveTableHeader() {
   );
 }
 
+// Explains what the Action Required list actually is, in the mode it was
+// computed in. Parameterized by mode on purpose: the Full-reset variant has
+// different copy and is being built separately, and should add its branch here
+// rather than introducing a second banner mechanism. Returns null for any mode
+// without copy yet, so an unhandled mode renders nothing rather than the wrong
+// explanation.
+function MovesBanner({ mode }) {
+  if (mode !== 'everyday') return null;
+  return (
+    <div style={{
+      background: C.card,
+      border: `1px solid ${C.border}`,
+      borderLeft: `3px solid ${C.blue}`,
+      borderRadius: 6,
+      padding: '9px 12px',
+      marginBottom: 10,
+      fontSize: 12,
+      lineHeight: 1.5,
+      color: C.muted,
+    }}>
+      These are today's recommended trades to bring your allocation back toward
+      target, based on current prices. Declining any trade requires a logged reason.
+    </div>
+  );
+}
+
 function MoveRow({ move, idx, decision, onAccept, onDecline }) {
   const [expanded,      setExpanded]      = useState(false);
   const [pendingAction, setPendingAction] = useState(null); // null | 'accept' | 'decline'
@@ -454,6 +481,25 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
     setSubmitting(false);
     setPendingAction(null);
   }
+
+  // Pending-execution tooltip. The amount has to be the one from decision time,
+  // not today's recompute: acceptedAmount is null whenever the user took the
+  // full recommendation, and hydrateDecisions deliberately falls back to the
+  // live number there (right for the running totals, wrong for a statement
+  // about the past). priorDecision.snapshotAmount is the real historical
+  // figure. A decision made in THIS session has no priorDecision yet, but its
+  // decision.acceptedAmount is the exact amount just entered, so that's sound.
+  // Deliberately vague about whether the trade happened — see wrap-up: the data
+  // model can't distinguish "never executed" from "partially executed".
+  const prior        = move.priorDecision;
+  const acceptedOn   = prior?.decidedAt ? new Date(prior.decidedAt).toLocaleDateString() : null;
+  const acceptedFor  = prior ? (prior.acceptedAmount ?? prior.snapshotAmount ?? null)
+                             : (decision?.acceptedAmount ?? null);
+  const pendingTip   = `Accepted${acceptedOn ? ` on ${acceptedOn}` : ''}`
+    + `${acceptedFor != null ? ` at ${money(acceptedFor)}` : ''}`
+    + ' — still pending execution. It is still listed because the position has not'
+    + ' reached target yet; if you have already placed this trade it will drop off'
+    + ' once a broker sync reflects it.';
 
   const rowBg = idx % 2 === 0 ? 'transparent' : C.card + '80';
   const cellBase = { padding: '9px 4px', borderTop: `1px solid ${C.border}`, background: rowBg, fontSize: 12.5 };
@@ -527,7 +573,13 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
         ) : isDecided && !isEditing ? (
           <>
             {decision.status === 'accepted' ? (
-              <span style={{ color: C.green, fontWeight: 700, fontSize: 11 }}>✓ Accepted {money(decision.acceptedAmount)}</span>
+              <>
+                <span style={{ color: C.green, fontWeight: 700, fontSize: 11 }}>✓ Accepted {money(decision.acceptedAmount)}</span>
+                {/* If this row is rendering at all its diff is still live, so an
+                    accepted move is by definition not yet reflected in the
+                    position — the green ✓ alone reads as "done". */}
+                <CircledBangBadge color={C.amber} title={pendingTip} />
+              </>
             ) : (
               <span style={{ color: C.muted, fontWeight: 700, fontSize: 11 }}>✗ Declined</span>
             )}
@@ -1799,6 +1851,9 @@ export default function PortfolioManager() {
                 C.dim
               }
             />
+            {displayMoves.length > 0 && (
+              <MovesBanner mode={data.isFreshStart ? 'freshStart' : 'everyday'} />
+            )}
             {displayMoves.length > 0
               ? (
                 // MOVE_GRID_COLS has fixed-px tracks and a 150px floor on Ticker,
