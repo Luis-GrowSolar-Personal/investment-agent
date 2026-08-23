@@ -24,9 +24,18 @@ export default function DragScrollContainer({ children, style, suppressClickAfte
   const drag = useRef({ active: false, startX: 0, scrollLeft: 0, moved: false });
 
   function onMouseDown(e) {
-    // Only initiate on the container itself or non-interactive children
-    const tag = e.target.tagName.toLowerCase();
-    if (['button', 'a', 'input', 'select', 'textarea'].includes(tag)) return;
+    // Only initiate on the container itself or non-interactive children.
+    // closest() rather than a bare tagName check so buttons whose content is an
+    // icon still count as interactive — a press on Portfolio's rename <svg>
+    // reports tagName 'svg'/'path' and would otherwise start a drag.
+    if (e.target.closest?.('button, a, input, select, textarea')) {
+      // Clear the flag even on this early return. A drag that ended via
+      // onMouseLeave (pointer released outside) leaves moved === true with no
+      // click having fired to clear it, so without this the next click on an
+      // interactive element gets eaten by onClickCapture.
+      drag.current.moved = false;
+      return;
+    }
     const el = ref.current;
     drag.current = { active: true, startX: e.pageX - el.offsetLeft, scrollLeft: el.scrollLeft, moved: false };
     el.style.cursor = 'grabbing';

@@ -1806,7 +1806,14 @@ export default function PortfolioManager() {
                 // overflowed with nothing catching it. suppressClickAfterDrag
                 // because MoveRow's cells toggle expand on click.
                 <DragScrollContainer suppressClickAfterDrag>
-                  <div style={{ display: 'grid', gridTemplateColumns: MOVE_GRID_COLS, background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 12px 4px 12px' }}>
+                  {/* minWidth:max-content so the painted card box (background/
+                      border/radius) covers the full content width. A block-level
+                      grid otherwise sizes to its container, so at narrow viewports
+                      MOVE_GRID_COLS' fixed tracks overflowed past the card and the
+                      right-hand columns rendered on bare page background. Still
+                      fills the container when it's wider, so wide viewports are
+                      unchanged. Same intent as Portfolio's table minWidth:'100%'. */}
+                  <div style={{ display: 'grid', gridTemplateColumns: MOVE_GRID_COLS, minWidth: 'max-content', background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: '10px 12px 4px 12px' }}>
                     <MoveTableHeader />
                     {displayMoves.map((m, i) => (
                       <MoveRow

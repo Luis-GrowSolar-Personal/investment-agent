@@ -1550,7 +1550,7 @@ function BrokerConnections() {
           ) : status?.connected ? (
             <span style={{ fontSize: 12, color: tokenExpired ? '#f59e0b' : '#4ade80' }}>
               ● Connected
-              {tokenExpired && ' — access token expired, will auto-refresh on next use. Broker requires manual reconnection at least every 7 days.'}
+              {tokenExpired && ' — access token expired, will auto-refresh on next use.'}
               <span style={{ color: '#475569', marginLeft: 8 }}>
                 last refreshed {fmtDate(status.updatedAt)}
               </span>

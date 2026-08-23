@@ -136,12 +136,19 @@ router.get('/reconcile', requireAuth(), async (req, res) => {
     res.json(result);
   } catch (err) {
     console.error('GET /schwab/reconcile error:', err);
-    // Schwab's refresh_token has a hard 7-day expiration from the original
-    // authorization -- rotating it on refresh does not reset that clock, so
-    // this is an expected recurring state, not a broken connection. Surface
-    // it as such instead of the raw error code.
+    // This used to assert a hard 7-day refresh_token expiry dated from the
+    // original authorization. That claim is wrong: measured 2026-08-22, a
+    // token from the 2026-06-13 authorization was still refreshing ~70 days
+    // later, and the refresh_token value did not rotate across four refreshes
+    // (only the access_token did). The real lifetime rule is NOT established —
+    // a 7-day *inactivity* window that the keep-alive job keeps resetting fits
+    // the evidence, but that's a hypothesis, not a measurement. So: don't quote
+    // a number here. Reconnecting is still the right response to a genuine
+    // SCHWAB_TOKEN_EXPIRED; it just isn't a routine scheduled chore, and a
+    // broker-side outage can surface as this same error without the stored
+    // token being bad at all. See wrap-ups/fix-keepalive-unconditional-refresh-out.md.
     const message = err.message === 'SCHWAB_TOKEN_EXPIRED'
-      ? 'Broker connection needs reconnecting — Schwab requires manual reconnection at least every 7 days. Use "Reconnect" in Admin > Broker Connections.'
+      ? 'Schwab rejected the stored credentials. If Schwab is reachable and you can log in there normally, reconnect via "Reconnect" in Admin > Broker Connections; if Schwab itself is down or erroring, this usually clears on its own once their service recovers.'
       : err.message;
     res.status(500).json({ error: message });
   }
