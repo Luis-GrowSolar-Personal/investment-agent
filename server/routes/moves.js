@@ -309,6 +309,60 @@ function commitCash(committed, accountId, amount) {
 }
 
 /**
+ * Assigns account routing to every ADD move in an explicit funding-priority
+ * order, rather than in whatever order the moves happened to be generated.
+ *
+ * Order (Luis, 2026-08-24):
+ *   highest-conviction Established -> highest-conviction Speculative ->
+ *   ETF (unallocated) -> Commodities (below minimum) -> Crypto (unallocated)
+ *
+ * Why a post-pass: idle cash is a shared, scarce resource, so whoever routes
+ * first gets it. Generation order put bucket-level rows — the ones where the
+ * agent doesn't even pick a ticker — ahead of real conviction-scored ticker
+ * ADDs, and ordered those tickers by database row order. Sizing still happens
+ * during generation exactly as before; only the cash claim moves here.
+ *
+ * Conviction uses scoreCandidate() — the same signal the engine already uses to
+ * pick which tickers become candidates (see the freshStart universe build and
+ * the watchlist-candidate ranking), deliberately not a second ranking.
+ *
+ * Bucket-level rows are NOT conviction-ranked against each other; their
+ * sequence is fixed above. Established/Speculative *scarcity-gap* rows sort
+ * last within their own side, since they have no ticker and so no score.
+ */
+const FUND_RANK = { est: 0, spec: 1, etf: 2, commodity: 3, crypto: 4 };
+
+function routeAddsInFundingOrder(moves, accounts, tickerMeta, committed) {
+  const adds = moves.filter(m => m.moveType === 'ADD');
+
+  const rankOf = m => {
+    if (m.isBucketLevel) return FUND_RANK[m.bucket] ?? 9;
+    const side = tickerMeta.get(m.symbol)?.side;
+    return FUND_RANK[side] ?? 9;
+  };
+  // -Infinity so unscored rows (bucket-level gaps) fall behind scored tickers
+  // sharing their rank.
+  const scoreOf = m => (m.isBucketLevel ? -Infinity : (tickerMeta.get(m.symbol)?.score ?? -Infinity));
+
+  adds.sort((a, b) => {
+    const ra = rankOf(a), rb = rankOf(b);
+    if (ra !== rb) return ra - rb;
+    const sa = scoreOf(a), sb = scoreOf(b);
+    if (sa !== sb) return sb - sa;               // higher conviction first
+    return (b.dollarAmount ?? 0) - (a.dollarAmount ?? 0); // stable, deterministic
+  });
+
+  for (const m of adds) {
+    if (m.isBucketLevel || m.isNewPosition || !m.symbol) {
+      m.accounts = buildNewPositionRouting(accounts, m.dollarAmount, committed);
+    } else {
+      const positions = tickerMeta.get(m.symbol)?.positions ?? [];
+      m.accounts = buildAddRouting(positions, m.dollarAmount, m.pricePerShare ?? 0, committed);
+    }
+  }
+}
+
+/**
  * Annotates every ADD move with an honest funding split, after all moves for
  * the run exist (trims included, which is why this runs as a post-pass).
  *
@@ -1037,6 +1091,12 @@ async function computeMovesPayload(owner, options = {}) {
     // no balance re-read is involved. Rebuilt per run: never module-level.
     const committedCash = new Map();
 
+    // Side + conviction for ADDs on tickers NOT currently held (freshStart opens
+    // and watchlist candidates). byTicker only covers held tickers, so without
+    // this these rows have no rank and would sort last in the funding order —
+    // wrong for a new high-conviction Established position.
+    const newPositionMeta = new Map();
+
     // ── Portfolio totals ──────────────────────────────────────────────────────
     let totalMktValue = 0, totalCash = 0;
     for (const acct of accounts) {
@@ -1228,7 +1288,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.targetPct.toFixed(1), currentMktValue: +currentValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +targetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, null), requires48h: false, isBucketLevel: true,
             reason: `${b.label} at ${currentPct.toFixed(1)}% — held tickers are capped below the ${b.targetPct.toFixed(1)}% target (per-ticker caps leave ${shortfall > 0 ? 'room' : 'no room'} unclaimed). Pick a specific ${b.label.toLowerCase()} ticker to fund this (outside agent scope).`,
           });
         } else if (shortfall > 0) {
@@ -1251,7 +1311,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.targetPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +targetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, null), requires48h: false, isBucketLevel: true, isBelowFloor: true,
             reason: `${b.label} is $${shortfall.toFixed(0)} short of target, but that's below the $${minPositionDollar} minimum position size — not worth a new position. Will stay this way until either the target model changes or ${b.label.toLowerCase()} holdings grow enough on their own.`,
           });
         }
@@ -1396,6 +1456,7 @@ async function computeMovesPayload(owner, options = {}) {
       const fsSelected = [...fsEst, ...fsSpec];
       fsSelectedByTickerId = new Map(fsSelected.map(c => [c.tickerId, c]));
       fsOpenCandidates = fsSelected.filter(c => !c.isHeld);
+      for (const c of fsOpenCandidates) newPositionMeta.set(c.symbol, { side: c.side, score: c.rankScore });
 
       // Scarcity-gap rows — mirrors the normal path's Established/Speculative
       // "(unallocated)" block: if the fresh-build candidate universe (held +
@@ -1422,7 +1483,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true, isScarcityGap: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, null), requires48h: false, isBucketLevel: true, isScarcityGap: true,
             reason: `${b.label}: full reset filled ${achievablePct.toFixed(1)}% against a ${b.poolPct.toFixed(1)}% target — not enough eligible candidates (held + watchlist) to fill the rest. Needs new names sourced (Layer 3 / Opportunity Scanner).`,
           });
         } else if (shortfall > 0) {
@@ -1434,7 +1495,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, null), requires48h: false, isBucketLevel: true, isBelowFloor: true,
             reason: `${b.label} is $${shortfall.toFixed(0)} short of target after the full reset, but that's below the $${minPositionDollar} minimum position size — not worth a new position.`,
           });
         }
@@ -1449,7 +1510,7 @@ async function computeMovesPayload(owner, options = {}) {
           // model weight.
           const moves = generateMovesForTicker(
             tickerWithOwnerCap, g.positions, totalPortfolioValue,
-            g.latestAnalysis, sel.suggestedPct, profile, ownerTaxRates, true, committedCash
+            g.latestAnalysis, sel.suggestedPct, profile, ownerTaxRates, true, null
           );
           allMoves.push(...moves);
         } else {
@@ -1485,7 +1546,7 @@ async function computeMovesPayload(owner, options = {}) {
         targetShares:    null,
         taxCost:         0,
         netProceeds:     0,
-        accounts:        buildNewPositionRouting(accounts, c.suggestedDollar, committedCash),
+        accounts:        buildNewPositionRouting(accounts, c.suggestedDollar, null),
         requires48h:     false,
         isNewPosition:   true,
         reason: `Full reset — new position, ${c.side === 'est' ? 'established' : 'speculative'} pool, rank score ${c.rankScore}`,
@@ -1498,7 +1559,7 @@ async function computeMovesPayload(owner, options = {}) {
         const tickerWithOwnerCap = { ...g.ticker, capPercent: effectiveCap(g.ticker) };
         const moves = generateMovesForTicker(
           tickerWithOwnerCap, g.positions, totalPortfolioValue,
-          g.latestAnalysis, modelWeightPct, profile, ownerTaxRates, bypassWinnerProtection, committedCash
+          g.latestAnalysis, modelWeightPct, profile, ownerTaxRates, bypassWinnerProtection, null
         );
         allMoves.push(...moves);
       }
@@ -1672,6 +1733,7 @@ async function computeMovesPayload(owner, options = {}) {
     const specCandidates = sizeSide(eligible.spec, remainingSpecPoolPct, remainingSpecSlots);
     const candidates = [...estCandidates, ...specCandidates];
     candidates.sort((a, b) => b.rankScore - a.rankScore);
+    for (const c of candidates) newPositionMeta.set(c.symbol, { side: c.side, score: c.rankScore });
 
     // Established/Speculative "(unallocated)" scarcity-gap rows — mirrors the
     // ETF/Crypto/Commodity "(unallocated)" block above, but for a different
@@ -1739,7 +1801,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true, isScarcityGap: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, null), requires48h: false, isBucketLevel: true, isScarcityGap: true,
             reason: `${b.label}: once recommended trims/holds are applied, held positions plus any new opens account for ${achievablePct.toFixed(1)}% against a ${b.poolPct.toFixed(1)}% target — the remaining ${(b.poolPct - achievablePct).toFixed(1)}% has no watchlist candidate that currently clears the conviction bar. Needs new names sourced (Layer 3 / Opportunity Scanner), not a bigger allocation to what's already held.`,
           });
         } else if (shortfall > 0) {
@@ -1759,7 +1821,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, null), requires48h: false, isBucketLevel: true, isBelowFloor: true,
             reason: `${b.label} is $${shortfall.toFixed(0)} short of target, but that's below the $${minPositionDollar} minimum position size — not worth a new position. Will stay this way until either the target model changes or ${b.label.toLowerCase()} holdings grow enough on their own.`,
           });
         }
@@ -1799,7 +1861,7 @@ async function computeMovesPayload(owner, options = {}) {
       targetShares:    null,
       taxCost:         0,
       netProceeds:     0,
-      accounts:        buildNewPositionRouting(accounts, c.suggestedDollar, committedCash),
+      accounts:        buildNewPositionRouting(accounts, c.suggestedDollar, null),
       requires48h:     false,
       isNewPosition:   true,
       reason: `New position — ${c.side === 'est' ? 'established' : 'speculative'} pool, rank score ${c.rankScore}`,
@@ -1808,6 +1870,25 @@ async function computeMovesPayload(owner, options = {}) {
     actionMoves = [...actionMoves, ...openMoves]
       .sort((a, b) => a.priority !== b.priority ? a.priority - b.priority : b.dollarAmount - a.dollarAmount);
     } // end !freshStart watchlist-candidates block
+
+    // Claim idle cash in Luis's funding-priority order, not generation order.
+    // tickerMeta carries the conviction signal + positions each ticker ADD needs
+    // to re-route; built from byTicker, which already holds both.
+    const tickerMeta = new Map();
+    for (const [tickerId, { ticker, positions }] of byTicker.entries()) {
+      // byTicker holds only { ticker, positions } — the analysis lives in
+      // analysisMap, keyed by tickerId.
+      const a = analysisMap.get(tickerId);
+      tickerMeta.set(ticker.symbol, {
+        side:      barbellSide(ticker, a),
+        score:     scoreCandidate(a, ticker.type),
+        positions,
+      });
+    }
+    for (const [sym, meta] of newPositionMeta.entries()) {
+      if (!tickerMeta.has(sym)) tickerMeta.set(sym, { ...meta, positions: [] });
+    }
+    routeAddsInFundingOrder(actionMoves, accounts, tickerMeta, committedCash);
 
     // Funding split for ADD rows — needs the whole batch, trims included.
     annotateAddFunding(actionMoves);
