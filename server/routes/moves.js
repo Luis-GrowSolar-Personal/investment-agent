@@ -394,6 +394,15 @@ function buildAddRouting(positions, addValue, price) {
  * only the dollars-to-shares conversion within a row did — so this doesn't
  * need to wait on the live-quote-fetch work to be useful.
  *
+ * Also used by the bucket-level "(unallocated)" / "(below minimum)" rows,
+ * which have no symbol at all: the agent deliberately doesn't pick an
+ * ETF/crypto/commodity ticker (outside the Circle of Competence), but the
+ * dollar gap and every account's cash are already known, so there's no reason
+ * to withhold WHERE the money would come from. Withholding it caused a real
+ * mis-execution on 2026-08-24 — the user couldn't see which account an
+ * unallocated add was meant to draw from. Ticker selection stays out of
+ * scope; only account routing is supplied.
+ *
  * @param {Array} accounts   raw account rows (same shape used elsewhere in
  *                           computeMovesPayload — .id, .name, .type,
  *                           .managed, .cashBalance)
@@ -1132,7 +1141,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.targetPct.toFixed(1), currentMktValue: +currentValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +targetValue.toFixed(2),
-            accounts: [], requires48h: false, isBucketLevel: true,
+            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true,
             reason: `${b.label} at ${currentPct.toFixed(1)}% — held tickers are capped below the ${b.targetPct.toFixed(1)}% target (per-ticker caps leave ${shortfall > 0 ? 'room' : 'no room'} unclaimed). Pick a specific ${b.label.toLowerCase()} ticker to fund this (outside agent scope).`,
           });
         } else if (shortfall > 0) {
@@ -1155,7 +1164,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.targetPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +targetValue.toFixed(2),
-            accounts: [], requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true, isBelowFloor: true,
             reason: `${b.label} is $${shortfall.toFixed(0)} short of target, but that's below the $${minPositionDollar} minimum position size — not worth a new position. Will stay this way until either the target model changes or ${b.label.toLowerCase()} holdings grow enough on their own.`,
           });
         }
@@ -1326,7 +1335,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: [], requires48h: false, isBucketLevel: true, isScarcityGap: true,
+            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true, isScarcityGap: true,
             reason: `${b.label}: full reset filled ${achievablePct.toFixed(1)}% against a ${b.poolPct.toFixed(1)}% target — not enough eligible candidates (held + watchlist) to fill the rest. Needs new names sourced (Layer 3 / Opportunity Scanner).`,
           });
         } else if (shortfall > 0) {
@@ -1338,7 +1347,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: [], requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true, isBelowFloor: true,
             reason: `${b.label} is $${shortfall.toFixed(0)} short of target after the full reset, but that's below the $${minPositionDollar} minimum position size — not worth a new position.`,
           });
         }
@@ -1643,7 +1652,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: [], requires48h: false, isBucketLevel: true, isScarcityGap: true,
+            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true, isScarcityGap: true,
             reason: `${b.label}: once recommended trims/holds are applied, held positions plus any new opens account for ${achievablePct.toFixed(1)}% against a ${b.poolPct.toFixed(1)}% target — the remaining ${(b.poolPct - achievablePct).toFixed(1)}% has no watchlist candidate that currently clears the conviction bar. Needs new names sourced (Layer 3 / Opportunity Scanner), not a bigger allocation to what's already held.`,
           });
         } else if (shortfall > 0) {
@@ -1663,7 +1672,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: [], requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true, isBelowFloor: true,
             reason: `${b.label} is $${shortfall.toFixed(0)} short of target, but that's below the $${minPositionDollar} minimum position size — not worth a new position. Will stay this way until either the target model changes or ${b.label.toLowerCase()} holdings grow enough on their own.`,
           });
         }

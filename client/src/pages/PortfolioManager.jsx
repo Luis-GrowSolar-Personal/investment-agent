@@ -465,6 +465,28 @@ function MovesBanner({ mode, computedAt }) {
   );
 }
 
+// Compact "where would this money come from" hint for bucket-level rows.
+// These have no ticker by design, so their Decision cell shows an explanatory
+// badge instead of Accept/Decline — but the funding accounts ARE known, and
+// hiding them left the user guessing which account an unallocated add should
+// draw from. Full breakdown still lives in AddRoutingDetail when expanded.
+function BucketFundingHint({ accounts }) {
+  if (!accounts?.length) return null;
+  const needsFunding = accounts.some(a => a.insufficientCash);
+  const label = accounts.length === 1 ? accounts[0].accountName : `${accounts.length} accounts`;
+  const tip = accounts
+    .map(a => `${a.accountName}: ${money(a.dollarAmount)}${a.insufficientCash ? ' (needs funding first)' : ''}`)
+    .join(' · ');
+  return (
+    <span
+      title={`Funding source if you choose to act — ${tip}`}
+      style={{ fontSize: 10, color: needsFunding ? C.amber : C.dim, whiteSpace: 'nowrap', cursor: 'help' }}
+    >
+      from {label}{needsFunding ? ' ⚠' : ''}
+    </span>
+  );
+}
+
 function MoveRow({ move, idx, decision, onAccept, onDecline }) {
   const [expanded,      setExpanded]      = useState(false);
   const [pendingAction, setPendingAction] = useState(null); // null | 'accept' | 'decline'
@@ -567,23 +589,32 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
       </div>
       <div style={{ ...cellBase, display: 'flex', alignItems: 'center', gap: 6 }} onClick={e => e.stopPropagation()}>
         {move.isBucketLevel && move.isScarcityGap ? (
-          <span
-            style={{ fontSize: 9, fontWeight: 700, color: C.amber, border: `1px solid ${C.amber}55`, background: C.amber + '15', borderRadius: 3, padding: '1px 5px' }}
-            title="No held or watchlist candidate on this side currently clears the conviction bar — needs new names sourced, not a bigger allocation to what's already held"
-          >
-            NO QUALIFYING CANDIDATES
-          </span>
+          <>
+            <span
+              style={{ fontSize: 9, fontWeight: 700, color: C.amber, border: `1px solid ${C.amber}55`, background: C.amber + '15', borderRadius: 3, padding: '1px 5px' }}
+              title="No held or watchlist candidate on this side currently clears the conviction bar — needs new names sourced, not a bigger allocation to what's already held"
+            >
+              NO QUALIFYING CANDIDATES
+            </span>
+            <BucketFundingHint accounts={move.accounts} />
+          </>
         ) : move.isBucketLevel && move.isBelowFloor ? (
-          <span
-            style={{ fontSize: 9, fontWeight: 700, color: C.dim, border: `1px solid ${C.dim}55`, background: C.dim + '15', borderRadius: 3, padding: '1px 5px' }}
-            title="The gap is real but too small to justify a new position — will stay this way until the target model changes or holdings grow enough on their own"
-          >
-            BELOW MINIMUM
-          </span>
+          <>
+            <span
+              style={{ fontSize: 9, fontWeight: 700, color: C.dim, border: `1px solid ${C.dim}55`, background: C.dim + '15', borderRadius: 3, padding: '1px 5px' }}
+              title="The gap is real but too small to justify a new position — will stay this way until the target model changes or holdings grow enough on their own"
+            >
+              BELOW MINIMUM
+            </span>
+            <BucketFundingHint accounts={move.accounts} />
+          </>
         ) : move.isBucketLevel ? (
-          <span style={{ fontSize: 11, color: C.dim }} title="No specific ticker — pick which one to fund manually, outside agent scope">
-            Outside agent scope
-          </span>
+          <>
+            <span style={{ fontSize: 11, color: C.dim }} title="The agent doesn't pick the specific ETF/crypto/commodity ticker — that's outside its Circle of Competence. The funding account(s) below are still calculated for you.">
+              Ticker: your pick
+            </span>
+            <BucketFundingHint accounts={move.accounts} />
+          </>
         ) : isDecided && !isEditing ? (
           <>
             {decision.status === 'accepted' ? (
