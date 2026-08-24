@@ -352,14 +352,17 @@ function routeAddsInFundingOrder(moves, accounts, tickerMeta, committed) {
     return (b.dollarAmount ?? 0) - (a.dollarAmount ?? 0); // stable, deterministic
   });
 
-  for (const m of adds) {
+  adds.forEach((m, i) => {
+    // Stamped so annotateAddFunding can divide trim proceeds in this same
+    // order without re-deriving the ranking (it has no tickerMeta).
+    m.fundingOrder = i;
     if (m.isBucketLevel || m.isNewPosition || !m.symbol) {
       m.accounts = buildNewPositionRouting(accounts, m.dollarAmount, committed);
     } else {
       const positions = tickerMeta.get(m.symbol)?.positions ?? [];
       m.accounts = buildAddRouting(positions, m.dollarAmount, m.pricePerShare ?? 0, committed);
     }
-  }
+  });
 }
 
 /**
@@ -380,10 +383,18 @@ function routeAddsInFundingOrder(moves, accounts, tickerMeta, committed) {
  *   unbacked          remainder with no plausible source in this batch — a
  *                     genuinely different situation, worth saying plainly
  *
- * expectedFromTrims is batch-level context, NOT an exclusive per-row claim:
- * two adds drawing on the same account may both cite the same trim proceeds.
- * That is deliberate — a trim ledger would re-open the funding-order question
- * that is still undecided (see fix-add-routing-cash-double-counting wrap-up).
+ * expectedFromTrims IS an exclusive per-row claim, drawn from a per-account
+ * trim-proceeds ledger consumed in funding-priority order (fundingOrder,
+ * stamped by routeAddsInFundingOrder). Before 2026-08-24 it was batch-level
+ * context instead, so N adds on one account each cited the same proceeds —
+ * Eduardo's ROTH promised $1,920 of real proceeds to six rows totalling
+ * $8,075. Deferred then only because the funding order was undecided; it is
+ * now (Established -> Speculative -> ETF -> Commodities -> Crypto).
+ *
+ * Once an account's ledger is drained, later rows fall through to unbacked —
+ * which deliberately reads the same as a genuine self-funding shortfall (an
+ * account whose own trims never covered its own adds). Both mean the same
+ * thing to the owner: this money has to come from somewhere else.
  */
 function annotateAddFunding(moves) {
   const trimProceedsByAccount = new Map();
@@ -396,20 +407,36 @@ function annotateAddFunding(moves) {
     }
   }
 
-  for (const m of moves) {
-    if (m.moveType !== 'ADD') continue;
+  // Highest funding priority claims proceeds first, same order the idle-cash
+  // ledger already ran in. Rows never routed (no fundingOrder) sort last.
+  const adds = moves.filter(m => m.moveType === 'ADD')
+                    .sort((a, b) => (a.fundingOrder ?? Infinity) - (b.fundingOrder ?? Infinity));
+
+  for (const m of adds) {
     const rows      = m.accounts ?? [];
     const requested = m.dollarAmount ?? 0;
     const fromCash  = rows.filter(r => !r.isPlaceholder)
                           .reduce((s, r) => s + (r.dollarAmount ?? 0), 0);
     const uncovered = Math.max(0, requested - fromCash);
-    const usable    = rows.reduce((s, r) => s + (trimProceedsByAccount.get(r.accountId) ?? 0), 0);
-    const expected  = Math.min(uncovered, usable);
+
+    // Draw from each routed account's remaining proceeds, decrementing as we
+    // go. Same-account only — proceeds can't cross a tax boundary.
+    let need = uncovered;
+    for (const r of rows) {
+      if (need <= 0) break;
+      const left = trimProceedsByAccount.get(r.accountId) ?? 0;
+      if (left <= 0) continue;
+      const claim = Math.min(need, left);
+      trimProceedsByAccount.set(r.accountId, left - claim);
+      need -= claim;
+    }
+    const expected = uncovered - need;
+
     m.funding = {
       requested:         +requested.toFixed(2),
       fromCash:          +fromCash.toFixed(2),
       expectedFromTrims: +expected.toFixed(2),
-      unbacked:          +(uncovered - expected).toFixed(2),
+      unbacked:          +need.toFixed(2),
     };
   }
 }
