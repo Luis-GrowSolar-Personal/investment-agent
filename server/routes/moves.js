@@ -286,6 +286,46 @@ function makeTrimMove(moveType, priority, ticker, positions, currentPct, targetP
 }
 
 /**
+ * Per-run ledger of dollars already promised to each account by earlier ADD
+ * rows in the SAME computeMovesPayload run.
+ *
+ * Without it, every routing call independently saw each account's full
+ * cashBalance, so N rows landing on the same account could each claim the same
+ * dollars — e.g. an owner with $1,479 cash being told to fund a $3,922 ETF gap
+ * AND a $1,625 Crypto gap AND a $136 Commodities gap all "from Custodial".
+ * Individually truthful, collectively impossible.
+ *
+ * Deliberately passed as a parameter rather than held in module state:
+ * computeMovesPayload awaits mid-run, so two concurrent requests would
+ * interleave and corrupt a shared module-level ledger.
+ */
+function availableCash(committed, accountId, cashBalance) {
+  return Math.max(0, (cashBalance ?? 0) - (committed?.get(accountId) ?? 0));
+}
+
+function commitCash(committed, accountId, amount) {
+  if (!committed || !(amount > 0)) return;
+  committed.set(accountId, (committed.get(accountId) ?? 0) + amount);
+}
+
+/**
+ * Marks every row of a routing result when the routed dollars don't cover the
+ * full requested amount. `insufficientCash` only ever meant "no account had a
+ * usable balance at all", so a row funded 38% looked identical to one funded
+ * 100%. These two fields make partial coverage visible without conflating it
+ * with total insufficiency.
+ */
+function flagPartialFunding(rows, requested, routed) {
+  const unfunded = +(requested - routed).toFixed(2);
+  if (unfunded <= 0.01) return rows;
+  for (const r of rows) {
+    r.partiallyFunded = true;
+    r.unfundedAmount  = unfunded;
+  }
+  return rows;
+}
+
+/**
  * Route an ADD move to specific accounts.
  *
  * Priority: Roth → IRA → taxable (best tax shelter for new buys).
@@ -296,7 +336,7 @@ function makeTrimMove(moveType, priority, ticker, positions, currentPct, targetP
  * If no account has cash, still returns one row (the best candidate)
  * flagged with insufficientCash: true so the UI can warn the user.
  */
-function buildAddRouting(positions, addValue, price) {
+function buildAddRouting(positions, addValue, price, committed) {
   if (!addValue || addValue <= 0 || price <= 0) return [];
 
   // Only route through agent-managed accounts (same rule as buildTrimRouting).
@@ -327,7 +367,8 @@ function buildAddRouting(positions, addValue, price) {
 
   for (const pos of sorted) {
     if (remaining <= 0) break;
-    const cash = pos.account?.cashBalance ?? 0;
+    // Room actually left after earlier rows in this run took their share.
+    const cash = availableCash(committed, pos.accountId, pos.account?.cashBalance);
     if (cash < 1) continue;
     const canFractional  = pos.account?.allowsFractional ?? false;
     let allocate         = Math.min(remaining, cash);
@@ -352,7 +393,12 @@ function buildAddRouting(positions, addValue, price) {
       dollarAmount:    +allocate.toFixed(2),
       insufficientCash: false,
     });
+    commitCash(committed, pos.accountId, allocate);
     remaining -= allocate;
+  }
+
+  if (rows.length > 0) {
+    return flagPartialFunding(rows, addValue, rows.reduce((s, r) => s + r.dollarAmount, 0));
   }
 
   // No cash anywhere — still surface the best account so the user knows where to buy
@@ -408,7 +454,7 @@ function buildAddRouting(positions, addValue, price) {
  *                           .managed, .cashBalance)
  * @param {number} dollarAmount
  */
-function buildNewPositionRouting(accounts, dollarAmount) {
+function buildNewPositionRouting(accounts, dollarAmount, committed) {
   if (!dollarAmount || dollarAmount <= 0) return [];
 
   const TYPE_ORDER = { roth: 0, ira: 1, taxable: 2, custodial: 3 };
@@ -421,7 +467,8 @@ function buildNewPositionRouting(accounts, dollarAmount) {
 
   for (const acct of managed) {
     if (remaining <= 0) break;
-    const cash = acct.cashBalance ?? 0;
+    // Room actually left after earlier rows in this run took their share.
+    const cash = availableCash(committed, acct.id, acct.cashBalance);
     if (cash < 1) continue;
     const allocate = Math.min(remaining, cash);
     rows.push({
@@ -433,7 +480,12 @@ function buildNewPositionRouting(accounts, dollarAmount) {
       dollarAmount:     +allocate.toFixed(2),
       insufficientCash: false,
     });
+    commitCash(committed, acct.id, allocate);
     remaining -= allocate;
+  }
+
+  if (rows.length > 0) {
+    return flagPartialFunding(rows, dollarAmount, rows.reduce((s, r) => s + r.dollarAmount, 0));
   }
 
   // No cash anywhere — still surface the best (highest-priority) account so
@@ -456,12 +508,12 @@ function buildNewPositionRouting(accounts, dollarAmount) {
 }
 
 function makeAddMove(priority, ticker, positions, currentPct, targetPct,
-    mktValue, totalPortfolioValue, latestAnalysis) {
+    mktValue, totalPortfolioValue, latestAnalysis, committed) {
   const price        = positions.find(p => p.lastPrice != null)?.lastPrice ?? 0;
   const addValue     = Math.max(0, totalPortfolioValue * (targetPct / 100) - mktValue);
   const sharesApprox = price > 0 ? addValue / price : 0;
   const hardCapPct   = Math.min(ticker.capPercent ?? 100, latestAnalysis?.capPercent ?? 100);
-  const accounts     = buildAddRouting(positions, addValue, price);
+  const accounts     = buildAddRouting(positions, addValue, price, committed);
 
   return {
     moveType:        'ADD',
@@ -539,7 +591,7 @@ function buildFreshStartSellMove(ticker, positions, totalPortfolioValue, latestA
 function generateMovesForTicker(
   ticker, positions, totalPortfolioValue,
   latestAnalysis, modelWeightPct,
-  profile, ownerTaxRates, bypassWinnerProtection = false
+  profile, ownerTaxRates, bypassWinnerProtection = false, committed = null
 ) {
   const { mktValue, currentPct } = positionMetrics(positions, totalPortfolioValue);
   const specExitSpeed  = profile.specExitSpeed ?? 'normal';
@@ -676,7 +728,7 @@ function generateMovesForTicker(
     if (canAdd) {
       moves.push({
         ...makeAddMove(5, ticker, positions, currentPct, modelWeightPct,
-          mktValue, totalPortfolioValue, latestAnalysis),
+          mktValue, totalPortfolioValue, latestAnalysis, committed),
         reason: `At ${currentPct.toFixed(1)}% — below model weight of ${modelWeightPct.toFixed(1)}%`,
       });
     }
@@ -950,6 +1002,13 @@ async function computeMovesPayload(owner, options = {}) {
     });
     const acctConfigMap = new Map(acctConfigs.map(c => [c.accountId, c]));
 
+    // Per-run cash ledger shared by every ADD-routing call below, so two rows
+    // can't both promise the same dollars. `accounts` (and therefore every
+    // pos.account, which aliases the same objects) is a single snapshot taken
+    // above and never refetched, so tracking commitments separately is enough —
+    // no balance re-read is involved. Rebuilt per run: never module-level.
+    const committedCash = new Map();
+
     // ── Portfolio totals ──────────────────────────────────────────────────────
     let totalMktValue = 0, totalCash = 0;
     for (const acct of accounts) {
@@ -1141,7 +1200,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.targetPct.toFixed(1), currentMktValue: +currentValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +targetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true,
             reason: `${b.label} at ${currentPct.toFixed(1)}% — held tickers are capped below the ${b.targetPct.toFixed(1)}% target (per-ticker caps leave ${shortfall > 0 ? 'room' : 'no room'} unclaimed). Pick a specific ${b.label.toLowerCase()} ticker to fund this (outside agent scope).`,
           });
         } else if (shortfall > 0) {
@@ -1164,7 +1223,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.targetPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +targetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true, isBelowFloor: true,
             reason: `${b.label} is $${shortfall.toFixed(0)} short of target, but that's below the $${minPositionDollar} minimum position size — not worth a new position. Will stay this way until either the target model changes or ${b.label.toLowerCase()} holdings grow enough on their own.`,
           });
         }
@@ -1335,7 +1394,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true, isScarcityGap: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true, isScarcityGap: true,
             reason: `${b.label}: full reset filled ${achievablePct.toFixed(1)}% against a ${b.poolPct.toFixed(1)}% target — not enough eligible candidates (held + watchlist) to fill the rest. Needs new names sourced (Layer 3 / Opportunity Scanner).`,
           });
         } else if (shortfall > 0) {
@@ -1347,7 +1406,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true, isBelowFloor: true,
             reason: `${b.label} is $${shortfall.toFixed(0)} short of target after the full reset, but that's below the $${minPositionDollar} minimum position size — not worth a new position.`,
           });
         }
@@ -1362,7 +1421,7 @@ async function computeMovesPayload(owner, options = {}) {
           // model weight.
           const moves = generateMovesForTicker(
             tickerWithOwnerCap, g.positions, totalPortfolioValue,
-            g.latestAnalysis, sel.suggestedPct, profile, ownerTaxRates, true
+            g.latestAnalysis, sel.suggestedPct, profile, ownerTaxRates, true, committedCash
           );
           allMoves.push(...moves);
         } else {
@@ -1398,7 +1457,7 @@ async function computeMovesPayload(owner, options = {}) {
         targetShares:    null,
         taxCost:         0,
         netProceeds:     0,
-        accounts:        buildNewPositionRouting(accounts, c.suggestedDollar),
+        accounts:        buildNewPositionRouting(accounts, c.suggestedDollar, committedCash),
         requires48h:     false,
         isNewPosition:   true,
         reason: `Full reset — new position, ${c.side === 'est' ? 'established' : 'speculative'} pool, rank score ${c.rankScore}`,
@@ -1411,7 +1470,7 @@ async function computeMovesPayload(owner, options = {}) {
         const tickerWithOwnerCap = { ...g.ticker, capPercent: effectiveCap(g.ticker) };
         const moves = generateMovesForTicker(
           tickerWithOwnerCap, g.positions, totalPortfolioValue,
-          g.latestAnalysis, modelWeightPct, profile, ownerTaxRates, bypassWinnerProtection
+          g.latestAnalysis, modelWeightPct, profile, ownerTaxRates, bypassWinnerProtection, committedCash
         );
         allMoves.push(...moves);
       }
@@ -1652,7 +1711,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true, isScarcityGap: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true, isScarcityGap: true,
             reason: `${b.label}: once recommended trims/holds are applied, held positions plus any new opens account for ${achievablePct.toFixed(1)}% against a ${b.poolPct.toFixed(1)}% target — the remaining ${(b.poolPct - achievablePct).toFixed(1)}% has no watchlist candidate that currently clears the conviction bar. Needs new names sourced (Layer 3 / Opportunity Scanner), not a bigger allocation to what's already held.`,
           });
         } else if (shortfall > 0) {
@@ -1672,7 +1731,7 @@ async function computeMovesPayload(owner, options = {}) {
             hardCapPct: +b.poolPct.toFixed(1), currentMktValue: +achievableValue.toFixed(2),
             dollarAmount: +shortfall.toFixed(2), sharesApprox: 0, taxCost: 0, netProceeds: 0,
             currentShares: null, targetShares: null, targetValue: +bucketTargetValue.toFixed(2),
-            accounts: buildNewPositionRouting(accounts, shortfall), requires48h: false, isBucketLevel: true, isBelowFloor: true,
+            accounts: buildNewPositionRouting(accounts, shortfall, committedCash), requires48h: false, isBucketLevel: true, isBelowFloor: true,
             reason: `${b.label} is $${shortfall.toFixed(0)} short of target, but that's below the $${minPositionDollar} minimum position size — not worth a new position. Will stay this way until either the target model changes or ${b.label.toLowerCase()} holdings grow enough on their own.`,
           });
         }
@@ -1712,7 +1771,7 @@ async function computeMovesPayload(owner, options = {}) {
       targetShares:    null,
       taxCost:         0,
       netProceeds:     0,
-      accounts:        buildNewPositionRouting(accounts, c.suggestedDollar),
+      accounts:        buildNewPositionRouting(accounts, c.suggestedDollar, committedCash),
       requires48h:     false,
       isNewPosition:   true,
       reason: `New position — ${c.side === 'est' ? 'established' : 'speculative'} pool, rank score ${c.rankScore}`,

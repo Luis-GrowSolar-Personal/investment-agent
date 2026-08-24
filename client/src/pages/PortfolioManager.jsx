@@ -226,6 +226,15 @@ function AddRoutingDetail({ accounts }) {
           )}
         </div>
       ))}
+      {/* Partial coverage: cash ran out part-way through this row, usually
+          because earlier rows in the same run already claimed it. Distinct
+          from insufficientCash, which means no account had room at all. */}
+      {accounts[0]?.partiallyFunded && (
+        <div style={{ marginTop: 6, fontSize: 11, color: C.amber, fontWeight: 600 }}>
+          ⚠ {money(accounts[0].unfundedAmount)} of this add isn't covered by available cash —
+          {' '}fund the account or reduce the amount.
+        </div>
+      )}
     </div>
   );
 }
@@ -472,11 +481,13 @@ function MovesBanner({ mode, computedAt }) {
 // draw from. Full breakdown still lives in AddRoutingDetail when expanded.
 function BucketFundingHint({ accounts }) {
   if (!accounts?.length) return null;
-  const needsFunding = accounts.some(a => a.insufficientCash);
+  const partial      = accounts.some(a => a.partiallyFunded);
+  const needsFunding = accounts.some(a => a.insufficientCash) || partial;
   const label = accounts.length === 1 ? accounts[0].accountName : `${accounts.length} accounts`;
   const tip = accounts
     .map(a => `${a.accountName}: ${money(a.dollarAmount)}${a.insufficientCash ? ' (needs funding first)' : ''}`)
-    .join(' · ');
+    .join(' · ')
+    + (partial ? ` — ${money(accounts[0].unfundedAmount)} not covered by available cash` : '');
   return (
     <span
       title={`Funding source if you choose to act — ${tip}`}
