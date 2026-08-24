@@ -309,20 +309,55 @@ function commitCash(committed, accountId, amount) {
 }
 
 /**
- * Marks every row of a routing result when the routed dollars don't cover the
- * full requested amount. `insufficientCash` only ever meant "no account had a
- * usable balance at all", so a row funded 38% looked identical to one funded
- * 100%. These two fields make partial coverage visible without conflating it
- * with total insufficiency.
+ * Annotates every ADD move with an honest funding split, after all moves for
+ * the run exist (trims included, which is why this runs as a post-pass).
+ *
+ * Framing matters here. In a re-baseline most of an ADD's dollars were never
+ * expected to come from idle cash — they come from TRIM/EXIT moves in the same
+ * batch that haven't been executed yet. The app deliberately refuses to credit
+ * unexecuted trim proceeds toward a specific add (no pairwise coupling — see
+ * CLAUDE.md), so the cash ledger correctly shows only a sliver as covered. That
+ * is accurate but reads as an error unless the rest is named for what it is.
+ *
+ *   fromCash          dollars the ledger actually allocated from idle cash
+ *   expectedFromTrims the remainder, where trims in THIS batch land in an
+ *                     account this add would use (proceeds can't cross a tax
+ *                     boundary without a contribution, so same-account only)
+ *   unbacked          remainder with no plausible source in this batch — a
+ *                     genuinely different situation, worth saying plainly
+ *
+ * expectedFromTrims is batch-level context, NOT an exclusive per-row claim:
+ * two adds drawing on the same account may both cite the same trim proceeds.
+ * That is deliberate — a trim ledger would re-open the funding-order question
+ * that is still undecided (see fix-add-routing-cash-double-counting wrap-up).
  */
-function flagPartialFunding(rows, requested, routed) {
-  const unfunded = +(requested - routed).toFixed(2);
-  if (unfunded <= 0.01) return rows;
-  for (const r of rows) {
-    r.partiallyFunded = true;
-    r.unfundedAmount  = unfunded;
+function annotateAddFunding(moves) {
+  const trimProceedsByAccount = new Map();
+  for (const m of moves) {
+    if (m.moveType !== 'EXIT' && !m.moveType.startsWith('TRIM')) continue;
+    for (const r of (m.accounts ?? [])) {
+      const net = (r.dollarAmount ?? 0) - (r.taxCost ?? 0);
+      if (net <= 0) continue;
+      trimProceedsByAccount.set(r.accountId, (trimProceedsByAccount.get(r.accountId) ?? 0) + net);
+    }
   }
-  return rows;
+
+  for (const m of moves) {
+    if (m.moveType !== 'ADD') continue;
+    const rows      = m.accounts ?? [];
+    const requested = m.dollarAmount ?? 0;
+    const fromCash  = rows.filter(r => !r.isPlaceholder)
+                          .reduce((s, r) => s + (r.dollarAmount ?? 0), 0);
+    const uncovered = Math.max(0, requested - fromCash);
+    const usable    = rows.reduce((s, r) => s + (trimProceedsByAccount.get(r.accountId) ?? 0), 0);
+    const expected  = Math.min(uncovered, usable);
+    m.funding = {
+      requested:         +requested.toFixed(2),
+      fromCash:          +fromCash.toFixed(2),
+      expectedFromTrims: +expected.toFixed(2),
+      unbacked:          +(uncovered - expected).toFixed(2),
+    };
+  }
 }
 
 /**
@@ -334,7 +369,8 @@ function flagPartialFunding(rows, requested, routed) {
  * Allocation per account is bounded by that account's cash balance.
  *
  * If no account has cash, still returns one row (the best candidate)
- * flagged with insufficientCash: true so the UI can warn the user.
+ * flagged isPlaceholder: true — it shows WHERE the buy goes, while the
+ * move-level funding split says how much is backed by idle cash today.
  */
 function buildAddRouting(positions, addValue, price, committed) {
   if (!addValue || addValue <= 0 || price <= 0) return [];
@@ -391,14 +427,10 @@ function buildAddRouting(positions, addValue, price, committed) {
       roundedToWhole,
       sharesToBuy:     +rawShares.toFixed(3),
       dollarAmount:    +allocate.toFixed(2),
-      insufficientCash: false,
+      isPlaceholder:    false,
     });
     commitCash(committed, pos.accountId, allocate);
     remaining -= allocate;
-  }
-
-  if (rows.length > 0) {
-    return flagPartialFunding(rows, addValue, rows.reduce((s, r) => s + r.dollarAmount, 0));
   }
 
   // No cash anywhere — still surface the best account so the user knows where to buy
@@ -422,7 +454,7 @@ function buildAddRouting(positions, addValue, price, committed) {
       roundedToWhole,
       sharesToBuy:     +rawShares.toFixed(3),
       dollarAmount:    +displayDollar.toFixed(2),
-      insufficientCash: true,
+      isPlaceholder:    true,
     });
   }
 
@@ -478,14 +510,10 @@ function buildNewPositionRouting(accounts, dollarAmount, committed) {
       isTaxAdvantaged:  ['ira', 'roth'].includes(acct.type),
       sharesToBuy:      null, // no live price for a not-yet-held ticker
       dollarAmount:     +allocate.toFixed(2),
-      insufficientCash: false,
+      isPlaceholder:    false,
     });
     commitCash(committed, acct.id, allocate);
     remaining -= allocate;
-  }
-
-  if (rows.length > 0) {
-    return flagPartialFunding(rows, dollarAmount, rows.reduce((s, r) => s + r.dollarAmount, 0));
   }
 
   // No cash anywhere — still surface the best (highest-priority) account so
@@ -500,7 +528,7 @@ function buildNewPositionRouting(accounts, dollarAmount, committed) {
       isTaxAdvantaged:  ['ira', 'roth'].includes(best.type),
       sharesToBuy:      null,
       dollarAmount:     +dollarAmount.toFixed(2),
-      insufficientCash: true,
+      isPlaceholder:    true,
     });
   }
 
@@ -1780,6 +1808,9 @@ async function computeMovesPayload(owner, options = {}) {
     actionMoves = [...actionMoves, ...openMoves]
       .sort((a, b) => a.priority !== b.priority ? a.priority - b.priority : b.dollarAmount - a.dollarAmount);
     } // end !freshStart watchlist-candidates block
+
+    // Funding split for ADD rows — needs the whole batch, trims included.
+    annotateAddFunding(actionMoves);
 
     // ── Capital flow ──────────────────────────────────────────────────────────
     // addMoves now includes both top-ups to existing positions and brand-new

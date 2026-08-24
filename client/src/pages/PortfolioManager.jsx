@@ -190,7 +190,7 @@ function TaxRoutingDetail({ accounts }) {
 
 // ─── Add routing detail (collapsible, mirrors TaxRoutingDetail for buys) ─────
 
-function AddRoutingDetail({ accounts }) {
+function AddRoutingDetail({ accounts, funding }) {
   if (!accounts || accounts.length === 0) return null;
   return (
     <div style={{ marginTop: 10, paddingTop: 10, borderTop: `1px solid ${C.border}` }}>
@@ -214,9 +214,9 @@ function AddRoutingDetail({ accounts }) {
             <span style={{ color: C.dim }}>{a.sharesToBuy.toFixed(3)} shares</span>
           )}
           <span style={{ color: C.muted, fontWeight: 600 }}>{money(a.dollarAmount)}</span>
-          {a.insufficientCash && (
-            <span style={{ marginLeft: 'auto', fontSize: 10, color: C.amber, fontWeight: 700 }}>
-              ⚠ fund account first
+          {a.isPlaceholder && (
+            <span style={{ marginLeft: 'auto', fontSize: 10, color: C.dim }}>
+              destination — see funding below
             </span>
           )}
           {a.roundedToWhole && (
@@ -226,13 +226,20 @@ function AddRoutingDetail({ accounts }) {
           )}
         </div>
       ))}
-      {/* Partial coverage: cash ran out part-way through this row, usually
-          because earlier rows in the same run already claimed it. Distinct
-          from insufficientCash, which means no account had room at all. */}
-      {accounts[0]?.partiallyFunded && (
-        <div style={{ marginTop: 6, fontSize: 11, color: C.amber, fontWeight: 600 }}>
-          ⚠ {money(accounts[0].unfundedAmount)} of this add isn't covered by available cash —
-          {' '}fund the account or reduce the amount.
+      {/* Honest funding split. Most of a re-baseline ADD was never expected to
+          come from idle cash — it comes from trims in the same batch that
+          haven't been executed yet. Saying so beats flagging it as a shortfall. */}
+      {funding && (
+        <div style={{ marginTop: 8, fontSize: 11, color: C.muted, lineHeight: 1.6 }}>
+          <span style={{ color: C.green, fontWeight: 600 }}>{money(funding.fromCash)} available now</span>
+          {funding.expectedFromTrims > 0 && (
+            <> · <span style={{ color: C.blue }}>{money(funding.expectedFromTrims)} expected from trims in this reset, once executed</span></>
+          )}
+          {funding.unbacked > 0 && (
+            <> · <span style={{ color: C.amber, fontWeight: 600 }}>
+              {money(funding.unbacked)} not covered by idle cash or any trim in this batch — needs a deposit
+            </span></>
+          )}
         </div>
       )}
     </div>
@@ -479,15 +486,12 @@ function MovesBanner({ mode, computedAt }) {
 // badge instead of Accept/Decline — but the funding accounts ARE known, and
 // hiding them left the user guessing which account an unallocated add should
 // draw from. Full breakdown still lives in AddRoutingDetail when expanded.
-function BucketFundingHint({ accounts }) {
+function BucketFundingHint({ accounts, funding }) {
   if (!accounts?.length) return null;
-  const partial      = accounts.some(a => a.partiallyFunded);
-  const needsFunding = accounts.some(a => a.insufficientCash) || partial;
   const label = accounts.length === 1 ? accounts[0].accountName : `${accounts.length} accounts`;
-  const tip = accounts
-    .map(a => `${a.accountName}: ${money(a.dollarAmount)}${a.insufficientCash ? ' (needs funding first)' : ''}`)
-    .join(' · ')
-    + (partial ? ` — ${money(accounts[0].unfundedAmount)} not covered by available cash` : '');
+  const needsFunding = funding?.unbacked > 0;
+  const tip = accounts.map(a => `${a.accountName}: ${money(a.dollarAmount)}`).join(' · ')
+    + (funding ? ` — ${money(funding.fromCash)} available now, ${money(funding.expectedFromTrims)} expected from trims` : '');
   return (
     <span
       title={`Funding source if you choose to act — ${tip}`}
@@ -607,7 +611,7 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
             >
               NO QUALIFYING CANDIDATES
             </span>
-            <BucketFundingHint accounts={move.accounts} />
+            <BucketFundingHint accounts={move.accounts} funding={move.funding} />
           </>
         ) : move.isBucketLevel && move.isBelowFloor ? (
           <>
@@ -617,14 +621,14 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
             >
               BELOW MINIMUM
             </span>
-            <BucketFundingHint accounts={move.accounts} />
+            <BucketFundingHint accounts={move.accounts} funding={move.funding} />
           </>
         ) : move.isBucketLevel ? (
           <>
             <span style={{ fontSize: 11, color: C.dim }} title="The agent doesn't pick the specific ETF/crypto/commodity ticker — that's outside its Circle of Competence. The funding account(s) below are still calculated for you.">
               Ticker: your pick
             </span>
-            <BucketFundingHint accounts={move.accounts} />
+            <BucketFundingHint accounts={move.accounts} funding={move.funding} />
           </>
         ) : isDecided && !isEditing ? (
           <>
@@ -706,7 +710,7 @@ function MoveRow({ move, idx, decision, onAccept, onDecline }) {
           {/* Account routing */}
           {hasAccts && (
             move.moveType === 'ADD'
-              ? <AddRoutingDetail accounts={move.accounts} />
+              ? <AddRoutingDetail accounts={move.accounts} funding={move.funding} />
               : <TaxRoutingDetail accounts={move.accounts} />
           )}
 
@@ -807,8 +811,9 @@ function AccountBuckets({ accountSummaries, moves, selected, onSelect }) {
       const rows = (move.accounts || []).filter(a => a.accountType === type);
       if (move.moveType === 'EXIT')              countsByType[type].exit++;
       else if (move.moveType.startsWith('TRIM')) countsByType[type].trim++;
-      else if (move.moveType === 'ADD' && rows.some(a => !a.insufficientCash))
-                                                 countsByType[type].add++;
+      // Counted regardless of idle cash: an ADD funded by trims in this same
+      // batch is still a real action for this account, not an absent one.
+      else if (move.moveType === 'ADD')          countsByType[type].add++;
     }
   }
 
@@ -1764,14 +1769,13 @@ export default function PortfolioManager() {
 
   const availableNow = (data?.freeCash ?? 0) + acceptedProceedsTotal - acceptedSpendTotal;
 
-  // Returns true if a move is actionable in a given account type.
-  // ADD moves require at least one routing row with actual cash (insufficientCash !== true).
-  // TRIM/EXIT moves just need to touch that account type.
+  // Returns true if a move touches a given account type. ADDs used to be
+  // excluded unless a routing row held real idle cash, which hid most of a
+  // re-baseline's adds once the cash ledger stopped double-counting — their
+  // funding legitimately comes from unexecuted trims in the same batch.
   function moveAppliesToBucket(move, accountType) {
     const rows = (move.accounts || []).filter(a => a.accountType === accountType);
-    if (rows.length === 0) return false;
-    if (move.moveType === 'ADD') return rows.some(a => !a.insufficientCash);
-    return true;
+    return rows.length > 0;
   }
 
   // Filter moves to selected bucket; null = show all
