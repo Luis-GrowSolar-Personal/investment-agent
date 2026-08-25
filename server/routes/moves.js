@@ -1224,9 +1224,30 @@ async function computeMovesPayload(owner, options = {}) {
     function splitBucketTarget(groups, bucketTargetPct) {
       const map = new Map();
       if (groups.length === 0) return map;
-      const evenShare = bucketTargetPct / groups.length;
+      const capOf = g => ownerCapMap.get(g.ticker.id) ?? g.ticker.capPercent ?? null;
+      // Only tickers that can actually claim a share of the bucket count toward
+      // the divisor. A zero-cap ticker — typically one a Schwab sync just picked
+      // up and nobody has classified yet — can never hold any of the target, so
+      // counting it strands that slice and dilutes every real holding in the
+      // same bucket. Proven live 2026-08-25: QGRW and SOLZ (capPercent 0) landed
+      // in Andrea's ETF bucket and cut QQQ/TMFC from ~10% to 8.33% each,
+      // generating unwarranted TRIMs on both. Excluded tickers still get their
+      // own entry below — resolving to their own cap, i.e. 0 (full exit) for a
+      // zero-cap ticker. This changes the divisor, not whether a ticker gets a
+      // move.
+      //
+      // Deliberately NOT filtering on inScope here, despite it gating the
+      // eligibility checks elsewhere in this file. In these buckets
+      // inScope: false is the norm, not an exclusion signal — BTC, SIVR, IBIT
+      // and SOLZ are all inScope: false with real caps, because inScope marks
+      // "outside the analyst's equity circle of competence, never auto-add",
+      // not "cannot hold allocation". Filtering on it empties the Crypto and
+      // Commodities buckets outright and full-exits those holdings (verified
+      // 2026-08-25: it zeroed BTC/SIVR/SOLZ on both Andrea and Eduardo).
+      const claimants = groups.filter(g => capOf(g) !== 0);
+      const evenShare = claimants.length > 0 ? bucketTargetPct / claimants.length : 0;
       for (const g of groups) {
-        const configuredCap = ownerCapMap.get(g.ticker.id) ?? g.ticker.capPercent ?? null;
+        const configuredCap = capOf(g);
         map.set(g.ticker.id, configuredCap != null ? Math.min(evenShare, configuredCap) : evenShare);
       }
       return map;
