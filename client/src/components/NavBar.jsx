@@ -111,7 +111,7 @@ export default function NavBar() {
   }, [getToken]);
 
   return (
-    <nav style={{
+    <nav className="navbar-root" style={{
       position: 'fixed',
       top: 0,
       left: 0,
@@ -146,13 +146,16 @@ export default function NavBar() {
         )}
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
+      <div className="navbar-right" style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
         {schwabStatus && (
-          <span style={{ color: schwabStatus.justSynced ? '#4ade80' : '#64748b', fontSize: 12 }}>
-            ⟳ {schwabStatus.label}
+          <span
+            title={schwabStatus.label}
+            style={{ color: schwabStatus.justSynced ? '#4ade80' : '#64748b', fontSize: 12, whiteSpace: 'nowrap' }}
+          >
+            ⟳ <span className="navbar-schwab-text">{schwabStatus.label}</span>
           </span>
         )}
-        <span style={{ color: '#475569', fontSize: 12 }}>{email}</span>
+        <span className="navbar-email" style={{ color: '#475569', fontSize: 12 }}>{email}</span>
         <button
           onClick={() => signOut()}
           style={{

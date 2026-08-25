@@ -19,3 +19,43 @@ body {
 .navbar-tabs::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
 }
+
+/* Narrow viewports only — desktop (where all 5 tabs fit) is untouched.
+   The right-hand group (Schwab status + email + Sign out) used to eat most
+   of the width here, squeezing the strip down to ~1 visible tab. */
+@media (max-width: 768px) {
+  .navbar-root {
+    padding: 0 12px !important;
+  }
+
+  /* Give the strip back the width: drop the email entirely (it's not
+     actionable), and reduce the Schwab status to its ⟳ icon — the full
+     label stays available as a tooltip/title. Sign out stays, just tighter. */
+  .navbar-email {
+    display: none;
+  }
+  .navbar-schwab-text {
+    display: none;
+  }
+  .navbar-right {
+    gap: 8px !important;
+  }
+
+  /* Visible "there's more here, swipe" affordance: the strip fades out at
+     its right edge instead of hard-clipping with no hint. */
+  .navbar-tabs {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
+  }
+
+  /* Taller tap targets, and tell the browser a vertical/ambiguous touch on a
+     tab is a tap — not a scroll to be swallowed. The strip itself still
+     pans horizontally. */
+  .navbar-tabs { touch-action: pan-x; }
+  .navbar-tabs a {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    touch-action: manipulation;
+  }
+}
