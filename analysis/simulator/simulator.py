@@ -152,6 +152,32 @@ def run_simulation(
             # So introspect the function signature.
             import inspect
             sig = inspect.signature(decide_fn)
+            # Hard guard (added 2026-08-30, see
+            # wrap-ups/diagnose-session-limit-and-donor-rule-out.md): a
+            # decide_fn wrapper that accepts **kwargs without ALSO naming
+            # tier/is_first_call/driver_count explicitly silently swallows
+            # them here (`"tier" in sig.parameters` is False for a bare
+            # **kwargs catchall), which has produced a wrong, unflagged
+            # result twice. A decide_fn that simply doesn't declare these
+            # params at all (e.g. allocator.py's v1, by design) is fine --
+            # the checks below correctly no-op for it. Only a **kwargs
+            # catchall masking them is the failure shape being guarded here.
+            has_var_keyword = any(
+                p.kind is inspect.Parameter.VAR_KEYWORD
+                for p in sig.parameters.values()
+            )
+            if has_var_keyword:
+                missing = [n for n in ("tier", "is_first_call", "driver_count")
+                           if n not in sig.parameters]
+                if missing:
+                    raise TypeError(
+                        f"decide_fn {getattr(decide_fn, '__name__', decide_fn)!r} "
+                        f"accepts **kwargs but does not explicitly declare "
+                        f"{missing} -- this silently drops them (see "
+                        f"diagnose-spwr-and-cash-instrumentation-out.md and "
+                        f"sweep-funding-modes-out.md, both bitten by exactly "
+                        f"this). Declare all three parameters explicitly."
+                    )
             if tier_for_ticker is not None and "tier" in sig.parameters:
                 decide_kwargs["tier"] = tier_for_ticker(event.ticker)
             if driver_count_for_ticker is not None and "driver_count" in sig.parameters:
