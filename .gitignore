@@ -32,3 +32,4 @@ diff_output
 # committed — they hold non-sensitive build-time config (VITE_API_URL toggle
 # between localhost in dev and same-origin in prod). Vite needs them at
 # build time, including during the Railway deployment build.
+client/dist/
