@@ -120,10 +120,37 @@ def load_call_events(
     tickers: Optional[list[str]] = None,
     start_date: Optional[date] = None,
     end_date: Optional[date] = None,
+    analysis_created_before: Optional[str] = "2026-06-27 16:26:16-04",
+    analysis_created_after: Optional[str] = "2026-05-02 12:33:23-04",
+    dedupe_same_day_calls: bool = False,
 ) -> list[CallEvent]:
     """Load latest Analysis-per-Transcript, joined with Ticker, optionally
     filtered to a ticker list and date range. Returns events in chronological
     order (oldest first).
+
+    `analysis_created_before` guards against a future re-score silently
+    swapping a post-v6 Analysis row into a v6-era backtest: it excludes any
+    Analysis row created at/after that timestamp before the latest-per-
+    transcript pick is made. Defaults to the v6->v10+auto1 cutover
+    (commit 7063465, 2026-06-27 16:26:16-04); pass None to disable.
+
+    `analysis_created_after` excludes any Analysis row created before v6 went
+    live (commit 22d2c71, 2026-05-02 12:33:23-04) -- a one-sided
+    `analysis_created_before` alone lets ~194 pre-v6 rows into the corpus,
+    which was diagnosed in wrap-ups/diagnose-baseline-shortfall-out.md as the
+    likely cause of a $110k-vs-$287k baseline shortfall. Pass None to
+    disable. Together the two bounds select only Analysis rows created
+    inside the v6 window; a transcript with no row in that window drops out
+    of the result entirely rather than falling back to a pre- or post-v6
+    row -- see wrap-ups/clean-window-baseline-out.md for the coverage
+    implications of that on this corpus.
+
+    `dedupe_same_day_calls`: when two Transcript rows share (ticker,
+    callDate) -- e.g. FSLR 2024-02-27, ids 280 and 284, same call filed
+    twice -- keep only the lower-id transcript's event and drop the other.
+    Off by default (matches historical behavior); see
+    wrap-ups/sweep-funding-modes-out.md for which (ticker, callDate) pairs
+    this affects.
 
     Requires DATABASE_URL in ../../.env. Reads from Railway Postgres directly.
     """
@@ -152,11 +179,18 @@ def load_call_events(
     if end_date:
         where_clauses.append('t."callDate" <= %s')
         params.append(end_date)
+    if analysis_created_before:
+        where_clauses.append('a."createdAt" < %s')
+        params.append(analysis_created_before)
+    if analysis_created_after:
+        where_clauses.append('a."createdAt" >= %s')
+        params.append(analysis_created_after)
 
     where_sql = (' WHERE ' + ' AND '.join(where_clauses)) if where_clauses else ''
 
     sql = f"""
         SELECT
+            t.id AS transcript_id,
             tk.symbol AS ticker,
             t."callDate"::date AS call_date,
             a.recommendation AS per_call_rec,
@@ -187,6 +221,15 @@ def load_call_events(
         with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
             cur.execute(sql, params)
             rows = cur.fetchall()
+
+        if dedupe_same_day_calls:
+            best_by_key: dict = {}
+            for r in rows:
+                key = (r["ticker"], r["call_date"])
+                if key not in best_by_key or r["transcript_id"] < best_by_key[key]["transcript_id"]:
+                    best_by_key[key] = r
+            rows = list(best_by_key.values())
+
         # Second pass: fetch typeClassification per analysis from rawOutput
         # (only needed if downstream Add decisions care about Type A vs B)
         ids_by_key = {(r["ticker"], r["call_date"]): None for r in rows}

@@ -31,6 +31,8 @@ class DailySnapshot:
     tax_advantaged_value: float
     cash_total: float
     n_positions: int   # distinct tickers with shares > 0
+    cash_taxable: float = 0.0          # diagnostic only, see ALLOCATOR_OPERATING_MODEL.md
+    cash_tax_advantaged: float = 0.0   # diagnostic only, see ALLOCATOR_OPERATING_MODEL.md
     baseline_values: dict[str, float] = field(default_factory=dict)
 
 
@@ -227,6 +229,8 @@ def run_simulation(
             cash_total=taxable_acc.cash + tax_adv_acc.cash,
             n_positions=n_positions,
             baseline_values=baseline_values,
+            cash_taxable=taxable_acc.cash,
+            cash_tax_advantaged=tax_adv_acc.cash,
         ))
 
         if verbose and current.year != last_logged_year:
