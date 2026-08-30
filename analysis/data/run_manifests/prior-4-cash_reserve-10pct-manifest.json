@@ -1,0 +1,53 @@
+{
+  "run_id": "prior-4-cash_reserve-10pct",
+  "timestamp_utc": "2026-08-30T23:39:38.278781+00:00",
+  "git_commit": "82a805328d2c396bab18dde60d09c1099c349441",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": true,
+  "corpus": {
+    "source": "db",
+    "created_at_window": [
+      "2026-05-02 12:33:23-04",
+      "2026-06-27 16:26:16-04"
+    ],
+    "universe": [
+      "AAPL",
+      "AMD",
+      "AVGO",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "TSLA",
+      "AMPX",
+      "ENVX",
+      "EOSE",
+      "FSLR",
+      "QS",
+      "RUN",
+      "SPWR",
+      "TTD"
+    ],
+    "event_count": 195,
+    "transcript_ids_sha256": "9beb8e1fa3d0afe66a5054c47758a2a3e5a188a063fdeb60b919265717ad85c9",
+    "db_snapshot": "/Users/luismorales/investment-agent-backups/analysis_corpus_20260830.sql",
+    "db_snapshot_sha256": "a5df033cb6c6cc20f493bccbb9f86b28a73b0f210d7fdbb254411caaa8896923"
+  },
+  "prompt_version": "v6 (circumstantial -- see recon-analysis-table-v6-corpus-out.md; 6/805 rows explicitly tagged, rest inferred from createdAt window)",
+  "model_version": "claude-sonnet-4-20250514 (circumstantial, same basis)",
+  "classification": {
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "tier_source": "trend_analyst.build_tier_function (live 3-axis rule over price_cache.json/fundamentals_cache.json, frozen 2026-05-11)",
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "params": {
+    "funding_mode": "cash_reserve",
+    "reserve_pct": 10
+  },
+  "results": {
+    "final_value": 129183.69790750192,
+    "max_dd": 0.3996530657259222
+  },
+  "output_sha256": "454123e659c6feed2dfabec1ee0c8697016b11567afc046d3e5173c9c566a568"
+}

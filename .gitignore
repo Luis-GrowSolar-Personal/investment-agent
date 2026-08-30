@@ -20,6 +20,11 @@ analysis/data/*
 # trend_analyst.py <-> server/lib/trendAnalyst.js (hand-curated test data,
 # not a regenerable cache) — keep it tracked.
 !analysis/data/trend_verdict_fixtures.json
+# Exception: run manifests are the §10b reproducibility contract's citation
+# record (git_commit, corpus hashes, params, results) -- the whole point is
+# that they're committed, not gitignored like the caches they hash.
+!analysis/data/run_manifests/
+!analysis/data/run_manifests/*.json
 .envrc.zsh
 cat_output
 diff_output
