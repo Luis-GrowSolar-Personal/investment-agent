@@ -1,0 +1,107 @@
+{
+  "run_id": "dense-swap_funding-7.5pp",
+  "timestamp_utc": "2026-08-31T03:10:49.719822+00:00",
+  "git_commit": "15c74a8cb48a2fa242053f4283965d5b6deaa1af",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/sweep_limit_axis_dense.py",
+  "corpus": {
+    "source": "db",
+    "created_at_window": [
+      "2026-05-02 12:33:23-04",
+      "2026-06-27 16:26:16-04"
+    ],
+    "universe": [
+      "AAPL",
+      "AMD",
+      "AVGO",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "TSLA",
+      "AMPX",
+      "ENVX",
+      "EOSE",
+      "FSLR",
+      "QS",
+      "RUN",
+      "SPWR",
+      "TTD"
+    ],
+    "loaded_event_count": 195,
+    "loaded_event_ids_sha256": "9beb8e1fa3d0afe66a5054c47758a2a3e5a188a063fdeb60b919265717ad85c9",
+    "in_window_event_count": 147,
+    "in_window_event_ids_sha256": "02858dc662d9407fdc72f34f06c0fe1ae75ed5d8b60dfdbb05037d96cc2a9e61",
+    "db_snapshot": "/Users/luismorales/investment-agent-backups/analysis_corpus_20260830.sql",
+    "db_snapshot_sha256": "a5df033cb6c6cc20f493bccbb9f86b28a73b0f210d7fdbb254411caaa8896923"
+  },
+  "prompt_version": "v6 (circumstantial, see recon-analysis-table-v6-corpus-out.md)",
+  "model_version": "claude-sonnet-4-20250514 (circumstantial, same basis)",
+  "classification": {
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "tier_source": "trend_analyst.build_tier_function, frozen caches 2026-05-11",
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "params": {
+    "funding_mode": "swap_funding",
+    "session_change_limit_pp": 7.5,
+    "limit_label": "7.5",
+    "draws": [
+      "forward",
+      "reversed",
+      "seed1",
+      "seed2",
+      "seed3",
+      "seed4",
+      "seed5",
+      "seed6",
+      "seed7",
+      "seed8",
+      "seed9",
+      "seed10",
+      "seed11",
+      "seed12",
+      "seed13"
+    ]
+  },
+  "results": {
+    "final": {
+      "min": 143348.73206488244,
+      "median": 158927.13319692557,
+      "max": 162506.3780860533
+    },
+    "dd": {
+      "min": 0.3731950447168659,
+      "median": 0.382762053509151,
+      "max": 0.38430107710377004
+    },
+    "n_clear_38": 7,
+    "n_clear_3912_diagnostic": 15,
+    "forward_diagnostics": {
+      "final_value": 160991.71944260818,
+      "max_dd": 0.37560366965462605,
+      "add_total": 92,
+      "fully_funded": 20,
+      "partial": 62,
+      "unfunded": 10,
+      "total_shortfall": 451149.23314364656,
+      "distinct_tickers": 15,
+      "n_days": 894,
+      "below_1pct_days": 624,
+      "pct_below_1pct": 69.79865771812081,
+      "n_displacements": 349,
+      "displacement_sale_realized_gain": -21148.991278692556,
+      "displacement_realized_gain_hold": -8597.144943956451,
+      "ordinary_sale_realized_gain": 7837.268883689987,
+      "n_disp_hold": 185,
+      "n_disp_trimexit": 164,
+      "below_2pct": 294,
+      "below_1pct_donor": 260,
+      "below_05pct_donor": 222,
+      "n_events": 195
+    }
+  },
+  "output_sha256": "e6455bedfbe109f001a79b89506e190d83217dc61c89314afbe1b2cd7068cc3c"
+}
