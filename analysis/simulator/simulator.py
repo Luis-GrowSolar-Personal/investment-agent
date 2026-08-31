@@ -34,6 +34,7 @@ class DailySnapshot:
     cash_taxable: float = 0.0          # diagnostic only, see ALLOCATOR_OPERATING_MODEL.md
     cash_tax_advantaged: float = 0.0   # diagnostic only, see ALLOCATOR_OPERATING_MODEL.md
     baseline_values: dict[str, float] = field(default_factory=dict)
+    position_values: dict[str, float] = field(default_factory=dict)  # diagnostic only: ticker -> mark-to-market $ this day
 
 
 @dataclass
@@ -247,6 +248,12 @@ def run_simulation(
         baseline_values = {
             t: b.value_on(prices, current) for t, b in baselines.items()
         }
+        position_values = {
+            t: sum(l.shares * mark_prices.get(t, l.cost_basis_per_share)
+                   for acc in portfolio.accounts.values()
+                   for l in acc.lots.get(t, []))
+            for t in held_tickers
+        }
         daily_snapshots.append(DailySnapshot(
             date=current,
             total_value=taxable_value + tax_adv_value,
@@ -257,6 +264,7 @@ def run_simulation(
             baseline_values=baseline_values,
             cash_taxable=taxable_acc.cash,
             cash_tax_advantaged=tax_adv_acc.cash,
+            position_values=position_values,
         ))
 
         if verbose and current.year != last_logged_year:
