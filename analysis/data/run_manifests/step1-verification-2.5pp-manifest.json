@@ -1,0 +1,101 @@
+{
+  "run_id": "step1-verification-2.5pp",
+  "timestamp_utc": "2026-08-31T13:14:18.183905+00:00",
+  "git_commit": "7262d5faa3830ce40579acee92b72c23a555405e",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/verify_and_bracket_tight_limit.py",
+  "corpus": {
+    "source": "db",
+    "created_at_window": [
+      "2026-05-02 12:33:23-04",
+      "2026-06-27 16:26:16-04"
+    ],
+    "universe": [
+      "AAPL",
+      "AMD",
+      "AVGO",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "TSLA",
+      "AMPX",
+      "ENVX",
+      "EOSE",
+      "FSLR",
+      "QS",
+      "RUN",
+      "SPWR",
+      "TTD"
+    ],
+    "loaded_event_count": 195,
+    "loaded_event_ids_sha256": "9beb8e1fa3d0afe66a5054c47758a2a3e5a188a063fdeb60b919265717ad85c9",
+    "in_window_event_count": 147,
+    "in_window_event_ids_sha256": "02858dc662d9407fdc72f34f06c0fe1ae75ed5d8b60dfdbb05037d96cc2a9e61",
+    "db_snapshot": "/Users/luismorales/investment-agent-backups/analysis_corpus_20260830.sql",
+    "db_snapshot_sha256": "a5df033cb6c6cc20f493bccbb9f86b28a73b0f210d7fdbb254411caaa8896923"
+  },
+  "prompt_version": "v6 (circumstantial, see recon-analysis-table-v6-corpus-out.md)",
+  "model_version": "claude-sonnet-4-20250514 (circumstantial, same basis)",
+  "classification": {
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "tier_source": "trend_analyst.build_tier_function, frozen caches 2026-05-11",
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "params": {
+    "window": [
+      "2022-01-01",
+      "2024-06-12"
+    ],
+    "universe": [
+      "AAPL",
+      "AMD",
+      "AVGO",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "TSLA",
+      "AMPX",
+      "ENVX",
+      "EOSE",
+      "FSLR",
+      "QS",
+      "RUN",
+      "SPWR",
+      "TTD"
+    ]
+  },
+  "results": {
+    "all_checks_passed": false,
+    "detail": [
+      "\n--- no_reserve, 2.5pp, forward draw ---",
+      "  [PASS] 1a independent drawdown recompute: compute_summary=18.7825%  independent=18.7825%  diff=0.0000pp  (peak 2023-07-18 $133,960.89 -> trough 2023-10-26 $108,799.69)",
+      "  [PASS] 1b invariant #2 (no position exceeds tier cap): breaches=none; max observed weight: FSLR=8.6% (cap 15%)",
+      "  [PASS] 1b invariant #9 (session move <= limit + rounding): max single-session Add-side position change observed: 2.50pp against a 2.5pp limit (Trim/Exit-side moves not included in this measurement -- those are bounded by pre-existing v2/v3 trim/exit rules, not this limit)",
+      "  [PASS] 1b invariant #5 (no pre-trade-state trade-set sizing defect observed): skipped_events: 0",
+      "  1c cash profile: avg cash=29.0%  median cash=20.9%",
+      "      at drawdown trough (2023-10-26): invested=100.0%  cash=0.0%",
+      "      trough holdings: [('AVGO', 21065.485694862142), ('ORCL', 18342.91009298577), ('NVDA', 15279.481156867812), ('MSFT', 12040.057759677158), ('TSLA', 10193.214664097603), ('AAPL', 10189.537199997754), ('GOOGL', 7170.438843413705), ('FSLR', 5911.601063151015), ('TTD', 2051.996792064912), ('AMD', 2013.2954224104067), ('ENVX', 1566.7966589730709), ('RUN', 1311.0157120756103), ('AMPX', 671.7035777774663), ('QS', 577.7342168824094), ('EOSE', 414.4245697182293)]",
+      "      terminal composition (2024-06-12): NVDA=28.7%, AVGO=20.6%, ORCL=13.8%, MSFT=8.7%, GOOGL=6.7%, FSLR=6.3%, AAPL=5.4%, TSLA=3.6%, AMD=1.9%, TTD=1.8%, ENVX=1.2%, RUN=0.6%, QS=0.3%, AMPX=0.2%, EOSE=0.1%",
+      "  1d binding constraint counts: {'target gap': 0, 'cash available': 54, 'session limit': 44}",
+      "  [FAIL] 1d dominant binding constraint is 'session limit' at 2.5pp: counts={'target gap': 0, 'cash available': 54, 'session limit': 44}, dominant='cash available'",
+      "  [PASS] 1e beats SPY, QQQ, TMFC, equal-weight: 2.5pp final=$185,241.78  SPY=$113,980.12  QQQ=$119,178.08  TMFC=$120,511.89  EW=$120,427.18",
+      "\n--- swap_funding, 2.5pp, forward draw ---",
+      "  [PASS] 1a independent drawdown recompute: compute_summary=22.6682%  independent=22.6682%  diff=0.0000pp  (peak 2022-08-15 $109,629.90 -> trough 2023-01-05 $84,778.73)",
+      "  [FAIL] 1b invariant #2 (no position exceeds tier cap): breaches=[('TTD', 16.441319017684435, 15.0)]; max observed weight: TTD=16.4% (cap 15%)",
+      "  [PASS] 1b invariant #9 (session move <= limit + rounding): max single-session Add-side position change observed: 2.50pp against a 2.5pp limit (Trim/Exit-side moves not included in this measurement -- those are bounded by pre-existing v2/v3 trim/exit rules, not this limit)",
+      "  [PASS] 1b invariant #5 (no pre-trade-state trade-set sizing defect observed): skipped_events: 0",
+      "  1c cash profile: avg cash=26.7%  median cash=15.5%",
+      "      at drawdown trough (2023-01-05): invested=62.3%  cash=37.7%",
+      "      trough holdings: [('ORCL', 10936.78545243905), ('AVGO', 9926.903571543666), ('TTD', 7792.421394717399), ('MSFT', 4236.784254422552), ('AAPL', 4116.686966005689), ('TSLA', 3882.9114002516903), ('AMD', 3596.278671827672), ('RUN', 2738.468326967789), ('ENVX', 1964.317685398714), ('NVDA', 1383.9837760015278), ('EOSE', 1143.0289104866238), ('FSLR', 853.1844639824637), ('GOOGL', 135.95346515006688), ('QS', 79.92519432808513)]",
+      "      terminal composition (2024-06-12): NVDA=24.6%, AVGO=22.5%, ORCL=14.9%, TTD=13.0%, AMD=8.6%, MSFT=6.5%, GOOGL=6.0%, FSLR=2.0%, ENVX=0.9%, AMPX=0.8%, AAPL=0.1%, QS=0.0%, TSLA=0.0%",
+      "  1d binding constraint counts: {'target gap': 1, 'cash available': 42, 'session limit': 53}",
+      "  [PASS] 1d dominant binding constraint is 'session limit' at 2.5pp: counts={'target gap': 1, 'cash available': 42, 'session limit': 53}, dominant='session limit'",
+      "  [PASS] 1e beats SPY, QQQ, TMFC, equal-weight: 2.5pp final=$189,781.58  SPY=$113,980.12  QQQ=$119,178.08  TMFC=$120,511.89  EW=$120,427.18"
+    ]
+  },
+  "output_sha256": "f760978b359d58a136db35915dc838fb89d9fa4be33f14c595e44c52cd8729a9"
+}
