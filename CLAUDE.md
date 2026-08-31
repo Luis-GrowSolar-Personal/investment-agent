@@ -14,6 +14,16 @@
   for a handoff document. When asked, write it to docs/handoffs/ with a
   date-stamped filename.
 - Do not write handoff documents proactively at the end of a session.
+- **Reports ship in two formats.** Whenever a handoff, state-of-play, or
+  similar report document is produced, write BOTH:
+  (a) the `.md` file in docs/handoffs/ — the canonical copy, consumed by
+      Claude Code/CLI, chat, Cowork, and mirrored into the project docs;
+  (b) a `.docx` alongside it with the same base filename — Luis reads
+      Word, and that is the copy he actually reads.
+  Deliver both. Keep them in sync: regenerate the .docx whenever the .md
+  changes, and never let the two diverge in content.
+  This applies to reports only. Prompt files in prompts/ and CLI wrap-ups
+  in wrap-ups/ stay .md-only.
 - For complex terminal commands or SQL scripts, display them in a fenced
   code block in the chat — not inline prose, and not a separate file —
   so they're easy to copy.
