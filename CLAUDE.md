@@ -16,12 +16,17 @@
 - Do not write handoff documents proactively at the end of a session.
 - **Reports ship in two formats.** Whenever a handoff, state-of-play, or
   similar report document is produced, write BOTH:
-  (a) the `.md` file in docs/handoffs/ — the canonical copy, consumed by
-      Claude Code/CLI, chat, Cowork, and mirrored into the project docs;
-  (b) a `.docx` alongside it with the same base filename — Luis reads
-      Word, and that is the copy he actually reads.
-  Deliver both. Keep them in sync: regenerate the .docx whenever the .md
-  changes, and never let the two diverge in content.
+  (a) the `.md` file in docs/handoffs/ — canonical, consumed by Claude
+      Code/CLI, chat, Cowork, and mirrored into the project docs;
+  (b) a `.docx` alongside it with the same base filename.
+  Deliver both. Keep them in sync; never let the two diverge in content.
+  **Why — do not drop the .docx as redundant.** Luis reads a freshly
+  generated .md fine in the Cowork/chat rendering. The .docx exists for
+  *retrieval*: the macOS tools he opens old files with (VS Code, Safari)
+  do not render Markdown tables correctly, and these reports are
+  table-heavy. The .md is for the moment; the .docx is what keeps the
+  report legible when he comes back to it cold, months later. Render
+  tables as real Word tables, not preformatted text.
   This applies to reports only. Prompt files in prompts/ and CLI wrap-ups
   in wrap-ups/ stay .md-only.
 - For complex terminal commands or SQL scripts, display them in a fenced
