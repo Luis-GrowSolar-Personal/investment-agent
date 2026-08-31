@@ -591,11 +591,15 @@ def main() -> int:
                      "inherited_bar_pct": 38.0, "matches": bar_matches})
 
     if not bar_matches:
-        print(f"\nSTOP per instruction: re-derived bar {rederived_bar:.2f}% != inherited 38.0%. "
-              f"Not scoring any cell. Both figures reported above; design session decides.")
-        return 0
+        print(f"\nMISMATCH: re-derived bar {rederived_bar:.2f}% != inherited 38.0%. "
+              f"Per instruction: do not adopt the re-derived figure, do not describe "
+              f"any cell as passing 'under' {rederived_bar:.2f}%. Both figures are "
+              f"reported (above, and in the wrap-up); Step 2's measurement grid "
+              f"still runs below, and per Step 3's own final instruction every "
+              f"config is still scored against the EXISTING 38.0% bar -- the "
+              f"design session decides which bar stands, not this run.")
 
-    dd_bar = 38.0
+    dd_bar = 38.0  # existing bar, per instruction -- scored against this regardless of the mismatch above
 
     # ---- Step 2: the eight-configuration grid, 7 draws each ----
     configs = {
