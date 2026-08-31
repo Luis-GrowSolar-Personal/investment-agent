@@ -68,6 +68,7 @@ class RealizedSale:
     realized_gain: float
     is_long_term: bool  # holding ≥ 365 days
     holding_days: int
+    reason: Optional[str] = None  # e.g. "swap-funding-displacement"; from Trade.reason
 
 
 @dataclass
@@ -193,6 +194,7 @@ class Portfolio:
                 cost_basis_total=cost_basis_total,
                 proceeds=proceeds,
                 realized_gain=proceeds - cost_basis_total,
+                reason=trade.reason,
                 is_long_term=holding_days >= 365,
                 holding_days=holding_days,
             ))
