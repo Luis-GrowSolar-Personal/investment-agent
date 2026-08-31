@@ -1,0 +1,172 @@
+{
+  "run_id": "peak-trough-analysis-per-mode",
+  "timestamp_utc": "2026-08-31T13:44:12.129813+00:00",
+  "git_commit": "77b541ae9aba9c4ac8f99d776197b4321bbd24a9",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/bracket_three_modes_s11_corrected.py",
+  "corpus": {
+    "source": "db",
+    "created_at_window": [
+      "2026-05-02 12:33:23-04",
+      "2026-06-27 16:26:16-04"
+    ],
+    "universe": [
+      "AAPL",
+      "AMD",
+      "AVGO",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "TSLA",
+      "AMPX",
+      "ENVX",
+      "EOSE",
+      "FSLR",
+      "QS",
+      "RUN",
+      "SPWR",
+      "TTD"
+    ],
+    "loaded_event_count": 195,
+    "loaded_event_ids_sha256": "9beb8e1fa3d0afe66a5054c47758a2a3e5a188a063fdeb60b919265717ad85c9",
+    "in_window_event_count": 147,
+    "in_window_event_ids_sha256": "02858dc662d9407fdc72f34f06c0fe1ae75ed5d8b60dfdbb05037d96cc2a9e61",
+    "db_snapshot": "/Users/luismorales/investment-agent-backups/analysis_corpus_20260830.sql",
+    "db_snapshot_sha256": "a5df033cb6c6cc20f493bccbb9f86b28a73b0f210d7fdbb254411caaa8896923"
+  },
+  "prompt_version": "v6 (circumstantial, see recon-analysis-table-v6-corpus-out.md)",
+  "model_version": "claude-sonnet-4-20250514 (circumstantial, same basis)",
+  "classification": {
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "tier_source": "trend_analyst.build_tier_function, frozen caches 2026-05-11",
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "params": {
+    "modes": [
+      "no_reserve_raw",
+      "no_reserve_s11fixed",
+      "swap_funding"
+    ]
+  },
+  "results": {
+    "no_reserve_raw": {
+      "peak_label": "3",
+      "trough_date": "2023-01-05",
+      "trough_invested_pct": 72.44237008171686,
+      "trough_cash_pct": 27.557629918283137,
+      "trough_holdings": {
+        "ENVX": 2100.8310112195795,
+        "ORCL": 12817.937589658755,
+        "RUN": 2148.4656827822387,
+        "NVDA": 2892.4196924127646,
+        "AVGO": 11650.621298433309,
+        "GOOGL": 1061.8788649094547,
+        "QS": 718.9277684478081,
+        "AAPL": 6821.188246283894,
+        "MSFT": 7002.852386849009,
+        "EOSE": 764.2220805900205,
+        "AMD": 1608.9077699220784,
+        "TTD": 1584.6214706209844,
+        "FSLR": 4311.608337436805,
+        "TSLA": 4573.967364106224
+      },
+      "terminal_composition": {
+        "ENVX": 1.4591915669345712,
+        "ORCL": 13.766991269578776,
+        "AMPX": 0.20225615825066817,
+        "RUN": 0.7012386849537285,
+        "NVDA": 27.953828500906262,
+        "AVGO": 20.450834547572832,
+        "GOOGL": 4.602971306522757,
+        "QS": 0.39096962886848097,
+        "AAPL": 5.560968063226341,
+        "MSFT": 9.913095059705695,
+        "EOSE": 0.08333610067938498,
+        "AMD": 2.1847651943501747,
+        "TTD": 2.1234021050769236,
+        "FSLR": 7.435118705702521,
+        "TSLA": 3.1710331076708766
+      }
+    },
+    "no_reserve_s11fixed": {
+      "peak_label": "2.5",
+      "trough_date": "2023-01-05",
+      "trough_invested_pct": 78.80415326141501,
+      "trough_cash_pct": 21.195846738584994,
+      "trough_holdings": {
+        "ENVX": 3496.8230722760127,
+        "ORCL": 10986.476495053417,
+        "RUN": 4033.290490078458,
+        "NVDA": 2453.415997407125,
+        "AVGO": 9964.477523785185,
+        "GOOGL": 884.1948110222081,
+        "QS": 598.7628641387046,
+        "AAPL": 5755.84417252895,
+        "MSFT": 5920.434855312717,
+        "EOSE": 1611.0812427436554,
+        "AMD": 4535.428767765089,
+        "TTD": 7802.1128028220965,
+        "FSLR": 3595.312309127748,
+        "TSLA": 3877.3594552239238
+      },
+      "terminal_composition": {
+        "ENVX": 2.524147669506788,
+        "ORCL": 12.234396902774797,
+        "AMPX": 0.2149610008181151,
+        "RUN": 0.9551911698999638,
+        "NVDA": 20.671843981464676,
+        "AVGO": 18.1803706802094,
+        "GOOGL": 3.7756912272325085,
+        "QS": 1.4068241868160645,
+        "AAPL": 5.032808567734795,
+        "MSFT": 6.4478065588694635,
+        "EOSE": 0.18257905034887176,
+        "AMD": 6.400470172679078,
+        "TTD": 12.704591860759585,
+        "FSLR": 6.480569906319983,
+        "TSLA": 2.787747064565912
+      }
+    },
+    "swap_funding": {
+      "peak_label": "3",
+      "trough_date": "2023-01-05",
+      "trough_invested_pct": 76.81214391509405,
+      "trough_cash_pct": 23.18785608490594,
+      "trough_holdings": {
+        "ENVX": 2336.5543674360083,
+        "ORCL": 13014.375722817747,
+        "RUN": 3209.0277811348406,
+        "NVDA": 1643.8976841884319,
+        "AVGO": 11805.28036996333,
+        "GOOGL": 165.14252428829576,
+        "QS": 95.96527280245095,
+        "AAPL": 4885.867018532399,
+        "MSFT": 5029.651603727154,
+        "EOSE": 1366.960503240667,
+        "AMD": 4421.35041150518,
+        "TTD": 9210.490646932383,
+        "FSLR": 1023.1648691378357,
+        "TSLA": 4609.657276375967
+      },
+      "terminal_composition": {
+        "ENVX": 0.736601359736638,
+        "ORCL": 19.04557598094102,
+        "AMPX": 1.4323800099817632,
+        "NVDA": 26.584523752296363,
+        "AVGO": 19.95220672880141,
+        "GOOGL": 4.512460082244826,
+        "QS": 0.033413382187146796,
+        "AAPL": 0.10333743736647717,
+        "MSFT": 6.9185380395609535,
+        "AMD": 7.307072403475708,
+        "TTD": 12.370951582619172,
+        "FSLR": 1.0017799307570578,
+        "TSLA": 0.0011304447179844067
+      }
+    }
+  },
+  "output_sha256": "6e81d1e9f1580a485d826c7af3371157110715a9b3c6a1ddbf2e391ca36ff8c5"
+}

@@ -1,0 +1,212 @@
+{
+  "run_id": "bracket-swap_funding-5pp",
+  "timestamp_utc": "2026-08-31T13:44:09.667046+00:00",
+  "git_commit": "77b541ae9aba9c4ac8f99d776197b4321bbd24a9",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/bracket_three_modes_s11_corrected.py",
+  "corpus": {
+    "source": "db",
+    "created_at_window": [
+      "2026-05-02 12:33:23-04",
+      "2026-06-27 16:26:16-04"
+    ],
+    "universe": [
+      "AAPL",
+      "AMD",
+      "AVGO",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "TSLA",
+      "AMPX",
+      "ENVX",
+      "EOSE",
+      "FSLR",
+      "QS",
+      "RUN",
+      "SPWR",
+      "TTD"
+    ],
+    "loaded_event_count": 195,
+    "loaded_event_ids_sha256": "9beb8e1fa3d0afe66a5054c47758a2a3e5a188a063fdeb60b919265717ad85c9",
+    "in_window_event_count": 147,
+    "in_window_event_ids_sha256": "02858dc662d9407fdc72f34f06c0fe1ae75ed5d8b60dfdbb05037d96cc2a9e61",
+    "db_snapshot": "/Users/luismorales/investment-agent-backups/analysis_corpus_20260830.sql",
+    "db_snapshot_sha256": "a5df033cb6c6cc20f493bccbb9f86b28a73b0f210d7fdbb254411caaa8896923"
+  },
+  "prompt_version": "v6 (circumstantial, see recon-analysis-table-v6-corpus-out.md)",
+  "model_version": "claude-sonnet-4-20250514 (circumstantial, same basis)",
+  "classification": {
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "tier_source": "trend_analyst.build_tier_function, frozen caches 2026-05-11",
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "params": {
+    "funding_mode": "swap_funding",
+    "session_change_limit_pp": 5.0,
+    "limit_label": "5",
+    "draws": [
+      "forward",
+      "reversed",
+      "seed1",
+      "seed2",
+      "seed3",
+      "seed4",
+      "seed5",
+      "seed6",
+      "seed7",
+      "seed8",
+      "seed9",
+      "seed10",
+      "seed11",
+      "seed12",
+      "seed13"
+    ]
+  },
+  "results": {
+    "final": {
+      "min": 162530.0485239352,
+      "median": 179208.55600684625,
+      "max": 186119.7649244304
+    },
+    "dd": {
+      "min": 0.35116175659181004,
+      "median": 0.35257505302960546,
+      "max": 0.3526250037437955
+    },
+    "n_clear_38": 15,
+    "n_clear_3912_diagnostic": 15,
+    "n_skip_known_s11": 0,
+    "n_skip_other": 0,
+    "forward_diagnostics": {
+      "final_value": 185524.66349692177,
+      "max_dd": 0.35116175659181004,
+      "add_total": 93,
+      "fully_funded": 37,
+      "partial": 48,
+      "unfunded": 8,
+      "total_shortfall": 297582.4812924627,
+      "distinct_tickers": 15,
+      "n_days": 894,
+      "below_1pct_days": 584,
+      "pct_below_1pct": 65.32438478747204,
+      "n_displacements": 304,
+      "displacement_sale_realized_gain": -15032.275458774704,
+      "displacement_realized_gain_hold": -4665.969811842602,
+      "ordinary_sale_realized_gain": 6564.96002908985,
+      "n_disp_hold": 165,
+      "n_disp_trimexit": 139,
+      "below_2pct": 258,
+      "below_1pct_donor": 224,
+      "below_05pct_donor": 179,
+      "n_events": 195,
+      "binding_counts": {
+        "target gap": 7,
+        "cash available": 56,
+        "session limit": 30
+      },
+      "cap_drift": {
+        "AAPL": {
+          "max_weight": 10.764758990371384,
+          "cap": 50.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "AMD": {
+          "max_weight": 14.80699652894911,
+          "cap": 50.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "AVGO": {
+          "max_weight": 29.85894422845554,
+          "cap": 50.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "GOOGL": {
+          "max_weight": 10.826032594353059,
+          "cap": 50.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "MSFT": {
+          "max_weight": 11.18957535237032,
+          "cap": 50.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "NVDA": {
+          "max_weight": 21.39508772070732,
+          "cap": 50.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "ORCL": {
+          "max_weight": 29.588757103004088,
+          "cap": 50.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "TSLA": {
+          "max_weight": 19.30289481386886,
+          "cap": 50.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "AMPX": {
+          "max_weight": 2.1117191936038537,
+          "cap": 15.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "ENVX": {
+          "max_weight": 23.2118229957173,
+          "cap": 15.0,
+          "days_above": 83,
+          "max_excess": 8.211822995717299
+        },
+        "EOSE": {
+          "max_weight": 7.123318715415822,
+          "cap": 15.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "FSLR": {
+          "max_weight": 5.40179305505995,
+          "cap": 15.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "QS": {
+          "max_weight": 5.8884590271242345,
+          "cap": 15.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "RUN": {
+          "max_weight": 7.376184301799829,
+          "cap": 15.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "SPWR": {
+          "max_weight": 0.0,
+          "cap": 15.0,
+          "days_above": 0,
+          "max_excess": 0.0
+        },
+        "TTD": {
+          "max_weight": 20.097445579764187,
+          "cap": 15.0,
+          "days_above": 619,
+          "max_excess": 5.097445579764187
+        }
+      }
+    }
+  },
+  "output_sha256": "52479775058619b6c031b428e9ded125a53a2c48c0e8c74b70161cabd658d4ac"
+}
