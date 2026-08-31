@@ -38,3 +38,6 @@ diff_output
 # between localhost in dev and same-origin in prod). Vite needs them at
 # build time, including during the Railway deployment build.
 client/dist/
+
+# Local brokerage position exports -- account data, never versioned
+testing/

@@ -140,7 +140,35 @@ Step 4: Dashboard (allocator, concentration rules, Layer 1)
 Step 5: Alerts module (press releases, thesis classification)
 Step 6: Automated transcript ingestion (EDGAR/Seeking Alpha)
 Step 7: Backtesting module (historical dry run)
-Step 8: Opportunity Scanner (Layer 3 — trend monitoring, 
+Step 8: Trade execution — in two stages, in order:
+        (a) In-app trading: Accept on a move places the real order via
+            the Schwab API and, critically, re-verifies the account's
+            actual resulting balance before the next dependent trade —
+            this is what actually closes the per-account funding-
+            uncertainty problem (see wrap-ups from 2026-08-24: the
+            cash/trim-proceeds double-counting fixes were an interim
+            display-only bandaid, not a permanent fix). Needs its own
+            safety scaffolding even fully manual: explicit confirm step,
+            partial-fill/rejection handling, idempotency protection
+            against duplicate submission, and ideally a paper/sandbox
+            pass before real money. Requires recon-first design, same
+            discipline as the Full Reset redesign, given real-money
+            stakes — not a routine fix prompt.
+        (b) Agentic-capable trading: the app executes on its own
+            schedule, no click required. Built after (a) is proven, and
+            not switched on for real money until confidence is earned —
+            run it manually-triggered first, then in an observe-only
+            "shadow mode" (logs what it would have executed without
+            acting) to build a track record, then live. Needs its own
+            guardrails independent of recommendation quality: position-
+            size caps, a trade-count/frequency limit, a kill switch, and
+            monitoring/alerting.
+        Decided 2026-08-24: prioritized above Opportunity Scanner —
+        getting execution mechanics right on existing positions, with
+        market-validated results, outweighs surfacing new candidates.
+        See memory/accept_triggers_trade_ticket_backlog.md for the full
+        discussion and rationale.
+Step 9: Opportunity Scanner (Layer 3 — trend monitoring, 
         candidate surfacing, Radar Inbox)
 
 ## Current Build State
