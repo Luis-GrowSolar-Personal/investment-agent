@@ -25,6 +25,11 @@ analysis/data/*
 # that they're committed, not gitignored like the caches they hash.
 !analysis/data/run_manifests/
 !analysis/data/run_manifests/*.json
+# Exception: run_state is the resumability record for long multi-session
+# sweep prompts (progress.json, cells.jsonl, findings.md per run_id) — must
+# survive a killed session, so it's committed like run_manifests.
+!analysis/data/run_state/
+!analysis/data/run_state/**
 .envrc.zsh
 cat_output
 diff_output

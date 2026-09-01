@@ -1,0 +1,23 @@
+{
+  "prompt_sha256": "e3fdbe5c4eaa3eb139be82cf24a611c159446d699eaf16336bc19e85a4085e6b",
+  "driver_commit": "3f8a5633c42908baa45c2b4648b18acfccc44575",
+  "steps": {
+    "-1_resume_setup": "done",
+    "0_hygiene": "done",
+    "1_fourth_bug": "pending",
+    "2_gate_1a": "pending",
+    "3_spec_delta": "pending",
+    "4_pooling_rederive": "pending",
+    "5_cadence_grid": "pending",
+    "6_fold_ins": "pending",
+    "7_gates_rules": "pending",
+    "8_report": "pending"
+  },
+  "next_action": "Resume at Step 1: instrument day_start_of_day_value[t] and day_trimmed_today[t] for every donor at every calendar date in make_funding_decide_fn (analysis/bracket_three_modes_s11_corrected.py:275-494) for both the reference path and the session-model path, starting 2022-01-01, to find the first ticker/date where they disagree (expected near QS on 2024-02-14 per prior findings, donor AAPL suspected). This requires actual code instrumentation and backtest runs -- not done yet in this session.",
+  "notes": [
+    "Fresh start confirmed: no prior run_state directory existed.",
+    "Tree was clean at session start on sweep/db-corpus-baseline.",
+    "This session is operating under a tight reasoning/turn budget relative to the task's scope (full 8-step multi-day research sweep). Expect a partial run; will stop cleanly per Step -1 protocol rather than fabricate grid results.",
+    "git_dirty=false confirmed at start; sections 0,2,3,4,5,9,10 headers confirmed present in docs/architecture/ALLOCATOR_OPERATING_MODEL.md. \u00a710b/\u00a711 headers not individually confirmed by grep (numbering may differ) -- resuming session should verify exact \u00a710b/\u00a711 content before Step 1."
+  ]
+}
