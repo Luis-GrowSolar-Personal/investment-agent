@@ -160,12 +160,36 @@ git push origin sweep/db-corpus-baseline
 Verified safe: `.env` and the `testing/` brokerage CSVs were never committed,
 and the only CSVs in history are simulation outputs.
 
-**Get the corpus dump off the laptop.**
-`~/investment-agent-backups/analysis_corpus_20260830.sql` (41 MB) sits outside
-Dropbox, so it exists on one machine. It is the single irreplaceable artifact in
-this project — the model that produced those evaluations is retired, so it
-cannot be regenerated at any price. If it is lost, `$141,837` joins `$287k` as a
-number nobody can reproduce.
+**Get the corpus dump off the laptop. → CARRIED FORWARD AS THE FIRST ACTION OF
+THE NEXT SESSION (see §9).** `~/investment-agent-backups/analysis_corpus_20260830.sql`
+(41 MB) sits outside Dropbox, so it exists on one machine. It is the single
+irreplaceable artifact in this project — the model that produced those
+evaluations is retired, so it cannot be regenerated at any price. If it is lost,
+`$141,837` joins `$287k` as a number nobody can reproduce.
+
+**Not into git.** A 41 MB blob that changes wholesale cannot be delta-compressed,
+so every future snapshot adds ~41 MB to the repository permanently; GitHub warns
+above 50 MB and fails at 100 MB. §10b also puts the corpus outside the repo by
+design — the corpus is data, the repo is code, and mixing them is what made
+`price_cache.json` a hazard. The dump holds no account or position data
+(`Analysis` / `Transcript` / `Ticker` only), but `Transcript.rawText` is
+third-party earnings-call text, so confirm the repo's visibility before it goes
+anywhere near GitHub.
+
+**Do this instead:** gzip it (SQL dumps compress roughly 10:1, so ~4–5 MB) and
+put it in Dropbox — instantly offsite, versioned, no new infrastructure. Better
+still, also attach the gzip to a **GitHub Release** tagged to the commit it
+belongs with: release assets live outside git history, so no repository bloat,
+and it is versioned against a SHA, which is exactly what §10b's manifest
+contract wants.
+
+```zsh
+gzip -k ~/investment-agent-backups/analysis_corpus_20260830.sql
+shasum -a 256 ~/investment-agent-backups/analysis_corpus_20260830.sql.gz
+```
+
+**Record that checksum.** Every manifest references `corpus.db_snapshot_sha256`
+and currently points at a file only one machine has.
 
 **Still not done from §10b:** archiving `price_cache.json` and
 `fundamentals_cache.json` to a dated folder with recorded checksums. They are
@@ -189,8 +213,17 @@ them and Dropbox would faithfully sync the damage.
 
 ## 9. First action on return
 
-Run the cadence prompt. Everything else waits on what `K` does to the limit
-value.
+**1. Back up the corpus dump before anything else.** Deferred from this session
+and carried forward deliberately: gzip
+`~/investment-agent-backups/analysis_corpus_20260830.sql`, put it in Dropbox
+and/or a GitHub Release tagged to its commit, and record the sha256 — see §7 for
+the commands and why not into git. This is five minutes of work protecting the
+one artifact in the project that cannot be regenerated at any price. Do it
+first, because it is the only item here whose cost of being skipped is
+unbounded.
+
+**2. Then run the cadence prompt.** Everything else waits on what `K` does to
+the limit value.
 
 If the equivalence gate fails, stop there and read the failure — it means §3's
 session model changed behaviour the old harness had, and nothing downstream is
