@@ -33,6 +33,36 @@
   code block in the chat — not inline prose, and not a separate file —
   so they're easy to copy.
 
+## Long CLI runs must be resumable
+
+A CLI session can run out of budget mid-run. **Any prompt whose work spans more
+than a handful of backtest cells must be restartable without losing what was
+already done.** Restarting from zero has cost real work more than once.
+
+Every such prompt carries a `run_id` and a Step -1 resume protocol. State lives
+in `analysis/data/run_state/<run_id>/`, un-ignored in `.gitignore` and committed:
+
+- `progress.json` — `prompt_sha256`, `driver_commit`, per-step status
+  (pending / in_progress / done), a one-sentence `next_action`, and `notes[]`.
+- `cells.jsonl` — one line per completed cell: `cell_key`, `params`,
+  `config_hash`, `results`. Flushed after every cell, so a killed session loses
+  at most one.
+- `findings.md` — append-only, written the moment a finding is established.
+  Never hold findings in memory for a final composition pass.
+
+On start: matching `prompt_sha256` means resume and skip completed steps and any
+cell whose `config_hash` already appears. A changed prompt archives the old
+state and starts fresh. A changed `driver_commit` invalidates `cells.jsonl`
+(behavior may differ) but keeps `findings.md`. Report what was reused.
+
+`config_hash` is sha256 over the driver commit plus the full sorted parameter
+set, so a code change cannot silently reuse stale cells.
+
+Running low on budget is a reason to stop cleanly, not to rush: write the
+wrap-up with what is done, mark the rest `pending` with a precise `next_action`,
+and say plainly that it is a partial run. **A partial run that resumes is worth
+far more than a complete run that is lost.**
+
 ## Project Overview
 Personal investment analysis and portfolio management tool.
 React frontend, Node.js/Express backend, PostgreSQL database,
