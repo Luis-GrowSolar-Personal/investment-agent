@@ -356,7 +356,8 @@ def _floor_dollars(min_position_pct, portfolio_value):
 def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                             cadence, phase_offset, scope, funding_mode, limit_pp,
                             reverse_order=False, seed=None, min_position_pct=0.0,
-                            sub_floor_dollars=100.0, execution_order="pooled"):
+                            sub_floor_dollars=100.0, execution_order="pooled",
+                            trim_budget_scope="per_event_date"):
     """Run ONE session-model backtest for a given (cadence, phase, scope,
     funding_mode, limit, draw, minPositionPct, execution_order) cell.
     Mirrors run_cell's per-call harness but batches decisions at session
@@ -469,7 +470,17 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
         # there would let each same-date session re-claim a fresh 25% of the
         # donor instead of sharing one day's budget, diverging from the
         # reference the equivalence gate must reproduce exactly.
-        if sd != last_calendar_date:
+        # trim_budget_scope (Step 3, prompts/close-equivalence-corrected-targets.md):
+        #   'per_event_date' -- what the reference does, described above.
+        #   'per_session'    -- spec-faithful (§5 denominates the donor trim
+        #                       budget in SESSIONS, not calendar dates), so
+        #                       every session re-claims a fresh 25%. These two
+        #                       can only differ where a calendar date carries
+        #                       more than one session, i.e. 'single_event' /
+        #                       'per_call' cadence; at any fixed-K or seasonal
+        #                       cadence one session IS one date and the two
+        #                       are identical by construction.
+        if trim_budget_scope == "per_session" or sd != last_calendar_date:
             day_start_of_day_value = {
                 t: portfolio.position_value(t, prices_today.get(t, 0.0))
                 for t in ticker_state if portfolio.position_shares(t) > 1e-9

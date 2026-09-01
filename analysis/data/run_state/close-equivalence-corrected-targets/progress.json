@@ -1,20 +1,20 @@
 {
   "run_id": "close-equivalence-corrected-targets",
   "prompt_sha256": "79886397ba00b093ffe8c458750e2513143719a31280dc4c822baf7115775395",
-  "driver_commit": "ccefcd313e0b8069767c4ab1334b03adc2c151e6",
+  "driver_commit": "a7df857b5786",
   "steps": {
     "step_-1_resume_protocol": "done",
     "step_0_hygiene": "done",
     "step_1_gate_1a_corrected_targets": "done",
     "step_2_residual_close": "done",
-    "step_3_spec_correction_deltas": "pending",
-    "step_4_pooling_rederived": "pending",
-    "step_5_cadence_grid": "pending",
-    "step_6_fold_ins": "pending",
-    "step_7_gates_and_rules": "pending",
-    "step_8_report": "pending"
+    "step_3_spec_correction_deltas": "done",
+    "step_4_pooling_rederived": "done",
+    "step_5_cadence_grid": "done",
+    "step_6_fold_ins": "done",
+    "step_7_gates_and_rules": "done",
+    "step_8_report": "in_progress"
   },
-  "next_action": "Gate 1a PASSES bit-exact after the year-end-tax-inside-the-loop fix. Next: commit the driver fix, then Step 3 (per_session vs per_event_date trim_budget_scope deltas).",
+  "next_action": "All measurement complete; only the wrap-up at wrap-ups/close-equivalence-corrected-targets-out.md remains.",
   "notes": [
     "New run_id supersedes close-equivalence-and-run-cadence per prompt instructions.",
     "Must seed findings.md from analysis/data/run_state/close-equivalence-and-run-cadence/findings.md (copy in as prior context, noted as coming from superseded run).",
