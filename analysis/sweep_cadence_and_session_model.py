@@ -236,7 +236,7 @@ def seasonal_session_dates(phase_offset):
 
 
 def session_dates_for(cadence, phase_offset, events):
-    if cadence in ("per_call", "single_event"):
+    if cadence in ("per_call", "single_event", "per_call_bundled"):
         return per_call_session_dates(events)
     if cadence == "seasonal":
         return seasonal_session_dates(phase_offset)
@@ -724,6 +724,10 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
         # equivalence gate requires reproducing THAT behavior exactly, so
         # ranking is skipped for cadence in ('per_call', 'single_event') and
         # applied for every real cadence.
+        # 'per_call_bundled' (Step 1b) uses the SAME session dates as
+        # 'per_call' (one session per distinct call date) but, unlike the
+        # equivalence-only 'per_call', DOES apply §4 ranking within a
+        # multi-event session -- that's the entire thing Step 1b measures.
         if cadence not in ("per_call", "single_event"):
             def _key(c):
                 base = rank_key(c["ticker"], ticker_state.get(c["ticker"]), portfolio, prices_today, sd)
