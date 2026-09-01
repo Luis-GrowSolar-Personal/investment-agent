@@ -4,8 +4,8 @@
   "steps": {
     "-1_resume_setup": "done",
     "0_hygiene": "done",
-    "1_fourth_bug": "pending",
-    "2_gate_1a": "pending",
+    "1_fourth_bug": "in_progress",
+    "2_gate_1a": "done_failed",
     "3_spec_delta": "pending",
     "4_pooling_rederive": "pending",
     "5_cadence_grid": "pending",
@@ -13,11 +13,12 @@
     "7_gates_rules": "pending",
     "8_report": "pending"
   },
-  "next_action": "Resume at Step 1: instrument day_start_of_day_value[t] and day_trimmed_today[t] for every donor at every calendar date in make_funding_decide_fn (analysis/bracket_three_modes_s11_corrected.py:275-494) for both the reference path and the session-model path, starting 2022-01-01, to find the first ticker/date where they disagree (expected near QS on 2024-02-14 per prior findings, donor AAPL suspected). This requires actual code instrumentation and backtest runs -- not done yet in this session.",
+  "next_action": "Resume Step 1: pin the exact date within (2023-12-11, 2024-01-24] where ref's and new's portfolio share counts first diverge (total_value already disagrees by -$68.50 at 2024-01-24, the earliest common MTM-snapshot date after 2023-12-11, with zero funding/displacement/skip activity near that date in either implementation and no price-cache gaps -- see findings.md for the full diagnostic trail). Do this by forcing run_session_sweep_cell to snapshot total_value AND per-ticker share counts every calendar day (not just session dates) in that window, or by instrumenting per-ticker share counts directly at every event boundary in both implementations, then diff. Once the exact date/ticker/trade is found, fix it (or classify as spec-vs-reference divergence per Step 3's toggle discipline), then rerun Gate 1a (Step 2) -- it currently FAILS at swap_funding/2.5pp by exactly -$626.83 (-0.329%) against the $190,481.16304357877 target, a hard stop per the prompt. Steps 3-8 remain untouched pending Gate 1a passing.",
   "notes": [
     "Fresh start confirmed: no prior run_state directory existed.",
     "Tree was clean at session start on sweep/db-corpus-baseline.",
     "This session is operating under a tight reasoning/turn budget relative to the task's scope (full 8-step multi-day research sweep). Expect a partial run; will stop cleanly per Step -1 protocol rather than fabricate grid results.",
-    "git_dirty=false confirmed at start; sections 0,2,3,4,5,9,10 headers confirmed present in docs/architecture/ALLOCATOR_OPERATING_MODEL.md. \u00a710b/\u00a711 headers not individually confirmed by grep (numbering may differ) -- resuming session should verify exact \u00a710b/\u00a711 content before Step 1."
+    "git_dirty=false confirmed at start; sections 0,2,3,4,5,9,10 headers confirmed present in docs/architecture/ALLOCATOR_OPERATING_MODEL.md. \u00a710b/\u00a711 headers not individually confirmed by grep (numbering may differ) -- resuming session should verify exact \u00a710b/\u00a711 content before Step 1.",
+    "This session (2026-09-01, resumed by a peer agent message) made substantive progress on Step 1: ruled out the day_start_of_day_value mid-day-backfill hypothesis empirically (implemented it, reran, output was numerically unchanged to 12 significant figures -- reverted, tree restored to HEAD, zero net code diff this session); localized the true first divergence to somewhere in (2023-12-11, 2024-01-24] via daily_snapshots diffing, well before the previously-known 2024-02-14 QS/AAPL symptom, which is now understood to be a LATE, cumulative manifestation of an earlier root cause rather than the root cause itself. Gate 1a (Step 2) was run for real against both hard-coded targets: no_reserve_raw/off PASSES to sub-cent; swap_funding/2.5pp FAILS by exactly -$626.83341928917692, unchanged from the prior session's figure -- confirmed this is a hard stop per Step 2's literal instruction, so Steps 3-8 were correctly not attempted."
   ]
 }
