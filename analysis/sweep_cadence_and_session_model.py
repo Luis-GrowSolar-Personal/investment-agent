@@ -357,7 +357,8 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                             cadence, phase_offset, scope, funding_mode, limit_pp,
                             reverse_order=False, seed=None, min_position_pct=0.0,
                             sub_floor_dollars=100.0, execution_order="pooled",
-                            trim_budget_scope="per_event_date"):
+                            trim_budget_scope="per_event_date",
+                            veto_p=0.0, veto_seed=0):
     """Run ONE session-model backtest for a given (cadence, phase, scope,
     funding_mode, limit, draw, minPositionPct, execution_order) cell.
     Mirrors run_cell's per-call harness but batches decisions at session
@@ -376,6 +377,35 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
       it falls back to 'pooled' behavior, since Step 2 never combines the two
       and defining sequential cross-ticker cash-deployment ordering was out
       of scope for this run.
+
+    veto_p / veto_seed (Step 2, prompts/autonomy-cadence-floor-and-veto.md):
+    ALLOCATOR_OPERATING_MODEL.md §8's capitulation model, implemented as
+    specified rather than approximated.
+
+    - When a position FIRST crosses the 25%-of-portfolio profit-take
+      threshold it becomes a "pet" with probability `veto_p` (a fraction in
+      [0,1]). The flag is STICKY for that position. The crossing is observed
+      at that ticker's own call -- the only moment §3/§4 evaluate
+      profit-take, since held positions are not re-sized between their own
+      calls.
+    - A pet position DECLINES all recommended Trims and Exits (including the
+      profit-take trim itself, which is the mechanism §8 says gets pointed
+      the wrong way).
+    - Capitulation trigger: -30% from the TRAILING PEAK POSITION VALUE since
+      entry, evaluated once per session; on trigger, FULL EXIT at that
+      session's close, before that session's decisions, so the proceeds join
+      §3 step 2's cash pool.
+    - Closing a position clears its pet flag and peak: a later re-entry is a
+      new position, and §8's flag is sticky "for that position".
+    - Interpretation, flagged in the wrap-up: a pet is also excluded from
+      swap-funding DONOR eligibility. §8's text names Trims and Exits; a
+      displacement trim is a sell of the beloved position to fund another
+      idea, which is exactly the reduction the modelled user refuses.
+
+    veto_seed is deliberately independent of `seed` (the ordering/tie-break
+    draw), because pet formation is probabilistic and needs its own variance.
+    veto_p = 0.0 disables the model entirely and draws no RNG, so it is
+    bit-identical to the pre-existing behaviour.
     """
     events = list(events_all)
     if reverse_order:
@@ -408,6 +438,40 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
     day_start_of_day_value = {}
     day_trimmed_today = {}
     last_calendar_date = None
+
+    # --- §8 capitulation model state (see docstring) ---
+    PROFIT_TAKE_PCT = 25.0          # §8 / §5: profit-take threshold, % of portfolio
+    CAPITULATION_DRAWDOWN = 0.30    # §8: -30% from the trailing peak position value
+    veto_rng = random.Random(veto_seed * 104729 + 17)
+    pet_flags: set = set()          # tickers currently flagged as pets (sticky)
+    pet_decided: set = set()        # tickers whose 25% crossing coin has been flipped
+    pos_peak_value: dict = {}       # ticker -> trailing peak position value since entry
+    pet_log = []                    # every pet formation
+    capitulation_log = []           # every capitulation exit
+    declined_log = []               # every Trim/Exit declined by a pet
+
+    # Per-ticker sorted call dates, for Step 1's call-proximity tagging.
+    calls_by_ticker: dict = {}
+    for _e in events_all:
+        calls_by_ticker.setdefault(_e.ticker, []).append(_e.call_date)
+    for _t in calls_by_ticker:
+        calls_by_ticker[_t].sort()
+
+    def _days_since_nearest_call(ticker, when):
+        """Days from `when` back to the most recent call for `ticker` on or
+        before `when`. None when the ticker has no such call yet."""
+        import bisect as _bisect
+        ds = calls_by_ticker.get(ticker)
+        if not ds:
+            return None
+        pos = _bisect.bisect_right(ds, when)
+        if pos == 0:
+            return None
+        return (when - ds[pos - 1]).days
+
+    def _clear_position_veto_state(ticker):
+        pet_flags.discard(ticker)
+        pos_peak_value.pop(ticker, None)
 
     def rebuild_helper(ticker, target_buy_dollars, day_price, trade_date, raised_by_account, reason):
         return _rebuild_buy_leg(ticker, target_buy_dollars, portfolio, day_price, trade_date,
@@ -461,6 +525,52 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
         prices_needed = held_tickers | {e.ticker for e in in_scope} | set(ticker_state.keys())
         prices_today = prices.all_prices_on(list(prices_needed), sd)
         portfolio_value_before_session = portfolio.total_value(prices_today)
+
+        # --- §8: trailing-peak maintenance and the capitulation trigger.
+        # Runs once per session, BEFORE this session's decisions, so a
+        # capitulation exit's proceeds join §3 step 2's cash pool. Peaks are
+        # refreshed first, so a position making a new high this session
+        # cannot trigger on its own new peak.
+        if veto_p > 0.0:
+            for _t in list(pos_peak_value.keys()):
+                if portfolio.position_shares(_t) <= 1e-9:
+                    _clear_position_veto_state(_t)
+            for _t in list(ticker_state.keys()):
+                if portfolio.position_shares(_t) <= 1e-9:
+                    continue
+                _px = prices_today.get(_t)
+                if _px is None:
+                    continue
+                _val = portfolio.position_value(_t, _px)
+                if _val <= 1e-9:
+                    continue
+                if _val > pos_peak_value.get(_t, 0.0):
+                    pos_peak_value[_t] = _val
+                if _t not in pet_flags:
+                    continue
+                _peak = pos_peak_value.get(_t, _val)
+                if _peak > 0 and _val <= (1.0 - CAPITULATION_DRAWDOWN) * _peak + 1e-12:
+                    _shares = portfolio.position_shares(_t)
+                    _exit_trades = _build_sell_trades(
+                        _t, _shares, portfolio, _px, sd, reason="capitulation-full-exit")
+                    _proceeds = 0.0
+                    _rs_before = len(portfolio.realized_sales)
+                    for _tr in _exit_trades:
+                        try:
+                            portfolio.execute_sell(_tr)
+                            _proceeds += _tr.shares * _tr.price
+                        except InsufficientShares:
+                            skipped_events.append((sd, _t, "insufficient shares (capitulation)"))
+                    capitulation_log.append({
+                        "date": sd, "ticker": _t, "peak_value": _peak,
+                        "exit_value": _val, "proceeds": _proceeds,
+                        "loss_from_peak": _peak - _val,
+                        "realized_gain": sum(
+                            rs.realized_gain
+                            for rs in portfolio.realized_sales[_rs_before:]),
+                    })
+                    _clear_position_veto_state(_t)
+
         # The 25%-of-start-of-day-value donor trim cap resets on a CALENDAR
         # DATE change, not on every session -- matching make_funding_decide_fn's
         # day_state, which keys off `trade_date` and persists across every
@@ -510,6 +620,8 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                     "date": sd, "ticker": ticker, "intended_dollars": cand["intended"],
                     "target_buy_dollars": 0.0, "actual_dollars": 0.0,
                     "shortfall": cand["intended"], "binding": "session limit", "pp_change": 0.0,
+                    "days_since_call": _days_since_nearest_call(ticker, sd),
+                    "buy_price": day_price,
                 })
                 return
 
@@ -557,6 +669,10 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                         if portfolio.position_shares(other) <= 1e-9:
                             continue
                         if st.get("final_action") not in ("Hold", "Trim", "Exit"):
+                            continue
+                        if other in pet_flags:
+                            # §8 interpretation (see docstring): a pet also
+                            # refuses to be displaced to fund someone else.
                             continue
                         donors.append(other)
                     donors.sort(key=lambda t: rank_key(t, ticker_state.get(t), portfolio, prices_today, sd))
@@ -644,6 +760,10 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                 "target_buy_dollars": target_buy_dollars, "actual_dollars": actual,
                 "shortfall": max(cand["intended"] - actual, 0.0),
                 "binding": binding, "pp_change": pp_change,
+                # Step 1 proximity test: days from this Add back to the most
+                # recent call for this ticker.
+                "days_since_call": _days_since_nearest_call(ticker, sd),
+                "buy_price": day_price,
             })
 
         pending_adds = []  # dicts: ticker, intended, day_price
@@ -674,6 +794,24 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
             current_dollars_before = portfolio.position_value(event.ticker, price)
             had_position = portfolio.position_shares(event.ticker) > 1e-9
 
+            # --- §8: pet formation. The profit-take threshold (25% of
+            # portfolio) is evaluated at this ticker's own call, which is the
+            # only place §3/§4 evaluate it. The coin is flipped exactly once
+            # per position, the FIRST time it is observed across the
+            # threshold, and the resulting flag is sticky until the position
+            # closes.
+            if veto_p > 0.0 and had_position and portfolio_value_before > 0:
+                _pos_pct = 100.0 * current_dollars_before / portfolio_value_before
+                if _pos_pct >= PROFIT_TAKE_PCT - 1e-12 and event.ticker not in pet_decided:
+                    pet_decided.add(event.ticker)
+                    if veto_rng.random() < veto_p:
+                        pet_flags.add(event.ticker)
+                        pos_peak_value[event.ticker] = max(
+                            pos_peak_value.get(event.ticker, 0.0), current_dollars_before)
+                        pet_log.append({"date": sd, "ticker": event.ticker,
+                                        "position_pct": _pos_pct,
+                                        "position_value": current_dollars_before})
+
             trades = decide_v3(
                 ticker=event.ticker, final_action=final_action,
                 recommended_size_pct=event.recommended_size,
@@ -682,8 +820,19 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                 tier=tier, is_first_call=is_first_call, driver_count=driver_count,
             )
             # Execute everything except buy trades now (profit-take/exit).
+            # §8: a pet declines ALL recommended Trims and Exits -- the
+            # profit-take trim included, since that is precisely the sale the
+            # modelled user refuses to make near the peak.
+            _is_pet = event.ticker in pet_flags
             for t in trades:
                 if t.side == "sell":
+                    if _is_pet and t.ticker == event.ticker:
+                        declined_log.append({
+                            "date": sd, "ticker": t.ticker,
+                            "declined_dollars": t.shares * t.price,
+                            "final_action": final_action, "reason": t.reason,
+                        })
+                        continue
                     try:
                         portfolio.execute_sell(t)
                         held_tickers.add(t.ticker)
@@ -860,6 +1009,39 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
     per_ticker_mean_staleness = {t: statistics.mean(ds) for t, ds in per_ticker_stale.items()}
     mean_staleness_all = statistics.mean([d for _, d in staleness_pairs]) if staleness_pairs else 0.0
 
+    # --- Step 1 proximity test: dollar-weighted forward return of each funded
+    # Add, bucketed by days-since-that-ticker's-nearest-call. Horizons: 90
+    # calendar days, and hold-to-window-end. Adds with no forward price are
+    # dropped from the bucket rather than imputed.
+    prox_buckets: dict = {}
+    for f in funding_log:
+        if f.get("actual_dollars", 0.0) <= 1.0:
+            continue
+        dsc = f.get("days_since_call")
+        if dsc is None:
+            continue
+        p0 = f.get("buy_price")
+        if not p0:
+            continue
+        bucket = ("0-3d" if dsc <= 3 else "4-7d" if dsc <= 7 else
+                  "8-30d" if dsc <= 30 else "31-90d" if dsc <= 90 else "90d+")
+        for horizon, when in (("h90", min(f["date"] + timedelta(days=90), C)),
+                              ("end", C)):
+            p1 = prices.price_on(f["ticker"], when)
+            if p1 is None or p1 <= 0:
+                continue
+            b = prox_buckets.setdefault((bucket, horizon),
+                                        {"n": 0, "dollars": 0.0, "wret": 0.0})
+            b["n"] += 1
+            b["dollars"] += f["actual_dollars"]
+            b["wret"] += f["actual_dollars"] * (p1 / p0 - 1.0)
+    add_proximity = {}
+    for (bucket, horizon), b in prox_buckets.items():
+        add_proximity[f"{bucket}|{horizon}"] = {
+            "n": b["n"], "dollars": b["dollars"],
+            "dollar_weighted_return": (b["wret"] / b["dollars"]) if b["dollars"] else None,
+        }
+
     max_pp_change_per_session: dict = {}
     for f in funding_log:
         key = (f["date"], f["ticker"])
@@ -884,6 +1066,17 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
         "per_ticker_mean_staleness": per_ticker_mean_staleness,
         "max_session_pp_change": max_session_pp,
         "realized_gains": sum(rs.realized_gain for rs in r.portfolio.realized_sales),
+        # --- §8 capitulation model diagnostics ---
+        "n_pets": len(pet_log),
+        "n_capitulations": len(capitulation_log),
+        "n_declined": len(declined_log),
+        "declined_dollars": sum(d["declined_dollars"] for d in declined_log),
+        "capitulation_loss_from_peak": sum(c["loss_from_peak"] for c in capitulation_log),
+        "capitulation_realized_gain": sum(c["realized_gain"] for c in capitulation_log),
+        "pet_log": pet_log,
+        "capitulation_log": capitulation_log,
+        # --- Step 1 call-proximity test ---
+        "add_proximity": add_proximity,
     }
 
 
