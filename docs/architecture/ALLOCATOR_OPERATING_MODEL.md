@@ -11,6 +11,32 @@ reproducing (or improving on) the simulator results the measurement plan in
 
 ---
 
+## 0. Settled configuration (decided 2026-09-01)
+
+Six measurement sessions (2026-08-30 → 09-01) resolved the funding question and
+found the parameter that actually governs the allocator. Full evidence and the
+corrections made along the way: `docs/handoffs/2026-08-31-allocator-state-of-play.md`.
+
+| Parameter | Decision | Status |
+|---|---|---|
+| **Funding mode** | `swap_funding` (conformant per-date trim cap) | settled |
+| **Per-session change limit `X`** | **2.5pp** | **provisional** — denominated in session frequency; re-derive once `K` is chosen |
+| **Drawdown ceiling** | **39.12%** | settled — see §10 |
+| **§11 defect #2** (stale cash snapshot) | fix in the production path | settled |
+| **Cap restoration** | no mechanism change; wording corrected in §5/§9 | settled |
+| **Minimum position size** | `minPositionPct` + tradability sub-floor, with displacement selling the whole position rather than leaving a stub | form agreed, **value unmeasured** |
+| **Cash reserve level** | retired — not a knob | settled |
+
+**Why swap-funding despite a higher drawdown at its peak.** Against
+`no_reserve_raw` the gap looks like 26.6% vs 21.1%, but most of that is §11
+defect #2 flattering the raw baseline. Like-for-like, both with the live-cash
+rebuild, it is +7.5% return for +1.0pp drawdown. And per §10 rule 4 the backtest
+structurally understates swap-funding: it exists to fund a candidate appearing in
+a fully-invested portfolio, and no new candidate can appear in a frozen 16-name
+corpus. Its measured advantage is a floor.
+
+---
+
 ## 1. What #77 actually was
 
 Production sized the same Established/Speculative ticker with two formulas:
@@ -296,7 +322,16 @@ built in a single step, not the cash policy or the cap.
 
 ### Cash policy: deploy to cap, no reserve
 
-- **Deploy fully, up to caps. Never above.** Caps are inviolable.
+- **Deploy fully, up to caps. Never above.** Caps bind **purchases**: no
+  computed target may exceed the tier cap (§9 invariant #2). They do **not**
+  bind realized weight — a position drifts freely on price between its own
+  calls, which §3 relies on and credits for the Type B result. Realized weight
+  is bounded only by profit-take at 25% of portfolio on that ticker's next call.
+  Measured 2026-09-01: at the settled 2.5pp setting the largest drift is TTD at
+  16.4% against a 15% cap, +1.4pp on 90 of 894 trading days. Drift scales with
+  the limit (+8.2pp at 5pp, +12.3pp uncapped) and is absent at 1pp and below.
+  **Open:** the 15%-cap → 25%-profit-take band leaves speculatives 10pp of
+  unpoliced room. No backstop is specified; adding one would be a new rule.
 - **No reserve parameter, no cash ceiling in the default.**
 - Cash is a **residual**, not a policy instrument. It accumulates when few names
   clear the eligibility floor — verdict scarcity, the analyst declining to find
@@ -446,15 +481,44 @@ between a candidate and a holding, and reuses §4's ranking — rank may
 that rule says trim proceeds need a destination before the trim; this says a
 destination needs proceeds before the buy.
 
-**Note on the per-session change limit:** it slows the land grab but does not
-bound aggregate demand — sixteen names at 10pp per session is still 160%. It
-spreads deployment over a year rather than six weeks, which is a real
-improvement, but cash still reaches zero. Only a funding mechanism (reserve or
-swap) bounds the system. Treat the limit as a secondary axis, not the fix.
+### The per-session change limit is the dominant axis (measured 2026-09-01)
 
-Open: which mode, and at what level. Decided by measurement (§10) plus the
-judgment caveats in §10 rule 4 — not by the backtest alone, since a frozen
-universe understates the value of being able to fund a new name.
+**This supersedes the earlier text calling the limit "a secondary axis, not the
+fix." That was wrong.** The reasoning behind it — that the limit slows the land
+grab without bounding aggregate demand, so only a funding mechanism bounds the
+system — is still true and still beside the point: bounding aggregate demand was
+never what mattered. Throttling the *rate* of deployment is.
+
+Measured across 450 runs (10 limit values × 3 funding-mode variants × 15
+orderings), every mode produces a smooth unimodal curve with an **interior
+optimum at 2.5–3pp**, roughly doubling the unconstrained baseline:
+
+| Mode | peak | return | max DD (median of 15) |
+|---|---|---|---|
+| `no_reserve_raw` | 3pp | $189,322 | 21.1% |
+| `no_reserve_s11fixed` | 2.5pp | $183,629 | 25.6% |
+| `swap_funding` | 3pp | $197,437 | 26.6% |
+
+Twenty-four of thirty configurations robustly pass the §10 bar, all between
+0.5pp and 5pp, each on 100% of orderings.
+
+**The limit also closes this section's own headline finding.** At 1pp and below,
+all fifteen orderings produce identical results; at 2.5pp the spread is 0.9%.
+"Order is the allocator" holds exactly as long as cash binds and not one day
+longer — throttle the rate and arrival order stops mattering.
+
+**`X` is denominated per session, and this was measured at per-call cadence.**
+Under an operating cadence `K` (§2) sessions are more frequent and the same
+2.5pp deploys faster. The settled value is provisional until the cadence sweep
+re-derives it.
+
+**Cash reserve is retired as a knob.** Measured: 5/10/20% reserves returned
+$128,304 / $129,184 / $126,349 against the control's $141,837, with worse unmet
+demand. They lower drawdown, but the limit lowers it further *and* raises
+return. Cash under the settled design is a **residual**, not a reserve — money
+not yet deployed because the ceiling throttles the rate, fully available the
+moment a name qualifies. §10 rule 4 still applies: this corpus cannot price a
+reserve's option value, so those figures are a floor, not a refutation.
 
 ---
 
@@ -600,8 +664,12 @@ asserting them is part of the build.**
 
 1. **One sizing function.** Exactly one code path computes a position's target.
    Held and candidate positions differ in inputs, never in formula.
-2. **No position's target may exceed its tier cap**, at any time, including a
-   ticker's first call. (Currently violated — see §11.)
+2. **No position's target may exceed its tier cap** at the moment the target is
+   computed, including a ticker's first call. This is a **decision-time**
+   constraint on targets, not a continuous constraint on realized weight — see
+   §5 on drift. Verified 2026-09-01: `max(target_pct − cap_pct) = 0.0000pp`
+   across every configuration tested. (The first-call starter concatenation
+   remains a known defect — see §11.)
 3. **A position's target is a function of its own cap, its own recommended size,
    and portfolio value** — never of how many other candidates exist.
 4. **Per-owner cap overrides (`OwnerTickerConfig`) apply identically** to held
@@ -710,7 +778,16 @@ count of contested rank decisions, and per-ticker mean staleness.
 Adopt `BACKTEST_SIMULATOR.md`'s existing bar unchanged:
 
 - **Pass:** beats SPY **and** QQQ **and** TMFC on absolute return; max drawdown
-  no worse than median baseline + 5pp.
+  no worse than median baseline + 5pp = **39.12%** on the clean window.
+
+  **Corrected 2026-09-01.** The figure carried for three sessions was 38.0%,
+  computed from three baselines only (SPY 25.36%, QQQ 35.25%, TMFC 32.99% →
+  median 32.99% + 5pp = 37.99%). With equal-weight-of-universe included as this
+  section requires (42.76%), the median of the four is 34.12% and the ceiling is
+  **39.12%**. Adopting it flips no cell in the 2026-09-01 grid.
+
+  Score on **median** max drawdown across orderings, never a single draw. A
+  configuration is *robustly passing* only if it also clears on ≥ 2/3 of draws.
 - **Soft pass:** beats 2 of 3, within 2pp on the third, drawdown acceptable.
 - **Fail:** anything else.
 
@@ -833,12 +910,57 @@ baseline settings quantifies the impact; fix after the baseline is banked. The
 unfunded-trade instrumentation is additive (counters only, no behavior change)
 and goes in before the sweep.
 
+**Measured and decided 2026-09-01 — defect #2 is to be fixed in the production
+path.** It fires only where the limit is loose: 6 skipped trades at `off`
+(MSFT/TSLA/AAPL/AMD/GOOGL/NVDA, all in Jan–Feb 2022 — the six weeks that set the
+whole book) and 3 at 10pp (AVGO, ENVX, ORCL; AVGO went ~8x in the window). At
+every limit from 0.5pp to 5pp it never fires at all, because a tight ceiling
+throttles each buy below the level at which the starter-plus-Add pair can
+overdraw the account.
+
+Its effect on return is **limit-dependent, not a simple cost**: fixing it helps
+at 0.5–2pp, hurts at 3–10pp, and at `off` the two are **tied** under §10's
+overlap test ($117,455–$154,398 raw vs $110,546–$123,931 fixed). An earlier
+report claiming the fix "costs 17.7%" ranked overlapping ranges by median and is
+withdrawn.
+
+**Why fix it anyway:** `swap_funding` has always rebuilt its buy leg against
+live cash, so leaving the defect in `no_reserve` makes every mode comparison
+partly a comparison of one bug. The settled configuration uses swap-funding, so
+production must rebuild against live cash on every path. Both modes now call the
+same `_rebuild_buy_leg()`.
+
 ---
 
 ## 12. Open items
 
-- **Per-session change limit `X`** — default value pending the sweep.
+- **Per-session change limit `X`** — ~~pending the sweep~~ **settled at 2.5pp
+  (2026-09-01), provisional.** Denominated per session and measured at per-call
+  cadence; must be re-derived once `K` is chosen. See §0 and §5.
+- **`minPositionPct` and the stub rule** — NEW, unmeasured. A swap-funding trim
+  that would leave the donor below the floor should sell the **whole** position
+  instead, so stubs are prevented rather than cleaned up afterwards. Denominated
+  as a percentage of portfolio (every other constraint in this model is), with
+  an absolute sub-floor for tradability only. Rationale: a stub is structurally
+  stuck — §4's no-average-down rule blocks Adds on a speculative below its
+  weighted cost basis, so a displaced position cannot be rebuilt. Sweep the
+  percentage at the settled configuration before adopting; expected to be
+  housekeeping rather than performance (displacement realizes only −$3,207 at
+  2.5pp).
+- **Speculative drift backstop** — NEW. The 15% cap → 25% profit-take band
+  leaves speculatives 10pp of unpoliced room. Never approached in this corpus
+  (max 16.4%); would be a new rule, not a clarification.
 - **Speculative ceiling level** — pending the baseline exposure diagnostic.
+- **Ordering rule** — largely self-answering. At the settled 2.5pp the spread
+  across fifteen orderings is 0.9%; at 1pp and below it is zero. Worth one
+  confirmation run inside the cadence sweep rather than a thread of its own.
+- **Rule 3b's plateau test needs replacing before the next sweep.** Draw spreads
+  collapse to 0.0–0.9% at tight limits, so the non-overlap test returns
+  singletons and non-contiguous sets — precision, not isolation. Replace with a
+  practical-significance band, declared before results.
+- **Axis ordering.** `off` is the *loosest* setting and belongs at the far end of
+  the limit axis. Placing it first produced three consecutive false "jagged"
+  classifications.
 - **Verdict grace window** (§4) — how far past one quarter a stale `Add` stays
   eligible.
 - **Duplicate transcripts in the DB.** `FSLR 2024-02-27` exists twice
