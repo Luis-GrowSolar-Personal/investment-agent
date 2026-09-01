@@ -1,11 +1,11 @@
 {
   "prompt_sha256": "e3fdbe5c4eaa3eb139be82cf24a611c159446d699eaf16336bc19e85a4085e6b",
-  "driver_commit": "3f8a5633c42908baa45c2b4648b18acfccc44575",
+  "driver_commit": "cbba37e5b6de5e5062c7ae407de55ee50905d349",
   "steps": {
     "-1_resume_setup": "done",
     "0_hygiene": "done",
-    "1_fourth_bug": "in_progress",
-    "2_gate_1a": "done_failed",
+    "1_fourth_bug": "partial_one_bug_fixed_not_closing",
+    "2_gate_1a": "done_failed_hard_stop",
     "3_spec_delta": "pending",
     "4_pooling_rederive": "pending",
     "5_cadence_grid": "pending",
@@ -13,12 +13,13 @@
     "7_gates_rules": "pending",
     "8_report": "pending"
   },
-  "next_action": "Resume Step 1: pin the exact date within (2023-12-11, 2024-01-24] where ref's and new's portfolio share counts first diverge (total_value already disagrees by -$68.50 at 2024-01-24, the earliest common MTM-snapshot date after 2023-12-11, with zero funding/displacement/skip activity near that date in either implementation and no price-cache gaps -- see findings.md for the full diagnostic trail). Do this by forcing run_session_sweep_cell to snapshot total_value AND per-ticker share counts every calendar day (not just session dates) in that window, or by instrumenting per-ticker share counts directly at every event boundary in both implementations, then diff. Once the exact date/ticker/trade is found, fix it (or classify as spec-vs-reference divergence per Step 3's toggle discipline), then rerun Gate 1a (Step 2) -- it currently FAILS at swap_funding/2.5pp by exactly -$626.83 (-0.329%) against the $190,481.16304357877 target, a hard stop per the prompt. Steps 3-8 remain untouched pending Gate 1a passing.",
+  "next_action": "HARD STOP per Step 2 -- a genuine fix was made (year-end tax price anchor, commit cbba37e, verified bit-exact for 2022/2023) but Gate 1a still fails identically (-$626.83341928917692 at swap_funding/2.5pp, unchanged to 12 sig figs). The remaining divergence produces a -$68.50 total_value gap first visible at 2024-01-24 with NO matching trade or tax event in either implementation in (2023-12-11, 2024-01-25] (all trades in that window, including the now-fixed Dec-31 forced liquidation, are confirmed bit-identical). Next session should check: (a) any cash-only bookkeeping path with no Trade object (dividends/interest, if the simulator has one -- not checked); (b) per-account cash aggregation in portfolio.total_value for a session-vs-daily tracking discrepancy; (c) whether a trade exists just outside the searched date window whose effect only shows in the 2024-01-24 mark-to-market. Do NOT proceed to Steps 3-8 until Gate 1a passes -- this is a hard stop per the prompt.",
   "notes": [
     "Fresh start confirmed: no prior run_state directory existed.",
     "Tree was clean at session start on sweep/db-corpus-baseline.",
     "This session is operating under a tight reasoning/turn budget relative to the task's scope (full 8-step multi-day research sweep). Expect a partial run; will stop cleanly per Step -1 protocol rather than fabricate grid results.",
     "git_dirty=false confirmed at start; sections 0,2,3,4,5,9,10 headers confirmed present in docs/architecture/ALLOCATOR_OPERATING_MODEL.md. \u00a710b/\u00a711 headers not individually confirmed by grep (numbering may differ) -- resuming session should verify exact \u00a710b/\u00a711 content before Step 1.",
-    "This session (2026-09-01, resumed by a peer agent message) made substantive progress on Step 1: ruled out the day_start_of_day_value mid-day-backfill hypothesis empirically (implemented it, reran, output was numerically unchanged to 12 significant figures -- reverted, tree restored to HEAD, zero net code diff this session); localized the true first divergence to somewhere in (2023-12-11, 2024-01-24] via daily_snapshots diffing, well before the previously-known 2024-02-14 QS/AAPL symptom, which is now understood to be a LATE, cumulative manifestation of an earlier root cause rather than the root cause itself. Gate 1a (Step 2) was run for real against both hard-coded targets: no_reserve_raw/off PASSES to sub-cent; swap_funding/2.5pp FAILS by exactly -$626.83341928917692, unchanged from the prior session's figure -- confirmed this is a hard stop per Step 2's literal instruction, so Steps 3-8 were correctly not attempted."
+    "This session (2026-09-01, resumed by a peer agent message) made substantive progress on Step 1: ruled out the day_start_of_day_value mid-day-backfill hypothesis empirically (implemented it, reran, output was numerically unchanged to 12 significant figures -- reverted, tree restored to HEAD, zero net code diff this session); localized the true first divergence to somewhere in (2023-12-11, 2024-01-24] via daily_snapshots diffing, well before the previously-known 2024-02-14 QS/AAPL symptom, which is now understood to be a LATE, cumulative manifestation of an earlier root cause rather than the root cause itself. Gate 1a (Step 2) was run for real against both hard-coded targets: no_reserve_raw/off PASSES to sub-cent; swap_funding/2.5pp FAILS by exactly -$626.83341928917692, unchanged from the prior session's figure -- confirmed this is a hard stop per Step 2's literal instruction, so Steps 3-8 were correctly not attempted.",
+    "Session 2 continuation: found and FIXED one genuine bug (year-end tax priced off last-session-date instead of literal Dec 31, verified bit-exact for 2022/2023 after fix -- commit cbba37e). This fix did NOT close Gate 1a -- final value identical before/after to 12 significant figures, confirming a separate, still-unlocated divergence exists. Correctly stopped per the hard-stop rule rather than force a match or guess further without new instrumentation."
   ]
 }

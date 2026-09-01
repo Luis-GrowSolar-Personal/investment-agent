@@ -88,3 +88,55 @@ Append-only. Nothing established yet beyond scaffolding.
   functions are not directly comparable 1:1 outside of the specific
   session-model invocation Step 2 specifies. This is worth a one-line
   clarification in the next session's context but is not itself a bug.
+
+## Step 1 (fourth bug) — one genuine bug found and fixed; Gate 1a still fails
+
+- **Found and fixed a real bug** (commit cbba37e): `run_session_sweep_cell`'s
+  year-end tax computation priced the forced-liquidation-for-tax sale off
+  the year's LAST SESSION date, not the literal Dec 31 calendar date the
+  reference (`simulator.py`, which walks every calendar day) uses. Trade
+  log confirmed the exact effect: on 2023-12-31, AAPL's forced sale priced
+  at $193.179993/0.351011sh in the buggy session model vs
+  $192.529999/0.352196sh in the reference. Fixed by anchoring
+  `prices_for_liquidation` to `date(sd.year, 12, 31)` directly (still
+  computed at the session-native trigger point, only the price-lookup date
+  changed). **Verified: 2022 and 2023 year-end tax results (net_taxable,
+  tax_owed, loss_carryforward_out, forced_liquidation_proceeds) are now
+  bit-identical between the reference and the session model** (both:
+  2022 → all zero; 2023 → net_taxable=452.05504419983913,
+  tax_owed=67.80825662997587, forced_liquidation_proceeds=67.80825662997587).
+- **This fix does NOT close Gate 1a.** Rerunning swap_funding/2.5pp after
+  the fix gives the exact same final_value as before
+  ($189,854.3296242896), an unchanged -$626.833419289178 gap against the
+  $190,481.16304357877 target, matching to 12 significant figures. The
+  daily_snapshots total_value diff still first disagrees at 2024-01-24 by
+  the same -$68.5020827826811, even though every buy/sell trade in
+  (2023-12-11, 2024-01-25] is now confirmed bit-identical between ref and
+  new (the Dec-31 forced-liquidation trade included, post-fix).
+- **This is a genuine, still-unresolved puzzle worth flagging plainly:**
+  trades match, the two 2023-year-end-tax computations match bit-exactly,
+  yet total portfolio value still diverges by $68.50 with no visible
+  trade or tax event to explain it in that window. The only lead not yet
+  chased: the 2024 year-end tax computation shows a real difference
+  (net_taxable -640.5381671561415 ref vs -642.7135084763096 new, a
+  $2.17 difference) -- but that computation runs at END of 2024, after
+  the 2024-01-24 divergence already exists, so it cannot be upstream of
+  it; if anything it's a downstream symptom of whatever is still unequal.
+  The actual mechanism producing the $68.50 gap was not identified this
+  session -- it is NOT a trade, NOT the (now-fixed) tax price anchor, and
+  NOT a price-cache gap (checked). Candidate next places to look: (a) a
+  cash-only bookkeeping path with no Trade object (e.g. dividend/interest
+  accrual, if any exists in the simulator -- not checked this session);
+  (b) `portfolio.total_value`'s per-account cash aggregation if one
+  implementation is tracking cash in a subtly different way session-to-
+  session vs day-to-day; (c) a genuine but as-yet-uncaptured trade whose
+  `trade.trade_date` doesn't fall inside the (2023-12-11, 2024-01-25]
+  window I searched (e.g. a trade dated slightly outside that range
+  whose effects only become visible in the mark-to-market on 2024-01-24).
+- **Gate 1a final status this session, per Step 2's literal instruction:
+  HARD STOP.** `no_reserve_raw`/`off` passes to sub-cent
+  ($141,836.56574946275 vs $141,836.57). `swap_funding`/2.5pp fails by
+  exactly -$626.83341928917692 (-0.329%), unchanged by the genuine fix
+  applied this session. A real fix attempt was made and verified correct
+  on its own terms (2022/2023 tax now bit-exact); the gate still fails, so
+  per the prompt this is a hard stop -- Steps 3 through 8 remain untouched.

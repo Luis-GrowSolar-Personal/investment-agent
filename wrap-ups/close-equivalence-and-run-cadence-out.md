@@ -1,15 +1,34 @@
-# Close equivalence and run cadence — PARTIAL RUN (updated)
+# Close equivalence and run cadence — PARTIAL RUN, HARD STOP at Gate 1a
 
-**Resume status:** this wrap-up covers two sessions. Session 1 was a cold
-start that did only Step -1 scaffolding and part of Step 0 hygiene. Session 2
-(this update, 2026-09-01) resumed from `progress.json`'s `next_action` and
-made real progress on Step 1 and ran Step 2 (Gate 1a) for real. No cells were
-reused between sessions (session 1 ran none).
+**Resume status:** this wrap-up covers three passes across two sessions.
+Pass 1 was a cold start that did only Step -1 scaffolding and part of
+Step 0 hygiene. Pass 2 resumed from `progress.json`'s `next_action`,
+diagnosed and ruled out one hypothesis, and ran Gate 1a to a failing
+result. Pass 3 (this update, still 2026-09-01) found and fixed one genuine
+bug, reran Gate 1a, and **it still fails identically** — a hard stop per
+the prompt's own rule. No cells were reused between passes (pass 1 ran
+none).
 
-**This is still a partial run.** Steps 1 and 2 are now substantively worked
-(Step 1 not yet closed; Step 2 run to a definitive result). Steps 3 through 8
-were correctly **not attempted** — they are gated on Step 2 (Gate 1a) passing,
-and it fails.
+**This is a partial run that ends in a deliberate hard stop, not a rush
+through the remaining steps.** Step 1 produced one verified, committed
+fix; Step 2 (Gate 1a) was run for real, twice, and fails both times.
+**Steps 3 through 8 were correctly NOT attempted** — they are explicitly
+gated on Gate 1a passing, and it does not.
+
+## Headline result
+
+> **Fourth bug: partially found.** One genuine bug was found and fixed —
+> the session model priced the year-end forced-liquidation-for-tax sale
+> off the year's last session date instead of literal Dec 31 (reference
+> behavior), verified bit-exact for 2022/2023 after the fix (commit
+> `cbba37e`). **Gate 1a under `per_event_date`: FAILED.**
+> `no_reserve_raw`/`off` passes to sub-cent ($141,836.5657 vs
+> $141,836.57). `swap_funding`/2.5pp fails by exactly **-$626.83341928917692
+> (-0.329%)** against $190,481.16304357877 — **unchanged, to 12 significant
+> figures, before and after the genuine fix.** A separate, still-unlocated
+> divergence remains, first visible as a -$68.50 total_value gap at
+> 2024-01-24 with no matching trade or tax event found in either
+> implementation. Steps 3-8: not run (correctly gated on Gate 1a passing).
 
 ## What was done (session 2)
 
@@ -73,34 +92,83 @@ and it fails.
   outside that specific invocation. Not itself a bug, just worth keeping
   straight.
 
+## What was done (pass 3, this update)
+
+- Instrumented `Portfolio.execute_buy`/`execute_sell` to log every trade
+  in `(2023-12-11, 2024-01-25]` for both implementations. Found exactly one
+  divergent trade: on 2023-12-31, `forced-liquidation-for-tax` sold AAPL at
+  $193.179993/0.351011sh in the session model vs $192.529999/0.352196sh in
+  the reference.
+- Root-caused it: `run_session_sweep_cell`'s year-end tax block priced the
+  forced liquidation off the year's **last session date**, while the
+  reference (`simulator.py`, which walks every calendar day) triggers and
+  prices it on the **literal Dec 31 calendar date**. Different anchor date
+  → different `all_prices_on` lookup → different price → different shares
+  needed to cover the same dollar shortfall.
+- **Fixed** (`analysis/sweep_cadence_and_session_model.py`, in the
+  year-end-tax loop): anchor `prices_for_liquidation` to
+  `date(sd.year, 12, 31)` directly, keeping the session-native trigger
+  timing but fixing the price-lookup date. Committed as `cbba37e`.
+- **Verified the fix is correct on its own terms:** captured
+  `compute_year_end_tax`'s return value for both implementations across
+  2022-2024. 2022 and 2023 are now bit-identical (net_taxable, tax_owed,
+  loss_carryforward_out, forced_liquidation_proceeds all match to full
+  float precision). 2024 still differs slightly (net_taxable
+  -640.5381671561415 ref vs -642.7135084763096 new) but that computation
+  runs at year-end 2024, well after the 2024-01-24 divergence already
+  exists, so it's a downstream symptom, not upstream cause, of whatever
+  remains unequal.
+- **Reran Gate 1a after the fix: identical failure.** `swap_funding`/2.5pp
+  = $189,854.3296242896, diff -$626.833419289178 — the same value to 12
+  significant figures as before the fix. The `daily_snapshots` total_value
+  diff still first appears at 2024-01-24 (-$68.50), even though every
+  trade in the surrounding window (Dec-31 forced liquidation included) is
+  now confirmed bit-identical. This means the fix was real and correct,
+  but it was not the (or not the whole) fourth bug — a separate,
+  still-unlocated divergence is producing the $68.50/$626.83 gap through
+  some mechanism that leaves no trace in the trade log or the year-end tax
+  computation.
+
 ## What was deliberately NOT done
 
-- The exact date/ticker of first divergence within `(2023-12-11, 2024-01-24]`
-  was not pinned down (see next_action below for the concrete next step).
-- No fix was applied for the fourth bug (root cause not yet found).
+- The mechanism producing the residual -$68.50 total_value gap at
+  2024-01-24 was NOT found. Candidates not yet checked: (a) a cash-only
+  bookkeeping path with no `Trade` object, e.g. dividend/interest accrual
+  if the simulator has one; (b) a subtle difference in how
+  `portfolio.total_value`'s per-account cash is aggregated
+  session-native vs daily; (c) a trade dated just outside the searched
+  `(2023-12-11, 2024-01-25]` window whose effect only surfaces in the
+  2024-01-24 mark-to-market.
+- No further fix was attempted once the first genuine fix didn't close the
+  gate — per the prompt's explicit instruction, this is now treated as a
+  hard stop rather than guessed at further.
 - Step 3 (spec-correction deltas), Step 4 (pooling re-derivation), Step 5
   (the full cadence grid), Step 6 (fold-ins), Step 7 (gates/rules scoring) —
-  none attempted, all correctly gated on Step 2 passing.
-- Nothing in this run disturbs the six settled sessions in §0 — the only
-  code edit made (the backfill hypothesis) was reverted; the working tree
-  has zero diff from HEAD.
+  none attempted, all correctly gated on Step 2 (Gate 1a) passing, which it
+  does not.
+- Nothing in this run disturbs the six settled sessions in §0. One earlier
+  hypothesis (day_start_of_day_value mid-day backfill) was tested, found to
+  have zero effect, and reverted before this fix was made — the only
+  surviving code change is the year-end tax anchor fix in `cbba37e`.
 
 ## Exact resume point
 
 `progress.json`'s `next_action`:
 
-> Resume Step 1: pin the exact date within (2023-12-11, 2024-01-24] where
-> ref's and new's portfolio share counts first diverge (total_value already
-> disagrees by -$68.50 at 2024-01-24, the earliest common MTM-snapshot date
-> after 2023-12-11, with zero funding/displacement/skip activity near that
-> date in either implementation and no price-cache gaps). Do this by forcing
-> `run_session_sweep_cell` to snapshot total_value AND per-ticker share
-> counts every calendar day (not just session dates) in that window, or by
-> instrumenting per-ticker share counts directly at every event boundary in
-> both implementations, then diff. Once the exact date/ticker/trade is
-> found, fix it (or classify as spec-vs-reference divergence per Step 3's
-> toggle discipline), then rerun Gate 1a. Steps 3-8 remain untouched pending
-> Gate 1a passing.
+> HARD STOP per Step 2 — a genuine fix was made (year-end tax price anchor,
+> commit cbba37e, verified bit-exact for 2022/2023) but Gate 1a still fails
+> identically (-$626.83341928917692 at swap_funding/2.5pp, unchanged to 12
+> sig figs). The remaining divergence produces a -$68.50 total_value gap
+> first visible at 2024-01-24 with NO matching trade or tax event in either
+> implementation in (2023-12-11, 2024-01-25] (all trades in that window,
+> including the now-fixed Dec-31 forced liquidation, are confirmed
+> bit-identical). Next session should check: (a) any cash-only bookkeeping
+> path with no Trade object (dividends/interest, if the simulator has one —
+> not checked); (b) per-account cash aggregation in portfolio.total_value
+> for a session-vs-daily tracking discrepancy; (c) whether a trade exists
+> just outside the searched date window whose effect only shows in the
+> 2024-01-24 mark-to-market. Do NOT proceed to Steps 3-8 until Gate 1a
+> passes — this is a hard stop per the prompt.
 
 ## Follow-up commands for the next session
 
