@@ -12,9 +12,9 @@
     "step_5_cadence_grid": "done",
     "step_6_fold_ins": "done",
     "step_7_gates_and_rules": "done",
-    "step_8_report": "in_progress"
+    "step_8_report": "done"
   },
-  "next_action": "All measurement complete; only the wrap-up at wrap-ups/close-equivalence-corrected-targets-out.md remains.",
+  "next_action": "COMPLETE. Report at wrap-ups/close-equivalence-corrected-targets-out.md. Nothing pending.",
   "notes": [
     "New run_id supersedes close-equivalence-and-run-cadence per prompt instructions.",
     "Must seed findings.md from analysis/data/run_state/close-equivalence-and-run-cadence/findings.md (copy in as prior context, noted as coming from superseded run).",
