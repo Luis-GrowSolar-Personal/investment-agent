@@ -44,31 +44,14 @@ def _git(*args):
                            text=True, check=True).stdout.strip()
 
 
-def _rebuild_buy_leg(ticker, target_buy_dollars, portfolio, day_price, trade_date,
-                      raised_by_account, reason="add-to-target-s11fixed"):
-    """Verbatim copy of bracket_three_modes_s11_corrected._rebuild_buy_leg
-    (duplicated, not imported, so this driver has no import-time coupling
-    to another driver's git-dirty assertion). Drains tax_advantaged then
-    taxable against LIVE cash plus this session's swap proceeds."""
-    remaining_to_buy = target_buy_dollars
-    new_buy_trades = []
-    for account_name in ("tax_advantaged", "taxable"):
-        if remaining_to_buy <= 1e-6:
-            break
-        avail = portfolio.accounts[account_name].cash + raised_by_account.get(account_name, 0.0)
-        if avail <= 1e-6:
-            continue
-        spend = min(remaining_to_buy, avail)
-        shares = spend / day_price
-        if shares < 1e-9:
-            continue
-        new_buy_trades.append(Trade(
-            account=account_name, ticker=ticker, side="buy",
-            shares=shares, price=day_price, trade_date=trade_date, reason=reason,
-        ))
-        remaining_to_buy -= spend
-    actual = sum(t.shares * t.price for t in new_buy_trades)
-    return new_buy_trades, actual
+# Step 0b (prompts/cadence-equivalence-and-pooling.md): _rebuild_buy_leg is
+# now IMPORTED from the shared driver, not duplicated. That module's
+# git_dirty assertion moved from import time to assert_clean_for_manifest(),
+# called only when a manifest is written, so importing it here no longer
+# risks failing while docs/wrap-up files for this task are mid-edit.
+from analysis.bracket_three_modes_s11_corrected import (
+    _rebuild_buy_leg, assert_clean_for_manifest,
+)
 
 
 def fetch_extra_fields(all16, end):
@@ -171,20 +154,27 @@ def sha256_file(path: Path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def assert_driver_committed():
-    commit = _git("rev-parse", "HEAD")
-    dirty = bool(_git("status", "--porcelain"))
-    if dirty:
-        raise RuntimeError(f"git_dirty is true at HEAD={commit[:12]} -- hard stop.")
-    return commit, _git("rev-parse", "--abbrev-ref", "HEAD"), dirty
-
-
 def write_manifest(run_id, params, results):
+    # Step 0b: the hard stop-gate lives in the shared
+    # assert_clean_for_manifest(), called fresh at every manifest write --
+    # not an import-time snapshot. This also asserts the shared driver file
+    # (bracket_three_modes_s11_corrected.py) is present at HEAD; this
+    # driver's own presence is asserted separately below.
+    commit, branch, dirty = assert_clean_for_manifest()
+    result = subprocess.run(
+        ["git", "cat-file", "-e", f"{commit}:{DRIVER_FILE}"],
+        cwd=REPO_ROOT, capture_output=True,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"HEAD={commit[:12]} does not contain {DRIVER_FILE} -- commit "
+            f"this driver before writing a manifest against it."
+        )
     output_sha = hashlib.sha256(json.dumps(results, sort_keys=True, default=str).encode()).hexdigest()
     manifest = {
         "run_id": run_id,
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-        "git_commit": _GIT_COMMIT, "git_branch": _GIT_BRANCH, "git_dirty": _GIT_DIRTY,
+        "git_commit": commit, "git_branch": branch, "git_dirty": dirty,
         "driver_file": DRIVER_FILE,
         "params": params, "results": results, "output_sha256": output_sha,
     }
@@ -246,11 +236,48 @@ def seasonal_session_dates(phase_offset):
 
 
 def session_dates_for(cadence, phase_offset, events):
-    if cadence == "per_call":
+    if cadence in ("per_call", "single_event"):
         return per_call_session_dates(events)
     if cadence == "seasonal":
         return seasonal_session_dates(phase_offset)
     return fixed_k_session_dates(int(cadence), phase_offset)
+
+
+def build_sessions(cadence, phase_offset, events, events_all):
+    """Return an ordered list of (session_key, session_date, [events]).
+
+    session_key is a distinct identifier per session (needed because
+    'single_event' mode can emit several sessions sharing the same
+    session_date -- one per event -- which a plain dict keyed by date
+    would silently collapse).
+
+    - 'single_event' (Step 1a hard gate): each event, in draw order, is
+      its own session at session_date = event.call_date. Where several
+      calls share a date, they become consecutive single-event sessions
+      in draw order, per the prompt's Step 1a spec. In this configuration
+      §3's pooling has nothing to pool.
+    - every other cadence: events bucket into the session whose date is
+      the first session date >= the event's call_date (unchanged from
+      the prior driver), preserving draw order within a session.
+    """
+    if cadence == "single_event":
+        sessions = []
+        for i, e in enumerate(events):
+            if e.call_date < START or e.call_date > C:
+                continue
+            sessions.append((i, e.call_date, [e]))
+        return sessions
+
+    import bisect
+    sdates_only = session_dates_for(cadence, phase_offset, events_all)
+    events_by_session = {d: [] for d in sdates_only}
+    for e in events:
+        if e.call_date > sdates_only[-1] or e.call_date < START:
+            continue
+        pos = bisect.bisect_left(sdates_only, e.call_date)
+        target_sd = sdates_only[pos]
+        events_by_session[target_sd].append(e)
+    return [(sd, sd, events_by_session[sd]) for sd in sdates_only]
 
 
 # ---------------------------------------------------------------------------
@@ -329,12 +356,26 @@ def _floor_dollars(min_position_pct, portfolio_value):
 def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                             cadence, phase_offset, scope, funding_mode, limit_pp,
                             reverse_order=False, seed=None, min_position_pct=0.0,
-                            sub_floor_dollars=100.0):
+                            sub_floor_dollars=100.0, execution_order="pooled"):
     """Run ONE session-model backtest for a given (cadence, phase, scope,
-    funding_mode, limit, draw, minPositionPct) cell. Mirrors run_cell's
-    per-call harness but batches decisions at session boundaries and, for
-    scope=cash_deployment, ranks eligible candidates anywhere in the
-    universe rather than only today's reporters."""
+    funding_mode, limit, draw, minPositionPct, execution_order) cell.
+    Mirrors run_cell's per-call harness but batches decisions at session
+    boundaries and, for scope=cash_deployment, ranks eligible candidates
+    anywhere in the universe rather than only today's reporters.
+
+    execution_order (Step 2, prompts/cadence-equivalence-and-pooling.md):
+    - 'pooled' (default): §3's specified sequence -- all of this session's
+      sells execute, then all cash is pooled and deployed in §4 rank order.
+      This is what Step B/C below always did.
+    - 'sequential': each event's full trade set (its own sell, then its
+      own buy funding) executes before the next event in the session is
+      considered -- reproduces the validated per-call harness's ordering
+      on a multi-event session. Implemented only for scope='new_calls_only'
+      (the only scope Step 2 sweeps it against); with scope='cash_deployment'
+      it falls back to 'pooled' behavior, since Step 2 never combines the two
+      and defining sequential cross-ticker cash-deployment ordering was out
+      of scope for this run.
+    """
     events = list(events_all)
     if reverse_order:
         events = list(reversed(events))
@@ -350,19 +391,7 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
             events.extend(bucket)
     tie_rng = random.Random((seed or 0) * 7919 + hash(cadence) % 1000)
 
-    session_dates = session_dates_for(cadence, phase_offset, events_all)
-    # Bucket events into sessions: an event belongs to the first session date
-    # >= its call_date (found via binary search), preserving draw order.
-    session_dates_sorted = session_dates
-    import bisect
-    sdates_only = session_dates_sorted
-    events_by_session = {d: [] for d in sdates_only}
-    for e in events:
-        if e.call_date > sdates_only[-1] or e.call_date < START:
-            continue  # falls after last session or before window -- out of scope
-        pos = bisect.bisect_left(sdates_only, e.call_date)
-        target_sd = sdates_only[pos]
-        events_by_session[target_sd].append(e)
+    sessions_list = build_sessions(cadence, phase_offset, events, events_all)
 
     taxable_cash = INITIAL / 2
     tax_adv_cash = INITIAL / 2
@@ -377,145 +406,41 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
 
     day_start_of_day_value = {}
     day_trimmed_today = {}
+    last_calendar_date = None
 
     def rebuild_helper(ticker, target_buy_dollars, day_price, trade_date, raised_by_account, reason):
         return _rebuild_buy_leg(ticker, target_buy_dollars, portfolio, day_price, trade_date,
                                  raised_by_account, reason=reason)
 
-    for sd in sdates_only:
-        in_scope = events_by_session[sd]
+    for skey, sd, in_scope in sessions_list:
         prices_needed = held_tickers | {e.ticker for e in in_scope} | set(ticker_state.keys())
         prices_today = prices.all_prices_on(list(prices_needed), sd)
         portfolio_value_before_session = portfolio.total_value(prices_today)
-        day_start_of_day_value = {
-            t: portfolio.position_value(t, prices_today.get(t, 0.0))
-            for t in ticker_state if portfolio.position_shares(t) > 1e-9
-        }
-        day_trimmed_today = {}
+        # The 25%-of-start-of-day-value donor trim cap resets on a CALENDAR
+        # DATE change, not on every session -- matching make_funding_decide_fn's
+        # day_state, which keys off `trade_date` and persists across every
+        # event/call on the same date. This matters specifically for
+        # 'single_event' cadence, where several calls sharing one calendar
+        # date become several consecutive sessions: resetting per-session
+        # there would let each same-date session re-claim a fresh 25% of the
+        # donor instead of sharing one day's budget, diverging from the
+        # reference the equivalence gate must reproduce exactly.
+        if sd != last_calendar_date:
+            day_start_of_day_value = {
+                t: portfolio.position_value(t, prices_today.get(t, 0.0))
+                for t in ticker_state if portfolio.position_shares(t) > 1e-9
+            }
+            day_trimmed_today = {}
+            last_calendar_date = sd
         session_limit_used = {}  # ticker -> pp already consumed this session
 
-        pending_adds = []  # dicts: ticker, intended, day_price
-
-        # --- Step A: profit-take then recommended action, per in-session event ---
-        for event in in_scope:
-            price = prices.price_on(event.ticker, sd)
-            if price is None:
-                skipped_events.append((sd, event.ticker, "no price near session_date"))
-                continue
-            is_first_call = event.ticker not in seen_event_tickers
-            seen_event_tickers.add(event.ticker)
-            effective_type = type_fn(event.ticker)
-            tier = tier_fn(event.ticker) if tier_fn else None
-            driver_count = driver_fn(event.ticker) if driver_fn else None
-            final_action = event.final_action or event.per_call_rec or "Hold"
-
-            trades = decide_v3(
-                ticker=event.ticker, final_action=final_action,
-                recommended_size_pct=event.recommended_size,
-                type_classification=effective_type, portfolio=portfolio,
-                day_price=price, trade_date=sd, prices_today=prices_today,
-                tier=tier, is_first_call=is_first_call, driver_count=driver_count,
-            )
-            # Execute everything except buy trades now (profit-take/exit).
-            for t in trades:
-                if t.side == "sell":
-                    try:
-                        portfolio.execute_sell(t)
-                        held_tickers.add(t.ticker)
-                    except InsufficientShares:
-                        skipped_events.append((sd, t.ticker, "insufficient shares"))
-
-            portfolio_value_before = portfolio.total_value(prices_today)
-            current_dollars_before = portfolio.position_value(event.ticker, price)
-            had_position = portfolio.position_shares(event.ticker) > 1e-9
-
-            ticker_state[event.ticker] = {
-                "final_action": final_action, "call_date": event.call_date,
-                "session_date": sd,
-                "recommended_size_pct": event.recommended_size,
-                "type_classification": effective_type, "tier": tier,
-                "driver_count": driver_count,
-                "final_confidence": event.final_confidence,
-            }
-            staleness_log.append((sd - event.call_date).days)
-
-            starter_fired = is_first_call and not had_position
-            cap_pct_this_ticker = _type_cap(effective_type, tier, driver_count)
-            intended = 0.0
-            if starter_fired:
-                starter_pct = (STARTER_PCT_SPECULATIVE if tier == "speculative"
-                               else STARTER_PCT_ESTABLISHED)
-                target_cap_log.append({
-                    "date": sd, "ticker": event.ticker, "leg": "starter",
-                    "target_pct": starter_pct, "cap_pct": cap_pct_this_ticker,
-                    "excess": starter_pct - cap_pct_this_ticker,
-                })
-                if portfolio_value_before > 0:
-                    intended += (starter_pct / 100.0) * portfolio_value_before
-            v2_leg_applies = (not starter_fired) or (final_action not in ("Hold", None))
-            if v2_leg_applies and final_action == "Add" and portfolio_value_before > 0:
-                target_pct = min(event.recommended_size, cap_pct_this_ticker) if event.recommended_size else cap_pct_this_ticker
-                target_cap_log.append({
-                    "date": sd, "ticker": event.ticker, "leg": "add",
-                    "target_pct": target_pct, "cap_pct": cap_pct_this_ticker,
-                    "excess": target_pct - cap_pct_this_ticker,
-                    "known_s11_concatenation": starter_fired,
-                })
-                target_dollars = (target_pct / 100.0) * portfolio_value_before
-                delta = target_dollars - current_dollars_before
-                if delta > 0:
-                    intended += delta
-            if intended > 1e-6:
-                natural_buy_trades = [t for t in trades if t.side == "buy"]
-                pending_adds.append({
-                    "ticker": event.ticker, "intended": intended, "day_price": price,
-                    "trade_date": sd, "natural_buy_trades": natural_buy_trades,
-                })
-
-        # --- Step B: build eligible candidate pool (§4) ---
-        if scope == "new_calls_only":
-            candidates = list(pending_adds)
-        elif scope == "cash_deployment":
-            candidates = list(pending_adds)
-            pending_tickers = {c["ticker"] for c in candidates}
-            for t, st in ticker_state.items():
-                if t in pending_tickers:
-                    continue
-                price_t = prices_today.get(t)
-                if price_t is None:
-                    price_t = prices.price_on(t, sd)
-                if price_t is None:
-                    continue
-                if not eligible_for_cash(t, st, portfolio, {**prices_today, t: price_t}, sd):
-                    continue
-                cap_pct = _type_cap(st.get("type_classification"), st.get("tier"), st.get("driver_count"))
-                rsp = st.get("recommended_size_pct")
-                target_pct = min(rsp, cap_pct) if rsp else cap_pct
-                pv = portfolio.total_value(prices_today)
-                target_dollars = (target_pct / 100.0) * pv if pv > 0 else 0
-                current_dollars = portfolio.position_value(t, price_t)
-                delta = target_dollars - current_dollars
-                if delta > 1e-6:
-                    candidates.append({"ticker": t, "intended": delta, "day_price": price_t,
-                                        "trade_date": sd, "natural_buy_trades": []})
-        else:
-            raise ValueError(f"unknown scope {scope!r}")
-
-        # §4 rank order applies when the session model does real batching.
-        # At per-call cadence a "session" degenerates to (usually) one event;
-        # on the rare same-call-date multi-ticker session, the validated
-        # per-call harness has no ranking step at all -- it just executes
-        # decide_fn sequentially in draw order. The equivalence gate requires
-        # reproducing THAT behavior exactly, so ranking is skipped for
-        # cadence == 'per_call' and applied for every real cadence.
-        if cadence != "per_call":
-            def _key(c):
-                base = rank_key(c["ticker"], ticker_state.get(c["ticker"]), portfolio, prices_today, sd)
-                return (base[0], base[1], base[2], tie_rng.random())
-            candidates.sort(key=_key, reverse=True)
-
-        # --- Step C: deploy pooled cash in rank order, subject to §5 limit ---
-        for cand in candidates:
+        def _fund_candidate(cand):
+            """Deploy cash to ONE candidate, subject to §5's per-session
+            limit. Shared by the 'pooled' Step C loop (called once per
+            candidate, after the whole session's pool is ranked) and the
+            'sequential' execution order (called immediately, once per
+            event, from Step A below -- so 'remaining' cash for the next
+            event already reflects this one's trades)."""
             ticker = cand["ticker"]
             day_price = cand["day_price"]
             portfolio_value_before = portfolio.total_value(prices_today)
@@ -531,7 +456,7 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                     "target_buy_dollars": 0.0, "actual_dollars": 0.0,
                     "shortfall": cand["intended"], "binding": "session limit", "pp_change": 0.0,
                 })
-                continue
+                return
 
             if funding_mode == "no_reserve_raw":
                 # Today's baseline: decide_v3's own natural buy trades,
@@ -623,14 +548,22 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                             "donor_final_action": ticker_state.get(donor, {}).get("final_action"),
                             "donor_pct_after": donor_pct_after,
                         })
+                # Compute the buy leg BEFORE executing this event's own donor
+                # sells -- matching the reference exactly: _rebuild_buy_leg's
+                # avail = portfolio.accounts[acct].cash + raised_by_account
+                # assumes cash does NOT yet reflect these sells (the
+                # reference never executes trades inside decide_fn; it
+                # returns them for the caller to execute afterward). Selling
+                # first here would double-count the proceeds (once via the
+                # now-higher live cash balance, once via raised_by_account).
+                new_buy_trades, actual = rebuild_helper(
+                    ticker, target_buy_dollars, day_price, sd, raised_by_account,
+                    reason="session-add-to-target-swap-funded")
                 for t in sell_trades:
                     try:
                         portfolio.execute_sell(t)
                     except InsufficientShares:
                         skipped_events.append((sd, t.ticker, "insufficient shares (donor)"))
-                new_buy_trades, actual = rebuild_helper(
-                    ticker, target_buy_dollars, day_price, sd, raised_by_account,
-                    reason="session-add-to-target-swap-funded")
                 final_trades = new_buy_trades
             else:
                 raise ValueError(f"unknown funding_mode {funding_mode!r}")
@@ -648,7 +581,6 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
             else:
                 binding = "cash available"
 
-            pv_now = portfolio.total_value(prices_today)
             pp_change = (actual / portfolio_value_before * 100) if portfolio_value_before > 0 else 0.0
             session_limit_used[ticker] = already_used_pp + pp_change
 
@@ -658,6 +590,153 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                 "shortfall": max(cand["intended"] - actual, 0.0),
                 "binding": binding, "pp_change": pp_change,
             })
+
+        pending_adds = []  # dicts: ticker, intended, day_price
+
+        # --- Step A: profit-take then recommended action, per in-session event ---
+        for event in in_scope:
+            price = prices.price_on(event.ticker, sd)
+            if price is None:
+                skipped_events.append((sd, event.ticker, "no price near session_date"))
+                continue
+            is_first_call = event.ticker not in seen_event_tickers
+            seen_event_tickers.add(event.ticker)
+            effective_type = type_fn(event.ticker)
+            tier = tier_fn(event.ticker) if tier_fn else None
+            driver_count = driver_fn(event.ticker) if driver_fn else None
+            final_action = event.final_action or event.per_call_rec or "Hold"
+
+            # Snapshot BEFORE this event's own trades are generated or
+            # executed -- matching make_funding_decide_fn exactly, which
+            # reads portfolio_value_before / current_dollars_before ahead
+            # of calling decide_v3 and never re-reads them after this
+            # event's own sell leg executes (decide_fn returns trades for
+            # the caller to execute afterward; it does not execute them
+            # itself). The session driver previously executed this event's
+            # sells before taking this snapshot, which is an equivalence
+            # bug on any event whose own trade set includes a sell.
+            portfolio_value_before = portfolio.total_value(prices_today)
+            current_dollars_before = portfolio.position_value(event.ticker, price)
+            had_position = portfolio.position_shares(event.ticker) > 1e-9
+
+            trades = decide_v3(
+                ticker=event.ticker, final_action=final_action,
+                recommended_size_pct=event.recommended_size,
+                type_classification=effective_type, portfolio=portfolio,
+                day_price=price, trade_date=sd, prices_today=prices_today,
+                tier=tier, is_first_call=is_first_call, driver_count=driver_count,
+            )
+            # Execute everything except buy trades now (profit-take/exit).
+            for t in trades:
+                if t.side == "sell":
+                    try:
+                        portfolio.execute_sell(t)
+                        held_tickers.add(t.ticker)
+                    except InsufficientShares:
+                        skipped_events.append((sd, t.ticker, "insufficient shares"))
+
+            ticker_state[event.ticker] = {
+                "final_action": final_action, "call_date": event.call_date,
+                "session_date": sd,
+                "recommended_size_pct": event.recommended_size,
+                "type_classification": effective_type, "tier": tier,
+                "driver_count": driver_count,
+                "final_confidence": event.final_confidence,
+            }
+            staleness_log.append((sd - event.call_date).days)
+
+            starter_fired = is_first_call and not had_position
+            cap_pct_this_ticker = _type_cap(effective_type, tier, driver_count)
+            intended = 0.0
+            if starter_fired:
+                starter_pct = (STARTER_PCT_SPECULATIVE if tier == "speculative"
+                               else STARTER_PCT_ESTABLISHED)
+                target_cap_log.append({
+                    "date": sd, "ticker": event.ticker, "leg": "starter",
+                    "target_pct": starter_pct, "cap_pct": cap_pct_this_ticker,
+                    "excess": starter_pct - cap_pct_this_ticker,
+                })
+                if portfolio_value_before > 0:
+                    intended += (starter_pct / 100.0) * portfolio_value_before
+            v2_leg_applies = (not starter_fired) or (final_action not in ("Hold", None))
+            if v2_leg_applies and final_action == "Add" and portfolio_value_before > 0:
+                target_pct = min(event.recommended_size, cap_pct_this_ticker) if event.recommended_size else cap_pct_this_ticker
+                target_cap_log.append({
+                    "date": sd, "ticker": event.ticker, "leg": "add",
+                    "target_pct": target_pct, "cap_pct": cap_pct_this_ticker,
+                    "excess": target_pct - cap_pct_this_ticker,
+                    "known_s11_concatenation": starter_fired,
+                })
+                target_dollars = (target_pct / 100.0) * portfolio_value_before
+                delta = target_dollars - current_dollars_before
+                if delta > 0:
+                    intended += delta
+            if intended > 1e-6:
+                natural_buy_trades = [t for t in trades if t.side == "buy"]
+                cand = {
+                    "ticker": event.ticker, "intended": intended, "day_price": price,
+                    "trade_date": sd, "natural_buy_trades": natural_buy_trades,
+                }
+                if execution_order == "sequential" and scope == "new_calls_only":
+                    # Fund THIS event's own buy right now, before the next
+                    # event in the session is even looked at -- reproduces
+                    # the validated per-call harness's ordering exactly.
+                    _fund_candidate(cand)
+                else:
+                    pending_adds.append(cand)
+
+        # --- Step B: build eligible candidate pool (§4) ---
+        if scope == "new_calls_only":
+            candidates = list(pending_adds)
+        elif scope == "cash_deployment":
+            candidates = list(pending_adds)
+            pending_tickers = {c["ticker"] for c in candidates}
+            for t, st in ticker_state.items():
+                if t in pending_tickers:
+                    continue
+                price_t = prices_today.get(t)
+                if price_t is None:
+                    price_t = prices.price_on(t, sd)
+                if price_t is None:
+                    continue
+                if not eligible_for_cash(t, st, portfolio, {**prices_today, t: price_t}, sd):
+                    continue
+                cap_pct = _type_cap(st.get("type_classification"), st.get("tier"), st.get("driver_count"))
+                rsp = st.get("recommended_size_pct")
+                target_pct = min(rsp, cap_pct) if rsp else cap_pct
+                pv = portfolio.total_value(prices_today)
+                target_dollars = (target_pct / 100.0) * pv if pv > 0 else 0
+                current_dollars = portfolio.position_value(t, price_t)
+                delta = target_dollars - current_dollars
+                if delta > 1e-6:
+                    candidates.append({"ticker": t, "intended": delta, "day_price": price_t,
+                                        "trade_date": sd, "natural_buy_trades": []})
+        else:
+            raise ValueError(f"unknown scope {scope!r}")
+
+        # §4 rank order applies when the session model does real batching.
+        # At 'single_event' cadence every session is exactly one event by
+        # construction -- candidates has at most one entry, so ranking is a
+        # no-op there regardless. At per-call cadence a "session" degenerates
+        # to (usually) one event; on the rare same-call-date multi-ticker
+        # session, the validated per-call harness has no ranking step at all
+        # -- it just executes decide_fn sequentially in draw order. The
+        # equivalence gate requires reproducing THAT behavior exactly, so
+        # ranking is skipped for cadence in ('per_call', 'single_event') and
+        # applied for every real cadence.
+        if cadence not in ("per_call", "single_event"):
+            def _key(c):
+                base = rank_key(c["ticker"], ticker_state.get(c["ticker"]), portfolio, prices_today, sd)
+                return (base[0], base[1], base[2], tie_rng.random())
+            candidates.sort(key=_key, reverse=True)
+
+        # --- Step C: deploy cash, subject to §5 limit. 'pooled' (default,
+        # §3's specified sequence) ranks the WHOLE session's candidate pool
+        # then deploys via _fund_candidate; 'sequential' new_calls_only
+        # already funded each candidate inline in Step A above, so
+        # `candidates` is empty here in that case. ---
+        for cand in candidates:
+            _fund_candidate(cand)
 
         # --- daily mark-to-market: only recorded AT session dates for this
         # lightweight session harness (sufficient for final value / drawdown
@@ -691,11 +770,12 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
     # Year-end tax: apply once per year at the last session in that year
     # (session-native tax timing; not sub-session daily).
     from analysis.simulator.tax import compute_year_end_tax
-    years = sorted({sd.year for sd in sdates_only})
+    session_dates_seq = [sd for _, sd, _ in sessions_list]
+    years = sorted({sd.year for sd in session_dates_seq})
     loss_carryforward = 0.0
     year_end_taxes = []
-    for i, sd in enumerate(sdates_only):
-        is_last_of_year = (i == len(sdates_only) - 1) or (sdates_only[i + 1].year != sd.year)
+    for i, sd in enumerate(session_dates_seq):
+        is_last_of_year = (i == len(session_dates_seq) - 1) or (session_dates_seq[i + 1].year != sd.year)
         if is_last_of_year:
             mark_prices = prices.all_prices_on(list(held_tickers), sd)
             tax_result = compute_year_end_tax(portfolio, year=sd.year,
@@ -721,8 +801,8 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
                              if any(l.shares > 1e-9 for l in acc.lots[t])})
 
     staleness_pairs = []
-    for sd in sdates_only:
-        for event in events_by_session[sd]:
+    for _, sd, in_scope_events in sessions_list:
+        for event in in_scope_events:
             staleness_pairs.append((event.ticker, (sd - event.call_date).days))
     per_ticker_stale: dict = {}
     for t, d in staleness_pairs:
@@ -746,7 +826,7 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
         "pct_below_1pct": 100 * below_1pct / len(r.daily_snapshots) if r.daily_snapshots else 0,
         "n_displacements": len(displacement_log),
         "displacement_log": displacement_log,
-        "n_events": len(events), "n_sessions": len(sdates_only),
+        "n_events": len(events), "n_sessions": len(sessions_list),
         "funding_log": funding_log, "daily_snapshots": r.daily_snapshots,
         "skipped_events": r.skipped_events, "portfolio": r.portfolio,
         "target_cap_log": target_cap_log,
@@ -769,6 +849,3 @@ def independent_max_drawdown(daily_snapshots):
             if dd > worst_dd:
                 worst_dd = dd
     return worst_dd
-
-
-_GIT_COMMIT = _GIT_BRANCH = _GIT_DIRTY = None

@@ -76,15 +76,31 @@ def git(*args):
                            text=True, check=True).stdout.strip()
 
 
-def assert_driver_committed():
+def _current_git_state():
+    """Read-only: current commit/branch/dirty state. No assertion here --
+    importing this module must never fail just because the working tree
+    happens to be dirty (e.g. another driver's docs/wrap-up edits in
+    progress). The hard stop lives in assert_clean_for_manifest(), called
+    only when a manifest is actually about to be written (Step 0b)."""
     commit = git("rev-parse", "HEAD")
     dirty = bool(git("status", "--porcelain"))
+    return commit, git("rev-parse", "--abbrev-ref", "HEAD"), dirty
+
+
+def assert_clean_for_manifest():
+    """Hard stop-gate, moved here from import time (Step 0b of
+    prompts/cadence-equivalence-and-pooling.md): a manifest may not be
+    written against a dirty tree, and the driver file that produced the
+    numbers must actually be present at HEAD. Re-reads git state fresh
+    each call rather than relying on the import-time snapshot, since a
+    long-running sweep session may commit files between import and the
+    first manifest write."""
+    commit, branch, dirty = _current_git_state()
     if dirty:
         raise RuntimeError(
             f"git_dirty is true at HEAD={commit[:12]} -- Step 0a's hard "
             f"stop-gate requires false. Not proceeding."
         )
-    # Assert the driver file exists in this commit's tree (0b).
     result = subprocess.run(
         ["git", "cat-file", "-e", f"{commit}:{DRIVER_FILE}"],
         cwd=REPO_ROOT, capture_output=True,
@@ -95,10 +111,10 @@ def assert_driver_committed():
             f"would name a commit that predates the code producing these "
             f"numbers. Commit the driver first."
         )
-    return commit, git("rev-parse", "--abbrev-ref", "HEAD"), dirty
+    return commit, branch, dirty
 
 
-_GIT_COMMIT, _GIT_BRANCH, _GIT_DIRTY = assert_driver_committed()
+_GIT_COMMIT, _GIT_BRANCH, _GIT_DIRTY = _current_git_state()
 _TYPE_JSON_SHA = sha256_file(SCRIPT_DIR / "data" / "type_classifications.json")
 _PRICE_CACHE_SHA = sha256_file(SCRIPT_DIR / "data" / "price_cache.json")
 _FUNDAMENTALS_CACHE_SHA = sha256_file(SCRIPT_DIR / "data" / "fundamentals_cache.json")
@@ -106,6 +122,8 @@ _DB_SNAPSHOT_SHA = sha256_file(DB_SNAPSHOT_PATH)
 
 
 def write_manifest(run_id, loaded_events, in_window_events, params, results):
+    commit, branch, dirty = assert_clean_for_manifest()
+
     def sha_of(events):
         repr_ = "|".join(f"{e.ticker}:{e.call_date.isoformat()}" for e in
                           sorted(events, key=lambda e: (e.ticker, e.call_date)))
@@ -115,9 +133,9 @@ def write_manifest(run_id, loaded_events, in_window_events, params, results):
     manifest = {
         "run_id": run_id,
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-        "git_commit": _GIT_COMMIT,
-        "git_branch": _GIT_BRANCH,
-        "git_dirty": _GIT_DIRTY,
+        "git_commit": commit,
+        "git_branch": branch,
+        "git_dirty": dirty,
         "driver_file": DRIVER_FILE,
         "corpus": {
             "source": "db",
@@ -787,11 +805,14 @@ def run_five_gates(events_full, prices, type_fn, driver_fn, tier_fn, control_fin
 
 def main() -> int:
     t0 = time.time()
-    print(f"git commit={_GIT_COMMIT[:12]} branch={_GIT_BRANCH} dirty={_GIT_DIRTY}")
-    if _GIT_DIRTY:
+    commit, branch, dirty = _current_git_state()
+    print(f"git commit={commit[:12]} branch={branch} dirty={dirty}")
+    if dirty:
         print("STOP: git_dirty is true. Step 0a's hard stop-gate requires false.")
         return 1
-    print("git_dirty=false confirmed; driver file present at HEAD. Proceeding.\n")
+    print("git_dirty=false confirmed. Proceeding "
+          "(assert_clean_for_manifest() re-checks, including driver-file "
+          "presence, at every manifest write).\n")
 
     events_full, type_fn, driver_fn, tier_fn = load_events_dedup_on()
     prices = PriceLookup.from_cache()
