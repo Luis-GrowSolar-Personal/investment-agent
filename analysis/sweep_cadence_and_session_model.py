@@ -781,7 +781,26 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
     for i, sd in enumerate(session_dates_seq):
         is_last_of_year = (i == len(session_dates_seq) - 1) or (session_dates_seq[i + 1].year != sd.year)
         if is_last_of_year:
-            mark_prices = prices.all_prices_on(list(held_tickers), sd)
+            # Fourth-bug fix (Step 1, close-equivalence-and-run-cadence):
+            # the reference (simulator.py) walks every calendar day and
+            # triggers year-end tax exactly on Dec 31, pricing the forced
+            # liquidation off `all_prices_on(held_tickers, Dec 31)` --
+            # forward/back-filled to the nearest trading day from that
+            # anchor. This session model instead priced the liquidation off
+            # the year's LAST SESSION date (whichever event happened to be
+            # last that year), which anchors the price lookup to a
+            # different date and produces a different forced-sale price
+            # (confirmed: AAPL forced-liquidation-for-tax on 2023-12-31
+            # priced at $193.18 here vs $192.53 in the reference, a real
+            # dollar divergence that is the first point the two
+            # implementations' portfolios split, well upstream of the
+            # previously-known 2024-02-14 QS/AAPL donor symptom). Anchor the
+            # price lookup to the literal Dec 31 calendar date, matching
+            # the reference exactly, while still batching the tax
+            # computation into this session-native loop (timing of WHEN
+            # unchanged -- only the WHICH DATE prices are read from).
+            year_end_date = date(sd.year, 12, 31)
+            mark_prices = prices.all_prices_on(list(held_tickers), year_end_date)
             tax_result = compute_year_end_tax(portfolio, year=sd.year,
                                                loss_carryforward_in=loss_carryforward,
                                                prices_for_liquidation=mark_prices)
