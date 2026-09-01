@@ -79,6 +79,15 @@ findings to `./wrap-ups/close-equivalence-corrected-targets-out.md`.
 `analysis/data/run_state/<run_id>/` — `progress.json`, `cells.jsonl`,
 `findings.md` — under the standing convention in `CLAUDE.md`.
 
+**Write state before reading anything.** Create the directory and an initial
+`progress.json` — every step `pending`, `next_action` set to "spec reading not
+yet started" — as the **very first action of the session**, before reading the
+architecture documents, before seeding `findings.md`, before Step 0. A previous
+attempt at this prompt exhausted its budget on the reading and left no
+checkpoint at all, which is the one failure mode the protocol does not otherwise
+cover. Update `next_action` again once the reading is done, so a session that
+dies mid-read resumes at the right place rather than repeating it.
+
 **Seed, do not discard.** This is a new `run_id`, so state starts fresh, but copy
 `analysis/data/run_state/close-equivalence-and-run-cadence/findings.md` in as
 prior context first and note in `progress.json` that it came from the superseded
