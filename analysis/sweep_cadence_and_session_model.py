@@ -412,7 +412,51 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
         return _rebuild_buy_leg(ticker, target_buy_dollars, portfolio, day_price, trade_date,
                                  raised_by_account, reason=reason)
 
-    for skey, sd, in_scope in sessions_list:
+    # --- Year-end tax, applied INSIDE the session loop (fifth-bug fix, Step 2
+    # of prompts/close-equivalence-corrected-targets.md).
+    #
+    # This used to be a post-loop pass over `session_dates_seq`, which meant
+    # every year's forced-liquidation-for-tax executed against the FINAL
+    # portfolio state, after the last `daily_snapshots.append(...)`. Two
+    # consequences, both wrong: (a) the tax hit never appeared in ANY
+    # snapshot, and `compute_summary` takes final_portfolio_value from
+    # `snaps[-1].total_value` (analysis/simulator/report.py:134), so the
+    # headline number was entirely tax-free; (b) the shares sold to pay the
+    # tax kept compounding for the rest of the run instead of being gone.
+    # The reference (analysis/simulator/simulator.py:207-227) walks every
+    # calendar day and settles tax at step 2 -- after that day's trades,
+    # BEFORE that day's mark-to-market -- on Dec 31 of each year, plus a
+    # partial-year settlement on the final day when it is not Dec 31.
+    #
+    # Mapped onto session dates: no trades occur between sessions, so
+    # settling year Y at the first session on/after Jan 1 of Y+1 leaves the
+    # portfolio in the same state as settling it on Dec 31 -- provided the
+    # liquidation PRICES are still anchored to the literal Dec 31 (the
+    # fourth-bug fix, commit cbba37e, preserved here).
+    from analysis.simulator.tax import compute_year_end_tax
+    year_end_taxes = []
+    loss_carryforward = 0.0
+    taxed_years: set = set()
+
+    def _settle_year_end_tax(year, price_anchor_date):
+        nonlocal loss_carryforward
+        anchor_prices = prices.all_prices_on(list(held_tickers), price_anchor_date)
+        tax_result = compute_year_end_tax(portfolio, year=year,
+                                           loss_carryforward_in=loss_carryforward,
+                                           prices_for_liquidation=anchor_prices)
+        year_end_taxes.append(tax_result)
+        loss_carryforward = tax_result.loss_carryforward_out
+        taxed_years.add(year)
+
+    n_sessions_total = len(sessions_list)
+
+    for _sess_i, (skey, sd, in_scope) in enumerate(sessions_list):
+        # Settle any Dec 31 that has passed since the previous session, before
+        # this session's decisions see the portfolio (the reference has
+        # already taken the hit by then).
+        for _y in range(START.year, sd.year):
+            if _y not in taxed_years and date(_y, 12, 31) < sd:
+                _settle_year_end_tax(_y, date(_y, 12, 31))
         prices_needed = held_tickers | {e.ticker for e in in_scope} | set(ticker_state.keys())
         prices_today = prices.all_prices_on(list(prices_needed), sd)
         portfolio_value_before_session = portfolio.total_value(prices_today)
@@ -742,6 +786,14 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
         for cand in candidates:
             _fund_candidate(cand)
 
+        # Mirror the reference's step 2: on Dec 31 itself, and on the final
+        # day when it is not Dec 31 (partial-year settlement), tax settles
+        # AFTER this session's trades and BEFORE the mark-to-market.
+        _is_dec31 = (sd.month == 12 and sd.day == 31)
+        _is_last_session = (_sess_i == n_sessions_total - 1)
+        if sd.year not in taxed_years and (_is_dec31 or _is_last_session):
+            _settle_year_end_tax(sd.year, date(sd.year, 12, 31) if _is_dec31 else sd)
+
         # --- daily mark-to-market: only recorded AT session dates for this
         # lightweight session harness (sufficient for final value / drawdown
         # on session boundaries; see wrap-up note on drawdown granularity). ---
@@ -770,42 +822,6 @@ def run_session_sweep_cell(events_all, prices, type_fn, driver_fn, tier_fn,
         # year-end tax at Dec 31 boundaries falling on/after this session and
         # before the next: apply once per calendar year at the session that
         # crosses or lands on it (approximation: apply at year's LAST session).
-
-    # Year-end tax: apply once per year at the last session in that year
-    # (session-native tax timing; not sub-session daily).
-    from analysis.simulator.tax import compute_year_end_tax
-    session_dates_seq = [sd for _, sd, _ in sessions_list]
-    years = sorted({sd.year for sd in session_dates_seq})
-    loss_carryforward = 0.0
-    year_end_taxes = []
-    for i, sd in enumerate(session_dates_seq):
-        is_last_of_year = (i == len(session_dates_seq) - 1) or (session_dates_seq[i + 1].year != sd.year)
-        if is_last_of_year:
-            # Fourth-bug fix (Step 1, close-equivalence-and-run-cadence):
-            # the reference (simulator.py) walks every calendar day and
-            # triggers year-end tax exactly on Dec 31, pricing the forced
-            # liquidation off `all_prices_on(held_tickers, Dec 31)` --
-            # forward/back-filled to the nearest trading day from that
-            # anchor. This session model instead priced the liquidation off
-            # the year's LAST SESSION date (whichever event happened to be
-            # last that year), which anchors the price lookup to a
-            # different date and produces a different forced-sale price
-            # (confirmed: AAPL forced-liquidation-for-tax on 2023-12-31
-            # priced at $193.18 here vs $192.53 in the reference, a real
-            # dollar divergence that is the first point the two
-            # implementations' portfolios split, well upstream of the
-            # previously-known 2024-02-14 QS/AAPL donor symptom). Anchor the
-            # price lookup to the literal Dec 31 calendar date, matching
-            # the reference exactly, while still batching the tax
-            # computation into this session-native loop (timing of WHEN
-            # unchanged -- only the WHICH DATE prices are read from).
-            year_end_date = date(sd.year, 12, 31)
-            mark_prices = prices.all_prices_on(list(held_tickers), year_end_date)
-            tax_result = compute_year_end_tax(portfolio, year=sd.year,
-                                               loss_carryforward_in=loss_carryforward,
-                                               prices_for_liquidation=mark_prices)
-            year_end_taxes.append(tax_result)
-            loss_carryforward = tax_result.loss_carryforward_out
 
     r = SimulationResult(
         start_date=START, end_date=C, initial_capital=INITIAL,

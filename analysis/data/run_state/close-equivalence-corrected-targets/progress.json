@@ -1,0 +1,24 @@
+{
+  "run_id": "close-equivalence-corrected-targets",
+  "prompt_sha256": "79886397ba00b093ffe8c458750e2513143719a31280dc4c822baf7115775395",
+  "driver_commit": "ccefcd313e0b8069767c4ab1334b03adc2c151e6",
+  "steps": {
+    "step_-1_resume_protocol": "done",
+    "step_0_hygiene": "done",
+    "step_1_gate_1a_corrected_targets": "done",
+    "step_2_residual_close": "done",
+    "step_3_spec_correction_deltas": "pending",
+    "step_4_pooling_rederived": "pending",
+    "step_5_cadence_grid": "pending",
+    "step_6_fold_ins": "pending",
+    "step_7_gates_and_rules": "pending",
+    "step_8_report": "pending"
+  },
+  "next_action": "Gate 1a PASSES bit-exact after the year-end-tax-inside-the-loop fix. Next: commit the driver fix, then Step 3 (per_session vs per_event_date trim_budget_scope deltas).",
+  "notes": [
+    "New run_id supersedes close-equivalence-and-run-cadence per prompt instructions.",
+    "Must seed findings.md from analysis/data/run_state/close-equivalence-and-run-cadence/findings.md (copy in as prior context, noted as coming from superseded run).",
+    "Must NOT reuse close-equivalence-and-run-cadence's cells.jsonl -- those 3 cells were measured against the wrong target.",
+    "Step 1 target verification PASSED: bracket-swap_funding-2.5pp-manifest.json results.forward_diagnostics.final_value = 189781.58036163618 (and results.final.median = 190481.16304357877, confirming the superseded prompt quoted the median). step1-five-gates-manifest.json results.detail[0] states no_reserve_raw control = $141,836.57."
+  ]
+}
