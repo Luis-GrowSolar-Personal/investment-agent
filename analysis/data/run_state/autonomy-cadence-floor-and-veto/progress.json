@@ -1,0 +1,20 @@
+{
+  "run_id": "autonomy-cadence-floor-and-veto",
+  "prompt_sha256": "656050820a3917a2548c0d9ac07a27edf94a6d4eb37d0ef8e47dc44c9f722768",
+  "driver_commit": "3317860",
+  "steps": {
+    "step_-1_resume_protocol": "done",
+    "step_0_hygiene": "done",
+    "step_1_cadence_floor": "done",
+    "step_2_veto_sweep": "done",
+    "step_3_autonomy_value": "done",
+    "step_4_rules": "done",
+    "step_5_report": "done"
+  },
+  "next_action": "Run complete. Report at wrap-ups/autonomy-cadence-floor-and-veto-out.md. Nothing pending.",
+  "notes": [
+    "Prompt says: if budget is tight, do Step 2 (veto sweep) before Step 1 (cadence floor) -- Step 2 is the higher-value half.",
+    "Depends on wrap-ups/close-equivalence-corrected-targets-out.md (prior run) for the previous grid's K=7/K=30 phase-averaged medians used as anchor-check targets.",
+    "COMPLETE: 2680 cells, 700 reused within session. Veto TIED under Rule 2 everywhere; cadence-to-1 SEPARABLE at +5.64%. All six gates pass."
+  ]
+}

@@ -232,10 +232,15 @@ def best_cell_for(k, step1_results):
     return b["scope"], b["limit"]
 
 
-def step2(ctx, done, step1_results):
+def step2(ctx, done, step1_results, force_cell=None, tag="step2"):
+    """force_cell=(scope, limit) overrides each cadence's best cell. Used for
+    the supplementary LOOSE-limit sweep: at the best cells the per-session
+    change limit keeps positions away from the 25% profit-take threshold, so
+    §8's trigger almost never arms and the model is unmeasurable there. The
+    loose sweep measures the same model in the regime it was written for."""
     out = {}
     for k in K_STEP2:
-        scope, lim = best_cell_for(k, step1_results)
+        scope, lim = force_cell if force_cell else best_cell_for(k, step1_results)
         ph = phases_for(k)[0]
         for p_veto in VETO_PS:
             finals, dds, pets, caps, cap_loss, declined = [], [], [], [], [], []
@@ -245,7 +250,7 @@ def step2(ctx, done, step1_results):
                               seed=d, execution_order="pooled",
                               trim_budget_scope="per_event_date",
                               veto_p=p_veto, veto_seed=100000 + d)
-                res = run(ctx, "step2-veto", done, **params)
+                res = run(ctx, f"{tag}-veto", done, **params)
                 finals.append(res["final_value"])
                 dds.append(res["max_dd"])
                 pets.append(res["n_pets"])
@@ -269,7 +274,7 @@ def step2(ctx, done, step1_results):
                   f"[{min(finals):,.0f}..{max(finals):,.0f}] dd={statistics.median(dds)*100:5.2f}% "
                   f"pets={sum(pets)} caps={sum(caps)} "
                   f"({ctx['ran']} ran, {time.time()-ctx['t0']:.0f}s)", flush=True)
-        (STATE / "step2-results.json").write_text(json.dumps(out, indent=2, default=str))
+        (STATE / f"{tag}-results.json").write_text(json.dumps(out, indent=2, default=str))
     return out
 
 
@@ -285,6 +290,9 @@ def main():
     elif step == "2":
         s1 = json.loads((STATE / "step1refine-results.json").read_text())
         step2(ctx, done, s1)
+    elif step == "2loose":
+        s1 = json.loads((STATE / "step1refine-results.json").read_text())
+        step2(ctx, done, s1, force_cell=("cash_deployment", None), tag="step2loose")
     else:
         raise SystemExit(f"unknown step {step!r}")
     print(f"DONE step={step} ran={ctx['ran']} reused={ctx['reused']} "
