@@ -33,6 +33,23 @@
   code block in the chat — not inline prose, and not a separate file —
   so they're easy to copy.
 
+## Reference figures in gates must cite their provenance
+
+**Every number a prompt asks a run to reproduce must name where it came from —
+the manifest path and the exact JSON key.** A bare figure once cost two full
+sessions: a gate demanded a forward draw equal `$190,481.16304357877`, which is
+`results.final.median` across 15 draws, while the forward draw for that same
+configuration sits in the same manifest at
+`results.forward_diagnostics.final_value` = `$189,781.58036163618`. The run
+chased a $627 gap that was really $73.
+
+Two consequences, both standing:
+
+- When quoting a target, write it as `<value>` — `<manifest>` → `<json.key>`.
+- When comparing any two numbers, state for each whether it is a forward draw, a
+  median, or something else. A figure quoted without provenance is a premise to
+  verify before relying on it, not a fact.
+
 ## Long CLI runs must be resumable
 
 A CLI session can run out of budget mid-run. **Any prompt whose work spans more

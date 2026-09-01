@@ -7,7 +7,7 @@ node_modules/
 *.pyc
 .env.local
 client/.env
-.claude/
+#.claude/
 
 # Data caches and per-laptop artifacts (kept out of git intentionally)
 # NOTE: use analysis/data/* (not analysis/data/) so individual files below

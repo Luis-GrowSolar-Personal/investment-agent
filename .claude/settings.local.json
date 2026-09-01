@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx prisma:*)",
+      "Bash(pkill -f \"node.*index.js\")",
+      "Bash(pkill -f \"vite\")",
+      "Bash(npm run:*)",
+      "Read(//tmp/**)",
+      "Bash(node index.js)",
+      "Bash(echo \"server pid: $!\")",
+      "Bash(echo \"client pid: $!\")",
+      "Read(//private/tmp/**)",
+      "Bash(pkill -f \"node index.js\")",
+      "Bash(xargs kill:*)"
+    ]
+  }
+}
