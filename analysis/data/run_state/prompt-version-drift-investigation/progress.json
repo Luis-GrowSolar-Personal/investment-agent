@@ -1,0 +1,23 @@
+{
+  "run_id": "prompt-version-drift-investigation",
+  "prompt_sha256": "2f398f022fdac35208544de20920527c2778f79678892f640a7fed3e5b3d8f27",
+  "driver_commit": "96d5e81e986a19dd51a0391436187c12ea12794f",
+  "branch": "sweep/db-corpus-baseline",
+  "started_utc": "2026-09-03T00:00:00Z",
+  "cells_jsonl_used": false,
+  "cells_jsonl_note": "This run is a sequence of independent facts, not a cell grid -- cells.jsonl is not used per the prompt's own instruction.",
+  "steps": {
+    "step0_hygiene": {"status": "done", "notes": ["git_dirty=false at commit 96d5e81e986a19dd51a0391436187c12ea12794f (2026-09-03T01:46:54Z) prior to this run's own run_state additions", "branch=sweep/db-corpus-baseline"]},
+    "step1_deployed_build": {"status": "done", "notes": ["DEV deployed commit 37f535a (2026-08-25) has v10+auto1 prompt content, versions.js says v6 -- LIVE CONTAMINATION CONFIRMED", "PROD deployed commit 2830d274 (2026-04-04) predates server/ entirely, deployment status FAILED, 0 instances -- not running the analyst at all", "root .env DATABASE_URL confirmed == investment-agent-db-dev (interchange.proxy.rlwy.net:10140), matches DEV's contaminated service", "no early exit -- proceed to full Steps 3-6 including Step 5 live-row scoping"]},
+    "step2_label_derivation": {"status": "done", "notes": ["confirmed evaluate.js is sole prompt-sending path at deployed DEV commit; portfolioImport.js is unrelated (haiku, CSV import)", "save.js is the second (and only other) write site, same hardcoded versions.js constants -- not a second bug", "no content-hash/derivation logic anywhere -- confirmed hardcoded-constant-not-updated, not broken-derivation"]},
+    "step3_corpus_homogeneity": {"status": "done", "notes": ["confirmed simulator and production share the same DB (investment-agent-db-dev)", "764/770 pre-cutoff NULL rows explained: rebackfill_v6_analyses.py predates add_version_columns migration by 3 weeks, INSERT omits those columns entirely -- not a bug", "corpus is circumstantially homogeneous, not provably so -- same conclusion as prior recon, now with the why", "found live drift since recon snapshot: Analysis table now 806 rows not 805, new row id=895 NVDA created 2026-08-31 postdates DEV's contaminated deploy -- feeds into Step 5"]},
+    "step4_content_hash_timeline": {"status": "done", "notes": ["origin commit for the v10 mislabel: 87bcfaa (2026-08-01), versions.js untouched since 9028d0e (2026-06-27)", "found 2 earlier commits (3d9a9d6, 7063465) where content changed under unchanged v6 header -- both traced to already-documented decisions (variable Type B cap retirement, summary field), not undisclosed drift", "found MODEL_VERSION bump to sonnet-4-6 (9028d0e, 2026-06-27) reintroduces the exact substitution the 2026-05-23 gate rejected (HOLD) -- 18min after the last v6-header prompt commit, same session -- feeds Step 6"]},
+    "step5_live_contamination_scope": {"status": "done", "notes": ["exactly 1 row (id 895, NVDA) created after DEV deploy timestamp, exact count not an estimate", "promptVersion label known false; modelVersion label accurate-but-unvalidated (see step6)"]},
+    "step6_gate_records": {"status": "done", "notes": ["gate_ledger.json has exactly 1 entry, champion v6_sonnet-4-20250514, verdict HOLD -- confirms no prompt version ever gated", "found the original accidental bump commit a31f3c0 (2026-05-23) predating versions.js, explaining PROMOTION_GATE.md §8's note", "confirmed no record anywhere of the 2026-06-27 reintroduction (9028d0e) as a deliberate exception -- itself a §8 finding", "quoted EVALUATION_PROMPT.md iteration log verbatim: v9 FAILED its gate, v10 gate never run, v10+auto1 has no gate status recorded at all, and v6's own 'current best/live in production' self-claim is now stale/false"]},
+    "step7_report": {"status": "done", "notes": ["docs/handoffs/2026-09-03-prompt-version-drift.md written", "docs/handoffs/2026-09-03-prompt-version-drift.docx generated via python-docx with real Word tables", "wrap-ups/prompt-version-drift-investigation-out.md thin close-out written"]}
+  },
+  "completed_utc": "2026-09-03T02:00:00Z",
+  "run_complete": true,
+  "run_partial": false,
+  "next_action": "none -- run complete; commit findings, run_state, and reports"
+}
