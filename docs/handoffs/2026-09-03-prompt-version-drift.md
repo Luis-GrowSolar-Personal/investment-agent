@@ -6,15 +6,58 @@
 
 ---
 
+## 0. Corrections and follow-up — 2026-09-03, after the run
+
+Two checks were run after this report was written. Both change it. The original
+text is corrected in place below; this section records what changed and why.
+
+| # | What the report said | What is now established |
+|---|---|---|
+| 1 | Contamination began at the DEV deploy of **2026-08-25**, blast radius **one row** (id 895) | The 2026-08-25 deploy is only the *most recent* one. Railway retains just 20 deployment records (earliest `2026-08-22T18:02:05Z`), so the deploy that first carried v10+auto1 is no longer in Railway's history. `87bcfaa` is itself a commit **on `dev`** (2026-08-01 16:00) and `dev` took **44 commits between 2026-08-01 and 2026-08-23**, so with deploy-on-push the drifted build went live within days of 2026-08-01. **Contamination begins ≈2026-08-01, and the blast radius is the 18 Analysis rows created in August, not one.** |
+| 2 | Corpus homogeneity "circumstantial, not provable" — the possibility that differently-scored rows sit inside the backtest window was left open | **Closed.** Every version-stamped row is outside the simulation window; see the query below. |
+
+**Query 2, run 2026-09-03 (read-only):**
+
+```
+ promptVersion |       modelVersion       | rows | earliest_call | latest_call | inside_backtest
+---------------+--------------------------+------+---------------+-------------+-----------------
+ v6            | claude-sonnet-4-20250514 |    6 | 2026-05-06    | 2026-06-11  |               0
+ v6            | claude-sonnet-4-6        |   36 | 2025-08-05    | 2026-08-26  |               0
+```
+
+`inside_backtest` counts rows whose transcript call date falls in
+2022-01-01 – 2024-06-12 **and** whose ticker is in ALL16 — i.e. rows the
+simulator actually loads. It is **zero for every stamped row**: the earliest
+call date on any of the 42 stamped rows is 2025-08-05, more than a year after
+the window closes. Combined with the migration-ordering explanation for the 764
+unstamped rows (§2) and the fact that the one attempt to regenerate the v6 eval
+cache spent nothing (`wrap-ups/regen-v6-eval-cache-and-run-sweep-out.md`:
+*"No sweep run. No cache regenerated. $0 spent."*), **the backtest corpus is
+established as unaffected and the settled configuration stands.**
+
+**Decision taken (Luis, 2026-09-03): remediation option A, roll back.**
+`docs/EVALUATION_PROMPT.md` was restored on `dev` at commit `c514ae1` to its
+content at `7063465`, sha256
+`357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b`, verified
+byte-identical to the restored file. `versions.js` needed no change:
+`PROMPT_VERSION = 'v6'` is true again. v10+auto1 remains in history at `87bcfaa`
+as an ungated candidate. **Option C (quarantine) is in force until the redeploy
+lands** — no new evaluations. Relabelling the 18 affected rows, the startup
+hash-check (§7), and the model-version question are all still open.
+
+---
+
 ## 1. Headline
 
 **Yes, there is live contamination.** DEV (Railway project `investment-agent-DEV`, service `investment-agent-DEV`) is running commit `37f535acb85e8edf9d48b663e41b24ec6b852777`, deployed **2026-08-25T14:36:46-04:00**. At that commit, `docs/EVALUATION_PROMPT.md` is byte-identical (sha256 `b81d24c6763f0eb724c9a9b2273a570acaa87419fb527b880304a514443d9f14`) to the current working-tree file, which declares itself `v10+auto1 (auto-iterate candidate — pending gate)`. `server/lib/versions.js` at that same commit still hardcodes `PROMPT_VERSION = 'v6'`. **The deployed build sends v10+auto1 to the analyst and labels every resulting DB row `v6`.**
+
+**Corrected 2026-09-03 (see §0):** this deploy is the most recent carrying v10+auto1, not the first. The drift went live on or about 2026-08-01; blast radius is 18 rows, not one.
 
 **Separately, and worth stating up front: `investment-agent-PROD` is not running the application at all.** Its latest deployment (commit `2830d274`, 2026-04-04) has Railway status `FAILED`, zero running instances, and predates the entire Node/Express app — no `server/` directory exists at that commit. `CLAUDE.md`'s "Hosting: Railway (dev and prod services)" line does not currently describe reality for PROD. This wasn't the question this run was sent to answer, but it fell out of Step 1 and is reported plainly.
 
 ## 2. Corpus verdict
 
-**Homogeneous only circumstantially — not provably so.** This is the same conclusion the prior recon (`wrap-ups/recon-analysis-table-v6-corpus-out.md`, 2026-08-30 snapshot) reached; this run re-confirms it live and adds the mechanism.
+**Homogeneous only circumstantially — not provably so.** *(Materially strengthened 2026-09-03 — see §0: no version-stamped row falls inside the simulation window.)* This is the same conclusion the prior recon (`wrap-ups/recon-analysis-table-v6-corpus-out.md`, 2026-08-30 snapshot) reached; this run re-confirms it live and adds the mechanism.
 
 - The backtest simulator and the live app **share one database and one `Analysis` table** — `analysis/simulator/data.py` reads `DATABASE_URL` from the same root `.env` that resolves to `investment-agent-db-dev`, the exact database DEV's `evaluate.js`/`save.js` write into. Production drift contaminates the corpus directly; the two pipelines are not independent.
 - Of 806 total `Analysis` rows today: 764 have both `promptVersion` and `modelVersion` NULL, 6 are tagged `v6`/`claude-sonnet-4-20250514`, 18 are tagged `v6`/`claude-sonnet-4-6` (pre-cutoff), and 18 more `v6`/`claude-sonnet-4-6` post-cutoff (see table in §4).
@@ -96,7 +139,7 @@ FROM "Analysis" WHERE "createdAt" >= '2026-08-25 14:36:46-04' ORDER BY "createdA
 |---|---|---|---|---|
 | 895 | 786 | 2026-08-31 14:41:11.369 | v6 | claude-sonnet-4-6 |
 
-**Exactly one row** — NVDA, call date 2026-08-26, "NVIDIA (NVDA) Q2 2027 Earnings Call Transcript," recommendation "Add," thesisHealth "Strengthening." This count is exact (Railway gave the deploy timestamp directly; no bounded-estimate fallback was needed).
+**Superseded — see §0. The correct count is 18 rows (all of August), anchored to ≈2026-08-01.** The query below was anchored to the most recent deploy rather than the first, and returns only the newest of those rows: NVDA, call date 2026-08-26, "NVIDIA (NVDA) Q2 2027 Earnings Call Transcript," recommendation "Add," thesisHealth "Strengthening." This count is **not** the contamination scope; it is the count since the latest deploy. Railway retains only 20 deployment records, so the first drifted deploy cannot be dated from Railway — it is bounded instead by `87bcfaa`'s own date on `dev` (2026-08-01) and the 44 dev commits that followed before 2026-08-23.
 
 - `promptVersion: "v6"` on this row is **known false** — the build serving it holds v10+auto1 content.
 - `modelVersion: "claude-sonnet-4-6"` is **accurate as a description of what ran**, but that model is the one the gate rejected (§3) — accurate label, unvalidated choice.
