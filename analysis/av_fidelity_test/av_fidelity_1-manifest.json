@@ -1,0 +1,51 @@
+{
+  "run_id": "av_fidelity_1",
+  "timestamp_utc": "2026-09-03T00:34:00Z",
+  "git_commit": "f9e2b02552ddcb9c6d6d7b37f5aaba889878c8d2",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/av_fidelity_test/driver.py",
+  "prompt_file": "prompts/av_transcript_fidelity_benchmark_1.md",
+  "corpus": {
+    "source": "db",
+    "universe": "portfolio tickers AAPL, AMPX, EOSE, SPWR, TSLA, TTD; AV coverage pre-confirmed only for AMPX, EOSE, SPWR (ENVX not a portfolio ticker in this DB)",
+    "selection_window": "2025 calendar-year quarters only, and SPWR restricted to post-April-2025-rename (SunPower branding) per prompt guidance that AV has no CSLR-era SPWR data",
+    "transcript_ids": [15, 16, 17, 22, 23, 32, 31],
+    "samples": [
+      {"ticker": "AMPX", "quarter": "2025Q1", "transcript_id": 15},
+      {"ticker": "AMPX", "quarter": "2025Q2", "transcript_id": 16},
+      {"ticker": "AMPX", "quarter": "2025Q3", "transcript_id": 17},
+      {"ticker": "EOSE", "quarter": "2025Q1", "transcript_id": 22},
+      {"ticker": "EOSE", "quarter": "2025Q2", "transcript_id": 23},
+      {"ticker": "SPWR", "quarter": "2025Q1", "transcript_id": 32},
+      {"ticker": "SPWR", "quarter": "2025Q3", "transcript_id": 31}
+    ]
+  },
+  "classification": {
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "note": "type_classifications.json not consumed by this run (analyst/allocator firewall -- benchmark uses analyst output only, no allocator/cap-table logic invoked); checksum recorded for provenance parity with other runs only"
+  },
+  "prompt_version": "file header 'v10+auto1 (auto-iterate candidate -- pending gate)' -- NOT the same as production-stamped PROMPT_VERSION='v6' in server/lib/versions.js. See REPORT.md 'Flagged premises' -- this run used the literal contents of docs/EVALUATION_PROMPT.md as instructed by the benchmark prompt, which is the ungated v10+auto1 candidate text, not the v6 text versions.js claims is in production.",
+  "evaluation_prompt_sha256": "b81d24c6763f0eb724c9a9b2273a570acaa87419fb527b880304a514443d9f14",
+  "model_version": "claude-sonnet-4-6",
+  "model_version_source": "server/lib/versions.js MODEL_VERSION constant, matches analysis/backtest_runner.py MODEL constant as of this run",
+  "params": {
+    "temperature": 0,
+    "max_tokens": 8192,
+    "portfolio_context_passed": false,
+    "prior_transcripts_passed": false,
+    "av_endpoint": "EARNINGS_CALL_TRANSCRIPT",
+    "av_call_spacing_seconds": 75,
+    "av_call_cap": 15,
+    "av_calls_used": 7
+  },
+  "params_seeds": "N/A -- no randomized ordering or tie-break logic in this run",
+  "results": {
+    "results_json_sha256": "736aed9ebe389c2432711b788af2d47c27301e5cc45c347646573e75a88097f9",
+    "samples_total": 7,
+    "determinism_clean": 3,
+    "determinism_failed": 4,
+    "step5_comparisons_completed": 3,
+    "step5_comparisons_skipped_due_to_determinism": 4
+  }
+}

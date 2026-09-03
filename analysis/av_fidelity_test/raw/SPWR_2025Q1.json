@@ -1,0 +1,180 @@
+{
+    "symbol": "SPWR",
+    "quarter": "2025Q1",
+    "transcript": [
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "Hello, my name is Sioban Hickie, VP of Investor Relations, and I would like to welcome everyone to SunPower's Q1 2025 Earnings Call. A few housekeeping items before we get started today. First, all lines have been placed on mute to prevent any background noise. After the speakers' remarks, there will be a question-and-answer session. Please note today's conference call may contain projections and other forward-looking statements. These statements are subject to known and unknown risks and uncertainties that may cause actual results to differ from those expressed or implied in our statements. Also, on today's conference call, we may discuss certain non-GAAP financial measures. Reconciliations of the differences between those non-GAAP financial measures and the most directly comparable GAAP financial measures can be found in the press release issued this morning. I'll now turn the call over to T.J. Rodgers, SunPower's Chairman and CEO.",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "Good morning. My name is T.J. Rodgers, and I'm the CEO of SunPower. Welcome to our quarterly call. I have some additional remarks that I've already shared with the company, so let's get started. There seems to be an issue with my computer not advancing, and I apologize for that. I was given a left-handed mouse, which isn’t working well for me. I'd prefer a regular right-handed mouse.  The main news today is that SunPower reported $80 million in revenue and $1.3 million in profit for Q1 2025. I will talk later about our advertisement and present numbers from our usual GAAP and non-GAAP reports. My focus here is on the Q1 2025 non-GAAP numbers. This is significant news as we achieved $1.27 million in profit, a notable increase from a loss of $5.9 million in the previous quarter. The GAAP numbers indicate greater losses, primarily due to acquisition-related expenses and write-offs. Importantly, we were both profitable and cash flow positive during the quarter, which is positive financial news.  I'd like to clarify that the earlier reported figures were $81.1 million in revenue, and what I am sharing now reflects adjustments made based on new revenue recognition rules that have resulted in more accurate numbers. I also want to emphasize that this profit estimate for Q3 is preliminary and stems from calculating the profitability of the three merged companies.  I congratulate our team for achieving profitability just six months after the merger. In this report, I will discuss recent developments and share insights on our future. Our $80 million revenue aligns with our expectations, and we are operating as an $80 million plus company each quarter. Next, we aim to grow beyond this threshold.  After the merger, we efficiently streamlined our staffing. Last year, the combined headcount was 3,500 employees. By the end of the first day post-merger, we reduced it to 1,341, and three months later, it decreased to 1,140. Our current employee count is 906, aiming for a target of 980 for this quarter. This reflects our serious cost-cutting measures without compromising the business’s integrity. Our management approach includes a systematic process to maintain the right headcount and financial tracking to ensure we remain profitable. We monitor headcount and costs regularly to stay aligned with our financial goals. Currently, our revenue per employee stands at approximately $369,000 per year, which is a strong indicator of productivity compared to industry standards. We maintain a disciplined process rooted in my previous experience in the semiconductor industry. Our Director of HR prepares reports that help us stay on track regarding headcount and costs. We’re also fortunate to have dedicated employees who are motivated in our Salt Lake office, which has become a hub for solar companies. Lastly, I want to introduce Dick Swanson today. He is a respected figure in the industry, with an extensive background, including being one of the co-founders of SunPower Corporation and a professor at Stanford. He's here as a Technology Consultant to lend his expertise as we continue to advance in the solar sector.",
+            "sentiment": "0.6"
+        },
+        {
+            "speaker": "Dick Swanson",
+            "title": "Technology Consultant",
+            "content": "Thank you, T.J. Well, today, we're at a pivotal moment in the renewable revolution. About a year and a half ago, we surpassed 1 terawatt of installed PV capacity globally. And as we speak right now, we're bumping up to 2 terawatts of global PV capacity. To give you some idea of the magnitude of this, the entire U.S. electrical generation capacity is 1 terawatt. We're going to be very soon producing 1 terawatt per year of photovoltaics. And the reason for this is simply that PV has become the lowest cost form of electrical energy. So this is sort of a transition point in our industry. The way I see it, we are entering a new phase. The question is, okay, we've done this. What now? How do we take our energy supply from sub 5% of the global generation to the dominant source generation? How do we do that? And so this is a whole new phase in our industry and I'm really excited about the opportunity to come and help SunPower make that transition and use my 50 years of experience in the industry to work with them on the complex supply chain and technology landscape that we're facing and look forward to great results here. So thank you, T.J. for inviting me.",
+            "sentiment": "0.7"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "So he mentioned SunPower, and here's why. Next, Mehran Sedigh has joined us as the Executive Vice President of the Storage Systems division. Storage Systems is not just a battery; it’s a system that includes batteries among other components. Our Chief Technology Officer holds a Ph.D. in Chemical Engineering from USC and previously built a $500 million storage business at Enphase, where he established strong connections. Dick stated a fact that might be contested: currently, the cost per kilowatt-hour from solar is the lowest, around $0.02, compared to nuclear at $0.06 and gas ranging from $0.06 to $0.08. However, there's a challenge—sunlight averages about five hours a day where I live. This means we need batteries to tackle that issue, which is what Mehran specializes in. Essentially, we need what’s known as a “grid-connected battery.” Your solar system will generate more power than your house uses during the day, allowing you to store the excess energy. Then, when the local utility charges between $0.30 and $0.50 per kilowatt-hour in the evening, you'll use your stored battery power. It’s similar to using a bulldozer to collect energy during the day and then using it at night. The battery will be the key factor in the return on investment for solar installations. We needed someone with real expertise in batteries, and that’s Mehran’s role. He will lead the development of system-level storage products, rather than just selling existing batteries. Mehran?",
+            "sentiment": "0.5"
+        },
+        {
+            "speaker": "Mehran Sedigh",
+            "title": "Executive Vice President of Storage Systems",
+            "content": "Thank you, T.J. Good morning. Really excited to be joining SunPower. It's a really important junction; SunPower if you go back to the days that they started and T.J. helped push the company forward. It has its roots in innovation and this is where we are going to go back to really both in products as well as services. T.J. talked about me coming from Enphase. I spent six years there developing regeneration of energy systems, not just a battery. It is true battery is of course an essential part of any energy management system but it's not sufficient, electrification is pushing homes forward more and more to our consuming more energy electricity. AI is coming to the picture in everything we do. It is going to put more pressure on grid and having an independent energy source, which is solar on our roof is no longer a nice, which is said, it's a necessity and using that requires sophisticated software development, sophisticated AI-enabled algorithm to manage all that manage interaction with the grid, making sure the homeowner is taken care of financially with ROI and using the cheapest source of energy available. So I'm excited to start coming in, contributing to that process forward with SunPower and having some fun along the way.",
+            "sentiment": "0.6"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "My recruitment for our team was focused on technical talent. Together, we can implement changes that will impact the world, which is the core of our mission moving forward. Additionally, we have established a strategic partnership with a relatively unknown company called Sunder, which is well-known in Salt Lake City. They are a prominent sales firm and have more salespeople than we have employees, which will enhance our growth. We expect orders coming in, with visibility in the third quarter.  We have also strengthened our Board by adding three former CEOs of public companies. Lothar Maier, the ex-CEO of Linear Technology, Dan McCranie, former Chairman of multiple high-tech companies including Freescale and On, and Jamie Haenggi, the former CEO of ADT Solar. We have upgraded our Board, which previously lacked independence, to meet new independence rules. For instance, I cannot be the public interface since I am an employee, so Ron Pasek, the Chairman of our Audit Committee and the new lead director, will take on that role.  Moreover, we have made some changes in our Compensation Committee, replacing the previous non-independent member with Dan McCranie, who has significant experience. Now, out of our 11 Directors, we have a relatively large Board with eight members holding CEO experience and seven who are independent, creating a very strong governance structure. Finally, I addressed our economic position in the current market. While many are concerned about market prices, our performance has not deteriorated as significantly as others. Comparing our company to several key competitors, our year-to-date performance shows we are slightly ahead despite the tough industry conditions, indicating that our financial efforts are being acknowledged. We held an all-hands meeting in Salt Lake with about 1,000 attendees. It was my first meeting since the SunPower rebranding, which we discussed along with our new logo. We also reviewed the challenges previously faced by many solar companies, as seen in a list of 70 that went bankrupt, including significant players. It's crucial for our financial stability to make tough decisions, including layoffs, which the team understands.  We talked about the importance of acquiring companies to fuel our growth. In my past experience with Cypress, we successfully acquired numerous companies and integrated their talent and expertise. However, the solar industry is different because the sales teams are less stable, so we will approach acquisitions cautiously and implement measures to retain key personnel. Reflecting on SunPower's history, I mentioned a positive experience when we received a crucial investment that drove our growth. We positioned ourselves strongly in the market with superior technology, especially in solar panels. Currently, we're focused on enhancing our technology to regain our competitive edge, utilizing partnerships with quality manufacturers and optimizing our product offerings. I also highlighted the significance of customer service, emphasizing that failing to prioritize customers can lead to serious consequences. We're actively working on resolving customer issues with a data-driven approach and responding directly to feedback. In our meetings, I've noticed a shift in the culture; we've made the Q&A session more interactive and fun, which helps foster better communication. I also shared our core values, which focus on efficiency, simplicity, and profitability, as part of our commitment to improving our operations.  To incentivize excellent performance, we've provided cash bonuses to recognize employees' contributions directly. This approach keeps the achievements tangible and impactful. Overall, our goal remains clear: to elevate SunPower as a market leader once more. I'm open to questions as we continue this journey.",
+            "sentiment": "0.5"
+        },
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "Thank you, T.J. A few instructions before we begin Q&A. Our first call this morning is from Derek Soderberg from Cantor Fitzgerald. Go ahead, Derek.",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "Derek Soderberg",
+            "title": "Analyst",
+            "content": "Yes. Hey guys, congrats on the financial results here. Just continuing on your vision, T.J., you've already gotten the business to a strong margin profile. You lowered sales commission significantly. But on the revenue side, how do you see the SunPower story playing out over the next year or so? Just to really set up the business to become a $1 billion annualized revenue company, is that going to be through acquisitions, through partnerships, organically? Can you provide some color on that vision and reaching that billion-dollar annualized level?",
+            "sentiment": "0.3"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "I'm glad you didn't ask me when we would reach the $770 million target shown on the slide because our actual goal is $1 billion. That is our vision, and it's definitely attainable. The slide illustrates that in meetings, whenever someone doubts our ability, it's clear that achieving this is possible. In the past, when the solar market was significantly smaller, we proved that it could be done quickly. The first step is to maintain stability, and we have stabilized at $80 million per quarter. This includes a direct sales force that directly engages our customers, with teams making sales calls and door-to-door visits. This effort can increase, and while I won't speculate on the rate, reaching $100 million will take some time.  In addition to organic growth, I am a proponent of inorganic growth based on my experience. New companies often excel in areas where we may need improvement, and success depends on selecting a competent management team for the combined organization. I believe this is advantageous, but it's important to note that the customer loyalty in the solar industry is significantly lower than in the semiconductor industry. I have a strategy for addressing this. I want to inform our shareholders that we will hold our company meeting in May. The transition from $5.5 million in my previous company to $80 million happened because we acquired SunPower, adding 1,000 SunPower employees to our team of 65. These new employees received letters about stock options, which have a one-year vesting period. I need approval at the shareholder meeting for the stock allocation to support growth.  People need to adopt a mindset similar to that of Silicon Valley; I own part of the company, and I believe the stock's value will increase. My salary covers my rent, but my stock will fund my new home. This shift in mentality is in progress; I've had employees express their preference for stock over raises. In the last meeting, an employee even inquired about how to sell stock, to which I explained the fidelity service we offer, which is commonly used in Silicon Valley.  Our approach to acquisitions will include a mix of cash and stock, with the stock potentially providing significant returns for new hires. There will also be vesting tied to any payments made. Employees won't receive a lump sum upon signing but will receive it over one or two years. This structure aims to attract and retain talent. Once we achieve fiscal stability, people will recognize and believe in our profitability, creating a powerful momentum in the solar sector, which will position us for success.",
+            "sentiment": "0.5"
+        },
+        {
+            "speaker": "Derek Soderberg",
+            "title": "Analyst",
+            "content": "Got it, something new as my…",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "Go ahead. Sorry.",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "Derek Soderberg",
+            "title": "Analyst",
+            "content": "Can I get a follow-up? Just T.J. wanted to quickly touch on the battery systems commentary. You mentioned the importance of that to the ROI and that you're going to create your own battery systems, not to sell somebody else's battery. Can you talk about that a bit? Are you going to build the batteries? You've got experience with Enovix and SunPower. How should we think about that opportunity in batteries for the company?",
+            "sentiment": "0.3"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "Thank you for your question. I can see people getting ready to invest. T.J. is entering the battery sector. Our batteries are produced by Enphase. If you consider the design of the Enphase battery, it involves taking a panel and adding an inverter. The inverter resembles an old VHS tape. When the DC power comes in from the panel, let’s say 10 amperes at 40 volts, or 400 watts, it goes into the inverter. This inverter features a fully digital system that converts DC to AC. It's a complex engineering challenge. The chip responsible for this process contains 4 million gates and is powered by two high-performance computers. It then interfaces with the grid. After multiple revisions, we've ensured our system can handle any challenges that the grid might present. PG&E, or Pacific Gas and Electric, often finds ways to complicate solar systems, but our system is robust.  Now, if you consider the inverter box, it could handle a kilowatt of power, and when paired with a battery, it recognizes the 40 volts and utilizes its knowledge to generate power effectively. Enphase batteries are essentially lithium-ion batteries that integrate with Enphase inverters and connect to the grid, which is the challenging part. This is why Enphase inverters come at a premium; they function as complete systems.  In the Enphase ecosystem, you have a standardized box that produces millions of units cost-effectively. It communicates with the grid and can be connected to various components. We plan to enhance this product by developing software that enables it to perform special functions. Enphase is already executing this strategy. For instance, they have introduced a plug that charges electric cars. With the Enphase app, users can monitor the energy output of each panel throughout the day, and now, they can program the system to charge their car using only solar energy, avoiding grid electricity.  Handling fluctuations in solar energy, due to clouds or fog, while ensuring sufficient charge for the vehicle, requires intelligent management of power sources and usage. That's what we aim to develop—rugged, reliable, and affordable products that meet our customers' needs without manufacturing the components ourselves. We won't produce batteries; there are companies like Enovix that specialize in advanced batteries. However, the batteries required for vehicles and homes are significantly cheaper than the high-tech variants. We have no interest in venturing into that territory.",
+            "sentiment": "0.6"
+        },
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "Thank you, Derek. Our next question comes from the web. How realistic is further inorganic growth and how is the current opportunity set for acquisitions of distressed assets of companies such as Sonova?",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "Well, I don't know about Sonova. That was a major crash. There's a huge amount of money in it and they may or may not ever sell assets. If they do, I'll be their bidding, if the assets are priced right. But I gave you a list of 70 companies. So the answer right now is, you want some stock and a job and a good salary and work in a company that's going to grow, we can accommodate that. And so right now it's a, for those of us capable of growing, it's a great market.",
+            "sentiment": "0.4"
+        },
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "On that note, you actually have a question from the web asking about employment opportunities. How open are you to accepting applications from former SunPower employees?",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "When those individuals were in charge of SunPower, the company was exceptionally well managed and dominated the industry. However, in the past few years, the management deteriorated. Upon my arrival, I discovered a struggling management structure that was costly, distant, and lacking in attention to detail. Nevertheless, SunPower still has a wealth of talented individuals who are invaluable and came to the company for its original vision. So, if you have knowledge of solar, are intelligent, and are willing to put in the effort, I encourage you to send your resume to TJRodgers at tjr@tjrodgers.com.",
+            "sentiment": "0.5"
+        },
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "Thank you. The next question is from an audience member who asks if you have any comments on the TCL SunPower panels and potential panel partnerships.",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "I want to address the situation with batteries. The prices have dropped significantly due to competition from Chinese companies, and this has led to some going out of business. It’s not practical to start production in California when the prices are so low. The same applies to solar panels, where the price has decreased dramatically from $2 a watt to just $0.31 a watt, available for delivery like groceries. If you consider importing them yourself, the cost is even lower, but that wouldn't be wise. Competing in this area doesn’t make sense to me. I’d prefer if prices remained low; that way, the focus could shift to providing affordable, high-quality systems that work effectively. However, the local building departments, known as AHJs, create challenges with their varying regulations and slow processes. We’re well-equipped to handle this, and if we do it efficiently, it will benefit our customers and be profitable for us. I am not producing panels or low-tech batteries, but I am focusing on developing high-tech batteries with much greater energy density.",
+            "sentiment": "0.4"
+        },
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "Thank you. Our next question surrounds tariffs and exposure to China. What impact might this have on SunPower's profitability and supply?",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "Well, what everybody's pointing out to our President, he's got a guy named Navarro telling him how we're going to build back the industry and factories will spring up from the ground. The guy's hallucinating. So what is a tariff? A tariff is simple, a tax. So if they charge me double $0.60 a watt instead of $0.30 a watt, then our customers will start paying double. I'm not going to pay the tariff and have my company go bankrupt. So I'll pay the tariff as tax, pass that tax on to my customers. So I do care about it in the fact there's a larger feedback loop that if solar becomes too expensive again, then the whole market will go down and all the companies in the market will suffer. I'm hoping they will wake up by that time.",
+            "sentiment": "0.4"
+        },
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "Thank you. The next question is leaning into forward guidance. Can you share any thoughts on revenue growth, margins for the next couple years and the impact of a potential recession?",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "You guys just saw six months of work, right? It's like the job is kind of like being a goalie in hockey, right. I stand there and catch the pucks before they get in the net. So can I have a long-term forecast? I can, but it's based on positioning more so than actually looking at what you project the P&L to be. Right now, we have a very lean workforce and it's going to get leaner and it's American. Okay. So one good thing about being an American, if you're selling to American houses, you got to be American. They're not going to import that. So when you have a company that's lean and we now have a company that's lean, we've actually started as you heard today, doing some hiring. You can survive in the market because just like my stock graph, your stock will be green and the companies that aren't lean will be red. So that, that's the main event being having a stable company. Will the market go up? One statistic I like comes from the EIA. It's a government organization that tracks it. And right now, close as I can estimate, the number of houses that have solar on them divided by the number of houses that could have solar on them is 4%. So we have a toe in the water. This industry we talk about being big is the toe in the water. And what we've got to do is continue to hold costs and now we need to supply what they need and what they need is storage. They need storage more than they need solar. You make the cheapest electricity in the world from 9:00 a.m. to 3:00 p.m., okay, then what are you going to do in the other hours of the day? And that's where the problem is right now hence storage division. That by the way, when storage becomes spread around the country, that's a big deal. That gets rid of the utilities as having a giant power plant that took 10 years to build. And they go to the government and say I need more money because of blah, blah, all of a sudden you're there with your own battery and it's not that far to see when you flip the switch and say goodbye and your solar system and you make your house more efficient too. You can't waste energy. But you can gather enough energy from your solar system and store it that it'll take care of your house. That, that vision is not that far away.",
+            "sentiment": "0.5"
+        },
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "Thank you. We only have a couple more. The next one is how does stock price and valuation impact your willingness to use stock for acquisitions. And what is your view on the current valuation relative to that?",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "Right now, the last time I checked, our stock was $2. We have 80 million shares, so that's a total of $160 million. If you're valued at $160 million and they want to buy something worth the same amount, their proposal would be to take half your stock. You have to explain that our stock isn't likely to stay at $2 because investors have reasons to believe it will rise. Alternatively, if you have your stock, but it's down, you're essentially swapping your stock for ours and wagering on which one will appreciate faster. There are valid points to discuss today. Ideally, I'd love for our stock to be $20, which would provide us with significant resources. In my experience in the solar industry, I've noticed what I call 'money poisoning.' Back at Cypress, I always had $500 million in the bank, and I never focused on cash flow; I was focused on outpacing the competition. Now, for the first time, I'm in a world dominated by cash flow, which has led us to operate a tighter, more efficient company. It may be a challenging environment, but it's also an exciting one. The market is extremely large, and as long as we don't face too many hurdles from Washington, we'll be successful.",
+            "sentiment": "0.4"
+        },
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "Thank you. With plans to expand capacity, how are you ensuring workforce training aligns with quality benchmarks?",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "Workforce training is a big deal. We're not that good at it. But everything I showed you today, I showed you a couple of management systems has a spec, has quality process associated with the spec and has training. So you can go in a room, somebody who knows tell you how it works. So my 19-year-old HR guy can run as good as reports ever got the Cypress in a much bigger division. So yes, we're doing it. No, we're not a mature company yet. We are getting more mature every quarter. I didn't introduce him today. I will one of these times; we have an excellent quality guy Surinder Bedi. And he is working in the quality of execution right now. Our products are pretty reliable. We don't have, you saw nine going to two. So the disasters with your stuff not working are gone. So for us, quality means quality of execution. Do you have a spec? Do you do it right? Do you do it right the first time? What's your yield? So in our case, quality is almost synonymous with operational excellence.",
+            "sentiment": "0.5"
+        },
+        {
+            "speaker": "Sioban Hickie",
+            "title": "VP of Investor Relations",
+            "content": "Thank you. That is all the questions we have in the queue today. I'll turn it back to T.J. Rodgers for any closing remarks.",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "T.J. Rodgers",
+            "title": "CEO",
+            "content": "Well, I talked long as usual, but I thought this was cool stuff. I appreciate your coming in and listening to us. Thank you.",
+            "sentiment": "0.4"
+        }
+    ]
+}

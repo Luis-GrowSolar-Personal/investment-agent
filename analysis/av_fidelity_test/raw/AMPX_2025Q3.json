@@ -1,0 +1,96 @@
+{
+    "symbol": "AMPX",
+    "quarter": "2025Q3",
+    "transcript": [
+        {
+            "speaker": "Operator",
+            "title": "Operator",
+            "content": "Good afternoon. Welcome to the Amprius Technologies Third Quarter 2025 Earnings Conference Call. Joining us for today's presentation are the company's CEO, Dr. Kang Sun; President, Tom Stepien; and CFO, Ricardo Rodriguez. Please note that this presentation contains forward-looking statements, including, but not limited to, statements regarding our financial and business performance, our business strategy, future product development or commercialization, new customer adoption and new applications, our growth and the growth of the markets in which we operate and the timing and ability of Amprius to expand its manufacturing capacity, scale its business and achieve a sustainable cost structure. These statements involve known and unknown risks, uncertainties and other important factors that may cause Amprius' results, performance or achievements to be materially different from any future results, performance or achievements expressed or implied in such forward-looking statements. For a more complete discussion of these risks and uncertainties, please refer to Amprius' filings with the Securities and Exchange Commission. This presentation includes a non-GAAP financial measure, which is adjusted EBITDA. This non-GAAP financial measure does not replace the presentation of Amprius' GAAP financial results and should only be used as a supplement to, not as a substitute for Amprius' financial results presented in accordance with GAAP and may not be comparable to calculations of similarly titled measures by other companies. A reconciliation of adjusted EBITDA to net loss, the most directly comparable GAAP financial measure is included in our shareholder letter, a copy of which is filed with the SEC and posted on our website. Finally, I would like to remind everyone that this conference call is being webcasted, and a recording will be made available for replay on the company's Investor Relations website at ir.amprius.com. In addition to the webcast, the company has posted a shareholder letter that accompanies these results, which can also be found on the Investor Relations website. I will now turn the call over to Amprius Technologies CEO, Dr. Kang Sun, for his comments. Sir, please proceed.",
+            "sentiment": "0.0"
+        },
+        {
+            "speaker": "Kang Sun",
+            "title": "CEO",
+            "content": "Welcome, everyone, and thank you for joining us this afternoon. On today's call, I will begin with a brief company overview. After that, our President, Thomas Stepien, will recap our third quarter performance and the key accomplishments. Next, our CFO, Ricardo Rodriguez, will discuss our financial results for the period. I will share some closing remarks before opening the call for questions. Let's begin. Amprius is a pioneer and leader in the silicon anode battery space with over a decade of development experience and a proven track record of commercial success. At Amprius, we develop, manufacture, and market high energy density and high-power density silicon anode batteries with applications across all segments of electrical mobility, including the aviation and light electric vehicle industries. Today, Amprius has the most complete commercially available portfolio of silicon anode materials system in the industry and commands performance leadership with its combination of battery energy density, power density, charging time, operating temperature range, and safety. Across our battery portfolio, we believe we offer unmatched performance among the commercially available batteries. Amprius has been delivering commercial batteries to the market with up to 450 watt hour per kilo and 1,150 watt hour per liter, 10C power capability and extreme fast charge rate of 0 to 80% state of charge in approximately 6 minutes, the ability to operate in a wide temperature range of minus 30 degrees up to 55 degrees Celsius and safety design features that enable us to pass the United States military benchmark nail penetration test. Each of these performance parameters is critically important to real-world electric mobility applications. Not only do our batteries empower certain drones, satellites, and vehicles to maximize performance, we also enable our customers to achieve their economic targets as well. In addition, Amprius has developed a 500-watt hour per kilo and 1,300-watt hour per liter battery platform that has been validated by an independent third party. It's our belief that there are no other commercial batteries on the market that can perform at this level today. In the third quarter, we continued to execute against our strategy of developing leading battery performance, converting that innovation into customer wins and scaling our manufacturing through a capital-efficient contract manufacturing model.",
+            "sentiment": "0.7"
+        },
+        {
+            "speaker": "Thomas Stepien",
+            "title": "President",
+            "content": "Thank you, Kang. Amprius finds itself at a very fortunate point in time at the intersection of a fast-growing electric aerospace market with an industry-leading set of battery products. This advantaged situation, coupled with strong execution by our team, allowed us to achieve record revenue in the third quarter. We attracted new customers, continued to optimize our operations, and released compelling new products. Let's start with updates on our commercialization strategy and share execution details. In the third quarter, we shipped batteries to 159 end customers, 80 of whom are new to the Amprius platform. The remaining 79 are repeat customers. Now to be clear, we don't ship to every customer in every quarter. We do expect to gain new customers every quarter, albeit not always 80 new ones, but we expect to gain new customers nevertheless. Since the first quarter of 2023, Amprius has built relationships with hundreds of companies and shipped batteries to a total of 444 end customers. This strong and expanding customer traction comes from the superior performance of our batteries compared to traditional cells. As we continue to move new customers through the qualification process, you're also seeing that we have plenty of room for expansion orders within our existing agreements. In the third quarter, our revenue totaled $21.4 million, a 42% increase from the second quarter and up 173% from Q3 2024 a year ago. Our second-generation SiCore batteries led the revenue charge in Q3 with a greater than 4x increase in shipments compared to Q3 2024. SiCore is a proprietary silicon anode that uses standard lithium-ion processing equipment. In August, I visited a couple of our contract manufacturing partners. At one, they were making conventional graphite cells in the morning and in the afternoon, they were producing our SiCore silicon cells. Same line, same equipment. SiCore standardization helped us enable a second consecutive quarter of positive gross margin. Ricardo will provide more context here when he reviews our financial highlights next. Looking at our customer base, about 75% of our revenue in the quarter came from the aviation segment, led by unmanned aerial systems, or UAS market. The remainder of our Q3 revenue was primarily derived from the light electric vehicle sector, which remains healthy but has a lumpier profile due to the customer's variant product introduction cycles. The LEV market tends to have short design in cycles, and we believe our drop in replacement batteries can help us succeed in gaining market share in this growing market. From a geography standpoint, 75% of our revenue came from outside the United States on a ship-to basis. Our strong customer diversification supports steady growth even amid uncertainty driven by U.S. tariffs and customer delays related to the U.S. government shutdown. One of our major wins this quarter was a $35 million purchase order from a leading UAS manufacturer, which we announced in September. This order is a follow-on purchase from the same customer that placed a $15 million order earlier this year.",
+            "sentiment": "0.8"
+        },
+        {
+            "speaker": "Ricardo Rodriguez",
+            "title": "CFO",
+            "content": "Thank you, Tom, and good afternoon, everyone. I'm really happy to be on board and reporting our quarterly results on behalf of our team for the first time. After several weeks on the ground working in Fremont, getting to know our team, meeting some of our customers at AUSA and reconnecting with many familiar faces in the investment community that are interested in supporting our company and strategy, I could not be prouder of wearing the Amprius shirt. In the third quarter of 2025, we delivered $21.4 million of revenue. This translates into 42% growth over the second quarter, following the previous quarter's 34% quarterly growth. This is also a 2.7x multiple of the team's revenues during the same quarter last year. Echoing Tom's remarks, our revenue growth was driven by the addition of new customers combined with larger orders from existing customers. Within our customer base, only one customer accounted for more than 10% of our revenues in Q3. Going forward, we plan to continue adding to our customer mix to diversify our revenue base. And we believe that as we develop more diversified contract manufacturing capacity, additional demand can potentially be unlocked. At the end of Q3, we had $53.3 million of orders, including the $35 million order that Tom mentioned, to be fulfilled in the near term. This backlog is 83% higher quarter-over-quarter and it highlights our team's ability to drive demand. Our cost of goods sold at $18.1 million in Q3 did not increase at the same rate as our revenue, thanks to a favorable product mix and higher volumes. This, in turn, enabled gross profit margins of 15%, which is a significant improvement over our gross margins of 9% in the previous quarter. As I discover what makes our team unique, I continue to be impressed by its resourcefulness to make the most with what we have, and that is evident in our quarterly operating expenses of $8 million in Q3, which were down very slightly relative to the previous quarter. The year-over-year increase in quarterly OpEx of $1.9 million was driven by targeted investments in our sales and go-to-market efforts along with the reallocation of some R&D expenses from cost of goods sold to OpEx as development service agreements are completed. These expenses bring our operating loss to $4.7 million compared to an operating loss of $6.8 million in the prior quarter, shrinking our operating loss by over 30% quarter-over-quarter. Our GAAP net loss for the third quarter was $3.9 million or negative $0.03 per share with 126.6 million weighted share average shares outstanding. Our adjusted EBITDA in Q3 was negative $1.4 million compared to negative $3.8 million in the previous quarter, thus reducing our adjusted EBITDA loss by over 60%. We define adjusted EBITDA as net income or loss before interest, taxes, depreciation, amortization, stock-based compensation, and other items that we do not believe are indicative of our core operating performance. In Q3, these adjustments included $1.2 million of depreciation, $1.8 million of stock-based compensation, and $450,000 of interest income. As of September 30, we had 130.4 million shares outstanding, which was up by 5.4 million shares from the previous quarter. The change includes approximately 2.2 million shares issued from option exercises and RSU vesting along with 3.2 million shares issued under our at-the-market offering program. Now turning over to cash flow and the balance sheet. We ended the third quarter with $73.2 million in cash and no debt. The main drivers of cash flow in the quarter were $9.2 million used on operating cash flow, which was mainly driven by a near-term $11.2 million increase in accounts receivable at the end of the period due to our increase in sales, $400,000 of CapEx invested at our facility in Fremont, California, and lastly, $28.7 million from financing activities consisting of $25.9 million from the issuance of common stock under our aftermarket sales agreement and $2.8 million of proceeds from option exercises. We still have approximately $20.1 million left available on the at-the-market offering facility as of September 30, 2025.",
+            "sentiment": "0.6"
+        },
+        {
+            "speaker": "Kang Sun",
+            "title": "CEO",
+            "content": "Looking ahead, we remain focused on delivering next-generation lithium-ion battery performance that raises the bar for energy density and sustained power without compromising safety or reliability. We are also broadening our product portfolio to better align with customer requirements and unlock new market opportunities, while converting a growing number of customer engagements into formal qualification and deployment, particularly across mobility-centric platforms. As demand scales, we will continue to leverage our contract manufacturing partners' capacity to efficiently translate that demand into revenue with disciplined quality and minimal additional capital investment. We are excited about the future ahead and looking forward to meeting and reconnecting with many of you as we attend several upcoming investor conferences. Thank you for your continued interest and support of Amprius Technologies. With that, I will turn it back to the operator for questions.",
+            "sentiment": "0.8"
+        },
+        {
+            "speaker": "Colin Rusch",
+            "title": "Analyst",
+            "content": "Congratulations on all the progress. Just on the U.S. capacity. Could you talk a little bit about the cadence of how that will come up and how much capacity it will actually be and where that electrode will ultimately end up getting turned into batteries? Are you looking at potentially qualifying some incremental contract manufacturing in the U.S.? Or will that electrode end up getting shipped overseas and return back to the U.S. as batteries?",
+            "sentiment": "0.1"
+        },
+        {
+            "speaker": "Thomas Stepien",
+            "title": "President",
+            "content": "Yes, thanks, Colin, this is Tom. In the future, we will have both a U.S. contract manufacturer and contract manufacturers in NDAA compliant countries, including Korea. We already have a contract manufacturer in Korea, which we announced in May. Over time, you will see additional partners in this network for both pouch cells and cylindrical cells as it continues to expand.",
+            "sentiment": "0.5"
+        },
+        {
+            "speaker": "Derek Soderberg",
+            "title": "Analyst",
+            "content": "My congrats to Ricardo as well. I'm just hopping on the call just now, so my apologies if any of these have been asked. The second-generation SiCore, what's the margin profile of that battery?",
+            "sentiment": "0.0"
+        },
+        {
+            "speaker": "Ricardo Rodriguez",
+            "title": "CFO",
+            "content": "We haven't specified it clearly, but our aim is to exceed 20% at around 80% of our capacity, which we have yet to achieve. Our objective is to continue pushing for that while we evaluate where it should be as revenue develops.",
+            "sentiment": "0.2"
+        },
+        {
+            "speaker": "Thomas Stepien",
+            "title": "President",
+            "content": "Yes, to fully qualify the 11 major components that make up our battery, we've already started that process. It will take us until next summer. This work is primarily being conducted in conjunction with the $12 million DIU contract we have. Currently, we have 5 of the 11 components fully qualified and compliant with NDAA standards. We are working on the remaining 6, which we expect to complete by next summer.",
+            "sentiment": "0.4"
+        },
+        {
+            "speaker": "Mark Shooter",
+            "title": "Analyst",
+            "content": "Congrats on the great execution this quarter. The new customers was a big way and a nice jump. It's almost doubled the normal cadence in the past few quarters. So I guess I'd like to dial in on what led to that big step-up in new customers this quarter. Did we get a capacity or a yield breakthrough at the silicon supplier or your battery contract manufacturers that allowed you to ship to more cells? Or did you see an actual 2x increase in demand this quarter from last quarter?",
+            "sentiment": "0.6"
+        },
+        {
+            "speaker": "Thomas Stepien",
+            "title": "President",
+            "content": "We are definitely noticing an increase in demand as more people become aware of Amprius through our participation in conferences and recent successes. This attention is attracting others. The 80 new customers we acquired this quarter resulted partly from timing; some of these opportunities were initiated over a year ago, while others came about earlier this year. Therefore, it's a combination of these factors that has contributed to the increase.",
+            "sentiment": "0.7"
+        },
+        {
+            "speaker": "Alfred Moore",
+            "title": "Analyst",
+            "content": "I wanted to ask maybe on the $53 million in orders, near-term orders. Maybe you could put a finer point on that? Should we think about the next couple of quarters potentially on that? And then Ricardo, to your point, around mix and potential for some lumpiness or margin impacts, just anything to call out there?",
+            "sentiment": "0.3"
+        },
+        {
+            "speaker": "Ricardo Rodriguez",
+            "title": "CFO",
+            "content": "Yes. I mean maybe I'll start with the second part of the question, if that's okay. I mean really nothing much beyond what I've already mentioned, Chip. I think we have to work through this backlog, obviously, and that will keep building up. But at the same time, we also need to have the supply in place to fulfill it, right? And that will ultimately be the decade of what the revenues can be in the near term. And on the gross margin side, I'll just echo what I said before, right? I think you can still be lumpy. We do expect progression as we sell more scores a proportion of total sales. And I mean if we would have had another $10 million of revenue that we could have fulfilled, we would have had a breakeven or slightly positive adjusted EBITDA in the quarter.",
+            "sentiment": "0.5"
+        },
+        {
+            "speaker": "Operator",
+            "title": "Operator",
+            "content": "Thank you. At this time, this concludes our question-and-answer session. If you have any additional questions, you may contact Amprius' Investor Relations team at IR@amprius.com. And now I'd like to turn the call back over to Dr. Sun for his closing remarks.",
+            "sentiment": "0.0"
+        }
+    ]
+}

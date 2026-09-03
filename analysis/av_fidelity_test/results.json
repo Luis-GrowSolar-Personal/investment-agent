@@ -1,0 +1,904 @@
+[
+  {
+    "ticker": "AMPX",
+    "quarter": "2025Q1",
+    "transcript_id": 15,
+    "diagnostics": {
+      "db_word_count": 4900,
+      "av_word_count": 4948,
+      "seqmatcher_ratio": 0.7071
+    },
+    "determinism": {
+      "run1_stop_reason": "end_turn",
+      "run1_output_tokens": 2410,
+      "run2_stop_reason": "end_turn",
+      "run2_output_tokens": 2714,
+      "clean": true,
+      "field_diffs": {
+        "thesisHealth": [
+          "MATCH",
+          "Strengthening",
+          "Strengthening"
+        ],
+        "thesisDelta": [
+          "MATCH",
+          "unknown",
+          "unknown"
+        ],
+        "recommendation": [
+          "MATCH",
+          "Add",
+          "Add"
+        ],
+        "recommendedSize": [
+          "MATCH",
+          18,
+          18
+        ],
+        "freshMoneyAllocation": [
+          "MATCH",
+          10,
+          10
+        ],
+        "typeClassification": [
+          "MATCH",
+          "A",
+          "A"
+        ],
+        "stumbleType": [
+          "MATCH",
+          "None",
+          "None"
+        ],
+        "threatMechanismImpaired": [
+          "MATCH",
+          false,
+          false
+        ],
+        "credibilityDelta": [
+          "MATCH",
+          "positive",
+          "positive"
+        ],
+        "activeDriverCount": [
+          "MATCH",
+          null,
+          null
+        ],
+        "ratchetTranche": [
+          "MATCH",
+          null,
+          null
+        ],
+        "blindSpotsTriggered": [
+          "MATCH",
+          [],
+          []
+        ],
+        "capPercent": [
+          "MATCH",
+          35,
+          35
+        ],
+        "mitigationArgumentPresent": [
+          "MATCH",
+          true,
+          true
+        ],
+        "mitigationCapabilityTrackRecord": [
+          "MATCH",
+          "strong",
+          "strong"
+        ]
+      }
+    },
+    "db_stop_reason": "end_turn",
+    "av_stop_reason": "end_turn",
+    "field_diffs": {
+      "thesisHealth": [
+        "MATCH",
+        "Strengthening",
+        "Strengthening"
+      ],
+      "thesisDelta": [
+        "MATCH",
+        "unknown",
+        "unknown"
+      ],
+      "recommendation": [
+        "MATCH",
+        "Add",
+        "Add"
+      ],
+      "recommendedSize": [
+        "MATCH",
+        12,
+        12
+      ],
+      "freshMoneyAllocation": [
+        "MATCH",
+        8,
+        8
+      ],
+      "typeClassification": [
+        "DIFFER",
+        "B",
+        "A"
+      ],
+      "stumbleType": [
+        "MATCH",
+        "None",
+        "None"
+      ],
+      "threatMechanismImpaired": [
+        "MATCH",
+        false,
+        false
+      ],
+      "credibilityDelta": [
+        "DIFFER",
+        "positive",
+        "neutral"
+      ],
+      "activeDriverCount": [
+        "DIFFER",
+        4,
+        null
+      ],
+      "ratchetTranche": [
+        "MATCH",
+        null,
+        null
+      ],
+      "blindSpotsTriggered": [
+        "MATCH",
+        [],
+        []
+      ],
+      "capPercent": [
+        "DIFFER",
+        50,
+        35
+      ],
+      "mitigationArgumentPresent": [
+        "MATCH",
+        true,
+        true
+      ],
+      "mitigationCapabilityTrackRecord": [
+        "MATCH",
+        "strong",
+        "strong"
+      ]
+    },
+    "status": "complete"
+  },
+  {
+    "ticker": "AMPX",
+    "quarter": "2025Q2",
+    "transcript_id": 16,
+    "diagnostics": {
+      "db_word_count": 6890,
+      "av_word_count": 6589,
+      "seqmatcher_ratio": 0.7801
+    },
+    "determinism": {
+      "run1_stop_reason": "end_turn",
+      "run1_output_tokens": 2774,
+      "run2_stop_reason": "end_turn",
+      "run2_output_tokens": 2649,
+      "clean": true,
+      "field_diffs": {
+        "thesisHealth": [
+          "MATCH",
+          "Strengthening",
+          "Strengthening"
+        ],
+        "thesisDelta": [
+          "MATCH",
+          "unknown",
+          "unknown"
+        ],
+        "recommendation": [
+          "MATCH",
+          "Add",
+          "Add"
+        ],
+        "recommendedSize": [
+          "MATCH",
+          18,
+          18
+        ],
+        "freshMoneyAllocation": [
+          "MATCH",
+          10,
+          10
+        ],
+        "typeClassification": [
+          "MATCH",
+          "A",
+          "A"
+        ],
+        "stumbleType": [
+          "MATCH",
+          "None",
+          "None"
+        ],
+        "threatMechanismImpaired": [
+          "MATCH",
+          false,
+          false
+        ],
+        "credibilityDelta": [
+          "MATCH",
+          "positive",
+          "positive"
+        ],
+        "activeDriverCount": [
+          "MATCH",
+          null,
+          null
+        ],
+        "ratchetTranche": [
+          "MATCH",
+          null,
+          null
+        ],
+        "blindSpotsTriggered": [
+          "MATCH",
+          [],
+          []
+        ],
+        "capPercent": [
+          "MATCH",
+          35,
+          35
+        ],
+        "mitigationArgumentPresent": [
+          "MATCH",
+          true,
+          true
+        ],
+        "mitigationCapabilityTrackRecord": [
+          "MATCH",
+          "strong",
+          "strong"
+        ]
+      }
+    },
+    "db_stop_reason": "end_turn",
+    "av_stop_reason": "end_turn",
+    "field_diffs": {
+      "thesisHealth": [
+        "MATCH",
+        "Strengthening",
+        "Strengthening"
+      ],
+      "thesisDelta": [
+        "MATCH",
+        "unknown",
+        "unknown"
+      ],
+      "recommendation": [
+        "MATCH",
+        "Add",
+        "Add"
+      ],
+      "recommendedSize": [
+        "DIFFER",
+        22,
+        18
+      ],
+      "freshMoneyAllocation": [
+        "MATCH",
+        12,
+        12
+      ],
+      "typeClassification": [
+        "MATCH",
+        "A",
+        "A"
+      ],
+      "stumbleType": [
+        "MATCH",
+        "None",
+        "None"
+      ],
+      "threatMechanismImpaired": [
+        "MATCH",
+        false,
+        false
+      ],
+      "credibilityDelta": [
+        "MATCH",
+        "positive",
+        "positive"
+      ],
+      "activeDriverCount": [
+        "MATCH",
+        null,
+        null
+      ],
+      "ratchetTranche": [
+        "MATCH",
+        null,
+        null
+      ],
+      "blindSpotsTriggered": [
+        "MATCH",
+        [],
+        []
+      ],
+      "capPercent": [
+        "MATCH",
+        35,
+        35
+      ],
+      "mitigationArgumentPresent": [
+        "MATCH",
+        true,
+        true
+      ],
+      "mitigationCapabilityTrackRecord": [
+        "MATCH",
+        "strong",
+        "strong"
+      ]
+    },
+    "status": "complete"
+  },
+  {
+    "ticker": "AMPX",
+    "quarter": "2025Q3",
+    "transcript_id": 17,
+    "diagnostics": {
+      "db_word_count": 8735,
+      "av_word_count": 2740,
+      "seqmatcher_ratio": 0.3395
+    },
+    "determinism": {
+      "run1_stop_reason": "end_turn",
+      "run1_output_tokens": 2865,
+      "run2_stop_reason": "end_turn",
+      "run2_output_tokens": 2760,
+      "clean": false,
+      "field_diffs": {
+        "thesisHealth": [
+          "MATCH",
+          "Strengthening",
+          "Strengthening"
+        ],
+        "thesisDelta": [
+          "MATCH",
+          "unknown",
+          "unknown"
+        ],
+        "recommendation": [
+          "MATCH",
+          "Add",
+          "Add"
+        ],
+        "recommendedSize": [
+          "MATCH",
+          18,
+          18
+        ],
+        "freshMoneyAllocation": [
+          "MATCH",
+          12,
+          12
+        ],
+        "typeClassification": [
+          "MATCH",
+          "B",
+          "B"
+        ],
+        "stumbleType": [
+          "MATCH",
+          "None",
+          "None"
+        ],
+        "threatMechanismImpaired": [
+          "MATCH",
+          false,
+          false
+        ],
+        "credibilityDelta": [
+          "MATCH",
+          "positive",
+          "positive"
+        ],
+        "activeDriverCount": [
+          "DIFFER",
+          5,
+          4
+        ],
+        "ratchetTranche": [
+          "MATCH",
+          null,
+          null
+        ],
+        "blindSpotsTriggered": [
+          "MATCH",
+          [],
+          []
+        ],
+        "capPercent": [
+          "MATCH",
+          50,
+          50
+        ],
+        "mitigationArgumentPresent": [
+          "MATCH",
+          true,
+          true
+        ],
+        "mitigationCapabilityTrackRecord": [
+          "MATCH",
+          "strong",
+          "strong"
+        ]
+      }
+    },
+    "status": "determinism_failed_skipped_step5"
+  },
+  {
+    "ticker": "EOSE",
+    "quarter": "2025Q1",
+    "transcript_id": 22,
+    "diagnostics": {
+      "db_word_count": 8851,
+      "av_word_count": 8560,
+      "seqmatcher_ratio": 0.6949
+    },
+    "determinism": {
+      "run1_stop_reason": "end_turn",
+      "run1_output_tokens": 3335,
+      "run2_stop_reason": "end_turn",
+      "run2_output_tokens": 3215,
+      "clean": false,
+      "field_diffs": {
+        "thesisHealth": [
+          "MATCH",
+          "Intact",
+          "Intact"
+        ],
+        "thesisDelta": [
+          "MATCH",
+          "unknown",
+          "unknown"
+        ],
+        "recommendation": [
+          "DIFFER",
+          "Hold",
+          "Add"
+        ],
+        "recommendedSize": [
+          "MATCH",
+          18,
+          18
+        ],
+        "freshMoneyAllocation": [
+          "DIFFER",
+          8,
+          10
+        ],
+        "typeClassification": [
+          "MATCH",
+          "A",
+          "A"
+        ],
+        "stumbleType": [
+          "MATCH",
+          "None",
+          "None"
+        ],
+        "threatMechanismImpaired": [
+          "MATCH",
+          false,
+          false
+        ],
+        "credibilityDelta": [
+          "MATCH",
+          "neutral",
+          "neutral"
+        ],
+        "activeDriverCount": [
+          "MATCH",
+          null,
+          null
+        ],
+        "ratchetTranche": [
+          "MATCH",
+          null,
+          null
+        ],
+        "blindSpotsTriggered": [
+          "MATCH",
+          [],
+          []
+        ],
+        "capPercent": [
+          "MATCH",
+          35,
+          35
+        ],
+        "mitigationArgumentPresent": [
+          "MATCH",
+          true,
+          true
+        ],
+        "mitigationCapabilityTrackRecord": [
+          "DIFFER",
+          "strong",
+          "mixed"
+        ]
+      }
+    },
+    "status": "determinism_failed_skipped_step5"
+  },
+  {
+    "ticker": "EOSE",
+    "quarter": "2025Q2",
+    "transcript_id": 23,
+    "diagnostics": {
+      "db_word_count": 9053,
+      "av_word_count": 5744,
+      "seqmatcher_ratio": 0.1142
+    },
+    "determinism": {
+      "run1_stop_reason": "end_turn",
+      "run1_output_tokens": 3026,
+      "run2_stop_reason": "end_turn",
+      "run2_output_tokens": 2991,
+      "clean": false,
+      "field_diffs": {
+        "thesisHealth": [
+          "MATCH",
+          "Intact",
+          "Intact"
+        ],
+        "thesisDelta": [
+          "DIFFER",
+          "unknown",
+          "up"
+        ],
+        "recommendation": [
+          "MATCH",
+          "Add",
+          "Add"
+        ],
+        "recommendedSize": [
+          "MATCH",
+          8,
+          8
+        ],
+        "freshMoneyAllocation": [
+          "DIFFER",
+          5,
+          4
+        ],
+        "typeClassification": [
+          "MATCH",
+          "A",
+          "A"
+        ],
+        "stumbleType": [
+          "MATCH",
+          "None",
+          "None"
+        ],
+        "threatMechanismImpaired": [
+          "MATCH",
+          false,
+          false
+        ],
+        "credibilityDelta": [
+          "MATCH",
+          "neutral",
+          "neutral"
+        ],
+        "activeDriverCount": [
+          "MATCH",
+          null,
+          null
+        ],
+        "ratchetTranche": [
+          "MATCH",
+          null,
+          null
+        ],
+        "blindSpotsTriggered": [
+          "MATCH",
+          [],
+          []
+        ],
+        "capPercent": [
+          "MATCH",
+          35,
+          35
+        ],
+        "mitigationArgumentPresent": [
+          "MATCH",
+          true,
+          true
+        ],
+        "mitigationCapabilityTrackRecord": [
+          "MATCH",
+          "strong",
+          "strong"
+        ]
+      }
+    },
+    "status": "determinism_failed_skipped_step5"
+  },
+  {
+    "ticker": "SPWR",
+    "quarter": "2025Q1",
+    "transcript_id": 32,
+    "diagnostics": {
+      "db_word_count": 11517,
+      "av_word_count": 4625,
+      "seqmatcher_ratio": 0.1768
+    },
+    "determinism": {
+      "run1_stop_reason": "end_turn",
+      "run1_output_tokens": 2822,
+      "run2_stop_reason": "end_turn",
+      "run2_output_tokens": 2820,
+      "clean": true,
+      "field_diffs": {
+        "thesisHealth": [
+          "MATCH",
+          "Strengthening",
+          "Strengthening"
+        ],
+        "thesisDelta": [
+          "MATCH",
+          "unknown",
+          "unknown"
+        ],
+        "recommendation": [
+          "MATCH",
+          "Add",
+          "Add"
+        ],
+        "recommendedSize": [
+          "MATCH",
+          18,
+          18
+        ],
+        "freshMoneyAllocation": [
+          "MATCH",
+          12,
+          12
+        ],
+        "typeClassification": [
+          "MATCH",
+          "A",
+          "A"
+        ],
+        "stumbleType": [
+          "MATCH",
+          "None",
+          "None"
+        ],
+        "threatMechanismImpaired": [
+          "MATCH",
+          false,
+          false
+        ],
+        "credibilityDelta": [
+          "MATCH",
+          "positive",
+          "positive"
+        ],
+        "activeDriverCount": [
+          "MATCH",
+          null,
+          null
+        ],
+        "ratchetTranche": [
+          "MATCH",
+          null,
+          null
+        ],
+        "blindSpotsTriggered": [
+          "MATCH",
+          [],
+          []
+        ],
+        "capPercent": [
+          "MATCH",
+          35,
+          35
+        ],
+        "mitigationArgumentPresent": [
+          "MATCH",
+          true,
+          true
+        ],
+        "mitigationCapabilityTrackRecord": [
+          "MATCH",
+          "strong",
+          "strong"
+        ]
+      }
+    },
+    "db_stop_reason": "end_turn",
+    "av_stop_reason": "end_turn",
+    "field_diffs": {
+      "thesisHealth": [
+        "DIFFER",
+        "Strengthening",
+        "Intact"
+      ],
+      "thesisDelta": [
+        "MATCH",
+        "unknown",
+        "unknown"
+      ],
+      "recommendation": [
+        "DIFFER",
+        "Add",
+        "Hold"
+      ],
+      "recommendedSize": [
+        "MATCH",
+        12,
+        12
+      ],
+      "freshMoneyAllocation": [
+        "MATCH",
+        7,
+        7
+      ],
+      "typeClassification": [
+        "MATCH",
+        "A",
+        "A"
+      ],
+      "stumbleType": [
+        "MATCH",
+        "None",
+        "None"
+      ],
+      "threatMechanismImpaired": [
+        "MATCH",
+        false,
+        false
+      ],
+      "credibilityDelta": [
+        "DIFFER",
+        "positive",
+        "neutral"
+      ],
+      "activeDriverCount": [
+        "MATCH",
+        null,
+        null
+      ],
+      "ratchetTranche": [
+        "MATCH",
+        null,
+        null
+      ],
+      "blindSpotsTriggered": [
+        "MATCH",
+        [],
+        []
+      ],
+      "capPercent": [
+        "MATCH",
+        35,
+        35
+      ],
+      "mitigationArgumentPresent": [
+        "MATCH",
+        true,
+        true
+      ],
+      "mitigationCapabilityTrackRecord": [
+        "DIFFER",
+        "mixed",
+        "unproven"
+      ]
+    },
+    "status": "complete"
+  },
+  {
+    "ticker": "SPWR",
+    "quarter": "2025Q3",
+    "transcript_id": 31,
+    "diagnostics": {
+      "db_word_count": 10839,
+      "av_word_count": 5472,
+      "seqmatcher_ratio": 0.1717
+    },
+    "determinism": {
+      "run1_stop_reason": "end_turn",
+      "run1_output_tokens": 3206,
+      "run2_stop_reason": "end_turn",
+      "run2_output_tokens": 3299,
+      "clean": false,
+      "field_diffs": {
+        "thesisHealth": [
+          "MATCH",
+          "Strengthening",
+          "Strengthening"
+        ],
+        "thesisDelta": [
+          "MATCH",
+          "unknown",
+          "unknown"
+        ],
+        "recommendation": [
+          "MATCH",
+          "Add",
+          "Add"
+        ],
+        "recommendedSize": [
+          "MATCH",
+          18,
+          18
+        ],
+        "freshMoneyAllocation": [
+          "DIFFER",
+          8,
+          10
+        ],
+        "typeClassification": [
+          "MATCH",
+          "A",
+          "A"
+        ],
+        "stumbleType": [
+          "MATCH",
+          "None",
+          "None"
+        ],
+        "threatMechanismImpaired": [
+          "MATCH",
+          false,
+          false
+        ],
+        "credibilityDelta": [
+          "MATCH",
+          "positive",
+          "positive"
+        ],
+        "activeDriverCount": [
+          "MATCH",
+          null,
+          null
+        ],
+        "ratchetTranche": [
+          "MATCH",
+          null,
+          null
+        ],
+        "blindSpotsTriggered": [
+          "MATCH",
+          [],
+          []
+        ],
+        "capPercent": [
+          "MATCH",
+          35,
+          35
+        ],
+        "mitigationArgumentPresent": [
+          "MATCH",
+          true,
+          true
+        ],
+        "mitigationCapabilityTrackRecord": [
+          "MATCH",
+          "strong",
+          "strong"
+        ]
+      }
+    },
+    "status": "determinism_failed_skipped_step5"
+  }
+]
