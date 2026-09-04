@@ -87,8 +87,12 @@ DD_CEILING = 0.3912  # 39.12% adopted ceiling, Rule 4
 def _git_state():
     commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO,
                              capture_output=True, text=True, check=True).stdout.strip()
-    dirty = bool(subprocess.run(["git", "status", "--porcelain"], cwd=REPO,
-                                 capture_output=True, text=True, check=True).stdout.strip())
+    status = subprocess.run(["git", "status", "--porcelain"], cwd=REPO,
+                             capture_output=True, text=True, check=True).stdout
+    # Ignore the harmless Word lock file (~$*.docx) -- not our working-tree
+    # change, never staged, never committed.
+    meaningful = [l for l in status.splitlines() if l.strip() and "~$" not in l]
+    dirty = bool(meaningful)
     return commit, dirty
 
 
