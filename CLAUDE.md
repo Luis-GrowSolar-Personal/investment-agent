@@ -79,6 +79,67 @@ commit.** A stale pointer here is worse than no pointer.
   code block in the chat — not inline prose, and not a separate file —
   so they're easy to copy.
 
+## Writing a CLI prompt for this project
+
+**Read the two most recent files in `prompts/` before writing a new one.** The
+conventions below live there in worked form; the specs do not carry them. A
+prompt written without looking at an example will be structurally worse than the
+last five, regardless of how well the task is understood.
+
+### Required skeleton
+
+1. **Framing** — what the run exists to answer, what is already established (so
+   budget is not spent rediscovering it), and which spec sections are closed.
+2. **Ground rules** — an explicit do-not list. Whether LLM calls, API spend or
+   DB writes are permitted, stated every time.
+3. **Step −1, resume protocol** — `run_id`, state in
+   `analysis/data/run_state/<run_id>/`, `progress.json` written as the *very
+   first action* before any reading. Flush `cells.jsonl` per cell; append to
+   `findings.md` the moment a finding is established, never at the end.
+4. **Step 0, hygiene** — clean tree with a hard stop if `git_dirty` cannot be
+   recorded `false`; driver committed before manifests, as its own commit.
+5. **The work**, in steps, with the highest-value step identified so a
+   budget-limited session runs it first.
+6. **Rules and gates** carried forward explicitly, with their numbers.
+7. **A report step** opening with `Scope boundary: report, do not decide` and a
+   fill-in-the-blanks headline sentence.
+8. **Standing rules** — `python3`/zsh, no cache refresh, work on the sweep
+   branch, provenance for every figure, one prompt in and one wrap-up out to
+   `wrap-ups/<prompt-basename>-out.md`.
+
+### The six guardrails — each one paid for by a wasted run
+
+1. **One rule, one clause.** A decision rule with two conditions that can
+   disagree will disagree. Rule 3 shipped with "at most one violation" *and*
+   "two or more sign changes" and had to be rewritten as a single test.
+2. **A gate must name the right quantity.** §9 invariant #2 constrains a
+   position's **target** at decision time, not its realized weight after price
+   moves. Asking for max observed weight failed a gate spuriously.
+3. **A prediction is not a gate.** "At 2.5pp the session limit should dominate"
+   belongs in a diagnostic. A wrong prediction is data; a failed gate stops the
+   run.
+4. **Never gate on a known unfixed defect.** If §11 documents it, a gate testing
+   it can never pass. State this explicitly in the prompt.
+5. **Do not ask a different algorithm to reproduce an old one bit-exactly.**
+   §3's pooling genuinely differs from per-call execution on multi-event dates —
+   44.2% of events in this corpus share a date. Split into a hard gate on the
+   cases that must match and a measurement on the cases that legitimately differ.
+6. **Name the kind of every number.** Forward draw, median across draws, or
+   phase-averaged median — see the provenance rule below. Quoting a median where
+   a forward draw was meant cost two full sessions chasing a $626 gap that was
+   really $72.75.
+
+Add, in the prompt itself: **a diagnostic that contradicts an expectation stated
+in this prompt is a finding, not a reason to stop.**
+
+### Do not re-propose what has been refuted
+
+Before proposing a mechanism, check `wrap-ups/` for it. Already tested and
+closed: transcript anonymization (`DESIGN_PRINCIPLES.md` §4), the variable
+Type B cap, the cash-reserve knob, and the mid-day `start_of_day_value`
+backfill hypothesis. Re-running a refuted idea spends a session to learn
+nothing.
+
 ## Reference figures in gates must cite their provenance
 
 **Every number a prompt asks a run to reproduce must name where it came from —
