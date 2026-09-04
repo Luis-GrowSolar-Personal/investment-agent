@@ -97,40 +97,63 @@ def _git_state():
 
 
 def perturb_events(events, mode: str, q: float, corruption_seed: int):
-    """The real corruption pass: single RNG stream, one draw per event,
-    applied identically to per_call_rec, final_action, and thesis_health
-    (moved in lockstep on the ordinal scale; NOT consumed by decide())."""
+    """The real corruption pass: single RNG stream, one accept/reject +
+    direction draw per event, applied to `final_action` (what decide()
+    reads: event.final_action or event.per_call_rec or "Hold" -- so we
+    perturb final_action directly, seeded from ITS OWN current value, not
+    from per_call_rec), and to per_call_rec / thesis_health in lockstep for
+    score-object consistency.
+
+    At q=0.0, or whenever the per-event accept draw misses (u >= q), the
+    event is passed through with its ORIGINAL final_action untouched --
+    critical for the q=0.0 gate (must reproduce the uncorrupted result
+    exactly). An earlier version of this function unconditionally rebuilt
+    final_action from per_call_rec even on the pass-through branch, which
+    silently changed decide()'s input at q=0 whenever apply_matrix's
+    trend-layer final_action differed from the raw per_call_rec -- that bug
+    was caught by this exact gate and is fixed here before Step 3 ran for
+    real."""
     rng = random.Random(corruption_seed * 1_000_003 + (hash(mode) % 97) + int(q * 10007))
     out = []
     for e in events:
+        fa = e.final_action or e.per_call_rec or "Hold"
         rec = e.per_call_rec or "Hold"
         health = e.thesis_health if e.thesis_health in HEALTH else "Intact"
         u = rng.random()
         if u < q:
-            idx = ORDER.index(rec)
+            fa_idx = ORDER.index(fa)
+            rec_idx = ORDER.index(rec)
             hidx = HEALTH.index(health)
             if mode == "uniform":
-                new_idx = rng.randrange(4)
-                new_hidx = rng.randrange(4)
+                # independent draws per field for uniform noise; direction
+                # modes below share one `d` so fields move consistently.
+                new_fa = ORDER[rng.randrange(4)]
+                new_rec = ORDER[rng.randrange(4)]
+                new_health = HEALTH[rng.randrange(4)]
             else:
                 if mode == "adjacent":
-                    if idx == 0: d = 1
-                    elif idx == 3: d = -1
-                    else: d = rng.choice([-1, 1])
+                    # one shared direction draw, applied per-field against
+                    # each field's own clamp at its own boundary
+                    d_pick = rng.choice([-1, 1])
+                    def _apply(idx):
+                        if idx == 0: d = 1
+                        elif idx == 3: d = -1
+                        else: d = d_pick
+                        return min(3, max(0, idx + d))
                 elif mode == "optimistic":
-                    d = -1 if idx > 0 else 0
+                    def _apply(idx):
+                        return max(0, idx - 1)
                 elif mode == "pessimistic":
-                    d = 1 if idx < 3 else 0
+                    def _apply(idx):
+                        return min(3, idx + 1)
                 else:
                     raise ValueError(mode)
-                new_idx = min(3, max(0, idx + d))
-                new_hidx = min(3, max(0, hidx + d))
-            new_rec = ORDER[new_idx]
-            new_health = HEALTH[new_hidx]
+                new_fa = ORDER[_apply(fa_idx)]
+                new_rec = ORDER[_apply(rec_idx)]
+                new_health = HEALTH[_apply(hidx)]
         else:
-            new_rec = rec
-            new_health = health
-        out.append(replace(e, per_call_rec=new_rec, final_action=new_rec, thesis_health=new_health))
+            new_fa, new_rec, new_health = fa, rec, health
+        out.append(replace(e, final_action=new_fa, per_call_rec=new_rec, thesis_health=new_health))
     return out
 
 
