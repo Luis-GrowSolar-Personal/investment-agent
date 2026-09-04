@@ -1,0 +1,16 @@
+{
+  "run_id": "analyst-sensitivity",
+  "prompt_sha256": "41d3ee7d1f272f183333a3f05f40270cd7c456c31e536ea3df2719675d802428",
+  "driver_commit": "e6d51cd",
+  "steps": {
+    "step0_hygiene": {"status": "done", "notes": ["tree clean except harmless ~$*.docx lock file"]},
+    "step1_harness": {"status": "done", "notes": ["analysis/analyst_sensitivity_harness.py committed at e6d51cd"]},
+    "step2_zero_info": {"status": "pending", "notes": []},
+    "step3_grid": {"status": "pending", "notes": []},
+    "step4_lift_units": {"status": "pending", "notes": []},
+    "step5_rules": {"status": "pending", "notes": []},
+    "step6_report": {"status": "pending", "notes": []}
+  },
+  "next_action": "spec reading not yet started",
+  "notes": []
+}
