@@ -8,6 +8,25 @@
 - Always read docs/architecture/DOMAIN.md before building any
   module that sources, filters, or evaluates investment candidates
 
+## Start here — current state of play
+
+**"Read the state of play" means this file, and only this file:**
+
+    docs/handoffs/2026-09-03-state-of-play.md
+
+Reading version (renders correctly anywhere, including on a phone):
+<https://claude.ai/code/artifact/b1c5428c-1075-4145-b3fa-1a2dfca91aaa>
+
+It carries the defined terms (§0), the settled configuration, what is open, and
+the queued test plan (§7). Read §0 before anything else — several parameter
+names read as their own opposite.
+
+Earlier state-of-play documents in `docs/handoffs/` are **superseded**; they are
+kept for provenance, not for orientation. Do not read them for current state.
+
+**When a new state of play is written, update the path above in the same
+commit.** A stale pointer here is worse than no pointer.
+
 ## Output formatting rules
 - Write a separate `.md` file only when: (a) producing a complex prompt
   intended for a new Code or chat session, or (b) Luis explicitly asks
