@@ -14,21 +14,48 @@
   for a handoff document. When asked, write it to docs/handoffs/ with a
   date-stamped filename.
 - Do not write handoff documents proactively at the end of a session.
-- **Reports ship in two formats.** Whenever a handoff, state-of-play, or
-  similar report document is produced, write BOTH:
+- **Reports ship in three forms.** Whenever a handoff, state-of-play, or
+  similar report document is produced, produce ALL THREE:
   (a) the `.md` file in docs/handoffs/ — canonical, consumed by Claude
       Code/CLI, chat, Cowork, and mirrored into the project docs;
-  (b) a `.docx` alongside it with the same base filename.
-  Deliver both. Keep them in sync; never let the two diverge in content.
-  **Why — do not drop the .docx as redundant.** Luis reads a freshly
+  (b) a `.docx` alongside it with the same base filename;
+  (c) a **published artifact page** — one self-contained HTML file, published
+      with the Artifact tool, as the reading version.
+  Deliver all three. Keep them in sync; never let them diverge in content.
+  **Why the `.docx` — do not drop it as redundant.** Luis reads a freshly
   generated .md fine in the Cowork/chat rendering. The .docx exists for
   *retrieval*: the macOS tools he opens old files with (VS Code, Safari)
   do not render Markdown tables correctly, and these reports are
   table-heavy. The .md is for the moment; the .docx is what keeps the
   report legible when he comes back to it cold, months later. Render
   tables as real Word tables, not preformatted text.
+  **Why the artifact page.** The in-environment Markdown renderer silently
+  drops columns from wide tables — a three-column glossary rendered as one
+  column on 2026-09-03, losing every definition. The artifact is HTML, so it
+  renders the same everywhere including on a phone, and it can use layouts
+  Markdown cannot: definition lists instead of cramped tables, status chips,
+  a section rail. Republish to the SAME artifact URL when the report changes;
+  a new URL orphans the old link.
   This applies to reports only. Prompt files in prompts/ and CLI wrap-ups
   in wrap-ups/ stay .md-only.
+
+- **Every report opens with a defined-terms section.** Before anything else,
+  §0 defines the vocabulary the rest of the document uses: the settings that
+  define a configuration (`swap_funding`, `K`, `new_calls_only`, `X`, `pooled`,
+  `per_event_date` and their alternatives), the kinds of number (pp vs %, cell,
+  draw, forward draw, median across draws, phase, phase-averaged median), and
+  the portfolio rules referenced later (Type A/B, tier cap, ratchet,
+  profit-take, the pet/capitulation model, ALL16).
+  **Define each term as `ALLOCATOR_OPERATING_MODEL.md` uses it, not as it
+  sounds** — several read as their own opposite. `X` is the most misread: it is
+  a per-position, per-session *speed limit* in percentage points of portfolio
+  (§9 invariant 9), not a budget for new tickers and not a cap on position
+  size. Give it a worked example every time.
+  Also restate the settled configuration once in plain English, with no
+  identifiers in it, before the identifiers appear.
+  **Why.** Luis returns to these documents days or weeks apart and does not
+  hold six parameter names in his head. A report he cannot parse cold is a
+  report that did not survive the session.
 - For complex terminal commands or SQL scripts, display them in a fenced
   code block in the chat — not inline prose, and not a separate file —
   so they're easy to copy.

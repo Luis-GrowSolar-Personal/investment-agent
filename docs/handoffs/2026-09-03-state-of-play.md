@@ -1,6 +1,8 @@
 # State of Play — 2026-09-03
 
 **Branch:** `sweep/db-corpus-baseline` (pushed) · `dev` (pushed, `c514ae1`)
+**Reading version (renders correctly, including on a phone):**
+<https://claude.ai/code/artifact/b1c5428c-1075-4145-b3fa-1a2dfca91aaa>
 **Read first on return:** this document, then §7's test plan. The two spec
 documents written today (`PROMOTION_GATE.md` §2.3, `CONFORMANCE_FIXTURES.md`)
 are the build-side output; everything else here is validation.
