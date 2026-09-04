@@ -1,0 +1,107 @@
+{
+  "run_id": "resolve-open-four-1c",
+  "timestamp_utc": "2026-09-04T22:36:51Z",
+  "git_commit": "9c2e15970738c9d484d0cfc1370b40de938c2bda",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/resolve_open_four_manifest.py",
+  "driver_file_tracked_at_commit": true,
+  "corpus": {
+    "source": "file_cache (price_cache.json) + DB (transcripts, via load_events_dedup_on)",
+    "window": [
+      "2022-01-01",
+      "2024-06-12"
+    ],
+    "universe": "ALL16",
+    "dedup": "on"
+  },
+  "classification": {
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "params": {
+    "scopes": [
+      "ledger_entry_1",
+      "ALL16",
+      "ALL16_established",
+      "ALL16_speculative",
+      "big4_73pct_of_portfolio"
+    ]
+  },
+  "results": {
+    "ledger_entry_1": {
+      "lift_pp": 5.1724137931034475,
+      "n": 58,
+      "tickers": [
+        "ENPH",
+        "TTD",
+        "AMPX",
+        "ENVX",
+        "EOSE",
+        "QS",
+        "SPWR"
+      ]
+    },
+    "ALL16": {
+      "lift_pp": -3.076923076923077,
+      "n": 195,
+      "tickers": [
+        "AAPL",
+        "AMD",
+        "AVGO",
+        "GOOGL",
+        "MSFT",
+        "NVDA",
+        "ORCL",
+        "TSLA",
+        "AMPX",
+        "ENVX",
+        "EOSE",
+        "FSLR",
+        "QS",
+        "RUN",
+        "SPWR",
+        "TTD"
+      ]
+    },
+    "ALL16_established": {
+      "lift_pp": -6.306306306306303,
+      "n": 111,
+      "tickers": [
+        "AAPL",
+        "AMD",
+        "AVGO",
+        "GOOGL",
+        "MSFT",
+        "NVDA",
+        "ORCL",
+        "TSLA"
+      ]
+    },
+    "ALL16_speculative": {
+      "lift_pp": 1.1904761904761918,
+      "n": 84,
+      "tickers": [
+        "AMPX",
+        "ENVX",
+        "EOSE",
+        "FSLR",
+        "QS",
+        "RUN",
+        "SPWR",
+        "TTD"
+      ]
+    },
+    "big4_73pct_of_portfolio": {
+      "lift_pp": -3.57142857142857,
+      "n": 56,
+      "tickers": [
+        "AVGO",
+        "NVDA",
+        "ORCL",
+        "TTD"
+      ]
+    }
+  }
+}

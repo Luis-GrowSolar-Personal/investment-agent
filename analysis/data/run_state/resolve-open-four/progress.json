@@ -1,0 +1,23 @@
+{
+  "run_id": "resolve-open-four",
+  "prompt_sha256": "50cb9b8d09c22c3cc711519d798b6de7dfe8e47b4196201bcb849a6b776b44d6",
+  "driver_commit": "9c2e15970738c9d484d0cfc1370b40de938c2bda",
+  "steps": {
+    "step_minus1_resume": "done",
+    "step_0_hygiene_driver": "done",
+    "step_1a_drawdown_ruler": "done",
+    "step_1b_spwr": "done",
+    "step_1c_gate_scope": "done",
+    "step_1d_sonnet_undetermined": "done",
+    "step_2_tiebreak_seed": "done",
+    "step_3_requote_list": "done",
+    "step_4_x_axis_daily_ruler": "done"
+  },
+  "next_action": "write wrap-ups/resolve-open-four-out.md and commit manifests + run_state",
+  "notes": [
+    "analysis/resolve_open_four.py committed fb9ec8f, verified against real code, all first-pass figures reproduce exactly",
+    "analysis/resolve_open_four_manifest.py committed 04125e1, fixed dirty-check 9c2e159",
+    "Step 2: literal partial-fill definition (vs uncapped intended_dollars) is unusable -- flags 27/27 sessions as partial because the X-cap itself creates actual<intended. Built cash-scarce definition (binding=='cash available' AND actual<target_buy_dollars): 8/27 sessions have BOTH a tie and a cash-scarce partial fill, refuting the prompt's 'no session has both' hypothesis as literally framed -- yet the seed still never binds across 15 draws. Root mechanism of non-binding not fully traced -- reported as open, not asserted.",
+    "Step 4: raw-final-value optimum on this single-seed/3-phase grid is X=3.0 (189,425), narrowly ahead of X=2.5 (184,819, 97.6% of the X=3.0 value). Daily ruler adds a fairly consistent 2.79-8.00pp drawdown understatement across all capped X values (no dramatic reordering); only X=off breaches 39.12% on the daily ruler (48.37%)."
+  ]
+}

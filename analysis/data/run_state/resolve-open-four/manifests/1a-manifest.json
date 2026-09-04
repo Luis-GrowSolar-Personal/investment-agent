@@ -1,0 +1,104 @@
+{
+  "run_id": "resolve-open-four-1a",
+  "timestamp_utc": "2026-09-04T22:36:48Z",
+  "git_commit": "9c2e15970738c9d484d0cfc1370b40de938c2bda",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/resolve_open_four_manifest.py",
+  "driver_file_tracked_at_commit": true,
+  "corpus": {
+    "source": "file_cache (price_cache.json) + DB (transcripts, via load_events_dedup_on)",
+    "window": [
+      "2022-01-01",
+      "2024-06-12"
+    ],
+    "universe": "ALL16",
+    "dedup": "on"
+  },
+  "classification": {
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "params": {
+    "cell": {
+      "cadence": "30",
+      "scope": "new_calls_only",
+      "funding_mode": "swap_funding",
+      "limit_pp": 2.5,
+      "execution_order": "pooled",
+      "trim_budget_scope": "per_event_date",
+      "veto_p": 0.0
+    },
+    "phases": [
+      0,
+      10,
+      20
+    ],
+    "seed": 0
+  },
+  "results": {
+    "off_session_txn_count": 2,
+    "off_session_txn_dates": [
+      "2023-12-31",
+      "2024-12-31"
+    ],
+    "per_phase": {
+      "0": {
+        "final": 179944.90608455567,
+        "dd_session": 0.20852310359539084,
+        "dd_daily": 0.2278014226932305,
+        "n_sessions": 31,
+        "n_days": 894
+      },
+      "10": {
+        "final": 189914.19260420668,
+        "dd_session": 0.15957769786493864,
+        "dd_daily": 0.24203954703773117,
+        "n_sessions": 31,
+        "n_days": 884
+      },
+      "20": {
+        "final": 184599.16271847137,
+        "dd_session": 0.1516318021171028,
+        "dd_daily": 0.2338878737068218,
+        "n_sessions": 31,
+        "n_days": 874
+      }
+    },
+    "phase_avg_final": 184819.42046907792,
+    "phase_avg_dd_session": 0.17324420119247744,
+    "phase_avg_dd_daily": 0.23457628114592785,
+    "phase_spread_session": 0.056891301478288026,
+    "phase_spread_daily": 0.014238124344500669,
+    "benchmarks": {
+      "SPY": {
+        "dd_daily": 0.253605735830369,
+        "dd_session_by_phase": {
+          "0": 0.21987113557891805,
+          "10": 0.2276955645664249,
+          "20": 0.18623637462653994
+        },
+        "dd_session_phase_avg": 0.21126769159062764
+      },
+      "QQQ": {
+        "dd_daily": 0.35246960056221394,
+        "dd_session_by_phase": {
+          "0": 0.33748904730772994,
+          "10": 0.3064382581045753,
+          "20": 0.23946655791957933
+        },
+        "dd_session_phase_avg": 0.29446462111062816
+      },
+      "TMFC": {
+        "dd_daily": 0.3298876473073209,
+        "dd_session_by_phase": {
+          "0": 0.3159682962810893,
+          "10": 0.2822014269111611,
+          "20": 0.2289905696740871
+        },
+        "dd_session_phase_avg": 0.2757200976221125
+      }
+    }
+  }
+}

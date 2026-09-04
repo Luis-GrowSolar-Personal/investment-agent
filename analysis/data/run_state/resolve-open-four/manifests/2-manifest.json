@@ -1,0 +1,290 @@
+{
+  "run_id": "resolve-open-four-2",
+  "timestamp_utc": "2026-09-04T22:36:54Z",
+  "git_commit": "9c2e15970738c9d484d0cfc1370b40de938c2bda",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/resolve_open_four_manifest.py",
+  "driver_file_tracked_at_commit": true,
+  "corpus": {
+    "source": "file_cache (price_cache.json) + DB (transcripts, via load_events_dedup_on)",
+    "window": [
+      "2022-01-01",
+      "2024-06-12"
+    ],
+    "universe": "ALL16",
+    "dedup": "on"
+  },
+  "classification": {
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "params": {
+    "cell": {
+      "cadence": "30",
+      "scope": "new_calls_only",
+      "funding_mode": "swap_funding",
+      "limit_pp": 2.5,
+      "execution_order": "pooled",
+      "trim_budget_scope": "per_event_date",
+      "veto_p": 0.0
+    },
+    "phase_offset": 0,
+    "seed": 0
+  },
+  "results": {
+    "sessions_total": 27,
+    "sessions_with_tie": 13,
+    "sessions_with_partial_fill_literal": 27,
+    "sessions_with_both_tie_and_partial_literal": 13,
+    "both_session_dates_literal": [
+      "2022-03-02",
+      "2022-04-01",
+      "2022-05-31",
+      "2022-08-29",
+      "2023-02-25",
+      "2023-06-25",
+      "2023-07-25",
+      "2023-08-24",
+      "2023-11-22",
+      "2024-02-20",
+      "2024-03-21",
+      "2024-05-20",
+      "2024-06-12"
+    ],
+    "sessions_with_cash_scarce_partial": 10,
+    "sessions_with_both_tie_and_cash_scarce_partial": 8,
+    "both_session_dates_cash_scarce": [
+      "2023-06-25",
+      "2023-07-25",
+      "2023-08-24",
+      "2023-11-22",
+      "2024-02-20",
+      "2024-03-21",
+      "2024-05-20",
+      "2024-06-12"
+    ],
+    "per_session": {
+      "2022-01-31": {
+        "candidates": 3,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 3,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2022-03-02": {
+        "candidates": 8,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 8,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": true
+      },
+      "2022-04-01": {
+        "candidates": 3,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 3,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": true
+      },
+      "2022-05-01": {
+        "candidates": 3,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 3,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2022-05-31": {
+        "candidates": 5,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 5,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": true
+      },
+      "2022-06-30": {
+        "candidates": 1,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 1,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2022-07-30": {
+        "candidates": 1,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 1,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2022-08-29": {
+        "candidates": 4,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 4,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": true
+      },
+      "2022-09-28": {
+        "candidates": 2,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 2,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2022-10-28": {
+        "candidates": 3,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 3,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2022-11-27": {
+        "candidates": 2,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 2,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2022-12-27": {
+        "candidates": 2,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 2,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2023-01-26": {
+        "candidates": 1,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 1,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2023-02-25": {
+        "candidates": 3,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 3,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": true
+      },
+      "2023-03-27": {
+        "candidates": 4,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 4,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2023-04-26": {
+        "candidates": 3,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 3,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2023-05-26": {
+        "candidates": 4,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 4,
+        "cash_scarce_partial_vs_capped_target": 0,
+        "has_tie": false
+      },
+      "2023-06-25": {
+        "candidates": 2,
+        "fully_funded": 0,
+        "unfunded": 0,
+        "partial_literal_vs_uncapped_intended": 2,
+        "cash_scarce_partial_vs_capped_target": 1,
+        "has_tie": true
+      },
+      "2023-07-25": {
+        "candidates": 3,
+        "fully_funded": 0,
+        "unfunded": 2,
+        "partial_literal_vs_uncapped_intended": 1,
+        "cash_scarce_partial_vs_capped_target": 1,
+        "has_tie": true
+      },
+      "2023-08-24": {
+        "candidates": 5,
+        "fully_funded": 0,
+        "unfunded": 3,
+        "partial_literal_vs_uncapped_intended": 2,
+        "cash_scarce_partial_vs_capped_target": 1,
+        "has_tie": true
+      },
+      "2023-09-23": {
+        "candidates": 2,
+        "fully_funded": 0,
+        "unfunded": 1,
+        "partial_literal_vs_uncapped_intended": 1,
+        "cash_scarce_partial_vs_capped_target": 1,
+        "has_tie": false
+      },
+      "2023-11-22": {
+        "candidates": 8,
+        "fully_funded": 0,
+        "unfunded": 6,
+        "partial_literal_vs_uncapped_intended": 2,
+        "cash_scarce_partial_vs_capped_target": 1,
+        "has_tie": true
+      },
+      "2023-12-22": {
+        "candidates": 2,
+        "fully_funded": 0,
+        "unfunded": 1,
+        "partial_literal_vs_uncapped_intended": 1,
+        "cash_scarce_partial_vs_capped_target": 1,
+        "has_tie": false
+      },
+      "2024-02-20": {
+        "candidates": 6,
+        "fully_funded": 0,
+        "unfunded": 5,
+        "partial_literal_vs_uncapped_intended": 1,
+        "cash_scarce_partial_vs_capped_target": 1,
+        "has_tie": true
+      },
+      "2024-03-21": {
+        "candidates": 5,
+        "fully_funded": 0,
+        "unfunded": 4,
+        "partial_literal_vs_uncapped_intended": 1,
+        "cash_scarce_partial_vs_capped_target": 1,
+        "has_tie": true
+      },
+      "2024-05-20": {
+        "candidates": 9,
+        "fully_funded": 0,
+        "unfunded": 8,
+        "partial_literal_vs_uncapped_intended": 1,
+        "cash_scarce_partial_vs_capped_target": 1,
+        "has_tie": true
+      },
+      "2024-06-12": {
+        "candidates": 3,
+        "fully_funded": 0,
+        "unfunded": 2,
+        "partial_literal_vs_uncapped_intended": 1,
+        "cash_scarce_partial_vs_capped_target": 1,
+        "has_tie": true
+      }
+    },
+    "rank_key_evaluations_total": 359,
+    "seed_can_bind_at_this_cell_literal_def": true,
+    "seed_can_bind_at_this_cell_cash_scarce_def": true
+  }
+}
