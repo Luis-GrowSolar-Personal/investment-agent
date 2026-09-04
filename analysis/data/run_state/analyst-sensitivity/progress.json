@@ -1,16 +1,19 @@
 {
   "run_id": "analyst-sensitivity",
   "prompt_sha256": "41d3ee7d1f272f183333a3f05f40270cd7c456c31e536ea3df2719675d802428",
-  "driver_commit": "e6d51cd",
+  "driver_commit": "db45d15",
   "steps": {
-    "step0_hygiene": {"status": "done", "notes": ["tree clean except harmless ~$*.docx lock file"]},
-    "step1_harness": {"status": "done", "notes": ["analysis/analyst_sensitivity_harness.py committed at e6d51cd"]},
-    "step2_zero_info": {"status": "pending", "notes": []},
-    "step3_grid": {"status": "pending", "notes": []},
-    "step4_lift_units": {"status": "pending", "notes": []},
-    "step5_rules": {"status": "pending", "notes": []},
-    "step6_report": {"status": "pending", "notes": []}
+    "step0_hygiene": {"status": "done", "notes": ["tree clean except harmless ~$*.docx lock file, excluded in harness dirty-check"]},
+    "step1_harness": {"status": "done", "notes": ["analysis/analyst_sensitivity_harness.py; fixed at db45d15 after q=0 gate failure"]},
+    "step2_zero_info": {"status": "done", "notes": ["$120,800 / 12.72% dd, 15/15 tie_seed draws identical, beats SPY/QQQ, edges TMFC, EW not computed by this driver"]},
+    "step3_grid": {"status": "done", "notes": ["360 cells, 34s wall clock, q=0 gate passes exactly in all 4 modes after fix"]},
+    "step4_lift_units": {"status": "done", "notes": ["analysis/analyst_sensitivity_lift.py; q0 lift -3.08pp on this DB corpus, NOT the ledger's 4.94pp -- corpus mismatch flagged"]},
+    "step5_rules": {"status": "done", "notes": ["Rule 4: 0/360 draws breach 39.12% ceiling, zero discriminating power on this axis; Rule 2: most cells tied, ranges overlap heavily"]},
+    "step6_report": {"status": "done", "notes": ["wrap-ups/analyst-sensitivity-out.md written"]}
   },
-  "next_action": "spec reading not yet started",
-  "notes": []
+  "next_action": "none -- run complete",
+  "notes": [
+    "Full run, not partial.",
+    "Gate failure caught and fixed mid-run: perturb_events rebuilt final_action from per_call_rec even on the no-corruption branch, discarding apply_matrix's trend-layer final_action at q=0. Fixed at db45d15, Step 2+3 re-run under fixed driver before any figure in the report was taken."
+  ]
 }
