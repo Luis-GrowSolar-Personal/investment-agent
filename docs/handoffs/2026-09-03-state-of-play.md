@@ -7,6 +7,64 @@ are the build-side output; everything else here is validation.
 
 ---
 
+## 0. Terms used in this document
+
+Read this once; everything below assumes it. Definitions are as
+`ALLOCATOR_OPERATING_MODEL.md` uses them, not as they sound.
+
+### 0.1 The six settings that define a configuration
+
+| Term | What it means | Alternatives |
+|---|---|---|
+| **`swap_funding`** | **Where the money comes from.** A buy is funded by *trimming another holding*, not by spending idle cash. The seller is the "donor". | `no_reserve` — spend available cash, never trim to fund. `cash_reserve` — hold back a fixed % of cash (**retired 2026-09-01; cash is a residual, not a knob**). |
+| **`K` (cadence)** | **How often the allocator trades.** Calendar days between sessions. `K`=30 is roughly monthly, `K`=90 quarterly; `K`=1 is the floor and models an autonomous agent trading daily. | any integer; 7, 14, 30, 60, 90 were swept |
+| **`new_calls_only` (scope)** | **Who is eligible to receive money at a session.** Only tickers that have just reported earnings. A held position cannot be added to between its own earnings calls. | `cash_deployment` — *any* ticker in the universe is eligible at any session, reported or not |
+| **`X` (per-session change limit)** | **A speed limit, not a budget.** The most any *single* position's weight may move in one session, in percentage points of the whole portfolio. Applies to every position — new or long-held — and to trims as well as adds. | swept 0.1pp to 5pp, and `off` |
+| **`pooled` (execution order)** | **The order operations run inside one session.** All of the session's sells execute first, then the freed cash is pooled and deployed together in rank order. | `sequential` — each event's own sell-then-buy completes before the next event is considered |
+| **`per_event_date` (trim budget scope)** | **How often the trim budget resets.** The ceiling on how much may be trimmed to fund buys is applied per calendar date on which earnings events fall. | `per_session` — one budget for the whole session; spec-faithful, measured and reported but not adopted |
+
+**Worked example of `X`, since it is the one most easily misread.** At
+`X` = 2.5pp, a position sitting at 5.0% of the portfolio may finish the session
+at no more than 7.5% — a rise of 2.5 *percentage points*, which is a **50%
+increase in the position itself**. The same limit stops it falling below 2.5%.
+It says nothing about how much cash exists, how many names may be bought, or how
+large a position may ultimately grow; those are the funding mode and the tier
+caps respectively.
+
+**Why `X` matters more than it sounds.** §5 of the spec, measured across 450
+runs: every funding mode produces a smooth curve with an interior optimum at
+2.5-3pp, *roughly doubling* the unconstrained result. Throttling the **rate** of
+deployment — not bounding total demand — is what governs this allocator.
+
+### 0.2 Units and kinds of number
+
+Mixing these up has cost this project two full sessions. Every figure quoted
+anywhere should say which kind it is.
+
+| Term | What it means |
+|---|---|
+| **pp vs %** | Percentage **points** vs percent. 5% to 7.5% is **+2.5pp**, and also **+50%**. `X` is always in pp of total portfolio. |
+| **cell** | One complete parameter combination — one `K`, one scope, one `X`, one funding mode. A "sweep" runs many cells. |
+| **draw / seed** | One run of the *same* cell with a different tie-break seed. Used to see how much of a result is arrival-order luck. |
+| **forward draw** | The single run in natural date order, nothing shuffled. |
+| **median across draws** | Middle value of N runs of one cell. **Not** the same as the forward draw — confusing the two is the error that cost two sessions. |
+| **phase / phase offset** | *Which day within the K-day cycle* sessions land on. `K`=30 was tested at 3 offsets (days 0, 10, 20). |
+| **phase-averaged median** | Mean of the per-phase medians. **The published headline figures are this kind.** |
+| **manifest** | The record pinning a result to its exact inputs — commit, driver, caches, corpus. Per §10b a result without a clean manifest **is not citable**. |
+
+### 0.3 Portfolio rules referred to below
+
+| Term | What it means |
+|---|---|
+| **Type A / Type B** | Single-driver thesis (hard cap **35%** of portfolio) vs multi-driver platform (hard cap **50%**). |
+| **tier cap** | The ceiling on a single position's *target* at decision time — not its realized weight after price moves. |
+| **ratchet** | The graduated exit on deterioration: trim to cap, then 40% more after a quarter without improvement, then to 3%, then exit. |
+| **profit-take** | The trim triggered when a position crosses 25% of portfolio. |
+| **veto / pet / capitulation** | §8's model of *human* behaviour: a winner crossing the 25% threshold becomes a "pet" with probability `p`, declines all later trims and exits, then capitulates entirely at -30% from its peak. `p`=0 models a disciplined agent. |
+| **ALL16** | The 16-ticker universe every sweep runs against. §6.1 is about whether that list is the right one. |
+
+---
+
 ## 1. Where things stand in one paragraph
 
 The allocator configuration settled on 2026-09-01 is unchanged and its backtest
@@ -24,6 +82,11 @@ questions about the backtest itself that are now a queued test plan (§7).
 ## 2. Settled configuration — unchanged
 
 `swap_funding`, `K`=30, `new_calls_only`, `X`=2.5pp, `pooled`, `per_event_date`.
+
+**In plain terms:** trade once a month; at each session only put money into
+companies that have just reported earnings; fund those buys by trimming
+something already held rather than from idle cash; and never move any single
+position by more than 2.5 points of total portfolio value in one month.
 
 Published figures (`docs/handoffs/2026-09-01-allocator-state-of-play.md`):
 **$184,819 final value, 17.32% max drawdown**, versus SPY $113,980/25.36%,
@@ -208,6 +271,13 @@ Concentration:
    range" reported for this configuration is a single point, and Rule 2's
    overlapping-range test has nothing to compare. **Verify whether this is
    correct behaviour or a seed that is not being threaded through.**
+
+   §5 of the spec gives the comparison that makes this worth checking: in the
+   **per-call** model, *"at 1pp and below, all fifteen orderings produce
+   identical results; at 2.5pp the spread is 0.9%."* This run is at 2.5pp and
+   the spread is **zero**. That may simply be the session model at `K`=30 having
+   no ties where the per-call model had some — but it differs enough from
+   published behaviour to be worth confirming rather than assuming.
 2. **Phase 0 alone gives $179,945 / 20.85%, against the published
    $184,819 / 17.32%.** The published figures are phase-averaged across three
    offsets; this run used phase 0 only. If that is the whole explanation, then
