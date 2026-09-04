@@ -52,7 +52,15 @@ def git_info():
                                       cwd=SCRIPT_DIR.parent).decode().strip()
     dirty_out = subprocess.check_output(["git", "status", "--porcelain=v1", "-uall"],
                                          cwd=SCRIPT_DIR.parent).decode()
-    dirty = bool(dirty_out.strip())
+    # Expected untracked paths per Step 0 of prompts/resolve-open-four.md: the
+    # prompt itself and this run's own run_state (progress.json/cells.jsonl/
+    # findings.md, which this very run writes). Anything else dirty is a hard stop.
+    allowed_untracked = ("prompts/resolve-open-four.md",
+                          "analysis/data/run_state/resolve-open-four/")
+    dirty_lines = [ln for ln in dirty_out.splitlines() if ln.strip()]
+    unexpected = [ln for ln in dirty_lines
+                  if not any(p in ln for p in allowed_untracked)]
+    dirty = bool(unexpected)
     # driver file must actually be tracked at this commit
     ls = subprocess.check_output(["git", "ls-tree", "-r", "--name-only", commit],
                                   cwd=SCRIPT_DIR.parent).decode()
