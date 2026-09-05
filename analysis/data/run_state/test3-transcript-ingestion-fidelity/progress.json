@@ -1,0 +1,20 @@
+{
+  "run_id": "test3-transcript-ingestion-fidelity",
+  "prompt_sha256": "10eba3455f6ad4fb771aa5965fbf69317f71f124fc9f170adf36deea44e32c54",
+  "driver_commit": null,
+  "steps": {
+    "step_minus1_resume": "done",
+    "step0_hygiene": "blocked_on_git_lock",
+    "step1_db_corpus_census": "done",
+    "step2_av_qualitative_check": "done",
+    "step3_spwr_rename_timing": "done",
+    "step4_optional_av_fetch": "skipped_gate1_failed",
+    "step5_verdict": "done",
+    "report": "done"
+  },
+  "next_action": "Retry `git add analysis/test3_transcript_fidelity.py prompts/test3-transcript-ingestion-fidelity.md` then commit, then `git add analysis/data/run_state/test3-transcript-ingestion-fidelity/ wrap-ups/test3-transcript-ingestion-fidelity-out.md` then commit -- .git/index.lock present since 13:13, held by another process (git itself reports 'Another git process seems to be running'). Do NOT delete the lock. All analysis and the wrap-up are already complete and correct; only these two commits remain.",
+  "notes": [
+    "Step 1 came back clean (0/337 outliers) -- Step 4's gate 1 ('Step 1 must have left a DB-side completeness question actually open') fails. Step 4 not run, per the prompt's own instruction to say so and stop.",
+    "All analysis complete and correct regardless of the git lock; only the commit is blocked. Manifests/findings already written to disk under this run_id."
+  ]
+}

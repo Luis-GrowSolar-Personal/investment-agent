@@ -1,0 +1,98 @@
+{
+  "run_id": "test3-transcript-ingestion-fidelity",
+  "timestamp_utc": "2026-09-05T17:28:54Z",
+  "git_commit": "c0f8ca53be9186d94ec616f9128fb27dba43de12",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": true,
+  "driver_file": "analysis/test3_transcript_fidelity.py",
+  "driver_file_tracked_at_commit": false,
+  "params": {},
+  "results": {
+    "samples": [
+      {
+        "file": "AMPX_2025Q1.json",
+        "symbol": "AMPX",
+        "quarter": "2025Q1",
+        "turn_count": 47,
+        "last_speaker": "Operator",
+        "last_turn_tail_200": "Alright. Thank you. And with that, this does conclude today's teleconference. We thank you for your participation. You may disconnect your lines at this time.",
+        "last_turn_closing_match": true,
+        "pilot_seqmatcher_ratio": 0.7071,
+        "classification": "complete-like",
+        "note": "operator sign-off present and content-consistent with a real call end."
+      },
+      {
+        "file": "AMPX_2025Q2.json",
+        "symbol": "AMPX",
+        "quarter": "2025Q2",
+        "turn_count": 53,
+        "last_speaker": "Operator",
+        "last_turn_tail_200": "Thank you for joining us today for Amprius Technologies Second Quarter 2025 Earnings Conference Call. You may now disconnect.",
+        "last_turn_closing_match": true,
+        "pilot_seqmatcher_ratio": 0.7801,
+        "classification": "complete-like",
+        "note": "operator sign-off present and content-consistent with a real call end."
+      },
+      {
+        "file": "AMPX_2025Q3.json",
+        "symbol": "AMPX",
+        "quarter": "2025Q3",
+        "turn_count": 15,
+        "last_speaker": "Operator",
+        "last_turn_tail_200": "nswer session. If you have any additional questions, you may contact Amprius' Investor Relations team at IR@amprius.com. And now I'd like to turn the call back over to Dr. Sun for his closing remarks.",
+        "last_turn_closing_match": true,
+        "pilot_seqmatcher_ratio": 0.3395,
+        "classification": "truncated",
+        "note": "last turn is the operator handing off to a named speaker for 'closing remarks' that never appear -- the transcript stops before the call's actual end despite matching the naive closer keyword list ('concludes' referred to the Q&A segment, not the call)."
+      },
+      {
+        "file": "EOSE_2025Q1.json",
+        "symbol": "EOSE",
+        "quarter": "2025Q1",
+        "turn_count": 50,
+        "last_speaker": "Joe Mastrangelo",
+        "last_turn_tail_200": "eing able to scale the company and bring the company up to a leader in long-duration energy storage. We\u2019ll keep working on that and keep everyone informed on that. Thanks, everyone for the time today.",
+        "last_turn_closing_match": false,
+        "pilot_seqmatcher_ratio": 0.6949,
+        "classification": "unclear",
+        "note": "last turn is the company's own speaker ending on a natural but informal remark ('Thank you.') with no operator sign-off and no keyword-list match; cannot mechanically distinguish a genuine no-outro convention from truncation without the DB-side text."
+      },
+      {
+        "file": "EOSE_2025Q2.json",
+        "symbol": "EOSE",
+        "quarter": "2025Q2",
+        "turn_count": 24,
+        "last_speaker": "Operator",
+        "last_turn_tail_200": "Thank you. This concludes today's conference call. Thank you for attending. You may all disconnect.",
+        "last_turn_closing_match": true,
+        "pilot_seqmatcher_ratio": 0.1142,
+        "classification": "summarized-but-complete",
+        "note": "operator sign-off present and content-consistent with a real call end."
+      },
+      {
+        "file": "SPWR_2025Q1.json",
+        "symbol": "SPWR",
+        "quarter": "2025Q1",
+        "turn_count": 29,
+        "last_speaker": "T.J. Rodgers",
+        "last_turn_tail_200": "Well, I talked long as usual, but I thought this was cool stuff. I appreciate your coming in and listening to us. Thank you.",
+        "last_turn_closing_match": false,
+        "pilot_seqmatcher_ratio": 0.1768,
+        "classification": "unclear",
+        "note": "last turn is the company's own speaker ending on a natural but informal remark ('Thank you.') with no operator sign-off and no keyword-list match; cannot mechanically distinguish a genuine no-outro convention from truncation without the DB-side text."
+      },
+      {
+        "file": "SPWR_2025Q3.json",
+        "symbol": "SPWR",
+        "quarter": "2025Q3",
+        "turn_count": 29,
+        "last_speaker": "Thurman Rodgers",
+        "last_turn_tail_200": "Thank you. We appreciate listening to my long-winded dissertation.",
+        "last_turn_closing_match": false,
+        "pilot_seqmatcher_ratio": 0.1717,
+        "classification": "unclear",
+        "note": "last turn is the company's own speaker ending on a natural but informal remark ('Thank you.') with no operator sign-off and no keyword-list match; cannot mechanically distinguish a genuine no-outro convention from truncation without the DB-side text."
+      }
+    ]
+  }
+}
