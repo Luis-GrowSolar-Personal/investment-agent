@@ -1,0 +1,25 @@
+{
+  "run_id": "corpus-archive",
+  "prompt_sha256": "2d388d56f1d8d23c84850844a6f9e1b67542fdd9df3d5e33b7a53ebb69a1becc",
+  "driver_commit": "dba24468111dd290a2035eae0548804e2ec81dc2",
+  "steps": {
+    "-1_resume_protocol": "done",
+    "0_hygiene_inventory": "done",
+    "1_archive_repo_seed": "done",
+    "2_dump_script": "done",
+    "3_verification_restore_test": "done",
+    "4_github_actions": "deferred",
+    "5_build_state_deferred_item": "done",
+    "6_report": "done"
+  },
+  "next_action": "Run complete except Step 4 (GitHub Actions), deliberately deferred per explicit user instruction this session. Follow-up: build .github/workflows/corpus-archive.yml in the investment-agent-corpus repo per wrap-ups/corpus-archive-out.md's stated requirements.",
+  "notes": [
+    "Step 0 sha256 confirmed MATCH against actual file and prompt's stated hash (both 64 hex chars) -- the outer invoker's claim that the hex string is 'unusually long' does not hold; no mismatch found.",
+    "Step 0 INSERT counts confirmed exactly: 45 Ticker, 708 Transcript, 805 Analysis (grep on 'INSERT INTO public.\"X\"').",
+    "Step 0 restrict/unrestrict tokens match (SU5fWSsysxkRjZfq5hc0HljsxLA7ZNzqkuOHre2TJEIIPLFNQmMuZ3BBziMadge), completion marker present.",
+    "Live DB counts as of 2026-09-04: 45 Ticker / 709 Transcript / 806 Analysis -- one more Transcript and one more Analysis than the dump, consistent with prompt's note that corpus grew ~1 row since 20260830.",
+    "state-of-play SS4.4 claims 42+764=806 Analysis rows; dump has 805 (predates that reconciliation per prompt); live DB now has 806 -- reconciles with live count, not with dump. Reported as finding per prompt instruction, not resolved.",
+    "gh CLI authenticated as Luis-GrowSolar-Personal (active), scopes include repo+workflow -- sufficient for repo creation and Actions.",
+    "Local Postgres client tools present via homebrew libpq: pg_dump 18.4, psql, createdb, dropdb -- pg_dump version 18.4 vs live server 18.6, need to confirm dump/restore compatibility (18.4 client dumping/restoring against local scratch DB, not live 18.6 server, should be fine for restore test)."
+  ]
+}

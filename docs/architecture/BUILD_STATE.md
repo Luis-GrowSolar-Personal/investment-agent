@@ -98,6 +98,18 @@ All transcripts loaded manually from Seeking Alpha / Motley Fool
   analysis against prior stored analysis.
 - Automated transcript ingestion: deferred to Step 6.
   Manual copy-paste from Seeking Alpha for now.
+- Corpus-integrity endpoint (deferred product item, same family as the
+  §8 startup hash-check item): the app is the only thing that knows the
+  *moment* the corpus changes, but per the analyst/allocator firewall's
+  layering discipline it must not own custody of the archive — a backup
+  taken by the thing being backed up shares its bugs, and an app with
+  push rights to the archive can also destroy it. The right split is the
+  app declares state, external infrastructure (the `investment-agent-corpus`
+  archive repo's scripted dump/push) acts on it. A cheap read-only route
+  exposing per-table row counts, `max("createdAt")`, and a content hash
+  of `Analysis` would let any external agent ask whether the corpus
+  changed without pulling the full ~43 MB dump to find out. Not built;
+  no route added; not this run's job — see wrap-ups/corpus-archive-out.md.
 
 ## Known Issues / Technical Debt
 - thesisDelta computed by Claude, not from DB comparison
