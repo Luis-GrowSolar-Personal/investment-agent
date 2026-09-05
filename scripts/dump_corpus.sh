@@ -143,19 +143,39 @@ if [ "$DUMP_TICKER" != "$LIVE_TICKER" ] || [ "$DUMP_TRANSCRIPT" != "$LIVE_TRANSC
   fail "dump row counts do not match live DB counts -- Ticker $DUMP_TICKER/$LIVE_TICKER, Transcript $DUMP_TRANSCRIPT/$LIVE_TRANSCRIPT, Analysis $DUMP_ANALYSIS/$LIVE_ANALYSIS"
 fi
 
-# --- Verification: sha256 vs most recent previous dump ----------------------
+
+# --- Content hash, ignoring pg_dump's random \restrict token -----------------
+# pg_dump emits a fresh random token in its \restrict / \unrestrict lines on
+# EVERY run, so the raw file sha256 differs between two dumps of a byte-identical
+# corpus. Measured 2026-09-05: analysis_corpus_20260904.sql and _20260905.sql are
+# identical apart from those two lines, yet have different sha256 values. Using
+# the raw hash for change detection therefore reports "changed" every single run,
+# which would make any commit-only-if-changed gate fire unconditionally.
+# The raw sha256 is still recorded in the .sha256 file -- that is for verifying
+# THIS file transferred intact, which is a different job from detecting change.
+content_hash() {
+  grep -v '^\\restrict\|^\\unrestrict' "$1" \
+    | { shasum -a 256 2>/dev/null || sha256sum; } \
+    | awk '{print $1}'
+}
+
+# --- Verification: content hash vs most recent previous dump -----------------
 NEW_SHA="$(shasum -a 256 "$TMP_DATA" 2>/dev/null | awk '{print $1}' || sha256sum "$TMP_DATA" | awk '{print $1}')"
 
 PREV_DATA_FILE="$(ls -1 "$OUT_DIR"/analysis_corpus_[0-9]*.sql 2>/dev/null | grep -v '_schema_' | sort | tail -1 || true)"
 if [ -n "$PREV_DATA_FILE" ] && [ -e "$PREV_DATA_FILE" ]; then
   PREV_SHA="$(shasum -a 256 "$PREV_DATA_FILE" 2>/dev/null | awk '{print $1}' || sha256sum "$PREV_DATA_FILE" | awk '{print $1}')"
+  NEW_CONTENT_SHA="$(content_hash "$TMP_DATA")"
+  PREV_CONTENT_SHA="$(content_hash "$PREV_DATA_FILE")"
   PREV_SIZE="$(wc -c < "$PREV_DATA_FILE" | tr -d ' ')"
   NEW_SIZE="$(wc -c < "$TMP_DATA" | tr -d ' ')"
 
-  if [ "$NEW_SHA" = "$PREV_SHA" ]; then
-    log "sha256 identical to most recent previous dump ($PREV_DATA_FILE) -- corpus unchanged. Skipping write."
+  if [ "$NEW_CONTENT_SHA" = "$PREV_CONTENT_SHA" ]; then
+    log "content hash identical to most recent previous dump ($PREV_DATA_FILE) -- corpus unchanged. Skipping write."
+    log "(raw sha256 differs by design: pg_dump's \restrict token is random per run)"
     echo "UNCHANGED"
     echo "sha256=$NEW_SHA"
+    echo "content_sha256=$NEW_CONTENT_SHA"
     echo "Ticker=$DUMP_TICKER Transcript=$DUMP_TRANSCRIPT Analysis=$DUMP_ANALYSIS"
     exit 0
   fi
@@ -190,5 +210,6 @@ log "wrote $CENSUS_FILE"
 
 echo "OK"
 echo "sha256=$NEW_SHA"
+echo "content_sha256=$(content_hash "$DATA_FILE")"
 echo "size=$(wc -c < "$DATA_FILE" | tr -d ' ')"
 echo "Ticker=$DUMP_TICKER Transcript=$DUMP_TRANSCRIPT Analysis=$DUMP_ANALYSIS"
