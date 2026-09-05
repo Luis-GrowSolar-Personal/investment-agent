@@ -1429,7 +1429,8 @@
       "classification": "summarized_but_complete",
       "reason": "neither side has an operator sign-off (officer-led close convention, per Test 3)",
       "db_word_count": 7974,
-      "av_word_count": 6589
+      "av_word_count": 6589,
+      "key": "AV_API_KEY"
     },
     "AAPL_2025Q3": {
       "status": "classified",
@@ -1443,7 +1444,8 @@
       "classification": "summarized_but_complete",
       "reason": "neither side has an operator sign-off (officer-led close convention, per Test 3)",
       "db_word_count": 8123,
-      "av_word_count": 7206
+      "av_word_count": 7206,
+      "key": "AV_API_KEY"
     },
     "TSLA_2022Q1": {
       "status": "classified",
@@ -1457,7 +1459,8 @@
       "classification": "summarized_but_complete",
       "reason": "neither side has an operator sign-off (officer-led close convention, per Test 3)",
       "db_word_count": 9142,
-      "av_word_count": 8018
+      "av_word_count": 8018,
+      "key": "AV_API_KEY"
     },
     "AAPL_2022Q4": {
       "status": "classified",
@@ -1471,7 +1474,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 7900,
-      "av_word_count": 7104
+      "av_word_count": 7104,
+      "key": "AV_API_KEY"
     },
     "NVDA_2023Q4": {
       "status": "classified",
@@ -1485,7 +1489,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 8058,
-      "av_word_count": 6806
+      "av_word_count": 6806,
+      "key": "AV_API_KEY"
     },
     "AAPL_2021Q1": {
       "status": "classified",
@@ -1499,7 +1504,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 8430,
-      "av_word_count": 7400
+      "av_word_count": 7400,
+      "key": "AV_API_KEY"
     },
     "AAPL_2026Q2": {
       "status": "classified",
@@ -1513,7 +1519,8 @@
       "classification": "summarized_but_complete",
       "reason": "neither side has an operator sign-off (officer-led close convention, per Test 3)",
       "db_word_count": 8682,
-      "av_word_count": 8310
+      "av_word_count": 8310,
+      "key": "AV_API_KEY"
     },
     "GOOGL_2021Q2": {
       "status": "classified",
@@ -1527,7 +1534,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 8071,
-      "av_word_count": 5905
+      "av_word_count": 5905,
+      "key": "AV_API_KEY"
     },
     "GOOGL_2026Q2": {
       "status": "classified",
@@ -1541,7 +1549,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 9163,
-      "av_word_count": 8241
+      "av_word_count": 8241,
+      "key": "AV_API_KEY"
     },
     "MSFT_2023Q3": {
       "status": "classified",
@@ -1555,7 +1564,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 8864,
-      "av_word_count": 8560
+      "av_word_count": 8560,
+      "key": "AV_API_KEY"
     },
     "NVDA_2024Q3": {
       "status": "classified",
@@ -1569,7 +1579,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 8289,
-      "av_word_count": 7140
+      "av_word_count": 7140,
+      "key": "AV_API_KEY"
     },
     "GOOGL_2026Q1": {
       "status": "classified",
@@ -1583,7 +1594,8 @@
       "classification": "matches_closely",
       "reason": "",
       "db_word_count": 8896,
-      "av_word_count": 8390
+      "av_word_count": 8390,
+      "key": "AV_API_KEY"
     },
     "NVDA_2022Q3": {
       "status": "classified",
@@ -1597,7 +1609,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 7948,
-      "av_word_count": 6919
+      "av_word_count": 6919,
+      "key": "AV_API_KEY"
     },
     "TSLA_2026Q1": {
       "status": "classified",
@@ -1611,7 +1624,8 @@
       "classification": "matches_closely",
       "reason": "neither side has an operator sign-off (officer-led close convention, per Test 3)",
       "db_word_count": 8119,
-      "av_word_count": 6990
+      "av_word_count": 6990,
+      "key": "AV_API_KEY"
     },
     "GOOGL_2025Q1": {
       "status": "classified",
@@ -1625,7 +1639,8 @@
       "classification": "matches_closely",
       "reason": "",
       "db_word_count": 8364,
-      "av_word_count": 8220
+      "av_word_count": 8220,
+      "key": "AV_API_KEY"
     },
     "AAPL_2023Q1": {
       "status": "classified",
@@ -1639,7 +1654,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 8180,
-      "av_word_count": 7233
+      "av_word_count": 7233,
+      "key": "AV_API_KEY"
     },
     "MSFT_2023Q1": {
       "status": "classified",
@@ -1653,7 +1669,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 9014,
-      "av_word_count": 8959
+      "av_word_count": 8959,
+      "key": "AV_API_KEY"
     },
     "NVDA_2023Q2": {
       "status": "classified",
@@ -1667,7 +1684,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 8365,
-      "av_word_count": 7332
+      "av_word_count": 7332,
+      "key": "AV_API_KEY"
     },
     "MSFT_2025Q4": {
       "status": "classified",
@@ -1681,7 +1699,8 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 8716,
-      "av_word_count": 7541
+      "av_word_count": 7541,
+      "key": "AV_API_KEY"
     },
     "MSFT_2021Q2": {
       "status": "classified",
@@ -1695,10 +1714,86 @@
       "classification": "summarized_but_complete",
       "reason": "",
       "db_word_count": 8423,
-      "av_word_count": 8107
+      "av_word_count": 8107,
+      "key": "AV_API_KEY"
+    },
+    "NVDA_2025Q1": {
+      "status": "classified",
+      "call_ts": "2026-09-05T19:00:28.010711+00:00",
+      "key": "AV_API_KEY2",
+      "raw_path": "analysis/av_fidelity_benchmark_2/raw/NVDA_2025Q1.json",
+      "tier": "megacap",
+      "transcript_id": 70,
+      "similarity_ratio": 0.0546,
+      "av_turn_count": 41,
+      "av_closing_match": true,
+      "classification": "summarized_but_complete",
+      "reason": "",
+      "db_word_count": 8099,
+      "av_word_count": 7160
+    },
+    "MSFT_2024Q3": {
+      "status": "classified",
+      "call_ts": "2026-09-05T19:00:29.994858+00:00",
+      "key": "AV_API_KEY3",
+      "raw_path": "analysis/av_fidelity_benchmark_2/raw/MSFT_2024Q3.json",
+      "tier": "megacap",
+      "transcript_id": 141,
+      "similarity_ratio": 0.0619,
+      "av_turn_count": 51,
+      "av_closing_match": true,
+      "classification": "summarized_but_complete",
+      "reason": "",
+      "db_word_count": 9463,
+      "av_word_count": 9102
+    },
+    "AAPL_2025Q2": {
+      "status": "classified",
+      "call_ts": "2026-09-05T19:00:31.212977+00:00",
+      "key": "AV_API_KEY4",
+      "raw_path": "analysis/av_fidelity_benchmark_2/raw/AAPL_2025Q2.json",
+      "tier": "megacap",
+      "transcript_id": 54,
+      "similarity_ratio": 0.0269,
+      "av_turn_count": 83,
+      "av_closing_match": true,
+      "classification": "summarized_but_complete",
+      "reason": "",
+      "db_word_count": 8126,
+      "av_word_count": 7727
+    },
+    "GOOGL_2024Q2": {
+      "status": "classified",
+      "call_ts": "2026-09-05T19:00:31.974050+00:00",
+      "key": "AV_API_KEY5",
+      "raw_path": "analysis/av_fidelity_benchmark_2/raw/GOOGL_2024Q2.json",
+      "tier": "megacap",
+      "transcript_id": 299,
+      "similarity_ratio": 0.3418,
+      "av_turn_count": 47,
+      "av_closing_match": true,
+      "classification": "summarized_but_complete",
+      "reason": "",
+      "db_word_count": 8673,
+      "av_word_count": 8057
+    },
+    "TSLA_2022Q4": {
+      "status": "classified",
+      "call_ts": "2026-09-05T19:00:33.062895+00:00",
+      "key": "AV_API_KEY6",
+      "raw_path": "analysis/av_fidelity_benchmark_2/raw/TSLA_2022Q4.json",
+      "tier": "megacap",
+      "transcript_id": 219,
+      "similarity_ratio": 0.4141,
+      "av_turn_count": 93,
+      "av_closing_match": false,
+      "classification": "summarized_but_complete",
+      "reason": "neither side has an operator sign-off (officer-led close convention, per Test 3)",
+      "db_word_count": 8744,
+      "av_word_count": 7250
     }
   },
-  "calls_used_total": 20,
+  "calls_used_total": 200,
   "daily_batches": [
     {
       "date": "2026-09-05",
@@ -1709,8 +1804,80 @@
   ],
   "steps": {
     "0_draw": "done",
-    "1_fetch": "in_progress",
+    "1_fetch": "done",
     "2_report": "pending"
   },
-  "notes": []
+  "notes": [],
+  "key_usage": {
+    "AV_API_KEY": {
+      "batch_date": "2026-09-05",
+      "calls_today": 20,
+      "last_call_ts": "2026-09-05T18:43:57.293566+00:00",
+      "disabled": false,
+      "disabled_reason": null
+    },
+    "AV_API_KEY2": {
+      "batch_date": "2026-09-05",
+      "calls_today": 20,
+      "last_call_ts": "2026-09-05T19:22:38.722998+00:00",
+      "disabled": true,
+      "disabled_reason": "real AV rate-limit response after only 1 successful call(s) today -- suspected shared quota or already-exhausted account, per prompt's defensive check (discovered after fixing an is_rate_limited() bug that had mis-filed these as coverage misses)"
+    },
+    "AV_API_KEY3": {
+      "batch_date": "2026-09-05",
+      "calls_today": 20,
+      "last_call_ts": "2026-09-05T19:22:40.117127+00:00",
+      "disabled": true,
+      "disabled_reason": "real AV rate-limit response after only 1 successful call(s) today -- suspected shared quota or already-exhausted account, per prompt's defensive check (discovered after fixing an is_rate_limited() bug that had mis-filed these as coverage misses)"
+    },
+    "AV_API_KEY4": {
+      "batch_date": "2026-09-05",
+      "calls_today": 20,
+      "last_call_ts": "2026-09-05T19:22:41.319950+00:00",
+      "disabled": true,
+      "disabled_reason": "real AV rate-limit response after only 1 successful call(s) today -- suspected shared quota or already-exhausted account, per prompt's defensive check (discovered after fixing an is_rate_limited() bug that had mis-filed these as coverage misses)"
+    },
+    "AV_API_KEY5": {
+      "batch_date": "2026-09-05",
+      "calls_today": 20,
+      "last_call_ts": "2026-09-05T19:22:42.101030+00:00",
+      "disabled": true,
+      "disabled_reason": "real AV rate-limit response after only 1 successful call(s) today -- suspected shared quota or already-exhausted account, per prompt's defensive check (discovered after fixing an is_rate_limited() bug that had mis-filed these as coverage misses)"
+    },
+    "AV_API_KEY6": {
+      "batch_date": "2026-09-05",
+      "calls_today": 20,
+      "last_call_ts": "2026-09-05T19:22:43.162370+00:00",
+      "disabled": true,
+      "disabled_reason": "real AV rate-limit response after only 1 successful call(s) today -- suspected shared quota or already-exhausted account, per prompt's defensive check (discovered after fixing an is_rate_limited() bug that had mis-filed these as coverage misses)"
+    },
+    "AV_API_KEY7": {
+      "batch_date": "2026-09-05",
+      "calls_today": 20,
+      "last_call_ts": "2026-09-05T19:22:44.169205+00:00",
+      "disabled": true,
+      "disabled_reason": "real AV rate-limit response after only 0 successful call(s) today -- suspected shared quota or already-exhausted account, per prompt's defensive check (discovered after fixing an is_rate_limited() bug that had mis-filed these as coverage misses)"
+    },
+    "AV_API_KEY8": {
+      "batch_date": "2026-09-05",
+      "calls_today": 20,
+      "last_call_ts": "2026-09-05T19:22:44.794616+00:00",
+      "disabled": true,
+      "disabled_reason": "real AV rate-limit response after only 0 successful call(s) today -- suspected shared quota or already-exhausted account, per prompt's defensive check (discovered after fixing an is_rate_limited() bug that had mis-filed these as coverage misses)"
+    },
+    "AV_API_KEY9": {
+      "batch_date": "2026-09-05",
+      "calls_today": 20,
+      "last_call_ts": "2026-09-05T19:22:45.413052+00:00",
+      "disabled": true,
+      "disabled_reason": "real AV rate-limit response after only 0 successful call(s) today -- suspected shared quota or already-exhausted account, per prompt's defensive check (discovered after fixing an is_rate_limited() bug that had mis-filed these as coverage misses)"
+    },
+    "AV_API_KEY10": {
+      "batch_date": "2026-09-05",
+      "calls_today": 20,
+      "last_call_ts": "2026-09-05T19:22:46.025722+00:00",
+      "disabled": true,
+      "disabled_reason": "real AV rate-limit response after only 0 successful call(s) today -- suspected shared quota or already-exhausted account, per prompt's defensive check (discovered after fixing an is_rate_limited() bug that had mis-filed these as coverage misses)"
+    }
+  }
 }
