@@ -36,23 +36,25 @@ universe construction exists in this project to keep a *backtest* fair
 (Test 5). This is not a backtest; no returns are measured, so today's ticker
 set and today's cap-tier labels are fine. That machinery is dropped entirely.
 
-## Update, 2026-09-05 (after day 1) — three API keys now available
+## Update, 2026-09-05 (after day 1) — ten API keys now available
 
-Two additional Alpha Vantage keys were obtained after the first daily batch
-ran (`AV_API_KEY2`, `AV_API_KEY3` in `.env`, alongside the original
-`AV_API_KEY`). **This changes Step -1 and Step 1 below** - fetches now
-round-robin across every available key, each with its own independent
+Nine additional Alpha Vantage keys were obtained after the first daily
+batch ran (`AV_API_KEY2` through `AV_API_KEY10` in `.env`, alongside the
+original `AV_API_KEY` - 10 total, registered under different names/emails).
+**This changes Step -1 and Step 1 below** - fetches now round-robin across
+every available key, each with its own independent
 25/day budget, cutting the run from ~10 days to as few as 4-5.
 
 **One assumption this depends on, unverified: that each key belongs to a
 genuinely separate Alpha Vantage account (separate registered email), not
 multiple keys issued under one account.** Alpha Vantage's free-tier limit
-is per-account, not per-key-string - if all three keys turn out to share
-one account's quota, they are not additive and this design would trip a
-shared rate limit rather than tripling throughput. **The driver must
-detect this defensively** (see Step 1) rather than assume it's fine: if a
-second or third key returns a rate-limit/quota-exceeded response earlier
-than its own call count would predict, stop using that key immediately for
+is per-account, not per-key-string - if some or all of these keys turn
+out to share an account's quota, they are not additive and this design
+would trip a shared rate limit rather than multiplying throughput. **The
+driver must detect this defensively** (see Step 1) rather than assume it's
+fine: if any key beyond the first returns a rate-limit/quota-exceeded
+response earlier than its own call count would predict, stop using that key
+immediately for
 the rest of the run, report it plainly, and fall back to whichever keys
 are still behaving independently. Do not retry into it.
 
@@ -151,9 +153,12 @@ across as many days as the drawn sample requires. Each invocation must:
    Keys reset independently of each other; one key having budget left does
    not mean another does.
 4. **Fetch up to 20 calls per key this invocation** (same 5-call safety
-   margin as before, per key) - so with 3 keys behaving independently, up
-   to 60 calls in one invocation, in roughly the same wall-clock time the
-   single-key version took to do 20 (see Step 1's interleaving).
+   margin as before, per key) - so with all 10 keys behaving independently,
+   up to 200 calls in one invocation (the entire remaining draw, in principle,
+   in one day), in roughly the same wall-clock time the single-key version
+   took to do 20 (see Step 1's interleaving). In practice, stop as soon as
+   the drawn list is exhausted - there's no need to keep pulling once the
+   200-transcript sample is complete.
 5. For each successful fetch, immediately run the **decisive check**: a
    direct text comparison against the DB `rawText` for that exact
    ticker/quarter (the method Test 3 used to confirm AMPX Q3), plus the

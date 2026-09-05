@@ -30,6 +30,21 @@ FINDINGS_PATH = STATE_DIR / "findings.md"
 AV_API_KEY = os.environ["AV_API_KEY"]
 DATABASE_URL = os.environ["DATABASE_URL"]
 
+
+def enumerate_av_keys():
+    """AV_API_KEY, AV_API_KEY2, AV_API_KEY3, ... generic enumeration, no
+    hardcoded count, per prompt's Update (after Day 1)."""
+    keys = {"AV_API_KEY": os.environ["AV_API_KEY"]}
+    i = 2
+    while True:
+        name = f"AV_API_KEY{i}"
+        val = os.environ.get(name)
+        if not val:
+            break
+        keys[name] = val
+        i += 1
+    return keys
+
 TIERS = {
     "megacap": ["AAPL", "GOOGL", "NVDA", "MSFT", "TSLA"],
     "large": ["AVGO", "AMD", "ORCL"],
@@ -237,8 +252,8 @@ def step0_draw():
 AV_URL = "https://www.alphavantage.co/query"
 
 
-def av_fetch(ticker, quarter):
-    params = {"function": "EARNINGS_CALL_TRANSCRIPT", "symbol": ticker, "quarter": quarter, "apikey": AV_API_KEY}
+def av_fetch(ticker, quarter, api_key):
+    params = {"function": "EARNINGS_CALL_TRANSCRIPT", "symbol": ticker, "quarter": quarter, "apikey": api_key}
     url = AV_URL + "?" + urllib.parse.urlencode(params)
     with urllib.request.urlopen(url, timeout=30) as resp:
         body = resp.read()
@@ -247,11 +262,17 @@ def av_fetch(ticker, quarter):
 
 
 def is_rate_limited(data):
-    text = json.dumps(data).lower()
-    if "note" in data or "information" in data:
-        blob = (data.get("Note", "") + " " + data.get("Information", "")).lower()
-        if "rate limit" in blob or "frequency" in blob or "per day" in blob:
-            return True
+    # BUG FIXED (found during Day 2): AV's actual field name is "Information"
+    # (capital I) or "Note" -- `"information" in data` is a case-sensitive dict
+    # KEY lookup, not a substring search, so it never matched and every real
+    # rate-limit response ("We have detected your API key as X and our
+    # standard API rate limit is 25 requests per day...") silently fell through
+    # to the empty-transcript coverage-miss branch. Confirmed 175/175 of Day 2's
+    # "coverage_miss" records were actually this exact message, not genuine
+    # AV data gaps. Fixed by matching on the dict's own keys directly.
+    blob = " ".join(str(v) for v in data.values()).lower()
+    if "rate limit" in blob or "frequency" in blob or "requests per day" in blob or "premium" in blob:
+        return True
     return False
 
 
@@ -344,22 +365,56 @@ def classify_sample(db_text, av_text, av_entries):
     }
 
 
-def quota_ok(progress):
-    batches = progress.get("daily_batches", [])
-    if not batches:
-        return True, 0
-    last = batches[-1]
-    today = datetime.date.today().isoformat()
-    if last["date"] == today and last["calls_used"] < DAILY_CALL_CAP:
-        return True, last["calls_used"]
-    if last["date"] == today and last["calls_used"] >= DAILY_CALL_CAP:
-        return False, last["calls_used"]
-    # different date -- require a full 24h since the last call of the prior batch
-    last_ts = datetime.datetime.fromisoformat(last["last_call_ts"])
-    elapsed = (datetime.datetime.now(datetime.timezone.utc) - last_ts).total_seconds() / 3600.0
-    if elapsed >= QUOTA_RESET_HOURS:
-        return True, 0
-    return False, 0
+def migrate_to_key_usage(progress):
+    """One-time migration from the single-key daily_batches list (Day 1) to
+    per-key accounting, per the prompt's Update (after Day 1). Day 1's batch
+    (progress['daily_batches'], recorded against the default AV_API_KEY) is
+    preserved as-is -- not re-fetched, not discarded."""
+    if "key_usage" in progress:
+        return progress
+    key_usage = {}
+    old_batches = progress.get("daily_batches", [])
+    if old_batches:
+        last = old_batches[-1]
+        key_usage["AV_API_KEY"] = {
+            "batch_date": last["date"],
+            "calls_today": last["calls_used"],
+            "last_call_ts": last["last_call_ts"],
+            "disabled": False,
+            "disabled_reason": None,
+        }
+    progress["key_usage"] = key_usage
+    # tag pre-migration fetched records with the key that actually fetched them
+    for rec in progress["fetched"].values():
+        rec.setdefault("key", "AV_API_KEY")
+    return progress
+
+
+def key_eligible_today(key_state, today):
+    """Returns (eligible_now, calls_used_today, remaining_today)."""
+    if key_state is None:
+        return True, 0, DAILY_CALL_CAP
+    if key_state.get("disabled"):
+        return False, key_state.get("calls_today", 0), 0
+    if key_state.get("batch_date") != today:
+        last_ts_str = key_state.get("last_call_ts")
+        if last_ts_str is None:
+            return True, 0, DAILY_CALL_CAP
+        last_ts = datetime.datetime.fromisoformat(last_ts_str)
+        elapsed_h = (datetime.datetime.now(datetime.timezone.utc) - last_ts).total_seconds() / 3600.0
+        if elapsed_h >= QUOTA_RESET_HOURS:
+            return True, 0, DAILY_CALL_CAP
+        return False, key_state.get("calls_today", 0), 0
+    used = key_state.get("calls_today", 0)
+    remaining = DAILY_CALL_CAP - used
+    return remaining > 0, used, max(0, remaining)
+
+
+def seconds_since_last_call(key_state):
+    if key_state is None or not key_state.get("last_call_ts"):
+        return None
+    last_ts = datetime.datetime.fromisoformat(key_state["last_call_ts"])
+    return (datetime.datetime.now(datetime.timezone.utc) - last_ts).total_seconds()
 
 
 def step1_fetch():
@@ -367,85 +422,147 @@ def step1_fetch():
     if progress is None:
         print("No progress.json -- run `draw` first.")
         return
+    progress = migrate_to_key_usage(progress)
 
-    ok, used_today = quota_ok(progress)
-    if not ok:
-        last = progress["daily_batches"][-1]
-        print(f"Quota not yet available: last batch {last}. Not enough time elapsed since last call "
-              f"(need {QUOTA_RESET_HOURS}h since last call of the prior day's batch), or today's cap already used.")
+    all_keys = enumerate_av_keys()
+    today = datetime.date.today().isoformat()
+    key_usage = progress["key_usage"]
+
+    print(f"Enumerated {len(all_keys)} AV key(s): {list(all_keys.keys())}")
+
+    eligible_today = {}
+    for name in all_keys:
+        state = key_usage.get(name)
+        elig, used, remaining = key_eligible_today(state, today)
+        eligible_today[name] = {"eligible": elig, "used_today": used, "remaining_today": remaining}
+        if state and state.get("disabled"):
+            print(f"  {name}: DISABLED ({state.get('disabled_reason')})")
+        elif not elig:
+            print(f"  {name}: not yet eligible today (used {used}/{DAILY_CALL_CAP} in its last batch, "
+                  f"waiting on {QUOTA_RESET_HOURS}h reset)")
+        else:
+            print(f"  {name}: eligible, {remaining} calls remaining today")
+
+    if not any(v["eligible"] and v["remaining_today"] > 0 for v in eligible_today.values()):
+        print("No key is eligible right now. Nothing to do this invocation.")
         return
 
-    today = datetime.date.today().isoformat()
     fetched = progress["fetched"]
-    remaining = [d for d in progress["drawn"] if f"{d['ticker']}_{d['quarter']}" not in fetched]
-    if not remaining:
+    remaining_items = [d for d in progress["drawn"] if f"{d['ticker']}_{d['quarter']}" not in fetched]
+    if not remaining_items:
         print("All drawn items already fetched or recorded as a miss. Run `report` next.")
         return
 
-    to_do = remaining[: DAILY_CALL_CAP - used_today]
-    print(f"Today's batch: {len(to_do)} items (used_today={used_today}, cap={DAILY_CALL_CAP})")
-
     conn = db_connect()
-    calls_made = 0
-    first_call_ts = None
-    last_call_ts = None
+    queue = list(remaining_items)
+    item_idx = 0
 
-    for item in to_do:
-        key = f"{item['ticker']}_{item['quarter']}"
-        print(f"\n=== {key} (transcript id {item['transcript_id']}, tier {item['tier']}) ===")
-        if calls_made > 0:
-            print(f"  sleeping {MIN_SPACING_SECONDS}s before next call...")
-            time.sleep(MIN_SPACING_SECONDS)
+    while item_idx < len(queue):
+        # refresh remaining_today counts from key_usage (may change as we go)
+        candidates = []
+        for name in all_keys:
+            state = key_usage.get(name)
+            if state and state.get("disabled"):
+                continue
+            elig, used, remaining = key_eligible_today(state, today)
+            if not elig or remaining <= 0:
+                continue
+            since = seconds_since_last_call(state)
+            spacing_ok = (since is None) or (since >= MIN_SPACING_SECONDS)
+            candidates.append((name, since, spacing_ok))
 
-        call_ts = now_iso()
-        if first_call_ts is None:
-            first_call_ts = call_ts
-        try:
-            data = av_fetch(item["ticker"], item["quarter"])
-        except Exception as e:
-            print(f"  AV fetch error: {e}")
-            fetched[key] = {"status": "error", "error": str(e), "call_ts": call_ts}
-            append_cell({"cell_key": key, "params": item, "status": "error", "error": str(e)})
-            save_progress(progress)
-            calls_made += 1
-            last_call_ts = call_ts
+        if not any(c[2] for c in candidates):
+            if not candidates:
+                print("\nAll keys exhausted for today or disabled. Stopping this invocation.")
+                break
+            # all candidates are cooling down -- sleep only until the soonest clears
+            waits = [MIN_SPACING_SECONDS - (c[1] or 0) for c in candidates]
+            sleep_for = max(0.5, min(waits))
+            print(f"  all eligible keys cooling down; sleeping {sleep_for:.0f}s for the soonest one...")
+            time.sleep(sleep_for)
             continue
 
-        calls_made += 1
-        last_call_ts = call_ts
+        # pick the eligible-and-spacing-ok key that has waited longest (None = never used -> pick first)
+        ready = [c for c in candidates if c[2]]
+        ready.sort(key=lambda c: (c[1] is not None, -(c[1] or 0)))
+        key_name = ready[0][0]
+        api_key = all_keys[key_name]
+
+        item = queue[item_idx]
+        cell_key = f"{item['ticker']}_{item['quarter']}"
+        print(f"\n=== {cell_key} (transcript id {item['transcript_id']}, tier {item['tier']}) via {key_name} ===")
+
+        call_ts = now_iso()
+        key_state = key_usage.setdefault(key_name, {
+            "batch_date": today, "calls_today": 0, "last_call_ts": None,
+            "disabled": False, "disabled_reason": None,
+        })
+        if key_state.get("batch_date") != today:
+            key_state["batch_date"] = today
+            key_state["calls_today"] = 0
+
+        try:
+            data = av_fetch(item["ticker"], item["quarter"], api_key)
+        except Exception as e:
+            print(f"  AV fetch error: {e}")
+            fetched[cell_key] = {"status": "error", "error": str(e), "call_ts": call_ts, "key": key_name}
+            append_cell({"cell_key": cell_key, "params": item, "status": "error", "error": str(e), "key": key_name})
+            key_state["calls_today"] += 1
+            key_state["last_call_ts"] = call_ts
+            save_progress(progress)
+            item_idx += 1
+            continue
+
+        key_state["calls_today"] += 1
+        key_state["last_call_ts"] = call_ts
 
         if is_rate_limited(data):
-            print(f"  RATE LIMITED: {data}")
-            print("  Stopping this invocation immediately per prompt's no-auto-retry rule.")
-            fetched_before = calls_made - 1
-            progress["daily_batches"].append({
-                "date": today, "calls_used": used_today + calls_made,
-                "first_call_ts": first_call_ts, "last_call_ts": last_call_ts,
-                "stopped_reason": "rate_limited",
-            })
-            progress["calls_used_total"] = progress.get("calls_used_total", 0) + calls_made
-            save_progress(progress)
-            conn.close()
-            return
+            calls_before_limit = key_state["calls_today"] - 1
+            if key_name != "AV_API_KEY" and calls_before_limit < 15:
+                # rate-limited well before this key's own count would predict --
+                # per the prompt's defensive check, suspect it shares quota with
+                # another already-used key rather than treat this as fatal.
+                key_state["disabled"] = True
+                key_state["disabled_reason"] = (
+                    f"rate-limited after only {calls_before_limit} calls today on this key "
+                    f"-- suspected shared quota with another key, per prompt's defensive check"
+                )
+                print(f"  RATE LIMITED on {key_name} after only {calls_before_limit} calls -- "
+                      f"suspected shared quota. Disabling this key for the rest of the run, continuing with others.")
+                append_finding(
+                    f"**Suspected shared-quota key**: {key_name} rate-limited after {calls_before_limit} "
+                    f"calls today (expected up to {DAILY_CALL_CAP}). Disabled for the rest of the run. ({now_iso()})"
+                )
+                save_progress(progress)
+                continue  # do not advance item_idx -- retry this item on another key
+            else:
+                print(f"  RATE LIMITED on {key_name}: {data}")
+                print("  Stopping this invocation immediately per prompt's no-auto-retry rule.")
+                save_progress(progress)
+                conn.close()
+                print_day_summary(progress, all_keys, today)
+                return
 
         entries = data.get("transcript", [])
         if not entries:
-            print(f"  No AV coverage for {key} (empty transcript). Recording as coverage miss.")
-            fetched[key] = {"status": "coverage_miss", "call_ts": call_ts, "raw_keys": list(data.keys())}
-            append_cell({"cell_key": key, "params": item, "status": "coverage_miss", "raw": data})
-            append_finding(f"**Coverage miss**: {key} (tier {item['tier']}) -- AV returned no transcript entries. ({now_iso()})")
+            print(f"  No AV coverage for {cell_key} (empty transcript). Recording as coverage miss.")
+            fetched[cell_key] = {"status": "coverage_miss", "call_ts": call_ts, "key": key_name, "raw_keys": list(data.keys())}
+            append_cell({"cell_key": cell_key, "params": item, "status": "coverage_miss", "raw": data, "key": key_name})
+            append_finding(f"**Coverage miss**: {cell_key} (tier {item['tier']}) -- AV returned no transcript entries. ({now_iso()})")
             save_progress(progress)
+            item_idx += 1
             continue
 
-        raw_path = RAW_DIR / f"{key}.json"
+        raw_path = RAW_DIR / f"{cell_key}.json"
         raw_path.write_text(json.dumps(data, indent=2))
 
         db_text = get_db_transcript(conn, item["transcript_id"])
         if not db_text:
             print(f"  DB transcript text missing for id {item['transcript_id']} -- cannot run decisive check.")
-            fetched[key] = {"status": "fetched_no_db_text", "call_ts": call_ts, "raw_path": str(raw_path)}
-            append_cell({"cell_key": key, "params": item, "status": "fetched_no_db_text"})
+            fetched[cell_key] = {"status": "fetched_no_db_text", "call_ts": call_ts, "key": key_name, "raw_path": str(raw_path)}
+            append_cell({"cell_key": cell_key, "params": item, "status": "fetched_no_db_text", "key": key_name})
             save_progress(progress)
+            item_idx += 1
             continue
 
         av_text, av_entries = av_transcript_to_text_and_turns(data)
@@ -455,41 +572,54 @@ def step1_fetch():
         print(f"  classification={result['classification']} ratio={result['similarity_ratio']} "
               f"turns={result['av_turn_count']} db_words={result['db_word_count']} av_words={result['av_word_count']}")
 
-        fetched[key] = {
+        fetched[cell_key] = {
             "status": "classified",
             "call_ts": call_ts,
+            "key": key_name,
             "raw_path": str(raw_path.relative_to(repo_root)),
             "tier": item["tier"],
             "transcript_id": item["transcript_id"],
             **result,
         }
-        append_cell({"cell_key": key, "params": item, "status": "classified", "result": result})
+        append_cell({"cell_key": cell_key, "params": item, "status": "classified", "result": result, "key": key_name})
         if result["classification"] in ("truncated", "possibly_truncated_needs_manual_check"):
             append_finding(
-                f"**{result['classification']}**: {key} (tier {item['tier']}, transcript id {item['transcript_id']}) "
-                f"-- ratio={result['similarity_ratio']}, turns={result['av_turn_count']}, reason: {result['reason']}. "
-                f"DB tail: ...{db_text[-300:]!r} | AV tail: ...{av_text[-300:]!r} ({now_iso()})"
+                f"**{result['classification']}**: {cell_key} (tier {item['tier']}, transcript id {item['transcript_id']}, "
+                f"fetched via {key_name}) -- ratio={result['similarity_ratio']}, turns={result['av_turn_count']}, "
+                f"reason: {result['reason']}. DB tail: ...{db_text[-300:]!r} | AV tail: ...{av_text[-300:]!r} ({now_iso()})"
             )
         save_progress(progress)
+        item_idx += 1
 
-    progress["daily_batches"].append({
-        "date": today, "calls_used": used_today + calls_made,
-        "first_call_ts": first_call_ts, "last_call_ts": last_call_ts,
-    })
-    progress["calls_used_total"] = progress.get("calls_used_total", 0) + calls_made
     conn.close()
 
     total_remaining = len(progress["drawn"]) - len(progress["fetched"])
+    progress["calls_used_total"] = sum(s.get("calls_today", 0) for s in key_usage.values())
     if total_remaining <= 0:
         progress["steps"]["1_fetch"] = "done"
     save_progress(progress)
+    print_day_summary(progress, all_keys, today)
 
-    print(f"\n=== Day summary ===")
-    print(f"Calls used today: {used_today + calls_made} / {DAILY_CALL_CAP}")
-    print(f"Total calls used so far: {progress['calls_used_total']}")
+
+def print_day_summary(progress, all_keys, today):
+    key_usage = progress["key_usage"]
+    total_remaining = len(progress["drawn"]) - len(progress["fetched"])
+    print(f"\n=== Day summary ({today}) ===")
+    per_key_today = 0
+    for name in all_keys:
+        state = key_usage.get(name, {})
+        used = state.get("calls_today", 0) if state.get("batch_date") == today else 0
+        flag = " [DISABLED: %s]" % state.get("disabled_reason") if state.get("disabled") else ""
+        print(f"  {name}: {used}/{DAILY_CALL_CAP} today{flag}")
+        per_key_today += used
+    total_used = sum(s.get("calls_today", 0) for s in key_usage.values())
+    print(f"Calls used today (all keys): {per_key_today}")
+    print(f"Total calls used so far (all keys, all days): {total_used}")
     print(f"Total remaining in drawn sample: {total_remaining}")
-    est_remaining_invocations = -(-total_remaining // DAILY_CALL_CAP) if total_remaining > 0 else 0
-    print(f"Estimated remaining invocations: {est_remaining_invocations}")
+    active_keys = sum(1 for n in all_keys if not key_usage.get(n, {}).get("disabled"))
+    effective_daily_rate = active_keys * DAILY_CALL_CAP
+    est_remaining_invocations = -(-total_remaining // effective_daily_rate) if total_remaining > 0 and effective_daily_rate > 0 else 0
+    print(f"Estimated remaining invocations at current {active_keys}-key rate: {est_remaining_invocations}")
 
 
 def wilson_ci(successes, n, z=1.96):
