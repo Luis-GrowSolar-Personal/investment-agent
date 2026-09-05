@@ -1,0 +1,48 @@
+{
+  "run_id": "test2-look-ahead-hit-rate-by-year",
+  "timestamp_utc": "2026-09-05T16:35:44Z",
+  "git_commit": "4fa386c8488206eef644f3e0e28beff31a7451d4",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/test2_look_ahead.py",
+  "driver_file_tracked_at_commit": true,
+  "corpus": {
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e",
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee"
+  },
+  "params": {
+    "cadence": "30",
+    "scope": "new_calls_only",
+    "funding_mode": "swap_funding",
+    "limit_pp": 2.5,
+    "execution_order": "pooled",
+    "trim_budget_scope": "per_event_date",
+    "veto_p": 0.0,
+    "phase_offset": 0,
+    "seed": 0
+  },
+  "results": {
+    "n_tax_transactions": 2,
+    "tax_transactions": [
+      {
+        "ticker": "AAPL",
+        "trade_date": "2023-12-31",
+        "side": "sell",
+        "shares": 0.02082491862785005,
+        "price_used": 192.52999877929688,
+        "actual_close_that_day": null,
+        "is_bookkeeping_stamp": false
+      },
+      {
+        "ticker": "AAPL",
+        "trade_date": "2024-12-31",
+        "side": "sell",
+        "shares": 0.19215277959861476,
+        "price_used": 213.07000732421875,
+        "actual_close_that_day": 250.4199981689453,
+        "is_bookkeeping_stamp": true
+      }
+    ]
+  }
+}

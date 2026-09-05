@@ -1,0 +1,582 @@
+{
+  "run_id": "test2-look-ahead-hit-rate-by-year",
+  "timestamp_utc": "2026-09-05T16:37:12Z",
+  "git_commit": "4fa386c8488206eef644f3e0e28beff31a7451d4",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/test2_look_ahead.py",
+  "driver_file_tracked_at_commit": true,
+  "corpus": {
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e",
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee"
+  },
+  "params": {},
+  "results": {
+    "years_primary": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "primary_series_by_year": {
+      "2020": {
+        "n": 3,
+        "hit_rate": 0.3333333333333333,
+        "hit_rate_ci95": [
+          0.0614903152761605,
+          0.7923450448735121
+        ],
+        "baseline_hit_rate": 0.3333333333333333,
+        "lift_pp": 0.0,
+        "headroom_captured": 0.0,
+        "ground_truth_mix": {
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 2
+        },
+        "distinct_tickers": 2,
+        "bearish_n": 0,
+        "bearish_hit_rate": null,
+        "bearish_hit_rate_ci95": [
+          null,
+          null
+        ]
+      },
+      "2021": {
+        "n": 45,
+        "hit_rate": 0.5555555555555556,
+        "hit_rate_ci95": [
+          0.4117588341636533,
+          0.6906129145096089
+        ],
+        "baseline_hit_rate": 0.5111111111111111,
+        "lift_pp": 4.444444444444451,
+        "headroom_captured": 0.09090909090909104,
+        "ground_truth_mix": {
+          "bullish": 23,
+          "bearish": 18,
+          "neutral": 4
+        },
+        "distinct_tickers": 14,
+        "bearish_n": 18,
+        "bearish_hit_rate": 0.1111111111111111,
+        "bearish_hit_rate_ci95": [
+          0.031018868453582787,
+          0.3280024486660421
+        ]
+      },
+      "2022": {
+        "n": 56,
+        "hit_rate": 0.26785714285714285,
+        "hit_rate_ci95": [
+          0.1695715866189496,
+          0.3959480518933896
+        ],
+        "baseline_hit_rate": 0.32142857142857145,
+        "lift_pp": -5.35714285714286,
+        "headroom_captured": -0.07894736842105267,
+        "ground_truth_mix": {
+          "bullish": 18,
+          "bearish": 25,
+          "neutral": 13
+        },
+        "distinct_tickers": 14,
+        "bearish_n": 25,
+        "bearish_hit_rate": 0.24,
+        "bearish_hit_rate_ci95": [
+          0.11496157730326725,
+          0.43430059955238565
+        ]
+      },
+      "2023": {
+        "n": 60,
+        "hit_rate": 0.38333333333333336,
+        "hit_rate_ci95": [
+          0.2708808958488824,
+          0.5098263545959686
+        ],
+        "baseline_hit_rate": 0.4166666666666667,
+        "lift_pp": -3.3333333333333326,
+        "headroom_captured": -0.057142857142857134,
+        "ground_truth_mix": {
+          "bullish": 25,
+          "bearish": 30,
+          "neutral": 5
+        },
+        "distinct_tickers": 15,
+        "bearish_n": 30,
+        "bearish_hit_rate": 0.16666666666666666,
+        "bearish_hit_rate_ci95": [
+          0.07336434240351683,
+          0.33564705185680177
+        ]
+      },
+      "2024": {
+        "n": 84,
+        "hit_rate": 0.2976190476190476,
+        "hit_rate_ci95": [
+          0.21044679186262583,
+          0.40249286315276545
+        ],
+        "baseline_hit_rate": 0.39285714285714285,
+        "lift_pp": -9.523809523809524,
+        "headroom_captured": -0.15686274509803919,
+        "ground_truth_mix": {
+          "bullish": 33,
+          "bearish": 36,
+          "neutral": 15
+        },
+        "distinct_tickers": 16,
+        "bearish_n": 36,
+        "bearish_hit_rate": 0.08333333333333333,
+        "bearish_hit_rate_ci95": [
+          0.0287480892712918,
+          0.21827010276918848
+        ]
+      },
+      "2025": {
+        "n": 114,
+        "hit_rate": 0.5,
+        "hit_rate_ci95": [
+          0.4097230744494871,
+          0.5902769255505129
+        ],
+        "baseline_hit_rate": 0.5877192982456141,
+        "lift_pp": -8.771929824561408,
+        "headroom_captured": -0.21276595744680865,
+        "ground_truth_mix": {
+          "bullish": 67,
+          "bearish": 42,
+          "neutral": 5
+        },
+        "distinct_tickers": 16,
+        "bearish_n": 42,
+        "bearish_hit_rate": 0.11904761904761904,
+        "bearish_hit_rate_ci95": [
+          0.05193726765019084,
+          0.2500068180710754
+        ]
+      }
+    },
+    "model_contaminated_tail": {
+      "n_rows_scoreable": 0,
+      "by_model_version": {},
+      "overall": null
+    },
+    "fixed_ticker_subset": [
+      "MSFT",
+      "ORCL"
+    ],
+    "fixed_ticker_series_by_year": {
+      "2020": {
+        "n": 3,
+        "hit_rate": 0.3333333333333333,
+        "hit_rate_ci95": [
+          0.0614903152761605,
+          0.7923450448735121
+        ],
+        "baseline_hit_rate": 0.3333333333333333,
+        "lift_pp": 0.0,
+        "headroom_captured": 0.0,
+        "ground_truth_mix": {
+          "bullish": 1,
+          "bearish": 0,
+          "neutral": 2
+        },
+        "distinct_tickers": 2,
+        "bearish_n": 0,
+        "bearish_hit_rate": null,
+        "bearish_hit_rate_ci95": [
+          null,
+          null
+        ]
+      },
+      "2021": {
+        "n": 8,
+        "hit_rate": 0.5,
+        "hit_rate_ci95": [
+          0.21521252682444186,
+          0.7847874731755582
+        ],
+        "baseline_hit_rate": 0.5,
+        "lift_pp": 0.0,
+        "headroom_captured": 0.0,
+        "ground_truth_mix": {
+          "bullish": 4,
+          "bearish": 2,
+          "neutral": 2
+        },
+        "distinct_tickers": 2,
+        "bearish_n": 2,
+        "bearish_hit_rate": 0.0,
+        "bearish_hit_rate_ci95": [
+          0.0,
+          0.6576280471103807
+        ]
+      },
+      "2022": {
+        "n": 8,
+        "hit_rate": 0.375,
+        "hit_rate_ci95": [
+          0.13684175946152105,
+          0.6942621454161981
+        ],
+        "baseline_hit_rate": 0.375,
+        "lift_pp": 0.0,
+        "headroom_captured": 0.0,
+        "ground_truth_mix": {
+          "bullish": 3,
+          "bearish": 1,
+          "neutral": 4
+        },
+        "distinct_tickers": 2,
+        "bearish_n": 1,
+        "bearish_hit_rate": 0.0,
+        "bearish_hit_rate_ci95": [
+          0.0,
+          0.7934567085261071
+        ]
+      },
+      "2023": {
+        "n": 8,
+        "hit_rate": 0.375,
+        "hit_rate_ci95": [
+          0.13684175946152105,
+          0.6942621454161981
+        ],
+        "baseline_hit_rate": 0.5,
+        "lift_pp": -12.5,
+        "headroom_captured": -0.25,
+        "ground_truth_mix": {
+          "bullish": 4,
+          "bearish": 3,
+          "neutral": 1
+        },
+        "distinct_tickers": 2,
+        "bearish_n": 3,
+        "bearish_hit_rate": 0.0,
+        "bearish_hit_rate_ci95": [
+          0.0,
+          0.5615060804490177
+        ]
+      },
+      "2024": {
+        "n": 9,
+        "hit_rate": 0.2222222222222222,
+        "hit_rate_ci95": [
+          0.06322376231222723,
+          0.5474166563271946
+        ],
+        "baseline_hit_rate": 0.2222222222222222,
+        "lift_pp": 0.0,
+        "headroom_captured": 0.0,
+        "ground_truth_mix": {
+          "bullish": 2,
+          "bearish": 5,
+          "neutral": 2
+        },
+        "distinct_tickers": 2,
+        "bearish_n": 5,
+        "bearish_hit_rate": 0.0,
+        "bearish_hit_rate_ci95": [
+          0.0,
+          0.43449149475208104
+        ]
+      },
+      "2025": {
+        "n": 10,
+        "hit_rate": 0.5,
+        "hit_rate_ci95": [
+          0.23658959361548731,
+          0.7634104063845126
+        ],
+        "baseline_hit_rate": 0.6,
+        "lift_pp": -9.999999999999998,
+        "headroom_captured": -0.24999999999999994,
+        "ground_truth_mix": {
+          "bullish": 6,
+          "bearish": 4,
+          "neutral": 0
+        },
+        "distinct_tickers": 2,
+        "bearish_n": 4,
+        "bearish_hit_rate": 0.0,
+        "bearish_hit_rate_ci95": [
+          0.0,
+          0.48990002040399916
+        ]
+      }
+    },
+    "year_x_scope_grid": {
+      "2020": {
+        "established": {
+          "n": 3,
+          "hit_rate": 0.3333333333333333,
+          "hit_rate_ci95": [
+            0.0614903152761605,
+            0.7923450448735121
+          ],
+          "baseline_hit_rate": 0.3333333333333333,
+          "lift_pp": 0.0,
+          "headroom_captured": 0.0,
+          "ground_truth_mix": {
+            "bullish": 1,
+            "bearish": 0,
+            "neutral": 2
+          },
+          "distinct_tickers": 2,
+          "bearish_n": 0,
+          "bearish_hit_rate": null,
+          "bearish_hit_rate_ci95": [
+            null,
+            null
+          ]
+        },
+        "speculative": null
+      },
+      "2021": {
+        "established": {
+          "n": 28,
+          "hit_rate": 0.6428571428571429,
+          "hit_rate_ci95": [
+            0.4582997758222723,
+            0.7929438802754113
+          ],
+          "baseline_hit_rate": 0.6428571428571429,
+          "lift_pp": 0.0,
+          "headroom_captured": 0.0,
+          "ground_truth_mix": {
+            "bullish": 18,
+            "bearish": 6,
+            "neutral": 4
+          },
+          "distinct_tickers": 8,
+          "bearish_n": 6,
+          "bearish_hit_rate": 0.0,
+          "bearish_hit_rate_ci95": [
+            0.0,
+            0.3903430336530645
+          ]
+        },
+        "speculative": {
+          "n": 17,
+          "hit_rate": 0.4117647058823529,
+          "hit_rate_ci95": [
+            0.21610786039131383,
+            0.6399492561448447
+          ],
+          "baseline_hit_rate": 0.29411764705882354,
+          "lift_pp": 11.764705882352938,
+          "headroom_captured": 0.16666666666666663,
+          "ground_truth_mix": {
+            "bullish": 5,
+            "bearish": 12,
+            "neutral": 0
+          },
+          "distinct_tickers": 6,
+          "bearish_n": 12,
+          "bearish_hit_rate": 0.16666666666666666,
+          "bearish_hit_rate_ci95": [
+            0.04696414761482223,
+            0.44803635738467273
+          ]
+        }
+      },
+      "2022": {
+        "established": {
+          "n": 32,
+          "hit_rate": 0.21875,
+          "hit_rate_ci95": [
+            0.11023696931531854,
+            0.3875533079044484
+          ],
+          "baseline_hit_rate": 0.28125,
+          "lift_pp": -6.25,
+          "headroom_captured": -0.08695652173913043,
+          "ground_truth_mix": {
+            "bullish": 9,
+            "bearish": 13,
+            "neutral": 10
+          },
+          "distinct_tickers": 8,
+          "bearish_n": 13,
+          "bearish_hit_rate": 0.07692307692307693,
+          "bearish_hit_rate_ci95": [
+            0.013710066379696323,
+            0.3331453392824736
+          ]
+        },
+        "speculative": {
+          "n": 24,
+          "hit_rate": 0.3333333333333333,
+          "hit_rate_ci95": [
+            0.17971978688379642,
+            0.5329404050591954
+          ],
+          "baseline_hit_rate": 0.375,
+          "lift_pp": -4.166666666666669,
+          "headroom_captured": -0.0666666666666667,
+          "ground_truth_mix": {
+            "bullish": 9,
+            "bearish": 12,
+            "neutral": 3
+          },
+          "distinct_tickers": 6,
+          "bearish_n": 12,
+          "bearish_hit_rate": 0.4166666666666667,
+          "bearish_hit_rate_ci95": [
+            0.19325746190524656,
+            0.6804926643446272
+          ]
+        }
+      },
+      "2023": {
+        "established": {
+          "n": 32,
+          "hit_rate": 0.53125,
+          "hit_rate_ci95": [
+            0.3644923793257382,
+            0.6913087009831766
+          ],
+          "baseline_hit_rate": 0.6875,
+          "lift_pp": -15.625,
+          "headroom_captured": -0.5,
+          "ground_truth_mix": {
+            "bullish": 22,
+            "bearish": 8,
+            "neutral": 2
+          },
+          "distinct_tickers": 8,
+          "bearish_n": 8,
+          "bearish_hit_rate": 0.0,
+          "bearish_hit_rate_ci95": [
+            0.0,
+            0.3244156195108769
+          ]
+        },
+        "speculative": {
+          "n": 28,
+          "hit_rate": 0.21428571428571427,
+          "hit_rate_ci95": [
+            0.10212321701189422,
+            0.3953894707927388
+          ],
+          "baseline_hit_rate": 0.10714285714285714,
+          "lift_pp": 10.714285714285714,
+          "headroom_captured": 0.11999999999999998,
+          "ground_truth_mix": {
+            "bullish": 3,
+            "bearish": 22,
+            "neutral": 3
+          },
+          "distinct_tickers": 7,
+          "bearish_n": 22,
+          "bearish_hit_rate": 0.22727272727272727,
+          "bearish_hit_rate_ci95": [
+            0.10122890794820358,
+            0.4344035606295935
+          ]
+        }
+      },
+      "2024": {
+        "established": {
+          "n": 41,
+          "hit_rate": 0.3170731707317073,
+          "hit_rate_ci95": [
+            0.19564433205311735,
+            0.46984485655745856
+          ],
+          "baseline_hit_rate": 0.36585365853658536,
+          "lift_pp": -4.878048780487804,
+          "headroom_captured": -0.0769230769230769,
+          "ground_truth_mix": {
+            "bullish": 15,
+            "bearish": 14,
+            "neutral": 12
+          },
+          "distinct_tickers": 8,
+          "bearish_n": 14,
+          "bearish_hit_rate": 0.0,
+          "bearish_hit_rate_ci95": [
+            0.0,
+            0.21531701192718142
+          ]
+        },
+        "speculative": {
+          "n": 43,
+          "hit_rate": 0.27906976744186046,
+          "hit_rate_ci95": [
+            0.16746451821827157,
+            0.42691312900129397
+          ],
+          "baseline_hit_rate": 0.4186046511627907,
+          "lift_pp": -13.953488372093027,
+          "headroom_captured": -0.24000000000000007,
+          "ground_truth_mix": {
+            "bullish": 18,
+            "bearish": 22,
+            "neutral": 3
+          },
+          "distinct_tickers": 8,
+          "bearish_n": 22,
+          "bearish_hit_rate": 0.13636363636363635,
+          "bearish_hit_rate_ci95": [
+            0.04748917264236269,
+            0.3333541187947
+          ]
+        }
+      },
+      "2025": {
+        "established": {
+          "n": 53,
+          "hit_rate": 0.6037735849056604,
+          "hit_rate_ci95": [
+            0.4694123578888073,
+            0.7241078808096105
+          ],
+          "baseline_hit_rate": 0.6792452830188679,
+          "lift_pp": -7.547169811320753,
+          "headroom_captured": -0.23529411764705874,
+          "ground_truth_mix": {
+            "bullish": 36,
+            "bearish": 14,
+            "neutral": 3
+          },
+          "distinct_tickers": 8,
+          "bearish_n": 14,
+          "bearish_hit_rate": 0.0,
+          "bearish_hit_rate_ci95": [
+            0.0,
+            0.21531701192718142
+          ]
+        },
+        "speculative": {
+          "n": 61,
+          "hit_rate": 0.4098360655737705,
+          "hit_rate_ci95": [
+            0.2953514834927377,
+            0.5350043374617113
+          ],
+          "baseline_hit_rate": 0.5081967213114754,
+          "lift_pp": -9.836065573770492,
+          "headroom_captured": -0.2,
+          "ground_truth_mix": {
+            "bullish": 31,
+            "bearish": 28,
+            "neutral": 2
+          },
+          "distinct_tickers": 8,
+          "bearish_n": 28,
+          "bearish_hit_rate": 0.17857142857142858,
+          "bearish_hit_rate_ci95": [
+            0.0787838582943011,
+            0.355917915485911
+          ]
+        }
+      }
+    }
+  }
+}

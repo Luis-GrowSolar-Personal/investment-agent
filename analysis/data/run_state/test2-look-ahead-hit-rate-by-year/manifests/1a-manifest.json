@@ -1,0 +1,51 @@
+{
+  "run_id": "test2-look-ahead-hit-rate-by-year",
+  "timestamp_utc": "2026-09-05T16:35:38Z",
+  "git_commit": "4fa386c8488206eef644f3e0e28beff31a7451d4",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/test2_look_ahead.py",
+  "driver_file_tracked_at_commit": true,
+  "corpus": {
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e",
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee"
+  },
+  "params": {
+    "cadence": "30",
+    "scope": "new_calls_only",
+    "funding_mode": "swap_funding",
+    "limit_pp": 2.5,
+    "execution_order": "pooled",
+    "trim_budget_scope": "per_event_date",
+    "veto_p": 0.0,
+    "phases": [
+      0,
+      10,
+      20
+    ],
+    "seed": 0
+  },
+  "results": {
+    "per_phase": {
+      "0": {
+        "max_session_pp_change": 2.500000000000001,
+        "final_value": 179944.9060845556,
+        "max_dd_session": 0.20852310359539084
+      },
+      "10": {
+        "max_session_pp_change": 2.5000000000000004,
+        "final_value": 189914.19260420668,
+        "max_dd_session": 0.15957769786493864
+      },
+      "20": {
+        "max_session_pp_change": 2.500000000000001,
+        "final_value": 184599.16271847137,
+        "max_dd_session": 0.1516318021171028
+      }
+    },
+    "x_limit_configured_pp": 2.5,
+    "x_limit_holds": true,
+    "x_limit_binds_exactly": true
+  }
+}

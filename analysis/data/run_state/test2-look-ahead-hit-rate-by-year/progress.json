@@ -1,0 +1,23 @@
+{
+  "run_id": "test2-look-ahead-hit-rate-by-year",
+  "prompt_sha256": "cdc0177f20548331a79928d36fd7bf605b8e5e04b8aa7ee667b7b23ead9ab4fd",
+  "driver_commit": "4fa386c",
+  "steps": {
+    "step_minus1_resume": "done",
+    "step0_hygiene_and_delete_superseded": "done",
+    "step1_loose_ends_manifested": "done",
+    "step2_scoreable_shape": "done",
+    "step2a_model_version_segmentation": "done",
+    "step3_series_decomposed": "done",
+    "step4_confounds": "done",
+    "step5_shape_reading": "done",
+    "step6_optional_position_age": "done",
+    "report": "done"
+  },
+  "next_action": "None -- run complete. Wrap-up at wrap-ups/test2-look-ahead-hit-rate-by-year-out.md.",
+  "notes": [
+    "Model-contaminated tail has ZERO scoreable ALL16 rows (all 19 stamped ALL16 rows are past the 2025-11-07 cutoff) -- the confound Step 2a worried about cannot enter any series.",
+    "Fixed-ticker control (MSFT, ORCL only) is uninterpretable -- n<20 in every year.",
+    "A concurrent, uncommitted docs/handoffs/2026-09-05-state-of-play.md appeared mid-run; not relied on beyond a corroboration spot-check, not edited."
+  ]
+}

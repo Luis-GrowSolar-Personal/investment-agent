@@ -1,0 +1,307 @@
+{
+  "run_id": "test2-look-ahead-hit-rate-by-year",
+  "timestamp_utc": "2026-09-05T16:36:10Z",
+  "git_commit": "4fa386c8488206eef644f3e0e28beff31a7451d4",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/test2_look_ahead.py",
+  "driver_file_tracked_at_commit": true,
+  "corpus": {
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e",
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee"
+  },
+  "params": {},
+  "results": {
+    "forward_days": 182,
+    "price_cache_last_date": "2026-05-08",
+    "scoreable_cutoff_call_date": "2025-11-07",
+    "year_counts_all16": {
+      "2020": {
+        "n_rows": 3,
+        "n_scoreable": 3,
+        "distinct_tickers": [
+          "MSFT",
+          "ORCL"
+        ]
+      },
+      "2021": {
+        "n_rows": 45,
+        "n_scoreable": 45,
+        "distinct_tickers": [
+          "AAPL",
+          "AMD",
+          "AVGO",
+          "ENVX",
+          "EOSE",
+          "FSLR",
+          "GOOGL",
+          "MSFT",
+          "NVDA",
+          "ORCL",
+          "QS",
+          "RUN",
+          "TSLA",
+          "TTD"
+        ]
+      },
+      "2022": {
+        "n_rows": 56,
+        "n_scoreable": 56,
+        "distinct_tickers": [
+          "AAPL",
+          "AMD",
+          "AVGO",
+          "ENVX",
+          "EOSE",
+          "FSLR",
+          "GOOGL",
+          "MSFT",
+          "NVDA",
+          "ORCL",
+          "QS",
+          "RUN",
+          "TSLA",
+          "TTD"
+        ]
+      },
+      "2023": {
+        "n_rows": 60,
+        "n_scoreable": 60,
+        "distinct_tickers": [
+          "AAPL",
+          "AMD",
+          "AMPX",
+          "AVGO",
+          "ENVX",
+          "EOSE",
+          "FSLR",
+          "GOOGL",
+          "MSFT",
+          "NVDA",
+          "ORCL",
+          "QS",
+          "RUN",
+          "TSLA",
+          "TTD"
+        ]
+      },
+      "2024": {
+        "n_rows": 84,
+        "n_scoreable": 84,
+        "distinct_tickers": [
+          "AAPL",
+          "AMD",
+          "AMPX",
+          "AVGO",
+          "ENVX",
+          "EOSE",
+          "FSLR",
+          "GOOGL",
+          "MSFT",
+          "NVDA",
+          "ORCL",
+          "QS",
+          "RUN",
+          "SPWR",
+          "TSLA",
+          "TTD"
+        ]
+      },
+      "2025": {
+        "n_rows": 119,
+        "n_scoreable": 114,
+        "distinct_tickers": [
+          "AAPL",
+          "AMD",
+          "AMPX",
+          "AVGO",
+          "ENVX",
+          "EOSE",
+          "FSLR",
+          "GOOGL",
+          "MSFT",
+          "NVDA",
+          "ORCL",
+          "QS",
+          "RUN",
+          "SPWR",
+          "TSLA",
+          "TTD"
+        ]
+      },
+      "2026": {
+        "n_rows": 58,
+        "n_scoreable": 0,
+        "distinct_tickers": [
+          "AAPL",
+          "AMD",
+          "AMPX",
+          "AVGO",
+          "ENVX",
+          "EOSE",
+          "FSLR",
+          "GOOGL",
+          "MSFT",
+          "NVDA",
+          "ORCL",
+          "QS",
+          "RUN",
+          "SPWR",
+          "TSLA",
+          "TTD"
+        ]
+      }
+    },
+    "year_x_ticker_counts_all16": {
+      "2020": {
+        "MSFT": 1,
+        "ORCL": 2
+      },
+      "2021": {
+        "AAPL": 4,
+        "AMD": 3,
+        "AVGO": 3,
+        "ENVX": 2,
+        "EOSE": 3,
+        "FSLR": 3,
+        "GOOGL": 3,
+        "MSFT": 4,
+        "NVDA": 4,
+        "ORCL": 4,
+        "QS": 3,
+        "RUN": 3,
+        "TSLA": 3,
+        "TTD": 3
+      },
+      "2022": {
+        "AAPL": 4,
+        "AMD": 4,
+        "AVGO": 4,
+        "ENVX": 4,
+        "EOSE": 4,
+        "FSLR": 4,
+        "GOOGL": 4,
+        "MSFT": 4,
+        "NVDA": 4,
+        "ORCL": 4,
+        "QS": 4,
+        "RUN": 4,
+        "TSLA": 4,
+        "TTD": 4
+      },
+      "2023": {
+        "AAPL": 4,
+        "AMD": 4,
+        "AMPX": 4,
+        "AVGO": 4,
+        "ENVX": 4,
+        "EOSE": 4,
+        "FSLR": 4,
+        "GOOGL": 4,
+        "MSFT": 4,
+        "NVDA": 4,
+        "ORCL": 4,
+        "QS": 4,
+        "RUN": 4,
+        "TSLA": 4,
+        "TTD": 4
+      },
+      "2024": {
+        "AAPL": 6,
+        "AMD": 5,
+        "AMPX": 6,
+        "AVGO": 5,
+        "ENVX": 6,
+        "EOSE": 5,
+        "FSLR": 5,
+        "GOOGL": 5,
+        "MSFT": 4,
+        "NVDA": 5,
+        "ORCL": 5,
+        "QS": 5,
+        "RUN": 5,
+        "SPWR": 5,
+        "TSLA": 6,
+        "TTD": 6
+      },
+      "2025": {
+        "AAPL": 8,
+        "AMD": 8,
+        "AMPX": 7,
+        "AVGO": 8,
+        "ENVX": 8,
+        "EOSE": 8,
+        "FSLR": 8,
+        "GOOGL": 8,
+        "MSFT": 4,
+        "NVDA": 6,
+        "ORCL": 8,
+        "QS": 8,
+        "RUN": 8,
+        "SPWR": 6,
+        "TSLA": 8,
+        "TTD": 8
+      },
+      "2026": {
+        "AAPL": 4,
+        "AMD": 3,
+        "AMPX": 3,
+        "AVGO": 3,
+        "ENVX": 4,
+        "EOSE": 4,
+        "FSLR": 4,
+        "GOOGL": 4,
+        "MSFT": 3,
+        "NVDA": 3,
+        "ORCL": 3,
+        "QS": 4,
+        "RUN": 4,
+        "SPWR": 4,
+        "TSLA": 4,
+        "TTD": 4
+      }
+    },
+    "non_all16_tickers_in_db": {
+      "WMT": 26,
+      "JPM": 23,
+      "NFLX": 23,
+      "UNH": 23,
+      "PG": 23,
+      "META": 23,
+      "MA": 23,
+      "V": 23,
+      "PYPL": 23,
+      "DIS": 23,
+      "HD": 23,
+      "ADBE": 22,
+      "BAC": 22,
+      "JNJ": 22,
+      "ENPH": 31,
+      "AMZN": 22,
+      "RIVN": 5,
+      "CBRS": 1
+    },
+    "version_census": {
+      "v6|claude-sonnet-4-20250514": {
+        "n": 6,
+        "min_call": "2026-05-06",
+        "max_call": "2026-06-11"
+      },
+      "v6|claude-sonnet-4-6": {
+        "n": 36,
+        "min_call": "2025-08-05",
+        "max_call": "2026-08-26"
+      },
+      "None|None": {
+        "n": 764,
+        "min_call": "2020-05-19",
+        "max_call": "2026-05-20"
+      }
+    },
+    "thin_years_all16": [
+      2020,
+      2026
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "run_id": "test2-look-ahead-hit-rate-by-year",
+  "timestamp_utc": "2026-09-05T16:36:01Z",
+  "git_commit": "4fa386c8488206eef644f3e0e28beff31a7451d4",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": false,
+  "driver_file": "analysis/test2_look_ahead.py",
+  "driver_file_tracked_at_commit": true,
+  "corpus": {
+    "price_cache_sha256": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache_sha256": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e",
+    "type_json_sha256": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee"
+  },
+  "params": {
+    "source_manifest": "analysis/data/run_state/resolve-open-four/manifests/4-manifest.json"
+  },
+  "results": {
+    "rows": [
+      {
+        "X": 0.5,
+        "phase_avg_final": 121799.56196261046,
+        "gain": 21799.56196261046,
+        "dd_session_pct": 3.7901436200372904,
+        "dd_daily_pct": 6.5847222099816545,
+        "gain_per_dd_session": 5751.645359126517,
+        "gain_per_dd_daily": 3310.6274292885005
+      },
+      {
+        "X": 1.0,
+        "phase_avg_final": 144148.92429592618,
+        "gain": 44148.924295926176,
+        "dd_session_pct": 7.187698205426329,
+        "dd_daily_pct": 12.375267180313125,
+        "gain_per_dd_session": 6142.289650196511,
+        "gain_per_dd_daily": 3567.5128183219636
+      },
+      {
+        "X": 1.5,
+        "phase_avg_final": 160674.93045054472,
+        "gain": 60674.93045054472,
+        "dd_session_pct": 10.612700211079986,
+        "dd_daily_pct": 17.526228857348034,
+        "gain_per_dd_session": 5717.200075735506,
+        "gain_per_dd_daily": 3461.950140238309
+      },
+      {
+        "X": 2.0,
+        "phase_avg_final": 171865.1948867313,
+        "gain": 71865.1948867313,
+        "dd_session_pct": 14.00304149870637,
+        "dd_daily_pct": 21.278552597055807,
+        "gain_per_dd_session": 5132.113255064649,
+        "gain_per_dd_daily": 3377.353537508697
+      },
+      {
+        "X": 2.5,
+        "phase_avg_final": 184819.4204690779,
+        "gain": 84819.42046907789,
+        "dd_session_pct": 17.324420119247744,
+        "dd_daily_pct": 23.457628114592776,
+        "gain_per_dd_session": 4895.945716234506,
+        "gain_per_dd_daily": 3615.85664393377
+      },
+      {
+        "X": 3.0,
+        "phase_avg_final": 189424.7574714763,
+        "gain": 89424.7574714763,
+        "dd_session_pct": 20.579418853245876,
+        "dd_daily_pct": 27.606256602326678,
+        "gain_per_dd_session": 4345.349016372823,
+        "gain_per_dd_daily": 3239.293134149145
+      },
+      {
+        "X": 4.0,
+        "phase_avg_final": 179224.78198013315,
+        "gain": 79224.78198013315,
+        "dd_session_pct": 24.678845716469887,
+        "dd_daily_pct": 32.65075013954515,
+        "gain_per_dd_session": 3210.230449605713,
+        "gain_per_dd_daily": 2426.430683568877
+      },
+      {
+        "X": 5.0,
+        "phase_avg_final": 168496.92453249134,
+        "gain": 68496.92453249134,
+        "dd_session_pct": 26.931943217637894,
+        "dd_daily_pct": 34.93154324327438,
+        "gain_per_dd_session": 2543.3339131515872,
+        "gain_per_dd_daily": 1960.8903063760154
+      },
+      {
+        "X": null,
+        "phase_avg_final": 135434.97806651372,
+        "gain": 35434.97806651372,
+        "dd_session_pct": 44.37674328797797,
+        "dd_daily_pct": 48.372107444459104,
+        "gain_per_dd_session": 798.503347498088,
+        "gain_per_dd_daily": 732.5498089410348
+      }
+    ],
+    "best_X_session_ruler": 1.0,
+    "best_X_daily_ruler": 2.5,
+    "ruler_reorders": true,
+    "source_manifest": "analysis/data/run_state/resolve-open-four/manifests/4-manifest.json",
+    "source_key": "results.sweep[*].{X,phase_avg_final,phase_avg_dd_session,phase_avg_dd_daily}",
+    "measure": "gain-per-drawdown-point = (phase_avg_final - 100000) / (drawdown pct points), phase-averaged (phases 0/10/20), seed 0, forward draw -- not this run's choice of ruler for drawdown itself, only the derived ratio. Not a previously-used project measure; ignores path and duration."
+  }
+}
