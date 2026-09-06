@@ -1,0 +1,588 @@
+{
+  "overall": {
+    "n_targets": 207,
+    "n_classified": 195,
+    "truncated": 2,
+    "needs_manual_check": 0,
+    "matches_closely": 51,
+    "summarized_but_complete": 141,
+    "coverage_miss_event": 12,
+    "coverage_miss_transcript": 0,
+    "errors": 0,
+    "truncation_rate": 0.010256410256410256,
+    "wilson95": [
+      0.0028171396519349606,
+      0.0366192760679144
+    ],
+    "median_similarity_ratio": 0.3832,
+    "median_word_ratio": 1.0149
+  },
+  "by_tier": {
+    "megacap": {
+      "n_targets": 53,
+      "n_classified": 44,
+      "truncated": 1,
+      "needs_manual_check": 0,
+      "matches_closely": 6,
+      "summarized_but_complete": 37,
+      "coverage_miss_event": 9,
+      "coverage_miss_transcript": 0,
+      "errors": 0,
+      "truncation_rate": 0.022727272727272728,
+      "wilson95": [
+        0.004023148385637013,
+        0.11807979131537633
+      ],
+      "median_similarity_ratio": 0.2641,
+      "median_word_ratio": 1.0175
+    },
+    "large": {
+      "n_targets": 51,
+      "n_classified": 50,
+      "truncated": 0,
+      "needs_manual_check": 0,
+      "matches_closely": 17,
+      "summarized_but_complete": 33,
+      "coverage_miss_event": 1,
+      "coverage_miss_transcript": 0,
+      "errors": 0,
+      "truncation_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.07135003417431873
+      ],
+      "median_similarity_ratio": 0.4231,
+      "median_word_ratio": 1.0149
+    },
+    "mid": {
+      "n_targets": 44,
+      "n_classified": 44,
+      "truncated": 0,
+      "needs_manual_check": 0,
+      "matches_closely": 16,
+      "summarized_but_complete": 28,
+      "coverage_miss_event": 0,
+      "coverage_miss_transcript": 0,
+      "errors": 0,
+      "truncation_rate": 0.0,
+      "wilson95": [
+        6.938893903907228e-18,
+        0.08029831778201396
+      ],
+      "median_similarity_ratio": 0.4321,
+      "median_word_ratio": 1.0041
+    },
+    "small_micro": {
+      "n_targets": 59,
+      "n_classified": 57,
+      "truncated": 1,
+      "needs_manual_check": 0,
+      "matches_closely": 12,
+      "summarized_but_complete": 43,
+      "coverage_miss_event": 2,
+      "coverage_miss_transcript": 0,
+      "errors": 0,
+      "truncation_rate": 0.017543859649122806,
+      "wilson95": [
+        0.003103584706680096,
+        0.09290966938262721
+      ],
+      "median_similarity_ratio": 0.3476,
+      "median_word_ratio": 1.0285
+    }
+  },
+  "by_source": {
+    "av_draw": {
+      "n_targets": 200,
+      "n_classified": 189,
+      "truncated": 2,
+      "needs_manual_check": 0,
+      "matches_closely": 49,
+      "summarized_but_complete": 138,
+      "coverage_miss_event": 11,
+      "coverage_miss_transcript": 0,
+      "errors": 0,
+      "truncation_rate": 0.010582010582010581,
+      "wilson95": [
+        0.0029067212455334626,
+        0.037756704073484845
+      ],
+      "median_similarity_ratio": 0.3832,
+      "median_word_ratio": 1.0142
+    },
+    "pilot_control": {
+      "n_targets": 7,
+      "n_classified": 6,
+      "truncated": 0,
+      "needs_manual_check": 0,
+      "matches_closely": 2,
+      "summarized_but_complete": 3,
+      "coverage_miss_event": 1,
+      "coverage_miss_transcript": 0,
+      "errors": 0,
+      "truncation_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.3903430336530645
+      ],
+      "median_similarity_ratio": 0.2946,
+      "median_word_ratio": 1.024
+    }
+  },
+  "side_by_side_with_av": [
+    {
+      "ticker": "AAPL",
+      "quarter": "2021Q1",
+      "transcript_id": 161,
+      "ec": {
+        "classification": "matches_closely",
+        "similarity_ratio": 0.5182,
+        "vendor_turn_count": 71,
+        "vendor_word_count": 8770
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0488,
+        "av_turn_count": 49,
+        "av_word_count": 7400,
+        "db_word_count": 8430
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "quarter": "2022Q4",
+      "transcript_id": 154,
+      "ec": {
+        "classification": "truncated",
+        "similarity_ratio": 0.6577,
+        "vendor_turn_count": 68,
+        "vendor_word_count": 8204
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0225,
+        "av_turn_count": 46,
+        "av_word_count": 7104,
+        "db_word_count": 7900
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "quarter": "2023Q1",
+      "transcript_id": 153,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.1203,
+        "vendor_turn_count": 81,
+        "vendor_word_count": 8473
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0389,
+        "av_turn_count": 54,
+        "av_word_count": 7233,
+        "db_word_count": 8180
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "quarter": "2025Q2",
+      "transcript_id": 54,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0779,
+        "vendor_turn_count": 75,
+        "vendor_word_count": 8465
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0269,
+        "av_turn_count": 83,
+        "av_word_count": 7727,
+        "db_word_count": 8126
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "quarter": "2025Q3",
+      "transcript_id": 55,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.4906,
+        "vendor_turn_count": 85,
+        "vendor_word_count": 8300
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0565,
+        "av_turn_count": 56,
+        "av_word_count": 7206,
+        "db_word_count": 8123
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "quarter": "2026Q2",
+      "transcript_id": 767,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0257,
+        "vendor_turn_count": 58,
+        "vendor_word_count": 7974
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0117,
+        "av_turn_count": 56,
+        "av_word_count": 8310,
+        "db_word_count": 8682
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "quarter": "2021Q2",
+      "transcript_id": 209,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.4788,
+        "vendor_turn_count": 45,
+        "vendor_word_count": 8713
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0284,
+        "av_turn_count": 32,
+        "av_word_count": 8107,
+        "db_word_count": 8423
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "quarter": "2023Q1",
+      "transcript_id": 203,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.4733,
+        "vendor_turn_count": 45,
+        "vendor_word_count": 9088
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0677,
+        "av_turn_count": 49,
+        "av_word_count": 8959,
+        "db_word_count": 9014
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "quarter": "2023Q3",
+      "transcript_id": 200,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.1988,
+        "vendor_turn_count": 46,
+        "vendor_word_count": 9019
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0475,
+        "av_turn_count": 53,
+        "av_word_count": 8560,
+        "db_word_count": 8864
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "quarter": "2024Q3",
+      "transcript_id": 141,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.3846,
+        "vendor_turn_count": 49,
+        "vendor_word_count": 9793
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0619,
+        "av_turn_count": 51,
+        "av_word_count": 9102,
+        "db_word_count": 9463
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "quarter": "2025Q4",
+      "transcript_id": 137,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.1497,
+        "vendor_turn_count": 43,
+        "vendor_word_count": 8880
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0285,
+        "av_turn_count": 33,
+        "av_word_count": 7541,
+        "db_word_count": 8716
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "quarter": "2022Q3",
+      "transcript_id": 313,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.2547,
+        "vendor_turn_count": 54,
+        "vendor_word_count": 8207
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0225,
+        "av_turn_count": 27,
+        "av_word_count": 6919,
+        "db_word_count": 7948
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "quarter": "2023Q2",
+      "transcript_id": 310,
+      "ec": {
+        "classification": "matches_closely",
+        "similarity_ratio": 0.6405,
+        "vendor_turn_count": 37,
+        "vendor_word_count": 8468
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0085,
+        "av_turn_count": 46,
+        "av_word_count": 7332,
+        "db_word_count": 8365
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "quarter": "2023Q4",
+      "transcript_id": 319,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0124,
+        "vendor_turn_count": 36,
+        "vendor_word_count": 7982
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0481,
+        "av_turn_count": 39,
+        "av_word_count": 6806,
+        "db_word_count": 8058
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "quarter": "2024Q3",
+      "transcript_id": 68,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.3646,
+        "vendor_turn_count": 45,
+        "vendor_word_count": 8500
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0531,
+        "av_turn_count": 32,
+        "av_word_count": 7140,
+        "db_word_count": 8289
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "quarter": "2025Q1",
+      "transcript_id": 70,
+      "ec": {
+        "classification": "matches_closely",
+        "similarity_ratio": 0.556,
+        "vendor_turn_count": 28,
+        "vendor_word_count": 7812
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.0546,
+        "av_turn_count": 41,
+        "av_word_count": 7160,
+        "db_word_count": 8099
+      }
+    },
+    {
+      "ticker": "TSLA",
+      "quarter": "2022Q1",
+      "transcript_id": 222,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.2179,
+        "vendor_turn_count": 91,
+        "vendor_word_count": 9218
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.4355,
+        "av_turn_count": 118,
+        "av_word_count": 8018,
+        "db_word_count": 9142
+      }
+    },
+    {
+      "ticker": "TSLA",
+      "quarter": "2022Q4",
+      "transcript_id": 219,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.1364,
+        "vendor_turn_count": 79,
+        "vendor_word_count": 8892
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.4141,
+        "av_turn_count": 93,
+        "av_word_count": 7250,
+        "db_word_count": 8744
+      }
+    },
+    {
+      "ticker": "TSLA",
+      "quarter": "2023Q3",
+      "transcript_id": 216,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.2298,
+        "vendor_turn_count": 69,
+        "vendor_word_count": 8557
+      },
+      "av": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.429,
+        "av_turn_count": 83,
+        "av_word_count": 6589,
+        "db_word_count": 7974
+      }
+    },
+    {
+      "ticker": "TSLA",
+      "quarter": "2026Q1",
+      "transcript_id": 135,
+      "ec": {
+        "classification": "summarized_but_complete",
+        "similarity_ratio": 0.1496,
+        "vendor_turn_count": 60,
+        "vendor_word_count": 7892
+      },
+      "av": {
+        "classification": "matches_closely",
+        "similarity_ratio": 0.5047,
+        "av_turn_count": 61,
+        "av_word_count": 6990,
+        "db_word_count": 8119
+      }
+    }
+  ],
+  "company_coverage": {
+    "AAPL": {
+      "exchange": "NASDAQ",
+      "name": "Apple Inc.",
+      "sector_idx": "9",
+      "industry_idx": "30"
+    },
+    "GOOGL": null,
+    "NVDA": {
+      "exchange": "NASDAQ",
+      "name": "NVIDIA Corporation",
+      "sector_idx": "9",
+      "industry_idx": "118"
+    },
+    "MSFT": {
+      "exchange": "NASDAQ",
+      "name": "Microsoft Corporation",
+      "sector_idx": "9",
+      "industry_idx": "122"
+    },
+    "TSLA": {
+      "exchange": "NASDAQ",
+      "name": "Tesla, Inc. ",
+      "sector_idx": "2",
+      "industry_idx": "10"
+    },
+    "AVGO": {
+      "exchange": "NASDAQ",
+      "name": "Broadcom Inc.",
+      "sector_idx": "9",
+      "industry_idx": "118"
+    },
+    "AMD": {
+      "exchange": "NASDAQ",
+      "name": "Advanced Micro Devices, Inc.",
+      "sector_idx": "9",
+      "industry_idx": "118"
+    },
+    "ORCL": {
+      "exchange": "NYSE",
+      "name": "Oracle Corporation",
+      "sector_idx": "9",
+      "industry_idx": "122"
+    },
+    "FSLR": {
+      "exchange": "NASDAQ",
+      "name": "First Solar, Inc.",
+      "sector_idx": "9",
+      "industry_idx": "123"
+    },
+    "TTD": {
+      "exchange": "NASDAQ",
+      "name": "The Trade Desk, Inc.",
+      "sector_idx": "1",
+      "industry_idx": "0"
+    },
+    "QS": {
+      "exchange": "NASDAQ",
+      "name": "QuantumScape Corporation",
+      "sector_idx": "-1",
+      "industry_idx": "-1"
+    },
+    "AMPX": {
+      "exchange": "NYSE",
+      "name": "Amprius Technologies, Inc.",
+      "sector_idx": "7",
+      "industry_idx": "39"
+    },
+    "ENVX": {
+      "exchange": "NASDAQ",
+      "name": "Enovix Corporation",
+      "sector_idx": "7",
+      "industry_idx": "39"
+    },
+    "EOSE": {
+      "exchange": "NASDAQ",
+      "name": "Eos Energy Enterprises, Inc.",
+      "sector_idx": "7",
+      "industry_idx": "39"
+    },
+    "RUN": {
+      "exchange": "NASDAQ",
+      "name": "Sunrun Inc.",
+      "sector_idx": "9",
+      "industry_idx": "123"
+    },
+    "SPWR": {
+      "exchange": "NASDAQ",
+      "name": "SunPower Inc.",
+      "sector_idx": "9",
+      "industry_idx": "123"
+    }
+  },
+  "calls_used_total": 211
+}
