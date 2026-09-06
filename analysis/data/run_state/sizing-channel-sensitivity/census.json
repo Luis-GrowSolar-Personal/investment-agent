@@ -1,0 +1,36 @@
+{
+  "n_total_events": 195,
+  "action_counts": {
+    "Add": 137,
+    "Trim": 29,
+    "Hold": 29
+  },
+  "n_add": 137,
+  "add_share_pct": 70.26,
+  "n_add_with_size": 137,
+  "n_add_null_size": 0,
+  "n_add_zero_size": 0,
+  "size_min": 8.0,
+  "size_median": 45.0,
+  "size_max": 60.0,
+  "size_histogram_by_decade": {
+    "0": 2,
+    "20": 13,
+    "30": 9,
+    "40": 84,
+    "50": 28,
+    "60": 1
+  },
+  "n_speculative_add_over_15cap": 43,
+  "n_established_add_over_35cap": 0,
+  "n_speculative_add_events": 44,
+  "n_established_add_events": 0,
+  "measured_recommendedSize_std_from_test4": {
+    "n_transcripts": 50,
+    "median_std": 3.069693845669907,
+    "mean_std": 3.4639339934916977,
+    "max_std": 7.694153624668538,
+    "median_spread": 8.0,
+    "max_spread": 22
+  }
+}

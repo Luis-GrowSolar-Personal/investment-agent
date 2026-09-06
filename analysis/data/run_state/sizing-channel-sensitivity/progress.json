@@ -1,0 +1,19 @@
+{
+  "run_id": "sizing-channel-sensitivity",
+  "prompt_sha256": "ee2575673f5ad5f2106e4c68eacb98e18cfd7eccb59f7032b3b4318ae4f07943",
+  "driver_commit": "ef63a52",
+  "steps": {
+    "step0_hygiene": "done",
+    "step1_census": "done",
+    "step2_grid": "done",
+    "step3_report_units": "done",
+    "step4_tier_split": "done"
+  },
+  "next_action": "none -- run complete, wrap-up written to wrap-ups/sizing-channel-sensitivity-out.md",
+  "notes": [
+    "Control gate passed exactly ($179,944.91 / 20.8523%).",
+    "No Type-A-established Add events exist in this corpus -- Step 4's literal tier split is not runnable as specified; adapted to Type-B vs Type-A-speculative, flagged in wrap-up.",
+    "All grid cells (135) ran fresh in one pass, 15s wall clock.",
+    "Headline: sizing-channel noise at the measured magnitude costs ~$0 -- jitter_1x, size_ignored, size_fixed, biased_high/low are all bit-identical to control."
+  ]
+}
