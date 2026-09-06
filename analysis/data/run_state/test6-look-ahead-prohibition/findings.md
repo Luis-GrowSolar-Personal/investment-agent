@@ -68,3 +68,11 @@ Step 1b: replication_reproduces_test4=True. Detail in replication_comparison.jso
 
 [treatment] checkpoint: transcript 292 (FSLR 2022-03-01, tier mid) 5/5 runs complete. 28/50 done, 2602146 tokens so far.
 
+[treatment] checkpoint: transcript 284 (FSLR 2024-02-27, tier mid) 5/5 runs complete. 29/50 done, 2707189 tokens so far.
+
+[treatment] checkpoint: transcript 238 (TTD 2021-05-10, tier mid) 5/5 runs complete. 30/50 done, 2820118 tokens so far.
+
+[treatment] checkpoint: transcript 287 (FSLR 2023-02-28, tier mid) 5/5 runs complete. 31/50 done, 2928085 tokens so far.
+
+[treatment] checkpoint: transcript 100 (FSLR 2025-02-25, tier mid) 5/5 runs complete. 32/50 done, 3046807 tokens so far.
+
