@@ -76,3 +76,25 @@ Step 1b: replication_reproduces_test4=True. Detail in replication_comparison.jso
 
 [treatment] checkpoint: transcript 100 (FSLR 2025-02-25, tier mid) 5/5 runs complete. 32/50 done, 3046807 tokens so far.
 
+[treatment] checkpoint: transcript 36 (TTD 2025-02-12, tier mid) 5/5 runs complete. 33/50 done, 3159518 tokens so far.
+
+[treatment] checkpoint: transcript 285 (FSLR 2023-07-27, tier mid) 5/5 runs complete. 34/50 done, 3258140 tokens so far.
+
+[treatment] checkpoint: transcript 233 (TTD 2022-08-09, tier mid) 5/5 runs complete. 35/50 done, 3368049 tokens so far.
+
+[treatment] checkpoint: transcript 34 (TTD 2024-08-08, tier mid) 5/5 runs complete. 36/50 done, 3469287 tokens so far.
+
+[treatment] checkpoint: transcript 234 (TTD 2021-08-09, tier mid) 5/5 runs complete. 37/50 done, 3582839 tokens so far.
+
+[treatment] checkpoint: transcript 239 (TTD 2022-11-09, tier mid) 5/5 runs complete. 38/50 done, 3695986 tokens so far.
+
+[treatment] checkpoint: transcript 23 (EOSE 2025-07-31, tier small_micro) 5/5 runs complete. 39/50 done, 3794319 tokens so far.
+
+[treatment] checkpoint: transcript 348 (QS 2024-04-24, tier small_micro) 5/5 runs complete. 40/50 done, 3863410 tokens so far.
+
+[treatment] checkpoint: transcript 193 (EOSE 2022-02-25, tier small_micro) 5/5 runs complete. 41/50 done, 3969241 tokens so far.
+
+[treatment] checkpoint: transcript 355 (QS 2022-10-26, tier small_micro) 5/5 runs complete. 42/50 done, 4040720 tokens so far.
+
+[treatment] checkpoint: transcript 172 (ENVX 2023-11-07, tier small_micro) 5/5 runs complete. 43/50 done, 4129679 tokens so far.
+

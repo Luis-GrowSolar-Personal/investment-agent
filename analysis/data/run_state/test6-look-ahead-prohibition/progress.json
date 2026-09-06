@@ -16,6 +16,9 @@
     230
   ],
   "treatment_completed": [
+    23,
+    34,
+    36,
     46,
     52,
     100,
@@ -26,18 +29,24 @@
     132,
     141,
     156,
+    172,
+    193,
     204,
     212,
     220,
     224,
     230,
+    233,
+    234,
     238,
+    239,
     240,
     255,
     258,
     264,
     266,
     284,
+    285,
     287,
     292,
     297,
@@ -47,10 +56,12 @@
     336,
     338,
     343,
-    344
+    344,
+    348,
+    355
   ],
   "replication_reproduces_test4": true,
-  "next_action": "treatment: 32/50 transcripts scored. Resume by re-running `python3 test6_look_ahead.py treatment`.",
+  "next_action": "treatment: 43/50 transcripts scored. Resume by re-running `python3 test6_look_ahead.py treatment`.",
   "notes": [
     "User approved real API spend (~275 calls, ~$25 estimated) at session start, this session, prior to any calls."
   ]
