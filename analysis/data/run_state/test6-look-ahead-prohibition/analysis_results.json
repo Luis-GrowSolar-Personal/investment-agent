@@ -1,0 +1,503 @@
+{
+  "comparison_table": {
+    "megacap": {
+      "control_mean_pct": 18.461538461538463,
+      "treatment_mean_pct": 16.923076923076923,
+      "delta_pp": -1.53846153846154,
+      "control_std_pp": 3.768445758127967,
+      "treatment_std_pp": 3.076923076923077,
+      "noise_floor_pp": 3.77,
+      "exceeds_floor": false
+    },
+    "large": {
+      "control_mean_pct": 76.92307692307693,
+      "treatment_mean_pct": 76.92307692307693,
+      "delta_pp": 0.0,
+      "control_std_pp": 0.0,
+      "treatment_std_pp": 0.0,
+      "noise_floor_pp": 0.0,
+      "exceeds_floor": false
+    },
+    "mid": {
+      "control_mean_pct": 50.0,
+      "treatment_mean_pct": 43.333333333333336,
+      "delta_pp": -6.666666666666664,
+      "control_std_pp": 0.0,
+      "treatment_std_pp": 3.3333333333333326,
+      "noise_floor_pp": 0.0,
+      "exceeds_floor": true
+    },
+    "small_micro": {
+      "control_mean_pct": 40.0,
+      "treatment_mean_pct": 48.333333333333336,
+      "delta_pp": 8.333333333333336,
+      "control_std_pp": 14.337208778404378,
+      "treatment_std_pp": 8.164965809277263,
+      "noise_floor_pp": 14.34,
+      "exceeds_floor": false
+    }
+  },
+  "mde": {
+    "n_used": 13,
+    "z": 1.96,
+    "mde_single_run_pp": 27.18030961503623,
+    "mde_5run_mean_pp": 12.15540398974243,
+    "method": "normal-approx 95% CI half-width for a binomial proportion at p=0.5 (max-variance, conservative), n=13, propagated to a 5-independent-run mean by dividing by sqrt(5)."
+  },
+  "modal_recommendation_changes": {
+    "overall": 3,
+    "by_tier": {
+      "mid": 1,
+      "small_micro": 2
+    },
+    "total": 50
+  },
+  "modal_detail": [
+    {
+      "transcript_id": 212,
+      "ticker": "MSFT",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 141,
+      "ticker": "MSFT",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 204,
+      "ticker": "MSFT",
+      "tier": "megacap",
+      "control_modal": "Hold",
+      "treatment_modal": "Hold",
+      "changed": false
+    },
+    {
+      "transcript_id": 156,
+      "ticker": "AAPL",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 297,
+      "ticker": "GOOGL",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 113,
+      "ticker": "GOOGL",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 220,
+      "ticker": "TSLA",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 224,
+      "ticker": "TSLA",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 303,
+      "ticker": "GOOGL",
+      "tier": "megacap",
+      "control_modal": "Hold",
+      "treatment_modal": "Hold",
+      "changed": false
+    },
+    {
+      "transcript_id": 52,
+      "ticker": "AAPL",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 46,
+      "ticker": "TSLA",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 315,
+      "ticker": "NVDA",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 114,
+      "ticker": "GOOGL",
+      "tier": "megacap",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 132,
+      "ticker": "ORCL",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 336,
+      "ticker": "ORCL",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 240,
+      "ticker": "AMD",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 331,
+      "ticker": "ORCL",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 266,
+      "ticker": "AVGO",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 120,
+      "ticker": "AMD",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 131,
+      "ticker": "ORCL",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 258,
+      "ticker": "AVGO",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 264,
+      "ticker": "AVGO",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 343,
+      "ticker": "ORCL",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 255,
+      "ticker": "AVGO",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 344,
+      "ticker": "ORCL",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 338,
+      "ticker": "ORCL",
+      "tier": "large",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 230,
+      "ticker": "TTD",
+      "tier": "mid",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 292,
+      "ticker": "FSLR",
+      "tier": "mid",
+      "control_modal": "Add",
+      "treatment_modal": "Hold",
+      "changed": true
+    },
+    {
+      "transcript_id": 284,
+      "ticker": "FSLR",
+      "tier": "mid",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 238,
+      "ticker": "TTD",
+      "tier": "mid",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 287,
+      "ticker": "FSLR",
+      "tier": "mid",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 100,
+      "ticker": "FSLR",
+      "tier": "mid",
+      "control_modal": "Trim",
+      "treatment_modal": "Trim",
+      "changed": false
+    },
+    {
+      "transcript_id": 36,
+      "ticker": "TTD",
+      "tier": "mid",
+      "control_modal": "Trim",
+      "treatment_modal": "Trim",
+      "changed": false
+    },
+    {
+      "transcript_id": 285,
+      "ticker": "FSLR",
+      "tier": "mid",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 233,
+      "ticker": "TTD",
+      "tier": "mid",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 34,
+      "ticker": "TTD",
+      "tier": "mid",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 234,
+      "ticker": "TTD",
+      "tier": "mid",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 239,
+      "ticker": "TTD",
+      "tier": "mid",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 23,
+      "ticker": "EOSE",
+      "tier": "small_micro",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 348,
+      "ticker": "QS",
+      "tier": "small_micro",
+      "control_modal": "Hold",
+      "treatment_modal": "Hold",
+      "changed": false
+    },
+    {
+      "transcript_id": 193,
+      "ticker": "EOSE",
+      "tier": "small_micro",
+      "control_modal": "Trim",
+      "treatment_modal": "Trim",
+      "changed": false
+    },
+    {
+      "transcript_id": 355,
+      "ticker": "QS",
+      "tier": "small_micro",
+      "control_modal": "Hold",
+      "treatment_modal": "Hold",
+      "changed": false
+    },
+    {
+      "transcript_id": 172,
+      "ticker": "ENVX",
+      "tier": "small_micro",
+      "control_modal": "Hold",
+      "treatment_modal": "Add",
+      "changed": true
+    },
+    {
+      "transcript_id": 170,
+      "ticker": "ENVX",
+      "tier": "small_micro",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 16,
+      "ticker": "AMPX",
+      "tier": "small_micro",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 169,
+      "ticker": "AMPX",
+      "tier": "small_micro",
+      "control_modal": "Hold",
+      "treatment_modal": "Hold",
+      "changed": false
+    },
+    {
+      "transcript_id": 173,
+      "ticker": "ENVX",
+      "tier": "small_micro",
+      "control_modal": "Add",
+      "treatment_modal": "Add",
+      "changed": false
+    },
+    {
+      "transcript_id": 168,
+      "ticker": "AMPX",
+      "tier": "small_micro",
+      "control_modal": "Hold",
+      "treatment_modal": "Hold",
+      "changed": false
+    },
+    {
+      "transcript_id": 175,
+      "ticker": "ENVX",
+      "tier": "small_micro",
+      "control_modal": "Hold",
+      "treatment_modal": "Add",
+      "changed": true
+    },
+    {
+      "transcript_id": 186,
+      "ticker": "EOSE",
+      "tier": "small_micro",
+      "control_modal": "Trim",
+      "treatment_modal": "Trim",
+      "changed": false
+    }
+  ],
+  "confound_check_output_length": {
+    "control_avg_output_chars": 12516.196,
+    "treatment_avg_output_chars": 12498.248
+  },
+  "nvda_case_study": {
+    "transcript_id": 315,
+    "ticker": "NVDA",
+    "control_recommendations": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Add"
+    ],
+    "treatment_recommendations": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Add"
+    ],
+    "control_modal": "Add",
+    "treatment_modal": "Add",
+    "note": "n=1 transcript, no significance claim possible; named case study only."
+  },
+  "differential_test": {
+    "high_recall_tier_deltas_pp": {
+      "megacap": 1.53846153846154,
+      "large": 0.0
+    },
+    "small_micro_delta_pp": 8.333333333333336,
+    "small_micro_floor_pp": 14.34,
+    "small_micro_within_its_own_floor": true
+  },
+  "token_usage_treatment": {
+    "input_tokens": 4051405,
+    "output_tokens": 745617,
+    "total_tokens": 4797022,
+    "n_transcripts_done": 50
+  },
+  "token_usage_replication": {
+    "input_tokens": 418895,
+    "output_tokens": 71296,
+    "total_tokens": 490191,
+    "n_transcripts_done": 5
+  }
+}
