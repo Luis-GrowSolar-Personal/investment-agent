@@ -1,0 +1,59 @@
+{
+  "n_total_events": 195,
+  "events_per_cap_tier": {
+    "large": 42,
+    "megacap": 69,
+    "mid": 26,
+    "small_micro": 58
+  },
+  "share_per_cap_tier_pct": {
+    "large": 21.54,
+    "megacap": 35.38,
+    "mid": 13.33,
+    "small_micro": 29.74
+  },
+  "reconciled_flip_rates": {
+    "mid": {
+      "n": 12,
+      "flip_count_incl_none_as_distinct": 1,
+      "flip_count_non_null_only": 1,
+      "flip_rate": 0.08333333333333333,
+      "flipped_transcripts": [
+        100
+      ]
+    },
+    "megacap": {
+      "n": 13,
+      "flip_count_incl_none_as_distinct": 2,
+      "flip_count_non_null_only": 2,
+      "flip_rate": 0.15384615384615385,
+      "flipped_transcripts": [
+        204,
+        303
+      ]
+    },
+    "large": {
+      "n": 13,
+      "flip_count_incl_none_as_distinct": 0,
+      "flip_count_non_null_only": 0,
+      "flip_rate": 0.0,
+      "flipped_transcripts": []
+    },
+    "small_micro": {
+      "n": 12,
+      "flip_count_incl_none_as_distinct": 8,
+      "flip_count_non_null_only": 8,
+      "flip_rate": 0.6666666666666666,
+      "flipped_transcripts": [
+        168,
+        169,
+        172,
+        175,
+        186,
+        193,
+        23,
+        355
+      ]
+    }
+  }
+}

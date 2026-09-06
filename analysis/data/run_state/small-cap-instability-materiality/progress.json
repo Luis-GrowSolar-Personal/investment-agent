@@ -1,14 +1,20 @@
 {
   "run_id": "small-cap-instability-materiality",
   "prompt_sha256": "c607c72ef63e076d1b07134ee6aa643246897cf34a065de2401dfde52676d67d",
-  "driver_commit": null,
+  "driver_commit": "007f684",
   "steps": {
-    "step0_hygiene": "pending",
-    "step1_census_reconcile": "pending",
-    "step2_grid": "pending",
-    "step3_units": "pending",
-    "step4_reading": "pending"
+    "step0_hygiene": "done",
+    "step1_census_reconcile": "done",
+    "step2_grid": "done",
+    "step3_units": "done",
+    "step4_reading": "done"
   },
-  "next_action": "commit driver, then run: python3 analysis/small_cap_instability_materiality.py census",
-  "notes": []
+  "next_action": "none -- run complete, wrap-up written to wrap-ups/small-cap-instability-materiality-out.md",
+  "notes": [
+    "Control gate passed exactly ($179,944.91 / 20.8523%).",
+    "Corrected a previously published figure: Test 4's wrap-up reports small_micro flips 7/12 (58%); direct re-count gives 8/12 (67%), matching the design session's own recount.",
+    "Headline: observed_pattern costs $533 (0.30%); uniform_equivalent at matched corruption volume costs $16,682 (9.27%) -- 31.3x more. Small-cap-concentrated noise is structurally far cheaper than the same volume spread evenly.",
+    "Ceiling: small_micro_q1 and small_micro_zero_info both IMPROVE on control -- small-cap categorical instability is economically inert (even beneficial) on this configuration.",
+    "observed_pattern_uniform_mode has a wide seed spread ($154k-$218k) -- flagged, median not fully representative there."
+  ]
 }
