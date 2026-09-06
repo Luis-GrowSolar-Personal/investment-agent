@@ -1,0 +1,213 @@
+{
+  "run_id": "test4-analyst-noise-floor",
+  "timestamp_utc": "2026-09-06T02:16:23Z",
+  "git_commit": "3343c0951c79078d51fc4a860d8d0e7b94eb3028",
+  "git_branch": "sweep/db-corpus-baseline",
+  "git_dirty": true,
+  "driver_file": "analysis/test4_noise_floor.py",
+  "driver_file_tracked_at_commit": true,
+  "params": {},
+  "results": {
+    "n_transcripts": 50,
+    "model_used": "claude-sonnet-4-6",
+    "prompt_header": "v10+auto1 (auto-iterate candidate \u2014 pending gate)",
+    "token_usage": {
+      "input_tokens": 4045405,
+      "output_tokens": 749213,
+      "total_tokens": 4794618,
+      "n_transcripts_done": 50
+    },
+    "primary_field_instability": {
+      "unstable_combos": 39,
+      "total_combos": 200,
+      "pct": 19.5,
+      "fields": [
+        "thesisHealth",
+        "recommendation",
+        "stumbleType",
+        "mitigationCapabilityTrackRecord"
+      ]
+    },
+    "recommendation_flip_count": 11,
+    "recommendation_3way_or_more_splits": [
+      {
+        "transcript_id": 175,
+        "ticker": "ENVX",
+        "recommendations": [
+          "Add",
+          "Add",
+          "Hold",
+          "Hold",
+          "Trim"
+        ]
+      },
+      {
+        "transcript_id": 193,
+        "ticker": "EOSE",
+        "recommendations": [
+          "Trim",
+          "Trim",
+          "Add",
+          "Trim",
+          "Hold"
+        ]
+      },
+      {
+        "transcript_id": 204,
+        "ticker": "MSFT",
+        "recommendations": [
+          "Hold",
+          "Hold",
+          "Trim",
+          "Hold",
+          "Add"
+        ]
+      }
+    ],
+    "all_field_instability": {
+      "thesisHealth": {
+        "n_transcripts_unstable": 1,
+        "n_transcripts_total": 50,
+        "pct_unstable": 2.0
+      },
+      "thesisDelta": {
+        "n_transcripts_unstable": 5,
+        "n_transcripts_total": 50,
+        "pct_unstable": 10.0
+      },
+      "recommendation": {
+        "n_transcripts_unstable": 11,
+        "n_transcripts_total": 50,
+        "pct_unstable": 22.0
+      },
+      "recommendedSize": {
+        "n_transcripts_unstable": 48,
+        "n_transcripts_total": 50,
+        "pct_unstable": 96.0
+      },
+      "freshMoneyAllocation": {
+        "n_transcripts_unstable": 49,
+        "n_transcripts_total": 50,
+        "pct_unstable": 98.0
+      },
+      "typeClassification": {
+        "n_transcripts_unstable": 5,
+        "n_transcripts_total": 50,
+        "pct_unstable": 10.0
+      },
+      "stumbleType": {
+        "n_transcripts_unstable": 5,
+        "n_transcripts_total": 50,
+        "pct_unstable": 10.0
+      },
+      "threatMechanismImpaired": {
+        "n_transcripts_unstable": 0,
+        "n_transcripts_total": 50,
+        "pct_unstable": 0.0
+      },
+      "credibilityDelta": {
+        "n_transcripts_unstable": 6,
+        "n_transcripts_total": 50,
+        "pct_unstable": 12.0
+      },
+      "activeDriverCount": {
+        "n_transcripts_unstable": 33,
+        "n_transcripts_total": 50,
+        "pct_unstable": 66.0
+      },
+      "ratchetTranche": {
+        "n_transcripts_unstable": 7,
+        "n_transcripts_total": 50,
+        "pct_unstable": 14.0
+      },
+      "blindSpotsTriggered": {
+        "n_transcripts_unstable": 0,
+        "n_transcripts_total": 50,
+        "pct_unstable": 0.0
+      },
+      "capPercent": {
+        "n_transcripts_unstable": 5,
+        "n_transcripts_total": 50,
+        "pct_unstable": 10.0
+      },
+      "mitigationArgumentPresent": {
+        "n_transcripts_unstable": 5,
+        "n_transcripts_total": 50,
+        "pct_unstable": 10.0
+      },
+      "mitigationCapabilityTrackRecord": {
+        "n_transcripts_unstable": 22,
+        "n_transcripts_total": 50,
+        "pct_unstable": 44.0
+      }
+    },
+    "hit_rates_per_run": [
+      0.5,
+      0.48,
+      0.46,
+      0.46,
+      0.42
+    ],
+    "n_scoreable_per_run": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "hit_rate_std_pp": 2.65329983228432,
+    "hit_rate_range_pp": 8.000000000000002,
+    "hit_rate_by_tier": {
+      "megacap": {
+        "hit_rates_per_run": [
+          0.15384615384615385,
+          0.15384615384615385,
+          0.23076923076923078,
+          0.15384615384615385,
+          0.23076923076923078
+        ],
+        "std_pp": 3.768445758127967,
+        "range_pp": 7.6923076923076925,
+        "n_scoreable": 13
+      },
+      "large": {
+        "hit_rates_per_run": [
+          0.7692307692307693,
+          0.7692307692307693,
+          0.7692307692307693,
+          0.7692307692307693,
+          0.7692307692307693
+        ],
+        "std_pp": 0.0,
+        "range_pp": 0.0,
+        "n_scoreable": 13
+      },
+      "mid": {
+        "hit_rates_per_run": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "std_pp": 0.0,
+        "range_pp": 0.0,
+        "n_scoreable": 12
+      },
+      "small_micro": {
+        "hit_rates_per_run": [
+          0.5833333333333334,
+          0.5,
+          0.3333333333333333,
+          0.4166666666666667,
+          0.16666666666666666
+        ],
+        "std_pp": 14.337208778404378,
+        "range_pp": 41.66666666666667,
+        "n_scoreable": 12
+      }
+    },
+    "gate_ledger_noise_std_pp_reference": 4.2,
+    "gate_ledger_sonnet_4_6_regression_pp_reference": -7.44
+  }
+}
