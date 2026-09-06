@@ -1,0 +1,18 @@
+{
+  "run_id": "test6-look-ahead-prohibition",
+  "prompt_sha256": "2837c02ad875b7a1ac439545c62b5f769d5f27bc06ac8cc0247cf6fe95e36c1f",
+  "driver_commit": null,
+  "steps": {
+    "step1a_build_treatment": "pending",
+    "step1b_replication": "pending",
+    "step2_treatment": "pending",
+    "step3_analysis": "pending"
+  },
+  "replication_completed": [],
+  "treatment_completed": [],
+  "replication_reproduces_test4": null,
+  "next_action": "commit driver, then run: python3 analysis/test6_look_ahead.py build_treatment",
+  "notes": [
+    "User approved real API spend (~275 calls, ~$25 estimated) at session start, this session, prior to any calls."
+  ]
+}
