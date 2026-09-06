@@ -4,14 +4,20 @@
   "driver_commit": null,
   "steps": {
     "step1a_build_treatment": "pending",
-    "step1b_replication": "pending",
+    "step1b_replication": "done",
     "step2_treatment": "pending",
     "step3_analysis": "pending"
   },
-  "replication_completed": [],
+  "replication_completed": [
+    23,
+    132,
+    141,
+    212,
+    230
+  ],
   "treatment_completed": [],
-  "replication_reproduces_test4": null,
-  "next_action": "commit driver, then run: python3 analysis/test6_look_ahead.py build_treatment",
+  "replication_reproduces_test4": true,
+  "next_action": "replication: 5/5 transcripts scored. Resume by re-running `python3 test6_look_ahead.py replicate`.",
   "notes": [
     "User approved real API spend (~275 calls, ~$25 estimated) at session start, this session, prior to any calls."
   ]

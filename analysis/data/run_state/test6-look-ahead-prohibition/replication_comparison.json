@@ -1,0 +1,97 @@
+{
+  "212": {
+    "ticker": "MSFT",
+    "tier": "megacap",
+    "replication_recs": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Add"
+    ],
+    "test4_recs": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Add"
+    ],
+    "distinct_values_match": true
+  },
+  "141": {
+    "ticker": "MSFT",
+    "tier": "megacap",
+    "replication_recs": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Add"
+    ],
+    "test4_recs": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Add"
+    ],
+    "distinct_values_match": true
+  },
+  "132": {
+    "ticker": "ORCL",
+    "tier": "large",
+    "replication_recs": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Add"
+    ],
+    "test4_recs": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Add"
+    ],
+    "distinct_values_match": true
+  },
+  "230": {
+    "ticker": "TTD",
+    "tier": "mid",
+    "replication_recs": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Add"
+    ],
+    "test4_recs": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Add"
+    ],
+    "distinct_values_match": true
+  },
+  "23": {
+    "ticker": "EOSE",
+    "tier": "small_micro",
+    "replication_recs": [
+      "Hold",
+      "Add",
+      "Hold",
+      "Hold",
+      "Hold"
+    ],
+    "test4_recs": [
+      "Add",
+      "Add",
+      "Add",
+      "Add",
+      "Hold"
+    ],
+    "distinct_values_match": true
+  }
+}
