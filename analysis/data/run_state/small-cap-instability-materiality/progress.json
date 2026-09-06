@@ -1,0 +1,14 @@
+{
+  "run_id": "small-cap-instability-materiality",
+  "prompt_sha256": "c607c72ef63e076d1b07134ee6aa643246897cf34a065de2401dfde52676d67d",
+  "driver_commit": null,
+  "steps": {
+    "step0_hygiene": "pending",
+    "step1_census_reconcile": "pending",
+    "step2_grid": "pending",
+    "step3_units": "pending",
+    "step4_reading": "pending"
+  },
+  "next_action": "commit driver, then run: python3 analysis/small_cap_instability_materiality.py census",
+  "notes": []
+}
