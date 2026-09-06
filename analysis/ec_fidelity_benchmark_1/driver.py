@@ -497,15 +497,25 @@ def classify_sample(db_text, vendor_text, vendor_turns):
 
 
 def vendor_payload_to_text_and_turns(payload):
-    """Level 2: speakers[] with speaker / speaker_info{name,title} / text.
-    Level 1: text (+ prepared_remarks / questions_and_answers). Returns the
-    AV-shaped (text, turns) so classify_sample is unchanged."""
+    """Level 2: speakers[] with an anonymous `speaker` code (e.g. "spk06") and
+    `text`; real names/titles are NOT inline (the prompt's vendor-facts section
+    assumed `speaker_info{name,title}` per-turn -- that field does not exist in
+    the actual response). The real name map is a SEPARATE top-level
+    `speaker_name_map_v2` dict, keyed by the same anonymous code:
+    {"spk06": {"name": "Operator", "title": "Conference Call Moderator"}, ...}.
+    Found during manual verification of the AMPX 2025Q3 load-bearing cell,
+    after `has_speaker_names` (checking the nonexistent inline field) read
+    0/195 -- confirmed via the raw JSON's own `speaker_name_map_v2`, not
+    assumed. Level 1: text (+ prepared_remarks / questions_and_answers).
+    Returns the AV-shaped (text, turns) so classify_sample is unchanged."""
     speakers = payload.get("speakers")
     if speakers:
+        name_map = payload.get("speaker_name_map_v2") or {}
         turns, lines = [], []
         for s in speakers:
-            info = s.get("speaker_info") or {}
-            name = info.get("name") or s.get("speaker") or "Unknown"
+            code = s.get("speaker") or "Unknown"
+            info = name_map.get(code) or s.get("speaker_info") or {}
+            name = info.get("name") or code
             title = info.get("title") or ""
             content = s.get("text") or ""
             turns.append({"speaker": name, "title": title, "content": content})
@@ -627,6 +637,12 @@ def step2_fetch(max_calls_this_invocation=None):
 
 
 def step_reclassify():
+    """Re-run classify_sample AND the derived per-cell fields (word ratio,
+    has_speaker_names, has_prepared_qa_split) over saved raw/ files. 0 vendor
+    calls. Full recompute, not just classification, because the
+    vendor_payload_to_text_and_turns() name-map fix changes vendor_text
+    itself (real names instead of "spkNN" codes), which shifts
+    similarity_ratio for every cell, not only the classification bucket."""
     progress = load_progress()
     if progress is None:
         print("No progress.json."); return
@@ -639,15 +655,30 @@ def step_reclassify():
         v_text, v_turns = vendor_payload_to_text_and_turns(data)
         db_text = get_db_transcript(conn, rec["transcript_id"])
         new = classify_sample(db_text, v_text, v_turns)
-        if new["classification"] != rec.get("classification"):
-            changed.append((tid, rec.get("classification"), new["classification"]))
-            rec.update(new)
+        new["db_word_count"] = len(db_text.split())
+        new["vendor_word_count"] = len(v_text.split())
+        new["word_ratio_vendor_over_db"] = round(new["vendor_word_count"] / max(1, new["db_word_count"]), 4)
+        new["has_speaker_names"] = bool(data.get("speakers")) and any(
+            (data.get("speaker_name_map_v2") or {}).get(s.get("speaker"), {}).get("name")
+            for s in data.get("speakers", []))
+        new["has_prepared_qa_split"] = bool(data.get("prepared_remarks")) and bool(data.get("questions_and_answers"))
+        old_class = rec.get("classification")
+        old_ratio = rec.get("similarity_ratio")
+        rec.update(new)
+        if new["classification"] != old_class or abs((new.get("similarity_ratio") or 0) - (old_ratio or 0)) > 1e-6:
+            changed.append((tid, old_class, new["classification"], old_ratio, new["similarity_ratio"]))
     conn.close()
     save_progress(progress)
     if changed:
-        append_finding("## Reclassification (" + now_iso() + ")\n\n0 vendor calls. " +
-                       "\n".join(f"- id {t}: {o} -> {n}" for t, o, n in changed))
-    print(f"Reclassified {len(changed)} samples: {changed}")
+        append_finding("## Reclassification -- speaker-name-map fix (" + now_iso() + ")\n\n"
+                       "0 vendor calls. Fixed `vendor_payload_to_text_and_turns()` to read real "
+                       "speaker names from `speaker_name_map_v2` (keyed by the anonymous `speaker` "
+                       "code) instead of a nonexistent inline `speaker_info` field -- the latter "
+                       "read 0/195 `has_speaker_names` despite the vendor actually delivering names "
+                       "for every cell. Recomputed classification, similarity_ratio, word counts, "
+                       "and both boolean fields for all classified cells.\n\n" +
+                       "\n".join(f"- id {t}: class {o}->{n}, ratio {oc}->{nc}" for t, o, n, oc, nc in changed))
+    print(f"Reclassified {len(changed)} samples (classification or ratio changed).")
 
 
 # ----------------------------------------------------------------------------
