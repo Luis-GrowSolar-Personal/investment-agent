@@ -98,3 +98,17 @@ Step 1b: replication_reproduces_test4=True. Detail in replication_comparison.jso
 
 [treatment] checkpoint: transcript 172 (ENVX 2023-11-07, tier small_micro) 5/5 runs complete. 43/50 done, 4129679 tokens so far.
 
+[treatment] checkpoint: transcript 170 (ENVX 2024-05-01, tier small_micro) 5/5 runs complete. 44/7 done, 4225822 tokens so far.
+
+[treatment] checkpoint: transcript 16 (AMPX 2025-08-07, tier small_micro) 5/5 runs complete. 45/7 done, 4312311 tokens so far.
+
+[treatment] checkpoint: transcript 169 (AMPX 2023-03-23, tier small_micro) 5/5 runs complete. 46/7 done, 4384710 tokens so far.
+
+[treatment] checkpoint: transcript 173 (ENVX 2023-07-26, tier small_micro) 5/5 runs complete. 47/7 done, 4497538 tokens so far.
+
+[treatment] checkpoint: transcript 168 (AMPX 2023-05-10, tier small_micro) 5/5 runs complete. 48/7 done, 4572084 tokens so far.
+
+[treatment] checkpoint: transcript 175 (ENVX 2023-02-22, tier small_micro) 5/5 runs complete. 49/7 done, 4674845 tokens so far.
+
+[treatment] checkpoint: transcript 186 (EOSE 2023-11-07, tier small_micro) 5/5 runs complete. 50/7 done, 4797022 tokens so far.
+
