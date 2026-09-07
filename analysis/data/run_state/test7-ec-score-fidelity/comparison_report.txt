@@ -1,0 +1,56 @@
+
+### Tier A: AMPX id 16 (tier small_micro) -- DB n=5 (Test4 cache), EC n=3 (this run)
+  thesisHealth: DB=['Strengthening', 'Strengthening', 'Strengthening', 'Strengthening', 'Strengthening'] EC=['Strengthening', 'Strengthening', 'Strengthening'] -> inconclusive-overlap
+  recommendation: DB=['Add', 'Add', 'Add', 'Add', 'Add'] EC=['Add', 'Add', 'Add'] -> inconclusive-overlap
+  stumbleType: DB=['None', 'None', 'None', 'None', 'None'] EC=['None', 'None', 'None'] -> inconclusive-overlap
+  mitigationCapabilityTrackRecord: DB=['strong', 'strong', 'strong', 'strong', 'strong'] EC=['strong', 'strong', 'strong'] -> inconclusive-overlap
+  recommendedSize: DB=[18, 8, 22, 18, 18] EC=[18, 18, 18] -> inconclusive-overlap
+  freshMoneyAllocation: DB=[12, 5, 12, 12, 12] EC=[12, 12, 14] -> inconclusive-overlap
+
+### Tier A: FSLR id 287 (tier mid) -- DB n=5 (Test4 cache), EC n=3 (this run)
+  thesisHealth: DB=['Strengthening', 'Strengthening', 'Strengthening', 'Strengthening', 'Strengthening'] EC=['Strengthening', 'Strengthening', 'Strengthening'] -> inconclusive-overlap
+  recommendation: DB=['Add', 'Add', 'Add', 'Add', 'Add'] EC=['Add', 'Add', 'Add'] -> inconclusive-overlap
+  stumbleType: DB=['None', 'None', 'None', 'None', 'None'] EC=['None', 'None', 'None'] -> inconclusive-overlap
+  mitigationCapabilityTrackRecord: DB=['mixed', 'strong', 'strong', 'unproven', 'strong'] EC=['mixed', 'strong', 'strong'] -> inconclusive-overlap
+  recommendedSize: DB=[22, 35, 18, 28, 20] EC=[28, 35, 28] -> inconclusive-overlap
+  freshMoneyAllocation: DB=[18, 25, 14, 22, 15] EC=[18, 28, 22] -> inconclusive-overlap
+
+### Tier A: TSLA id 220 (tier megacap) -- DB n=5 (Test4 cache), EC n=3 (this run)
+  thesisHealth: DB=['Strengthening', 'Strengthening', 'Strengthening', 'Strengthening', 'Strengthening'] EC=['Strengthening', 'Strengthening', 'Strengthening'] -> inconclusive-overlap
+  recommendation: DB=['Add', 'Add', 'Add', 'Add', 'Add'] EC=['Add', 'Add', 'Add'] -> inconclusive-overlap
+  stumbleType: DB=['Execution', 'Execution', 'Execution', 'Execution', 'Execution'] EC=['Execution', 'Execution', 'Execution'] -> inconclusive-overlap
+  mitigationCapabilityTrackRecord: DB=['unproven', 'mixed', 'mixed', 'mixed', 'mixed'] EC=['mixed', 'strong', 'mixed'] -> inconclusive-overlap
+  recommendedSize: DB=[18, 18, 18, 28, 28] EC=[28, 20, 28] -> inconclusive-overlap
+  freshMoneyAllocation: DB=[12, 12, 12, 18, 18] EC=[18, 15, 18] -> inconclusive-overlap
+
+### Tier A: QS id 348 (tier small_micro) -- DB n=5 (Test4 cache), EC n=3 (this run)
+  thesisHealth: DB=['Intact', 'Intact', 'Intact', 'Intact', 'Intact'] EC=['Intact', 'Intact', 'Intact'] -> inconclusive-overlap
+  recommendation: DB=['Hold', 'Hold', 'Hold', 'Hold', 'Hold'] EC=['Add', 'Hold', 'Add'] -> inconclusive-overlap
+  stumbleType: DB=['None', 'None', 'None', 'None', 'None'] EC=['None', 'None', 'None'] -> inconclusive-overlap
+  mitigationCapabilityTrackRecord: DB=['mixed', 'mixed', 'unproven', 'strong', 'unproven'] EC=['mixed', 'mixed', 'unproven'] -> inconclusive-overlap
+  recommendedSize: DB=[8, 4, 8, 4, 8] EC=[8, 8, 8] -> inconclusive-overlap
+  freshMoneyAllocation: DB=[4, 2, 4, 2, 4] EC=[5, 4, 4] -> inconclusive-overlap
+
+### Tier B: RUN id 370 -- DB n=3, EC n=3 (both fresh)
+  thesisHealth: DB=['Strengthening', 'Strengthening', 'Strengthening'] EC=['Strengthening', 'Strengthening', 'Strengthening'] -> inconclusive-overlap
+  recommendation: DB=['Add', 'Add', 'Add'] EC=['Add', 'Add', 'Add'] -> inconclusive-overlap
+  stumbleType: DB=['None', 'None', 'None'] EC=['None', 'None', 'None'] -> inconclusive-overlap
+  mitigationCapabilityTrackRecord: DB=['strong', 'strong', 'strong'] EC=['strong', 'strong', 'strong'] -> inconclusive-overlap
+  recommendedSize: DB=[18, 18, 18] EC=[18, 18, 22] -> inconclusive-overlap
+  freshMoneyAllocation: DB=[12, 12, 12] EC=[14, 12, 14] -> inconclusive-overlap
+
+### Tier B: AAPL id 154 -- DB n=3, EC n=3 (both fresh)
+  thesisHealth: DB=['Intact', 'Intact', 'Intact'] EC=['Intact', 'Intact', 'Intact'] -> inconclusive-overlap
+  recommendation: DB=['Hold', 'Add', 'Hold'] EC=['Add', 'Add', 'Add'] -> inconclusive-overlap
+  stumbleType: DB=['Execution', 'Discovery', 'Discovery'] EC=['Discovery', 'Discovery', 'Discovery'] -> inconclusive-overlap
+  mitigationCapabilityTrackRecord: DB=['strong', 'strong', 'strong'] EC=['strong', 'strong', 'strong'] -> inconclusive-overlap
+  recommendedSize: DB=[20, 22, 20] EC=[28, 28, 35] -> DIVERGENCE
+  freshMoneyAllocation: DB=[15, 18, 15] EC=[22, 22, 28] -> DIVERGENCE
+
+### Tier B: AMD id 249 -- DB n=3, EC n=3 (both fresh)
+  thesisHealth: DB=['Strengthening', 'Strengthening', 'Strengthening'] EC=['Strengthening', 'Strengthening', 'Strengthening'] -> inconclusive-overlap
+  recommendation: DB=['Add', 'Add', 'Add'] EC=['Add', 'Add', 'Add'] -> inconclusive-overlap
+  stumbleType: DB=['None', 'None', 'None'] EC=['None', 'None', 'None'] -> inconclusive-overlap
+  mitigationCapabilityTrackRecord: DB=['strong', 'strong', 'strong'] EC=['strong', 'strong', 'strong'] -> inconclusive-overlap
+  recommendedSize: DB=[22, 18, 22] EC=[32, 32, 35] -> DIVERGENCE
+  freshMoneyAllocation: DB=[18, 14, 18] EC=[22, 28, 25] -> DIVERGENCE

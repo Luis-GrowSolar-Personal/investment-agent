@@ -1,0 +1,82 @@
+{
+  "run_id": "test7-ec-score-fidelity",
+  "steps": {
+    "0_check": "done",
+    "1_build": "done",
+    "2_score": "done",
+    "3_compare": "done"
+  },
+  "cells": {
+    "16": {
+      "tier": "A",
+      "ticker": "AMPX",
+      "build_ok": true,
+      "ec_raw_path": "analysis/ec_fidelity_benchmark_1/raw/AMPX_2025Q2_id16.json",
+      "db_word_count": 6890,
+      "ec_word_count": 7175
+    },
+    "287": {
+      "tier": "A",
+      "ticker": "FSLR",
+      "build_ok": true,
+      "ec_raw_path": "analysis/ec_fidelity_benchmark_1/raw/FSLR_2022Q4_id287.json",
+      "db_word_count": 9791,
+      "ec_word_count": 9840
+    },
+    "220": {
+      "tier": "A",
+      "ticker": "TSLA",
+      "build_ok": true,
+      "ec_raw_path": "analysis/ec_fidelity_benchmark_1/raw/TSLA_2022Q3_id220.json",
+      "db_word_count": 8039,
+      "ec_word_count": 8066
+    },
+    "348": {
+      "tier": "A",
+      "ticker": "QS",
+      "build_ok": true,
+      "ec_raw_path": "analysis/ec_fidelity_benchmark_1/raw/QS_2024Q1_id348.json",
+      "db_word_count": 4206,
+      "ec_word_count": 4334
+    },
+    "370": {
+      "tier": "B",
+      "ticker": "RUN",
+      "build_ok": true,
+      "ec_raw_path": "analysis/ec_fidelity_benchmark_1/raw/RUN_2022Q3_id370.json",
+      "db_word_count": 10742,
+      "ec_word_count": 11442
+    },
+    "154": {
+      "tier": "B",
+      "ticker": "AAPL",
+      "build_ok": true,
+      "ec_raw_path": "analysis/ec_fidelity_benchmark_1/raw/AAPL_2022Q4_id154.json",
+      "db_word_count": 7900,
+      "ec_word_count": 8204
+    },
+    "249": {
+      "tier": "B",
+      "ticker": "AMD",
+      "build_ok": true,
+      "ec_raw_path": "analysis/ec_fidelity_benchmark_1/raw/AMD_2022Q2_id249.json",
+      "db_word_count": 8819,
+      "ec_word_count": 9332
+    },
+    "757": {
+      "tier": "C",
+      "ticker": "GOOGL",
+      "build_ok": true,
+      "ec_raw_path": "analysis/ec_fidelity_benchmark_1/raw/probe_GOOG_2026Q2.json",
+      "db_word_count": 9163,
+      "ec_word_count": 8600
+    }
+  },
+  "calls_made": 30,
+  "input_tokens": 489195,
+  "output_tokens": 88030,
+  "notes": [],
+  "model": "claude-sonnet-4-6",
+  "prompt_header": "v10+auto1 (auto-iterate candidate \u2014 pending gate)",
+  "tier_a_blocked": []
+}
