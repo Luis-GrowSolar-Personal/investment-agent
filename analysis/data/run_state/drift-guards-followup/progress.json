@@ -1,0 +1,22 @@
+{
+  "run_id": "drift-guards-followup",
+  "prompt_sha256": "5b3b6c0f1cd4b024a30292f1a0134b7cd4f7853f25d6181e30bfaaa40a5a0a11",
+  "driver_commit": "1465541c15427de402aea1e0a07bd9ff9ce2f92e",
+  "git_dirty_at_start": true,
+  "git_dirty_note": "Same pre-existing state as the prior run: one modified tracked file belonging to a different concurrent run_id (ec-fidelity-benchmark-1), plus untracked inputs/scratch. Not touched.",
+  "steps": {
+    "step1_versions_js_fail_safe": "done",
+    "step2_auto_iterate_seed_path": "done",
+    "step3_accepted_divergence_decision": "done",
+    "step4_doc_corrections": "done",
+    "step5_verify": "done"
+  },
+  "commits": [
+    "b528221 fix: drift guards follow-up -- fail-safe versions.js, seed-path gap, accepted-divergence decision"
+  ],
+  "next_action": "None -- run complete. Wrap-up written to wrap-ups/drift-guards-followup-out.md.",
+  "notes": [
+    "Found and fixed a second instance of the exact boot-refusal landmine the prompt only named in versions.js: server/routes/evaluate.js's own startup checkPromptHash() call reads the same registry file and would throw at require() time under the same conditions. Fixed identically (fail-safe log, no throw) plus wrapped the per-request handler.",
+    "No allocator_v4 load-bearing usage found -- only run_expanded_test.py imports it, not behind any settled/published figure."
+  ]
+}
