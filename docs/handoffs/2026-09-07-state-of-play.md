@@ -449,3 +449,21 @@ prioritization; full write-up handed off in that session.
   the prompt they load, record it in the manifest, and refuse to run on a
   mismatch with `versions.js`. Being handled in a separate session.
 - **The MDE recipe in Test 6 §6 must be fixed before reuse** (§5 row 5).
+
+---
+
+## Correction, appended 2026-09-12 (prompts/model-provenance-corrections.md)
+
+§6 above describes `claude-sonnet-4-6` as "(bare alias — reproducibility risk
+stands)." **That caveat is withdrawn.** A 2026-09-12 check of Anthropic's own
+model-ID documentation established that from Claude 4.6 onward, a dateless
+model ID *is* the canonical, pinned snapshot, not a floating alias —
+`claude-sonnet-4-6` was correctly pinned the entire time. Separately, this
+document's open items (§11, and earlier sessions) treated
+`claude-sonnet-4-20250514`'s retirement as an unverified claim from a commit
+message; it is now confirmed retired 2026-06-15, with `claude-sonnet-4-6`
+Active and retirement not sooner than 2027-02-17. See
+`docs/architecture/PROMOTION_GATE.md` §8's 2026-09-12 correction and new
+§8.1 (forced-migration protocol), and `VERSION_REGISTRY.json`'s
+`artifacts.model` record. No measured figure elsewhere in this document is
+affected by this correction.

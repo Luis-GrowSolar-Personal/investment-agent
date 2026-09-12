@@ -384,3 +384,23 @@ for r in d['runs']:
     print(r['run_idx'], r['structured'].get('recommendation') if r['structured'] else None)
 "
 ```
+
+---
+
+## Correction, appended 2026-09-12 (prompts/model-provenance-corrections.md)
+
+This wrap-up's headline block and Step 2 both state
+**"reproducibility risk: bare alias, flagged"** for `claude-sonnet-4-6`. **That
+caveat is withdrawn.** A 2026-09-12 check of Anthropic's own model-ID
+documentation established that from Claude 4.6 onward, a dateless model ID
+*is* the canonical, pinned snapshot — Anthropic does not repoint existing
+IDs, new versions ship under new IDs. `claude-sonnet-4-6` was correctly
+pinned the entire time this run measured it; there was no silent-drift risk
+to flag. See `docs/architecture/PROMOTION_GATE.md` §8's 2026-09-12
+correction for the full explanation, and `VERSION_REGISTRY.json`'s
+`artifacts.model` record, which now carries the corrected note alongside
+the original (superseded) one.
+
+This is a correction to this wrap-up's *framing*, not to any measured
+number in it — the token counts, instability rates, and noise-floor figures
+above are unaffected and stand as originally reported.

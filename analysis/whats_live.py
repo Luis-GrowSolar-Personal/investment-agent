@@ -14,10 +14,16 @@ the exit code (there is nothing to mismatch against).
 
 Usage:
     python3 analysis/whats_live.py
+    python3 analysis/whats_live.py --registry-path /path/to/a/copy.json
+        # For demonstrating/testing checker logic (e.g. staleness-on-model-
+        # change) against a scratch COPY of the registry. Never point this
+        # at anything other than a copy for a real check -- every scoring
+        # driver treats the live VERSION_REGISTRY.json as a hard gate.
 """
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import subprocess
@@ -116,8 +122,17 @@ def check_artifact(key: str, artifact: dict) -> dict:
 
 
 def main() -> int:
-    registry = json.loads(REGISTRY_PATH.read_text())
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--registry-path", default=None,
+                         help="Path to a VERSION_REGISTRY.json COPY to check instead of "
+                              "the live one -- for demonstrating checker logic only.")
+    args = parser.parse_args()
+    registry_path = Path(args.registry_path) if args.registry_path else REGISTRY_PATH
+    registry = json.loads(registry_path.read_text())
     exit_code = 0
+
+    if registry_path != REGISTRY_PATH:
+        print(f"NOTE: checking a non-live registry path: {registry_path}\n")
 
     print("=" * 78)
     print("whats_live.py -- version registry status")
@@ -160,11 +175,23 @@ def main() -> int:
 
     print("\n[4] Stale benchmarks (valid_while artifacts have moved)\n")
     any_stale = False
+    promoted_model = registry["artifacts"].get("model", {}).get("promoted_version")
     for key, bench in registry["benchmarks"].items():
         if bench.get("stale"):
             any_stale = True
             print(f"  STALE  {key}")
             print(f"         reason: {bench.get('stale_reason')}")
+            continue
+        # Computed, not remembered (comparison-protocol rule 5, PROMOTION_GATE.md
+        # Sec11.5): a record whose recorded model no longer matches the currently
+        # promoted model is stale on the model axis, regardless of whether a
+        # static `stale` flag was ever set for it.
+        record_model = bench.get("model")
+        if record_model is not None and promoted_model is not None and record_model != promoted_model:
+            any_stale = True
+            print(f"  STALE  {key}  (model axis)")
+            print(f"         reason: recorded under model={record_model!r}, "
+                  f"currently promoted model is {promoted_model!r}")
     if not any_stale:
         print("  (none marked stale)")
 
@@ -184,7 +211,33 @@ def main() -> int:
         except Exception as e:
             print(f"  fundamentals_cache: could not compute age ({e})")
 
-    print("\n[6] Accepted / settled divergences -- known, do not act\n")
+    print("\n[6] Model retirement countdown\n")
+    print("  Informational only -- never affects exit code (PROMOTION_GATE.md Sec8.1).")
+    warning_threshold_days = 90
+    any_retirement = False
+    for key, artifact in registry["artifacts"].items():
+        ret_date_str = artifact.get("retirement_date")
+        if not ret_date_str:
+            continue
+        any_retirement = True
+        try:
+            ret_date = datetime.fromisoformat(ret_date_str).replace(tzinfo=timezone.utc)
+            days_left = (ret_date - datetime.now(timezone.utc)).days
+            flag = " -- WITHIN WARNING WINDOW" if days_left <= warning_threshold_days else ""
+            print(f"  {key} ({artifact.get('promoted_version')}): "
+                  f"retires {ret_date_str} -- {days_left} days left "
+                  f"(warning threshold {warning_threshold_days}d){flag}")
+            if days_left <= warning_threshold_days:
+                print(f"           ACTION (PROMOTION_GATE.md Sec8.1 step 2): capture a paired bridge "
+                      f"sample under BOTH the outgoing and incoming model before the retirement date. "
+                      f"After retirement, pairing becomes impossible forever -- as already happened "
+                      f"with the corpus scored by claude-sonnet-4-20250514.")
+        except Exception as e:
+            print(f"  {key}: could not compute retirement countdown from {ret_date_str!r} ({e})")
+    if not any_retirement:
+        print("  (no registered artifact carries a retirement_date)")
+
+    print("\n[7] Accepted / settled divergences -- known, do not act\n")
     any_accepted = False
     for key, decision in registry["decisions"].items():
         if decision.get("disposition", "").startswith("ACCEPTED"):
@@ -196,7 +249,7 @@ def main() -> int:
     if not any_accepted:
         print("  (none)")
 
-    print("\n[7] Open decisions\n")
+    print("\n[8] Open decisions\n")
     for key, decision in registry["decisions"].items():
         if decision.get("disposition", "").startswith(("OPEN", "GAP", "PENDING")):
             print(f"  {decision.get('disposition'):20} {key}")

@@ -29,10 +29,14 @@
       "promoted_sha256_note": "2026-09-12 version-registry-and-drift-guards rewrote versions.js from a hand-maintained constant into a thin re-export of this registry's own promoted_version fields (hash then eb7d24c3...). The 2026-09-12 drift-guards-followup run made that re-export fail SAFE (try/catch around the registry read, exporting an UNKNOWN sentinel on failure instead of throwing at require() time) -- current hash 70303e61... reflects that change. c1ef9016... was the original pre-rewrite hand-maintained-constant hash. Both superseded, not version changes.",
       "promotion_date": "2026-06-27",
       "gate_ledger_ref": "data/gate_ledger.json#0 (entry 1)",
-      "status": "promoted, flagged",
-      "note": "'claude-sonnet-4-6' is a bare, undated alias -- violates PROMOTION_GATE.md Sec8's own rule. Known forced exception: the previously-pinned dated snapshot claude-sonnet-4-20250514 was retired by Anthropic (claimed in the 2026-06-27 commit message, never independently verified against Anthropic's model catalog -- see 2026-09-03-prompt-version-drift.md Sec3 step4). The one formal gate run on record (entry 1, 2026-05-23) tested this exact substitution and returned verdict HOLD (delta_pp -7.44 vs noise_std_pp 4.2, robustness_ok false); the champion (claude-sonnet-4-20250514) was retained that day, then silently re-substituted 5 weeks later with no new gate run, no ledger entry, no wrap-up. The corpus (analysis_corpus_20260830.sql and downstream) was scored by claude-sonnet-4-20250514, which is now retired and cannot be regenerated at any price (docs/handoffs/2026-09-07-state-of-play.md, and ALLOCATOR_PORTING_METHODOLOGY.md comparison-protocol rule 1).",
+      "status": "promoted -- correctly pinned (bare-alias flag withdrawn 2026-09-12)",
+      "retirement_date": "2027-02-17",
+      "retirement_date_note": "Tentative, 'not sooner than', per Anthropic's stated policy. See PROMOTION_GATE.md Sec8.1.",
+      "retirement_policy_notice_days": 60,
+      "note": "CORRECTED 2026-09-12 (prompts/model-provenance-corrections.md, PROMOTION_GATE.md Sec8 correction): a 2026-09-12 check of Anthropic's own model-ID documentation established that from Claude 4.6 onward, a dateless model ID IS the canonical, pinned snapshot -- Anthropic does not repoint existing IDs, new versions ship under new IDs. 'claude-sonnet-4-6' is therefore correctly pinned and always was; the bare-alias flag below was written against the pre-4.6 convention (where a dateless ID like claude-sonnet-4-5 floated) and does not apply here. Recording the model ID string is sufficient provenance for a post-4.6 model -- no behavioural fingerprint is needed, because silent drift of a pinned ID cannot occur. Separately, also verified 2026-09-12: claude-sonnet-4-20250514 retired 2026-06-15 (previously recorded as 'never independently verified' -- now confirmed), with claude-sonnet-4-6 named as its replacement; the 2026-06-27 migration was forced by that retirement, not careless, though it still shipped a model the one formal gate run (entry 1, HOLD, delta_pp -7.44 vs noise_std_pp 4.2) had rejected, with no forced-exception ledger entry recorded even now (PROMOTION_GATE.md Sec8.1, 'Open' line).",
+      "note_superseded_2026-09-12": "SUPERSEDED, kept visible per this project's standing rule that a corrected claim supersedes explicitly and is never quietly replaced. Original text, now known WRONG: \"'claude-sonnet-4-6' is a bare, undated alias -- violates PROMOTION_GATE.md Sec8's own rule. Known forced exception: the previously-pinned dated snapshot claude-sonnet-4-20250514 was retired by Anthropic (claimed in the 2026-06-27 commit message, never independently verified against Anthropic's model catalog -- see 2026-09-03-prompt-version-drift.md Sec3 step4). The one formal gate run on record (entry 1, 2026-05-23) tested this exact substitution and returned verdict HOLD (delta_pp -7.44 vs noise_std_pp 4.2, robustness_ok false); the champion (claude-sonnet-4-20250514) was retained that day, then silently re-substituted 5 weeks later with no new gate run, no ledger entry, no wrap-up. The corpus (analysis_corpus_20260830.sql and downstream) was scored by claude-sonnet-4-20250514, which is now retired and cannot be regenerated at any price (docs/handoffs/2026-09-07-state-of-play.md, and ALLOCATOR_PORTING_METHODOLOGY.md comparison-protocol rule 1).\"",
       "candidates": [
-        {"version": "claude-sonnet-4-20250514", "status": "retired, unregenerable", "detail": "Scored the entire existing backtest corpus. Cannot be re-run against new transcripts."}
+        {"version": "claude-sonnet-4-20250514", "status": "retired, unregenerable", "retired_date": "2026-06-15", "retired_date_note": "Verified 2026-09-12 against Anthropic's own model-ID documentation -- previously only claimed in a 2026-06-27 commit message and recorded as unverified.", "detail": "Scored the entire existing backtest corpus. Cannot be re-run against new transcripts."}
       ]
     },
 
@@ -160,7 +164,8 @@
       },
       "corpus_window": "2022-01-01 to 2024-06-12, ALL16 (16 tickers)",
       "drawdown_ruler": "not both-sided in the source figure as quoted here -- see comparison-protocol rule 3 in PROMOTION_GATE.md; do not requote this pair without naming both rulers",
-      "valid_while": ["evaluation_prompt unchanged", "allocator_v3 unchanged", "corpus unchanged"],
+      "model": "claude-sonnet-4-20250514",
+      "valid_while": ["evaluation_prompt unchanged", "allocator_v3 unchanged", "corpus unchanged", "model unchanged"],
       "reproduced": true,
       "quotable": true
     },
@@ -172,7 +177,8 @@
         "model": "claude-sonnet-4-6"
       },
       "corpus_window": "50-transcript sample, ALL16-derived",
-      "valid_while": ["MUST BE TREATED AS ALREADY STALE per the prompt's own instruction -- measured under v10+auto1, which was never gated and has since been rolled back"],
+      "model": "claude-sonnet-4-6",
+      "valid_while": ["MUST BE TREATED AS ALREADY STALE per the prompt's own instruction -- measured under v10+auto1, which was never gated and has since been rolled back", "model unchanged"],
       "reproduced": true,
       "quotable": false,
       "stale": true,
@@ -186,7 +192,8 @@
         "model": "claude-sonnet-4-6"
       },
       "corpus_window": "same 50-transcript sample as test4, paired reuse",
-      "valid_while": ["MUST BE TREATED AS ALREADY STALE, same reason as test4_per_tier_noise_floors"],
+      "model": "claude-sonnet-4-6",
+      "valid_while": ["MUST BE TREATED AS ALREADY STALE, same reason as test4_per_tier_noise_floors", "model unchanged"],
       "reproduced": true,
       "quotable": false,
       "stale": true,
@@ -201,7 +208,8 @@
         "allocator_simulator": "allocator_v3.py, efc649d5..."
       },
       "corpus_window": "2022-01-01 to 2024-06-12, ALL16",
-      "valid_while": ["evaluation_prompt unchanged", "allocator_v3 unchanged"],
+      "model": "claude-sonnet-4-20250514",
+      "valid_while": ["evaluation_prompt unchanged", "allocator_v3 unchanged", "model unchanged"],
       "reproduced": true,
       "quotable": true,
       "note": "Every verdict forced to Hold. Do not confuse with uncorrupted q=0.0 ($179,944.91/20.85%) -- see requote row 7."
@@ -210,7 +218,9 @@
       "figures": {"delta": 0.00, "unit": "USD"},
       "source": "docs/handoffs/2026-09-07-state-of-play.md Sec4.1",
       "artifact_versions_and_hashes": {"allocator_simulator": "allocator_v3.py, efc649d5..."},
-      "valid_while": ["allocator_v3 unchanged"],
+      "model": "claude-sonnet-4-20250514",
+      "model_note": "Not an independent scoring run -- a deterministic in-simulator sensitivity sweep (recommendedSize perturbation) replayed against the settled_control corpus rows. Inherits that corpus's scoring model rather than making its own API calls. Verified against 09-07 Sec4.1's own text (ties the $179,944.91 control to the cent), not assumed.",
+      "valid_while": ["allocator_v3 unchanged", "model unchanged"],
       "reproduced": true,
       "quotable": true
     },
@@ -218,7 +228,9 @@
       "figures": {"delta": 533.00, "unit": "USD"},
       "source": "docs/handoffs/2026-09-07-state-of-play.md Sec4.2",
       "artifact_versions_and_hashes": {"allocator_simulator": "allocator_v3.py, efc649d5..."},
-      "valid_while": ["allocator_v3 unchanged"],
+      "model": "claude-sonnet-4-20250514",
+      "model_note": "Same basis as sizing_channel_null: an in-simulator corruption sweep over the settled_control corpus rows, not a fresh scoring run. Inherits the corpus model.",
+      "valid_while": ["allocator_v3 unchanged", "model unchanged"],
       "reproduced": true,
       "quotable": true
     },
@@ -227,6 +239,8 @@
       "source": "appears in tables alongside SPY/QQQ/TMFC in earlier state-of-plays",
       "reproduced": false,
       "ruler": "unknown",
+      "model": null,
+      "model_note": "N/A, not 'could not be determined' -- an equal-weight index benchmark is pure price data with no analyst scoring step, so a model field does not apply here the way it does to the other six records. Flagged explicitly per this run's instruction rather than left silently blank.",
       "quotable": false,
       "stale_reason": "baseline.py computes SPY/QQQ/TMFC only -- EW was never reproduced by any driver on record. Per ALLOCATOR_PORTING_METHODOLOGY.md comparison-protocol rule 4: do not quote as measured."
     }

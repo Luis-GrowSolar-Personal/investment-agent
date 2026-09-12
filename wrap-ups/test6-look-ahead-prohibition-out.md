@@ -447,3 +447,19 @@ python3 test6_look_ahead.py analyze           # Step 3/4, no new calls
 - **Whether the sentence changed output length, structure, or field
   completeness**: no material length confound found (18 chars / 0.14%,
   §9); deeper structural audit not attempted.
+
+---
+
+## Correction, appended 2026-09-12 (prompts/model-provenance-corrections.md)
+
+This wrap-up refers to `claude-sonnet-4-6` as "the same bare, undated alias
+Test 4 used and the same one `PROMOTION_GATE.md` [flags]." **That caveat is
+withdrawn.** A 2026-09-12 check of Anthropic's own model-ID documentation
+established that from Claude 4.6 onward, a dateless model ID *is* the
+canonical, pinned snapshot — not a floating alias. `claude-sonnet-4-6` was
+correctly pinned throughout this run. See
+`docs/architecture/PROMOTION_GATE.md` §8's 2026-09-12 correction and
+`VERSION_REGISTRY.json`'s `artifacts.model` record.
+
+No measured figure in this wrap-up is affected — this corrects the
+reproducibility-risk framing only.
