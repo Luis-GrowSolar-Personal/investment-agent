@@ -328,9 +328,35 @@ def parse_structured(text):
 
 
 def get_model_version():
-    vjs = (REPO / "server" / "lib" / "versions.js").read_text()
-    m = re.search(r"MODEL_VERSION\s*=\s*'([^']+)'", vjs)
-    return m.group(1)
+    """Resolve MODEL_VERSION by actually running server/lib/versions.js
+    through node, not by regex-scraping its source text.
+
+    FIX (2026-09-12, prompts/test4-noise-floor-v6-rerun.md): the previous
+    regex (`MODEL_VERSION\\s*=\\s*'([^']+)'`) broke silently-but-loudly the
+    moment versions.js stopped being a single `const MODEL_VERSION = '...'`
+    line. The 2026-09-12 drift-guards-followup run rewrote versions.js to
+    fail safe on a missing registry, and its console.error() log message
+    literally contains the substring `MODEL_VERSION='${UNKNOWN_SENTINEL}'`
+    -- the regex matched THAT instead of the real assignment, and this
+    driver sent `model: '${UNKNOWN_SENTINEL}'` to the Anthropic API,
+    surfacing as a 404 NotFoundError before any real call in this run's
+    model-drift check. No calls were made or tokens spent -- caught before
+    the first request. Running versions.js's actual code path (rather than
+    text-matching it) makes this immune to future refactors of that file."""
+    versions_path = REPO / "server" / "lib" / "versions.js"
+    out = subprocess.run(
+        ["node", "-e", f"console.log(require({json.dumps(str(versions_path))}).MODEL_VERSION)"],
+        capture_output=True, text=True, timeout=10,
+    )
+    if out.returncode != 0:
+        raise RuntimeError(f"get_model_version(): node failed: {out.stderr.strip()}")
+    model = out.stdout.strip()
+    if not model or model.startswith("UNKNOWN-"):
+        raise RuntimeError(
+            f"get_model_version(): resolved to {model!r} -- VERSION_REGISTRY.json "
+            f"may be unreadable. Refusing to proceed with an unresolved model string."
+        )
+    return model
 
 
 def get_prompt_header():
