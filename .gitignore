@@ -46,3 +46,5 @@ client/dist/
 
 # Local brokerage position exports -- account data, never versioned
 testing/
+analysis/*/raw/
+Claude outputs/
