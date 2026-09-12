@@ -434,6 +434,99 @@ Each step ships and is usable on its own; resist building all at once.
 
 ---
 
+## 11. Comparison protocol — what may be compared to what
+
+Ported verbatim in substance from `ALLOCATOR_PORTING_METHODOLOGY.md`'s final
+section (2026-09-12). Referenced, not duplicated, from
+`VERSION_REGISTRY.json`'s `comparison_protocol` record.
+
+**Why this is here:** a version registry makes the *machinery* unambiguous.
+It does not make a *comparison* legitimate. A session can read two
+correctly-recorded figures, subtract them, and produce a number that looks
+authoritative and is meaningless. These rules make the illegal subtraction
+illegal rather than merely visible.
+
+### 11.1 Absolute figures are tuple-scoped
+
+Final value, absolute return and absolute drawdown are comparable **only
+within an identical tuple**: (corpus tickers, window, prompt version+hash,
+model, allocator version, settled configuration).
+
+Across any difference in that tuple they are **not comparable** — not
+"comparable with an adjustment," not comparable. There is no
+"improved 2pp over corpus" measurement to get right when the tickers or the
+window differ.
+
+Live example of why: the existing corpus was scored by
+`claude-sonnet-4-20250514`, which is **retired and cannot be regenerated at
+any price**. Any new corpus is scored by a different model, so absolute
+comparison against $179,944.91 / $184,819 is confounded before anyone even
+changes the tickers.
+
+### 11.2 Across tuples, only benchmark-relative metrics travel
+
+And each must be computed over the run's **own** window:
+
+- portfolio return vs SPY / QQQ / TMFC over that same window;
+- analyst-direct hit rate vs the always-bullish baseline (lift).
+
+Caveat that must travel with lift: it is mechanically capped at
+(1 − baseline). With a baseline near 0.85, a *perfect* analyst scores at
+most +15pp, and a declining lift series across a bullish stretch is the
+**null expectation, not a signal**.
+
+**So a new corpus is compared against market benchmarks over its own
+window — never against a prior run's absolute figures.**
+
+### 11.3 Every drawdown names its ruler, on BOTH sides
+
+Session-sampled and daily-marked drawdowns differ by 1.9–8.3pp on this
+project's own data. The published "8.04pp advantage over SPY" was portfolio
+session-sampled against SPY daily-marked; like-for-like on the daily ruler
+it is **1.90pp**.
+
+A drawdown pair without two rulers named is not a result. Reject it in
+review.
+
+### 11.4 EW is not a measured benchmark
+
+`$120,427 / 42.76%` was never reproduced and its ruler is unknown
+(`baseline.py` computes SPY/QQQ/TMFC only). **Do not quote it as measured.**
+Either reproduce it or remove it from the tables it sits in — it currently
+looks legitimate because three real figures surround it.
+
+### 11.5 Staleness is computed, not remembered
+
+A benchmark figure is stale the moment any artifact hash it was measured
+under changes. That is what `VERSION_REGISTRY.json`'s `benchmarks` records
+are for, and why `whats_live.py` reports stale figures rather than relying
+on a human to recall which numbers expired.
+
+### 11.6 Noise floors are sample-scoped
+
+A hit-rate noise floor depends on n **and on the specific transcripts**.
+Test 4's per-tier floors (0.0 / 0.0 / 3.77 / 14.34pp) transfer only to runs
+on the identical 50-transcript sample — which is exactly why Test 6 was
+designed as a paired reuse of it rather than a fresh draw. **A new corpus
+needs its own floor before any effect on it can be called detectable.**
+
+### 11.7 Cross-model comparison requires paired rows
+
+`gate_ledger.json` entry 1 had **zero paired rows** (champion n=6, all
+`Add`; challenger n=36). A model comparison without overlapping scored
+transcripts is **confounded, not merely weak**. Pair, or do not compare.
+
+### 11.8 State the minimum detectable effect before calling anything significant
+
+And derive it correctly. Test 6 computed its MDE by dividing a binomial CI
+by √5 on the grounds that each arm averaged 5 runs — **not defensible**:
+the 5 runs re-score the *same* transcripts, so averaging reduces scoring
+noise, not sampling uncertainty about which transcripts were drawn.
+Separately, an unpaired binomial is too conservative for a paired design;
+the natural test is on **discordant pairs** (McNemar). Fix before reuse.
+
+---
+
 ## Changelog
 | Date | Change | Rationale |
 |---|---|---|
@@ -441,3 +534,4 @@ Each step ships and is usable on its own; resist building all at once.
 | 2026-05-23b | Two-hurdle extension: split analyst changes into improvement vs equivalence hurdle | If every model version update must clearly beat the incumbent to be adopted, and none ever does, the system would eventually be stranded on a deprecated model with no validated fallback. Model-version changes now use an equivalence hurdle: adopt unless the challenger clearly regresses (Δ < −1 SD). Prompt / eval-logic changes retain the improvement hurdle (Δ > +1 SD to adopt). Three-verdict system (PROMOTE / EQUIVALENT / HOLD) added to §5; holdout skipped for EQUIVALENT results. Implemented in gate_runner.py via --change-class flag. |
 | 2026-09-02 | Third change class: implementation-layer changes (§2.3), fidelity hurdle, binary CONFORM / DIVERGE verdict (§5d); fixture version discipline (§8); conformance fixtures added to the build sequence (§9.6) as a prerequisite for `CLAUDE.md` Step 8(a); in-app replay recorded as a deferred product feature (§10). Mechanics in `CONFORMANCE_FIXTURES.md`. | The gate as locked answers “should we adopt this design?” and never asks “did we build the design we adopted?” §2.1 runs the simulator against the frozen evaluation cache and never executes production code, so a production defect passes silently — as task #77’s 11x sizing divergence would have. Comparison is on the decision stream rather than dollars: Python↔JS bit-exactness is unachievable, and a trade-list diff localizes a defect where a dollar gap does not. Fixtures rather than in-app replay because they run in CI on every commit at a fraction of the build. |
 | 2026-09-02b | §2.3 restructured into two headless tiers — golden fixtures (decision function, CI) and a headless replay driver (input assembly, per release); build sequence gains §9.7; instrumentation UI reframed in §10 with an overfitting condition | Fixtures alone are blind to input assembly: they hand the allocator a given state, so §9 invariant #5 and §11 defect #2 — both state-assembly failures — could not fail a tier-1 gate. Tier 2 closes that without a user interface. Separately, an instrumentation UI is a legitimate product feature but a cheap parameter search by another name; it is bound to §2.1's pre-registration and holdout discipline rather than allowed to select settings on its own. |
+| 2026-09-12 | Section 11 added: comparison protocol (8 rules) ported verbatim in substance from `ALLOCATOR_PORTING_METHODOLOGY.md`'s final section, referenced from `VERSION_REGISTRY.json`'s new `comparison_protocol` record. | Part of the version-registry-and-drift-guards build: a registry makes artifact identity unambiguous but not comparison legitimacy — these 8 rules make an illegal subtraction (mismatched tuple, unpaired model comparison, unruled drawdown, a bad MDE recipe) illegal rather than merely visible. |
