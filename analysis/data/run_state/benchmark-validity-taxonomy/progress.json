@@ -1,0 +1,24 @@
+{
+  "run_id": "benchmark-validity-taxonomy",
+  "prompt_sha256": "22c750ff1025334cc9bb451bfa7629d01e3456bbc44d29bef37a6d1c51e51950",
+  "driver_commit": "adc225dd9ab7c2c2f5c84ca16a2b1d0bda3ec409",
+  "precondition_check": {
+    "checked": true,
+    "result": "PASS -- test4-analyst-noise-floor-v6 confirmed halted/never-started, no scoring process running."
+  },
+  "steps": {
+    "step0_precondition": "done",
+    "step1_three_states": "done",
+    "step2_whats_live_rework": "done",
+    "step3_promotion_gate_11_5": "done",
+    "step4_verify": "done"
+  },
+  "commits": [
+    "9d6690f fix: benchmark validity taxonomy -- three states replace the stale boolean"
+  ],
+  "next_action": "None -- run complete. Wrap-up at wrap-ups/benchmark-validity-taxonomy-out.md.",
+  "notes": [
+    "Final classification: 0 VALID, 6 SUPERSEDED (4 deterministic_replay, 2 requires_rescoring_under_candidate), 1 UNREPRODUCIBLE (ew_baseline).",
+    "ew_baseline reclassified from quotable:false alone to UNREPRODUCIBLE -- verified as the stronger, more accurate state since no driver ever computed it and its ruler is unknown (not merely unregenerated)."
+  ]
+}
