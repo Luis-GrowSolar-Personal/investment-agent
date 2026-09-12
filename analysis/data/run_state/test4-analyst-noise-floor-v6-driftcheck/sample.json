@@ -1,0 +1,302 @@
+[
+  {
+    "ticker": "MSFT",
+    "transcript_id": 212,
+    "call_date": "2020-10-27",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "MSFT",
+    "transcript_id": 141,
+    "call_date": "2024-10-30",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "MSFT",
+    "transcript_id": 204,
+    "call_date": "2023-01-24",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "AAPL",
+    "transcript_id": 156,
+    "call_date": "2022-01-27",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "GOOGL",
+    "transcript_id": 297,
+    "call_date": "2024-01-30",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "GOOGL",
+    "transcript_id": 113,
+    "call_date": "2025-04-24",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "TSLA",
+    "transcript_id": 220,
+    "call_date": "2022-10-19",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "TSLA",
+    "transcript_id": 224,
+    "call_date": "2021-10-20",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "GOOGL",
+    "transcript_id": 303,
+    "call_date": "2022-10-25",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "AAPL",
+    "transcript_id": 52,
+    "call_date": "2025-01-30",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "TSLA",
+    "transcript_id": 46,
+    "call_date": "2025-10-22",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "NVDA",
+    "transcript_id": 315,
+    "call_date": "2022-05-25",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "GOOGL",
+    "transcript_id": 114,
+    "call_date": "2025-02-04",
+    "tier": "megacap"
+  },
+  {
+    "ticker": "ORCL",
+    "transcript_id": 132,
+    "call_date": "2025-06-10",
+    "tier": "large"
+  },
+  {
+    "ticker": "ORCL",
+    "transcript_id": 336,
+    "call_date": "2023-03-09",
+    "tier": "large"
+  },
+  {
+    "ticker": "AMD",
+    "transcript_id": 240,
+    "call_date": "2023-10-31",
+    "tier": "large"
+  },
+  {
+    "ticker": "ORCL",
+    "transcript_id": 331,
+    "call_date": "2024-06-11",
+    "tier": "large"
+  },
+  {
+    "ticker": "AVGO",
+    "transcript_id": 266,
+    "call_date": "2021-09-02",
+    "tier": "large"
+  },
+  {
+    "ticker": "AMD",
+    "transcript_id": 120,
+    "call_date": "2025-02-04",
+    "tier": "large"
+  },
+  {
+    "ticker": "ORCL",
+    "transcript_id": 131,
+    "call_date": "2025-09-09",
+    "tier": "large"
+  },
+  {
+    "ticker": "AVGO",
+    "transcript_id": 258,
+    "call_date": "2023-06-01",
+    "tier": "large"
+  },
+  {
+    "ticker": "AVGO",
+    "transcript_id": 264,
+    "call_date": "2022-03-03",
+    "tier": "large"
+  },
+  {
+    "ticker": "ORCL",
+    "transcript_id": 343,
+    "call_date": "2021-09-13",
+    "tier": "large"
+  },
+  {
+    "ticker": "AVGO",
+    "transcript_id": 255,
+    "call_date": "2024-06-12",
+    "tier": "large"
+  },
+  {
+    "ticker": "ORCL",
+    "transcript_id": 344,
+    "call_date": "2021-03-10",
+    "tier": "large"
+  },
+  {
+    "ticker": "ORCL",
+    "transcript_id": 338,
+    "call_date": "2022-09-12",
+    "tier": "large"
+  },
+  {
+    "ticker": "TTD",
+    "transcript_id": 230,
+    "call_date": "2023-08-09",
+    "tier": "mid"
+  },
+  {
+    "ticker": "FSLR",
+    "transcript_id": 292,
+    "call_date": "2022-03-01",
+    "tier": "mid"
+  },
+  {
+    "ticker": "FSLR",
+    "transcript_id": 284,
+    "call_date": "2024-02-27",
+    "tier": "mid"
+  },
+  {
+    "ticker": "TTD",
+    "transcript_id": 238,
+    "call_date": "2021-05-10",
+    "tier": "mid"
+  },
+  {
+    "ticker": "FSLR",
+    "transcript_id": 287,
+    "call_date": "2023-02-28",
+    "tier": "mid"
+  },
+  {
+    "ticker": "FSLR",
+    "transcript_id": 100,
+    "call_date": "2025-02-25",
+    "tier": "mid"
+  },
+  {
+    "ticker": "TTD",
+    "transcript_id": 36,
+    "call_date": "2025-02-12",
+    "tier": "mid"
+  },
+  {
+    "ticker": "FSLR",
+    "transcript_id": 285,
+    "call_date": "2023-07-27",
+    "tier": "mid"
+  },
+  {
+    "ticker": "TTD",
+    "transcript_id": 233,
+    "call_date": "2022-08-09",
+    "tier": "mid"
+  },
+  {
+    "ticker": "TTD",
+    "transcript_id": 34,
+    "call_date": "2024-08-08",
+    "tier": "mid"
+  },
+  {
+    "ticker": "TTD",
+    "transcript_id": 234,
+    "call_date": "2021-08-09",
+    "tier": "mid"
+  },
+  {
+    "ticker": "TTD",
+    "transcript_id": 239,
+    "call_date": "2022-11-09",
+    "tier": "mid"
+  },
+  {
+    "ticker": "EOSE",
+    "transcript_id": 23,
+    "call_date": "2025-07-31",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "QS",
+    "transcript_id": 348,
+    "call_date": "2024-04-24",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "EOSE",
+    "transcript_id": 193,
+    "call_date": "2022-02-25",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "QS",
+    "transcript_id": 355,
+    "call_date": "2022-10-26",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "ENVX",
+    "transcript_id": 172,
+    "call_date": "2023-11-07",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "ENVX",
+    "transcript_id": 170,
+    "call_date": "2024-05-01",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "AMPX",
+    "transcript_id": 16,
+    "call_date": "2025-08-07",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "AMPX",
+    "transcript_id": 169,
+    "call_date": "2023-03-23",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "ENVX",
+    "transcript_id": 173,
+    "call_date": "2023-07-26",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "AMPX",
+    "transcript_id": 168,
+    "call_date": "2023-05-10",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "ENVX",
+    "transcript_id": 175,
+    "call_date": "2023-02-22",
+    "tier": "small_micro"
+  },
+  {
+    "ticker": "EOSE",
+    "transcript_id": 186,
+    "call_date": "2023-11-07",
+    "tier": "small_micro"
+  }
+]

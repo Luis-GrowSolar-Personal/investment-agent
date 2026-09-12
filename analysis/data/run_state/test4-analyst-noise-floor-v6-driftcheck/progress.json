@@ -1,0 +1,20 @@
+{
+  "run_id": "test4-analyst-noise-floor-v6-driftcheck",
+  "prompt_sha256": "4e76da582c93c0bb6fd2db7e4db5a48375772966506bb84f240108a6133495e1",
+  "driver_commit": "75e27f7dda73e0c0300029892005500ae4b58170",
+  "steps": {
+    "step2_250_scoring_calls": "done"
+  },
+  "transcripts_completed": [
+    23,
+    132,
+    141,
+    212,
+    230
+  ],
+  "next_action": "5/5 transcripts scored (5 runs each). Resume by re-running with the same --run-id/--out-dir.",
+  "notes": [],
+  "concurrency_notes_seen": [
+    "5-way concurrent"
+  ]
+}
