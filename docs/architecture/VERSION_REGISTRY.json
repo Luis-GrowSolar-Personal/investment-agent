@@ -167,7 +167,10 @@
       "model": "claude-sonnet-4-20250514",
       "valid_while": ["evaluation_prompt unchanged", "allocator_v3 unchanged", "corpus unchanged", "model unchanged"],
       "reproduced": true,
-      "quotable": true
+      "quotable": true,
+      "reproducibility": "SUPERSEDED",
+      "reproducibility_value": "deterministic_replay",
+      "reproducibility_note": "2026-09-12 (prompts/benchmark-validity-taxonomy.md): SUPERSEDED, not UNREPRODUCIBLE -- this figure replays exactly from the frozen Analysis rows for the corpus window; the allocator_v3 simulator is deterministic given those rows, and this figure has reproduced to the cent across repeated runs this project has made. It is stale on the model axis only in the sense that the ANALYST that scored those rows (claude-sonnet-4-20250514) is retired and can never be re-invoked -- that is a permanent property of this record, not a defect awaiting a fix, and there is no remediation to look for. Cite this figure only within its own tuple (PROMOTION_GATE.md Sec11.1): same corpus, same prompt, same model, same allocator version. Never extrapolate it to describe the currently-promoted model."
     },
     "test4_per_tier_noise_floors": {
       "figures": {"large": 0.0, "megacap": 0.0, "mid": 3.77, "small_micro": 14.34, "unit": "pp"},
@@ -182,7 +185,10 @@
       "reproduced": true,
       "quotable": false,
       "stale": true,
-      "stale_reason": "Measured under evaluation_prompt v10+auto1 (ungated, rolled back 2026-09-03/2026-09-12). The promoted prompt is now v6. Any run reusing these floors is comparing against a candidate that never shipped."
+      "stale_reason": "Measured under evaluation_prompt v10+auto1 (ungated, rolled back 2026-09-03/2026-09-12). The promoted prompt is now v6. Any run reusing these floors is comparing against a candidate that never shipped.",
+      "reproducibility": "SUPERSEDED",
+      "reproducibility_value": "requires_rescoring_under_candidate",
+      "reproducibility_note": "2026-09-12: SUPERSEDED, not UNREPRODUCIBLE -- the exact v10+auto1 prompt blob survives in git history at commit 87bcfaa (sha256 b81d24c6...), registered as a candidate under artifacts.evaluation_prompt. Re-measuring this figure means deliberately re-invoking that registered candidate via PROMPT_CANDIDATE=v10+auto1, which the drift-guards work makes possible without touching the promoted prompt. Unlike the corpus-anchored records, nothing about this figure is permanently lost -- it is superseded because the promoted prompt changed (v10+auto1 -> v6), not because an input vanished."
     },
     "test6_look_ahead_null": {
       "figures": {"large": 0.0, "megacap": -1.54, "mid": -6.67, "small_micro": 8.33, "unit": "pp, delta treatment-control"},
@@ -197,7 +203,10 @@
       "reproduced": true,
       "quotable": false,
       "stale": true,
-      "stale_reason": "Same evaluation_prompt drift as test4_per_tier_noise_floors -- measured under the ungated v10+auto1 candidate."
+      "stale_reason": "Same evaluation_prompt drift as test4_per_tier_noise_floors -- measured under the ungated v10+auto1 candidate.",
+      "reproducibility": "SUPERSEDED",
+      "reproducibility_value": "requires_rescoring_under_candidate",
+      "reproducibility_note": "Same basis as test4_per_tier_noise_floors -- the v10+auto1 blob is recoverable (git 87bcfaa, registered candidate), so re-measurement is a deliberate PROMPT_CANDIDATE invocation away, not permanently lost."
     },
     "test1_zero_info_floor": {
       "figures": {"final_value": 120800.00},
@@ -212,7 +221,10 @@
       "valid_while": ["evaluation_prompt unchanged", "allocator_v3 unchanged", "model unchanged"],
       "reproduced": true,
       "quotable": true,
-      "note": "Every verdict forced to Hold. Do not confuse with uncorrupted q=0.0 ($179,944.91/20.85%) -- see requote row 7."
+      "note": "Every verdict forced to Hold. Do not confuse with uncorrupted q=0.0 ($179,944.91/20.85%) -- see requote row 7.",
+      "reproducibility": "SUPERSEDED",
+      "reproducibility_value": "deterministic_replay",
+      "reproducibility_note": "Same basis as settled_control -- deterministic replay from frozen Analysis rows (every verdict forced Hold), permanently anchored to the retired claude-sonnet-4-20250514 analyst on the model axis with no possible remediation. Cite only within its own tuple."
     },
     "sizing_channel_null": {
       "figures": {"delta": 0.00, "unit": "USD"},
@@ -222,7 +234,10 @@
       "model_note": "Not an independent scoring run -- a deterministic in-simulator sensitivity sweep (recommendedSize perturbation) replayed against the settled_control corpus rows. Inherits that corpus's scoring model rather than making its own API calls. Verified against 09-07 Sec4.1's own text (ties the $179,944.91 control to the cent), not assumed.",
       "valid_while": ["allocator_v3 unchanged", "model unchanged"],
       "reproduced": true,
-      "quotable": true
+      "quotable": true,
+      "reproducibility": "SUPERSEDED",
+      "reproducibility_value": "deterministic_replay",
+      "reproducibility_note": "Same basis as settled_control -- an in-simulator sweep over frozen corpus rows, deterministic and repeatable, permanently anchored to the retired claude-sonnet-4-20250514 analyst on the model axis."
     },
     "small_cap_materiality": {
       "figures": {"delta": 533.00, "unit": "USD"},
@@ -232,7 +247,10 @@
       "model_note": "Same basis as sizing_channel_null: an in-simulator corruption sweep over the settled_control corpus rows, not a fresh scoring run. Inherits the corpus model.",
       "valid_while": ["allocator_v3 unchanged", "model unchanged"],
       "reproduced": true,
-      "quotable": true
+      "quotable": true,
+      "reproducibility": "SUPERSEDED",
+      "reproducibility_value": "deterministic_replay",
+      "reproducibility_note": "Same basis as settled_control -- an in-simulator sweep over frozen corpus rows, deterministic and repeatable, permanently anchored to the retired claude-sonnet-4-20250514 analyst on the model axis."
     },
     "ew_baseline": {
       "figures": {"final_value": 120427.00, "drawdown_pct": 42.76},
@@ -242,7 +260,10 @@
       "model": null,
       "model_note": "N/A, not 'could not be determined' -- an equal-weight index benchmark is pure price data with no analyst scoring step, so a model field does not apply here the way it does to the other six records. Flagged explicitly per this run's instruction rather than left silently blank.",
       "quotable": false,
-      "stale_reason": "baseline.py computes SPY/QQQ/TMFC only -- EW was never reproduced by any driver on record. Per ALLOCATOR_PORTING_METHODOLOGY.md comparison-protocol rule 4: do not quote as measured."
+      "stale_reason": "baseline.py computes SPY/QQQ/TMFC only -- EW was never reproduced by any driver on record. Per ALLOCATOR_PORTING_METHODOLOGY.md comparison-protocol rule 4: do not quote as measured.",
+      "reproducibility": "UNREPRODUCIBLE",
+      "reproducibility_value": "no_known_method",
+      "reproducibility_note": "2026-09-12: classified UNREPRODUCIBLE, not SUPERSEDED -- deliberately stronger than the existing quotable:false flag alone, per this run's own question about whether that flag was sufficient. The distinction that matters: a SUPERSEDED record has a KNOWN method that once produced it and could reproduce it again (deterministic replay, or re-scoring a recoverable prompt blob). This record has neither -- no driver on record ever computed it (baseline.py handles SPY/QQQ/TMFC only), and its ruler (session-sampled vs daily-marked, per PROMOTION_GATE.md Sec11.3) is unknown, so there is no stated methodology to even attempt to reproduce. A future EW computation would be a NEW figure under a chosen methodology, not a reproduction of this one. This is the one entry that should draw a reader's attention in whats_live.py's output -- everything else is expected, permanent, and non-actionable; this one is an unresolved data-integrity gap."
     }
   },
 

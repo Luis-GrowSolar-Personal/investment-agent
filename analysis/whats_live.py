@@ -173,27 +173,74 @@ def main() -> int:
     print(f"  allocator:              {settled.get('artifact_versions_and_hashes', {}).get('allocator_simulator')}")
     print(f"  quotable:               {settled.get('quotable')}")
 
-    print("\n[4] Stale benchmarks (valid_while artifacts have moved)\n")
-    any_stale = False
+    print("\n[4] Benchmark validity (three states, not a boolean)\n")
+    print("  VALID: cite freely. SUPERSEDED: cite only within its own tuple")
+    print("  (PROMOTION_GATE.md Sec11.1) -- reproducible, describes a retired")
+    print("  configuration, NOT a defect and not something to go fix.")
+    print("  UNREPRODUCIBLE: no known method ever produced it again -- this")
+    print("  is the state that deserves attention.\n")
+
     promoted_model = registry["artifacts"].get("model", {}).get("promoted_version")
-    for key, bench in registry["benchmarks"].items():
+
+    def classify(bench):
+        """Returns (state, value, note). VALID/SUPERSEDED is computed
+        dynamically against the live promoted model (comparison-protocol
+        rule 5, PROMOTION_GATE.md Sec11.5) or a pre-existing static `stale`
+        flag (e.g. a prompt-version mismatch, which isn't a single
+        hash-comparable field). UNREPRODUCIBLE is never computed -- it must
+        be declared (Step 1's own instruction: the tool cannot infer
+        reproducibility from hashes)."""
+        declared = bench.get("reproducibility")
+        value = bench.get("reproducibility_value")
+        note = bench.get("reproducibility_note")
+        if declared == "UNREPRODUCIBLE":
+            return "UNREPRODUCIBLE", value, note
         if bench.get("stale"):
-            any_stale = True
-            print(f"  STALE  {key}")
-            print(f"         reason: {bench.get('stale_reason')}")
-            continue
-        # Computed, not remembered (comparison-protocol rule 5, PROMOTION_GATE.md
-        # Sec11.5): a record whose recorded model no longer matches the currently
-        # promoted model is stale on the model axis, regardless of whether a
-        # static `stale` flag was ever set for it.
+            return "SUPERSEDED", value, note or bench.get("stale_reason")
         record_model = bench.get("model")
         if record_model is not None and promoted_model is not None and record_model != promoted_model:
-            any_stale = True
-            print(f"  STALE  {key}  (model axis)")
-            print(f"         reason: recorded under model={record_model!r}, "
-                  f"currently promoted model is {promoted_model!r}")
-    if not any_stale:
-        print("  (none marked stale)")
+            return "SUPERSEDED", value, (note or "") + (
+                f" [model axis: recorded under {record_model!r}, "
+                f"currently promoted is {promoted_model!r}]"
+            )
+        return "VALID", value, note
+
+    results = {key: classify(bench) for key, bench in registry["benchmarks"].items()}
+    counts = {"VALID": 0, "SUPERSEDED": 0, "UNREPRODUCIBLE": 0}
+    for state, _, _ in results.values():
+        counts[state] += 1
+
+    # UNREPRODUCIBLE first and unmissable -- it is the one state that
+    # deserves attention; SUPERSEDED must not be allowed to bury it.
+    unrepro = [k for k, (s, _, _) in results.items() if s == "UNREPRODUCIBLE"]
+    if unrepro:
+        print(f"  ** UNREPRODUCIBLE ({len(unrepro)}) -- needs attention, unlike the states below **")
+        for key in unrepro:
+            _, value, note = results[key]
+            print(f"    {key}  [{value}]")
+            print(f"      {note}")
+        print()
+
+    superseded = [k for k, (s, _, _) in results.items() if s == "SUPERSEDED"]
+    if superseded:
+        print(f"  SUPERSEDED ({len(superseded)}) -- reproducible, describes a retired "
+              f"configuration. Cite ONLY within its own tuple; never extrapolate to "
+              f"the current system.")
+        for key in superseded:
+            _, value, note = results[key]
+            print(f"    {key}  [{value}]")
+            print(f"      {note}")
+        print()
+
+    valid = [k for k, (s, _, _) in results.items() if s == "VALID"]
+    if valid:
+        print(f"  VALID ({len(valid)}) -- every valid_while artifact unchanged. Cite freely.")
+        for key in valid:
+            print(f"    {key}")
+        print()
+
+    print(f"  Counts: {counts['VALID']} VALID, {counts['SUPERSEDED']} SUPERSEDED, "
+          f"{counts['UNREPRODUCIBLE']} UNREPRODUCIBLE")
 
     print("\n[5] Cache-age breaches\n")
     fc = registry["artifacts"].get("fundamentals_cache", {})

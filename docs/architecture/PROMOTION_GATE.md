@@ -329,11 +329,55 @@ A candidate must clear the spread attributable to chance.
 
 ## 8. Version discipline (prerequisites for the gate to mean anything)
 
-- **Pin Claude to a dated snapshot** (e.g. `claude-sonnet-4-YYYYMMDD`), never a bare /
-  `-latest` alias. You cannot run a clean before/after on a model change if the model
-  drifts underneath you. (See the accidental `claude-sonnet-4-20250514` →
-  `claude-sonnet-4-6` bump caught 2026-05-23 — exactly the event this gate exists to
-  control. Open decision: revert to pinned old model vs adopt 4-6 via a gate run.)
+- **Pin Claude to an immutable model ID.** You cannot run a clean before/after on a
+  model change if the model drifts underneath you. (See the accidental
+  `claude-sonnet-4-20250514` → `claude-sonnet-4-6` bump caught 2026-05-23 — exactly
+  the event this gate exists to control.)
+
+  **CORRECTED 2026-09-12 — this rule previously read "pin to a dated snapshot (e.g.
+  `claude-sonnet-4-YYYYMMDD`), never a bare / `-latest` alias." That wording is now
+  wrong and was mis-firing.** It was written under Anthropic's **pre-4.6** naming
+  convention, where a dateless ID such as `claude-sonnet-4-5` was a floating alias
+  that resolved to the newest 4-5 snapshot.
+
+  **From Claude 4.6 onward the convention changed: the dateless ID *is* the pinned
+  snapshot.** Per Anthropic's model-ID documentation, post-4.6 IDs
+  (`claude-sonnet-4-6`, `claude-opus-4-8`, …) "are **not aliases** — they are the
+  canonical, pinned snapshots themselves. Anthropic does not update existing model
+  IDs; new versions ship under new IDs," and "when you use a model ID in an API
+  request, the underlying model remains constant for the lifetime of that ID."
+
+  **Consequence: `claude-sonnet-4-6` is correctly pinned and always was.** Every
+  place this project flagged it as "a bare, undated alias — violates §8 — known
+  forced exception" was mistaken, including `VERSION_REGISTRY.json`'s `model` note
+  and the "reproducibility risk: bare alias, flagged" caveats in
+  `wrap-ups/test4-analyst-noise-floor-out.md` and
+  `wrap-ups/test6-look-ahead-prohibition-out.md`. **Recording the model ID string is
+  sufficient provenance for a post-4.6 model.** No behavioural fingerprint is needed
+  to detect silent drift, because silent drift of a pinned ID cannot occur.
+
+  **Also verified 2026-09-12, closing an open question:** the 2026-06-27 commit
+  message claimed the dated snapshot had been retired by Anthropic, and this project
+  recorded that the claim was never independently checked. It is now confirmed —
+  `claude-sonnet-4-20250514` **retired 2026-06-15**, with `claude-sonnet-4-6` named
+  as its replacement. The June bump was forced, not careless.
+
+  **The rule, restated:** pin an immutable ID. Pre-4.6, that means a dated snapshot.
+  Post-4.6, the dateless canonical ID already is one. Never use a `-latest`-style
+  floating pointer. Record the exact ID string sent to the API on every stored row
+  and in every benchmark record.
+
+- **Model retirement is a scheduled event, not a risk — plan against the date.**
+  Pinning protects against silent change; it does **not** protect against the ID
+  ceasing to exist. Anthropic gives **at least 60 days' notice** and publishes
+  tentative retirement dates. Current position for this project:
+
+  | model ID | role here | status |
+  |---|---|---|
+  | `claude-sonnet-4-20250514` | scored the corpus | **RETIRED 2026-06-15** — unregenerable |
+  | `claude-sonnet-4-6` | current promoted model | Active, retirement **not sooner than 2027-02-17** |
+
+  See §8.1.
 - **Stamp every stored `Analysis` row** with `(promptVersion, modelVersion)`. The
   schema does not record this today — only `createdAt`. Add the columns so analyst
   drift is auditable forever instead of reconstructed from deploy history.
@@ -349,6 +393,67 @@ A candidate must clear the spread attributable to chance.
 - **Never regenerate fixtures to make a failing test pass.** Regeneration is a
   deliberate act, tied to a design change that has already passed §2.1, and
   recorded in the experiment ledger like any other promotion.
+
+### 8.1 Forced-migration protocol — what a gate verdict means when declining is not an option
+
+**Added 2026-09-12.** Everything else in this document assumes the gate can say no.
+Model retirement is the case where it cannot, and this project has already lived
+through it once without a procedure.
+
+**The precedent, on record:** `gate_ledger.json` entry 1 (2026-05-23) tested exactly
+the `claude-sonnet-4-20250514` → `claude-sonnet-4-6` substitution and returned
+**HOLD** (`delta_pp` −7.44 against `noise_std_pp` 4.2). Three weeks later the champion
+was **retired** (2026-06-15) and the migration happened anyway. The project shipped a
+model its own gate had rejected, because the alternative was shipping nothing.
+
+That is not a failure of the gate. It is a case the gate does not cover, and the
+absence of a procedure for it is why the June change went in with no ledger entry and
+no explicit exception recorded — still an open item in the 09-05 state of play.
+
+**Cadence, so this is planned rather than survived.** Retirements run roughly 6–12
+months per model with ≥60 days' notice. The runway that matters now:
+**`claude-sonnet-4-6` retires not sooner than 2027-02-17.**
+
+**The protocol:**
+
+1. **Pin, and record the retirement date** alongside the ID in
+   `VERSION_REGISTRY.json`. A pinned ID with an unknown expiry is only half-tracked.
+   `whats_live.py` should surface days-to-retirement, so the deadline arrives as a
+   countdown rather than an email.
+
+2. **Capture the migration bridge BEFORE the retirement date.** This is the one step
+   that cannot be recovered afterward, and this project has already paid for missing
+   it: the corpus was scored by `claude-sonnet-4-20250514` and **cannot be
+   regenerated at any price**, so no paired comparison against it is possible ever
+   again. Before a model retires, score a fixed sample under **both** the outgoing
+   model and its replacement, same prompt, same transcripts, same temperature. That
+   paired set is what carries comparability across the gap. §11.7 already requires
+   paired rows for any cross-model comparison; after retirement, pairing becomes
+   impossible, so the window to satisfy §11.7 closes on the retirement date.
+
+3. **Run the gate anyway — but as characterisation, not decision.** When migration is
+   compelled, the gate is no longer asking "should we adopt this." It is asking "what
+   changed, and what does that invalidate." Report the metrics exactly as §3 requires,
+   and record the verdict, but state explicitly that the verdict was **not
+   actionable**.
+
+4. **Record a forced exception in the ledger,** distinct from an ordinary verdict:
+   the metrics, the verdict the gate *would* have returned, the retirement date that
+   overrode it, and the bridge sample that supports future comparison. A HOLD that
+   shipped must be visibly a HOLD that shipped — never quietly reclassified as a pass.
+
+5. **Mark every dependent benchmark stale on the migration date.** Any figure measured
+   under the outgoing model is no longer describes the running system. This is
+   mechanical if benchmark records carry the model ID (see §11.5); it is guesswork if
+   they do not.
+
+6. **Do not treat a forced migration as a promotion.** The new model is *in use*, not
+   *validated*. It carries whatever the characterisation run found, including an
+   unresolved regression, until a real gate can be run on a representative scope.
+
+**Open, as of 2026-09-12:** entry 1's −7.44pp HOLD has still never been re-adjudicated
+on a representative scope, and the June 2026 forced exception has still never been
+written to the ledger.
 
 ---
 
@@ -495,12 +600,70 @@ review.
 Either reproduce it or remove it from the tables it sits in — it currently
 looks legitimate because three real figures surround it.
 
-### 11.5 Staleness is computed, not remembered
+### 11.5 Validity is computed, not remembered — and it is three states, not a boolean
 
-A benchmark figure is stale the moment any artifact hash it was measured
-under changes. That is what `VERSION_REGISTRY.json`'s `benchmarks` records
-are for, and why `whats_live.py` reports stale figures rather than relying
-on a human to recall which numbers expired.
+**CORRECTED 2026-09-12 (`prompts/benchmark-validity-taxonomy.md`).** This
+rule previously read: *"A benchmark figure is stale the moment any artifact
+hash it was measured under changes."* **That boolean framing is now known
+to conflate two different facts and is superseded below — kept here,
+visibly, per this project's standing rule that a correction supersedes
+explicitly and is never quietly replaced.**
+
+The boolean was applied literally in `model-provenance-corrections`
+(2026-09-12): adding a per-record `model` field and extending each
+record's `valid_while` made **6 of the project's 7 benchmark records read
+STALE** — four of them *permanently*, with no possible remediation. The
+only unflagged record, `ew_baseline`, was the one that actually deserved a
+warning (never reproduced, ruler unknown). A flag that fires on nearly
+everything, while missing the one real problem, stops carrying
+information — the exact alert-fatigue failure `allocator_live`'s handling
+in the registry's `decisions` already avoided for the app/backtest
+divergence, reintroduced here via the model axis.
+
+**Why one boolean cannot represent this:** `settled_control` replays to the
+cent from frozen `Analysis` rows under a deterministic simulator — it is
+not stale in any reproducibility sense; every run this project has made
+this week hit `$179,944.91` exactly. But it describes a system driven by an
+analyst model (`claude-sonnet-4-20250514`) that is now retired and can
+never be re-invoked — permanently, not pending a fix. Those two facts
+demand opposite reader responses: "cannot reproduce" is a data-integrity
+alarm; "reproducible, but describes a retired configuration" is a
+don't-extrapolate warning, which is exactly this document's own §11.1
+tuple rule restated as a registry field rather than left as prose a reader
+has to recall.
+
+**The three states, replacing the boolean:**
+
+| state | meaning | how to cite |
+|---|---|---|
+| **VALID** | every `valid_while` artifact unchanged | freely |
+| **SUPERSEDED** | a `valid_while` artifact moved, but the figure can still be regenerated from surviving inputs (deterministic replay of frozen rows, or a recoverable prompt/model combination) | **only within its own tuple** (§11.1) — never extrapolate it to describe the currently-promoted system |
+| **UNREPRODUCIBLE** | the inputs, or the method, no longer exist or were never established; the figure can never be re-verified | historical record only |
+
+**The state cannot be inferred from a hash comparison — it must be
+declared**, per benchmark record, as a `reproducibility` field
+(`VERSION_REGISTRY.json`). A hash mismatch alone only tells you *that*
+something moved; whether the figure is still regenerable (SUPERSEDED) or
+irretrievably lost (UNREPRODUCIBLE) is a fact about the world a session has
+to establish and record, the same way `reproducibility_note` explains *why*.
+
+**Corpus-anchored records carry a permanent, non-actionable SUPERSEDED on
+the model axis.** `settled_control`, `test1_zero_info_floor`,
+`sizing_channel_null`, and `small_cap_materiality` all derive from the one
+frozen corpus scored under `claude-sonnet-4-20250514`. They will read
+SUPERSEDED on the model axis under every future promoted model, forever —
+that is a permanent property of what they are, not a defect awaiting a
+fix, and a reader must not go looking for one. Contrast
+`test4_per_tier_noise_floors` and `test6_look_ahead_null`, whose prompt
+(`v10+auto1`) survives at commit `87bcfaa` as a registered candidate — those
+genuinely can be re-measured by deliberately invoking that candidate, so
+their SUPERSEDED is actionable in a way the corpus four's is not.
+
+`whats_live.py` groups by state, prints counts, and orders UNREPRODUCIBLE
+first specifically so it is not buried under the (expected, larger) count
+of SUPERSEDED records. Exit-code behavior is unchanged by this section: a
+validity state is informational, never a non-zero exit; only a
+promoted-artifact hash mismatch (§1's registered artifacts) does that.
 
 ### 11.6 Noise floors are sample-scoped
 
@@ -528,6 +691,17 @@ the natural test is on **discordant pairs** (McNemar). Fix before reuse.
 ---
 
 ## Changelog
+
+- **2026-09-12** — §8 **corrected**: the "pin to a dated snapshot, never a bare alias"
+  rule was written under Anthropic's pre-4.6 naming convention and mis-fires on
+  post-4.6 IDs, where the dateless ID *is* the pinned snapshot. `claude-sonnet-4-6`
+  is correctly pinned; every "bare alias / forced exception" flag against it in this
+  repo is withdrawn. Also verified that `claude-sonnet-4-20250514` genuinely retired
+  2026-06-15 (previously an unverified commit-message claim). **§8.1 added**: forced-
+  migration protocol, for the case the rest of this document does not cover — when a
+  retirement compels a change the gate would have declined, as happened in June 2026.
+  Sources: platform.claude.com model-ids-and-versions, model-deprecations.
+
 | Date | Change | Rationale |
 |---|---|---|
 | 2026-05-23 | Initial methodology drafted and locked | Generalizes manual change-testing into a disciplined champion/challenger gate. Triggered by the accidental model bump (4→4.6) exposing un-version-controlled analyst drift. Decisions: manual/on-demand trigger; benchmark-relative 2Q ±5% lift-over-hold analyst metric; return-per-drawdown portfolio metric; recent-holdout + scaled-rigor OOS; metric-to-change mapping per §4. |
@@ -535,3 +709,4 @@ the natural test is on **discordant pairs** (McNemar). Fix before reuse.
 | 2026-09-02 | Third change class: implementation-layer changes (§2.3), fidelity hurdle, binary CONFORM / DIVERGE verdict (§5d); fixture version discipline (§8); conformance fixtures added to the build sequence (§9.6) as a prerequisite for `CLAUDE.md` Step 8(a); in-app replay recorded as a deferred product feature (§10). Mechanics in `CONFORMANCE_FIXTURES.md`. | The gate as locked answers “should we adopt this design?” and never asks “did we build the design we adopted?” §2.1 runs the simulator against the frozen evaluation cache and never executes production code, so a production defect passes silently — as task #77’s 11x sizing divergence would have. Comparison is on the decision stream rather than dollars: Python↔JS bit-exactness is unachievable, and a trade-list diff localizes a defect where a dollar gap does not. Fixtures rather than in-app replay because they run in CI on every commit at a fraction of the build. |
 | 2026-09-02b | §2.3 restructured into two headless tiers — golden fixtures (decision function, CI) and a headless replay driver (input assembly, per release); build sequence gains §9.7; instrumentation UI reframed in §10 with an overfitting condition | Fixtures alone are blind to input assembly: they hand the allocator a given state, so §9 invariant #5 and §11 defect #2 — both state-assembly failures — could not fail a tier-1 gate. Tier 2 closes that without a user interface. Separately, an instrumentation UI is a legitimate product feature but a cheap parameter search by another name; it is bound to §2.1's pre-registration and holdout discipline rather than allowed to select settings on its own. |
 | 2026-09-12 | Section 11 added: comparison protocol (8 rules) ported verbatim in substance from `ALLOCATOR_PORTING_METHODOLOGY.md`'s final section, referenced from `VERSION_REGISTRY.json`'s new `comparison_protocol` record. | Part of the version-registry-and-drift-guards build: a registry makes artifact identity unambiguous but not comparison legitimacy — these 8 rules make an illegal subtraction (mismatched tuple, unpaired model comparison, unruled drawdown, a bad MDE recipe) illegal rather than merely visible. |
+| 2026-09-12b | §11.5 refined from a stale/not-stale boolean into three states (VALID / SUPERSEDED / UNREPRODUCIBLE), declared per benchmark record via a new `reproducibility` field rather than inferred from a hash comparison; old boolean wording kept visible as superseded. | Applying the boolean literally (`model-provenance-corrections`, same day) made 6 of 7 benchmark records read STALE — 4 of them permanently, with no possible remediation — while `ew_baseline`, the one record that actually needed a warning, stayed unflagged. A flag that fires on nearly everything and misses the real problem stops carrying information. The three states separate "cannot reproduce" (data-integrity alarm) from "reproducible, but describes a retired configuration" (a don't-extrapolate warning, i.e. §11.1's tuple rule mechanized). |
