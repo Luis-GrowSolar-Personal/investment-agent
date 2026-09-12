@@ -492,19 +492,6 @@ def main():
         f"patience: {args.patience}")
     log(f"Run log directory: {run_dir}")
 
-    # version_guard check, before iteration 1's first API call. This tool's whole
-    # job is to mutate EVALUATION_PROMPT.md into new, ungated candidates -- that
-    # is exactly what produced v10+auto1, the prompt that then ran in production
-    # for five weeks stamped as v6 (docs/handoffs/2026-09-03-prompt-version-drift.md).
-    # So this does NOT require the on-disk file to match the promoted hash --
-    # that would defeat the tool's purpose -- but it DOES require an explicit,
-    # named acknowledgment via PROMPT_CANDIDATE naming a registered candidate
-    # whenever the on-disk file isn't the promoted content. This is the seam that
-    # let the incident happen silently; it can no longer happen silently.
-    from analysis.version_guard import assert_prompt_hash
-    _seed_text_for_guard = PROMPT_PATH.read_text()
-    assert_prompt_hash(_seed_text_for_guard, candidate=os.environ.get("PROMPT_CANDIDATE"))
-
     best_unstable = None
     best_accuracy = None
     accuracy_floor = None  # set once a baseline (seeded or iteration-1) is known;
@@ -575,8 +562,30 @@ def main():
             f"(seeded {best_accuracy:.1f}% minus {args.accuracy_tolerance}pp tolerance -- "
             f"NOT the historical v6 60% figure, which was measured on a much smaller "
             f"transcript set and isn't comparable to today's larger history)")
+        _guard_source_path = seed_prompt_path
     else:
         best_prompt_text = PROMPT_PATH.read_text()
+        _guard_source_path = PROMPT_PATH
+
+    # version_guard check on whatever text is ACTUALLY about to be scored, from
+    # whatever path it actually came from -- not PROMPT_PATH unconditionally.
+    # (2026-09-12 follow-up, prompts/drift-guards-followup.md: the original
+    # guard here checked PROMPT_PATH.read_text() unconditionally, before this
+    # if/else resolved best_prompt_text. When --seed-run-dir/--seed-prompt-file
+    # is used, the text actually scored comes from seed_prompt_path instead --
+    # a gap in the tool that produced v10+auto1 in the first place.) This does
+    # NOT require a promoted-hash match -- that would defeat the tool's purpose
+    # of iterating toward new candidates -- but it DOES require an explicit,
+    # named acknowledgment via PROMPT_CANDIDATE naming a registered candidate
+    # whenever the resolved text isn't the promoted content, and it always logs
+    # the resolved source path and its hash so a future incident is traceable
+    # to a specific file, not inferred.
+    from analysis.version_guard import assert_prompt_hash, sha256_text
+    _guard_result = assert_prompt_hash(
+        best_prompt_text, candidate=os.environ.get("PROMPT_CANDIDATE")
+    )
+    log(f"version_guard: source={_guard_source_path}, sha256={sha256_text(best_prompt_text)}, "
+        f"candidate_used={_guard_result.get('candidate_used')}")
 
     # Force disk into a known-consistent state immediately, matching
     # best_prompt_text exactly -- don't wait for the loop's first iteration

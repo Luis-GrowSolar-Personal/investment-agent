@@ -20,10 +20,26 @@ const systemPrompt = fs.readFileSync(PROMPT_PATH, 'utf8');
 // and taking the whole app down over a prompt hash is a worse failure than a
 // disabled scoring route. So: log loudly, and evaluate.js's own request
 // handler below is what actually refuses to score. See wrap-up for this run.
-const startupCheck = checkPromptHash('evaluation_prompt', systemPrompt);
+// Wrapped in try/catch (2026-09-12 follow-up, prompts/drift-guards-followup.md):
+// checkPromptHash() reads VERSION_REGISTRY.json, and an unreadable/malformed
+// registry would otherwise throw here, at require() time -- the same
+// boot-refusal landmine Step 1 of that follow-up defused in versions.js,
+// found also present here while doing that fix. Same fix, same reasoning:
+// the scoring route below (POST /) is the enforcement point; a registry
+// read failure at import must not take the whole server down.
+let startupCheck;
+try {
+  startupCheck = checkPromptHash('evaluation_prompt', systemPrompt);
+} catch (err) {
+  console.error(
+    `[versionGuard] STARTUP: could not check evaluation_prompt against the registry: ${err.message}\n` +
+    `  Scoring will be REFUSED (fail-closed) until the registry is readable again.`
+  );
+  startupCheck = { ok: false, promotedHash: 'UNREADABLE', actualHash: 'UNREADABLE', candidateUsed: null };
+}
 if (!startupCheck.ok) {
   console.error(
-    `[versionGuard] STARTUP MISMATCH on evaluation_prompt: ${startupCheck.reason}\n` +
+    `[versionGuard] STARTUP MISMATCH on evaluation_prompt: ${startupCheck.reason || '(registry unreadable)'}\n` +
     `  promoted=${startupCheck.promotedHash}\n  actual=${startupCheck.actualHash}\n` +
     `  Scoring will be REFUSED until PROMPT_CANDIDATE names a registered candidate, or the file is restored.`
   );
@@ -69,7 +85,19 @@ router.post('/', requireAuth(), async (req, res) => {
     return res.status(400).json({ error: 'transcript is required' });
   }
 
-  const promptCheck = checkPromptHash('evaluation_prompt', systemPrompt);
+  let promptCheck;
+  try {
+    promptCheck = checkPromptHash('evaluation_prompt', systemPrompt);
+  } catch (err) {
+    // Registry unreadable -- refuse the request cleanly rather than letting
+    // an uncaught throw crash this async handler. Same fail-closed outcome
+    // as a hash mismatch, just a different cause.
+    console.error(`[versionGuard] request-time check failed: ${err.message}`);
+    return res.status(503).json({
+      error: 'Scoring refused: VERSION_REGISTRY.json could not be read',
+      detail: err.message,
+    });
+  }
   if (!promptCheck.ok) {
     return res.status(409).json({
       error: 'Scoring refused: docs/EVALUATION_PROMPT.md does not match the promoted artifact in VERSION_REGISTRY.json',

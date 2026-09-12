@@ -89,6 +89,12 @@ def check_artifact(key: str, artifact: dict) -> dict:
         hashes = artifact.get("hashes", {})
         rel = "analysis/simulator/allocator_v3.py"
         on_disk = sha256_file(REPO_ROOT / rel)
+    elif key == "allocator_live":
+        on_disk = sha256_file(REPO_ROOT / "server" / "routes" / "moves.js")
+        return {
+            "key": key, "promoted": None, "on_disk": on_disk, "match": None,
+            "detail": f"informational only, not gated (accepted divergence -- see decisions.accepted_production_divergence). current sha256={on_disk}",
+        }
     elif key == "trend_analyst":
         py_hash = sha256_file(REPO_ROOT / "analysis" / "trend_analyst.py")
         js_hash = sha256_file(REPO_ROOT / "server" / "lib" / "trendAnalyst.js")
@@ -178,7 +184,19 @@ def main() -> int:
         except Exception as e:
             print(f"  fundamentals_cache: could not compute age ({e})")
 
-    print("\n[6] Open decisions\n")
+    print("\n[6] Accepted / settled divergences -- known, do not act\n")
+    any_accepted = False
+    for key, decision in registry["decisions"].items():
+        if decision.get("disposition", "").startswith("ACCEPTED"):
+            any_accepted = True
+            print(f"  ACCEPTED  {key}")
+            print(f"            reopening condition: {decision.get('reopening_condition')}")
+            for item in decision.get("do_not", []):
+                print(f"            do NOT: {item}")
+    if not any_accepted:
+        print("  (none)")
+
+    print("\n[7] Open decisions\n")
     for key, decision in registry["decisions"].items():
         if decision.get("disposition", "").startswith(("OPEN", "GAP", "PENDING")):
             print(f"  {decision.get('disposition'):20} {key}")

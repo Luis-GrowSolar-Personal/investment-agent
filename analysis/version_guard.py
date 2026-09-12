@@ -45,6 +45,12 @@ def _sha256(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
+# Public alias -- callers outside this module (e.g. auto_iterate_prompt.py's
+# resolved-source-path logging) should use this rather than reaching for the
+# underscore-prefixed internal name.
+sha256_text = _sha256
+
+
 def _current_branch() -> str | None:
     try:
         out = subprocess.run(

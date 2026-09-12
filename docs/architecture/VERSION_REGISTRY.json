@@ -25,8 +25,8 @@
     "model": {
       "path": "server/lib/versions.js",
       "promoted_version": "claude-sonnet-4-6",
-      "promoted_sha256": "eb7d24c354968fdf9dfe77a8c3ae910fdf49f1a82a6c38d6864a44cf00bc69de",
-      "promoted_sha256_note": "Step5 doc hygiene (this run) rewrote versions.js from a hand-maintained constant into a thin re-export of this registry's own promoted_version fields -- deletes the drift bug class rather than guarding it. c1ef9016... was the pre-rewrite hash (the hand-maintained constant file, hardcoded 'claude-sonnet-4-6'); superseded, not a version change.",
+      "promoted_sha256": "70303e61a420cb981730923cf9bc413c9f01b276e51eb96d3960956f00981645",
+      "promoted_sha256_note": "2026-09-12 version-registry-and-drift-guards rewrote versions.js from a hand-maintained constant into a thin re-export of this registry's own promoted_version fields (hash then eb7d24c3...). The 2026-09-12 drift-guards-followup run made that re-export fail SAFE (try/catch around the registry read, exporting an UNKNOWN sentinel on failure instead of throwing at require() time) -- current hash 70303e61... reflects that change. c1ef9016... was the original pre-rewrite hand-maintained-constant hash. Both superseded, not version changes.",
       "promotion_date": "2026-06-27",
       "gate_ledger_ref": "data/gate_ledger.json#0 (entry 1)",
       "status": "promoted, flagged",
@@ -81,11 +81,13 @@
 
     "allocator_live": {
       "path": "server/routes/moves.js",
-      "promoted_version": "moves.js v2 (production)",
-      "promoted_sha256": "4767382855d0c6c166be837fb15e4004ce4a75f26283b45cfbb2fba4df4d5758",
+      "promoted_version": "moves.js v2 (production) -- informational only, not gated",
+      "promoted_sha256": null,
+      "last_observed_sha256": "4767382855d0c6c166be837fb15e4004ce4a75f26283b45cfbb2fba4df4d5758",
+      "promoted_sha256_note": "2026-09-12 follow-up (prompts/drift-guards-followup.md): deliberately nulled. See decisions.accepted_production_divergence. This artifact used to carry a promoted_sha256, which made whats_live.py report MATCH/MISMATCH against it as if there were a correct value moves.js should converge to -- there isn't; the divergence is accepted and permanent until the porting methodology runs. A future, unrelated edit to moves.js would otherwise have raised a false drift alarm about something explicitly out of the guards' scope. last_observed_sha256 is retained for reference (the hash recorded on 2026-09-12), not as a gate.",
       "promotion_date": null,
       "gate_ledger_ref": null,
-      "status": "deliberately a different artifact -- do not parity-check",
+      "status": "deliberately a different artifact -- do not parity-check -- divergence ACCEPTED, see decisions.accepted_production_divergence",
       "note": "Per ALLOCATOR_PORTING_METHODOLOGY.md: moves.js and allocator_v2/v3/v4.py are deliberately different artifacts today, not accidental drift -- that divergence is the premise of the Test 1-6 validation program, not a bug it discovered. Registered here so the divergence is visible, per the methodology's own instruction. Do NOT attempt a parity check against allocator_simulator until the comparison-protocol section (see PROMOTION_GATE.md new section) and a settled spec version exist. Confirmed independently this run: moves.js sources Type A/B caps from the DB's Ticker.capPercent / OwnerTickerConfig.capPercent (a hand-set number per ticker), not from analysis/data/type_classifications.json or a computed 35%/50% Type A/B rule at all -- see the type_classifications entry below.",
       "candidates": []
     },
@@ -231,6 +233,12 @@
   },
 
   "decisions": {
+    "accepted_production_divergence": {
+      "disposition": "ACCEPTED -- KNOWN, DO NOT ACT",
+      "decided": "The deployed app (dev) deliberately does not carry this registry or its guards, and server/routes/moves.js deliberately differs from the validated allocator_v3 design. This is not an unresolved gap or a defect for a future session to close -- it is the explicit premise of the Test 1-6 validation program (ALLOCATOR_PORTING_METHODOLOGY.md). The registry and guards built 2026-09-12 protect the backtest and test machinery from drifting away from proven benchmarks; that is their whole scope. They are not deployed to dev, and nothing here proposes merging them there.",
+      "reopening_condition": "The Test 1-6 program concludes AND the conformance fixtures (CONFORMANCE_FIXTURES.md / PROMOTION_GATE.md Sec2.3/Sec9.6) exist. Only then does ALLOCATOR_PORTING_METHODOLOGY.md's port skeleton apply -- moves.js is brought to the settled spec, not the reverse.",
+      "do_not": ["merge VERSION_REGISTRY.json or the version guards to dev", "propose bringing moves.js into line with allocator_v3 before the above condition", "treat allocator_live's hash as something that should match a promoted value"]
+    },
     "allocator_sandbox_cash_and_equities_only": {
       "disposition": "CLOSED",
       "decided": "no methodology exists for choosing gold vs silver, or QQQ vs TMFC -- everything outside cash+equities is manual",
