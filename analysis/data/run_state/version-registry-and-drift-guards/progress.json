@@ -1,0 +1,29 @@
+{
+  "run_id": "version-registry-and-drift-guards",
+  "prompt_sha256": "bca3cce87f679bb0d0ab4ef4b2ea0d3c7fd21dea21e23c5b58d0c94ec9ff4d3b",
+  "driver_commit": "0d458a0576138b146411ec8cc11da64da2cd54b1",
+  "git_dirty_at_start": true,
+  "git_dirty_note": "Only tracked-file modification at start was analysis/data/run_state/ec-fidelity-benchmark-1/progress.json, belonging to a different concurrent run_id -- not touched. All other entries were untracked inputs/scratch. Proceeded per Step 0's instruction.",
+  "steps": {
+    "step0_hygiene_and_branch_fix": "done",
+    "step1_registry": "done",
+    "step2_server_guard": "done",
+    "step3_harness_guard": "done",
+    "step4_whats_live": "done",
+    "step5_doc_hygiene": "done",
+    "step6_prove_guards": "done"
+  },
+  "commits": [
+    "21d0c03 fix: roll EVALUATION_PROMPT.md back to v6 (cherry-picked c514ae1)",
+    "bac1231 feat: version registry (VERSION_REGISTRY.json) and comparison protocol section",
+    "cceb019 feat: server and harness version guards against prompt drift",
+    "eb2c8d7 feat: whats_live.py -- one-command version/drift/staleness report",
+    "773872f docs: version truth in CLAUDE.md, versions.js re-exports the registry"
+  ],
+  "next_action": "None -- run complete. Wrap-up written to wrap-ups/version-registry-and-drift-guards-out.md.",
+  "notes": [
+    "Premise flags: prompt cited 'six figures' in 09-07 requote list (actual: eight); '~15 files' redefine ALL16 (actual: 17, all agreeing); 'allocator_v*.py' treated as one artifact (actual: 4 files, only v3 backs the settled config); fundamentals_cache '118 days stale' (actual, as of this run's date: 124 days -- both correct for their respective vantage dates).",
+    "New finding beyond the prompt's scope: type_classifications.json is not read by the live app at all; moves.js/dashboard.js/radar.js source caps from Ticker.capPercent/OwnerTickerConfig.capPercent, not a computed Type A/B 35%/50% rule.",
+    "Step 3's 'add to the prompt template' instruction has no target -- no canonical prompt-template file exists in the repo. Addressed via CLAUDE.md's new Version truth section only."
+  ]
+}
