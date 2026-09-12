@@ -492,6 +492,19 @@ def main():
         f"patience: {args.patience}")
     log(f"Run log directory: {run_dir}")
 
+    # version_guard check, before iteration 1's first API call. This tool's whole
+    # job is to mutate EVALUATION_PROMPT.md into new, ungated candidates -- that
+    # is exactly what produced v10+auto1, the prompt that then ran in production
+    # for five weeks stamped as v6 (docs/handoffs/2026-09-03-prompt-version-drift.md).
+    # So this does NOT require the on-disk file to match the promoted hash --
+    # that would defeat the tool's purpose -- but it DOES require an explicit,
+    # named acknowledgment via PROMPT_CANDIDATE naming a registered candidate
+    # whenever the on-disk file isn't the promoted content. This is the seam that
+    # let the incident happen silently; it can no longer happen silently.
+    from analysis.version_guard import assert_prompt_hash
+    _seed_text_for_guard = PROMPT_PATH.read_text()
+    assert_prompt_hash(_seed_text_for_guard, candidate=os.environ.get("PROMPT_CANDIDATE"))
+
     best_unstable = None
     best_accuracy = None
     accuracy_floor = None  # set once a baseline (seeded or iteration-1) is known;

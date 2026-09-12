@@ -42,6 +42,8 @@ EVALS_DIR = SCRIPT_DIR / "data" / "evals"
 def load_prompt() -> tuple[str, str]:
     path = SCRIPT_DIR.parent / "docs" / "EVALUATION_PROMPT.md"
     text = path.read_text()
+    from analysis.version_guard import assert_prompt_hash
+    assert_prompt_hash(text, candidate=os.environ.get("PROMPT_CANDIDATE"))
     version = "unknown"
     for line in text.splitlines()[:20]:
         if line.startswith("# Version:"):

@@ -253,6 +253,8 @@ def get_model_version():
 
 def get_prompt_header():
     text = (REPO / "docs" / "EVALUATION_PROMPT.md").read_text()
+    from analysis.version_guard import assert_prompt_hash
+    assert_prompt_hash(text, candidate=os.environ.get("PROMPT_CANDIDATE"))
     m = re.search(r"^# Version:\s*(.+)$", text, re.MULTILINE)
     return m.group(1).strip() if m else "UNKNOWN", text
 

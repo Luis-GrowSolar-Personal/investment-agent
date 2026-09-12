@@ -36,13 +36,13 @@
     },
 
     "portfolio_import_prompt": {
-      "path": "server/lib/portfolioImport.js:54-91",
+      "path": "server/lib/portfolioImport.js (POSITIONS_CSV_PROMPT_TEMPLATE constant)",
       "promoted_version": "unversioned",
-      "promoted_sha256": "09df203d872dadf933115b78efd7081309ab1d76e9fa0ec798e8a61c3d5068f4",
+      "promoted_sha256": "bcea65673fa8fc1044d50db816a55a02d3413863e59d4661a6be49017cd924f1",
       "promotion_date": null,
       "gate_ledger_ref": null,
-      "status": "ungated, unversioned",
-      "note": "Inline template-literal prompt for CSV positions parsing (Claude Haiku 4.5). Hash covers the static template lines only (54-91), not the interpolated ${csvText} payload. No version header, no gate history, no registry entry until this run. Blast radius per the prompt's own framing: wrong share counts / cost basis feeding the allocator.",
+      "status": "ungated, unversioned, now guarded",
+      "note": "Inline template-literal prompt for CSV positions parsing (Claude Haiku 4.5). This run refactored the prompt out of an inline template-literal expression into a named module constant (POSITIONS_CSV_PROMPT_TEMPLATE) with a {{CSV_TEXT}} placeholder, so its hash is independent of whatever CSV a user uploads and can be checked at runtime via versionGuard.assertPromptHash before every call. promoted_sha256 is the hash of that constant post-refactor (was 09df203d... for the pre-refactor line-range 54-91 -- superseded, not a content change beyond the placeholder swap and extraction). No version header, no gate history. Blast radius per the prompt's own framing: wrong share counts / cost basis feeding the allocator. assertPromptHash has NO candidate escape hatch for this artifact (candidates: []) -- any mismatch hard-refuses the import path, per Step 2's instruction.",
       "candidates": []
     },
 

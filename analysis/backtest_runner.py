@@ -411,6 +411,8 @@ def load_evaluation_prompt():
     for path in candidates:
         if path.exists():
             text = path.read_text()
+            from analysis.version_guard import assert_prompt_hash
+            assert_prompt_hash(text, candidate=os.environ.get("PROMPT_CANDIDATE"))
             match = re.search(r"^#\s*Version:\s*(.+)$", text, re.MULTILINE)
             version = match.group(1).strip() if match else "unknown"
             return text, version, path

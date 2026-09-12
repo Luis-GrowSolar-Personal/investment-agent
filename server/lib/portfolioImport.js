@@ -48,10 +48,11 @@ function smartDefaultBucket(schwabAssetType, symbol) {
  *                   dayChgDollar, dayChgPct, assetType, bucket }]
  *   }
  */
-async function parsePositionsCSV(csvText) {
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-
-  const prompt = `You are parsing a brokerage positions CSV export. Extract all holdings and return ONLY valid JSON — no explanation, no markdown, no code fences.
+// Registered in VERSION_REGISTRY.json under artifacts.portfolio_import_prompt.
+// Hash THIS constant (not the interpolated call-time prompt) when checking
+// drift -- the {{CSV_TEXT}} placeholder keeps the hash independent of
+// whatever CSV a user happens to upload.
+const POSITIONS_CSV_PROMPT_TEMPLATE = `You are parsing a brokerage positions CSV export. Extract all holdings and return ONLY valid JSON — no explanation, no markdown, no code fences.
 
 Return this exact structure:
 {
@@ -88,7 +89,14 @@ Rules:
 - If a field is missing or "--", use null
 
 CSV to parse:
-${csvText}`;
+{{CSV_TEXT}}`;
+
+async function parsePositionsCSV(csvText) {
+  const { assertPromptHash } = require('./versionGuard');
+  assertPromptHash('portfolio_import_prompt', POSITIONS_CSV_PROMPT_TEMPLATE);
+
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const prompt = POSITIONS_CSV_PROMPT_TEMPLATE.replace('{{CSV_TEXT}}', csvText);
 
   const response = await client.messages.create({
     model: 'claude-haiku-4-5-20251001',

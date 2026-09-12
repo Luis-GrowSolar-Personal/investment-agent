@@ -5,12 +5,34 @@ const Anthropic = require('@anthropic-ai/sdk');
 const { requireAuth } = require('@clerk/express');
 
 const { PROMPT_VERSION, MODEL_VERSION } = require('../lib/versions');
+const { checkPromptHash } = require('../lib/versionGuard');
 
 const router = express.Router();
 const client = new Anthropic();
 
 const PROMPT_PATH = path.resolve(__dirname, '../../docs/EVALUATION_PROMPT.md');
 const systemPrompt = fs.readFileSync(PROMPT_PATH, 'utf8');
+
+// Checked once at startup so a mismatch is visible in the logs immediately,
+// not just the first time someone calls /api/evaluate. Deliberate deviation
+// from 2026-09-03-prompt-version-drift.md §7 / 2026-09-05 §8, which proposed
+// refusing to BOOT on mismatch: Luis tests against the deployed Railway app,
+// and taking the whole app down over a prompt hash is a worse failure than a
+// disabled scoring route. So: log loudly, and evaluate.js's own request
+// handler below is what actually refuses to score. See wrap-up for this run.
+const startupCheck = checkPromptHash('evaluation_prompt', systemPrompt);
+if (!startupCheck.ok) {
+  console.error(
+    `[versionGuard] STARTUP MISMATCH on evaluation_prompt: ${startupCheck.reason}\n` +
+    `  promoted=${startupCheck.promotedHash}\n  actual=${startupCheck.actualHash}\n` +
+    `  Scoring will be REFUSED until PROMPT_CANDIDATE names a registered candidate, or the file is restored.`
+  );
+} else if (startupCheck.candidateUsed) {
+  console.warn(
+    `[versionGuard] evaluation_prompt running as PROMPT_CANDIDATE="${startupCheck.candidateUsed}" ` +
+    `(not the promoted version). Every row written this session will be stamped with the candidate version.`
+  );
+}
 
 function parseMetadata(raw) {
   const match = raw.match(/---METADATA---\s*(\{[\s\S]*?\})\s*---END METADATA---/);
@@ -47,6 +69,20 @@ router.post('/', requireAuth(), async (req, res) => {
     return res.status(400).json({ error: 'transcript is required' });
   }
 
+  const promptCheck = checkPromptHash('evaluation_prompt', systemPrompt);
+  if (!promptCheck.ok) {
+    return res.status(409).json({
+      error: 'Scoring refused: docs/EVALUATION_PROMPT.md does not match the promoted artifact in VERSION_REGISTRY.json',
+      promotedHash: promptCheck.promotedHash,
+      actualHash: promptCheck.actualHash,
+      hint: 'Restore the promoted content, or set PROMPT_CANDIDATE=<registered candidate version> to score deliberately against a candidate.',
+    });
+  }
+  // A candidate override stamps the candidate's version, not the promoted
+  // one -- the whole point of the escape hatch is that this row is
+  // auditable as candidate output, never mistaken for a promoted-prompt row.
+  const effectivePromptVersion = promptCheck.candidateUsed || PROMPT_VERSION;
+
   try {
     const message = await client.messages.create({
       model: MODEL_VERSION,
@@ -78,7 +114,7 @@ router.post('/', requireAuth(), async (req, res) => {
     res.json({
       analysis,
       structuredScore,
-      promptVersion: PROMPT_VERSION,
+      promptVersion: effectivePromptVersion,
       modelVersion:  MODEL_VERSION,
       tickerSymbol: metadata.tickerSymbol,
       companyName: metadata.companyName,
