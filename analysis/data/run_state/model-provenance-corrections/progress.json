@@ -1,0 +1,25 @@
+{
+  "run_id": "model-provenance-corrections",
+  "prompt_sha256": "91043620f970fcdf34be9e464a51e0b2779716db0db4ab9584af9551426b5c10",
+  "driver_commit": "75e27f7dda73e0c0300029892005500ae4b58170",
+  "precondition_check": {
+    "checked": true,
+    "result": "PASS -- no scoring run in flight."
+  },
+  "steps": {
+    "step0_hygiene_precondition": "done",
+    "step1_registry_model_correction": "done",
+    "step2_benchmark_model_fields": "done",
+    "step3_whats_live_retirement_countdown": "done",
+    "step4_wraup_caveat_withdrawal": "done",
+    "step5_verify": "done"
+  },
+  "commits": [
+    "3eee5ba fix: model provenance corrections -- withdraw bare-alias flag, add per-benchmark model field, retirement countdown"
+  ],
+  "next_action": "None -- run complete. Wrap-up at wrap-ups/model-provenance-corrections-out.md.",
+  "notes": [
+    "Major finding: implementing Step 2's valid_while extension literally makes 4 corpus-anchored benchmark records (settled_control, test1_zero_info_floor, sizing_channel_null, small_cap_materiality) permanently stale on the model axis in the LIVE registry, not just in a demo -- their corpus can never be rescored under the current model. Flagged for design session.",
+    "Additional 'bare alias' claims found but NOT reached (out of this prompt's stated Step 4 scope): docs/handoffs/2026-09-06-state-of-play.md, docs/handoffs/2026-09-05-exit-latency-framework.md, analysis/data/run_state/test4-analyst-noise-floor/findings.md, and several historical prompts/*.md files."
+  ]
+}
