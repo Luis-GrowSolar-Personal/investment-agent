@@ -20,7 +20,7 @@
     "step4_results_comparisons": "done",
     "step5_gate_reading": "done",
     "step6_registry_update": "done",
-    "report": "pending",
+    "report": "done",
     "step2_250_scoring_calls": "done"
   },
   "transcripts_completed": [
@@ -75,7 +75,7 @@
     348,
     355
   ],
-  "next_action": "50/50 transcripts scored (5 runs each). Resume by re-running with the same --run-id/--out-dir.",
+  "next_action": "None -- run complete. Wrap-up at wrap-ups/test4-noise-floor-v6-rerun-out.md.",
   "notes": [
     "User approved ~275 calls / ~$25 estimated spend before Step 0 began (stated in the prompt itself).",
     "RECONCILED (this invocation, per user's explicit note): step1 and step2 were both already complete on disk from a prior invocation stopped before it could checkpoint this file. sample.json (50 rows) and driftcheck raw/ (5/5 files, 5 runs each) verified complete; run_state/test4-analyst-noise-floor-v6-driftcheck/progress.json independently confirms step2 done. No calls re-issued. See findings.md for the reconciliation detail and the drift-check comparison result (4/5 transcripts reproduce exactly; transcript 23 EOSE does not -- flagged, reported per the corrected post-4.6-pinning understanding as ordinary sampling noise on a known-unstable small-cap name, not evidence of model drift)."
