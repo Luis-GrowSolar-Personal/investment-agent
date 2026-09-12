@@ -8,6 +8,34 @@
 - Always read docs/architecture/DOMAIN.md before building any
   module that sources, filters, or evaluates investment candidates
 
+## Version truth
+
+**`docs/architecture/VERSION_REGISTRY.json` is the single source of truth**
+for which prompt, model, and allocator versions are promoted, and for which
+benchmark figures are still valid. Run `python3 analysis/whats_live.py` for
+the one-command status report (on-disk vs promoted hash per artifact, branch
+divergence from `dev`, stale benchmarks, cache-age breaches, open decisions).
+
+**Never infer version truth from `server/lib/versions.js`, a file's own
+content header, or `git log`.** `versions.js` is now a thin re-export of the
+registry, not a hand-maintained constant — but even before that change, this
+project spent five weeks running an ungated prompt candidate (`v10+auto1`)
+in production while `versions.js` and every DB row it wrote kept claiming
+`v6` (`docs/handoffs/2026-09-03-prompt-version-drift.md`). A content header
+is no more reliable: `docs/EVALUATION_PROMPT.md`'s header changed exactly
+twice in its whole history while its content changed at every commit that
+touched it. Any prompt whose work touches a versioned artifact
+(`docs/EVALUATION_PROMPT.md`, `server/lib/versions.js`,
+`server/lib/portfolioImport.js`'s inline prompt, `moves.js`,
+`allocator_v*.py`, `type_classifications.json`) checks the registry first.
+
+**Any run that makes scoring (Claude API) calls asserts the prompt hash
+against the registry before call one**, via `analysis/version_guard.py`
+(Python) or `server/lib/versionGuard.js` (Node) — or declares its candidate
+explicitly with `PROMPT_CANDIDATE=<registered version>`. This is a standing
+rule for every future prompt/driver in this project, not just the ones the
+registry-build run wired up.
+
 ## Start here — current state of play
 
 **"Read the state of play" means this file, and only this file:**

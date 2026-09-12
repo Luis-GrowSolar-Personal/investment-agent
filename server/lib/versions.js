@@ -1,20 +1,30 @@
 /**
- * versions.js — Single source of truth for the active prompt and model versions.
+ * versions.js — thin re-export of VERSION_REGISTRY.json's promoted versions.
  *
- * These constants stamp every Analysis row written to the DB, making analyst
- * drift auditable forever instead of reconstructed from deploy history.
+ * Built 2026-09-12 (prompts/version-registry-and-drift-guards.md). This used
+ * to be a hand-maintained constant, which is exactly how the app drifted
+ * silently to v10+auto1 for five weeks while this file kept claiming 'v6'
+ * (docs/handoffs/2026-09-03-prompt-version-drift.md) -- nothing forced the
+ * two to agree. Deleting the bug class rather than guarding it: there is now
+ * exactly one place version truth lives (VERSION_REGISTRY.json), and this
+ * file just reads it.
  *
- * PROMPT_VERSION: matches the "Version: vN" header in docs/EVALUATION_PROMPT.md.
- *   Update this whenever the prompt changes materially enough to warrant a gate run.
+ * PROMPT_VERSION / MODEL_VERSION names are preserved so callers
+ * (server/routes/evaluate.js) are unchanged.
  *
- * MODEL_VERSION: the exact Claude model string passed to the Anthropic API.
- *   Must be a dated snapshot (claude-sonnet-4-YYYYMMDD) for gate runs to be
- *   reproducible. Reverted to claude-sonnet-4-20250514 on 2026-05-23 after the
- *   first Promotion Gate run: sonnet-4-6 regressed by 7.4pp (noise floor 4.2pp),
- *   verdict HOLD. See data/gate_ledger.json entry 1 and PROMOTION_GATE.md §10.
+ * Note this exports the PROMOTED version string, not necessarily what
+ * evaluate.js ends up stamping on a given row -- a PROMPT_CANDIDATE
+ * override at request time stamps the candidate's version instead. See
+ * server/lib/versionGuard.js and evaluate.js's `effectivePromptVersion`.
  */
 
-const PROMPT_VERSION = 'v6';
-const MODEL_VERSION  = 'claude-sonnet-4-6'; // 2026-06-27: dated snapshot retired by Anthropic; reverted to sonnet-4-6
+const fs = require('fs');
+const path = require('path');
+
+const REGISTRY_PATH = path.resolve(__dirname, '../../docs/architecture/VERSION_REGISTRY.json');
+const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
+
+const PROMPT_VERSION = registry.artifacts.evaluation_prompt.promoted_version;
+const MODEL_VERSION  = registry.artifacts.model.promoted_version;
 
 module.exports = { PROMPT_VERSION, MODEL_VERSION };

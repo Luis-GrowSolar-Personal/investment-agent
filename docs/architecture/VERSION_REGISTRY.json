@@ -25,7 +25,8 @@
     "model": {
       "path": "server/lib/versions.js",
       "promoted_version": "claude-sonnet-4-6",
-      "promoted_sha256": "c1ef9016a839f4da464890210b69eebbbadd43f9ef749fa915a5b16bd3f5bdbb",
+      "promoted_sha256": "eb7d24c354968fdf9dfe77a8c3ae910fdf49f1a82a6c38d6864a44cf00bc69de",
+      "promoted_sha256_note": "Step5 doc hygiene (this run) rewrote versions.js from a hand-maintained constant into a thin re-export of this registry's own promoted_version fields -- deletes the drift bug class rather than guarding it. c1ef9016... was the pre-rewrite hash (the hand-maintained constant file, hardcoded 'claude-sonnet-4-6'); superseded, not a version change.",
       "promotion_date": "2026-06-27",
       "gate_ledger_ref": "data/gate_ledger.json#0 (entry 1)",
       "status": "promoted, flagged",
