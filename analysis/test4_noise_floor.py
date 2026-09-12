@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""test4_noise_floor.py -- driver for prompts/test4-analyst-noise-floor.md.
+"""test4_noise_floor.py -- driver for prompts/test4-analyst-noise-floor.md
+and its v6 re-run, prompts/test4-noise-floor-v6-rerun.md.
 
 Step 1: draw a 50-transcript, tier-stratified, cutoff-restricted sample from
         the 15-ticker (not ALL16 -- SPWR excluded per the prompt's own table)
@@ -12,15 +13,35 @@ Step 3/4: field-by-field stability + the analyst-direct hit-rate spread
 
 No DB writes anywhere in this driver -- SELECT only for the sample draw and
 forward-return lookups. Scoring output goes under
-analysis/test4_noise_floor/{raw,scored}/, never to the Analysis table.
+<out-dir>/{raw,scored}/, never to the Analysis table.
+
+RUN_ID / OUT_DIR are parameterized (2026-09-12,
+prompts/test4-noise-floor-v6-rerun.md) so one driver serves both the
+original v10+auto1 arm and any re-run (e.g. under the promoted v6 prompt)
+without forking the file -- a naive copy would drift the two out of sync.
+Defaults preserve the original arm's exact behavior when no --run-id/
+--out-dir is passed.
 
     cd analysis
     python3 test4_noise_floor.py draw        # Step 1 only, no API calls
     python3 test4_noise_floor.py score       # Step 2, resumable, real spend
     python3 test4_noise_floor.py analyze     # Steps 3/4/5, no new calls
+
+    # A separate arm, writing under its own run-state/output dirs:
+    python3 test4_noise_floor.py score --run-id test4-analyst-noise-floor-v6 \\
+        --out-dir test4_noise_floor_v6
+
+    # Model-drift check: score only a subset of transcripts, under the
+    # registered v10+auto1 candidate hatch, into its own scratch location:
+    PROMPT_CANDIDATE=v10+auto1 python3 test4_noise_floor.py score \\
+        --run-id test4-analyst-noise-floor-v6-driftcheck \\
+        --out-dir test4_noise_floor_v6/driftcheck \\
+        --transcript-ids 212,296,150,100,193
 """
 from __future__ import annotations
 
+import argparse
+import concurrent.futures
 import hashlib
 import json
 import os
@@ -39,16 +60,68 @@ REPO = SCRIPT_DIR.parent
 sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(SCRIPT_DIR))
 
-RUN_ID = "test4-analyst-noise-floor"
+DEFAULT_RUN_ID = "test4-analyst-noise-floor"
+DEFAULT_OUT_DIR_NAME = "test4_noise_floor"
+
+# Original arm's paths, fixed regardless of what this invocation is
+# configured for -- used only by assert_original_protected() below to make
+# sure a re-run (any --run-id/--out-dir) can never write into these.
+ORIGINAL_OUT_DIR = SCRIPT_DIR / DEFAULT_OUT_DIR_NAME
+ORIGINAL_RAW_DIR = ORIGINAL_OUT_DIR / "raw"
+ORIGINAL_EXPECTED_FILE_COUNT = 50
+
+RUN_ID = DEFAULT_RUN_ID
 RUN_DIR = SCRIPT_DIR / "data" / "run_state" / RUN_ID
 MANIFEST_DIR = RUN_DIR / "manifests"
-MANIFEST_DIR.mkdir(parents=True, exist_ok=True)
 CELLS_PATH = RUN_DIR / "cells.jsonl"
 DRIVER_FILE = "analysis/test4_noise_floor.py"
 
-OUT_DIR = SCRIPT_DIR / "test4_noise_floor"
+OUT_DIR = SCRIPT_DIR / DEFAULT_OUT_DIR_NAME
 RAW_DIR = OUT_DIR / "raw"
-RAW_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def configure_run(run_id: str, out_dir_name: str) -> None:
+    """Point every path this driver writes at run_id/out_dir_name instead of
+    the hardcoded originals. Must be called before any step function."""
+    global RUN_ID, RUN_DIR, MANIFEST_DIR, CELLS_PATH, OUT_DIR, RAW_DIR
+    RUN_ID = run_id
+    RUN_DIR = SCRIPT_DIR / "data" / "run_state" / RUN_ID
+    MANIFEST_DIR = RUN_DIR / "manifests"
+    MANIFEST_DIR.mkdir(parents=True, exist_ok=True)
+    CELLS_PATH = RUN_DIR / "cells.jsonl"
+    OUT_DIR = SCRIPT_DIR / out_dir_name
+    RAW_DIR = OUT_DIR / "raw"
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def assert_original_protected() -> None:
+    """Hard-fail before any write if this invocation's OUT_DIR would collide
+    with the original arm's output, or if that original output has already
+    been disturbed by something else. Prints the assertion either way, per
+    prompts/test4-noise-floor-v6-rerun.md Step 0."""
+    if OUT_DIR.resolve() == ORIGINAL_OUT_DIR.resolve():
+        raise SystemExit(
+            f"REFUSING: this invocation's --out-dir resolves to the ORIGINAL "
+            f"test4_noise_floor/ directory ({ORIGINAL_OUT_DIR}), which holds "
+            f"Test 6's control arm and the original Test 4 comparison baseline. "
+            f"Pass a different --out-dir (e.g. test4_noise_floor_v6)."
+        )
+    original_files = sorted(ORIGINAL_RAW_DIR.glob("*.json"))
+    n = len(original_files)
+    ok = n == ORIGINAL_EXPECTED_FILE_COUNT
+    msg = (
+        f"ASSERTION -- original {ORIGINAL_RAW_DIR} holds {n}/"
+        f"{ORIGINAL_EXPECTED_FILE_COUNT} expected files, and is not this "
+        f"invocation's OUT_DIR ({OUT_DIR}) -- {'PASS' if ok else 'FAIL'}."
+    )
+    print(msg)
+    if not ok:
+        raise SystemExit(
+            f"REFUSING to proceed: original test4_noise_floor/raw/ has {n} files, "
+            f"expected {ORIGINAL_EXPECTED_FILE_COUNT}. It may have been modified "
+            f"by something else. STOP and investigate before running anything."
+        )
+
 
 SEED = 40  # fixed, reported
 
@@ -87,6 +160,15 @@ def git_info():
         "docs/handoffs/2026-09-05-state-of-play.md",
         "analysis/data/run_state/test4-analyst-noise-floor/",
         "analysis/test4_noise_floor/",
+        # 2026-09-12 v6 re-run (prompts/test4-noise-floor-v6-rerun.md) and
+        # its own new paths:
+        "prompts/test4-noise-floor-v6-rerun.md",
+        "analysis/data/run_state/test4-analyst-noise-floor-v6",
+        "analysis/test4_noise_floor_v6/",
+        # Other sessions running concurrently -- not this run's to touch or
+        # wait on, per this prompt's own Step 0 instruction.
+        "analysis/data/run_state/ec-fidelity-benchmark-1/",
+        "analysis/ec_fidelity_benchmark_1/",
     )
     dirty_lines = [ln for ln in dirty_out.splitlines() if ln.strip()]
     unexpected = [ln for ln in dirty_lines if not any(p in ln for p in allowed_untracked)]
@@ -259,22 +341,99 @@ def get_prompt_header():
     return m.group(1).strip() if m else "UNKNOWN", text
 
 
-def step_score():
+def _init_progress_if_missing(progress_path, driver_commit):
+    if progress_path.exists():
+        return json.loads(progress_path.read_text())
+    prompt_path = REPO / "prompts" / "test4-noise-floor-v6-rerun.md"
+    progress = {
+        "run_id": RUN_ID,
+        "prompt_sha256": sha256_file(prompt_path) if prompt_path.exists() else None,
+        "driver_commit": driver_commit,
+        "steps": {"step2_250_scoring_calls": "in_progress"},
+        "transcripts_completed": [],
+        "next_action": "Resume by re-running `python3 test4_noise_floor.py score` with the same --run-id/--out-dir.",
+        "notes": [],
+    }
+    progress_path.write_text(json.dumps(progress, indent=2, default=str))
+    return progress
+
+
+def _do_one_run(client, model, full_prompt, run_idx):
+    resp = client.messages.create(
+        model=model, max_tokens=8192, temperature=0,
+        messages=[{"role": "user", "content": full_prompt}],
+    )
+    text = resp.content[0].text.strip()
+    return {
+        "run_idx": run_idx, "stop_reason": resp.stop_reason,
+        "input_tokens": resp.usage.input_tokens,
+        "output_tokens": resp.usage.output_tokens,
+        "structured": parse_structured(text), "raw_text": text,
+        "model_used_response_hint": getattr(resp, "model", None),
+    }
+
+
+def _run_five_for_transcript(anthropic_mod, client, model, full_prompt, tid):
+    """Issue the 5 runs for one transcript CONCURRENTLY (never across
+    transcripts -- see prompts/test4-noise-floor-v6-rerun.md Step 3, and the
+    three OS low-memory kills that hit when a prior run parallelized across
+    transcripts instead). Falls back to serial for any run that hits a rate
+    limit, logging the fallback explicitly."""
+    runs_by_idx = {}
+    rate_limited_idxs = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as ex:
+        future_to_idx = {ex.submit(_do_one_run, client, model, full_prompt, i): i
+                          for i in range(5)}
+        for fut in concurrent.futures.as_completed(future_to_idx):
+            idx = future_to_idx[fut]
+            try:
+                runs_by_idx[idx] = fut.result()
+            except anthropic_mod.RateLimitError as e:
+                print(f"  transcript {tid} run {idx}: RATE LIMITED ({e}) -- "
+                      f"will retry serially")
+                rate_limited_idxs.append(idx)
+
+    concurrency_note = "5-way concurrent"
+    missing = [i for i in range(5) if i not in runs_by_idx]
+    if missing:
+        concurrency_note = f"serial fallback for {len(missing)}/5 run(s) after rate limit"
+        print(f"  transcript {tid}: falling back to serial for run(s) {missing}")
+        for idx in missing:
+            runs_by_idx[idx] = _do_one_run(client, model, full_prompt, idx)
+
+    return [runs_by_idx[i] for i in range(5)], concurrency_note
+
+
+def step_score(transcript_ids_filter=None):
     import anthropic
     model = get_model_version()
     prompt_version_str, eval_prompt = get_prompt_header()
     conn = db_conn()
 
     sample = json.loads((RUN_DIR / "sample.json").read_text())
+    if transcript_ids_filter is not None:
+        wanted = set(transcript_ids_filter)
+        sample = [e for e in sample if e["transcript_id"] in wanted]
+        found = {e["transcript_id"] for e in sample}
+        missing = wanted - found
+        if missing:
+            print(f"WARNING: --transcript-ids requested {sorted(missing)} "
+                  f"but they are not in this run's sample.json")
+        print(f"Restricting this invocation to {len(sample)} transcript(s): "
+              f"{sorted(found)}")
+
     load_dotenv_key()
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     progress_path = RUN_DIR / "progress.json"
-    progress = json.loads(progress_path.read_text())
+    driver_commit_for_init = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=REPO).decode().strip()
+    progress = _init_progress_if_missing(progress_path, driver_commit_for_init)
     done_ids = set(progress.get("transcripts_completed", []))
 
     total_input_tokens = 0
     total_output_tokens = 0
+    concurrency_notes_seen = set()
     # reload running token totals if resuming
     tok_path = RUN_DIR / "token_usage.json"
     if tok_path.exists():
@@ -296,29 +455,21 @@ def step_score():
         transcript_text = row[0]
         full_prompt = eval_prompt.strip() + "\n\n---\n\nTRANSCRIPT:\n\n" + transcript_text
 
-        runs = []
-        for run_idx in range(5):
-            resp = client.messages.create(
-                model=model, max_tokens=8192, temperature=0,
-                messages=[{"role": "user", "content": full_prompt}],
-            )
-            text = resp.content[0].text.strip()
-            structured = parse_structured(text)
-            total_input_tokens += resp.usage.input_tokens
-            total_output_tokens += resp.usage.output_tokens
-            runs.append({
-                "run_idx": run_idx, "stop_reason": resp.stop_reason,
-                "input_tokens": resp.usage.input_tokens,
-                "output_tokens": resp.usage.output_tokens,
-                "structured": structured, "raw_text": text,
-                "model_used_response_hint": getattr(resp, "model", None),
-            })
-            print(f"  transcript {tid} run {run_idx}: {resp.stop_reason}, "
-                  f"{resp.usage.input_tokens}in/{resp.usage.output_tokens}out")
+        runs, concurrency_note = _run_five_for_transcript(
+            anthropic, client, model, full_prompt, tid
+        )
+        concurrency_notes_seen.add(concurrency_note)
+        for r in runs:
+            total_input_tokens += r["input_tokens"]
+            total_output_tokens += r["output_tokens"]
+            print(f"  transcript {tid} run {r['run_idx']}: {r['stop_reason']}, "
+                  f"{r['input_tokens']}in/{r['output_tokens']}out")
 
         out = {"transcript_id": tid, "ticker": entry["ticker"],
                "call_date": entry["call_date"], "tier": entry["tier"],
                "model": model, "prompt_version_header": prompt_version_str,
+               "prompt_candidate_used": os.environ.get("PROMPT_CANDIDATE"),
+               "concurrency": concurrency_note,
                "runs": runs}
         (RAW_DIR / f"{tid}.json").write_text(json.dumps(out, indent=2, default=str))
 
@@ -327,9 +478,10 @@ def step_score():
         progress["steps"]["step2_250_scoring_calls"] = (
             "done" if len(done_ids) >= len(sample) else "in_progress"
         )
+        progress["concurrency_notes_seen"] = sorted(concurrency_notes_seen)
         progress["next_action"] = (
             f"{len(done_ids)}/{len(sample)} transcripts scored (5 runs each). "
-            "Resume by re-running `python3 test4_noise_floor.py score`."
+            f"Resume by re-running with the same --run-id/--out-dir."
         )
         progress_path.write_text(json.dumps(progress, indent=2, default=str))
         tok_path.write_text(json.dumps(
@@ -338,7 +490,8 @@ def step_score():
              "n_transcripts_done": len(done_ids)}, indent=2))
         with (RUN_DIR / "findings.md").open("a") as f:
             f.write(f"\n- Checkpoint: transcript {tid} ({entry['ticker']} "
-                    f"{entry['call_date']}, tier {entry['tier']}) 5/5 runs complete. "
+                    f"{entry['call_date']}, tier {entry['tier']}) 5/5 runs complete "
+                    f"({concurrency_note}). "
                     f"Running total: {len(done_ids)}/{len(sample)} transcripts, "
                     f"{total_input_tokens + total_output_tokens} tokens so far.\n")
         print(f"checkpoint: {len(done_ids)}/{len(sample)} transcripts done, "
@@ -346,7 +499,8 @@ def step_score():
 
     conn.close()
     print(f"\nScoring complete. Total tokens: {total_input_tokens + total_output_tokens} "
-          f"({total_input_tokens} in, {total_output_tokens} out)")
+          f"({total_input_tokens} in, {total_output_tokens} out). "
+          f"Concurrency modes used: {sorted(concurrency_notes_seen)}")
 
 
 def load_dotenv_key():
@@ -500,22 +654,37 @@ def step_analyze(driver_commit, branch, dirty, driver_tracked):
 
 
 def main():
-    step = sys.argv[1] if len(sys.argv) > 1 else "all"
+    parser = argparse.ArgumentParser()
+    parser.add_argument("step", choices=["draw", "score", "analyze"])
+    parser.add_argument("--run-id", default=DEFAULT_RUN_ID,
+                         help=f"run_id under analysis/data/run_state/ (default: {DEFAULT_RUN_ID})")
+    parser.add_argument("--out-dir", default=DEFAULT_OUT_DIR_NAME,
+                         help=f"output dir name under analysis/ (default: {DEFAULT_OUT_DIR_NAME})")
+    parser.add_argument("--transcript-ids", default=None,
+                         help="comma-separated transcript ids to restrict `score` to "
+                              "(e.g. for the model-drift check subset). Ignored by draw/analyze.")
+    args = parser.parse_args()
+
+    configure_run(args.run_id, args.out_dir)
+    assert_original_protected()
+
     commit, branch, dirty, driver_tracked, unexpected = git_info()
     if dirty:
         print("UNEXPECTED DIRTY TREE:")
         for ln in unexpected:
             print(" ", ln)
     print(f"git_commit={commit} branch={branch} dirty={dirty} driver_tracked={driver_tracked}")
+    print(f"run_id={RUN_ID} out_dir={OUT_DIR}")
 
-    if step == "draw":
+    if args.step == "draw":
         step_draw(commit, branch, dirty, driver_tracked)
-    elif step == "score":
-        step_score()
-    elif step == "analyze":
+    elif args.step == "score":
+        ids_filter = None
+        if args.transcript_ids:
+            ids_filter = [int(x) for x in args.transcript_ids.split(",") if x.strip()]
+        step_score(transcript_ids_filter=ids_filter)
+    elif args.step == "analyze":
         step_analyze(commit, branch, dirty, driver_tracked)
-    else:
-        print("usage: test4_noise_floor.py {draw|score|analyze}")
 
 
 if __name__ == "__main__":
