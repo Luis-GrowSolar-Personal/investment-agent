@@ -264,6 +264,31 @@
       "reproducibility": "UNREPRODUCIBLE",
       "reproducibility_value": "no_known_method",
       "reproducibility_note": "2026-09-12: classified UNREPRODUCIBLE, not SUPERSEDED -- deliberately stronger than the existing quotable:false flag alone, per this run's own question about whether that flag was sufficient. The distinction that matters: a SUPERSEDED record has a KNOWN method that once produced it and could reproduce it again (deterministic replay, or re-scoring a recoverable prompt blob). This record has neither -- no driver on record ever computed it (baseline.py handles SPY/QQQ/TMFC only), and its ruler (session-sampled vs daily-marked, per PROMOTION_GATE.md Sec11.3) is unknown, so there is no stated methodology to even attempt to reproduce. A future EW computation would be a NEW figure under a chosen methodology, not a reproduction of this one. This is the one entry that should draw a reader's attention in whats_live.py's output -- everything else is expected, permanent, and non-actionable; this one is an unresolved data-integrity gap."
+    },
+    "test4_v6_per_tier_noise_floors": {
+      "figures": {"megacap": 4.87, "large": 3.08, "mid": 3.33, "small_micro": 4.17, "unit": "pp (std)", "megacap_range": 15.38, "large_range": 7.69, "mid_range": 8.33, "small_micro_range": 11.36, "aggregate_std": 2.31, "aggregate_range": 6.12},
+      "source": "wrap-ups/test4-noise-floor-v6-rerun-out.md (this run), analysis/data/run_state/test4-analyst-noise-floor-v6/manifests/2-analyze-manifest.json",
+      "artifact_versions_and_hashes": {
+        "evaluation_prompt": "357b6b0b... (v6) -- the currently PROMOTED prompt",
+        "model": "claude-sonnet-4-6 -- the currently PROMOTED model"
+      },
+      "corpus_window": "same 50-transcript sample as test4_per_tier_noise_floors / test6_look_ahead_null (seed 40, megacap 13 / large 13 / mid 12 / small_micro 12), reused per PROMOTION_GATE.md Sec11.6, not redrawn",
+      "model": "claude-sonnet-4-6",
+      "valid_while": ["evaluation_prompt unchanged", "model unchanged"],
+      "reproduced": true,
+      "quotable": true,
+      "note": "2026-09-12 re-run of test4_per_tier_noise_floors under the promoted v6 prompt instead of the ungated v10+auto1 candidate the original Test 4 used. Primary 4-field instability 60/200 (30.0%) vs v10+auto1's 39/200 (19.5%); recommendation flips 14/50 (28.0%) vs 11/50 (22.0%). LOAD-BEARING FINDING: v6 is noisier in aggregate than v10+auto1 on this sample, and the noise SHAPE differs -- v10+auto1 had large/mid at an exact 0.0pp floor with all noise concentrated in small_micro (14.34pp); v6 spreads noise across every tier (3.08-4.87pp each), with megacap now the single highest-std tier (4.87pp), not small_micro (4.17pp here, actually the LOWEST of the four non-large tiers). This directly contradicts the expectation that the promoted prompt would be cleaner or show the same noise shape. Reported as a diagnostic finding, not adjudicated. NOT a Sec2.2a gate -- 50 transcripts, no holdout, no forward-return regression computed; no gate_ledger.json entry opened; no promotion/condemnation recommendation made. The Sec2.2a gate for every prompt version v7 onward has still never been run.",
+      "gate_reading_vs_entry_1": {
+        "regression_pp": -7.44,
+        "gate_ledger_noise_std_pp_reference": 4.2,
+        "aggregate_reading": "-7.44pp vs 2.31pp aggregate std = ~3.2 SD -- clearly exceeds noise",
+        "tier_matched_reading_small_micro": "-7.44pp vs 4.17pp small_micro std = ~1.78 SD -- no longer comfortably inside noise (contrast the original v10+auto1-measured run's tier-matched reading of ~0.52 SD against a 14.34pp floor). Both readings now point the same rough direction, where they previously disagreed sharply.",
+        "adjudicated": false,
+        "note": "Report, not adjudicate, per this run's scope boundary. The prompt-version mismatch between the regression (measured under v6) and the original Test 4 floor (measured under v10+auto1) is now resolved -- both this record and gate_ledger entry 1 are v6. The tier-scope mismatch (entry 1's 7 tickers are overwhelmingly small/micro) remains and this run does not fix it."
+      },
+      "reproducibility": "VALID",
+      "reproducibility_value": "measured_under_promoted_artifacts",
+      "reproducibility_note": "2026-09-12 (prompts/test4-noise-floor-v6-rerun.md): this is the registry's first and ONLY benchmark record classified VALID -- both valid_while conditions (evaluation_prompt = v6, model = claude-sonnet-4-6) currently match the live promoted artifacts exactly, unlike every other benchmark record, which is either SUPERSEDED (measured under a since-changed prompt/model) or UNREPRODUCIBLE. Stated explicitly per this run's own instruction. This VALID status is NOT permanent -- like every VALID record, it will flip to SUPERSEDED the moment the promoted prompt or model changes, exactly as demonstrated live in benchmark-validity-taxonomy's Step 5 demo 2 (on a scratch copy, never the live registry)."
     }
   },
 
