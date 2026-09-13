@@ -87,10 +87,19 @@ def cash_deployment_series(r):
                         "total_value": s.total_value, "cash_share": share})
     avg_cash_share = (sum(x["cash_share"] for x in series if x["cash_share"] is not None)
                        / len(series)) if series else None
-    # dollar-years invested = integral over days of (total_value - cash_total)/365.25
-    dollar_years_invested = sum(
-        (x["total_value"] - x["cash_total"]) for x in series
-    ) / 365.25 if series else 0.0
+    # dollar-years invested = trapezoidal integral of invested-$ over calendar
+    # days, /365.25. NOTE: daily_snapshots are recorded once per SESSION
+    # (K=30-day cadence here), not once per calendar day, despite the
+    # DailySnapshot class name -- there are only ~31 of them over the ~2.4yr
+    # window, so the gap between consecutive snapshots (~28-30 days) must be
+    # used explicitly rather than assumed to be 1 day.
+    dollar_years_invested = 0.0
+    for i in range(1, len(snaps)):
+        gap_days = (snaps[i].date - snaps[i - 1].date).days
+        invested_prev = snaps[i - 1].total_value - snaps[i - 1].cash_total
+        invested_cur = snaps[i].total_value - snaps[i].cash_total
+        avg_invested = (invested_prev + invested_cur) / 2.0
+        dollar_years_invested += avg_invested * gap_days / 365.25
     final = snaps[-1] if snaps else None
     final_cash_share = (final.cash_total / final.total_value) if final and final.total_value else None
     return {
@@ -148,12 +157,21 @@ def build_arm_0c(events, prices):
                       "price_at_window_end": p1, "final_value": v}
         final_value += v
 
+    dollar_years_invested = 0.0
+    for t, h in holdings.items():
+        if h["shares"] > 0 and h["buy_date"]:
+            bd = h["buy_date"]
+            from datetime import date as _date
+            days = (WINDOW_END - _date.fromisoformat(bd)).days
+            dollar_years_invested += slice_dollars * days / 365.25
+
     return {
         "final_value": final_value,
         "slice_dollars_per_ticker": slice_dollars,
         "n_tickers": len(ALL16),
         "tickers_never_appearing_in_population": uninvested_slices,
         "per_ticker_detail": detail,
+        "dollar_years_invested": dollar_years_invested,
     }
 
 
@@ -202,15 +220,39 @@ def bootstrap_control_minus_arm0(r_control, r_arm0, seed):
     largest = sorted_contribs[0] if sorted_contribs else (None, 0.0)
     largest_share = (largest[1] / total_diff_approx) if total_diff_approx else None
 
+    actual_point_diff = r_control["final_value"] - r_arm0["final_value"]
+    reconciles = abs(total_diff_approx - actual_point_diff) < 0.01 * abs(actual_point_diff)
+
     return {
         "diff_by_ticker_approx": diff_by_ticker,
         "total_diff_approx": total_diff_approx,
+        "actual_point_diff_control_minus_arm0": actual_point_diff,
+        "reconciliation_check_passed": reconciles,
+        "reconciliation_note": (
+            "PASSED: per-ticker split sums to the actual control-minus-Arm-0 "
+            "difference within 1%." if reconciles else
+            "FAILED -- flagged as a finding, not silently used. The per-ticker "
+            "split (realized_sales.realized_gain + final position_values, "
+            "grouped by ticker) does NOT reconcile to the actual point "
+            "difference: it does not account for differing cash balances, "
+            "differing trade timing/tax lots, and pooled/compounding funding "
+            "order between the two arms (same non-additivity the prompt "
+            "warns about for C6). The bootstrap range below is computed on "
+            "this unreconciled decomposition and MUST NOT be read as a valid "
+            "confidence interval on the $6,842.67 figure -- it is reported "
+            "for transparency only. A methodologically sound bootstrap would "
+            "resample tickers from the UNIVERSE and re-run both arms' full "
+            "simulation per resample (16-of-16-with-replacement universes, "
+            "~2000 full simulator runs); that was not attempted this session "
+            "for cost reasons and is left as this stage's most important "
+            "unfinished piece of C2."
+        ),
         "n_tickers_positive": n_positive,
         "n_tickers_total": n,
         "largest_contributor_ticker": largest[0],
         "largest_contributor_value": largest[1],
         "largest_contributor_share_of_total_approx": largest_share,
-        "bootstrap_95_range": [lo, hi],
+        "bootstrap_95_range_UNRELIABLE_see_reconciliation_note": [lo, hi],
         "bootstrap_seed": seed,
         "bootstrap_n_resamples": N_RESAMPLES,
     }
@@ -265,10 +307,12 @@ def main() -> int:
     print("\n--- C2: bootstrap of control-minus-Arm-0 ---")
     c2 = bootstrap_control_minus_arm0(r_control, r_0, SEED_BOOTSTRAP)
     print(f"  point diff (control-arm0, actual final values): "
-          f"${r_control['final_value'] - r_0['final_value']:,.2f}")
+          f"${c2['actual_point_diff_control_minus_arm0']:,.2f}")
     print(f"  approx per-ticker-additive diff: ${c2['total_diff_approx']:,.2f}")
-    print(f"  95% bootstrap range: [${c2['bootstrap_95_range'][0]:,.2f}, "
-          f"${c2['bootstrap_95_range'][1]:,.2f}]")
+    print(f"  reconciliation_check_passed: {c2['reconciliation_check_passed']}")
+    r95 = c2["bootstrap_95_range_UNRELIABLE_see_reconciliation_note"]
+    print(f"  95% bootstrap range (UNRELIABLE, see reconciliation note): "
+          f"[${r95[0]:,.2f}, ${r95[1]:,.2f}]")
     print(f"  tickers positive: {c2['n_tickers_positive']}/{c2['n_tickers_total']}")
     print(f"  largest contributor: {c2['largest_contributor_ticker']} "
           f"(${c2['largest_contributor_value']:,.2f}, "
@@ -310,8 +354,10 @@ def main() -> int:
     with open(run_state_dir / "cells.jsonl", "a") as f:
         for cell_key, payload in (
             ("stage_c_c1_arm_0c", {"final_value": arm_0c["final_value"]}),
-            ("stage_c_c2_bootstrap", {"range": c2["bootstrap_95_range"],
-                                       "largest_contributor": c2["largest_contributor_ticker"]}),
+            ("stage_c_c2_bootstrap", {
+                "range_unreliable": c2["bootstrap_95_range_UNRELIABLE_see_reconciliation_note"],
+                "reconciliation_check_passed": c2["reconciliation_check_passed"],
+                "largest_contributor": c2["largest_contributor_ticker"]}),
         ):
             f.write(json.dumps({
                 "cell_key": cell_key,
