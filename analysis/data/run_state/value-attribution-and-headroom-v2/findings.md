@@ -107,3 +107,36 @@ methodologically sound version would resample the universe and re-run both
 arms' full simulation per resample (~2000 full simulator runs) — not
 attempted this session for cost reasons. C2 as specified (a valid bootstrap
 range on the $6,842.67 figure) is NOT reached this session.
+
+## Stage C3 (Step 0c + Step 1) -- 2026-09-13
+
+- **0c corrected:** Arm 0c's average idle-cash share, previously reported "not
+  applicable" in Stage C, is **8.31%** (`stage_c3_manifest.json` ->
+  `step_0c_arm_0c_cash_share.avg_cash_share`, measured on the control run's own
+  session-snapshot dates). Corrected ladder: Arm 0b (universe-only, forced
+  Hold) cash share previously reported ~1.0 (never deploys); Arm 0c 8.31%; Arm
+  0 (always-bullish) and control's shares carry over from Stage C
+  (control recomputed here for reference: 26.02%, matching Stage C's 26.0% to
+  rounding). Arm 0c is NOT a zero-idle-cash construction -- finding, not a
+  quiet correction, per the prompt's Sec4/0c instruction.
+
+- **Step 1, cash-parked arm -- finding, not the expected clean result.** The
+  literal overlay value is $192,679.64 (`stage_c3_manifest.json` ->
+  `step1_cash_parked_arm.final_value`), but this treats every dollar of
+  funding shortfall (times the arm needed to sell parked SPY back for a real
+  trade but the SPY position's market value had fallen below the dollar
+  amount originally parked) as costlessly covered. That shortfall totals
+  $12,734.74 (`shortfall_total`) and is EXACTLY the gap between $192,679.64
+  and the control's own $179,944.91 (to the cent, after rounding). A
+  conservative reading that does not backfill the shortfall
+  (`final_value_conservative_no_shortfall_addback`) lands at $179,944.91 --
+  statistically indistinguishable from control. BOTH readings land well below
+  buy-and-hold's $195,584.28. This directly contradicts the prompt's Sec5
+  framing of a clean "at/above -> idle capital, well below -> strategy problem"
+  test outcome by surfacing a THIRD possibility this session did not
+  anticipate: the honest answer is closer to "idle cash parked in SPY doesn't
+  even beat leaving it at zero, on this corpus and window," because the
+  2022 SPY drawdown coincided with when cash needed to be pulled back for
+  real trades. Reported here as a finding per the prompt's standing rule that
+  a diagnostic contradicting a stated expectation is a finding, not a reason
+  to stop.

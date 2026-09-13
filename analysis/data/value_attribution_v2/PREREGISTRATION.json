@@ -192,5 +192,30 @@
     },
 
     "abort_on_mismatch_rule": "If this stage_c block is found to already exist with different content on a future resume, ABORT and report the discrepancy rather than overwriting, per this prompt's Sec4/0b."
+  },
+
+  "stage_c3": {
+    "prompt_sha256_stage_c3": "SEE run_state/value-attribution-and-headroom-v2/progress.json key prompt_sha256_stage_c3",
+    "written_utc": "2026-09-13T00:00:00Z",
+    "note": "Registered per prompts/value-attribution-v2-stage-c3.md Sec4/0b, before Step 1's cash-parked arm was computed. The four ablation disable mechanics under stage_c.ablations_c3 above are reused verbatim, NOT redefined here, per the prompt's explicit instruction.",
+
+    "cash_parked_arm": {
+      "definition": "The real (control) system, identical in every decision it makes (final_action, position sizing, funding order, trend layer, allocator -- none of it re-run or modified). Built as a POST-HOC OVERLAY on the control run's own daily_snapshots.cash_total series, not by re-invoking the allocator with a different funding source: at each session snapshot date, if cash_total rose since the previous snapshot, the increase is parked in SPY at that date's cached close; if cash_total fell (the allocator's own decisions consumed cash), SPY is sold back first, up to the dollar amount needed, at that date's close, before anything else. This never changes what the allocator decided and never redeploys idle cash into existing positions -- the closed 'Never Do' in DESIGN_PRINCIPLES.md concerns proportional redeployment of trim/idle cash into existing portfolio POSITIONS; parking in the benchmark index is a measurement device, explicitly not that.",
+      "granularity": "Session-level (~30 days between snapshots, K=30) -- the same granularity DailySnapshot already carries (recorded once per session, not daily). This driver does not attempt intra-session SPY timing.",
+      "benchmark_ticker": "SPY, from the existing frozen price_cache.json (no cache refresh).",
+      "seed": "deterministic, no randomness -- no seed needed",
+      "shortfall_handling": "If SPY market value at a snapshot is insufficient to cover a funding need (shortfall > 0), the driver records it explicitly rather than allowing the arm to silently exceed available capital. A nonzero shortfall_total in the manifest is a finding, not expected under normal operation given the control's own cash never goes structurally negative."
+    },
+
+    "arm_0c_cash_share_fill": {
+      "definition": "Arm 0c (equal-weight, 16 slices, never traded) DOES carry idle cash: each ticker's $6,250 slice sits at face value (uninvested) from the window start (2022-01-01) until that ticker's own first call_date in the 195-event population, then converts to shares and is marked to market for the remainder of the window. Measured at the same session-snapshot dates as the control run so the corrected ladder shares one date axis with Arm 0b/0/control."
+    },
+
+    "leave_one_company_out_design": {
+      "definition": "For the control and each of the four Step-2 ablation arms (B1-B4), re-run the full 195-event simulation 16 times, each time excluding all events for one of the 16 ALL16 tickers from the population passed to run_session_sweep_cell -- NOT setting that ticker's final_action to Hold (that would leave its capital allocation and starter-sizing footprint in the sim); the ticker is removed from the universe entirely, same as C2's stated 'universe resampling' unit. 80 runs total (5 arms x 16 leave-outs). Not attempted this session -- see wrap-up next_action.",
+      "fixed_seed": "seed=0, phase_offset=0 (same as every other arm in this run -- no permutation/shuffle involved in leave-one-out, so no additional randomness is introduced)."
+    },
+
+    "abort_on_mismatch_rule": "If this stage_c3 block is found to already exist with different content on a future resume, ABORT and report the discrepancy rather than overwriting, per this prompt's Sec4/0b."
   }
 }

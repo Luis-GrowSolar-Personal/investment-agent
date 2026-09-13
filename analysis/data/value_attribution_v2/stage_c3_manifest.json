@@ -1,0 +1,79 @@
+{
+  "run_id": "value-attribution-and-headroom-v2",
+  "stage": "C3",
+  "steps_run": [
+    "0c",
+    "step1_cash_parked"
+  ],
+  "steps_not_run": [
+    "step2_ablations",
+    "step3_leave_one_out",
+    "step4_drawdowns"
+  ],
+  "written_utc": "2026-09-13T22:17:45.651116+00:00",
+  "git_commit": "12fcb4f121a89c07c633ae3a814c5cc5ff99119a",
+  "git_dirty": true,
+  "driver_file": "analysis/value_attribution_v2_stage_c3_driver.py",
+  "cell_params": {
+    "cadence": "30",
+    "scope": "new_calls_only",
+    "funding_mode": "swap_funding",
+    "limit_pp": 2.5,
+    "execution_order": "pooled",
+    "trim_budget_scope": "per_event_date",
+    "veto_p": 0.0
+  },
+  "reproduction_check": {
+    "control": {
+      "got": 179944.90608455567,
+      "expected": 179944.91,
+      "match": true
+    }
+  },
+  "checksums": {
+    "type_classifications.json": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "price_cache.json": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache.json": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "step_0c_arm_0c_cash_share": {
+    "final_value": 195584.2752445832,
+    "dollar_years_invested": 288261.4647501711,
+    "avg_cash_share": 0.08305520791027943,
+    "cash_share_curve_every_30_days": [
+      {
+        "date": "2022-01-01",
+        "cash_total": 12500.0,
+        "total_value": 132295.19681159576,
+        "cash_share": 0.09448566766790105
+      },
+      {
+        "date": "2024-06-12",
+        "cash_total": 0.0,
+        "total_value": 195584.2752445832,
+        "cash_share": 0.0
+      }
+    ],
+    "n_snapshots": 31
+  },
+  "control_avg_cash_share_recomputed_for_reference": 0.2602236176985291,
+  "step1_cash_parked_arm": {
+    "final_value": 192679.64405212793,
+    "avg_true_cash_share": 0.0,
+    "avg_true_cash_share_note": "By construction this arm parks all idle dollars in SPY at every snapshot, so uninvested raw cash averages ~0% across the window (any residual is the shortfall_total below, a running total across events, not a standing balance).",
+    "final_spy_shares": 1.8229701499952286e-17,
+    "final_spy_value": 9.868830936977526e-15,
+    "shortfall_total": 12734.73796757227,
+    "dollar_years_invested": 253283.0622977268,
+    "n_events": 25,
+    "events_every_30th": [
+      {
+        "date": "2022-01-01",
+        "action": "buy_spy",
+        "dollars": 100000.0,
+        "spy_price": 474.9599914550781
+      }
+    ],
+    "final_value_conservative_no_shortfall_addback": 179944.90608455567,
+    "interpretation_note": "final_value ($192679.64) treats every funding shortfall (times SPY fell in value between being parked and being needed back for a real trade) as costlessly covered -- an optimistic assumption. Since shortfall_total ($12734.74) is added back in full, the apparent $12734.73 gain over the unmodified control (192679.64 - 179944.91) is ENTIRELY the shortfall add-back, not a genuine SPY-parking gain: 12734.74 of a 12734.73 delta. final_value_conservative_no_shortfall_addback ($179944.91) does not backfill shortfalls and lands within a few cents of the control (179944.91), i.e. statistically indistinguishable from it. Both the optimistic and conservative readings land WELL BELOW buy-and-hold (,584.28), so the qualitative conclusion (idle cash parking does not close the gap to buy-and-hold) does not depend on resolving which reading is correct."
+  }
+}
