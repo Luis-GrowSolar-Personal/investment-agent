@@ -11,9 +11,9 @@
     "C5",
     "C6"
   ],
-  "written_utc": "2026-09-13T22:00:10.624564+00:00",
-  "git_commit": "7e0255024f99b1d88e2768112bfdad2f9043809d",
-  "git_dirty": true,
+  "written_utc": "2026-09-13T22:00:54.132402+00:00",
+  "git_commit": "cc908a368bfa122fc0f6318d75e018fd32861836",
+  "git_dirty": false,
   "driver_file": "analysis/value_attribution_v2_stage_c_driver.py",
   "cell_params": {
     "cadence": "30",
@@ -26,7 +26,7 @@
   },
   "reproduction_check": {
     "control": {
-      "got": 179944.9060845556,
+      "got": 179944.90608455567,
       "expected": 179944.91,
       "match": true
     },
@@ -36,7 +36,7 @@
       "match": true
     },
     "arm_0": {
-      "got": 173102.23706486914,
+      "got": 173102.23706486917,
       "expected": 173102.24,
       "match": true
     }
@@ -48,7 +48,7 @@
   },
   "c1_deployment_ladder": {
     "control": {
-      "final_value": 179944.9060845556,
+      "final_value": 179944.90608455567,
       "avg_cash_share": 0.2602236176985291,
       "final_cash_total": 0.0,
       "final_cash_share": 0.0,
@@ -65,7 +65,7 @@
         {
           "date": "2024-06-12",
           "cash_total": 0.0,
-          "total_value": 179944.9060845556,
+          "total_value": 179944.90608455567,
           "cash_share": 0.0
         }
       ]
@@ -94,12 +94,12 @@
       ]
     },
     "arm_0_always_bullish": {
-      "final_value": 173102.23706486914,
+      "final_value": 173102.23706486917,
       "avg_cash_share": 0.15341935892904204,
       "final_cash_total": 0.0,
       "final_cash_share": 0.0,
       "never_invested_approx_share_of_initial": 0.0,
-      "dollar_years_invested": 234071.80822833188,
+      "dollar_years_invested": 234071.80822833185,
       "n_days": 31,
       "cash_share_curve_every_30_days": [
         {
@@ -111,7 +111,7 @@
         {
           "date": "2024-06-12",
           "cash_total": 0.0,
-          "total_value": 173102.23706486914,
+          "total_value": 173102.23706486917,
           "cash_share": 0.0
         }
       ]
@@ -241,34 +241,34 @@
   "c2_bootstrap": {
     "diff_by_ticker_approx": {
       "AAPL": -7577.790591289895,
-      "AMD": 1156.7945462566568,
-      "AMPX": -70.04816927106867,
+      "AMD": 1156.794546256655,
+      "AMPX": -70.04816927106845,
       "AVGO": 24341.420278590966,
-      "ENVX": -1369.5351592613142,
+      "ENVX": -1369.535159261317,
       "EOSE": -4547.437246302452,
       "FSLR": -21824.473895734278,
-      "GOOGL": -2764.940172957149,
-      "MSFT": -903.9326396144297,
-      "NVDA": -2133.481308190938,
+      "GOOGL": -2764.940172957151,
+      "MSFT": -903.9326396144279,
+      "NVDA": -2133.4813081909597,
       "ORCL": 12922.164423146409,
       "QS": -3973.9401159049753,
-      "RUN": -5788.066913286104,
+      "RUN": -5788.066913286105,
       "SPWR": 0.0,
-      "TSLA": -5861.233004668209,
+      "TSLA": -5861.23300466821,
       "TTD": 12226.323543979262
     },
-    "total_diff_approx": -6168.176424507521,
-    "actual_point_diff_control_minus_arm0": 6842.669019686466,
+    "total_diff_approx": -6168.17642450755,
+    "actual_point_diff_control_minus_arm0": 6842.669019686495,
     "reconciliation_check_passed": false,
     "reconciliation_note": "FAILED -- flagged as a finding, not silently used. The per-ticker split (realized_sales.realized_gain + final position_values, grouped by ticker) does NOT reconcile to the actual point difference: it does not account for differing cash balances, differing trade timing/tax lots, and pooled/compounding funding order between the two arms (same non-additivity the prompt warns about for C6). The bootstrap range below is computed on this unreconciled decomposition and MUST NOT be read as a valid confidence interval on the $6,842.67 figure -- it is reported for transparency only. A methodologically sound bootstrap would resample tickers from the UNIVERSE and re-run both arms' full simulation per resample (16-of-16-with-replacement universes, ~2000 full simulator runs); that was not attempted this session for cost reasons and is left as this stage's most important unfinished piece of C2.",
     "n_tickers_positive": 4,
     "n_tickers_total": 16,
     "largest_contributor_ticker": "AVGO",
     "largest_contributor_value": 24341.420278590966,
-    "largest_contributor_share_of_total_approx": -3.9462911893825137,
+    "largest_contributor_share_of_total_approx": -3.946291189382495,
     "bootstrap_95_range_UNRELIABLE_see_reconciliation_note": [
-      -81686.54869967305,
-      74499.0061153961
+      -81686.54869967309,
+      74499.00611539607
     ],
     "bootstrap_seed": 20260913,
     "bootstrap_n_resamples": 2000
