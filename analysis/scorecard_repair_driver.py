@@ -40,7 +40,8 @@ DRIVER_FILE = "analysis/scorecard_repair_driver.py"
 BOOTSTRAP_N = 2000
 BOOTSTRAP_SEED = 20260913
 X_SWEEP = list(range(1, 16))
-N_SYNTH_TRIALS = 500
+N_SYNTH_TRIALS = 150
+INNER_RESAMPLES = 60
 DISAGREEMENT_DEFAULT = 0.15
 DISAGREEMENT_SWEEP = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30]
 DATA_VOLUME_TARGET_PP = 3
@@ -306,7 +307,7 @@ def step3_unpaired(pop, x_sweep, n_trials, n_resamples, seed):
             }
             # inner ticker-block bootstrap for this trial's paired resample of the difference
             diffs = []
-            inner_n = 200
+            inner_n = INNER_RESAMPLES
             for _ in range(inner_n):
                 samp_tickers_v6 = [rng.choice(tickers) for _ in tickers]
                 samp_tickers_c = [rng.choice(tickers) for _ in tickers]
@@ -368,7 +369,7 @@ def step3_paired(pop, x_sweep, n_trials, n_resamples, seed, disagreement_rate):
                 v6_by_ticker[t] = v6_vals
 
             diffs = []
-            inner_n = 200
+            inner_n = INNER_RESAMPLES
             for _ in range(inner_n):
                 samp_tickers = [rng.choice(tickers) for _ in tickers]
                 v6_vals = [v for t in samp_tickers for v in v6_by_ticker[t]]
@@ -414,19 +415,19 @@ def data_volume_answer(pop, target_pp, seed, disagreement_rate):
 
     def paired_mde_for(stock_multiplier, call_multiplier):
         expanded = build_expanded_pop(stock_multiplier, call_multiplier)
-        res = step3_paired(expanded, X_SWEEP, n_trials=120, n_resamples=None,
+        res = step3_paired(expanded, X_SWEEP, n_trials=60, n_resamples=None,
                             seed=seed, disagreement_rate=disagreement_rate)
         return res["minimum_detectable_improvement_pp"]
 
     stock_answer = None
-    for mult in [1, 2, 3, 4, 6, 8, 12, 16]:
+    for mult in [1, 2, 4, 8, 16]:
         mde = paired_mde_for(mult, 1)
         if mde is not None and mde <= target_pp:
             stock_answer = {"stock_multiplier": mult, "n_tickers": len(tickers) * mult,
                              "mde_at_multiplier": mde}
             break
     call_answer = None
-    for mult in [1, 2, 3, 4, 6, 8, 12, 16]:
+    for mult in [1, 2, 4, 8, 16]:
         mde = paired_mde_for(1, mult)
         if mde is not None and mde <= target_pp:
             call_answer = {"call_multiplier": mult, "n_calls_per_ticker_scaled": mult,
@@ -521,7 +522,7 @@ def main():
     unpaired_scorer = step3_unpaired(scorer_pop, X_SWEEP, N_SYNTH_TRIALS, None, BOOTSTRAP_SEED)
     paired_scorer = step3_paired(scorer_pop, X_SWEEP, N_SYNTH_TRIALS, None, BOOTSTRAP_SEED, DISAGREEMENT_DEFAULT)
     paired_scorer_sweep = {
-        d: step3_paired(scorer_pop, X_SWEEP, 150, None, BOOTSTRAP_SEED, d)["minimum_detectable_improvement_pp"]
+        d: step3_paired(scorer_pop, X_SWEEP, 60, None, BOOTSTRAP_SEED, d)["minimum_detectable_improvement_pp"]
         for d in DISAGREEMENT_SWEEP
     }
     dv = data_volume_answer(scorer_pop, DATA_VOLUME_TARGET_PP, BOOTSTRAP_SEED, DISAGREEMENT_DEFAULT)
