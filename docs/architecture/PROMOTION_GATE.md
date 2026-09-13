@@ -536,6 +536,58 @@ Each step ships and is usable on its own; resist building all at once.
   pinning) or to accept the window as a fixed regression suite.
 - **Walk-forward** upgrade once corpus grows (§7).
 - **CI automation** (§9.8).
+- **F1 — baseline divergence (open).** §3.1 specifies "lift over an
+  always-hold baseline" and justifies it explicitly ("an always-'bullish'
+  coin scores ~55–60% in a bull sample"). `analysis/analyst_direct_scorer.py`
+  (lines 18, 207) implements always-**bullish**, not always-hold, and has
+  since the file was written. Measured on the scorer's 359-row thin-filtered
+  ALL16 corpus (`analysis/data/value_attribution_v2/stage_b_manifest.json` →
+  `results.B1.scorer_population_aggregate_thin_filtered_n359`, forward-return
+  hit rates, not a median across draws):
+  - always-bullish baseline 46.2%, hit rate 40.4%, lift **−5.8pp** (fails)
+  - always-hold baseline 11.7%, hit rate 40.4%, lift **+28.7pp** (passes)
+  Same 359 calls, opposite verdict depending on which baseline is used. Both
+  intervals are non-trivial: the scorer population's always-bullish-lift 95%
+  ticker-block bootstrap CI is [−9.55, −1.98]pp (2000 resamples, seed
+  20260913, `stage_b_manifest.json` → `results.B3.bootstrap.scorer_population_ci95.always_bullish_lift_pp`)
+  and does not span zero on this population — but the **simulator's** 195-event
+  population's always-bullish-lift CI is [−9.72, +0.62]pp
+  (`results.B3.bootstrap.simulator_population_ci95.always_bullish_lift_pp`)
+  and **does** span zero, consistent with McNemar p=0.1755 on that same
+  comparison (`results.B3.mcnemar.simulator_population_vs_always_bullish`).
+  **Until F1 is resolved, no lift figure from this scorer may be cited as
+  §3.1's metric.** Cite it as "always-bullish-relative" or
+  "always-hold-relative," SPY-benchmarked (see F2), naming the baseline, the
+  population (scorer's 359/362 vs. simulator's 195 — they are not the same
+  denominator, see `stage_b_manifest.json` → `results.B0`), and whether the
+  interval spans zero.
+- **F2 — benchmark divergence (open, deferred; not resolved by this
+  measurement).** §3.1 specifies the stock's sector ETF where one applies
+  (worked ENPH-vs-TAN example), else SPY. `analyst_direct_scorer.py` line 55
+  uses SPY for every ticker ("sector ETFs not yet in price cache"). Not
+  resolved here — TAN/SOXX history is absent from `price_cache.json` and this
+  measurement does not fetch prices or re-grade. Size only: of the scorer's
+  359-row thin-filtered ALL16 corpus, 10 of 16 tickers (AMD, AVGO, NVDA —
+  semiconductors; FSLR, RUN, SPWR — solar; AMPX, ENVX, EOSE, QS — storage)
+  sit in a Tier 1 domain (`docs/architecture/DOMAIN.md` §Tier 1) where a
+  sector ETF applies and SPY-relative grading is expected to diverge most
+  from sector-relative grading; the remaining 6 (AAPL, GOOGL, MSFT, ORCL,
+  TSLA, TTD) do not have an obvious sector-ETF alternative under §3.1's
+  worked example. This is a lower bound on affected rows, not a resolution.
+- **Arm 0 ≤ control (recorded here per Stage A's flag).** Always-bullish run
+  end to end through the real allocator returns **$173,102.24**, against the
+  real system's **$179,944.91** — it loses by $6,842.67
+  (`analysis/data/value_attribution_v2/stage_a_manifest.json` →
+  `results.arm_0_always_bullish.final_value` and
+  `docs/architecture/VERSION_REGISTRY.json` →
+  `benchmarks.settled_control.figures.final_value`, both forward draws, not
+  medians). A comparator that reads as superior in §3.1's percentage-point
+  terms (F1's always-bullish framing scores 46.2%, well above the real
+  system's constituent analyst hit rate) loses money in dollars relative to
+  the real system. This is the empirical case that §3.1's current metric, as
+  implemented, can grade something the system does not monetize. See
+  `wrap-ups/value-attribution-and-headroom-v2-out.md` and
+  `wrap-ups/value-attribution-v2-stage-b-out.md`.
 
 ---
 

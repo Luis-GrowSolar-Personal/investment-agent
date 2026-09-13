@@ -204,6 +204,18 @@ def score_eval_dir(
             ground_truth = "neutral"
 
         hit = (predicted == ground_truth)
+        # F1 (docs/architecture/PROMOTION_GATE.md §10): this baseline is
+        # always-BULLISH, not the always-HOLD baseline §3.1 specifies and
+        # justifies ("an always-'bullish' coin scores ~55-60% in a bull
+        # sample"). Measured divergence (Stage B,
+        # analysis/data/value_attribution_v2/stage_b_manifest.json ->
+        # results.B1): on the 359-row scorer population, lift vs this
+        # always-bullish baseline is -5.8pp (fails) while lift vs an
+        # always-hold baseline is +28.7pp (passes) -- same calls, opposite
+        # verdict. No behavior change here; implementing an always-hold
+        # baseline is a decision for Luis, not this measurement run. See
+        # PROMOTION_GATE.md §10 F1 before citing any lift figure from this
+        # scorer as §3.1's metric.
         always_bullish_hit = (ground_truth == "bullish")
 
         records.append(CallRecord(
