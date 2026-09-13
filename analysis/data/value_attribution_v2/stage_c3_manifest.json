@@ -75,5 +75,392 @@
     ],
     "final_value_conservative_no_shortfall_addback": 179944.90608455567,
     "interpretation_note": "final_value ($192679.64) treats every funding shortfall (times SPY fell in value between being parked and being needed back for a real trade) as costlessly covered -- an optimistic assumption. Since shortfall_total ($12734.74) is added back in full, the apparent $12734.73 gain over the unmodified control (192679.64 - 179944.91) is ENTIRELY the shortfall add-back, not a genuine SPY-parking gain: 12734.74 of a 12734.73 delta. final_value_conservative_no_shortfall_addback ($179944.91) does not backfill shortfalls and lands within a few cents of the control (179944.91), i.e. statistically indistinguishable from it. Both the optimistic and conservative readings land WELL BELOW buy-and-hold (,584.28), so the qualitative conclusion (idle cash parking does not close the gap to buy-and-hold) does not depend on resolving which reading is correct."
+  },
+  "step2_ablations": {
+    "b4_uniform_starter_pct_chosen": 6.5,
+    "b2_confirmation": "Confirmed NOT ambiguous as a code location: single guard clause, analysis/simulator/allocator_v2.py lines 143-147 inside _decide_add(), gated on tier=='speculative' and _weighted_cost_basis(portfolio, ticker) < day_price. Disabled by monkeypatching _weighted_cost_basis to always return None. FINDING (not in the pre-registration, discovered while confirming this location): in the settled swap_funding pooled cell actually executed by run_session_sweep_cell, this guard does NOT prevent the Add from happening at all when it fires. The session driver's own 'intended' buy-dollar target for an Add (sweep_cadence_and_session_model.py lines ~866-877) is computed from recommended_size/cap only and never consults cost basis; when Rule 3 makes decide_v2's own natural buy return [] (0 natural dollars), swap-funding's shortfall calculation (target - natural) simply treats the FULL target as a shortfall and funds it by selling another position (displacement), landing at the same or a similar target position size. So this ablation's real effect is measuring 'fund adds to speculative losers from free cash vs. by selling something else to fund them', not 'block vs. allow the add' -- Rule 3 as coded does not block position growth in swap_funding mode, only its funding source. This changes which OTHER positions get displaced and when, which is plausibly why this ablation moves the most money of the four.",
+    "arms": {
+      "control": {
+        "final_value": 179944.90608455567,
+        "avg_cash_share": 0.2602236176985291,
+        "dollar_years_invested": 208808.0196730222,
+        "delta_vs_control": -0.003915444336598739,
+        "delta_vs_buy_and_hold": -15639.373915444332
+      },
+      "B1_disable_caps": {
+        "final_value": 179132.3098211405,
+        "avg_cash_share": 0.2602236176985291,
+        "dollar_years_invested": 208029.3675718234,
+        "delta_vs_control": -812.6001788595167,
+        "delta_vs_buy_and_hold": -16451.970178859512,
+        "delta_avg_cash_share_vs_control": 0.0
+      },
+      "B2_disable_rule3": {
+        "final_value": 189362.81437485846,
+        "avg_cash_share": 0.2275586580607454,
+        "dollar_years_invested": 222468.51108272548,
+        "delta_vs_control": 9417.904374858452,
+        "delta_vs_buy_and_hold": -6221.465625141544,
+        "delta_avg_cash_share_vs_control": -0.03266495963778368
+      },
+      "B3_disable_profit_take": {
+        "final_value": 179944.90608455567,
+        "avg_cash_share": 0.2602236176985291,
+        "dollar_years_invested": 208808.0196730222,
+        "delta_vs_control": -0.003915444336598739,
+        "delta_vs_buy_and_hold": -15639.373915444332,
+        "delta_avg_cash_share_vs_control": 0.0
+      },
+      "B4_uniform_starter": {
+        "final_value": 179944.90608455567,
+        "avg_cash_share": 0.2602236176985291,
+        "dollar_years_invested": 208808.0196730222,
+        "delta_vs_control": -0.003915444336598739,
+        "delta_vs_buy_and_hold": -15639.373915444332,
+        "delta_avg_cash_share_vs_control": 0.0
+      }
+    }
+  },
+  "step3_leave_one_company_out": {
+    "design": "PREREGISTRATION.json -> stage_c3.leave_one_company_out_design",
+    "n_runs": 80,
+    "raw": {
+      "control": {
+        "final_value_leaving_out": {
+          "AAPL": 178027.31086309516,
+          "AMD": 177209.46746199304,
+          "AVGO": 158759.20801386717,
+          "GOOGL": 177983.46081401457,
+          "MSFT": 175593.52152632232,
+          "NVDA": 149021.84101957543,
+          "ORCL": 171502.9130300621,
+          "TSLA": 182136.4192337891,
+          "AMPX": 181074.41811561986,
+          "ENVX": 178075.92788493162,
+          "EOSE": 180550.83042421265,
+          "FSLR": 174337.1871030988,
+          "QS": 181912.938368658,
+          "RUN": 183883.6401461491,
+          "SPWR": 179944.90608455567,
+          "TTD": 174036.9408402007
+        }
+      },
+      "B1_disable_caps": {
+        "final_value_leaving_out": {
+          "AAPL": 177665.8867142113,
+          "AMD": 176111.83898690852,
+          "AVGO": 157951.960398237,
+          "GOOGL": 177185.27071328968,
+          "MSFT": 174888.45853374831,
+          "NVDA": 149071.84677013743,
+          "ORCL": 170321.3897111212,
+          "TSLA": 181282.16933792777,
+          "AMPX": 180324.5479049462,
+          "ENVX": 178115.02096510734,
+          "EOSE": 179941.7765512115,
+          "FSLR": 173688.07111010037,
+          "QS": 181098.05983994808,
+          "RUN": 183043.90432196434,
+          "SPWR": 179132.3098211405,
+          "TTD": 174036.9408402007
+        }
+      },
+      "B2_disable_rule3": {
+        "final_value_leaving_out": {
+          "AAPL": 190485.82419352094,
+          "AMD": 189062.7511242121,
+          "AVGO": 172714.33507988806,
+          "GOOGL": 188658.1676862044,
+          "MSFT": 188027.0337378967,
+          "NVDA": 154947.9215428352,
+          "ORCL": 184907.0526761492,
+          "TSLA": 193794.726239614,
+          "AMPX": 191218.66940648505,
+          "ENVX": 192280.23417878157,
+          "EOSE": 190711.56944426944,
+          "FSLR": 183607.94917645783,
+          "QS": 191329.43487822195,
+          "RUN": 192959.098216228,
+          "SPWR": 189362.81437485846,
+          "TTD": 186029.1478843017
+        }
+      },
+      "B3_disable_profit_take": {
+        "final_value_leaving_out": {
+          "AAPL": 178027.31086309516,
+          "AMD": 177209.46746199304,
+          "AVGO": 158759.20801386717,
+          "GOOGL": 177983.46081401457,
+          "MSFT": 175593.52152632232,
+          "NVDA": 149021.84101957543,
+          "ORCL": 171446.49390060612,
+          "TSLA": 182136.4192337891,
+          "AMPX": 181074.41811561986,
+          "ENVX": 178075.92788493162,
+          "EOSE": 180550.83042421265,
+          "FSLR": 174337.1871030988,
+          "QS": 181912.938368658,
+          "RUN": 183883.6401461491,
+          "SPWR": 179944.90608455567,
+          "TTD": 174036.9408402007
+        }
+      },
+      "B4_uniform_starter": {
+        "final_value_leaving_out": {
+          "AAPL": 178027.31086309516,
+          "AMD": 177209.46746199304,
+          "AVGO": 158759.20801386717,
+          "GOOGL": 177983.46081401457,
+          "MSFT": 175593.52152632232,
+          "NVDA": 149021.84101957543,
+          "ORCL": 171502.9130300621,
+          "TSLA": 182136.4192337891,
+          "AMPX": 181074.41811561986,
+          "ENVX": 178075.92788493162,
+          "EOSE": 180550.83042421265,
+          "FSLR": 174337.1871030988,
+          "QS": 181912.938368658,
+          "RUN": 183883.6401461491,
+          "SPWR": 179944.90608455567,
+          "TTD": 174036.9408402007
+        }
+      }
+    },
+    "sign_stability": {
+      "B1_disable_caps": {
+        "full_universe_effect": -812.5962634151801,
+        "effect_by_ticker_dropped": {
+          "AAPL": -361.4241488838743,
+          "AMD": -1097.6284750845225,
+          "AVGO": -807.2476156301855,
+          "GOOGL": -798.1901007248962,
+          "MSFT": -705.0629925740068,
+          "NVDA": 50.00575056200614,
+          "ORCL": -1181.52331894089,
+          "TSLA": -854.2498958613432,
+          "AMPX": -749.87021067366,
+          "ENVX": 39.09308017572039,
+          "EOSE": -609.0538730011613,
+          "FSLR": -649.1159929984424,
+          "QS": -814.8785287099308,
+          "RUN": -839.7358241847542,
+          "SPWR": -812.5962634151801,
+          "TTD": 0.0
+        },
+        "n_of_16_preserving_sign": 13,
+        "company_changing_effect_most": "NVDA",
+        "change_in_effect_dollars": 862.6020139771863
+      },
+      "B2_disable_rule3": {
+        "full_universe_effect": 9417.908290302788,
+        "effect_by_ticker_dropped": {
+          "AAPL": 12458.513330425776,
+          "AMD": 11853.283662219066,
+          "AVGO": 13955.127066020883,
+          "GOOGL": 10674.706872189825,
+          "MSFT": 12433.512211574387,
+          "NVDA": 5926.080523259763,
+          "ORCL": 13404.139646087104,
+          "TSLA": 11658.3070058249,
+          "AMPX": 10144.251290865184,
+          "ENVX": 14204.30629384995,
+          "EOSE": 10160.73902005679,
+          "FSLR": 9270.762073359016,
+          "QS": 9416.496509563935,
+          "RUN": 9075.458070078923,
+          "SPWR": 9417.908290302788,
+          "TTD": 11992.207044101
+        },
+        "n_of_16_preserving_sign": 16,
+        "company_changing_effect_most": "ENVX",
+        "change_in_effect_dollars": 4786.398003547161
+      },
+      "B3_disable_profit_take": {
+        "full_universe_effect": 0.0,
+        "effect_by_ticker_dropped": {
+          "AAPL": 0.0,
+          "AMD": 0.0,
+          "AVGO": 0.0,
+          "GOOGL": 0.0,
+          "MSFT": 0.0,
+          "NVDA": 0.0,
+          "ORCL": -56.41912945598597,
+          "TSLA": 0.0,
+          "AMPX": 0.0,
+          "ENVX": 0.0,
+          "EOSE": 0.0,
+          "FSLR": 0.0,
+          "QS": 0.0,
+          "RUN": 0.0,
+          "SPWR": 0.0,
+          "TTD": 0.0
+        },
+        "n_of_16_preserving_sign": 15,
+        "company_changing_effect_most": "ORCL",
+        "change_in_effect_dollars": 56.41912945598597
+      },
+      "B4_uniform_starter": {
+        "full_universe_effect": 0.0,
+        "effect_by_ticker_dropped": {
+          "AAPL": 0.0,
+          "AMD": 0.0,
+          "AVGO": 0.0,
+          "GOOGL": 0.0,
+          "MSFT": 0.0,
+          "NVDA": 0.0,
+          "ORCL": 0.0,
+          "TSLA": 0.0,
+          "AMPX": 0.0,
+          "ENVX": 0.0,
+          "EOSE": 0.0,
+          "FSLR": 0.0,
+          "QS": 0.0,
+          "RUN": 0.0,
+          "SPWR": 0.0,
+          "TTD": 0.0
+        },
+        "n_of_16_preserving_sign": 16,
+        "company_changing_effect_most": null,
+        "change_in_effect_dollars": 0.0
+      }
+    }
+  },
+  "step4_drawdowns": {
+    "control": {
+      "max_drawdown_dollars": 21501.56104180051,
+      "max_drawdown_pct": 0.20852310359539084,
+      "max_drawdown_date_range": [
+        "2022-04-01",
+        "2022-12-27"
+      ],
+      "largest_single_quarter_decline_dollars": 12679.717966254117,
+      "largest_single_quarter_decline_pct": 0.12725017910941147,
+      "largest_single_quarter_decline_date_range": [
+        "2022-03-02",
+        "2022-06-30"
+      ]
+    },
+    "B1_disable_caps": {
+      "max_drawdown_dollars": 21501.56104180051,
+      "max_drawdown_pct": 0.20852310359539084,
+      "max_drawdown_date_range": [
+        "2022-04-01",
+        "2022-12-27"
+      ],
+      "largest_single_quarter_decline_dollars": 12679.717966254117,
+      "largest_single_quarter_decline_pct": 0.12725017910941147,
+      "largest_single_quarter_decline_date_range": [
+        "2022-03-02",
+        "2022-06-30"
+      ]
+    },
+    "B2_disable_rule3": {
+      "max_drawdown_dollars": 22402.72220523651,
+      "max_drawdown_pct": 0.21726260498666156,
+      "max_drawdown_date_range": [
+        "2022-04-01",
+        "2022-12-27"
+      ],
+      "largest_single_quarter_decline_dollars": 12989.175115561899,
+      "largest_single_quarter_decline_pct": 0.1303558063623918,
+      "largest_single_quarter_decline_date_range": [
+        "2022-03-02",
+        "2022-06-30"
+      ]
+    },
+    "B3_disable_profit_take": {
+      "max_drawdown_dollars": 21501.56104180051,
+      "max_drawdown_pct": 0.20852310359539084,
+      "max_drawdown_date_range": [
+        "2022-04-01",
+        "2022-12-27"
+      ],
+      "largest_single_quarter_decline_dollars": 12679.717966254117,
+      "largest_single_quarter_decline_pct": 0.12725017910941147,
+      "largest_single_quarter_decline_date_range": [
+        "2022-03-02",
+        "2022-06-30"
+      ]
+    },
+    "B4_uniform_starter": {
+      "max_drawdown_dollars": 21501.56104180051,
+      "max_drawdown_pct": 0.20852310359539084,
+      "max_drawdown_date_range": [
+        "2022-04-01",
+        "2022-12-27"
+      ],
+      "largest_single_quarter_decline_dollars": 12679.717966254117,
+      "largest_single_quarter_decline_pct": 0.12725017910941147,
+      "largest_single_quarter_decline_date_range": [
+        "2022-03-02",
+        "2022-06-30"
+      ]
+    },
+    "arm_0b_universe_only": {
+      "max_drawdown_dollars": 13119.415533115476,
+      "max_drawdown_pct": 0.12723268040885158,
+      "max_drawdown_date_range": [
+        "2022-04-01",
+        "2022-06-30"
+      ],
+      "largest_single_quarter_decline_dollars": 9649.857192323601,
+      "largest_single_quarter_decline_pct": 0.09684332564584515,
+      "largest_single_quarter_decline_date_range": [
+        "2022-03-02",
+        "2022-06-30"
+      ],
+      "reproduction_check": {
+        "got": 120799.8165376159,
+        "expected": 120799.82,
+        "match": true
+      }
+    },
+    "arm_0_always_bullish": {
+      "max_drawdown_dollars": 26605.705144298117,
+      "max_drawdown_pct": 0.19576147660002527,
+      "max_drawdown_date_range": [
+        "2023-07-25",
+        "2023-10-23"
+      ],
+      "largest_single_quarter_decline_dollars": 15203.625828954333,
+      "largest_single_quarter_decline_pct": 0.16060467661510378,
+      "largest_single_quarter_decline_date_range": [
+        "2022-09-28",
+        "2022-12-27"
+      ],
+      "reproduction_check": {
+        "got": 173102.23706486914,
+        "expected": 173102.24,
+        "match": true
+      }
+    },
+    "arm_0c_equal_weight_never_traded": {
+      "max_drawdown_dollars": 48320.98275274574,
+      "max_drawdown_pct": 0.365251225420985,
+      "max_drawdown_date_range": [
+        "2022-01-01",
+        "2022-06-30"
+      ],
+      "largest_single_quarter_decline_dollars": 26218.1439392943,
+      "largest_single_quarter_decline_pct": 0.23793069152523103,
+      "largest_single_quarter_decline_date_range": [
+        "2022-03-02",
+        "2022-06-30"
+      ]
+    },
+    "cash_parked_arm_conservative": {
+      "max_drawdown_dollars": 31694.59611000355,
+      "max_drawdown_pct": 0.3169459611000355,
+      "max_drawdown_date_range": [
+        "2022-01-01",
+        "2022-12-27"
+      ],
+      "largest_single_quarter_decline_dollars": 19125.45675688672,
+      "largest_single_quarter_decline_pct": 0.2077961398366871,
+      "largest_single_quarter_decline_date_range": [
+        "2022-03-02",
+        "2022-06-30"
+      ]
+    }
   }
 }

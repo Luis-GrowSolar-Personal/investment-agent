@@ -140,3 +140,79 @@ range on the $6,842.67 figure) is NOT reached this session.
   real trades. Reported here as a finding per the prompt's standing rule that
   a diagnostic contradicting a stated expectation is a finding, not a reason
   to stop.
+
+## Stage C3 (Steps 2-4) -- 2026-09-13, continuation session
+
+- **B2's disable mechanic is NOT ambiguous as a code location** (contra the
+  flag in `PREREGISTRATION.json` -> `stage_c.ablations_c3.B2_disable_rule3`):
+  it is a single guard clause, `analysis/simulator/allocator_v2.py` lines
+  143-147 inside `_decide_add()`. But confirming that location surfaced a
+  real, unregistered finding: **in the settled `swap_funding` pooled cell
+  this run actually executes, Rule 3 does not block the Add at all.** The
+  session driver's own buy-dollar target for an Add
+  (`sweep_cadence_and_session_model.py` lines ~866-877) is sized from
+  `recommended_size`/cap only and never reads cost basis; when Rule 3 makes
+  `decide_v2`'s natural buy return `[]`, the swap-funding shortfall
+  calculation (`target - natural`) just treats the entire target as a
+  shortfall and funds it by selling another position instead. So "B2" as
+  measured here is really "fund adds to speculative losers from free cash
+  vs. by displacing another position" -- not "allow vs. block averaging
+  down." This plausibly explains why it is the single largest-moving
+  ablation ($9,417.91 vs. control, sign-stable 16/16 leave-one-out worlds):
+  it changes which positions get displaced and when, not whether the
+  speculative loser gets added to.
+
+- **B4 (uniform starter sizing) first implementation attempt was a driver
+  bug, caught before reporting.** The first run patched
+  `allocator_v3.STARTER_PCT_SPECULATIVE`/`STARTER_PCT_ESTABLISHED`, which
+  landed at EXACTLY zero effect on the full universe AND on all 16
+  leave-one-out worlds -- too clean to trust without checking. Traced the
+  actual code path: `sweep_cadence_and_session_model.py` imported those two
+  names BY VALUE at its own module-load time (`from ... import NAME`), so
+  patching `allocator_v3`'s attribute afterward never reached the function
+  that actually computes starter dollars in the executed
+  `scope=new_calls_only, execution_order=pooled` path. Fixed by patching
+  `sweep_cadence_and_session_model`'s own module attributes instead
+  (`analysis/value_attribution_v2_stage_c3_step234_driver.py`, committed at
+  `0d65718`). **Re-running with the corrected patch target produced the
+  identical zero-effect result** -- so the zero IS genuine, not the bug.
+  Verified independently via `funding_log`: every first-call funding event
+  in the control run shows `binding: "session limit"` -- the 2.5pp
+  per-session speed limit (X) clips the buy far below both the starter
+  target (5%/8%/6.5%) and the cap, so differences between starter
+  percentages never reach the executed trade. **This is a genuine,
+  verified finding: under the settled X=2.5pp configuration, starter sizing
+  cannot matter, because the session speed limit is always the binding
+  constraint on a first-call buy.**
+
+- **B3 (disable profit-take) is also a genuine, verified zero.** Confirmed
+  by direct trade-log inspection of the control run: `Counter(t.reason for
+  t in portfolio.transaction_log)` shows ZERO trades with reason
+  `"profit-take-25pct-trigger"` across the entire 195-event, ~2.4-year
+  simulation. The rule never fires under this corpus and configuration, so
+  disabling it changes nothing. (Distinct from the separate
+  `PROFIT_TAKE_PCT = 25.0` local constant inside
+  `run_session_sweep_cell`, which gates the §8 pet-formation model and is
+  moot here since `veto_p=0.0` in the settled cell.)
+
+- **B1 (disable Type A/B caps) costs the system money** (-$812.60 vs.
+  control) but is the LEAST sign-stable of the four under leave-one-out
+  (13/16 preserve sign; dropping NVDA, ENVX, or TTD flips or zeroes it) --
+  the smallest and least robust of the four ablation effects.
+
+- **Ranking by size, no significance claimed (no C4 range exists yet):**
+  B2 (+$9,417.91, earns) > B4 (=$0.00) = B3 (=$0.00) > B1 (-$812.60, costs).
+  Every ablation arm still trails buy-and-hold ($195,584.28) by a wide
+  margin ($6,221.47 to $16,451.97 short) -- none of the four rules,
+  individually disabled, closes the gap.
+
+- **Drawdowns (Step 4), raw figures, no ratio computed or ranked:** control
+  and all four ablations cluster tightly (~$21.5-22.4K peak-to-trough,
+  ~20.9-21.7%, same 2022-04-01 to 2022-12-27 window) except B2, whose
+  larger deployed capital (lower avg cash share, 22.76% vs 26.02%) produces
+  a slightly deeper drawdown ($22,402.72, 21.73%). Buy-and-hold (Arm 0c) has
+  by far the worst drawdown of any arm in the whole ladder: $48,320.98
+  (36.53%), Jan-Jun 2022 -- the corpus's highest-return arm also carries the
+  most risk by this raw measure, and nothing in Stage C looked at this
+  until now. The cash-parked arm (conservative reading) sits between:
+  $31,694.60 (31.69%).
