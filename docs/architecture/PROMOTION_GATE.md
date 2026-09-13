@@ -177,6 +177,54 @@ feature with its own justification, deliberately not the release gate — see
 ## 3. Metrics — two layers, both always reported
 
 ### 3.1 Analyst-direct metric (Layer 2 quality)
+
+**CORRECTED 2026-09-13 (`prompts/scorecard-repair.md`, `wrap-ups/scorecard-repair-out.md`).**
+Stage B (`value-attribution-and-headroom-v2`) established that the metric below
+(lift over a fixed-answer guesser) grades against whichever dummy is chosen, and
+attaches no margin of error to anything — the same 359 calls score −5.8pp
+against an always-bullish guesser and +28.7pp against an always-flat guesser,
+and neither figure carries a confidence interval. `scorecard-repair` replaced it
+with two metrics that correct for how often each answer happens purely by base
+rate, and both are reported with a 95% range and this section's detection
+threshold:
+
+- **Luck-corrected gap** — observed accuracy minus the accuracy expected from
+  guessing in proportion to how often the analyst says each answer and how
+  often each outcome actually occurs ("expected-by-luck"). On the 359-call
+  scorer population: **0.82pp** (95% range **−2.36 to +3.89pp — spans zero**).
+  On the 195-call simulator population: **0.11pp** (95% range **−4.82 to
+  +4.47pp — spans zero**). Neither population currently shows a detectable
+  edge over chance by this measure.
+- **Balanced accuracy** — the average of the three per-answer hit rates
+  (recall on bullish, bearish, and neutral outcomes), which does not reward
+  always guessing the common answer. Scorer population: **31.3%** (95% range
+  27.75–34.7%). Simulator population: **29.6%** (95% range 25.74–32.79%).
+  (A three-way guesser with no skill scores 33.3% on this measure.)
+
+**Detection threshold, on the scorer population (n=359, 16 tickers):** the
+smallest prompt-accuracy improvement this scorecard detects in at least 80% of
+resamples is **12 points when two prompts are scored on different samples
+(unpaired)**, and **6 points when scored on the same calls (paired)** — full
+curves and the disagreement-rate sensitivity in
+`analysis/data/scorecard_repair/scorecard_repair_manifest.json` →
+`results.step3_detection_threshold`. A realistic single-iteration prompt
+improvement is 2–4 points. **On this corpus, at this sample size, ordinary
+prompt iteration is not reliably measurable even in the paired design**, and is
+far out of reach unpaired.
+
+**Standing rule, binding immediately: no prompt-versus-prompt comparison may be
+cited going forward unless it reports the paired difference, its 95% range, and
+whether that range excludes zero.** A point-estimate comparison (e.g.
+"37.5–42.5% vs 37.5%") is not a citable result under this section.
+
+**§3.1-legacy (superseded, preserved below — do not delete).** Every existing
+benchmark record in `VERSION_REGISTRY.json` was computed under the always-
+bullish-lift definition below, and those records remain readable only under
+that legacy definition; this correction does not retroactively recompute them.
+Superseded because Stage B showed the verdict flips depending on which fixed-
+answer dummy is chosen, with no interval attached to distinguish a real
+difference from noise.
+
 Isolates analyst quality from allocator behavior. **Primary gate for analyst-layer
 changes.**
 

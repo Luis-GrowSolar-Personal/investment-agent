@@ -232,6 +232,54 @@ def score_eval_dir(
 # Report
 # ---------------------------------------------------------------------------
 
+def compute_luck_corrected_metrics(scoreable: list[CallRecord]) -> dict:
+    """scorecard-repair (2026-09-13): additional metrics alongside the
+    existing always-bullish lift. Does NOT change any existing output --
+    see docs/architecture/PROMOTION_GATE.md Sec3.1 (corrected) and
+    Sec3.1-legacy (preserved), and wrap-ups/scorecard-repair-out.md.
+
+    Adds:
+      - luck-corrected gap: observed accuracy minus "expected-by-luck"
+        (how often the analyst would be right by coincidence, given how
+        often it says each answer and how often each outcome occurs).
+      - Cohen's kappa (the luck-corrected gap expressed on a 0-1 scale).
+      - balanced accuracy (mean of per-answer recall; does not reward
+        always guessing the common answer).
+    """
+    n = len(scoreable)
+    if n == 0:
+        return {}
+    pred_counts: dict[str, int] = {}
+    gt_counts: dict[str, int] = {}
+    for r in scoreable:
+        pred_counts[r.predicted] = pred_counts.get(r.predicted, 0) + 1
+        gt_counts[r.ground_truth] = gt_counts.get(r.ground_truth, 0) + 1
+
+    hits = sum(1 for r in scoreable if r.hit)
+    observed = hits / n
+    expected_by_luck = sum(
+        (pred_counts.get(cls, 0) / n) * (gt_counts.get(cls, 0) / n)
+        for cls in ("bullish", "bearish", "neutral")
+    )
+    kappa = (observed - expected_by_luck) / (1 - expected_by_luck) if expected_by_luck < 1 else None
+
+    per_class_recall = {}
+    for cls in ("bullish", "bearish", "neutral"):
+        actual_subset = [r for r in scoreable if r.ground_truth == cls]
+        if actual_subset:
+            per_class_recall[cls] = sum(1 for r in actual_subset if r.predicted == cls) / len(actual_subset)
+    balanced_accuracy = (sum(per_class_recall.values()) / len(per_class_recall)) if per_class_recall else None
+
+    return {
+        "observed_accuracy_pct": round(observed * 100, 1),
+        "expected_by_luck_pct": round(expected_by_luck * 100, 1),
+        "luck_corrected_gap_pp": round((observed - expected_by_luck) * 100, 2),
+        "cohens_kappa_0to1": round(kappa, 4) if kappa is not None else None,
+        "balanced_accuracy_pct": round(balanced_accuracy * 100, 1) if balanced_accuracy is not None else None,
+        "per_class_recall_pct": {k: round(v * 100, 1) for k, v in per_class_recall.items()},
+    }
+
+
 def print_report(records: list[CallRecord], eval_dir: Path) -> None:
     scoreable = [r for r in records if r.hit is not None]
     not_yet    = [r for r in records if r.hit is None]
@@ -319,6 +367,23 @@ def print_report(records: list[CallRecord], eval_dir: Path) -> None:
         n = len(rows)
         h = sum(1 for r in rows if r.hit)
         print(f"  {ticker:<6}: {h}/{n}  ({h/n*100:.0f}%)")
+
+    # --- scorecard-repair additional metrics (2026-09-13) ---
+    # Additive only -- everything above is unchanged. See PROMOTION_GATE.md
+    # Sec3.1 (corrected) / Sec3.1-legacy and wrap-ups/scorecard-repair-out.md.
+    repaired = compute_luck_corrected_metrics(scoreable)
+    if repaired:
+        print(f"\n{'─'*68}")
+        print("REPAIRED METRICS (scorecard-repair, additive -- see PROMOTION_GATE.md Sec3.1)")
+        print(f"  Observed accuracy:       {repaired['observed_accuracy_pct']:5.1f}%")
+        print(f"  Expected-by-luck:        {repaired['expected_by_luck_pct']:5.1f}%")
+        print(f"  Luck-corrected gap:      {repaired['luck_corrected_gap_pp']:+5.2f}pp")
+        print(f"  Cohen's kappa (0-1):     {repaired['cohens_kappa_0to1']}")
+        print(f"  Balanced accuracy:       {repaired['balanced_accuracy_pct']:5.1f}%  "
+              f"(mean of per-answer recall: {repaired['per_class_recall_pct']})")
+        print("  NOTE: no prompt-vs-prompt comparison may be cited from this scorer")
+        print("  unless it reports the PAIRED difference, its 95% range, and whether")
+        print("  that range excludes zero -- see PROMOTION_GATE.md Sec3.1.")
 
     print("=" * 68)
 

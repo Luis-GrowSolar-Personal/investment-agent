@@ -188,7 +188,8 @@
       "stale_reason": "Measured under evaluation_prompt v10+auto1 (ungated, rolled back 2026-09-03/2026-09-12). The promoted prompt is now v6. Any run reusing these floors is comparing against a candidate that never shipped.",
       "reproducibility": "SUPERSEDED",
       "reproducibility_value": "requires_rescoring_under_candidate",
-      "reproducibility_note": "2026-09-12: SUPERSEDED, not UNREPRODUCIBLE -- the exact v10+auto1 prompt blob survives in git history at commit 87bcfaa (sha256 b81d24c6...), registered as a candidate under artifacts.evaluation_prompt. Re-measuring this figure means deliberately re-invoking that registered candidate via PROMPT_CANDIDATE=v10+auto1, which the drift-guards work makes possible without touching the promoted prompt. Unlike the corpus-anchored records, nothing about this figure is permanently lost -- it is superseded because the promoted prompt changed (v10+auto1 -> v6), not because an input vanished."
+      "reproducibility_note": "2026-09-12: SUPERSEDED, not UNREPRODUCIBLE -- the exact v10+auto1 prompt blob survives in git history at commit 87bcfaa (sha256 b81d24c6...), registered as a candidate under artifacts.evaluation_prompt. Re-measuring this figure means deliberately re-invoking that registered candidate via PROMPT_CANDIDATE=v10+auto1, which the drift-guards work makes possible without touching the promoted prompt. Unlike the corpus-anchored records, nothing about this figure is permanently lost -- it is superseded because the promoted prompt changed (v10+auto1 -> v6), not because an input vanished.",
+      "scorecard_repair_label_2026_09_13": "LABEL ONLY (scorecard-repair): this record's figures were computed under PROMOTION_GATE.md Sec3.1-legacy (fixed-answer-guesser lift, no confidence interval). Not recomputed. See Sec3.1 (corrected) for the luck-corrected gap / balanced-accuracy metric and wrap-ups/scorecard-repair-out.md."
     },
     "test6_look_ahead_null": {
       "figures": {"large": 0.0, "megacap": -1.54, "mid": -6.67, "small_micro": 8.33, "unit": "pp, delta treatment-control"},
@@ -206,7 +207,8 @@
       "stale_reason": "Same evaluation_prompt drift as test4_per_tier_noise_floors -- measured under the ungated v10+auto1 candidate.",
       "reproducibility": "SUPERSEDED",
       "reproducibility_value": "requires_rescoring_under_candidate",
-      "reproducibility_note": "Same basis as test4_per_tier_noise_floors -- the v10+auto1 blob is recoverable (git 87bcfaa, registered candidate), so re-measurement is a deliberate PROMPT_CANDIDATE invocation away, not permanently lost."
+      "reproducibility_note": "Same basis as test4_per_tier_noise_floors -- the v10+auto1 blob is recoverable (git 87bcfaa, registered candidate), so re-measurement is a deliberate PROMPT_CANDIDATE invocation away, not permanently lost.",
+      "scorecard_repair_label_2026_09_13": "LABEL ONLY (scorecard-repair): this record's figures were computed under PROMOTION_GATE.md Sec3.1-legacy (fixed-answer-guesser lift, no confidence interval). Not recomputed. See Sec3.1 (corrected) for the luck-corrected gap / balanced-accuracy metric and wrap-ups/scorecard-repair-out.md."
     },
     "test1_zero_info_floor": {
       "figures": {"final_value": 120800.00},
@@ -288,7 +290,8 @@
       },
       "reproducibility": "VALID",
       "reproducibility_value": "measured_under_promoted_artifacts",
-      "reproducibility_note": "2026-09-12 (prompts/test4-noise-floor-v6-rerun.md): this is the registry's first and ONLY benchmark record classified VALID -- both valid_while conditions (evaluation_prompt = v6, model = claude-sonnet-4-6) currently match the live promoted artifacts exactly, unlike every other benchmark record, which is either SUPERSEDED (measured under a since-changed prompt/model) or UNREPRODUCIBLE. Stated explicitly per this run's own instruction. This VALID status is NOT permanent -- like every VALID record, it will flip to SUPERSEDED the moment the promoted prompt or model changes, exactly as demonstrated live in benchmark-validity-taxonomy's Step 5 demo 2 (on a scratch copy, never the live registry)."
+      "reproducibility_note": "2026-09-12 (prompts/test4-noise-floor-v6-rerun.md): this is the registry's first and ONLY benchmark record classified VALID -- both valid_while conditions (evaluation_prompt = v6, model = claude-sonnet-4-6) currently match the live promoted artifacts exactly, unlike every other benchmark record, which is either SUPERSEDED (measured under a since-changed prompt/model) or UNREPRODUCIBLE. Stated explicitly per this run's own instruction. This VALID status is NOT permanent -- like every VALID record, it will flip to SUPERSEDED the moment the promoted prompt or model changes, exactly as demonstrated live in benchmark-validity-taxonomy's Step 5 demo 2 (on a scratch copy, never the live registry).",
+      "scorecard_repair_label_2026_09_13": "LABEL ONLY (scorecard-repair): this record's figures were computed under PROMOTION_GATE.md Sec3.1-legacy (fixed-answer-guesser lift, no confidence interval; this record itself is a noise-floor/instability measure, not a lift figure, but shares the legacy scorer's no-CI convention). Not recomputed. See Sec3.1 (corrected) for the luck-corrected gap / balanced-accuracy metric and wrap-ups/scorecard-repair-out.md."
     }
   },
 
