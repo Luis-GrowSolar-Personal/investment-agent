@@ -147,13 +147,36 @@ def ablation_B3_disable_profit_take():
 
 @contextmanager
 def ablation_B4_uniform_starter():
-    orig = (AV3.STARTER_PCT_SPECULATIVE, AV3.STARTER_PCT_ESTABLISHED)
-    AV3.STARTER_PCT_SPECULATIVE = B4_UNIFORM_STARTER_PCT
-    AV3.STARTER_PCT_ESTABLISHED = B4_UNIFORM_STARTER_PCT
+    """CORRECTED after a first run of this driver showed B4 landing at
+    EXACTLY zero effect (identical final value to control on every one of
+    the 16 leave-one-out worlds too) -- verified NOT a genuine null: reading
+    analysis/sweep_cadence_and_session_model.py's run_session_sweep_cell
+    (the actual executed code path for scope='new_calls_only',
+    execution_order='pooled', the settled cell) shows the REAL starter-sizing
+    computation used to compute `intended` buy dollars (lines ~852-864) reads
+    STARTER_PCT_SPECULATIVE / STARTER_PCT_ESTABLISHED as names bound into
+    THAT module's own namespace at its own import time (`from
+    analysis.simulator.allocator_v3 import ... STARTER_PCT_SPECULATIVE,
+    STARTER_PCT_ESTABLISHED` at that module's line 129) -- a `from X import
+    NAME` binds a value copy, not a live reference back to X's attribute, so
+    patching allocator_v3.STARTER_PCT_SPECULATIVE afterward never reaches
+    this code path. decide_v3's OWN internal starter branch (which DOES read
+    allocator_v3's live globals) is also called, but its buy-side output is
+    discarded in pooled/new_calls_only mode -- only its sell trades are ever
+    executed (session-driver line ~827), and its buy trades feed
+    `natural_buy_trades`, used only by the 'no_reserve_raw' funding mode
+    (not the settled 'swap_funding' mode this run uses). Patching
+    S(=sweep_cadence_and_session_model).STARTER_PCT_SPECULATIVE /
+    .STARTER_PCT_ESTABLISHED directly is therefore the correct target -- it
+    is a genuine module-global read at call time within that module's own
+    frame. Reported as a finding, not corrected silently."""
+    orig = (S.STARTER_PCT_SPECULATIVE, S.STARTER_PCT_ESTABLISHED)
+    S.STARTER_PCT_SPECULATIVE = B4_UNIFORM_STARTER_PCT
+    S.STARTER_PCT_ESTABLISHED = B4_UNIFORM_STARTER_PCT
     try:
         yield
     finally:
-        AV3.STARTER_PCT_SPECULATIVE, AV3.STARTER_PCT_ESTABLISHED = orig
+        S.STARTER_PCT_SPECULATIVE, S.STARTER_PCT_ESTABLISHED = orig
 
 
 @contextmanager
@@ -293,11 +316,30 @@ def main() -> int:
     manifest["step2_ablations"] = {
         "b4_uniform_starter_pct_chosen": B4_UNIFORM_STARTER_PCT,
         "b2_confirmation": (
-            "Confirmed NOT ambiguous: single guard clause, "
-            "analysis/simulator/allocator_v2.py lines 143-147 inside "
-            "_decide_add(), gated on tier=='speculative' and "
+            "Confirmed NOT ambiguous as a code location: single guard "
+            "clause, analysis/simulator/allocator_v2.py lines 143-147 "
+            "inside _decide_add(), gated on tier=='speculative' and "
             "_weighted_cost_basis(portfolio, ticker) < day_price. Disabled "
-            "by monkeypatching _weighted_cost_basis to always return None."
+            "by monkeypatching _weighted_cost_basis to always return None. "
+            "FINDING (not in the pre-registration, discovered while "
+            "confirming this location): in the settled swap_funding pooled "
+            "cell actually executed by run_session_sweep_cell, this guard "
+            "does NOT prevent the Add from happening at all when it fires. "
+            "The session driver's own 'intended' buy-dollar target for an "
+            "Add (sweep_cadence_and_session_model.py lines ~866-877) is "
+            "computed from recommended_size/cap only and never consults "
+            "cost basis; when Rule 3 makes decide_v2's own natural buy "
+            "return [] (0 natural dollars), swap-funding's shortfall "
+            "calculation (target - natural) simply treats the FULL target "
+            "as a shortfall and funds it by selling another position "
+            "(displacement), landing at the same or a similar target "
+            "position size. So this ablation's real effect is measuring "
+            "'fund adds to speculative losers from free cash vs. by "
+            "selling something else to fund them', not 'block vs. allow "
+            "the add' -- Rule 3 as coded does not block position growth "
+            "in swap_funding mode, only its funding source. This changes "
+            "which OTHER positions get displaced and when, which is "
+            "plausibly why this ablation moves the most money of the four."
         ),
         "arms": step2,
     }
