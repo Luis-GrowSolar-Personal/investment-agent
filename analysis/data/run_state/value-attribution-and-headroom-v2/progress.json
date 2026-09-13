@@ -12,13 +12,13 @@
     "step_0d_preregistration": "done",
     "stage_a_arm_0b": "done",
     "stage_a_arm_0": "done",
-    "stage_b_uncertainty": "in_progress",
+    "stage_b_uncertainty": "done",
     "stage_c_contribution": "pending",
     "stage_d_headroom": "pending",
     "stage_e_deliverable": "pending"
   },
   "driver_commit": "d1597c5462f8bf33e62a7cda25efa1d50b0e9681",
-  "next_action": "Run analysis/value_attribution_v2_stage_b_driver.py (B0-B3), then B4 (three authorized doc edits: PROMOTION_GATE.md Sec10, docs/handoffs/2026-09-13-analyst-value-question.md Sec1, analyst_direct_scorer.py comment), then write wrap-ups/value-attribution-v2-stage-b-out.md.",
+  "next_action": "Stage B B0-B3 complete (analysis/data/value_attribution_v2/stage_b_manifest.json). Next: B4 (three authorized doc edits) then write wrap-ups/value-attribution-v2-stage-b-out.md; Stages C/D/E remain pending.",
   "notes": [
     "First attempt at this run_id -- no prior state found before this session.",
     "0b resolved with NO discrepancy: settled_control ($179,944.91) and test1_zero_info_floor ($120,800.00) both present in docs/architecture/VERSION_REGISTRY.json under benchmarks.settled_control / benchmarks.test1_zero_info_floor, both quotable:true, both reproducibility_value:deterministic_replay (single forward value, not a median across draws), both tied to the same tuple: evaluation_prompt 357b6b0b... (v6), model claude-sonnet-4-20250514 (retired), allocator_v3.py efc649d5..., corpus_window 2022-01-01 to 2024-06-12 ALL16. Prompt's quoted figures match to the cent -- proceeding, not stopping.",
