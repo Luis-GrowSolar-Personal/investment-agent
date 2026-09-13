@@ -30,6 +30,11 @@ analysis/data/*
 # survive a killed session, so it's committed like run_manifests.
 !analysis/data/run_state/
 !analysis/data/run_state/**
+# Exception: value_attribution_v2 holds this run's pre-registration and
+# manifests (PREREGISTRATION.json, arm results) -- same §10b citation-record
+# reasoning as run_manifests/run_state, must be committed not gitignored.
+!analysis/data/value_attribution_v2/
+!analysis/data/value_attribution_v2/**
 .envrc.zsh
 cat_output
 diff_output

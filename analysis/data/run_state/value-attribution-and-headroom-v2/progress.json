@@ -1,0 +1,28 @@
+{
+  "run_id": "value-attribution-and-headroom-v2",
+  "prompt_sha256": "6108b538a88923a940ad328f09362d5874e5a26fae2a6251c52028365e9b0c61",
+  "driver_commit": null,
+  "resumed_from": null,
+  "steps": {
+    "step_-1_resume_protocol": "done",
+    "step_0a_clean_tree": "done",
+    "step_0b_control_floor_provenance": "done",
+    "step_0c_eval_cache_absent": "done",
+    "step_0d_preregistration": "done",
+    "stage_a_arm_0b": "pending",
+    "stage_a_arm_0": "pending",
+    "stage_b_uncertainty": "pending",
+    "stage_c_contribution": "pending",
+    "stage_d_headroom": "pending",
+    "stage_e_deliverable": "pending"
+  },
+  "next_action": "Write and commit analysis/value_attribution_v2_driver.py implementing Arm 0b (always-hold override of final_action, real allocator) and Arm 0 (always-bullish/Add override), reusing sweep_funding_modes.py's load_events()/run_cell() machinery on the settled corpus_window 2022-01-01 to 2024-06-12 ALL16 (the same window that produced settled_control $179,944.91 and test1_zero_info_floor $120,800.00), then run both arms, record to cells.jsonl, and report Stage A numbers before attempting Stage B onward.",
+  "notes": [
+    "First attempt at this run_id -- no prior state found before this session.",
+    "0b resolved with NO discrepancy: settled_control ($179,944.91) and test1_zero_info_floor ($120,800.00) both present in docs/architecture/VERSION_REGISTRY.json under benchmarks.settled_control / benchmarks.test1_zero_info_floor, both quotable:true, both reproducibility_value:deterministic_replay (single forward value, not a median across draws), both tied to the same tuple: evaluation_prompt 357b6b0b... (v6), model claude-sonnet-4-20250514 (retired), allocator_v3.py efc649d5..., corpus_window 2022-01-01 to 2024-06-12 ALL16. Prompt's quoted figures match to the cent -- proceeding, not stopping.",
+    "0c: analysis/data/evals/ confirmed absent from working tree (gitignored, per prior run's finding in wrap-ups/value-attribution-and-headroom-out.md C9/[18]) -- sought again this session, still absent. Recorded here per [#23] so a future session does not repeat the search.",
+    "Budget-constrained session: per prompt Sec5 ('If budget permits only one stage, run this one'), Stage A (Arms 0b and 0) is being run first and may be the only stage this session completes. Stages B-E are pending with no work started, per the prompt's and CLAUDE.md's explicit permission to stop cleanly rather than rush.",
+    "Working tree was dirty with unrelated WIP at session start (ec-fidelity-benchmark-1 progress.json, two probe scripts, several handoff/prompt/wrap-up files including this very prompt and its two adjudication documents). All were read for content before stashing (git stash push -u -m unrelated-wip-before-value-attribution-v2-run) to get git_dirty=false for this run's manifests. Will git stash pop at session end.",
+    "Locked corpus per prompt naming: corpus_2026-04-06_to_2026-05-10 (Analysis.createdAt window of the DB rows, 362 scoreable ALL16 rows). This is DIFFERENT from and consistent with the call-date window used by the simulator (2022-01-01 to 2024-06-12, ALL16) -- the createdAt window names when the scores were produced; the call-date window names which transcripts/events were simulated. Not a contradiction: same underlying Analysis rows, two different date axes. Flagging this explicitly since the two prompts (v1 wrap-up and this one) could read as naming two different corpora if this distinction isn't stated."
+  ]
+}

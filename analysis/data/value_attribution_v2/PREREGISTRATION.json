@@ -1,0 +1,84 @@
+{
+  "run_id": "value-attribution-and-headroom-v2",
+  "prompt_sha256": "6108b538a88923a940ad328f09362d5874e5a26fae2a6251c52028365e9b0c61",
+  "written_utc": "2026-09-13T15:09:57Z",
+  "git_commit_at_write": "c122a79dca4406d38151b73303fe67d1125a664a",
+  "git_dirty_at_write": false,
+
+  "locked_corpus": {
+    "name": "corpus_2026-04-06_to_2026-05-10",
+    "definition": "Every ALL16, price-scoreable Analysis row, keyed by Analysis.createdAt window 2026-04-06 12:22:59 UTC to 2026-05-10 22:58:30 UTC. Frozen as-is per round-1/round-2 adjudication -- not re-scored, not re-sliced, retired name 'v6 corpus' not used.",
+    "ticker_list_ALL16": ["AAPL", "AMD", "AVGO", "GOOGL", "MSFT", "NVDA", "ORCL", "TSLA", "AMPX", "ENVX", "EOSE", "FSLR", "QS", "RUN", "SPWR", "TTD"],
+    "scoreable_row_count": 362,
+    "note_two_date_axes": "The createdAt window (2026-04-06 to 2026-05-10) names when these Analysis rows were scored/inserted. The simulator's separate call-date window (2022-01-01 to 2024-06-12, the same window that produced settled_control and test1_zero_info_floor) names which transcript events those same rows describe. Both axes describe the same underlying 362 rows; this is not two different corpora."
+  },
+
+  "window_and_control": {
+    "simulator_call_date_window": "2022-01-01 to 2024-06-12",
+    "settled_control": {
+      "value": 179944.91,
+      "manifest": "docs/architecture/VERSION_REGISTRY.json",
+      "json_key": "benchmarks.settled_control.figures.final_value",
+      "kind": "forward draw (single deterministic replay, not a median across draws)",
+      "tuple": {
+        "evaluation_prompt": "357b6b0b... (v6)",
+        "model": "claude-sonnet-4-20250514 (retired)",
+        "allocator_simulator": "allocator_v3.py, efc649d5...",
+        "corpus_window": "2022-01-01 to 2024-06-12, ALL16"
+      }
+    },
+    "test1_zero_info_floor": {
+      "value": 120800.00,
+      "manifest": "docs/architecture/VERSION_REGISTRY.json",
+      "json_key": "benchmarks.test1_zero_info_floor.figures.final_value",
+      "kind": "forward draw (deterministic replay, every verdict forced Hold)",
+      "note": "This is NOT Arm 0b. test1_zero_info_floor forces every TREND VERDICT to Hold (i.e. corrupts final_action via the trend layer's own Hold-forcing), while Arm 0b (this prompt, Sec5) sets final_action = Hold directly for every call, bypassing the trend layer's verdict machinery entirely. They may or may not coincide numerically; this run does not assume they do and will report both."
+    },
+    "step_0b_discrepancy_check": "NONE. Both figures resolved from docs/architecture/VERSION_REGISTRY.json match the prompt's quoted $179,944.91 and $120,800.00 to the cent. Proceeding per Sec4/0b's 'if either disagrees ... report and stop' -- no stop triggered."
+  },
+
+  "settled_configuration": {
+    "swap_funding": true,
+    "K": 30,
+    "new_calls_only": true,
+    "X_pp": 2.5,
+    "funding_pooling": "pooled",
+    "date_grouping": "per_event_date"
+  },
+
+  "eval_cache_position": {
+    "sought": "analysis/data/evals/ (the version-stamped artifact analyst_direct_scorer.py's usage block expects, e.g. data/evals/v6_sonnet-4-20250514)",
+    "found": "absent from working tree (analysis/data/ is gitignored; no eval cache present locally)",
+    "disposition": "Recorded per [#23] so a future session does not repeat this search. All arms in this run consume stored Analysis rows directly, not an eval cache."
+  },
+
+  "checksums": {
+    "type_classifications.json": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "price_cache.json": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache.json": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e",
+    "price_cache_last_date": "2026-05-08 (frozen; no refresh performed this session, per prompt Sec2.7)"
+  },
+
+  "arms": {
+    "PREMISE_CORRECTION": "sweep_funding_modes.py's main() grid does NOT contain the settled-config cell (its cells are no_reserve/cash_reserve/swap_funding at 0/5/10/20pp limits; none uses the settled X=2.5pp session limit). The actual settled-configuration production driver, confirmed against tier_return_attribution.py (which asserts EXPECTED_CONTROL = $179,944.91 to the cent), is sweep_cadence_and_session_model.py's run_session_sweep_cell() called with CELL = dict(cadence='30', scope='new_calls_only', funding_mode='swap_funding', limit_pp=2.5, execution_order='pooled', trim_budget_scope='per_event_date', veto_p=0.0), phase_offset=0, seed=0, over events from load_events_dedup_on(). value_attribution_v2_driver.py uses this path and asserts the unmodified control reproduces $179,944.91 before running Arms 0b/0.",
+    "arm_0b_universe_only": {
+      "definition": "final_action forced to 'Hold' for every call event, real allocator (decide_v3 via run_session_sweep_cell's swap_funding path), settled config (CELL above), full corpus from load_events_dedup_on(). Override happens AFTER recompute_trend_layer() (inside load_events_dedup_on()) has already computed the real trend verdict and final_action, so this is a direct final_action substitution discarding that verdict -- not a per_call_rec or trend-verdict corruption (distinguishing it from test1_zero_info_floor; see window_and_control note above). run_session_sweep_cell computes final_action = event.final_action or event.per_call_rec or 'Hold' at simulation time (line 782), so overwriting event.final_action beforehand is the correct injection point. Starter sizing still fires: starter_fired = is_first_call and not had_position (does not read final_action).",
+      "seed": 0,
+      "phase_offset": 0
+    },
+    "arm_0_always_bullish": {
+      "definition": "final_action forced to 'Add' for every call event, same override point, real allocator, settled config, same corpus. Expected to saturate against TYPE_A_SPECULATIVE_CAP_PCT 15.0 / TYPE_A_ESTABLISHED_CAP_PCT 35.0 / TYPE_B_CAP_PCT 50.0.",
+      "seed": 0,
+      "phase_offset": 0
+    },
+    "stage_b_through_d_arms": "NOT YET DEFINED IN THIS FILE -- this is a budget-constrained partial run executing Stage A only this session. Per the prompt's Sec3 resume protocol and CLAUDE.md's resumability rule, a future session extending this run must add Stage B/C/D arm definitions here BEFORE running them, and must not treat their absence as authorization to skip pre-registration for those stages."
+  },
+
+  "oracle_injection_point": "NOT YET APPLICABLE THIS SESSION (Stage D not started). When Stage D runs: injection point is per_call_rec, not final_action, per [#8]/A3. To be filled in with label encoding, non-direction field synthesis, and post-2025-11-07 fallback before Stage D's first arm.",
+
+  "interaction_term_convention": "NOT YET APPLICABLE THIS SESSION (Stage C/E not started).",
+
+  "fixed_seeds": "N/A this session -- Stage A arms are deterministic (no permutation/shuffle). Stage B/C's permutation seeds to be pre-registered here before those stages run.",
+
+  "abort_on_mismatch_rule": "If this file is found to already exist with different content on a future resume, ABORT and report the discrepancy rather than overwriting, per prompt Sec4/0d."
+}
