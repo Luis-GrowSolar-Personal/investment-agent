@@ -1,0 +1,22 @@
+{
+  "run_id": "scorecard-repair",
+  "prompt_sha256": "55c33611f7d261c6512e93c80d1966177cc3035855b64edd2f4f332016c7b2cd",
+  "driver_commit": null,
+  "steps": {
+    "step_neg1_resume_protocol": "done",
+    "step0a_hygiene": "in_progress",
+    "step0b_preregistration": "pending",
+    "step0c_arithmetic_check": "pending",
+    "step1_luck_corrected_score": "pending",
+    "step2_confidence_intervals": "pending",
+    "step3_detection_threshold": "pending",
+    "step4_gate_doc_edits": "pending",
+    "step5_v10_reread": "pending",
+    "step6_wrapup": "pending"
+  },
+  "next_action": "Read CLAUDE.md, wrap-ups/value-attribution-v2-stage-b-out.md, PROMOTION_GATE.md sec 3.1/10, DESIGN_PRINCIPLES.md, ALLOCATOR_OPERATING_MODEL.md sec 10b, then stash unrelated WIP before touching driver code.",
+  "notes": [
+    "Started 2026-09-13. No prior scorecard-repair run_state existed.",
+    "Base commit at run start: 91a1f49b273ba12dfab3699281b346a83a6ccdb2 on branch sweep/db-corpus-baseline."
+  ]
+}

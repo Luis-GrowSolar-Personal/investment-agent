@@ -1,0 +1,36 @@
+{
+  "run_id": "scorecard-repair",
+  "populations": {
+    "scorer_population": {
+      "definition": "Every ALL16, price-scoreable Analysis row; no createdAt restriction, no call-date ceiling, no dedup. n=362 raw, n=359 after thin-year filter (2020, n=3, excluded).",
+      "n_raw": 362,
+      "n_thin_filtered": 359,
+      "source": "value-attribution-and-headroom-v2 Stage B, B0. Frozen, carried forward -- not redefined by this run."
+    },
+    "simulator_population": {
+      "definition": "sweep_cadence_and_session_model.load_events_dedup_on(): ALL16, call_date <= 2024-06-12, Analysis.createdAt inside the v6 window (2026-05-02 12:33:23-04 to 2026-06-27 16:26:16-04), same-day-deduped. Strict subset of the scorer population (195/195 matched).",
+      "n": 195,
+      "source": "value-attribution-and-headroom-v2 Stage B, B0. Frozen, carried forward -- not redefined by this run."
+    }
+  },
+  "resampling_unit": "ticker",
+  "resample_count": 2000,
+  "fixed_seed": 20260913,
+  "seed_note": "Same seed as Stage B's ticker-block bootstrap (BOOTSTRAP_SEED=20260913 in value_attribution_v2_stage_b_driver.py), reused for continuity, not re-chosen.",
+  "step3_detection_threshold_simulation": {
+    "purpose": "Estimate the minimum detectable prompt-accuracy improvement (in percentage points) under two designs: 3a unpaired (challenger scored on a different sample) and 3b paired (challenger scored on the same calls as v6).",
+    "x_sweep_points": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+    "detection_rule": "An improvement X is 'detected' in a resample if the resample's 95% ticker-block-bootstrap interval for the (challenger - v6) difference excludes zero.",
+    "detection_threshold_rule": "Minimum detectable improvement = smallest X point in the sweep whose detection rate (share of resamples where interval excludes zero) is >= 80%.",
+    "n_synthetic_trials_per_x": 500,
+    "synthetic_trial_seed_base": 20260913,
+    "unpaired_method": "Synthesize a challenger population by independently re-flipping v6's per-call hit/miss outcome with probability chosen so that the challenger's expected accuracy is v6's accuracy + X points, preserving each call's ticker label. Resample tickers with replacement from v6 and the synthetic challenger independently (two independent ticker-block bootstraps), compute the difference in resampled hit rates each trial.",
+    "paired_method": "Model the challenger as agreeing with v6 on a modeled disagreement rate d (default 0.15, swept 0.05-0.30 per Step 3's stated-assumption requirement) and, on disagreement calls, right/wrong assigned so that the challenger's net accuracy is v6's + X points. Resample tickers with replacement (single resample draws both v6 and challenger outcomes for the same calls, preserving pairing), compute the per-resample mean paired difference and its ticker-block CI.",
+    "disagreement_rate_default": 0.15,
+    "disagreement_rate_sweep": [0.05, 0.10, 0.15, 0.20, 0.25, 0.30],
+    "disagreement_rate_is_modeled_not_measured": true,
+    "data_volume_target_pp": 3,
+    "data_volume_axes": ["additional_stocks", "additional_calls"]
+  },
+  "note": "Written before any Step 1-3 figure in this run was computed, per CLAUDE.md / prompts/scorecard-repair.md Sec 0b. If this file already existed with different content, the run aborts and reports the discrepancy -- it did not: this is the first scorecard-repair run."
+}

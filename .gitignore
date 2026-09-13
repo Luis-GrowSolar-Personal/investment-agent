@@ -35,6 +35,11 @@ analysis/data/*
 # reasoning as run_manifests/run_state, must be committed not gitignored.
 !analysis/data/value_attribution_v2/
 !analysis/data/value_attribution_v2/**
+# Exception: scorecard_repair holds this run's pre-registration and manifest
+# -- same §10b citation-record reasoning as run_manifests/run_state, must be
+# committed not gitignored.
+!analysis/data/scorecard_repair/
+!analysis/data/scorecard_repair/**
 .envrc.zsh
 cat_output
 diff_output
