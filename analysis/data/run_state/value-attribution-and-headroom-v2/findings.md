@@ -72,3 +72,38 @@ Append-only. Each entry timestamped at the moment established.
 ## Stage B finding — 2026-09-13T16:10:00Z
 
 **B2 addendum -- two different "bearish accuracy" quantities, not to be conflated.** The driver's `bearish_call_accuracy_pct` (47.7%, n=44 bearish predictions) is PRECISION on predicted-bearish calls: of the times v6 predicted bearish, 47.7% were right. This is NOT the quantity `wrap-ups/test2-look-ahead-hit-rate-by-year-out.md` and the 09-13 handoff's Sec1 call "bearish-outcome accuracy" (8.3%-24.0% by year) -- that is RECALL on bearish ground truth: of the times a stock actually underperformed benchmark by >5% (a true bearish outcome, n=151), how often v6's call correctly flagged it. Recomputed directly against the same 359-row scorer population: aggregate bearish-outcome recall = 21/151 = 13.9%; by year 2021=11.1% (n=18), 2022=24.0% (n=25), 2023=16.7% (n=30), 2024=8.3% (n=36), 2025=11.9% (n=42) -- reproduces the wrap-up's cited per-year figures exactly. The 09-13 handoff's "wrong roughly four times in five" (implying ~80% wrong / 20% right) UNDERSTATES this: aggregate recall is 13.9% right, i.e. wrong 86.1% of the time (roughly six times in seven, not four in five). B4b corrects this without softening -- the number is worse than stated, not better.
+
+## Stage C finding — 2026-09-13T00:00:00Z
+
+**C1 headline: Arm 0c (equal-weight, fully invested, never traded) is $195,584.28
+— above the control ($179,944.91), above Arm 0 ($173,102.24), and above Arm 0b
+($120,799.82).** This exceeds the prompt's own expected outcome: it does not
+merely say "most of Arm 0's advantage is deployment, not skill" — it says the
+entire allocator+analyst+trend-layer machinery, run on this 195-event
+population/window, UNDERPERFORMS simply buying all 16 names equally and never
+touching them again, by $15,639.37. Cash-share diagnostics support the
+deployment story: Arm 0b averages 65.5% cash, Arm 0 averages 15.3% cash,
+control averages 26.0% cash — the ranking of average-cash-share is the exact
+inverse of the ranking of final value among the three simulator-side arms
+(0b < control < 0 in value; 0b > control > 0 in idle cash). Manifest:
+analysis/data/value_attribution_v2/stage_c_manifest.json ->
+c1_deployment_ladder.
+
+## Stage C finding — 2026-09-13T00:00:00Z
+
+**C2 attempted; per-ticker decomposition does not reconcile — reported as a
+methodological failure, not a result.** The point difference
+control-minus-Arm-0 reproduces the prompt's $6,842.67 exactly
+(stage_c_manifest.json -> c2_bootstrap.actual_point_diff_control_minus_arm0).
+But the per-ticker attribution built from realized_sales.realized_gain +
+final position_values (grouped by ticker) sums to -$6,168.18 — opposite sign
+from the actual +$6,842.67 difference it's supposed to decompose — because it
+ignores differing cash balances, trade timing/tax lots, and pooled/compounding
+funding order between the two arms (the same non-additivity the prompt
+flags for C6). The bootstrap 95% range computed on this broken decomposition
+([-$81,686.55, $74,499.01]) is reported in the manifest but explicitly labeled
+UNRELIABLE and must not be cited as a confidence interval on $6,842.67. A
+methodologically sound version would resample the universe and re-run both
+arms' full simulation per resample (~2000 full simulator runs) — not
+attempted this session for cost reasons. C2 as specified (a valid bootstrap
+range on the $6,842.67 figure) is NOT reached this session.

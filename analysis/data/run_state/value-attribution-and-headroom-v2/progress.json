@@ -19,7 +19,7 @@
     "stage_e_deliverable": "pending"
   },
   "driver_commit": "d1597c5462f8bf33e62a7cda25efa1d50b0e9681",
-  "next_action": "Stage C starting: run C1 (deployment ladder incl. new Arm 0c) and C2 (bootstrap of control-minus-Arm-0) first per prompt's value-ordering; C3-C6 run only if budget remains.",
+  "next_action": "Stage C C1 DONE (Arm 0c $195,584.28 beats control -- headline finding). Stage C C2 NOT reached as specified: point diff reproduces $6,842.67 but the per-ticker decomposition needed for a valid bootstrap CI does not reconcile (opposite sign); a correct version needs ~2000 full simulator re-runs (universe resampling), not attempted this session. C3 (four ablations), C4 (two permutation schemes), C5 (trend-layer surface) and C6 (leave-one-call-out) are all PENDING -- not started. Next session: either (a) build the universe-resampling bootstrap for a valid C2 before C3-C6, or (b) proceed straight to C3's four ablation arms (cheaper, no resampling needed) and revisit C2's methodology after. Driver: analysis/value_attribution_v2_stage_c_driver.py.",
   "notes": [
     "First attempt at this run_id -- no prior state found before this session.",
     "0b resolved with NO discrepancy: settled_control ($179,944.91) and test1_zero_info_floor ($120,800.00) both present in docs/architecture/VERSION_REGISTRY.json under benchmarks.settled_control / benchmarks.test1_zero_info_floor, both quotable:true, both reproducibility_value:deterministic_replay (single forward value, not a median across draws), both tied to the same tuple: evaluation_prompt 357b6b0b... (v6), model claude-sonnet-4-20250514 (retired), allocator_v3.py efc649d5..., corpus_window 2022-01-01 to 2024-06-12 ALL16. Prompt's quoted figures match to the cent -- proceeding, not stopping.",
