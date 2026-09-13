@@ -132,5 +132,65 @@
       "definition": "n_scoreable < 20 for a given call year, ALL16 -- carried unchanged from test2_look_ahead.py's thin_years_all16 computation.",
       "thin_years_this_corpus": [2020, 2026]
     }
+  },
+
+  "stage_c": {
+    "prompt_sha256_stage_c": "c5bdb49f1f714129322856cd544a49e6fbf22aa671ab93e707d93bf99ed395aa",
+    "written_utc": "2026-09-13T00:00:00Z",
+    "note": "Registered per prompts/value-attribution-v2-stage-c.md Sec4/0b, before any Stage C arm runs. Reuses the locked 195-event simulator_population from stage_b (B0), the settled_configuration block above, and Stage A's arm_0b/arm_0 definitions verbatim -- not redefined here.",
+
+    "population": "The 195-event simulator_population frozen above (stage_b.populations.simulator_population). No arm in Stage C substitutes any other population; an arm that cannot run on it is reported unavailable.",
+
+    "arms": {
+      "arm_0b_universe_only": "Reused verbatim from the top-level arms.arm_0b_universe_only block above (Stage A). Not redefined.",
+      "arm_0_always_bullish": "Reused verbatim from the top-level arms.arm_0_always_bullish block above (Stage A). Not redefined.",
+      "arm_0c_equal_weight_never_traded": {
+        "definition": "Equal-weight, fully-invested, never-traded floor. Starting capital ($100,000) divided into 16 equal shares ($6,250 each), one per ALL16 ticker. Each slice buys shares of its ticker at the closing price on that ticker's FIRST call_date within the locked 195-event population (not the ticker's IPO/listing date, not the simulator's window start of 2022-01-01 -- if a ticker's first in-population call is mid-window, its slice sits as uninvested cash until that date, mirroring how Arm 0b/0 cannot act before a ticker's first call either). No commissions, no taxes, no rebalancing, no reinvestment of dividends (none of the ALL16 pay a dividend material to this window). Final value = sum over 16 tickers of shares_i * price_on(ticker_i, 2024-06-12). Bypasses the allocator, the trend layer and the analyst entirely -- does not run through run_session_sweep_cell.",
+        "seed": "deterministic, no randomness -- no seed needed",
+        "disable_mechanics": "N/A (not an ablation)."
+      }
+    },
+
+    "cash_deployment_diagnostics_c1": {
+      "definition": "For arm_0b, arm_0 and the control (all three already produced by run_session_sweep_cell / value_attribution_v2_driver.py's run path), read DailySnapshot.cash_total / DailySnapshot.total_value at every daily snapshot in results['daily_snapshots'] to get a cash-share time series and a deployment curve. 'Never invested' for Arm 0b is approximated as (final DailySnapshot.cash_total) / initial_capital, labeled explicitly as an approximation -- Arm 0b's forced-Hold mechanism means no cash placed by session K is ever later deployed, so cash outstanding at window-close is a lower bound on capital that sat idle for the whole remainder of the window, not a precise 'never touched' count.",
+      "return_per_dollar_year_invested": "For each arm: (final_value - initial_capital) / integral of daily invested-dollars over the window in dollar-years (sum over days of (total_value - cash_total)/365.25). Reported alongside each arm's final_value, not as a replacement for it."
+    },
+
+    "bootstrap_c2": {
+      "resampling_unit": "ticker",
+      "resample_count": 2000,
+      "fixed_seed": 20260913,
+      "quantity_resampled": "control_final_value - arm_0_final_value, recomputed per resample by holding out/reweighting per-ticker realized P&L contributions to each arm's final value and taking the resampled difference. Same seed value as Stage B's bootstrap (20260913) -- reused deliberately, not a collision.",
+      "range_reported": "95% (2.5th/97.5th percentile of the 2000 resampled differences)."
+    },
+
+    "ablations_c3": {
+      "B1_disable_caps": "TYPE_A_SPECULATIVE_CAP_PCT/TYPE_A_ESTABLISHED_CAP_PCT/TYPE_B_CAP_PCT (15.0/35.0/50.0) replaced with 100.0 (effectively uncapped, since no single ALL16 position can exceed total portfolio value). All other settled parameters unchanged.",
+      "B2_disable_rule3": "The averaging-down permission for speculative losers (Rule 3) disabled by routing its branch to the same rejection path as a non-permitted average-down. Exact code location to be confirmed against allocator_v3.py before this arm runs; flagged here as the one ablation most likely to have an ambiguous disable mechanic.",
+      "B3_disable_profit_take": "PROFIT_TAKE_THRESHOLD_PCT (25.0) set to a value the corpus never reaches (e.g. 10000.0) so the branch never fires, rather than deleting the branch -- REDUCTION_PCT (5.0) becomes moot.",
+      "B4_disable_starter_sizing": "STARTER_PCT_SPECULATIVE (5.0) and STARTER_PCT_ESTABLISHED (8.0) both replaced with a single uniform value; exact uniform value (candidate: the blended average across the corpus's actual speculative/established mix, or a flat 6.5) to be fixed and recorded in the Stage C manifest before this arm runs, not silently chosen.",
+      "read_against": "C4's permutation range, not as a bare point figure, per the prompt's Sec7 instruction."
+    },
+
+    "permutations_c4": {
+      "primary_within_ticker": {
+        "definition": "For each ticker independently, shuffle which of that ticker's own call_dates its per-call score/recommendation attaches to. Universe, per-ticker call count and per-ticker call mix unchanged.",
+        "shuffles": 200,
+        "fixed_seed": 20260913
+      },
+      "cross_sectional_second": {
+        "definition": "Within each event-date cohort (calls sharing the same call_date across tickers), permute which ticker each call's score attaches to. Calendar of event dates fixed; universe composition on a given date can change.",
+        "shuffles": 200,
+        "fixed_seed": 20260914
+      },
+      "note": "No verdict pre-registered on the outcome, per the prompt's explicit instruction -- position only."
+    },
+
+    "leave_one_out_c6": {
+      "definition": "For each of the 195 events (or the bearish subset if full 195 is infeasible), set that one event's final_action to neutral (Hold) with all 194 others unchanged, re-run the full settled-config cell, and record final_value - control final_value.",
+      "non_additivity": "Explicitly not required to sum to control - arm_0b or to any other total. Reported as-is."
+    },
+
+    "abort_on_mismatch_rule": "If this stage_c block is found to already exist with different content on a future resume, ABORT and report the discrepancy rather than overwriting, per this prompt's Sec4/0b."
   }
 }
