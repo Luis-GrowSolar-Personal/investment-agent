@@ -1,0 +1,58 @@
+{
+  "run_id": "value-attribution-and-headroom-v2",
+  "stage": "A",
+  "written_utc": "2026-09-13T15:13:36.727597+00:00",
+  "git_commit": "d1597c5462f8bf33e62a7cda25efa1d50b0e9681",
+  "git_dirty": false,
+  "driver_file": "analysis/value_attribution_v2_driver.py",
+  "reproduction_check": {
+    "final_value": 179944.9060845556,
+    "expected": 179944.91,
+    "match": true
+  },
+  "cell_params": {
+    "cadence": "30",
+    "scope": "new_calls_only",
+    "funding_mode": "swap_funding",
+    "limit_pp": 2.5,
+    "execution_order": "pooled",
+    "trim_budget_scope": "per_event_date",
+    "veto_p": 0.0
+  },
+  "phase_offset": 0,
+  "seed": 0,
+  "event_count": 195,
+  "checksums": {
+    "type_classifications.json": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "price_cache.json": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache.json": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "reference_lines": {
+    "arm_0b_final_value": 120799.8165376159,
+    "test1_zero_info_floor": {
+      "value": 120800.0,
+      "provenance": "docs/architecture/VERSION_REGISTRY.json -> benchmarks.test1_zero_info_floor.figures.final_value"
+    },
+    "arm_0_final_value": 173102.23706486914,
+    "settled_control": {
+      "value": 179944.91,
+      "provenance": "docs/architecture/VERSION_REGISTRY.json -> benchmarks.settled_control.figures.final_value"
+    },
+    "total_added_by_three_layers": 59145.0934623841
+  },
+  "results": {
+    "arm_0b_universe_only": {
+      "final_value": 120799.8165376159,
+      "max_dd": 0.12723268040885144,
+      "n_events_total": 195,
+      "n_events_overridden_to_Hold": 195,
+      "n_events_naturally_Add_under_real_trend_layer": 137
+    },
+    "arm_0_always_bullish": {
+      "final_value": 173102.23706486914,
+      "max_dd": 0.22938098753682556,
+      "n_events_total": 195,
+      "n_events_overridden_to_Add": 195
+    }
+  }
+}

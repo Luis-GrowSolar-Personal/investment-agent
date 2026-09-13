@@ -9,14 +9,15 @@
     "step_0b_control_floor_provenance": "done",
     "step_0c_eval_cache_absent": "done",
     "step_0d_preregistration": "done",
-    "stage_a_arm_0b": "pending",
-    "stage_a_arm_0": "pending",
+    "stage_a_arm_0b": "done",
+    "stage_a_arm_0": "done",
     "stage_b_uncertainty": "pending",
     "stage_c_contribution": "pending",
     "stage_d_headroom": "pending",
     "stage_e_deliverable": "pending"
   },
-  "next_action": "Write and commit analysis/value_attribution_v2_driver.py implementing Arm 0b (always-hold override of final_action, real allocator) and Arm 0 (always-bullish/Add override), reusing sweep_funding_modes.py's load_events()/run_cell() machinery on the settled corpus_window 2022-01-01 to 2024-06-12 ALL16 (the same window that produced settled_control $179,944.91 and test1_zero_info_floor $120,800.00), then run both arms, record to cells.jsonl, and report Stage A numbers before attempting Stage B onward.",
+  "driver_commit": "d1597c5462f8bf33e62a7cda25efa1d50b0e9681",
+  "next_action": "Stage B: compute lift against both baselines (always-bullish and always-hold) on the same 195 scoreable... NOTE the prompt's Stage A/B narrative assumed 359 scoreable rows (Test 2's corpus) but the settled-config session-sweep driver (sweep_cadence_and_session_model.py / tier_return_attribution.py CELL) runs 195 events after dedup_on -- reconcile this row-count difference (359 raw scoreable Analysis rows for the analyst-direct scorer vs 195 simulator call-events after same-day dedup) explicitly in Stage B before computing base rates, or the always-hold/always-bullish hit-rate arithmetic in Sec6 will be computed over the wrong denominator. Then: McNemar vs each baseline, ticker-block bootstrap intervals, bearish base rate. Fixed seed to pre-register before Stage B runs.",
   "notes": [
     "First attempt at this run_id -- no prior state found before this session.",
     "0b resolved with NO discrepancy: settled_control ($179,944.91) and test1_zero_info_floor ($120,800.00) both present in docs/architecture/VERSION_REGISTRY.json under benchmarks.settled_control / benchmarks.test1_zero_info_floor, both quotable:true, both reproducibility_value:deterministic_replay (single forward value, not a median across draws), both tied to the same tuple: evaluation_prompt 357b6b0b... (v6), model claude-sonnet-4-20250514 (retired), allocator_v3.py efc649d5..., corpus_window 2022-01-01 to 2024-06-12 ALL16. Prompt's quoted figures match to the cent -- proceeding, not stopping.",
