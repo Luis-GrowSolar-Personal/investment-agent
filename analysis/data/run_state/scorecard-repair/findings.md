@@ -16,3 +16,12 @@
 ## Finding -- 2026-09-13T21:25:44Z
 
 **Step 3 confirms the prompt's expectation.** Unpaired MDE=12pp, paired MDE=6pp (disagreement rate 0.15) -- pairing lowers the threshold as expected. Data-volume answer for a 3pp paired threshold: {'target_pp': 3, 'stock_axis': {'stock_multiplier': 4, 'n_tickers': 64, 'mde_at_multiplier': 1}, 'call_axis': {'call_multiplier': 4, 'n_calls_per_ticker_scaled': 4, 'mde_at_multiplier': 2}}.
+
+## Finding -- run complete
+
+Step 5: v10+auto1's existing published spread (37.5-42.5% vs v6 37.5%, max
+5pp) is below every detection threshold measured in Step 3 (12pp unpaired,
+6pp paired at 15% disagreement, 4-7pp across the paired sensitivity sweep).
+The v10+auto1-vs-v6 comparison was not decidable on this corpus at this
+sample size, under either design. Wrap-up written to
+wrap-ups/scorecard-repair-out.md.
