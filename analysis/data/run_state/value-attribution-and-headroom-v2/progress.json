@@ -1,6 +1,7 @@
 {
   "run_id": "value-attribution-and-headroom-v2",
   "prompt_sha256": "6108b538a88923a940ad328f09362d5874e5a26fae2a6251c52028365e9b0c61",
+  "prompt_sha256_stage_b": "6dde6af4f7308dd50de885134fa640b2140c85572c3e6c3878501c2a93eb4c58",
   "driver_commit": null,
   "resumed_from": null,
   "steps": {
@@ -11,13 +12,13 @@
     "step_0d_preregistration": "done",
     "stage_a_arm_0b": "done",
     "stage_a_arm_0": "done",
-    "stage_b_uncertainty": "pending",
+    "stage_b_uncertainty": "in_progress",
     "stage_c_contribution": "pending",
     "stage_d_headroom": "pending",
     "stage_e_deliverable": "pending"
   },
   "driver_commit": "d1597c5462f8bf33e62a7cda25efa1d50b0e9681",
-  "next_action": "Stage B: compute lift against both baselines (always-bullish and always-hold) on the same 195 scoreable... NOTE the prompt's Stage A/B narrative assumed 359 scoreable rows (Test 2's corpus) but the settled-config session-sweep driver (sweep_cadence_and_session_model.py / tier_return_attribution.py CELL) runs 195 events after dedup_on -- reconcile this row-count difference (359 raw scoreable Analysis rows for the analyst-direct scorer vs 195 simulator call-events after same-day dedup) explicitly in Stage B before computing base rates, or the always-hold/always-bullish hit-rate arithmetic in Sec6 will be computed over the wrong denominator. Then: McNemar vs each baseline, ticker-block bootstrap intervals, bearish base rate. Fixed seed to pre-register before Stage B runs.",
+  "next_action": "Run analysis/value_attribution_v2_stage_b_driver.py (B0-B3), then B4 (three authorized doc edits: PROMOTION_GATE.md Sec10, docs/handoffs/2026-09-13-analyst-value-question.md Sec1, analyst_direct_scorer.py comment), then write wrap-ups/value-attribution-v2-stage-b-out.md.",
   "notes": [
     "First attempt at this run_id -- no prior state found before this session.",
     "0b resolved with NO discrepancy: settled_control ($179,944.91) and test1_zero_info_floor ($120,800.00) both present in docs/architecture/VERSION_REGISTRY.json under benchmarks.settled_control / benchmarks.test1_zero_info_floor, both quotable:true, both reproducibility_value:deterministic_replay (single forward value, not a median across draws), both tied to the same tuple: evaluation_prompt 357b6b0b... (v6), model claude-sonnet-4-20250514 (retired), allocator_v3.py efc649d5..., corpus_window 2022-01-01 to 2024-06-12 ALL16. Prompt's quoted figures match to the cent -- proceeding, not stopping.",

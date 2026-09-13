@@ -80,5 +80,57 @@
 
   "fixed_seeds": "N/A this session -- Stage A arms are deterministic (no permutation/shuffle). Stage B/C's permutation seeds to be pre-registered here before those stages run.",
 
-  "abort_on_mismatch_rule": "If this file is found to already exist with different content on a future resume, ABORT and report the discrepancy rather than overwriting, per prompt Sec4/0d."
+  "abort_on_mismatch_rule": "If this file is found to already exist with different content on a future resume, ABORT and report the discrepancy rather than overwriting, per prompt Sec4/0d.",
+
+  "stage_b": {
+    "prompt_sha256_stage_b": "6dde6af4f7308dd50de885134fa640b2140c85572c3e6c3878501c2a93eb4c58",
+    "written_utc": "2026-09-13T00:00:00Z",
+    "note": "Fields below registered per prompts/value-attribution-v2-stage-b.md Sec4/0b, before any Stage B figure was computed. CLAUDE.md's changed-prompt-sha256-archives-old-state rule is explicitly waived for this run per the Stage B prompt's Sec3.",
+
+    "populations": {
+      "scorer_population": {
+        "definition": "Every ALL16, price-scoreable Analysis row (analyst_direct_scorer.py / test2_look_ahead.py methodology). No Analysis.createdAt restriction, no simulator call-date ceiling, no same-day dedup.",
+        "n_full": 362,
+        "n_thin_year_filtered": 359,
+        "used_for": "B1/B2/B3 aggregate figures (thin-filtered, n=359) and by-year tables (full, n=362, thin years flagged)."
+      },
+      "simulator_population": {
+        "definition": "sweep_cadence_and_session_model.load_events_dedup_on() call-events: ALL16, call_date <= 2024-06-12 (module constant C), Analysis.createdAt inside the v6 window (analysis_created_after=2026-05-02 12:33:23-04, analysis_created_before=2026-06-27 16:26:16-04), same-day-dedup'd.",
+        "n": 195,
+        "used_for": "B1/B2/B3 figures reported alongside dollar comparisons (Stage A's Arm 0/0b), and anything compared against settled_control/test1_zero_info_floor."
+      },
+      "reconciliation_note": "These differ on THREE axes, not the two Stage A's next_action named (same-day dedup + call-date window): a third axis, the Analysis.createdAt / prompt-vintage window, is also load-bearing. See B0 in stage_b_manifest.json."
+    },
+
+    "baselines": {
+      "always_bullish": {
+        "definition": "predicts ground_truth=='bullish' on every scoreable call (analyst_direct_scorer.py line 207, always_bullish_hit).",
+        "figure_label_required": "always-bullish-relative"
+      },
+      "always_hold": {
+        "definition": "predicts ground_truth=='neutral' (inside the +-5% dead-band) on every scoreable call -- the baseline PROMOTION_GATE.md Sec3.1 specifies but analyst_direct_scorer.py does not implement.",
+        "figure_label_required": "always-hold-relative"
+      },
+      "no_bare_lift_rule": "No figure in this run's output may appear as an unlabeled 'lift' -- every lift number names its baseline."
+    },
+
+    "bootstrap": {
+      "resampling_unit": "ticker",
+      "resample_count": 2000,
+      "fixed_seed": 20260913,
+      "rationale": "182-day forward windows overlap heavily within a ticker and all 16 names share one SPY factor -- resampling calls independently would understate variance."
+    },
+
+    "mcnemar": {
+      "variant": "exact binomial on discordant pairs (b, c), two-sided",
+      "significance_level": 0.05,
+      "reported": "b and c (discordant counts) alongside p, per the prompt's instruction that b/c are more informative than p here."
+    },
+
+    "thin_year_threshold": {
+      "value": 20,
+      "definition": "n_scoreable < 20 for a given call year, ALL16 -- carried unchanged from test2_look_ahead.py's thin_years_all16 computation.",
+      "thin_years_this_corpus": [2020, 2026]
+    }
+  }
 }
