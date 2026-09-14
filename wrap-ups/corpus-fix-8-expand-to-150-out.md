@@ -398,3 +398,37 @@ primary list already met its target of 12 without it.
 **The corpus is now 164 companies, 109 available for iteration, threshold
 ~1.9pp by the square-root check** — the number that should be used going
 forward in place of every earlier figure in this document.
+
+---
+
+## 14. Third follow-up — one more S4 attempt, no new candidate
+
+Tried four more domain-plausible failure candidates:
+
+- **Voyager Digital (VOYG, TSXV)** — public before 2020-12-31, crypto lender
+  that collapsed in 2022. **Rejected on domain fit alone, no vendor check.**
+  It's a crypto brokerage/lending platform, not a stablecoin issuer,
+  payments infrastructure, or custody/settlement company with measurable
+  adoption metrics — `DOMAIN.md`'s Crypto (Scoped) section requires the
+  latter. Its failure mode (counterparty risk from lending to Three Arrows
+  Capital) reads as the "speculative" category the domain explicitly
+  excludes, not the mass-adoption thesis it requires.
+- **SPI Energy (SPI)** — in-domain (solar), delisted from Nasdaq to OTC in
+  2023 on financial distress. **Only 1 vendor call in the 2020-2025 window
+  — fails A2's 4-call minimum by a wide margin.**
+- **Ascent Solar (ASTI)** and **Real Goods Solar (RGSE)** — both in-domain,
+  both chronically distressed penny stocks. **Neither is in the vendor's
+  symbol list at all.**
+
+No return was looked at for any of the four — all four were rejected on
+domain fit or call-count grounds alone.
+
+**S4 stays at 4 of 8.** This is the third attempt across three separate
+prompts (the original corpus construction, corpus-fix-5, and corpus-fix-8)
+to grow this stratum, and all three hit the same wall: either the candidate
+sits outside `DOMAIN.md`, or the vendor simply lacks earnings-call history
+for small distressed companies. **Recommend a different discovery method
+next time** — a programmatic sweep of the vendor's full symbol list
+cross-referenced against distress markers, rather than more name-by-name
+general-knowledge guessing. That's a design decision, not something this
+run resolves.
