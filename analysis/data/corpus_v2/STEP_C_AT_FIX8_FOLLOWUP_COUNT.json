@@ -1,0 +1,45 @@
+{
+  "run_id": "corpus-construction",
+  "pass": "corpus-fix-8-followup -- threshold at the BK/MAXN-corrected count",
+  "n": 108,
+  "n_note": "108 = train+tune tickers in SPLIT_V6_BK_MAXN_FOLLOWUP.json (110), minus WOLF and SPWR (carve-out exclusions). 161 companies total (159 + BK + MAXN, both resolved via identity correction -- BK->BNY, MAXN->MAXNQ), 158 gradable, 50 gradable in the 51-company holdout.",
+  "sqrt_estimates": {
+    "published_baseline_24_over_sqrt_n": 2.31,
+    "this_run_recheck_20_over_sqrt_n": 1.92
+  },
+  "real_population_stats": {
+    "n_real_companies": 16,
+    "n_real_calls": 359,
+    "mean_accuracy": 0.40227040036902567,
+    "spread_stdev_pp_observed": 16.48
+  },
+  "spread_brackets": {
+    "observed": {
+      "spread_pp": 16.48,
+      "results_by_n": {
+        "108": {
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 5
+        }
+      }
+    },
+    "lower": {
+      "spread_pp": 8.24,
+      "results_by_n": {
+        "108": {
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 5
+        }
+      }
+    },
+    "higher": {
+      "spread_pp": 24.72,
+      "results_by_n": {
+        "108": {
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 7
+        }
+      }
+    }
+  }
+}
