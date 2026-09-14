@@ -1,0 +1,45 @@
+{
+  "run_id": "corpus-construction",
+  "pass": "corpus-fix-8-followup2 -- threshold at the reserve-replacement-corrected count",
+  "n": 109,
+  "n_note": "109 = train+tune tickers in SPLIT_V7_RESERVE_REPLACEMENTS.json (111), minus WOLF and SPWR (carve-out exclusions). 164 companies total (161 + BLK/WEC/SIRI, reserve replacements for SCHW/ED/IPG), 161 gradable, 52 gradable in the 53-company holdout.",
+  "sqrt_estimates": {
+    "published_baseline_24_over_sqrt_n": 2.3,
+    "this_run_recheck_20_over_sqrt_n": 1.92
+  },
+  "real_population_stats": {
+    "n_real_companies": 16,
+    "n_real_calls": 359,
+    "mean_accuracy": 0.40227040036902567,
+    "spread_stdev_pp_observed": 16.48
+  },
+  "spread_brackets": {
+    "observed": {
+      "spread_pp": 16.48,
+      "results_by_n": {
+        "109": {
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 6
+        }
+      }
+    },
+    "lower": {
+      "spread_pp": 8.24,
+      "results_by_n": {
+        "109": {
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 5
+        }
+      }
+    },
+    "higher": {
+      "spread_pp": 24.72,
+      "results_by_n": {
+        "109": {
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 7
+        }
+      }
+    }
+  }
+}
