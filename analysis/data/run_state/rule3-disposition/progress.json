@@ -10,9 +10,9 @@
     "step2_leave_one_out_r3_enforce": "done",
     "step3_perfect_analyst_ceiling": "done",
     "step4_timing": "done",
-    "step5_report": "in_progress"
+    "step5_report": "done"
   },
-  "next_action": "Write wrap-ups/rule3-disposition-out.md per Step 5 structure, then git stash pop and confirm clean tree.",
+  "next_action": "None -- run complete. wrap-ups/rule3-disposition-out.md written; git stash pop and final git status check remain as this session's last actions.",
   "notes": [
     "Fresh run_id, no prior state found.",
     "Stashed unrelated WIP: git stash 'unrelated-wip-before-rule3-disposition' (ec-fidelity-benchmark-1 progress, probe scripts, several handoff/prompt/wrap-up files unrelated to this task). Will git stash pop at end.",
