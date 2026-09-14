@@ -2,7 +2,7 @@
   "run_id": "rule3-disposition",
   "written_utc": "2026-09-13T00:00:00Z",
   "prompt_sha256": "e32d16994f6803bb7c24274fbc567ec317b681fcca2e2f099c7aa3885644d4ac",
-  "git_commit_at_write": "PENDING_DRIVER_COMMIT",
+  "git_commit_at_write": "1afb0c66f66eefcc780cfaec84f00b8cc1fb42b1",
   "abort_on_mismatch_rule": "If this file already exists with content differing from what is written here, ABORT and report the discrepancy rather than overwrite.",
   "locked_population": {
     "source": "analysis/data/value_attribution_v2/PREREGISTRATION.json -> stage_b.populations.simulator_population",
