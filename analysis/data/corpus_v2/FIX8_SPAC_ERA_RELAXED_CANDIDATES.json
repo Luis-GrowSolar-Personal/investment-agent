@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-09-14T19:19:44.409496+00:00",
+  "candidates": [
+    {
+      "ticker": "SUNL",
+      "name": "Sunlight Financial Holdings",
+      "domain_fit": "DOMAIN.md Tier 1 -- residential solar financing/loan origination platform",
+      "public_since": "2021-07-09 (SPAC merger, Spartan Acquisition Corp II)",
+      "failure": "Chapter 11, 2023-11-06",
+      "n_calls_found": 8,
+      "first_call": "2021-08-16",
+      "last_call": "2023-05-15",
+      "in_symbol_list": true
+    },
+    {
+      "ticker": "MVST",
+      "name": "Microvast Holdings",
+      "domain_fit": "DOMAIN.md Tier 1 -- lithium battery / energy storage manufacturer",
+      "public_since": "2021-07-23 (SPAC merger, Tuscan Holdings)",
+      "failure": "Not failed as of this run -- distressed/going-concern language in filings; included for completeness since it was flagged as a candidate, not because it meets S4's failure criterion yet",
+      "n_calls_found": 17,
+      "first_call": "2021-11-15",
+      "last_call": "2025-11-10",
+      "in_symbol_list": true
+    },
+    {
+      "ticker": "VLTA",
+      "name": "Volta Industries",
+      "domain_fit": "Borderline -- EV charging infrastructure, not squarely DOMAIN.md's storage tier (grid/behind-the-meter storage systems), closer to the EV-OEM-adjacent companies already excluded (Nikola/Fisker/Lordstown reasoning)",
+      "public_since": "2021-08-26 (SPAC merger, Tortoise Acquisition Corp II)",
+      "failure": "Acquired out of Chapter 11 by Shell, 2023-04",
+      "n_calls_found": 4,
+      "first_call": "2022-04-18",
+      "last_call": "2022-11-14",
+      "in_symbol_list": true
+    }
+  ],
+  "note": "Listed per A10 for Luis's decision -- NOT added to any manifest."
+}

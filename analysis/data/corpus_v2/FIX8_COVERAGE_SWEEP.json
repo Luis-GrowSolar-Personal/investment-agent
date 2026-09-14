@@ -1,0 +1,1423 @@
+{
+  "generated_at": "2026-09-14T19:16:59.486786+00:00",
+  "spy": {
+    "symbol_used": "SPY",
+    "source": "price_cache.json",
+    "first_date": "2020-01-02",
+    "last_date": "2026-05-08",
+    "needed_through": "2026-06-03",
+    "finding": "SPY series covers through 2026-05-08, corpus needs through 2026-06-03 -- same frozen-cache staleness noted in fix-6, not new.",
+    "attempts": [
+      {
+        "symbol": "SPY",
+        "kind": "primary",
+        "source": "price_cache.json (existing)",
+        "rows": 1596
+      }
+    ]
+  },
+  "per_candidate": {
+    "UNH": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "UNH",
+      "identity_source": "price_cache.json",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-05-08",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "LLY": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "LLY",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "ABBV": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "ABBV",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "MDT": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "MDT",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23,
+        "ungradable": 1
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "GILD": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "GILD",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 22,
+      "gradable_total": 22,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 22
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "AMGN": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "AMGN",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "DHR": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "DHR",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "LOW": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "LOW",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23,
+        "ungradable": 1
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "SBUX": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "SBUX",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "BAC": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "BAC",
+      "identity_source": "price_cache.json",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-05-08",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "GS": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "GS",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "MS": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "MS",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "C": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "C",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "HON": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "HON",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "UPS": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "UPS",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "LMT": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "LMT",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "RTX": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "RTX",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "UNP": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "UNP",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "EMR": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "EMR",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "DIS": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "DIS",
+      "identity_source": "price_cache.json",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-05-08",
+      "n_calls": 24,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23,
+        "ungradable": 1
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "TMUS": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "TMUS",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 21,
+      "gradable_total": 21,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 21
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "CHTR": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "CHTR",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "DUK": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "DUK",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "SO": {
+      "stratum": "S1",
+      "sector_or_domain": null,
+      "symbol_used": "SO",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "DOW": {
+      "stratum": "S3",
+      "sector_or_domain": "materials",
+      "symbol_used": "DOW",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "DD": {
+      "stratum": "S3",
+      "sector_or_domain": "materials",
+      "symbol_used": "DD",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "PPG": {
+      "stratum": "S3",
+      "sector_or_domain": "materials",
+      "symbol_used": "PPG",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "ECL": {
+      "stratum": "S3",
+      "sector_or_domain": "materials",
+      "symbol_used": "ECL",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "NEM": {
+      "stratum": "S3",
+      "sector_or_domain": "materials",
+      "symbol_used": "NEM",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "FCX": {
+      "stratum": "S3",
+      "sector_or_domain": "materials",
+      "symbol_used": "FCX",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 22,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 22,
+        "ungradable": 1
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "PLD": {
+      "stratum": "S3",
+      "sector_or_domain": "real_estate",
+      "symbol_used": "PLD",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "AMT": {
+      "stratum": "S3",
+      "sector_or_domain": "real_estate",
+      "symbol_used": "AMT",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "EQIX": {
+      "stratum": "S3",
+      "sector_or_domain": "real_estate",
+      "symbol_used": "EQIX",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "SPG": {
+      "stratum": "S3",
+      "sector_or_domain": "real_estate",
+      "symbol_used": "SPG",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "PSA": {
+      "stratum": "S3",
+      "sector_or_domain": "real_estate",
+      "symbol_used": "PSA",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "O": {
+      "stratum": "S3",
+      "sector_or_domain": "real_estate",
+      "symbol_used": "O",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "VIAC": {
+      "stratum": "S3",
+      "sector_or_domain": "media_telecom",
+      "symbol_used": "PARA",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2021-02-12",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 19,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "ungradable": 5,
+        "gradable_real_price": 19
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "FOXA": {
+      "stratum": "S3",
+      "sector_or_domain": "media_telecom",
+      "symbol_used": "FOXA",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "LYV": {
+      "stratum": "S3",
+      "sector_or_domain": "media_telecom",
+      "symbol_used": "LYV",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "NWSA": {
+      "stratum": "S3",
+      "sector_or_domain": "media_telecom",
+      "symbol_used": "NWS",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "IPG": {
+      "stratum": "S3",
+      "sector_or_domain": "media_telecom",
+      "symbol_used": null,
+      "identity_source": null,
+      "series_first_date": null,
+      "series_last_date": null,
+      "n_calls": 23,
+      "gradable_total": 0,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "ungradable": 23
+      },
+      "verdict": "fail",
+      "cause_of_gap": "insufficient real-price coverage"
+    },
+    "OMC": {
+      "stratum": "S3",
+      "sector_or_domain": "media_telecom",
+      "symbol_used": "OMC",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "AEP": {
+      "stratum": "S3",
+      "sector_or_domain": "utilities",
+      "symbol_used": "AEP",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "EXC": {
+      "stratum": "S3",
+      "sector_or_domain": "utilities",
+      "symbol_used": "EXC",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "SRE": {
+      "stratum": "S3",
+      "sector_or_domain": "utilities",
+      "symbol_used": "SRE",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "D": {
+      "stratum": "S3",
+      "sector_or_domain": "utilities",
+      "symbol_used": "D",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "XEL": {
+      "stratum": "S3",
+      "sector_or_domain": "utilities",
+      "symbol_used": "XEL",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "CI": {
+      "stratum": "S3",
+      "sector_or_domain": "healthcare_pharma",
+      "symbol_used": "CI",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "ANTM": {
+      "stratum": "S3",
+      "sector_or_domain": "healthcare_pharma",
+      "symbol_used": "ELV",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "CNC": {
+      "stratum": "S3",
+      "sector_or_domain": "healthcare_pharma",
+      "symbol_used": "CNC",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "HCA": {
+      "stratum": "S3",
+      "sector_or_domain": "healthcare_pharma",
+      "symbol_used": "HCA",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "ZTS": {
+      "stratum": "S3",
+      "sector_or_domain": "healthcare_pharma",
+      "symbol_used": "ZTS",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "BDX": {
+      "stratum": "S3",
+      "sector_or_domain": "healthcare_pharma",
+      "symbol_used": "BDX",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "PG": {
+      "stratum": "S3",
+      "sector_or_domain": "consumer_staples",
+      "symbol_used": "PG",
+      "identity_source": "price_cache.json",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-05-08",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "MO": {
+      "stratum": "S3",
+      "sector_or_domain": "consumer_staples",
+      "symbol_used": "MO",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "PM": {
+      "stratum": "S3",
+      "sector_or_domain": "consumer_staples",
+      "symbol_used": "PM",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "KHC": {
+      "stratum": "S3",
+      "sector_or_domain": "consumer_staples",
+      "symbol_used": "KHC",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 19,
+      "gradable_total": 19,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 19
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "STZ": {
+      "stratum": "S3",
+      "sector_or_domain": "consumer_staples",
+      "symbol_used": "STZ",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "AXP": {
+      "stratum": "S3",
+      "sector_or_domain": "financials",
+      "symbol_used": "AXP",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "BK": {
+      "stratum": "S3",
+      "sector_or_domain": "financials",
+      "symbol_used": null,
+      "identity_source": null,
+      "series_first_date": null,
+      "series_last_date": null,
+      "n_calls": 24,
+      "gradable_total": 0,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "ungradable": 24
+      },
+      "verdict": "fail",
+      "cause_of_gap": "insufficient real-price coverage"
+    },
+    "TFC": {
+      "stratum": "S3",
+      "sector_or_domain": "financials",
+      "symbol_used": "TFC",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "PNC": {
+      "stratum": "S3",
+      "sector_or_domain": "financials",
+      "symbol_used": "PNC",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 15,
+      "gradable_total": 15,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 15
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "COF": {
+      "stratum": "S3",
+      "sector_or_domain": "financials",
+      "symbol_used": "COF",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "ITW": {
+      "stratum": "S3",
+      "sector_or_domain": "industrials",
+      "symbol_used": "ITW",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "ETN": {
+      "stratum": "S3",
+      "sector_or_domain": "industrials",
+      "symbol_used": "ETN",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "PH": {
+      "stratum": "S3",
+      "sector_or_domain": "industrials",
+      "symbol_used": "PH",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "ROK": {
+      "stratum": "S3",
+      "sector_or_domain": "industrials",
+      "symbol_used": "ROK",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "CMI": {
+      "stratum": "S3",
+      "sector_or_domain": "industrials",
+      "symbol_used": "CMI",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "SLB": {
+      "stratum": "S3",
+      "sector_or_domain": "energy",
+      "symbol_used": "SLB",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "OXY": {
+      "stratum": "S3",
+      "sector_or_domain": "energy",
+      "symbol_used": "OXY",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23,
+        "ungradable": 1
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "KMI": {
+      "stratum": "S3",
+      "sector_or_domain": "energy",
+      "symbol_used": "KMI",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "WMB": {
+      "stratum": "S3",
+      "sector_or_domain": "energy",
+      "symbol_used": "WMB",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "EOG": {
+      "stratum": "S3",
+      "sector_or_domain": "energy",
+      "symbol_used": "EOG",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "NOW": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "NOW",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "WDAY": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "WDAY",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 20,
+      "gradable_total": 19,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 19,
+        "ungradable": 1
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "TEAM": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "TEAM",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 20,
+      "gradable_total": 20,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 20
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "SNOW": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "SNOW",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-09-16",
+      "series_last_date": "2026-09-11",
+      "n_calls": 21,
+      "gradable_total": 20,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 20,
+        "ungradable": 1
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "ON": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "ON",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 21,
+      "gradable_total": 21,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 21
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "MPWR": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "MPWR",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "SWKS": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "SWKS",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "MCHP": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "MCHP",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "SEDG": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "SEDG",
+      "identity_source": "price_cache.json",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-05-08",
+      "n_calls": 20,
+      "gradable_total": 20,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 20
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "CSIQ": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "CSIQ",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 20,
+      "gradable_total": 19,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 19,
+        "ungradable": 1
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "JKS": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": "JKS",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 21,
+      "gradable_total": 20,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 20,
+        "ungradable": 1
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "MAXN": {
+      "stratum": "S2",
+      "sector_or_domain": "in_domain_primary",
+      "symbol_used": null,
+      "identity_source": null,
+      "series_first_date": null,
+      "series_last_date": null,
+      "n_calls": 14,
+      "gradable_total": 0,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "ungradable": 14
+      },
+      "verdict": "fail",
+      "cause_of_gap": "insufficient real-price coverage"
+    },
+    "SQ": {
+      "stratum": "S2_reserve",
+      "sector_or_domain": "in_domain_reserve",
+      "symbol_used": "XYZ",
+      "identity_source": "yfinance/Yahoo",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-09-11",
+      "n_calls": 23,
+      "gradable_total": 23,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 23
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    },
+    "PYPL": {
+      "stratum": "S2_reserve",
+      "sector_or_domain": "in_domain_reserve",
+      "symbol_used": "PYPL",
+      "identity_source": "price_cache.json",
+      "series_first_date": "2020-01-02",
+      "series_last_date": "2026-05-08",
+      "n_calls": 24,
+      "gradable_total": 24,
+      "floor_applied": 12,
+      "counts_by_category": {
+        "gradable_real_price": 24
+      },
+      "verdict": "pass",
+      "cause_of_gap": null
+    }
+  }
+}

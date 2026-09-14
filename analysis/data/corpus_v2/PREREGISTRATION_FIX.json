@@ -104,5 +104,33 @@
     "rule": "The A8 price-coverage gate's call-count floor is NOT a single flat number across all strata. It inherits whichever call-count threshold ALREADY governs the company's stratum under A1/A2: ordinary strata (S1/S2/S3/S5) use A1's 12-call floor; the failures stratum (S4) uses A2's 4-call floor. A8's window-coverage test (real price on both ends of the 182-day window, OR the A6 terminal rule) is UNCHANGED -- only the pass/fail call-count line changes, and only for S4.",
     "error_being_corrected": "A8, as registered, applied a single 12-call floor to every stratum including S4. That silently re-imposed the ordinary-company survival requirement onto a stratum whose entire membership criterion is having failed -- the same category of mistake the original corpus build made and that A2 was written to fix, repeated one layer up in the price-coverage gate.",
     "no_other_a8_provision_changed": true
+  },
+  "A10_expansion_to_150": {
+    "registered_at": "2026-09-14T18:57:00.808827+00:00",
+    "prompt": "corpus-fix-8-expand-to-150",
+    "ordering_attestation": "Registered before examining any candidate's call availability, price coverage, or return. Candidate TICKERS below were drafted from general knowledge of large/mid-cap public companies circa 2020 (same practice as the original corpus_construction_driver.py, which stated its S1 ranks were 'not independently re-verified against a single retrieved ranked table') -- but no candidate's outcome, return, or pass/fail status under any gate was looked at before this addendum was written or before Step B's selection was frozen.",
+    "justification_scope_restriction": "The 150-company target is justified ONLY on precision grounds: 20/sqrt(n_available) = threshold; 48 available -> 2.9pp (current), 100 available -> 2.0pp; available runs ~2/3 of total (1/3 held out), so ~150 total gives ~100 available -> ~2.0pp. NO justification here references any company's return or which companies would be added.",
+    "premise_correction": "The prompt states the S3 sector cap was 'raised from 4 to 6 because 11 sectors at 4 cannot supply 50.' selection_working.json's S3.reserves has 9 sector keys (consumer_staples, healthcare_pharma, financials, industrials, energy, utilities, materials, real_estate, media_telecom), not 11. The arithmetic conclusion still holds (9 sectors x 4 = 36 < 50, so a cap raise is still required) but the sector count is corrected to 9 here.",
+    "quotas": {
+      "S3_out_of_scope": {
+        "add_candidates": 50,
+        "rule": "Stratified by sector (9 registered sectors) x size band. At most 6 per sector (raised from 4 -- see premise_correction). Sector allocation weighted toward sectors currently thin/absent in the corpus: materials(0 existing)->6, real_estate(0)->6, media_telecom(0)->6, utilities(1)->6, healthcare_pharma(3)->6, consumer_staples(4)->5, financials(4)->5, industrials(4)->5, energy(4)->5. Fixed seed 20201231 for any random tie-breaking within a cell."
+      },
+      "S1_large_cap_point_in_time": {
+        "add_candidates": 25,
+        "rule": "Approximate market-cap ranks 41-80 on the dated 2020-12-31 list, general knowledge (not independently retrieved from a single ranked table this session -- same caveat as the original S1 selection), deterministic list, no random draw."
+      },
+      "S2_in_scope": {
+        "add_candidates": 12,
+        "rule": "Within DOMAIN.md (solar/storage/semiconductor/software-cloud/scoped-crypto), stratified by size band, drawn from general knowledge, reserves recorded for drop-and-replace."
+      },
+      "S4_failures": {
+        "add_candidates": "attempt",
+        "rule": "Domain-drawn, public by 2020-12-31, later failed. Report shortfall rather than force; do not relax A2; do not admit an out-of-domain company."
+      }
+    },
+    "seed": 20201231,
+    "a1_through_a9_unchanged": true,
+    "spac_era_relaxed_rule_note": "Candidates that would qualify only under a relaxed 'public by 2021-12-31' rule are listed with call counts in the wrap-up but NOT added -- that decision is Luis's, per this addendum and the prompt."
   }
 }

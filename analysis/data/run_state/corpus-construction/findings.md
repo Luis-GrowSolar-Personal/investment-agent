@@ -263,3 +263,27 @@ Vendor calls this script: 5 (cumulative total this run/billing period: 172).
   "WOLF": true
 }
 
+## Step C availability sweep (2026-09-14T19:03:47.963885+00:00)
+
+90 candidates checked, 88 vendor calls this script.
+
+Pass A1: ['ABBV', 'AEP', 'AMGN', 'AMT', 'AXP', 'BAC', 'BDX', 'BK', 'C', 'CHTR', 'CI', 'CMI', 'CNC', 'COF', 'CSIQ', 'D', 'DD', 'DHR', 'DIS', 'DOW', 'DUK', 'ECL', 'EMR', 'EOG', 'EQIX', 'ETN', 'EXC', 'FCX', 'FOXA', 'GILD', 'GS', 'HCA', 'HON', 'IPG', 'ITW', 'JKS', 'KHC', 'KMI', 'LLY', 'LMT', 'LOW', 'LYV', 'MAXN', 'MCHP', 'MDT', 'MO', 'MPWR', 'MS', 'NEM', 'NOW', 'O', 'OMC', 'ON', 'OXY', 'PG', 'PH', 'PM', 'PNC', 'PPG', 'PSA', 'PYPL', 'ROK', 'RTX', 'SBUX', 'SEDG', 'SLB', 'SNOW', 'SO', 'SPG', 'SRE', 'STZ', 'SWKS', 'TEAM', 'TMUS', 'UNH', 'UNP', 'UPS', 'WDAY', 'WMB', 'XEL', 'ZTS']
+
+Fail A1: ['ANTM', 'ED', 'MSTR', 'NWSA', 'PLD', 'SCHW', 'SQ', 'TFC', 'VIAC']
+
+## Step C availability sweep (2026-09-14T19:14:10.170969+00:00)
+
+90 candidates checked, 238 vendor calls this script.
+
+Pass A1: ['ABBV', 'AEP', 'AMGN', 'AMT', 'AXP', 'BAC', 'BDX', 'BK', 'C', 'CHTR', 'CI', 'CMI', 'CNC', 'COF', 'CSIQ', 'D', 'DD', 'DHR', 'DIS', 'DOW', 'DUK', 'ECL', 'EMR', 'EOG', 'EQIX', 'ETN', 'EXC', 'FCX', 'FOXA', 'GILD', 'GS', 'HCA', 'HON', 'IPG', 'ITW', 'JKS', 'KHC', 'KMI', 'LLY', 'LMT', 'LOW', 'LYV', 'MAXN', 'MCHP', 'MDT', 'MO', 'MPWR', 'MS', 'NEM', 'NOW', 'O', 'OMC', 'ON', 'OXY', 'PG', 'PH', 'PLD', 'PM', 'PNC', 'PPG', 'PSA', 'PYPL', 'ROK', 'RTX', 'SBUX', 'SEDG', 'SLB', 'SNOW', 'SO', 'SPG', 'SRE', 'STZ', 'SWKS', 'TEAM', 'TFC', 'TMUS', 'UNH', 'UNP', 'UPS', 'WDAY', 'WMB', 'XEL', 'ZTS']
+
+Fail A1: ['ANTM', 'ED', 'MSTR', 'NWSA', 'SCHW', 'SQ', 'VIAC']
+
+## Step D price-coverage sweep (2026-09-14T19:16:59.490270+00:00)
+
+87 A1-passing candidates checked.
+
+Pass A9: ['ABBV', 'AEP', 'AMGN', 'AMT', 'ANTM', 'AXP', 'BAC', 'BDX', 'C', 'CHTR', 'CI', 'CMI', 'CNC', 'COF', 'CSIQ', 'D', 'DD', 'DHR', 'DIS', 'DOW', 'DUK', 'ECL', 'EMR', 'EOG', 'EQIX', 'ETN', 'EXC', 'FCX', 'FOXA', 'GILD', 'GS', 'HCA', 'HON', 'ITW', 'JKS', 'KHC', 'KMI', 'LLY', 'LMT', 'LOW', 'LYV', 'MCHP', 'MDT', 'MO', 'MPWR', 'MS', 'NEM', 'NOW', 'NWSA', 'O', 'OMC', 'ON', 'OXY', 'PG', 'PH', 'PLD', 'PM', 'PNC', 'PPG', 'PSA', 'PYPL', 'ROK', 'RTX', 'SBUX', 'SEDG', 'SLB', 'SNOW', 'SO', 'SPG', 'SQ', 'SRE', 'STZ', 'SWKS', 'TEAM', 'TFC', 'TMUS', 'UNH', 'UNP', 'UPS', 'VIAC', 'WDAY', 'WMB', 'XEL', 'ZTS']
+
+Fail A9: ['BK', 'IPG', 'MAXN']
+
