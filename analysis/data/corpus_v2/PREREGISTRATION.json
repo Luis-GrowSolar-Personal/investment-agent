@@ -26,7 +26,7 @@
       "candidate_pool": {
         "large": ["QCOM", "TXN", "INTC", "MU", "ADI", "AMAT", "LRCX", "KLAC", "NXPI", "MCHP", "ADBE", "INTU", "CRM", "CSCO", "IBM"],
         "small": ["ON", "SWKS", "ENPH", "SEDG", "MPWR", "CREE", "ENTG", "FORM", "AMKR", "DIOD", "SLAB", "POWI", "PSTG", "BOX", "FIVN"],
-        "micro": ["MAXN", "SPI", "CSIQ", "JKS", "ARRY", "SHLS", "STEM", "SUNW", "AMSC", "GEVO", "BLDP"]
+        "micro": ["MAXN", "CSIQ", "JKS", "ARRY", "SHLS", "STEM", "AMSC", "GEVO", "BLDP"]
       },
       "note": "Large-band pool intentionally overlaps with S1's candidate rank range on a few names (e.g. QCOM, TXN, CRM, CSCO); S1's deterministic rank list is fixed first, and any ticker S1 claims is removed from this pool before S2's random draw, applied mechanically in that order."
     },
@@ -53,7 +53,13 @@
       "name": "Failures",
       "quota": 8,
       "rule": "Companies that were 2020-12-31 S&P 500 constituents (per Step 1's source) OR were within DOMAIN.md's Tier 1/2 universe as of 2020, and subsequently failed outright, were acquired under distress (regulatory receivership, forced sale), or were delisted. Selected by verified 2020 membership/domain-fit FIRST, without reference to which quarter they later collapsed in. The prompt's suggested candidate list (SVB Financial, First Republic, Signature Bank, Proterra, Fisker, Nikola, Lordstown, Li-Cycle, Wolfspeed) is checked one by one against this rule in Step 2, mechanically -- a candidate that fails verification is dropped, not swapped for a similar-looking name after the fact; any quota shortfall is filled from the reserve pool below, ordered as listed, before considering any other name.",
-      "reserve_pool_for_shortfall": ["Sunnova Energy (NOVA)", "Complete Solaria (CSLR)", "Li-Cycle (LICY)", "Proterra (PTRA)"]
+      "reserve_pool_for_shortfall": ["Sunnova Energy (NOVA)", "Complete Solaria (CSLR)", "Li-Cycle (LICY)", "Proterra (PTRA)"],
+      "reserve_pool_amendment_2026_09_14": {
+        "written_before_any_outcome_look": true,
+        "reason": "The prompt's own 9 suggested S4 candidates plus the original reserve_pool_for_shortfall yielded only 4 qualifying names (SIVB, FRC, WOLF, NOVA) against the target of 8 -- a coverage shortfall discovered mechanically in Step 2, before any return was examined. This is a dated addition to the reserve pool ONLY, made before Step 4b's outcome look, not a re-pick after seeing returns.",
+        "added_names": ["Romeo Power (RMO) -- battery/energy-storage systems maker, DOMAIN.md Tier 1 storage fit, forced distressed all-stock merger into Nikola in 2022 after going-concern warnings", "Sunworks (SUNW) -- residential/commercial solar EPC, DOMAIN.md Tier 1 solar fit, Chapter 11 filing 2025"],
+        "still_short_if_insufficient": "If these two do not bring S4 to 8 after Step 3's availability check, the shortfall is reported as-is in the wrap-up rather than filled with lower-confidence names."
+      }
     },
     "S5": {
       "name": "Continuity (ALL16)",

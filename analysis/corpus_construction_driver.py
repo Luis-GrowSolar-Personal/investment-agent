@@ -109,14 +109,14 @@ def build_s2_or_s3(pool, quota_by_band, seed, exclude):
     return out
 
 
-def build_s3(prereg):
+def build_s3(prereg, exclude):
     pool = prereg["strata"]["S3"]["candidate_pool"]
     seed = prereg["strata"]["S3"]["seed"]
     sector_cap = prereg["strata"]["S3"]["sector_cap"]
     rnd = random.Random(seed)
     chosen, reserves = [], {}
     for sector, tickers in pool.items():
-        cands = [t for t in tickers if t not in ALL16_FLAT]
+        cands = [t for t in tickers if t not in ALL16_FLAT and t not in exclude]
         rnd.shuffle(cands)
         take = cands[:sector_cap]
         chosen.extend(take)
@@ -162,6 +162,12 @@ def build_s4(prereg):
         {"name": "Sunnova Energy International", "ticker": "NOVA",
          "verify": "DOMAIN.md Tier 1 (residential solar + storage). Not a 2020 S&P 500 constituent, qualifies via DOMAIN.md branch.",
          "qualifies": True, "failure_mode": "Chapter 11 bankruptcy filing, 2025"},
+        {"name": "Romeo Power", "ticker": "RMO",
+         "verify": "DOMAIN.md Tier 1 (battery/energy storage systems). Not a 2020 S&P 500 constituent, qualifies via DOMAIN.md branch. Added via the dated 2026-09-14 reserve-pool amendment in PREREGISTRATION.json, written before any outcome look.",
+         "qualifies": True, "failure_mode": "Forced distressed all-stock merger into Nikola, 2022, after going-concern warnings"},
+        {"name": "Sunworks", "ticker": "SUNW",
+         "verify": "DOMAIN.md Tier 1 (residential/commercial solar EPC). Not a 2020 S&P 500 constituent, qualifies via DOMAIN.md branch. Added via the dated 2026-09-14 reserve-pool amendment in PREREGISTRATION.json, written before any outcome look.",
+         "qualifies": True, "failure_mode": "Chapter 11 bankruptcy filing, 2025"},
     ]
     qualified = [c for c in candidates if c["qualifies"]]
     return qualified, [c for c in candidates if not c["qualifies"]], reserve, candidates
@@ -177,7 +183,8 @@ def cmd_select():
                          prereg["strata"]["S2"]["size_bands"],
                          prereg["strata"]["S2"]["seed"],
                          exclude=set(s1))
-    s3_list, s3_reserves = build_s3(prereg)
+    s2_flat = s2["large"] + s2["small"] + s2["micro"]
+    s3_list, s3_reserves = build_s3(prereg, exclude=set(s1) | set(s2_flat))
     s4_qualified, s4_dropped, s4_reserve, s4_all = build_s4(prereg)
 
     # S4 shortfall fill from reserve, mechanically, in listed order
