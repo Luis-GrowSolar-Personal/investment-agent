@@ -538,15 +538,27 @@ Each step ships and is usable on its own; resist building all at once.
 ## 10. Open items / deferred decisions
 
 - **corpus-construction holdout lock (added 2026-09-14, the ONE authorized
-  edit to this file made by the `corpus-construction-fix` prompt's Step E).**
-  `analysis/data/corpus_v2/CORPUS_MANIFEST_V2.json`'s `step_e_split.holdout`
-  (24 companies, stratified across S1-S5 including S4; sha256
-  `d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23`, seed
-  20201231) **must not be scored during iteration.** Any run — sweep,
-  prompt-candidate comparison, allocator gate — that touches any company in
-  this holdout list must say so prominently in its own manifest and wrap-up.
-  This note does not itself gate anything; it exists so a future run does
-  not silently spend the holdout.
+  edit to this file made by the `corpus-construction-fix` prompt's Step E;
+  updated 2026-09-14 by `corpus-fix-4-threshold-and-terminal-value`'s Step D,
+  the ONE authorized edit that run makes).**
+  `analysis/data/corpus_v2/CORPUS_MANIFEST_V2.json`'s holdout is now the
+  77-company corpus's holdout (RMO removed from the corpus entirely, Luis's
+  explicit instruction — see `analysis/data/corpus_v2/SPLIT_V3_RMO_REMOVED.json`):
+  **24 companies, stratified across S1-S5 including S4; sha256
+  `5ab7ef18c3e3f22160f6b6ae60a82c99638b70c26b1c17d6477e6b5615795c84`, seed
+  20201231 (same seed, re-run over the corrected 77-company corpus).**
+  Superseded value, kept for audit trail: the prior 78-company (RMO-included)
+  holdout sha256 was
+  `d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23`
+  (`analysis/data/corpus_v2/SPLIT_V2.json`). Re-locking was safe and cost
+  nothing: no company in either corpus has ever been scored, and the holdout
+  had never been used for any measurement — see
+  `wrap-ups/corpus-fix-4-threshold-and-terminal-value-out.md` Step D for the
+  full argument. This note must not be scored during iteration. Any run —
+  sweep, prompt-candidate comparison, allocator gate — that touches any
+  company in this holdout list must say so prominently in its own manifest
+  and wrap-up. This note does not itself gate anything; it exists so a
+  future run does not silently spend the holdout.
 - **Model-pin decision (resolved 2026-05-23):** gate run for sonnet-4-20250514
   vs sonnet-4-6 under `--hurdle model_version` (equivalence hurdle). Verdict:
   **HOLD** — challenger regressed by 7.4pp (noise floor 4.2pp); 29% of tickers
