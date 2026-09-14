@@ -541,19 +541,30 @@ Each step ships and is usable on its own; resist building all at once.
   edit to this file made by the `corpus-construction-fix` prompt's Step E;
   updated 2026-09-14 by `corpus-fix-4-threshold-and-terminal-value`'s Step D;
   updated again 2026-09-14 by `corpus-fix-7-manifest-corrections`'s Step E;
-  updated again 2026-09-14 by `corpus-fix-8-expand-to-150`'s Step E, the ONE
-  authorized edit that run makes).**
-  `analysis/data/corpus_v2/CORPUS_MANIFEST_V5.json`'s holdout is now the
-  159-company corpus's holdout (corpus-fix-8 added 84 companies via A10's
-  registered expansion — 25 S1 candidates minus 1 drop, 50 S3 candidates
+  updated again 2026-09-14 by `corpus-fix-8-expand-to-150`'s Step E; updated
+  once more the same day by a `corpus-fix-8` follow-up correction, the ONE
+  authorized edit that follow-up makes).**
+  `analysis/data/corpus_v2/CORPUS_MANIFEST_V6.json`'s holdout is now the
+  161-company corpus's holdout. corpus-fix-8 added 84 companies via A10's
+  registered expansion (25 S1 candidates minus 1 drop, 50 S3 candidates
   minus 3 drops, 12+1-from-reserve S2 candidates minus 1 drop; no S4
-  candidate found; no company added or removed on outcome grounds — see
-  `wrap-ups/corpus-fix-8-expand-to-150-out.md`): **51 companies, stratified
-  across S1-S5 including S4; sha256
-  `019eeee338e00b23d8a4c0c8e42bf032a595b374e8ebfbbf36228fe10f39a310`, seed
-  20201231 (same seed, re-run over the expanded 159-company corpus) — see
-  `analysis/data/corpus_v2/SPLIT_V5_EXPANSION.json`.**
-  Superseded values, kept for audit trail: the 75-company (manifest-corrected)
+  candidate found), then a same-day follow-up corrected a wrong finding in
+  that run's own wrap-up: IPG/BK/MAXN's Yahoo "possibly delisted" result was
+  called a likely transient anomaly, but BK (renamed/re-ticked to BNY,
+  2025) and MAXN (delisted to the OTC Pink form MAXNQ, same pattern as
+  SUNW/SUNWQ) both resolve cleanly and were added; IPG remains dropped for
+  a corrected reason (a real merger-driven delisting — Omnicom's
+  acquisition of Interpublic Group, both were candidates in the same
+  media_telecom cell), not an anomaly. No company was added or removed on
+  outcome grounds at any step — see `wrap-ups/corpus-fix-8-expand-to-150-out.md`.
+  **51 companies, stratified across S1-S5 including S4; sha256
+  `a281a7b406f64b1af895ae5c50d730a632f26cf4ec975ef4903ff6f362edfba5`, seed
+  20201231 (same seed, re-run over the 161-company corpus) — see
+  `analysis/data/corpus_v2/SPLIT_V6_BK_MAXN_FOLLOWUP.json`.**
+  Superseded values, kept for audit trail: the 159-company (pre-followup)
+  holdout sha256 was
+  `019eeee338e00b23d8a4c0c8e42bf032a595b374e8ebfbbf36228fe10f39a310`
+  (`analysis/data/corpus_v2/SPLIT_V5_EXPANSION.json`); the 75-company (manifest-corrected)
   holdout sha256 was
   `1d05ee0496842e2dd033924ce82d387213b80f20c3e36582eabb66d33de87569`
   (`analysis/data/corpus_v2/SPLIT_V4_MANIFEST_CORRECTIONS.json`); the

@@ -296,3 +296,63 @@ e.g. `107 available` — `analysis/data/corpus_v2/SPLIT_V5_EXPANSION.json` →
 `sqrt_estimates.this_run_recheck_20_over_sqrt_n`; `3,618 calls` —
 `analysis/data/corpus_v2/CORPUS_MANIFEST_V5.json` (sum of
 `strata.*.frozen[].n_calls_2020_2025`).
+
+---
+
+## 12. Same-day follow-up correction — §4/§9's IPG/BK/MAXN finding was wrong for two of three
+
+**§4 and §9 above called IPG/BK/MAXN's Yahoo "possibly delisted" result a
+likely transient provider anomaly and recommended a retry. On retry, that
+was the wrong characterization for two of the three — corrected here,
+explicitly, per this project's own rule that a corrected figure must
+supersede the old one rather than quietly replace it.**
+
+**BK — genuinely re-ticked, not delisted.** The Bank of New York Mellon
+Corporation rebranded to "BNY" and changed its exchange ticker from BK to
+BNY (2025). Yahoo has fully purged BK (confirmed via `finance.yahoo.com`'s
+own search endpoint, which returns BNY as the only match for "Bank of New
+York Mellon"), but **BNY has complete price coverage, 2020-01-02 through
+today.** 24 of 24 calls gradable.
+
+**MAXN — genuinely delisted to OTC Pink, same pattern as SUNW/SUNWQ.**
+Maxeon Solar Technologies moved to the Pink Markets under **MAXNQ**.
+**Full coverage, 2020-08-26 through today.** 14 of 14 calls gradable.
+
+**IPG — the original "anomaly" call was wrong here too, but the underlying
+drop was right, for a different and more concrete reason than stated.**
+Yahoo has no IPG price data at **any** date, including 2020 (tested
+directly with a historical date range, not just recent) — not a rate-limit
+or symbol-lookup quirk. This is consistent with a **real, merger-driven
+delisting**: Omnicom's acquisition of Interpublic Group — both companies
+were independently drafted as candidates in this run's own
+`media_telecom` sector cell (§2's roster), which is itself worth noting as
+a near-miss the roster's general-knowledge sourcing didn't catch in
+advance. IPG **stays dropped** — the correction is only to *why*.
+
+**Corrected counts, superseding §4/§5/§6's figures:**
+
+| | Before this correction | After |
+|---|---|---|
+| Total companies | 159 | **161** |
+| Gradable | 156 | **158** |
+| Available for iteration | 107 | **108** |
+| Holdout sha256 | `019eeee...` (V5) | **`a281a7b4...` (V6)** |
+| Paired threshold, simulated | 1pp (n=107) | 1pp (n=108, unchanged) |
+| Paired threshold, sqrt recheck | 1.93pp | **1.92pp** (unchanged in practice) |
+
+New files: `CORPUS_MANIFEST_V6.json`, `SPLIT_V6_BK_MAXN_FOLLOWUP.json`,
+`STEP_C_AT_FIX8_FOLLOWUP_COUNT.json`. `TICKER_ALIASES.json` gained BK→BNY
+and MAXN→MAXNQ entries. `PROMOTION_GATE.md` §10 updated again with the new
+holdout hash and the full chain of supersession.
+
+**The revised recommendation for the design session:** only **SCHW, ED, and
+IPG** remain as unresolved drops with no reserve built this round (down
+from five) — worth drafting replacements for these three specifically
+before the next scoring commission, rather than the broader set §9
+originally listed.
+
+**Lesson, stated plainly:** the original "anomaly, recommend a retry"
+finding was itself under-verified — a first Yahoo search-endpoint check
+would have surfaced BNY and MAXNQ immediately, the same identity-resolution
+work already applied successfully to VIAC/ANTM/SQ/NWSA in §3. Flagged here
+rather than left standing.
