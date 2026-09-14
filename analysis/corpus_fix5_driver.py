@@ -177,6 +177,8 @@ def job1():
             except Exception as e:
                 attempt_log.append({"symbol": cand, "provider": "yfinance/Yahoo", "rows": 0, "error": str(e)})
                 continue
+            if hasattr(d.columns, "nlevels") and d.columns.nlevels > 1:
+                d.columns = d.columns.get_level_values(0)
             n = len(d)
             attempt_log.append({
                 "symbol": cand, "provider": "yfinance/Yahoo", "rows": n,
@@ -228,6 +230,10 @@ def job1():
         "so this is not solely a post-delisting gap."
     )
 
+    def price_cache_lookup(ticker):
+        entry = price_cache.get(ticker)
+        return entry["first_date"] if entry else None
+
     # Call-date categorization for the composition rule, S4 companies with
     # documented terminal events.
     symtab = get_symtab(progress)
@@ -237,17 +243,24 @@ def job1():
         dates = info.get("dates", [])
         terminal = S4_TERMINAL_EVENTS_VERIFIED.get(t)
         last_trading_day = None
+        first_trading_day = None
         if provider_results.get(t, {}).get("recovered"):
             last_trading_day = provider_results[t]["last_trading_day_in_series"]
+            first_trading_day = price_cache_lookup(t)
         rows = []
         for d in dates:
             window_close = (d + datetime.timedelta(days=182))
-            if terminal is None:
-                category = "real_price (no terminal event)"
-            elif window_close.isoformat() <= (last_trading_day or "0000-00-00"):
-                category = "real_price"
-            elif last_trading_day is None:
+            has_series = last_trading_day is not None and first_trading_day is not None
+            call_in_series = has_series and (first_trading_day <= d.isoformat())
+            close_in_series = has_series and (window_close.isoformat() <= last_trading_day)
+            if not has_series:
                 category = "ungradable_per_call (no price series)"
+            elif not call_in_series:
+                category = "ungradable_per_call (call predates recovered series -- entry price unknown)"
+            elif close_in_series:
+                category = "real_price"
+            elif terminal is None:
+                category = "ungradable_per_call (window extends past recovered series, no terminal event)"
             else:
                 category = "terminal_value_zero (A6)"
             rows.append({"call_date": d.isoformat(), "window_close": window_close.isoformat(),
