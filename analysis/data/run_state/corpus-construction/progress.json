@@ -1,12 +1,17 @@
 {
   "run_id": "corpus-construction",
   "prompt_sha256": "f44b14c3baf7051002fc76f03ee95782b622c654ddcc8815aefbe1ac409f5f58",
+  "prompt_sha256_fix": "c781b39d2b8a6b73017d2e38522cea105f98b3aa4407feb5c6f0ea8236a263a9",
   "driver_commit": "83a5ebc",
+  "driver_commit_fix": "912ccaa",
   "git_dirty_at_start": false,
+  "git_dirty_at_start_fix_pass": false,
   "zero_anthropic_api_calls_asserted": true,
   "zero_analysis_db_writes_asserted": true,
   "manifest_path": "analysis/data/corpus_v2/CORPUS_MANIFEST.json",
   "manifest_sha256": "0e036e97777577cdd1a87b97e6cd8d81bf1c69d367b3c2915254c86cc61e3080",
+  "manifest_v2_path": "analysis/data/corpus_v2/CORPUS_MANIFEST_V2.json",
+  "manifest_v2_sha256": "9b256b71eaa3038f5897a1a82d54c314abec8e843c5523a00c9a274a14f486ce",
   "steps": {
     "step_minus1_resume": "done",
     "step0_hygiene_preregistration": "done",
@@ -17,10 +22,23 @@
     "step5_split_and_holdout": "pending",
     "step6_detection_threshold": "pending",
     "step7_cost": "pending",
-    "step8_report": "done"
+    "step8_report": "done",
+    "fix_stepA_preregistration": "done",
+    "fix_stepB_availability_retest": "done",
+    "fix_stepC_refreeze": "done",
+    "fix_stepD_outcome_balance": "pending",
+    "fix_stepE_split_and_holdout": "pending",
+    "fix_stepF_detection_threshold": "pending",
+    "fix_stepG_cost": "pending",
+    "fix_stepH_report": "done_partial"
   },
-  "next_action": "Run Step 5 (three-way split by company, stratified, seed 20201231 per PREREGISTRATION.json; lock holdout, hash it, add the one authorized PROMOTION_GATE.md Sec10 note). Then Step 6 (re-run analysis/scorecard_repair_driver.py's Step 3 methodology at the new train+tune block count -- 71 minus the holdout share -- plus its two fallbacks). Then Step 7 (cost range, train+tune vs all three splits).",
+  "next_action": "PARTIAL RUN, stopped after fix Step C per session budget (the prompt requires pushing through Step F before stopping; this did not happen -- flagged explicitly in the wrap-up as a deviation). Resume with: (1) fix Step D -- re-run analysis/corpus_construction_outcomes.py (or its logic) against CORPUS_MANIFEST_V2.json's 78-company list using corpus_v2_price_cache.json (extend it for the 7 newly-restored tickers INTC/KO/MCD/TMO/FRC/RMO/SUNW only -- no other cache touched), report 3-way outcome balance with and without S4, beside 44.4/35.2/20.4 (v1) and 46.2/42.1/11.7 (existing corpus). (2) fix Step E -- split the 78 V2 companies by company (not call) into train/tune/holdout, stratified across S1-S5, seed 20201231, lock holdout list+hash, check/add the PROMOTION_GATE.md Sec10 holdout-lock note if not already present. (3) fix Step F -- re-run analysis/scorecard_repair_driver.py Step 3's methodology at the new train+tune block count (78 minus holdout share), report realistic case + 2 fallbacks (half-survival, in-scope-strata-only), and state plainly whether the paired figure is below 3 points. (4) fix Step G if budget allows -- cost range.",
   "notes": [
+    "FIX PASS (2026-09-14, same day as first pass): Step A wrote PREREGISTRATION_FIX.json BEFORE any company was re-tested -- A1 (240-day gap threshold, replacing the quarters-based rule), A2 (S4-specific rule: >=4 calls, no trailing-gap test, >=2 calls in the 12mo before the terminal event), A3 (all 15 new S4 candidate names verified and REJECTED -- domain mismatch and/or not public/not S&P500 as of 2020-12-31, evidence recorded per name), A4 (S4-both-ways disclosure requirement). Justifications for A1/A2 cite only reporting-cadence/coverage mechanics, never a return or which companies would be restored -- verified by re-reading PREREGISTRATION_FIX.json's own text before writing this note. No return of any kind was looked at before fix Step C's freeze.",
+    "Fix Step B (vendor re-test, 85 calls, cumulative 167 this run): re-fetched exact per-call dates (not the quarter-rounded approximation) for all 82 first-pass tickers plus the first pass's own already-recorded S4 reserve names. RESTORED under A1: INTC (183d), KO (184d), MCD (184d), TMO (194d) -- all previously failed by margins of 1-13 days over the old 182-day-equivalent cutoff. POWI still fails A1 (273 days > 240). RESTORED under A2: FRC (6 calls, 4 in the 12mo before its 2023-05-01 receivership), RMO (6 calls, 3 in the 12mo before its 2022-08-19 forced merger), SUNW (10 calls, 4 in the 12mo before its 2023-07-14 bankruptcy). SIVB still fails -- 0 events in vendor, a structural absence, not a rule artifact. WOLF and NOVA (already frozen) both independently re-confirmed passing under A2. GOOGL (S5) again absent from vendor (known gap, unchanged). None of the first pass's own S4 reserve candidates that fail domain (SBNY, PTRA, FSR, NKLA, RIDE, LICY) were restored despite several passing the new A2 availability test on paper -- excluded on eligibility grounds, independently re-confirmed in Step A's A3 verification, not on availability.",
+    "Non-S4 max-gap-days distribution and near-240-line brittleness count: recorded in findings.md's Step B entry -- report verbatim in the wrap-up rather than re-deriving.",
+    "Fix Step C (refreeze): CORPUS_MANIFEST_V2.json written, sha256 9b256b71eaa3038f5897a1a82d54c314abec8e843c5523a00c9a274a14f486ce. CORPUS_MANIFEST.json (v1) left untouched -- re-hashed at freeze time and confirmed still 0e036e97777577cdd1a87b97e6cd8d81bf1c69d367b3c2915254c86cc61e3080, matching the prompt's stated value. Total frozen: 78 (up from 71): S1 22/20 (4 restored, HON/UPS replacements kept per no-eviction rule), S2 15/16 (unchanged), S3 20/20 (unchanged), S4 5/8 (3 restored: FRC, RMO, SUNW; SIVB still fails, shortfall of 3 remains, NOT closed per the prompt's explicit instruction against loosening A2), S5 16/16 (unchanged, exempt).",
+    "DEVIATION FROM THE PROMPT, flagged explicitly: the prompt states stopping is permitted only after Step F. This session's budget was exhausted after fix Step C. Steps D (outcome balance), E (split/holdout), F (detection-threshold projection -- the actual deliverable) and G (cost) are NOT done. This is reported as a partial run per the resume-protocol's own standing rule ('a partial run that resumes is worth far more than a complete run that is lost') rather than fabricating Step F's numbers to appear complete.",
     "New run, no prior state found in analysis/data/run_state/corpus-construction/ or analysis/data/corpus_v2/.",
     "Unrelated dirty working-tree state stashed as 'unrelated-wip-before-corpus-construction' before starting.",
     "ZERO Anthropic API calls in this run. This run selects/freezes a corpus; it does not score.",
@@ -33,8 +51,8 @@
     "S1 ranks 21-40 are sourced from general published knowledge of Dec-2020 mega-cap ordering, not one independently retrieved ranked table for that specific range -- flagged as a limitation in the wrap-up.",
     "Wikipedia's dated 2020-12-31 revision (oldid=997494787) could only be retrieved in full for its first ~234 rows (A-H) due to fetch-tool truncation; I-Z membership checks relied on cross-referencing the separate Historical-components change log rather than a full direct read of that half of the table -- flagged as a limitation."
   ],
-  "calls_used_total": 82,
-  "last_call_ts": 1789391606.526996,
+  "calls_used_total": 167,
+  "last_call_ts": 1789392981.347467,
   "call_log": [
     {
       "ts": "2026-09-14T13:07:49.988635+00:00",
@@ -767,6 +785,854 @@
         "symbol": "LIN"
       },
       "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:31:26.919728+00:00",
+      "endpoint": "symbols-v2.txt",
+      "params": {},
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:31:30.421243+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "AAPL"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:31:33.931660+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "ABT"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:31:37.433296+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "ACN"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:31:40.937133+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "ADBE"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:31:44.446917+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "AIG"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:31:47.955352+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "AMAT"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:31:51.464841+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "AMD"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:31:54.975489+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "AMPX"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:31:58.486497+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "AMSC"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:01.996614+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "ARRY"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:05.505221+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "AVGO"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:09.010706+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "BLDP"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:12.522186+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "BMY"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:16.033161+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "BOX"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:19.542345+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "CAT"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:23.053297+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "CL"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:26.557875+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "CMCSA"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:30.059937+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "COP"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:33.567019+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "COST"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:37.072741+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "CRM"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:40.575969+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "CSCO"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:44.080592+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "CVS"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:47.583602+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "CVX"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:51.086717+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "DE"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:54.592421+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "DIOD"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:32:58.097858+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "ENTG"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:01.607032+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "ENVX"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:05.107782+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "EOSE"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:08.613115+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "FORM"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:12.115640+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "FRC"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:15.619187+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "FSLR"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:19.123438+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "FSR"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:22.636270+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "GE"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:26.141535+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "GIS"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:29.643338+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "HRL"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:33.148667+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "HUM"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:36.650896+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "IBM"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:40.160940+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "INTC"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:43.665986+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "JPM"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:47.167024+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "KMB"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:50.669939+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "KO"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:54.172980+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "LICY"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:33:57.679919+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "LIN"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:01.181730+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "LRCX"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:04.687054+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "MCD"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:08.190030+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "MMM"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:11.694170+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "MRK"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:15.198715+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "MSFT"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:18.706026+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "MU"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:22.210695+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "NEE"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:25.716029+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "NFLX"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:29.221337+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "NKE"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:32.725811+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "NKLA"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:36.226312+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "NOVA"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:39.731659+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "NVDA"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:43.235992+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "NXPI"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:46.739076+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "ORCL"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:50.239611+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "PEP"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:53.744974+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "PFE"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:34:57.247120+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "POWI"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:00.748891+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "PSX"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:04.254203+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "PTRA"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:07.764114+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "QCOM"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:11.266364+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "QS"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:14.770957+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "RIDE"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:18.276325+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "RMO"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:21.778945+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "RUN"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:25.282977+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "SBNY"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:28.788225+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "SHLS"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:32.292726+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "SIVB"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:35.798074+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "SLAB"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:39.303612+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "SPWR"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:42.808935+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "SUNW"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:46.309553+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "T"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:49.814901+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "TMO"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:53.315619+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "TSLA"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:35:56.818563+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "TTD"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:36:00.322603+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "TXN"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:36:03.827773+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "USB"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:36:07.330594+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "VLO"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:36:10.835931+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "VZ"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:36:14.338915+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "WFC"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:36:17.844347+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "WOLF"
+      },
+      "script": "fix",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:36:21.347518+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "XOM"
+      },
+      "script": "fix",
+      "status": 200
     }
-  ]
+  ],
+  "calls_used_this_fix_script": 85
 }

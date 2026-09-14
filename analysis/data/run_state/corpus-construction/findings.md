@@ -62,3 +62,13 @@ still under the Premium plan's 1,000-call/month figure referenced in that
 run's wrap-up. No transcript content was ever requested -- every call this
 run made was symbols-v2.txt or /events (dates and counts only).
 
+## Step B availability re-test under PREREGISTRATION_FIX.json (2026-09-14T13:36:21.538535+00:00)
+
+Checked 85 tickers, 85 vendor calls this script (cumulative total this run: 167).
+
+Non-S4 max-gap distribution (days): n=72, min=96, max=614, within 20 days of the 240-day line: 0 of 72 ([]).
+
+Passing under new rule: ['AAPL', 'ABT', 'ACN', 'ADBE', 'AIG', 'AMAT', 'AMD', 'AMPX', 'AMSC', 'ARRY', 'AVGO', 'BLDP', 'BMY', 'BOX', 'CAT', 'CL', 'CMCSA', 'COP', 'COST', 'CRM', 'CSCO', 'CVS', 'CVX', 'DE', 'DIOD', 'ENTG', 'ENVX', 'EOSE', 'FORM', 'FRC', 'FSLR', 'FSR', 'GE', 'GIS', 'HRL', 'HUM', 'IBM', 'INTC', 'JPM', 'KMB', 'KO', 'LICY', 'LIN', 'LRCX', 'MCD', 'MMM', 'MRK', 'MSFT', 'MU', 'NEE', 'NFLX', 'NKE', 'NKLA', 'NOVA', 'NVDA', 'NXPI', 'ORCL', 'PEP', 'PFE', 'PSX', 'PTRA', 'QCOM', 'QS', 'RIDE', 'RMO', 'RUN', 'SHLS', 'SLAB', 'SUNW', 'T', 'TMO', 'TTD', 'TXN', 'USB', 'VLO', 'VZ', 'WFC', 'WOLF', 'XOM']
+
+Failing under new rule: ['GOOGL', 'POWI', 'SBNY', 'SIVB', 'SPWR', 'TSLA']
+
