@@ -64,8 +64,8 @@
     "corpus-fix-1-ticker-aliases: GOOGL recovered under alias GOOG (24 events, meets A1). SIVB alias candidates (SIVBQ, SIVB.Q) absent from vendor -- SIVB remains a genuine coverage gap, S4 stays 5/8. HON/UPS found to have stale in_vendor_symbol_list=false fields in CORPUS_MANIFEST_V2.json (never re-queried in the fix pass) -- both actually have full valid vendor data under their own symbols; no membership change since both were already retained. 5 vendor calls this run, running total 167 -> 172.",
     "corpus-fix-4-threshold-and-terminal-value (2026-09-14): Step A -- A6_terminal_value_grading addendum registered in PREREGISTRATION_FIX.json before grading. Step B -- terminal-value rule applied to NOVA/FRC/SUNW (verified wiped out against public record), RMO excluded (removed from corpus per Step D); 3 more S4 companies now gradable (1/5 -> 4/4 remaining after RMO removal). Step C (the deliverable) -- rebuilt threshold projection with INDEPENDENT synthetic companies (own accuracy draw + own i.i.d. per-call outcomes, not literal copies), 150 trials (driver default), 3 spread brackets (observed 16.5pp, lower 8.2pp, higher 24.7pp stdev). Paired MDE at n=54 is 2pp across all three brackets (vs the flawed replication run's 1pp), consistent with the two independent sanity checks (~2.7-3.3pp). Step D -- RMO removed (78->77 companies), split re-run with same seed 20201231, old holdout sha256 d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23 superseded by new 5ab7ef18c3e3f22160f6b6ae60a82c99638b70c26b1c17d6477e6b5615795c84 (PROMOTION_GATE.md Sec10 updated). ZERO new price fetches, ZERO API calls this run. Pushed to origin sweep/db-corpus-baseline."
   ],
-  "calls_used_total": 172,
-  "last_call_ts": 1789392981.347467,
+  "calls_used_total": 182,
+  "last_call_ts": 1789408969.467715,
   "call_log": [
     {
       "ts": "2026-09-14T13:07:49.988635+00:00",
@@ -1692,6 +1692,100 @@
       },
       "script": "fix1_ticker_aliases",
       "status": 200
+    },
+    {
+      "ts": "2026-09-14T18:01:36.953454+00:00",
+      "endpoint": "symbols-v2.txt",
+      "params": {},
+      "script": "fix5",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T18:01:40.458550+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "NOVA"
+      },
+      "script": "fix5",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T18:01:43.959921+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "SUNW"
+      },
+      "script": "fix5",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T18:01:47.465300+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "FRC"
+      },
+      "script": "fix5",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T18:01:50.971418+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "WOLF"
+      },
+      "script": "fix5",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T18:02:35.457778+00:00",
+      "endpoint": "symbols-v2.txt",
+      "params": {},
+      "script": "fix5",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T18:02:38.959539+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "NOVA"
+      },
+      "script": "fix5",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T18:02:42.460086+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "SUNW"
+      },
+      "script": "fix5",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T18:02:45.963147+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "FRC"
+      },
+      "script": "fix5",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T18:02:49.467728+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "WOLF"
+      },
+      "script": "fix5",
+      "status": 200
     }
   ],
   "calls_used_this_fix_script": 85,
@@ -1701,5 +1795,6 @@
   "driver_commit_fix1_ticker_aliases": "f6cc2b5",
   "ticker_aliases_path": "analysis/data/corpus_v2/TICKER_ALIASES.json",
   "manifest_v3_written": false,
-  "manifest_v3_reason": "No pass/fail membership status changed. GOOGL was already an S5 member (exempt); SIVB remains excluded (genuine gap, alias candidates absent from vendor); HON/UPS were already S1 members (no-eviction retention) -- their vendor data turned out to be valid under their own original symbols, a stale-manifest-field finding, not a membership change."
+  "manifest_v3_reason": "No pass/fail membership status changed. GOOGL was already an S5 member (exempt); SIVB remains excluded (genuine gap, alias candidates absent from vendor); HON/UPS were already S1 members (no-eviction retention) -- their vendor data turned out to be valid under their own original symbols, a stale-manifest-field finding, not a membership change.",
+  "calls_used_fix5": 10
 }

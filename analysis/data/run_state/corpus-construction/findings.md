@@ -245,3 +245,21 @@ Raw results: {
 
 Vendor calls this script: 5 (cumulative total this run/billing period: 172).
 
+## Job 1 -- price recovery + composition check (2026-09-14T18:01:51.178517+00:00)
+
+{
+  "NOVA": false,
+  "SUNW": true,
+  "FRC": true,
+  "WOLF": true
+}
+
+## Job 1 -- price recovery + composition check (2026-09-14T18:02:49.664262+00:00)
+
+{
+  "NOVA": false,
+  "SUNW": true,
+  "FRC": true,
+  "WOLF": true
+}
+
