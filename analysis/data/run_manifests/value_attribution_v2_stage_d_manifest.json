@@ -1,0 +1,356 @@
+{
+  "run_id": "value-attribution-and-headroom-v2",
+  "stage": "stage_d",
+  "git_commit": "f4fbd950145f5266869042c3e93448dab254423e",
+  "git_dirty": false,
+  "driver_file": "analysis/value_attribution_v2_stage_d_driver.py",
+  "corpus_window": "2022-01-01 to 2024-06-12, ALL16",
+  "n_events": 195,
+  "checksums": {
+    "type_classifications.json": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+    "price_cache.json": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+    "fundamentals_cache.json": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+  },
+  "params": {
+    "settled_configuration": {
+      "cadence": "30",
+      "scope": "new_calls_only",
+      "funding_mode": "swap_funding",
+      "execution_order": "pooled",
+      "trim_budget_scope": "per_event_date",
+      "veto_p": 0.0,
+      "limit_pp": 2.5
+    },
+    "seed": 0,
+    "phase_offset": 0,
+    "oracle_synthesis": {
+      "bullish": {
+        "per_call_rec": "Add",
+        "thesis_health": "Strengthening",
+        "recommended_size": 35.0,
+        "credibility_delta": "positive",
+        "stumble_type": null,
+        "mitigation_track_record": "strong",
+        "fresh_money_allocation": 100.0
+      },
+      "neutral": {
+        "per_call_rec": "Hold",
+        "thesis_health": "Intact",
+        "recommended_size": 15.0,
+        "credibility_delta": "neutral",
+        "stumble_type": null,
+        "mitigation_track_record": "mixed",
+        "fresh_money_allocation": 50.0
+      },
+      "bearish": {
+        "per_call_rec": "Exit",
+        "thesis_health": "Broken",
+        "recommended_size": 0.0,
+        "credibility_delta": "negative",
+        "stumble_type": "Structural",
+        "mitigation_track_record": "unproven",
+        "fresh_money_allocation": 0.0
+      }
+    }
+  },
+  "reference_figures": {
+    "settled_control": 179944.91,
+    "buy_and_hold": 195584.28
+  },
+  "results": {
+    "label_report": {
+      "n_events_total": 195,
+      "n_labelable": 195,
+      "n_unlabelable": 0,
+      "unlabelable_keys": [],
+      "label_counts": {
+        "bullish": 83,
+        "bearish": 85,
+        "neutral": 27
+      }
+    },
+    "step2_ceiling_x2_5": {
+      "n_events_overridden": 195,
+      "call_level_hit_rate": 1.0,
+      "call_level_n": 195,
+      "call_level_hits": 195,
+      "final_action_level_hit_rate": 1.0,
+      "final_action_level_n": 195,
+      "final_action_level_hits": 195,
+      "trend_layer_override_gap": 0.0,
+      "binding_counts": {
+        "session limit": 69,
+        "target gap": 2
+      },
+      "binding_shares": {
+        "session limit": 0.971830985915493,
+        "target gap": 0.028169014084507043
+      },
+      "n_funding_events": 71,
+      "avg_cash_share": 0.5082799023570572,
+      "dollar_years_invested": 182248.07190571094,
+      "return_per_dollar_year": 0.8947894280299706,
+      "final_value": 263073.64802007604,
+      "delta_vs_control": 83128.73802007604,
+      "delta_vs_buy_and_hold": 67489.36802007604,
+      "lands_at_or_below_control": false
+    },
+    "step3_directional_split": {
+      "D-both": {
+        "n_events_overridden": 195,
+        "call_level_hit_rate": 1.0,
+        "call_level_n": 195,
+        "call_level_hits": 195,
+        "final_action_level_hit_rate": 1.0,
+        "final_action_level_n": 195,
+        "final_action_level_hits": 195,
+        "trend_layer_override_gap": 0.0,
+        "binding_counts": {
+          "session limit": 69,
+          "target gap": 2
+        },
+        "binding_shares": {
+          "session limit": 0.971830985915493,
+          "target gap": 0.028169014084507043
+        },
+        "n_funding_events": 71,
+        "avg_cash_share": 0.5082799023570572,
+        "dollar_years_invested": 182248.07190571094,
+        "return_per_dollar_year": 0.8947894280299706,
+        "final_value": 263073.64802007604,
+        "delta_vs_control": 83128.73802007604,
+        "delta_vs_buy_and_hold": 67489.36802007604,
+        "lands_at_or_below_control": false
+      },
+      "D-up": {
+        "n_events_overridden": 83,
+        "n_final_calls_changed_vs_real": 22,
+        "binding_counts": {
+          "session limit": 55,
+          "target gap": 2,
+          "cash available": 57
+        },
+        "binding_shares": {
+          "session limit": 0.4824561403508772,
+          "target gap": 0.017543859649122806,
+          "cash available": 0.5
+        },
+        "n_funding_events": 114,
+        "avg_cash_share": 0.19967336052422377,
+        "dollar_years_invested": 264630.529451932,
+        "final_value": 243917.54423406447,
+        "delta_vs_control": 63972.63423406446,
+        "delta_vs_buy_and_hold": 48333.26423406447
+      },
+      "D-down": {
+        "n_events_overridden": 85,
+        "n_final_calls_changed_vs_real": 85,
+        "binding_counts": {
+          "session limit": 67
+        },
+        "binding_shares": {
+          "session limit": 1.0
+        },
+        "n_funding_events": 67,
+        "avg_cash_share": 0.5632299814634787,
+        "dollar_years_invested": 134812.57392978028,
+        "final_value": 201898.8434038948,
+        "delta_vs_control": 21953.9334038948,
+        "delta_vs_buy_and_hold": 6314.563403894805
+      }
+    },
+    "step4_grid": {
+      "real_analyst_X2.5": {
+        "final_value": 179944.90608455567,
+        "avg_cash_share": 0.2602236176985291,
+        "dollar_years_invested": 208808.01967302218,
+        "binding_shares": {
+          "session limit": 0.5670103092783505,
+          "cash available": 0.4329896907216495
+        },
+        "max_drawdown_dollars": 21501.56104180051,
+        "max_drawdown_pct": 0.20852310359539084
+      },
+      "D-both_X2.5": {
+        "final_value": 263073.64802007604,
+        "avg_cash_share": 0.5082799023570572,
+        "dollar_years_invested": 182248.07190571094,
+        "binding_shares": {
+          "session limit": 0.971830985915493,
+          "target gap": 0.028169014084507043
+        },
+        "max_drawdown_dollars": 18167.382212036406,
+        "max_drawdown_pct": 0.08167216402549096
+      },
+      "real_analyst_X10": {
+        "final_value": 145059.93368328369,
+        "avg_cash_share": 0.05872937342878338,
+        "dollar_years_invested": 207981.46833824605,
+        "binding_shares": {
+          "session limit": 0.11224489795918367,
+          "target gap": 0.04081632653061224,
+          "cash available": 0.8469387755102041
+        },
+        "max_drawdown_dollars": 46622.846822704814,
+        "max_drawdown_pct": 0.4373000475762475
+      },
+      "D-both_X10": {
+        "final_value": 423293.7933661989,
+        "avg_cash_share": 0.13368639623915932,
+        "dollar_years_invested": 407158.91687558754,
+        "binding_shares": {
+          "target gap": 0.26865671641791045,
+          "session limit": 0.23880597014925373,
+          "cash available": 0.4925373134328358
+        },
+        "max_drawdown_dollars": 50748.06920898851,
+        "max_drawdown_pct": 0.142323277730137
+      },
+      "real_analyst_Xunlimited": {
+        "final_value": 150997.5552280165,
+        "avg_cash_share": 0.03548387096774193,
+        "dollar_years_invested": 218355.81253112678,
+        "binding_shares": {
+          "target gap": 0.03125,
+          "cash available": 0.96875
+        },
+        "max_drawdown_dollars": 50203.80982356494,
+        "max_drawdown_pct": 0.4679835526116469
+      },
+      "D-both_Xunlimited": {
+        "final_value": 510894.0130233138,
+        "avg_cash_share": 0.0871951564110219,
+        "dollar_years_invested": 484183.90054222563,
+        "binding_shares": {
+          "target gap": 0.3548387096774194,
+          "cash available": 0.6451612903225806
+        },
+        "max_drawdown_dollars": 52954.97393026168,
+        "max_drawdown_pct": 0.12646713976057228
+      }
+    },
+    "step4_reading": {
+      "classification": "mixed_or_inconclusive",
+      "dboth_25_near_control_5pct": false,
+      "dboth_unlimited_far_above_control_10pct": true,
+      "dboth_unlimited_near_control_5pct": false,
+      "real_gain_from_removing_x": -28947.350856539153,
+      "dboth_gain_from_removing_x": 247820.36500323773,
+      "real_tracks_dboth_gain": false
+    },
+    "step5_drawdowns": {
+      "D-both_X2.5": {
+        "max_drawdown_dollars": 18167.382212036406,
+        "max_drawdown_pct": 0.08167216402549096,
+        "max_drawdown_date_range": [
+          "2024-03-21",
+          "2024-04-20"
+        ],
+        "largest_single_quarter_decline_pct": -0.0800039473671738,
+        "largest_single_quarter_decline_dollars": -7971.914035033173,
+        "largest_single_quarter_range": [
+          "2022Q1",
+          "2022Q2"
+        ]
+      },
+      "D-up": {
+        "max_drawdown_dollars": 24488.931255582895,
+        "max_drawdown_pct": 0.12096472906689731,
+        "max_drawdown_date_range": [
+          "2024-03-21",
+          "2024-04-20"
+        ],
+        "largest_single_quarter_decline_pct": -0.1294186816879725,
+        "largest_single_quarter_decline_dollars": -12895.796256262707,
+        "largest_single_quarter_range": [
+          "2022Q1",
+          "2022Q2"
+        ]
+      },
+      "D-down": {
+        "max_drawdown_dollars": 13201.359188192087,
+        "max_drawdown_pct": 0.12802737365197503,
+        "max_drawdown_date_range": [
+          "2022-04-01",
+          "2022-06-30"
+        ],
+        "largest_single_quarter_decline_pct": -0.09766568974046697,
+        "largest_single_quarter_decline_dollars": -9731.800847400213,
+        "largest_single_quarter_range": [
+          "2022Q1",
+          "2022Q2"
+        ]
+      },
+      "real_analyst_X2.5": {
+        "max_drawdown_dollars": 21501.56104180051,
+        "max_drawdown_pct": 0.20852310359539084,
+        "max_drawdown_date_range": [
+          "2022-04-01",
+          "2022-12-27"
+        ],
+        "largest_single_quarter_decline_pct": -0.1272501791094116,
+        "largest_single_quarter_decline_dollars": -12679.717966254131,
+        "largest_single_quarter_range": [
+          "2022Q1",
+          "2022Q2"
+        ]
+      },
+      "real_analyst_X10": {
+        "max_drawdown_dollars": 46622.846822704814,
+        "max_drawdown_pct": 0.4373000475762475,
+        "max_drawdown_date_range": [
+          "2022-04-01",
+          "2022-12-27"
+        ],
+        "largest_single_quarter_decline_pct": -0.27233277404333467,
+        "largest_single_quarter_decline_dollars": -26845.48511399739,
+        "largest_single_quarter_range": [
+          "2022Q1",
+          "2022Q2"
+        ]
+      },
+      "D-both_X10": {
+        "max_drawdown_dollars": 50748.06920898851,
+        "max_drawdown_pct": 0.142323277730137,
+        "max_drawdown_date_range": [
+          "2024-03-21",
+          "2024-04-20"
+        ],
+        "largest_single_quarter_decline_pct": -0.21022167261124416,
+        "largest_single_quarter_decline_dollars": -20782.6886476918,
+        "largest_single_quarter_range": [
+          "2022Q1",
+          "2022Q2"
+        ]
+      },
+      "real_analyst_Xunlimited": {
+        "max_drawdown_dollars": 50203.80982356494,
+        "max_drawdown_pct": 0.4679835526116469,
+        "max_drawdown_date_range": [
+          "2022-04-01",
+          "2022-12-27"
+        ],
+        "largest_single_quarter_decline_pct": -0.3407311855247989,
+        "largest_single_quarter_decline_dollars": -29497.17985196231,
+        "largest_single_quarter_range": [
+          "2022Q3",
+          "2022Q4"
+        ]
+      },
+      "D-both_Xunlimited": {
+        "max_drawdown_dollars": 52954.97393026168,
+        "max_drawdown_pct": 0.12646713976057228,
+        "max_drawdown_date_range": [
+          "2024-03-21",
+          "2024-04-20"
+        ],
+        "largest_single_quarter_decline_pct": -0.1686433914346377,
+        "largest_single_quarter_decline_dollars": -16672.225337861877,
+        "largest_single_quarter_range": [
+          "2022Q1",
+          "2022Q2"
+        ]
+      }
+    }
+  }
+}

@@ -216,3 +216,100 @@ range on the $6,842.67 figure) is NOT reached this session.
   most risk by this raw measure, and nothing in Stage C looked at this
   until now. The cash-parked arm (conservative reading) sits between:
   $31,694.60 (31.69%).
+
+## Stage D (prompts/value-attribution-v2-stage-d.md), 2026-09-13/14
+
+- **Step 0d, no-unlabelable-tail check: CONFIRMED, 0 of 195 events unlabelable.**
+  price_cache.json frozen at 2026-05-08 gives a labelability cutoff near
+  2025-11-07; the locked population's last call_date is 2024-06-12, well
+  inside it. Matches the prompt's expectation -- not a contradiction here.
+
+- **Step 1 oracle label split (195 events, `analysis/data/run_manifests/
+  value_attribution_v2_stage_d_manifest.json` -> `results.label_report`):
+  bullish 83 (42.6%), bearish 85 (43.6%), neutral 27 (13.8%).** Directionally
+  close to but not identical to Stage B's ground-truth distribution (bearish
+  named at 42.1% of events in the Stage D prompt itself, sourced from Stage
+  B); the ~1.5pp difference is consistent with Stage B's scorer population
+  (n=359, thin-year-filtered) differing from this run's simulator population
+  (n=195, the dedup'd call-date-windowed subset) -- not a discrepancy in the
+  label logic, which reuses analyst_direct_scorer.py's constants unmodified.
+
+- **Step 2, D-both @ X=2.5pp ceiling: $263,073.65** (`...manifest.json` ->
+  `results.step2_ceiling_x2_5.final_value`, single deterministic replay, not
+  a median), a LOOK-AHEAD CEILING, +$83,128.74 vs control ($179,944.91) and
+  +$67,489.37 vs buy-and-hold ($195,584.28). Two-level sanity check: call-level
+  and final_action-level hit rate are BOTH 100% (195/195) -- the trend-layer
+  override gap the prompt expected (call-level ~100%, final_action-level
+  below it) did NOT materialize here. This is because the non-direction
+  field synthesis (pre-registered as bound-loosening) was deliberately built
+  to never conflict with the oracle's own direction, so the trend layer's
+  override machinery has nothing to override. Reported as a finding, not a
+  failure: it is a direct, expected consequence of the pre-registered
+  synthesis choice, not evidence the label derivation disagrees with the
+  scorer. Binding: 97.2% of the 71 funding events bind on "session limit",
+  2.8% on "target gap", 0% on "cash available" -- the SAME dominant binding
+  reason Stage C3 found on the real control, so even a perfect analyst is
+  overwhelmingly throttle-bound at X=2.5. The ceiling nonetheless sits far
+  ABOVE control, not at or below it -- the pre-registered "landing at/below
+  control" finding did NOT occur.
+
+- **Step 3 directional split (X=2.5pp):** D-up (perfect bullish only, real
+  calls elsewhere) = $243,917.54, changed 22 of 195 final calls vs. the real
+  run despite overriding 83 events (most bullish oracle overrides coincided
+  with what the real analyst already called correctly there). D-down
+  (perfect bearish only) = $201,898.84, changed all 85 overridden events'
+  final action (0 coincided with the real analyst's actual call on those same
+  events) -- consistent with Stage B's finding that the real analyst catches
+  very few of the true bearish events. D-down's funding events are 100%
+  session-limit-bound (67/67); D-up's binding mix is much more mixed (48.2%
+  session limit, 50.0% cash available, 1.8% target gap) because Exit actions
+  on the bearish leg are absent in D-up, leaving more natural cash from
+  normal trims. D-down lands well above control (+$21,953.93), NOT near it --
+  the prompt's "D-down near control would mean downside calls are worth
+  nothing here" scenario did not occur; downside-only perfect calls ARE
+  worth something even under today's allocator, though less than upside-only
+  ($21,953.93 vs $63,972.63 vs control).
+
+- **Step 4, the 6-cell grid (`...manifest.json` -> `results.step4_grid`,
+  each a single deterministic replay):**
+
+  | X | real analyst | D-both |
+  |---|---|---|
+  | 2.5pp (settled) | $179,944.91 | $263,073.65 |
+  | 10pp | $145,059.93 | $423,293.79 |
+  | unlimited | $150,997.56 | $510,894.01 |
+
+  **Finding that contradicts the prompt's stated Step-4 expectation:**
+  raising X *lowers* the real analyst's final value (179,944.91 ->
+  145,059.93 -> 150,997.56 -- a real, not noise-level, decline of
+  -$28,947.35 from settled to unlimited), while it sharply *raises* D-both's
+  ($263,073.65 -> $510,894.01, +$247,820.37). None of the prompt's three
+  pre-registered readings fits cleanly: D-both@2.5 is NOT near control (46%
+  above it), so "limited by plumbing" doesn't apply as stated; D-both@unlimited
+  is NOT near control either, so "limited by neither" doesn't apply; and the
+  real analyst does not track D-both's gain from loosening X -- it moves the
+  OPPOSITE direction. **Best-supported reading, stated plainly rather than
+  forced into one of the three: the ceiling is limited mainly by PREDICTION,
+  not plumbing.** Even fully throttled at today's X=2.5pp, a perfect analyst
+  already earns $83,128.74 more than the real system -- most of the
+  achievable headroom exists WITHOUT touching the throttle at all. The real
+  analyst's calls are wrong often enough that giving them more room to act
+  (raising X) makes results WORSE, not better -- the analyst is not
+  throttle-starved, it is prediction-starved. The additional ceiling
+  available by also loosening X ($263,073.65 -> $510,894.01 for a perfect
+  analyst) is real but is a headroom source the real analyst cannot reach
+  regardless of X, because its direction calls are the binding constraint,
+  not the session limit.
+
+- **Step 5 drawdowns (dollars/percent, `...manifest.json` ->
+  `results.step5_drawdowns`):** D-both@2.5 has the SMALLEST drawdown of any
+  arm in this stage ($18,167.38, 8.17%, 2024-03-21 to 2024-04-20) despite the
+  highest final value at that X -- consistent with Stage C3's finding that
+  drawdown tracks how invested an arm is, not how well it calls direction;
+  D-both is only ~49% invested on average (avg_cash_share = 0.508) at X=2.5.
+  The real analyst's drawdown WORSENS sharply as X rises (20.85% at X=2.5 ->
+  43.73% at X=10 -> 46.80% unlimited) while D-both's drawdown stays modest
+  and roughly flat (8.17% -> 14.23% -> 12.65%) -- raising X lets the real
+  analyst's wrong calls compound losses faster, while a perfect analyst's
+  gains are structurally protected by being correct. No risk-adjusted ratio
+  computed, per the prompt's instruction.

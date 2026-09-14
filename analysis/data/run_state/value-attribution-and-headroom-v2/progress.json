@@ -4,6 +4,7 @@
   "prompt_sha256_stage_b": "6dde6af4f7308dd50de885134fa640b2140c85572c3e6c3878501c2a93eb4c58",
   "prompt_sha256_stage_c": "c5bdb49f1f714129322856cd544a49e6fbf22aa671ab93e707d93bf99ed395aa",
   "prompt_sha256_stage_c3": "dd2ab3fcac81924707ece15d65f162b98c6ab367e362293ccfe23855c3b3c081",
+  "prompt_sha256_stage_d": "20dd7eb213e808ec2c792ee917ff9ceec05eaa93afb7e84778f2e17b28761731",
   "driver_commit": null,
   "resumed_from": null,
   "steps": {
@@ -21,11 +22,11 @@
     "stage_c3_step2_ablations": "done",
     "stage_c3_step3_leave_one_out": "done",
     "stage_c3_step4_drawdowns": "done",
-    "stage_d_headroom": "pending",
+    "stage_d_headroom": "done",
     "stage_e_deliverable": "pending"
   },
-  "driver_commit": "d1597c5462f8bf33e62a7cda25efa1d50b0e9681",
-  "next_action": "Stage-C3 Steps 2, 3, and 4 are now DONE (this session) -- see analysis/value_attribution_v2_stage_c3_step234_driver.py, stage_c3_manifest.json (step2_ablations / step3_leave_one_company_out / step4_drawdowns keys) and findings.md. Headline: B2 (disable Rule 3) earns the most ($9,417.91 vs control, sign-stable 16/16) but this is NOT 'the system now averages down' -- code reading found the swap_funding pooled path ignores cost basis when sizing the Add target and back-fills via displacement regardless, so B2 really measures funding-SOURCE (free cash vs. sold-elsewhere) not whether the add happens. B1 (disable caps) costs the most (-$812.60, sign-stable only 13/16). B3 (profit-take) and B4 (starter sizing) are EXACTLY zero effect, verified genuine (0 profit-take-25pct-trigger trades ever fire in control; every first-call funding event is bound by the 2.5pp session speed limit, not the cap or starter target) -- not driver bugs, though B4's FIRST implementation attempt was a real bug (patched the wrong module's constants) caught and fixed by re-running and finding the funding_log's 'binding: session limit' evidence. All figures, per-ticker leave-one-out tables, and drawdowns are in stage_c3_manifest.json. Stage C3 is now fully done except nothing further is planned for it. REMAINING for the whole run_id: C2 (bootstrap on control-minus-Arm-0, still broken/unresolved), C4/C5/C6 (never started), Stage D (headroom/oracle ceiling, pending), Stage E (deliverable, pending).",
+  "driver_commit": "f4fbd950145f5266869042c3e93448dab254423e",
+  "next_action": "Stage D is DONE this session -- see analysis/value_attribution_v2_stage_d_driver.py, analysis/data/run_manifests/value_attribution_v2_stage_d_manifest.json, findings.md (Stage D section), and wrap-ups/value-attribution-v2-stage-d-out.md. Headline: a perfect (look-ahead) analyst through TODAY's throttled allocator (X=2.5pp) already reaches $263,073.65 -- $83,128.74 above the real control ($179,944.91) -- while raising X for the REAL analyst makes it WORSE ($179,944.91 -> $145,059.93 at X=10 -> $150,997.56 unlimited), contradicting the prompt's stated Step-4 expectation that raising X lifts the ceiling. Conclusion supported by the data: the ceiling is limited mainly by PREDICTION, not plumbing -- most of the headroom exists without touching the throttle at all. D-up ($243,917.54) > D-down ($201,898.84) > control; both above control, downside calls worth less than upside calls here. 0 of 195 events unlabelable (Step 0d confirmed, matches expectation). REMAINING for the whole run_id: C2 (bootstrap on control-minus-Arm-0, still broken/unresolved, NOT attempted this session), C4/C5/C6 (never started, NOT attempted this session, explicitly out of scope for Stage D), Stage E (deliverable, pending).",
   "notes": [
     "First attempt at this run_id -- no prior state found before this session.",
     "0b resolved with NO discrepancy: settled_control ($179,944.91) and test1_zero_info_floor ($120,800.00) both present in docs/architecture/VERSION_REGISTRY.json under benchmarks.settled_control / benchmarks.test1_zero_info_floor, both quotable:true, both reproducibility_value:deterministic_replay (single forward value, not a median across draws), both tied to the same tuple: evaluation_prompt 357b6b0b... (v6), model claude-sonnet-4-20250514 (retired), allocator_v3.py efc649d5..., corpus_window 2022-01-01 to 2024-06-12 ALL16. Prompt's quoted figures match to the cent -- proceeding, not stopping.",
