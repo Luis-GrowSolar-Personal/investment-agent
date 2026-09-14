@@ -1,0 +1,45 @@
+{
+  "run_id": "corpus-construction",
+  "pass": "corpus-fix-8, Step E -- threshold at the expanded corpus's corrected count",
+  "n": 107,
+  "n_note": "107 = train+tune tickers in SPLIT_V5_EXPANSION.json (108), minus WOLF (S4, unrecoverable price gap, carve-out excludes it from the count). 159 companies total, 156 gradable, 49 gradable in the 51-company holdout (NOVA and SPWR excluded from that count on the same carve-out basis).",
+  "sqrt_estimates": {
+    "published_baseline_24_over_sqrt_n": 2.32,
+    "this_run_recheck_20_over_sqrt_n": 1.93
+  },
+  "real_population_stats": {
+    "n_real_companies": 16,
+    "n_real_calls": 359,
+    "mean_accuracy": 0.40227040036902567,
+    "spread_stdev_pp_observed": 16.48
+  },
+  "spread_brackets": {
+    "observed": {
+      "spread_pp": 16.48,
+      "results_by_n": {
+        "107": {
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 5
+        }
+      }
+    },
+    "lower": {
+      "spread_pp": 8.24,
+      "results_by_n": {
+        "107": {
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 4
+        }
+      }
+    },
+    "higher": {
+      "spread_pp": 24.72,
+      "results_by_n": {
+        "107": {
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 6
+        }
+      }
+    }
+  }
+}
