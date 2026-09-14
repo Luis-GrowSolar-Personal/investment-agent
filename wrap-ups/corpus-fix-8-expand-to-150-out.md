@@ -356,3 +356,45 @@ finding was itself under-verified — a first Yahoo search-endpoint check
 would have surfaced BNY and MAXNQ immediately, the same identity-resolution
 work already applied successfully to VIAC/ANTM/SQ/NWSA in §3. Flagged here
 rather than left standing.
+
+---
+
+## 13. Second same-day follow-up — reserve replacements for SCHW, ED, IPG
+
+§12 narrowed the unresolved-drops list to three (SCHW, ED, IPG), all
+dropped with no reserve built at selection time. This follow-up drafted
+one replacement each, same method as the original roster (general
+knowledge, cross-checked against the manifest for duplicates before any
+vendor call, then mechanically tested against A1 and A9 — no outcome was
+looked at before selecting any of the three):
+
+| Replacement | Stratum | Replaces | n calls | Gradable | Verdict |
+|---|---|---|---|---|---|
+| **BLK** (BlackRock) | S1 | SCHW (A1 fail, gap 539d) | 24 | 24/24 | pass |
+| **WEC** (WEC Energy Group) | S3/utilities | ED (A1 fail, gap 1,099d) | 24 | 24/24 | pass |
+| **SIRI** (Sirius XM) | S3/media_telecom | IPG (A9 fail — merger delisting) | 20 | 20/20 | pass |
+
+All three passed A1 and A9 cleanly on the first attempt.
+
+**Corrected counts, superseding §12's:**
+
+| | §12 | After this replacement |
+|---|---|---|
+| Total companies | 161 | **164** |
+| Gradable | 158 | **161** |
+| Available for iteration | 108 | **109** |
+| Holdout sha256 | `a281a7b4...` (V6) | **`909f68cc...` (V7)** |
+| Paired threshold, simulated | 1pp (n=108) | 1pp (n=109, unchanged) |
+| Paired threshold, sqrt recheck | 1.92pp | **1.92pp** (unchanged) |
+
+New files: `CORPUS_MANIFEST_V7.json`, `SPLIT_V7_RESERVE_REPLACEMENTS.json`,
+`STEP_C_AT_FIX8_FOLLOWUP2_COUNT.json`. `PROMOTION_GATE.md` §10 updated
+again with the new holdout hash.
+
+**No unresolved drops with no reserve remain from this run's original
+selection.** MSTR (S2, real A1 gap) needed no replacement, since the S2
+primary list already met its target of 12 without it.
+
+**The corpus is now 164 companies, 109 available for iteration, threshold
+~1.9pp by the square-root check** — the number that should be used going
+forward in place of every earlier figure in this document.

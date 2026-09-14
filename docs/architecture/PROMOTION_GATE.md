@@ -542,27 +542,31 @@ Each step ships and is usable on its own; resist building all at once.
   updated 2026-09-14 by `corpus-fix-4-threshold-and-terminal-value`'s Step D;
   updated again 2026-09-14 by `corpus-fix-7-manifest-corrections`'s Step E;
   updated again 2026-09-14 by `corpus-fix-8-expand-to-150`'s Step E; updated
-  once more the same day by a `corpus-fix-8` follow-up correction, the ONE
-  authorized edit that follow-up makes).**
-  `analysis/data/corpus_v2/CORPUS_MANIFEST_V6.json`'s holdout is now the
-  161-company corpus's holdout. corpus-fix-8 added 84 companies via A10's
+  twice more the same day by two `corpus-fix-8` follow-ups, each the ONE
+  authorized edit it makes).**
+  `analysis/data/corpus_v2/CORPUS_MANIFEST_V7.json`'s holdout is now the
+  164-company corpus's holdout. corpus-fix-8 added 84 companies via A10's
   registered expansion (25 S1 candidates minus 1 drop, 50 S3 candidates
   minus 3 drops, 12+1-from-reserve S2 candidates minus 1 drop; no S4
-  candidate found), then a same-day follow-up corrected a wrong finding in
-  that run's own wrap-up: IPG/BK/MAXN's Yahoo "possibly delisted" result was
-  called a likely transient anomaly, but BK (renamed/re-ticked to BNY,
-  2025) and MAXN (delisted to the OTC Pink form MAXNQ, same pattern as
-  SUNW/SUNWQ) both resolve cleanly and were added; IPG remains dropped for
-  a corrected reason (a real merger-driven delisting — Omnicom's
-  acquisition of Interpublic Group, both were candidates in the same
-  media_telecom cell), not an anomaly. No company was added or removed on
-  outcome grounds at any step — see `wrap-ups/corpus-fix-8-expand-to-150-out.md`.
-  **51 companies, stratified across S1-S5 including S4; sha256
-  `a281a7b406f64b1af895ae5c50d730a632f26cf4ec975ef4903ff6f362edfba5`, seed
-  20201231 (same seed, re-run over the 161-company corpus) — see
-  `analysis/data/corpus_v2/SPLIT_V6_BK_MAXN_FOLLOWUP.json`.**
-  Superseded values, kept for audit trail: the 159-company (pre-followup)
-  holdout sha256 was
+  candidate found); a first follow-up corrected a wrong finding in that
+  run's own wrap-up (BK renamed/re-ticked to BNY, MAXN delisted to the OTC
+  Pink form MAXNQ — both resolve cleanly and were added; IPG stays dropped
+  for a corrected reason, a real merger-driven delisting by Omnicom, not
+  the "provider anomaly" first claimed); a second follow-up drafted one
+  reserve replacement each for the three remaining unresolved drops with no
+  reserve at selection time — BLK for SCHW, WEC for ED, SIRI for IPG, all
+  tested against A1/A9 before adding. No company was added or removed on
+  outcome grounds at any step — see
+  `wrap-ups/corpus-fix-8-expand-to-150-out.md`.
+  **53 companies, stratified across S1-S5 including S4; sha256
+  `909f68ccb7754384bbb9f6d5882afb1afd9cdfa317b69654eef22127e3dc1e0b`, seed
+  20201231 (same seed, re-run over the 164-company corpus) — see
+  `analysis/data/corpus_v2/SPLIT_V7_RESERVE_REPLACEMENTS.json`.**
+  Superseded values, kept for audit trail: the 161-company (BK/MAXN
+  follow-up) holdout sha256 was
+  `a281a7b406f64b1af895ae5c50d730a632f26cf4ec975ef4903ff6f362edfba5`
+  (`analysis/data/corpus_v2/SPLIT_V6_BK_MAXN_FOLLOWUP.json`); the
+  159-company (pre-followup) holdout sha256 was
   `019eeee338e00b23d8a4c0c8e42bf032a595b374e8ebfbbf36228fe10f39a310`
   (`analysis/data/corpus_v2/SPLIT_V5_EXPANSION.json`); the 75-company (manifest-corrected)
   holdout sha256 was
