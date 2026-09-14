@@ -44,7 +44,11 @@ ROOT_PRICE_CACHE_PATH = repo_root / "analysis" / "data" / "price_cache.json"
 ECB_API_KEY = os.environ.get("ECB_API_KEY")
 BASE_URL = "https://v2.api.earningscall.biz"
 MIN_SPACING_SECONDS = 3.5
-HARD_CALL_CAP_THIS_SCRIPT = 150
+HARD_CALL_CAP_THIS_SCRIPT = 400  # raised: the window-filter bugfix required a second full sweep,
+                                    # and calls_used_fix8 persists cumulatively in progress.json
+                                    # across invocations of this script (resume-protocol state).
+                                    # No monthly vendor quota per the prompt; this is a safety
+                                    # ceiling against runaway loops, not a budget.
 EXCHANGES_IN_ORDER = ["NYSE", "NASDAQ", "AMEX", "TSX", "TSXV", "OTC", "LSE", "CBOE", "STO"]
 
 S4_TERMINAL_EVENTS = {"FRC": "2023-05-01", "SUNW": "2024-02-05", "NOVA": "2025-06-09", "WOLF": None}
