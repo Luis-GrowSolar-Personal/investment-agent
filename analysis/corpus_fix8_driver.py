@@ -130,7 +130,16 @@ def get_symtab(progress):
     return symtab
 
 
+WINDOW_START = datetime.date(2020, 1, 1)
+WINDOW_END = datetime.date(2025, 12, 31)
+
+
 def get_call_dates(progress, symtab, ticker, aliases_by_original):
+    """Returns dates restricted to the corpus's registered 2020-2025 window.
+    (Bug found mid-run: the vendor's /events endpoint returns a company's
+    FULL available history, not just 2020-2025 -- e.g. UNH's raw events span
+    2019-01-15 to 2026-07-16. Every other corpus driver's n_calls_2020_2025
+    figure implicitly assumed the window; this one now filters explicitly.)"""
     tried = [ticker]
     if ticker in aliases_by_original:
         tried.append(aliases_by_original[ticker])
@@ -141,18 +150,22 @@ def get_call_dates(progress, symtab, ticker, aliases_by_original):
         exch = exchs[0]
         status, data = vendor_get(progress, "events", {"exchange": exch, "symbol": t})
         if status == 200 and isinstance(data, dict):
-            dates = []
+            all_dates = []
             for e in data.get("events", []):
                 cd = e.get("conference_date")
                 if not cd:
                     continue
                 try:
-                    dates.append(datetime.date.fromisoformat(cd[:10]))
+                    all_dates.append(datetime.date.fromisoformat(cd[:10]))
                 except ValueError:
                     continue
-            dates.sort()
-            return {"in_symbol_list": True, "symbol_used": t, "exchange": exch, "dates": dates}
-    return {"in_symbol_list": False, "symbol_used": None, "dates": []}
+            all_dates.sort()
+            dates = [d for d in all_dates if WINDOW_START <= d <= WINDOW_END]
+            return {"in_symbol_list": True, "symbol_used": t, "exchange": exch, "dates": dates,
+                     "raw_first": all_dates[0].isoformat() if all_dates else None,
+                     "raw_last": all_dates[-1].isoformat() if all_dates else None,
+                     "raw_n": len(all_dates)}
+    return {"in_symbol_list": False, "symbol_used": None, "dates": [], "raw_first": None, "raw_last": None, "raw_n": 0}
 
 
 def max_gap_days(dates):
@@ -212,6 +225,8 @@ def step_c():
             "n_calls": n, "first": dates[0].isoformat() if dates else None,
             "last": dates[-1].isoformat() if dates else None,
             "max_gap_days": gap, "rule": "A1", "meets_new_rule": meets_a1,
+            "raw_first_all_history": info.get("raw_first"), "raw_last_all_history": info.get("raw_last"),
+            "raw_n_all_history": info.get("raw_n"),
         }
         results[t] = entry
         append_cell({"cell_key": f"fix8_stepC_{t}", "result": entry})
