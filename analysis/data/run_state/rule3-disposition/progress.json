@@ -1,18 +1,18 @@
 {
   "run_id": "rule3-disposition",
   "prompt_sha256": "e32d16994f6803bb7c24274fbc567ec317b681fcca2e2f099c7aa3885644d4ac",
-  "driver_commit": null,
+  "driver_commit": "5c0926ce2e81feebbb3badf8e2f193590cd44788",
   "steps": {
-    "step0a_hygiene": "in_progress",
-    "step0b_preregistration": "pending",
-    "step0c_reproduction": "pending",
-    "step1_three_configs": "pending",
-    "step2_leave_one_out_r3_enforce": "pending",
-    "step3_perfect_analyst_ceiling": "pending",
-    "step4_timing": "pending",
-    "step5_report": "pending"
+    "step0a_hygiene": "done",
+    "step0b_preregistration": "done",
+    "step0c_reproduction": "done",
+    "step1_three_configs": "done",
+    "step2_leave_one_out_r3_enforce": "done",
+    "step3_perfect_analyst_ceiling": "done",
+    "step4_timing": "done",
+    "step5_report": "in_progress"
   },
-  "next_action": "Stash unrelated WIP is done; write PREREGISTRATION.json for rule3_disposition before any arm runs.",
+  "next_action": "Write wrap-ups/rule3-disposition-out.md per Step 5 structure, then git stash pop and confirm clean tree.",
   "notes": [
     "Fresh run_id, no prior state found.",
     "Stashed unrelated WIP: git stash 'unrelated-wip-before-rule3-disposition' (ec-fidelity-benchmark-1 progress, probe scripts, several handoff/prompt/wrap-up files unrelated to this task). Will git stash pop at end.",

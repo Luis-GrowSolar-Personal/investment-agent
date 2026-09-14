@@ -1,0 +1,216 @@
+{
+  "run_id": "rule3-disposition",
+  "git_commit": "5c0926ce2e81feebbb3badf8e2f193590cd44788",
+  "git_dirty": false,
+  "driver_file": "analysis/rule3_disposition_driver.py",
+  "cell": {
+    "cadence": "30",
+    "scope": "new_calls_only",
+    "funding_mode": "swap_funding",
+    "limit_pp": 2.5,
+    "execution_order": "pooled",
+    "trim_budget_scope": "per_event_date",
+    "veto_p": 0.0
+  },
+  "seed": 0,
+  "phase_offset": 0,
+  "step0c_reproduction": {
+    "R3_keep": {
+      "got": 179944.90608455564,
+      "expected": 179944.91,
+      "match": true
+    },
+    "R3_remove": {
+      "got": 189362.81437485846,
+      "expected": 189362.81,
+      "match": true
+    }
+  },
+  "step1_three_configs": {
+    "R3_keep": {
+      "final_value": 179944.90608455564,
+      "delta_vs_control": 0.0,
+      "delta_vs_buy_and_hold": -15639.373915444361,
+      "avg_cash_share": 0.2602236176985291,
+      "dollar_years_invested": 208808.01967302218,
+      "drawdown": {
+        "max_drawdown_dollars": 21501.56104180051,
+        "max_drawdown_pct": 0.20852310359539084,
+        "max_drawdown_date_range": [
+          "2022-04-01",
+          "2022-12-27"
+        ]
+      },
+      "trade_counts": {
+        "n_funding_events": 97,
+        "n_buys_funded": 65,
+        "n_displacement_funded_sells": 71,
+        "binding_reason_counts": {
+          "session limit": 55,
+          "cash available": 42
+        },
+        "binding_reason_share": {
+          "session limit": 0.5670103092783505,
+          "cash available": 0.4329896907216495
+        }
+      }
+    },
+    "R3_remove": {
+      "final_value": 189362.81437485846,
+      "delta_vs_control": 9417.908290302817,
+      "delta_vs_buy_and_hold": -6221.465625141544,
+      "avg_cash_share": 0.22755865806074538,
+      "dollar_years_invested": 222468.51108272548,
+      "drawdown": {
+        "max_drawdown_dollars": 22402.722205236525,
+        "max_drawdown_pct": 0.2172626049866617,
+        "max_drawdown_date_range": [
+          "2022-04-01",
+          "2022-12-27"
+        ]
+      },
+      "trade_counts": {
+        "n_funding_events": 98,
+        "n_buys_funded": 66,
+        "n_displacement_funded_sells": 60,
+        "binding_reason_counts": {
+          "session limit": 50,
+          "cash available": 47,
+          "target gap": 1
+        },
+        "binding_reason_share": {
+          "session limit": 0.5102040816326531,
+          "cash available": 0.47959183673469385,
+          "target gap": 0.01020408163265306
+        }
+      }
+    },
+    "R3_enforce": {
+      "final_value": 184459.65463103165,
+      "delta_vs_control": 4514.74854647601,
+      "delta_vs_buy_and_hold": -11124.62536896835,
+      "avg_cash_share": 0.28731606805063953,
+      "dollar_years_invested": 202690.90668173216,
+      "drawdown": {
+        "max_drawdown_dollars": 18164.476766045933,
+        "max_drawdown_pct": 0.17615991057945476,
+        "max_drawdown_date_range": [
+          "2022-04-01",
+          "2022-12-27"
+        ]
+      },
+      "trade_counts": {
+        "n_funding_events": 75,
+        "n_buys_funded": 59,
+        "n_displacement_funded_sells": 37,
+        "binding_reason_counts": {
+          "session limit": 49,
+          "cash available": 26
+        },
+        "binding_reason_share": {
+          "session limit": 0.6533333333333333,
+          "cash available": 0.3466666666666667
+        }
+      },
+      "n_events_blocked": 23,
+      "dollars_suppressed_total": 457869.48544852267
+    },
+    "tax_note": "The simulator models NO taxes anywhere -- no federal/state, no LTCG/STCG distinction is computed in any figure in this report. All final values above are pre-tax. The three arms differ materially in trade count (see trade_counts.n_buys_funded / n_displacement_funded_sells per arm above), so a real-world after-tax ranking of the three could differ from this pre-tax ranking -- more trades generally means more realized gains/losses. This exposure is flagged, not estimated."
+  },
+  "step2_leave_one_out": {
+    "R3_enforce": {
+      "effect_by_ticker_dropped": {
+        "AAPL": 5865.987492009532,
+        "AMD": 6974.19611046667,
+        "AVGO": 10905.322696761927,
+        "GOOGL": 5020.513063415216,
+        "MSFT": 6932.426205972966,
+        "NVDA": 1243.759022910468,
+        "ORCL": 9824.431264652347,
+        "TSLA": 8793.366142766958,
+        "AMPX": 7080.674726443423,
+        "ENVX": 10450.899776629638,
+        "EOSE": 6218.374812887836,
+        "FSLR": 2783.7622215011797,
+        "QS": 6234.506757577503,
+        "RUN": 4430.292873976665,
+        "SPWR": 4514.74854647601,
+        "TTD": 10491.706154962187
+      },
+      "full_universe_effect": 4514.74854647601,
+      "n_of_16_preserving_sign": 16,
+      "company_changing_effect_most": "AVGO",
+      "change_in_effect_dollars": 6390.574150285916
+    },
+    "R3_remove_restated_from_stage_c3": {
+      "source": "analysis/data/value_attribution_v2/stage_c3_manifest.json -> step3_leave_one_company_out.sign_stability.B2_disable_rule3",
+      "full_universe_effect": 9417.908290302788,
+      "n_of_16_preserving_sign": 16,
+      "company_changing_effect_most": "ENVX",
+      "change_in_effect_dollars": 4786.398003547161,
+      "not_rerun": true
+    }
+  },
+  "step3_ceiling": {
+    "label_report": {
+      "n_events_total": 195,
+      "n_labelable": 195,
+      "n_unlabelable": 0,
+      "unlabelable_keys": [],
+      "label_counts": {
+        "bullish": 83,
+        "bearish": 85,
+        "neutral": 27
+      }
+    },
+    "n_overridden": 195,
+    "R3_keep": {
+      "final_value_LOOKAHEAD_CEILING_NOT_A_RESULT": 263073.64802007604
+    },
+    "R3_remove": {
+      "final_value_LOOKAHEAD_CEILING_NOT_A_RESULT": 265386.4080489625
+    },
+    "R3_enforce": {
+      "final_value_LOOKAHEAD_CEILING_NOT_A_RESULT": 256975.96501475124
+    }
+  },
+  "step4_timing": {
+    "R3_remove": {
+      "diff_by_calendar_year": {
+        "2022": -901.1611634360161,
+        "2023": 4850.975142605399,
+        "2024": 9417.908290302817
+      },
+      "largest_contributing_quarter": "2024Q1",
+      "largest_contributing_quarter_dollars": 2757.762587125879
+    },
+    "R3_enforce": {
+      "diff_by_calendar_year": {
+        "2022": 3337.084275754576,
+        "2023": -1209.7355700417393,
+        "2024": 4514.74854647601
+      },
+      "largest_contributing_quarter": "2024Q2",
+      "largest_contributing_quarter_dollars": 5414.911223314906
+    }
+  },
+  "protected_files_unchanged": true,
+  "protected_file_hashes_before": {
+    "analysis/sweep_cadence_and_session_model.py": "2e8825ce49402407dfb3181a4940e8fcc3c5491ab5e8c6710e8d721fe52a6b4d",
+    "analysis/simulator/allocator_v2.py": "f5b6d210a9385ad3389e63ac3b33e347b27baeefd69009aad91123acdc2286bd",
+    "analysis/simulator/allocator_v3.py": "efc649d52b849eeb8e94234d6da32d99f139b391867e86fe84b437b3a21aa00d",
+    "server/lib/versions.js": "70303e61a420cb981730923cf9bc413c9f01b276e51eb96d3960956f00981645",
+    "docs/architecture/VERSION_REGISTRY.json": "ba09ae2dad7c4051d6dd5bf7b8a64bdd4d2603b578cefca2cb34177601c19fb9",
+    "docs/architecture/PROMOTION_GATE.md": "2d19b04d610fd78681d667e58431a8746f46428f9ff0b12a8af3873268cedffd",
+    "docs/EVALUATION_PROMPT.md": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b"
+  },
+  "protected_file_hashes_after": {
+    "analysis/sweep_cadence_and_session_model.py": "2e8825ce49402407dfb3181a4940e8fcc3c5491ab5e8c6710e8d721fe52a6b4d",
+    "analysis/simulator/allocator_v2.py": "f5b6d210a9385ad3389e63ac3b33e347b27baeefd69009aad91123acdc2286bd",
+    "analysis/simulator/allocator_v3.py": "efc649d52b849eeb8e94234d6da32d99f139b391867e86fe84b437b3a21aa00d",
+    "server/lib/versions.js": "70303e61a420cb981730923cf9bc413c9f01b276e51eb96d3960956f00981645",
+    "docs/architecture/VERSION_REGISTRY.json": "ba09ae2dad7c4051d6dd5bf7b8a64bdd4d2603b578cefca2cb34177601c19fb9",
+    "docs/architecture/PROMOTION_GATE.md": "2d19b04d610fd78681d667e58431a8746f46428f9ff0b12a8af3873268cedffd",
+    "docs/EVALUATION_PROMPT.md": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b"
+  }
+}
