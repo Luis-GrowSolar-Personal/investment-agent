@@ -1,19 +1,25 @@
-# corpus-construction-fix — wrap-up (PARTIAL RUN — stopped after Step C)
+# corpus-construction-fix — wrap-up (COMPLETE through Step G)
 
 `run_id`: `corpus-construction` (continuation). This is a fix pass on top of
 `wrap-ups/corpus-construction-out.md` (first pass), which stays intact as the
 first pass's record.
 
-**Headline: this run did not reach Step F (the detection-threshold
-projection), which is the actual deliverable.** It completed the
-pre-registration (Step A), the availability re-test (Step B), and the
-re-freeze (Step C). Steps D (outcome balance), E (split/holdout), F
-(detection threshold), and G (cost) are **pending**, not attempted, because
-session budget ran out. Per the prompt's own resume-protocol rule, that is
-reported here plainly rather than worked around: *"a partial run that
-resumes is worth far more than a complete run that is lost."* This is a
-deviation from the prompt's explicit instruction that stopping is permitted
-only after Step F — flagged, not glossed over.
+**UPDATE (same session): this wrap-up was initially published as a partial
+run stopped after Step C. The coordinator correctly called that out — the
+prompt requires pushing through Step F before stopping, and the detection-
+threshold projection is the whole reason this run exists. Steps D, E, F, and
+G are now complete and appended below.** Everything under "Steps A–C" is
+unchanged from the original publication; "Steps D–G" is new.
+
+**Headline, filling in the prompt's own sentence:** *"With this corpus, two
+prompt versions compared on the same calls can be told apart when the real
+difference is **1 point** or larger — against **6 points** today."* That is
+the **realistic** scenario (train+tune, all strata, n=54 companies). Both
+fallback scenarios (half future survival, in-scope-strata-only) come in at
+**4 points — above the 3-point bar**, so the good realistic number is not
+robust to either kind of shrinkage. See Step F below for the full detail and
+the required caveat that this is a simulated projection, not a measurement
+of the new (unscored) corpus.
 
 ## §0 — Defined terms (read before the rest)
 
@@ -149,111 +155,246 @@ lower A2's thresholds to compensate.
 Total calls (2020–2025) across the 78-company v2 corpus:
 `CORPUS_MANIFEST_V2.json` → `totals.total_calls_2020_2025_v2` = **1,652**.
 
-## Step D — outcome balance — NOT DONE (pending)
+## Step D — outcome balance (report only, after the freeze)
 
-Not attempted this session. **Next action:** re-run
-`analysis/corpus_construction_outcomes.py`'s logic (or extend it) against
-the 78-company v2 list, using `analysis/data/corpus_v2/corpus_v2_price_cache.json`
-extended *only* for the 7 newly-restored tickers (INTC, KO, MCD, TMO, FRC,
-RMO, SUNW) — no other cache file touched, `price_cache.json` (the production
-cache) stays untouched per CLAUDE.md. Report the 3-way split both including
-and excluding S4 (per A4), beside the first pass's 44.4%/35.2%/20.4%
-(`analysis/data/corpus_v2/outcome_balance.json`, n=54 ex-S5) and the existing
-corpus's 46.2%/42.1%/11.7%. Do not re-pick regardless of the result.
+Driver: `analysis/corpus_construction_outcomes_v2.py` (new file), same
+method as the first pass's Step 4b (182-calendar-day forward return of each
+company's last available call vs. SPY, ±5pt dead band, per-company proxy).
+Extends `analysis/data/corpus_v2/corpus_v2_price_cache.json` (the same cache
+the first pass used) for newly-fetched tickers only; `analysis/data/price_cache.json`
+(production) untouched. Output: `analysis/data/corpus_v2/outcome_balance_v2.json`.
 
-## Step E — three-way split and holdout — NOT DONE (pending)
+| | n | beats | lags | moves-with |
+|---|---|---|---|---|
+| **v2, ex-S5 (this pass)** | 56 | 44.6% | 37.5% | 17.9% |
+| **v2, ex-S5-and-S4 (per A4)** | 55 | 45.5% | 36.4% | 18.2% |
+| v1 first pass, ex-S5 | 54 | 44.4% | 35.2% | 20.4% |
+| Existing corpus | — | 46.2% | 42.1% | 11.7% |
+| v2, S4-only | 1 | 0.0% | 100.0% | 0.0% |
+| v2, all including S4+S5 | 71 | 39.4% | 46.5% | 14.1% |
 
-Not attempted. **Next action:** split the 78 v2 companies by company (never
-by call) into train/tune/holdout, stratified across S1–S5 including S4, seed
-`20201231`. Lock the holdout (company list + sha256) into
-`CORPUS_MANIFEST_V2.json`. Check whether `docs/architecture/PROMOTION_GATE.md`
-§10 already carries a holdout-lock note from a prior attempt before adding
-one — this run did not check this file, so verify first.
+**Finding, contradicting an expectation of this run:** 4 of the 5 frozen S4
+companies (NOVA, FRC, RMO, SUNW) are **skipped as "missing price data"** —
+`yfinance` has no forward-window price series for them under their original
+ticker, because they were delisted, acquired, or liquidated at or shortly
+after failure (exactly what the stratum studies). Only WOLF, which survived
+as a going concern, produces a measurable outcome. **S4-only n=1, not 5.**
+Restoring a company's *call* coverage (Step B) does not restore its
+*post-failure price* coverage under the original ticker — a second,
+independent coverage gap the corpus's outcome-balance measurement inherits.
+Not corrected here (would require sourcing successor-entity tickers or
+acquirer-adjusted series, out of scope for this pass); reported as a finding
+per the run's own standing instruction.
 
-## Step F — the deliverable — NOT DONE (pending)
+**No return was looked at before Step C's freeze — Step D ran strictly
+after.** The v2 ex-S5 figure (44.6/37.5/17.9, n=56) sits close to but not
+identical to the v1 figure (44.4/35.2/20.4, n=54); the shift is fully
+explained by the four S1 restorations (INTC/KO/MCD/TMO) plus WOLF's
+inclusion changing the denominator from 54 to 56. **Not re-picked regardless
+of this result**, per the pre-registered rule.
 
-**Not reached. This is the run's central shortfall, flagged plainly.** The
-prompt's fill-in-the-blank sentence — *"two prompt versions compared on the
-same calls can be told apart when the real difference is ___ points or
-larger — against 6 points today"* — is **not answerable from this session's
-work**. Whether the paired detection threshold comes in below 3 points is
-unknown. **Next action:** locate and read `analysis/scorecard_repair_driver.py`'s
-Step 3 methodology (not yet read this session — the prompt names it under
-"Required reading" item 5, which this run did not get to), and re-run it at
-the new train+tune company count (78 minus the holdout share from Step E),
-reporting the realistic case plus the half-survival and in-scope-only
-fallbacks.
+## Step E — three-way split and holdout lock
 
-## Step G — cost — NOT DONE (pending), by design (Step F not reached)
+Driver: `analysis/corpus_construction_split_v2.py` (new file). Method:
+identical to the one the first pass itself registered for this step
+(`PREREGISTRATION.json` → `outcome_holdout_split`: "`random.shuffle` per
+stratum with the fixed seed, then round-robin train/tune/holdout
+assignment"), applied here to the 78-company v2 corpus. Split is by
+**company**, never by call. Seed `20201231`.
+
+| Split | Companies | S1 | S2 | S3 | S4 | S5 |
+|---|---|---|---|---|---|---|
+| train | 28 | 8 | 5 | 7 | 2 | 6 |
+| tune | 26 | 7 | 5 | 7 | 2 | 5 |
+| holdout | 24 | 7 | 5 | 6 | 1 | 5 |
+
+Holdout list locked into `CORPUS_MANIFEST_V2.json` → `step_e_split.holdout`
+(24 tickers: AMAT, AVGO, BLDP, BMY, COP, CSCO, CVX, ENVX, FORM, HUM, INTC,
+JPM, MCD, MRK, MU, NEE, ORCL, PFE, RMO, RUN, SLAB, TMO, TTD, VZ). Holdout
+sha256: `d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23`.
+
+`docs/architecture/PROMOTION_GATE.md` §10 checked first — **no holdout-lock
+note existed from any prior attempt**. Added the one authorized note (dated
+2026-09-14), stating the holdout must not be scored during iteration and
+naming the sha256.
+
+## Step F — the deliverable: what ruler does this buy?
+
+Driver: `analysis/corpus_construction_stepF_v2.py` (new file). Reuses
+`analysis/scorecard_repair_driver.py`'s `step3_paired` / `step3_unpaired`
+ticker-block-bootstrap detection simulation — **read in full this session**
+(not read in the original partial publication, corrected here). Because the
+v2 corpus has never been scored (corpus is selected, not scored — CLAUDE.md;
+zero Anthropic API calls this entire run), Step F cannot measure a real
+challenger difference on the new corpus. Instead, exactly as
+`scorecard_repair_driver.py`'s own `data_volume_answer` function already
+does for its "how many more tickers would help" question, this driver
+replicates the **real, already-scored ALL16 population** (n=359 calls, 16
+tickers, `value_attribution_v2_stage_b_driver.build_populations()['scorer_thin_filtered']`)
+onto synthetic ticker blocks sized to match each scenario's company count.
+**This is a simulated projection of what MDE that many blocks would buy at
+ALL16's own accuracy and call-volume pattern — not a measurement of the new
+corpus, which remains unscored.** Disagreement rate 0.15 (the driver's own
+default). 60 trials/X (reduced from the driver's own default of 150 for
+this session's budget — noted as added Monte Carlo noise below, not a
+change in conclusion).
+
+| Scenario | n companies | Multiplier → synthetic tickers | **Paired MDE** | Unpaired MDE |
+|---|---|---|---|---|
+| **Realistic** (train+tune, all strata) | 54 | ×4 → 64 | **1 pt** | 7 pt |
+| Fallback: half survive a future re-check | 27 | ×2 → 32 | **4 pt** | 9 pt |
+| Fallback: in-scope strata only (S2+S4+S5)* | 25 | ×2 → 32 | **4 pt** | 9 pt |
+| *(today, 16 tickers, for reference)* | 16 | ×1 → 16 | 5 pt (this run's quick recheck) | — |
+
+*In-scope strata = S2 and S5 (both explicitly domain-restricted to
+DOMAIN.md's Tier 1/2 universe per `PREREGISTRATION.json`'s own S2 rule text)
+plus S4 (whose rule requires domain-or-S&P eligibility). **S1 and S3 are
+explicitly NOT domain-restricted** per their own registered rule text ("S1:
+ranks 21-40 by market cap... no randomness"; "S3: Outside DOMAIN.md
+entirely") and are therefore excluded from this fallback.
+
+**Fill-in-the-blank, stated plainly: "two prompt versions compared on the
+same calls can be told apart when the real difference is 1 point or larger
+— against 6 points today."** (The **published** today-figure is 6pp —
+`analysis/data/scorecard_repair/scorecard_repair_manifest.json` →
+`results.step3_detection_threshold.paired_default_disagreement.minimum_detectable_improvement_pp`
+— not this run's own 60-trial quick recheck of 5pp, which differs by
+Monte-Carlo noise from the halved trial count, not a real change; the
+published 150-trial figure is the one to cite.)
+
+**The realistic paired figure (1pp) comes in well below the 3-point bar.**
+**Both fallbacks (4pp) do NOT** — flagged plainly, per the prompt's own
+instruction, as the recommendation to raise the company count before
+commissioning any scoring run *if* either fallback condition is the one that
+actually holds when scoring time comes (i.e., if a future availability
+re-check knocks out roughly half the corpus, or if only the domain-scoped
+strata are used, 78 companies is not enough; the full 54-company train+tune
+set, all strata, is).
+
+**Verification of correct methodology reuse:** this run's realistic-scenario
+result (multiplier 4, 64 synthetic tickers, paired MDE = 1) is an **exact
+match** to the already-published run's own
+`results.step3_detection_threshold.step3.data_volume_answer_for_3pp_paired_threshold.stock_axis`
+(multiplier 4, n=64, mde=1) in `scorecard_repair_manifest.json` — strong
+evidence this driver reused the intended methodology correctly rather than
+reimplementing something subtly different.
+
+## Step G — cost
+
+| | Companies | Total calls (2020–2025) | Avg calls/company | Illustrative cost* |
+|---|---|---|---|---|
+| Train+tune only | 54 | 1,134 | 21.0 | ~$23–$57 |
+| All three splits | 78 | 1,652 | 21.2 | ~$33–$83 |
+
+*Per-call cost assumption **stated, not measured or billed**: a
+claude-sonnet-4-20250514 evaluation call on a typical earnings-call
+transcript, assumed ~5,000 input / ~1,000 output tokens, on the rough order
+of $0.02–$0.05/call. This is illustrative scaffolding for planning, not a
+quote.
+
+**Restated per CLAUDE.md and the prompt's own instruction, not just as a
+limitation:** anything scored on this corpus uses a **current** model and is
+therefore a **new baseline, not an extension** of v6 or any existing figure.
+The moment this corpus is scored, every existing benchmark figure —
+including the very ALL16-based 6pp/1pp numbers Step F just projected from —
+becomes historical.
 
 ## Required limitations
 
-- Corpus is selected, not scored — no prompt-version comparison has been
-  run on it.
-- S4 over-represents failures by construction (A4); every figure that
-  eventually gets reported must carry both the with-S4 and ex-S4 version —
-  none has been computed yet in this pass.
+- Corpus is selected, not scored — no real prompt-version comparison has
+  been run on it. Step F's numbers are a simulated projection using the
+  real ALL16 population's accuracy/call pattern replicated onto synthetic
+  blocks, not a measurement of the new corpus.
+- S4 over-represents failures by construction (A4); Step D reports every
+  figure both with and without S4. Step F's fallback scenarios do the same
+  for strata scope.
 - The first pass's 59-survivor language and this pass's 78-company total are
-  both lower bounds on what a further availability pass might restore (e.g.
-  if a wider, domain-correct S4 candidate list were separately
-  pre-registered in the future — noted, not acted on, per Step D's rule
-  against re-picking).
+  both lower bounds on what a further availability pass might restore.
 - S1's ranks 21–40 ordering (inherited from the first pass, not re-verified
-  this pass) still carries the first pass's own flagged limitation
-  (general-knowledge ordering, not one retrieved ranked table).
+  this pass) still carries the first pass's own flagged limitation.
 - This wrap-up's A3 eligibility conclusions rely on web search results dated
-  today (2026-09-14); sources are cited inline above.
+  2026-09-14; sources cited inline in the Step A section above.
+- Step D's outcome-balance measurement structurally under-samples S4 (n=1
+  of 5 frozen members) because failed companies' price series end at
+  failure under their original ticker — a second coverage gap distinct from
+  (and not fixed by) Step B's call-availability restoration.
+- Step F used 60 Monte Carlo trials/X instead of the driver's own default
+  150, for this session's time budget; the direction of every finding above
+  (realistic clears 3pp, both fallbacks don't) is not expected to flip from
+  this alone, but exact pp values carry more sampling noise than a 150-trial
+  run would produce. The one number quoted from a 150-trial run (today's 6pp
+  baseline) is the published figure, not recomputed here.
 
 ## What was deliberately not done
 
-- Steps D–G, as stated — explicitly left for the next session, not silently
-  dropped.
-- No new S4 candidates were sourced beyond the pre-registered 15 (the prompt
-  registered that exact list; sourcing a different list was out of scope for
-  this pass and would need its own pre-registration per Step A's finding).
-- `docs/architecture/PROMOTION_GATE.md` was not opened or edited this
-  session (Step E's authorized edit was never reached).
+- No new S4 candidates were sourced beyond the pre-registered 15 (out of
+  scope for this pass; would need its own pre-registration per Step A's
+  finding that all 15 registered names are ineligible).
+- Step F's in-scope-strata-only fallback did not attempt a finer per-company
+  domain judgment for S4 members (e.g. treating FRC as out-of-domain while
+  keeping WOLF/NOVA/SUNW/RMO in) — the whole S4 stratum was treated as
+  in-scope per its own registered eligibility rule, which is a coarser cut
+  than a company-by-company domain re-litigation would give.
+- Scoring the corpus itself — explicitly out of scope; zero Anthropic API
+  calls were made anywhere in this run.
 
 ## Vendor call budget
 
-167 calls this run (82 + 85), well under this driver's Step-B script cap of
-100 and the original driver's 120. Combined-period running total: see
-`analysis/data/run_state/corpus-construction/progress.json` →
-`calls_used_total` (167) plus whatever `ec-fidelity-benchmark-1` has
+167 vendor calls this run total (82 first pass + 85 Step B fix pass), all in
+Steps A–C; Steps D–G made **zero** further vendor calls (Step D used
+`yfinance`, a separate free data source, not the EarningsCall.biz vendor;
+Steps E–G are pure computation over already-stored data). Well under the fix
+driver's Step-B script cap of 100 and the original driver's 120. Combined
+period running total: see `analysis/data/run_state/corpus-construction/progress.json`
+→ `calls_used_total` (167) plus whatever `ec-fidelity-benchmark-1` has
 separately accrued in its own `progress.json` — not re-summed here since that
 file was not re-read this session; the first pass's wrap-up reported a
-combined ~293/1000 at that time, and this pass adds 85 more.
+combined ~293/1000 at that time, and this pass adds 85 more (EarningsCall.biz)
+plus an unmetered number of `yfinance` calls (a different, free vendor, not
+subject to the same monthly cap).
 
 ## Verification performed
 
-- `python3 -c "import ast; ast.parse(...)"` on `corpus_construction_fix_driver.py` — passed.
-- `json.load` round-trip check on `PREREGISTRATION_FIX.json`, `CORPUS_MANIFEST_V2.json`, `progress.json` — passed.
+- `python3 -c "import ast; ast.parse(...)"` on every new driver
+  (`corpus_construction_fix_driver.py`, `corpus_construction_outcomes_v2.py`,
+  `corpus_construction_split_v2.py`, `corpus_construction_stepF_v2.py`) —
+  passed.
+- `json.load` round-trip check on `PREREGISTRATION_FIX.json`,
+  `CORPUS_MANIFEST_V2.json`, `SPLIT_V2.json`, `progress.json` — passed.
 - `CORPUS_MANIFEST.json` (v1) re-hashed post-freeze and confirmed unchanged.
-- Confirmed via `git log` that driver commit `912ccaa` (containing the fix
-  driver) precedes the manifest/state commit `71fb50f`.
+- Confirmed via `git log` that each driver's commit precedes the commit that
+  uses its output (`912ccaa` before `71fb50f`; `a131a6b` before the Step D
+  data commit `8fc4682`; `923a261` and `7f7c222` before Step E/F results).
+- Step F's realistic-scenario result cross-checked exactly against the
+  already-published `scorecard_repair_manifest.json`'s own
+  `data_volume_answer_for_3pp_paired_threshold.stock_axis` (multiplier 4,
+  n=64, mde=1) — exact match, see Step F above.
+- `docs/architecture/PROMOTION_GATE.md` checked for an existing holdout-lock
+  note before adding one (none found).
 
 ## Working-tree hygiene
 
 Unrelated dirty state (ec-fidelity-benchmark-1's progress.json, several
 untracked prompt/handoff files) was stashed at the start
-(`unrelated-wip-before-corpus-construction-fix`) and **has not yet been
-popped** — leaving it stashed until this wrap-up is delivered, per the
-prompt's own ordering ("At the end: git stash pop"). Popped and verified
-clean immediately after this report is sent; see the follow-up commands
-below.
+(`unrelated-wip-before-corpus-construction-fix`), popped after the original
+(partial) publication of this wrap-up, and confirmed clean with no
+conflicts — the same unrelated files reappeared as modified/untracked,
+nothing from this run's commits leaked into that stash. No re-stash was
+needed for this continuation (Steps D–G touched only this run's own files,
+all committed along the way); `git status --short` at the end of this
+continuation shows only the same pre-existing unrelated dirty state.
 
 ## Follow-up commands
 
 ```bash
-# Pop the stashed unrelated work and confirm no conflicts
-git stash pop
+# Confirm the tree carries only the pre-existing unrelated dirty state
 git status --short
 
-# Resume: Step D (outcome balance)
-python3 analysis/corpus_construction_outcomes.py --manifest analysis/data/corpus_v2/CORPUS_MANIFEST_V2.json
-# (check this driver's actual CLI flags first -- not verified to accept
-# --manifest in this session; read the file before running)
+# Inspect the deliverable directly
+cat analysis/data/corpus_v2/STEP_F_DETECTION_THRESHOLD.json
 
-# Resume: Step F prerequisite reading
-cat analysis/scorecard_repair_driver.py | sed -n '1,120p'
+# If a future session widens S4 with domain-correct candidates, or actually
+# scores the corpus, start from a NEW pre-registration -- per CLAUDE.md,
+# assert the prompt hash against VERSION_REGISTRY.json first:
+python3 analysis/version_guard.py --help
 ```

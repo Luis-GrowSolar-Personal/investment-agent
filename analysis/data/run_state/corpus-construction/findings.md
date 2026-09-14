@@ -102,3 +102,59 @@ Comparison: first pass (v1, ex-S5, n=54): 44.4/35.2/20.4. Existing corpus:
 not identical to the v1 figure -- driven by the same 4 S1 restorations
 (INTC/KO/MCD/TMO) plus WOLF's inclusion changing denominator from 54 to 56.
 Not re-picked regardless of this small shift, per the pre-registered rule.
+
+## Step E split (2026-09-14, fix pass)
+
+analysis/data/corpus_v2/SPLIT_V2.json: 78 v2 companies split by company
+(stratified S1-S5, seed 20201231, random.shuffle + round-robin -- same
+method PREREGISTRATION.json registered for this step in the first pass).
+train=28, tune=26, holdout=24. Holdout sha256
+d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23. Locked
+into CORPUS_MANIFEST_V2.json -> step_e_split. PROMOTION_GATE.md Sec10 note
+added (was not already present).
+
+## Step F detection-threshold projection (2026-09-14, fix pass) -- THE DELIVERABLE
+
+analysis/data/corpus_v2/STEP_F_DETECTION_THRESHOLD.json. Reused
+scorecard_repair_driver.py's step3_paired/step3_unpaired against the REAL
+scored ALL16 population (n=359, 16 tickers), replicated onto synthetic
+ticker blocks sized to each scenario's target company count. SIMULATED --
+the v2 corpus itself has never been scored.
+
+Realistic (train+tune, all strata, n=54 -> multiplier 4 -> 64 synthetic
+tickers): paired MDE = 1pp, unpaired MDE = 7pp. CLEARS the 3pp threshold
+comfortably.
+Fallback half-survival (n=27 -> multiplier 2 -> 32 tickers): paired MDE =
+4pp. Does NOT clear 3pp.
+Fallback in-scope-strata-only (S2+S4+S5 train+tune, n=25 -> multiplier 2 ->
+32 tickers): paired MDE = 4pp. Does NOT clear 3pp (same multiplier as the
+half-survival fallback, so an identical result -- coincidental, not an
+error).
+
+Baseline check: this run's own quick re-derivation of "today's" (16-ticker)
+paired MDE, at a reduced 60 trials (vs the published run's 150), gave 5pp --
+the PUBLISHED figure (analysis/data/scorecard_repair/scorecard_repair_manifest.json
+-> results.step3_detection_threshold.paired_default_disagreement.minimum_detectable_improvement_pp)
+is 6pp, matching the prompt's own "against 6 points today" framing. The
+1pp gap between 5 and 6 is Monte Carlo noise from halving the trial count,
+not a real change -- the PUBLISHED 6pp figure is the one to cite as "today,"
+not this run's 5pp quick check. Cross-check: this run's realistic-scenario
+result (multiplier 4, n=64, paired MDE=1) EXACTLY matches the published
+run's own data_volume_answer_for_3pp_paired_threshold.stock_axis (multiplier
+4, n=64, mde=1) -- confirms this script correctly reused the published
+methodology.
+
+## Step G cost estimate (2026-09-14, fix pass)
+
+Train+tune only (n=54 companies): 1,134 total calls (CORPUS_MANIFEST_V2.json
+-> summed n_calls_2020_2025 over split.train+tune tickers), avg 21.0
+calls/company. All three splits (n=78): 1,652 total calls, avg 21.2
+calls/company. Per-call cost assumption stated explicitly, not measured:
+an earnings-call evaluation prompt call at claude-sonnet-4-20250514 pricing,
+assuming a typical transcript-plus-scoring-prompt exchange of roughly
+5,000 input / 1,000 output tokens, costs on the rough order of $0.02-0.05
+per call -- illustrative only, not billed. Train+tune: ~$23-$57. All three
+splits: ~$33-$83. Restated per CLAUDE.md and the prompt's own instruction:
+anything scored on this corpus uses a CURRENT model and is therefore a NEW
+baseline, not an extension of v6/existing figures -- every existing
+benchmark figure becomes historical the instant this corpus is scored.

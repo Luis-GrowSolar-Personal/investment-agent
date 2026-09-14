@@ -1,0 +1,38 @@
+{
+  "run_id": "corpus-construction",
+  "pass": "fix (second pass), Step F -- THE DELIVERABLE",
+  "method": "Reuses scorecard_repair_driver.py's step3_paired/step3_unpaired ticker-block-bootstrap detection simulation, applied to the REAL scored ALL16 population (n=359 calls, 16 tickers, source: value_attribution_v2_stage_b_driver.build_populations()['scorer_thin_filtered']) replicated onto synthetic ticker blocks to match each scenario's target company count. SIMULATED, not a real prompt difference on the new corpus (which has never been scored -- corpus is selected, not scored).",
+  "n_trials_per_x": 60,
+  "note_on_n_trials": "Reduced from scorecard-repair's own default of 150 to 60 for this session's time budget -- may inflate variance in the reported detection rates slightly; direction of the finding (whether MDE clears 3pp) is not expected to flip from this alone, but the exact pp value carries more Monte Carlo noise than a 150-trial run would.",
+  "disagreement_rate": 0.15,
+  "today_baseline_paired_mde_pp_at_16_tickers": 5,
+  "scenarios": {
+    "realistic": {
+      "n_tickers": 54,
+      "target_n_tickers": 54,
+      "multiplier_applied": 4,
+      "actual_n_tickers_in_simulation": 64,
+      "paired_mde_pp": 1,
+      "unpaired_mde_pp": 7,
+      "v6_accuracy_pct": 40.4
+    },
+    "fallback_half_survival": {
+      "n_tickers": 27,
+      "target_n_tickers": 27,
+      "multiplier_applied": 2,
+      "actual_n_tickers_in_simulation": 32,
+      "paired_mde_pp": 4,
+      "unpaired_mde_pp": 9,
+      "v6_accuracy_pct": 40.4
+    },
+    "fallback_in_scope_strata_only": {
+      "n_tickers": 25,
+      "target_n_tickers": 25,
+      "multiplier_applied": 2,
+      "actual_n_tickers_in_simulation": 32,
+      "paired_mde_pp": 4,
+      "unpaired_mde_pp": 9,
+      "v6_accuracy_pct": 40.4
+    }
+  }
+}
