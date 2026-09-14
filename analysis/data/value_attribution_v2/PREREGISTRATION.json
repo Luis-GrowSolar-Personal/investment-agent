@@ -217,5 +217,42 @@
     },
 
     "abort_on_mismatch_rule": "If this stage_c3 block is found to already exist with different content on a future resume, ABORT and report the discrepancy rather than overwriting, per this prompt's Sec4/0b."
+  },
+
+  "stage_d": {
+    "prompt_sha256_stage_d": "20dd7eb213e808ec2c792ee917ff9ceec05eaa93afb7e84778f2e17b28761731",
+    "written_utc": "2026-09-14T00:00:00Z",
+    "driver_commit_at_write": "c08a56bb2f9f193680c86c0233df474797666c7a",
+    "note": "Registered per prompts/value-attribution-v2-stage-d.md Sec4/0b, BEFORE any Stage D arm ran. Population, settled_configuration and reference figures (settled_control, buy_and_hold) reused verbatim from the top-level blocks above and from stage_b.populations.simulator_population -- not redefined here.",
+
+    "injection_point": "per_call_rec, NOT final_action. Concretely: sweep_cadence_and_session_model.recompute_trend_layer(events, tier_fn, extra_fields) is called AFTER overwriting each overridden event's .per_call_rec / .thesis_health / .recommended_size and after building a matching extra_fields entry (fresh_money_allocation / credibility_delta / mitigation_track_record / stumble_type) -- so compute_trend_verdict()/apply_matrix() (the real, unmodified trend layer) compute final_action from the oracle's per_call_rec exactly as they would from a real analyst's per_call_rec. This is confirmed against sweep_cadence_and_session_model.py lines 85-111 (recompute_trend_layer) and line 782 (run_session_sweep_cell reads event.final_action, which recompute_trend_layer already set).",
+
+    "label_encoding": {
+      "bullish": "per_call_rec = 'Add'",
+      "neutral": "per_call_rec = 'Hold'",
+      "bearish": "per_call_rec = 'Exit' (NOT 'Trim')",
+      "bound_direction": "BOUND-LOOSENING. Mapping bearish to 'Exit' gives the oracle full de-risking on every correctly-called decline -- a stronger action than any real call in this corpus ever issued for a bearish outcome (13.9% catch rate at Trim/Exit combined, per Stage B). A 'Trim'-only encoding would produce a strictly lower ceiling. This inflates the reported ceiling versus the floor of what 'perfect direction calls, using only the real vocabulary's weakest sell action' could mean."
+    },
+
+    "non_direction_field_synthesis": {
+      "definition": "For every event this arm overrides, thesis_health / credibility_delta / stumble_type / mitigation_track_record / fresh_money_allocation / recommended_size are all set to the single most SUPPORTIVE value consistent with the label (see ORACLE_SYNTHESIS dict in the driver: bullish -> Strengthening/positive/None/strong/100/35; neutral -> Intact/neutral/None/mixed/50/15; bearish -> Broken/negative/Structural/unproven/0/0), never reused from the real (possibly conflicting) fields the actual call carried.",
+      "why_it_moves_results": "compute_trend_verdict() and compute_final_confidence() read these fields (via the per-ticker `history` list built in recompute_trend_layer) to decide trend overrides and confidence; final_confidence and thesis trajectory feed rank_key(), which orders swap-funding donor selection and therefore which positions get displaced to fund a candidate. A conflicting real field (e.g. a bearish call paired with a real fresh_money_allocation that looks confident) could trigger a downward override or de-prioritize funding even on a directionally-correct oracle call.",
+      "bound_direction": "BOUND-LOOSENING. Making every field maximally consistent with the label removes the friction/override risk a genuinely noisy analyst call would sometimes trigger against itself, which can only raise or leave unchanged the resulting final_action's alignment with the oracle's direction -- never lower it."
+    },
+
+    "arms_this_stage": {
+      "D-both": "Every event in the 195-event population gets its oracle label's full synthesis (bullish/bearish/neutral per event, independent of the real call).",
+      "D-up": "Only events whose oracle label is 'bullish' get the synthesis; every other event keeps the REAL per_call_rec / thesis_health / recommended_size / extra_fields exactly as load_events_dedup_on() produced them.",
+      "D-down": "Only events whose oracle label is 'bearish' get the synthesis; every other event keeps the real call.",
+      "real_analyst_Step4_grid": "events_real from load_events_dedup_on() unmodified, re-run at each X value in the grid (trend layer does not depend on X, so it is not recomputed per X)."
+    },
+
+    "seed": "seed=0, phase_offset=0, same as every prior arm in this run -- no permutation/shuffle in any Stage D arm, so no additional randomness introduced.",
+
+    "step_0d_no_tail_expectation": "The prompt's cutoff math checks out: price_cache.json is frozen at 2026-05-08, so the last call_date with a full 182-day forward window inside the cache is ~2025-11-07 (2026-05-08 minus 182 days). The 195-event simulator population's last call_date is 2024-06-12, more than a year inside that cutoff, so every event is expected to be labelable. Verified empirically: 0 of 195 events unlabelable (see cells.jsonl / build_oracle_labels() report).",
+
+    "firewall_requirements_restated": "0c per the prompt: oracle scores exist ONLY in analysis/data/run_manifests/value_attribution_v2_stage_d_manifest.json and this run's run_state files -- never written to the DB (no Analysis row is touched by this driver; it reads Analysis rows only via S.fetch_extra_fields for the REAL non-overridden events in D-up/D-down, an existing read path unchanged from every prior stage of this run), never to analysis/data/evals/ or any shared cache. Labels are derived from analysis/data/price_cache.json (SPY + the 16 ALL16 tickers) only -- no transcript text and no portfolio/position state is read anywhere in build_oracle_labels(). Every oracle figure is labeled 'look-ahead ceiling, not a result' in the manifest and the wrap-up.",
+
+    "abort_on_mismatch_rule": "If this stage_d block is found to already exist with different content on a future resume, ABORT and report the discrepancy rather than overwriting, per this prompt's Sec4/0b."
   }
 }
