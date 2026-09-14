@@ -999,5 +999,128 @@
   "vendor_calls_this_fix_pass": 85,
   "vendor_calls_cumulative_this_run": 167,
   "vendor_calls_first_pass": 82,
-  "vendor_call_budget_note": "82 (first pass) + 85 (fix pass, Step B) = 167 for corpus-construction. Combined with ec-fidelity-benchmark-1's separately tracked usage this billing period, see progress.json calls_used_total for the running total."
+  "vendor_call_budget_note": "82 (first pass) + 85 (fix pass, Step B) = 167 for corpus-construction. Combined with ec-fidelity-benchmark-1's separately tracked usage this billing period, see progress.json calls_used_total for the running total.",
+  "step_e_split": {
+    "generated_at": "2026-09-14T13:42:55.463669+00:00",
+    "method": "random.shuffle per stratum with fixed seed, then round-robin train/tune/holdout assignment -- same method registered in PREREGISTRATION.json's outcome_holdout_split, applied here to the V2 (78-company) corpus.",
+    "seed": 20201231,
+    "counts": {
+      "train": 28,
+      "tune": 26,
+      "holdout": 24
+    },
+    "per_stratum_counts": {
+      "S1": {
+        "train": 8,
+        "tune": 7,
+        "holdout": 7
+      },
+      "S2": {
+        "train": 5,
+        "tune": 5,
+        "holdout": 5
+      },
+      "S3": {
+        "train": 7,
+        "tune": 7,
+        "holdout": 6
+      },
+      "S4": {
+        "train": 2,
+        "tune": 2,
+        "holdout": 1
+      },
+      "S5": {
+        "train": 6,
+        "tune": 5,
+        "holdout": 5
+      }
+    },
+    "train": [
+      "AAPL",
+      "ACN",
+      "AIG",
+      "BOX",
+      "CAT",
+      "CL",
+      "CMCSA",
+      "DE",
+      "DIOD",
+      "ENTG",
+      "EOSE",
+      "FRC",
+      "FSLR",
+      "GOOGL",
+      "HON",
+      "HRL",
+      "KMB",
+      "MSFT",
+      "NFLX",
+      "NKE",
+      "NOVA",
+      "NXPI",
+      "PEP",
+      "QCOM",
+      "SHLS",
+      "SPWR",
+      "TXN",
+      "WFC"
+    ],
+    "tune": [
+      "ABT",
+      "ADBE",
+      "AMD",
+      "AMPX",
+      "AMSC",
+      "ARRY",
+      "COST",
+      "CRM",
+      "CVS",
+      "GE",
+      "GIS",
+      "IBM",
+      "KO",
+      "LRCX",
+      "MMM",
+      "NVDA",
+      "PSX",
+      "QS",
+      "SUNW",
+      "T",
+      "TSLA",
+      "UPS",
+      "USB",
+      "VLO",
+      "WOLF",
+      "XOM"
+    ],
+    "holdout": [
+      "AMAT",
+      "AVGO",
+      "BLDP",
+      "BMY",
+      "COP",
+      "CSCO",
+      "CVX",
+      "ENVX",
+      "FORM",
+      "HUM",
+      "INTC",
+      "JPM",
+      "MCD",
+      "MRK",
+      "MU",
+      "NEE",
+      "ORCL",
+      "PFE",
+      "RMO",
+      "RUN",
+      "SLAB",
+      "TMO",
+      "TTD",
+      "VZ"
+    ],
+    "holdout_sha256": "d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23",
+    "holdout_lock_note": "Holdout must not be scored during iteration. Any run touching it must say so prominently. See docs/architecture/PROMOTION_GATE.md Sec10."
+  }
 }

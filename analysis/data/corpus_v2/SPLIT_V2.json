@@ -1,0 +1,245 @@
+{
+  "run_id": "corpus-construction",
+  "pass": "fix (second pass), Step E",
+  "generated_at": "2026-09-14T13:42:55.463669+00:00",
+  "method": "random.shuffle per stratum with fixed seed, then round-robin train/tune/holdout assignment -- same method registered in PREREGISTRATION.json's outcome_holdout_split, applied here to the V2 (78-company) corpus.",
+  "seed": 20201231,
+  "manifest_source": "analysis/data/corpus_v2/CORPUS_MANIFEST_V2.json",
+  "counts": {
+    "train": 28,
+    "tune": 26,
+    "holdout": 24
+  },
+  "per_stratum_counts": {
+    "S1": {
+      "train": 8,
+      "tune": 7,
+      "holdout": 7
+    },
+    "S2": {
+      "train": 5,
+      "tune": 5,
+      "holdout": 5
+    },
+    "S3": {
+      "train": 7,
+      "tune": 7,
+      "holdout": 6
+    },
+    "S4": {
+      "train": 2,
+      "tune": 2,
+      "holdout": 1
+    },
+    "S5": {
+      "train": 6,
+      "tune": 5,
+      "holdout": 5
+    }
+  },
+  "per_stratum": {
+    "S1": {
+      "train": [
+        "ACN",
+        "CMCSA",
+        "HON",
+        "NFLX",
+        "NKE",
+        "PEP",
+        "QCOM",
+        "TXN"
+      ],
+      "tune": [
+        "ABT",
+        "COST",
+        "CRM",
+        "KO",
+        "T",
+        "UPS",
+        "XOM"
+      ],
+      "holdout": [
+        "CSCO",
+        "INTC",
+        "MCD",
+        "MRK",
+        "PFE",
+        "TMO",
+        "VZ"
+      ]
+    },
+    "S2": {
+      "train": [
+        "BOX",
+        "DIOD",
+        "ENTG",
+        "NXPI",
+        "SHLS"
+      ],
+      "tune": [
+        "ADBE",
+        "AMSC",
+        "ARRY",
+        "IBM",
+        "LRCX"
+      ],
+      "holdout": [
+        "AMAT",
+        "BLDP",
+        "FORM",
+        "MU",
+        "SLAB"
+      ]
+    },
+    "S3": {
+      "train": [
+        "AIG",
+        "CAT",
+        "CL",
+        "DE",
+        "HRL",
+        "KMB",
+        "WFC"
+      ],
+      "tune": [
+        "CVS",
+        "GE",
+        "GIS",
+        "MMM",
+        "PSX",
+        "USB",
+        "VLO"
+      ],
+      "holdout": [
+        "BMY",
+        "COP",
+        "CVX",
+        "HUM",
+        "JPM",
+        "NEE"
+      ]
+    },
+    "S4": {
+      "train": [
+        "FRC",
+        "NOVA"
+      ],
+      "tune": [
+        "SUNW",
+        "WOLF"
+      ],
+      "holdout": [
+        "RMO"
+      ]
+    },
+    "S5": {
+      "train": [
+        "AAPL",
+        "EOSE",
+        "FSLR",
+        "GOOGL",
+        "MSFT",
+        "SPWR"
+      ],
+      "tune": [
+        "AMD",
+        "AMPX",
+        "NVDA",
+        "QS",
+        "TSLA"
+      ],
+      "holdout": [
+        "AVGO",
+        "ENVX",
+        "ORCL",
+        "RUN",
+        "TTD"
+      ]
+    }
+  },
+  "train": [
+    "AAPL",
+    "ACN",
+    "AIG",
+    "BOX",
+    "CAT",
+    "CL",
+    "CMCSA",
+    "DE",
+    "DIOD",
+    "ENTG",
+    "EOSE",
+    "FRC",
+    "FSLR",
+    "GOOGL",
+    "HON",
+    "HRL",
+    "KMB",
+    "MSFT",
+    "NFLX",
+    "NKE",
+    "NOVA",
+    "NXPI",
+    "PEP",
+    "QCOM",
+    "SHLS",
+    "SPWR",
+    "TXN",
+    "WFC"
+  ],
+  "tune": [
+    "ABT",
+    "ADBE",
+    "AMD",
+    "AMPX",
+    "AMSC",
+    "ARRY",
+    "COST",
+    "CRM",
+    "CVS",
+    "GE",
+    "GIS",
+    "IBM",
+    "KO",
+    "LRCX",
+    "MMM",
+    "NVDA",
+    "PSX",
+    "QS",
+    "SUNW",
+    "T",
+    "TSLA",
+    "UPS",
+    "USB",
+    "VLO",
+    "WOLF",
+    "XOM"
+  ],
+  "holdout": [
+    "AMAT",
+    "AVGO",
+    "BLDP",
+    "BMY",
+    "COP",
+    "CSCO",
+    "CVX",
+    "ENVX",
+    "FORM",
+    "HUM",
+    "INTC",
+    "JPM",
+    "MCD",
+    "MRK",
+    "MU",
+    "NEE",
+    "ORCL",
+    "PFE",
+    "RMO",
+    "RUN",
+    "SLAB",
+    "TMO",
+    "TTD",
+    "VZ"
+  ],
+  "holdout_sha256": "d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23"
+}

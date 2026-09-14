@@ -537,6 +537,16 @@ Each step ships and is usable on its own; resist building all at once.
 
 ## 10. Open items / deferred decisions
 
+- **corpus-construction holdout lock (added 2026-09-14, the ONE authorized
+  edit to this file made by the `corpus-construction-fix` prompt's Step E).**
+  `analysis/data/corpus_v2/CORPUS_MANIFEST_V2.json`'s `step_e_split.holdout`
+  (24 companies, stratified across S1-S5 including S4; sha256
+  `d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23`, seed
+  20201231) **must not be scored during iteration.** Any run — sweep,
+  prompt-candidate comparison, allocator gate — that touches any company in
+  this holdout list must say so prominently in its own manifest and wrap-up.
+  This note does not itself gate anything; it exists so a future run does
+  not silently spend the holdout.
 - **Model-pin decision (resolved 2026-05-23):** gate run for sonnet-4-20250514
   vs sonnet-4-6 under `--hurdle model_version` (equivalence hurdle). Verdict:
   **HOLD** — challenger regressed by 7.4pp (noise floor 4.2pp); 29% of tickers
