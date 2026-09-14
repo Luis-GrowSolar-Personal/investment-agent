@@ -287,3 +287,36 @@ Pass A9: ['ABBV', 'AEP', 'AMGN', 'AMT', 'ANTM', 'AXP', 'BAC', 'BDX', 'C', 'CHTR'
 
 Fail A9: ['BK', 'IPG', 'MAXN']
 
+
+## corpus-fix-8, third follow-up -- S4 attempt #3, no new candidate (2026-09-14)
+
+Tried four more domain-plausible failure candidates beyond the original roster:
+- **Voyager Digital (VOYG, TSXV)** -- public before 2020-12-31, crypto lender that
+  collapsed in 2022. Rejected on DOMAIN.md grounds before any vendor check: it is
+  a crypto brokerage/lending platform, not a stablecoin issuer, payments
+  infrastructure, or custody/settlement company with measurable adoption metrics
+  (DOMAIN.md's Crypto -- Scoped section); its failure mode (counterparty risk from
+  lending to 3AC) is closer to the "speculative" category DOMAIN.md excludes than
+  to the mass-adoption thesis it requires. Not vendor-checked -- rejected on domain
+  fit alone, consistent with the SBNY/PTRA/FSR/NKLA/RIDE/LICY rejections in the
+  original corpus_construction_driver.py.
+- **SPI Energy (SPI)** -- solar developer, in-domain, delisted from Nasdaq to OTC
+  in 2023 (financial distress). Vendor has only 1 call in the 2020-2025 window --
+  fails A2's 4-call minimum by a wide margin.
+- **Ascent Solar (ASTI)** and **Real Goods Solar (RGSE)** -- both in-domain
+  (solar), both chronically distressed penny stocks. Neither is in the vendor's
+  symbol list at all.
+
+Vendor calls used: 4 (symtab reused from earlier this run's cache where possible).
+No return was looked at for any of the four -- all four were rejected on domain
+fit or call-count grounds before any price or outcome data was touched.
+
+**S4 remains at 4 of 8, unchanged.** This is the third attempt across three
+separate prompts (original corpus construction, corpus-fix-5, corpus-fix-8) to
+grow this stratum, and all three have hit the same wall: either the candidate is
+outside DOMAIN.md, or the vendor simply does not carry enough earnings-call
+history for small distressed companies. A future attempt should probably use a
+different discovery method (e.g. a programmatic sweep of the vendor's full
+symbol list cross-referenced against distress markers) rather than more
+name-by-name general-knowledge guessing -- flagged as a design question, not
+something this run decides.
