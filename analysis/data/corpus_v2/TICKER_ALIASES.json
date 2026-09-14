@@ -24,7 +24,10 @@
       "stratum": "S4",
       "manifest_status_before": "in_vendor_symbol_list=true, n_calls_2020_2025=0 -- CORPUS_MANIFEST_V2.json strata.S4.note (SIVB excluded)",
       "working_symbol": null,
-      "candidates_tried": ["SIVBQ", "SIVB.Q"],
+      "candidates_tried": [
+        "SIVBQ",
+        "SIVB.Q"
+      ],
       "evidence": "SIVB itself IS in the vendor's symbol table (NASDAQ, company_name 'SVB Financial Group') but returns 0 events for 2020-2025. Both post-bankruptcy alias forms tried (SIVBQ, SIVB.Q) are absent from the vendor's symbol list entirely -- analysis/data/corpus_v2/alias_probe_working.json -> SIVB.*",
       "identity_confirmed": false,
       "mechanism": "none found -- the vendor has a valid SIVB row (so this is not a lookup-key mismatch) but that row carries no earnings-call events, and the delisted/post-receivership symbol forms this run checked do not exist in the vendor's table either.",
@@ -51,6 +54,42 @@
       "mechanism": "not an identity problem -- same reasoning as HON. Manifest field appears stale.",
       "a1_check": "n=24 (>=12) and max_gap_days=105 (<=240) -- both satisfied under UPS's own original symbol.",
       "membership_effect": "NONE per this run's scope, same reasoning as HON."
+    },
+    {
+      "original_symbol": "VIAC",
+      "working_symbol": "PARA",
+      "mechanism": "ViacomCBS renamed to Paramount Global (PARA), Feb 2022",
+      "identity_confirmed": true,
+      "a1_check": "n=24 (>=12) and max_gap_days=118 (<=240) -- both satisfied",
+      "added_by": "corpus-fix-8-expand-to-150",
+      "added_at": "2026-09-14T19:15:18.427017+00:00"
+    },
+    {
+      "original_symbol": "ANTM",
+      "working_symbol": "ELV",
+      "mechanism": "Anthem Inc. renamed to Elevance Health (ELV), June 2022",
+      "identity_confirmed": true,
+      "a1_check": "n=23 (>=12) and max_gap_days=98 (<=240) -- both satisfied",
+      "added_by": "corpus-fix-8-expand-to-150",
+      "added_at": "2026-09-14T19:15:18.427178+00:00"
+    },
+    {
+      "original_symbol": "SQ",
+      "working_symbol": "XYZ",
+      "mechanism": "Block Inc. (formerly Square) changed ticker from SQ to XYZ, Jan 2024",
+      "identity_confirmed": true,
+      "a1_check": "n=23 (>=12) and max_gap_days=112 (<=240) -- both satisfied",
+      "added_by": "corpus-fix-8-expand-to-150",
+      "added_at": "2026-09-14T19:15:18.427181+00:00"
+    },
+    {
+      "original_symbol": "NWSA",
+      "working_symbol": "NWS",
+      "mechanism": "News Corp Class A (NWSA) not in vendor symbol list under that ticker; Class B (NWS) resolves to the same company's earnings calls",
+      "identity_confirmed": true,
+      "a1_check": "n=24 (>=12) and max_gap_days=95 (<=240) -- both satisfied",
+      "added_by": "corpus-fix-8-expand-to-150",
+      "added_at": "2026-09-14T19:15:18.427184+00:00"
     }
   ],
   "vendor_calls_this_run": 5,
