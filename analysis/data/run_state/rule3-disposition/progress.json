@@ -1,0 +1,25 @@
+{
+  "run_id": "rule3-disposition",
+  "prompt_sha256": "e32d16994f6803bb7c24274fbc567ec317b681fcca2e2f099c7aa3885644d4ac",
+  "driver_commit": null,
+  "steps": {
+    "step0a_hygiene": "in_progress",
+    "step0b_preregistration": "pending",
+    "step0c_reproduction": "pending",
+    "step1_three_configs": "pending",
+    "step2_leave_one_out_r3_enforce": "pending",
+    "step3_perfect_analyst_ceiling": "pending",
+    "step4_timing": "pending",
+    "step5_report": "pending"
+  },
+  "next_action": "Stash unrelated WIP is done; write PREREGISTRATION.json for rule3_disposition before any arm runs.",
+  "notes": [
+    "Fresh run_id, no prior state found.",
+    "Stashed unrelated WIP: git stash 'unrelated-wip-before-rule3-disposition' (ec-fidelity-benchmark-1 progress, probe scripts, several handoff/prompt/wrap-up files unrelated to this task). Will git stash pop at end.",
+    "Read wrap-ups/value-attribution-v2-stage-c3-out.md and -stage-d-out.md in full.",
+    "Confirmed Rule 3 guard at analysis/simulator/allocator_v2.py lines 143-147 inside _decide_add(), gated on tier=='speculative' and day_price < _weighted_cost_basis(portfolio, ticker).",
+    "Confirmed the actual file is analysis/sweep_cadence_and_session_model.py (prompt said analysis/simulator/sweep_cadence_and_session_model.py -- path off by one directory level, file exists at analysis/ root). Minor premise correction, noted for wrap-up.",
+    "Confirmed the shortfall/displacement mechanism precisely: 'intended' (the target buy amount) is computed at sweep_cadence_and_session_model.py lines ~866-877 purely from recommended_size/cap/current_dollars_before -- it does NOT consult Rule 3's decide_v3() output at all. natural_buy_trades (from decide_v3, which DOES apply Rule 3) feeds only 'natural_buy_dollars' at line 660; when Rule 3 blocks, natural_buy_dollars=0, so shortfall = target_buy_dollars - 0 = full target, funded via displacement (selling a donor) at lines 658-732.",
+    "R3-enforce mechanics settled: replicate Rule 3's exact predicate (tier=='speculative' and day_price < _weighted_cost_basis(portfolio, ticker)) at the intended-computation site (before line 866-877's 'add' leg is added to intended), and skip adding that delta to intended when the predicate fires -- so no candidate/shortfall is ever created for that event, hence no displacement. This is the only option grounded in the existing code's own logic: there is no retry-smaller-size or skip-to-next-candidate mechanism written anywhere in the codebase for a blocked add. Confirmed against allocator_v3.py's decide(): the starter leg is unaffected (starter only fires when no existing position, so _weighted_cost_basis is always None there anyway -- Rule 3 structurally cannot fire on a starter)."
+  ]
+}

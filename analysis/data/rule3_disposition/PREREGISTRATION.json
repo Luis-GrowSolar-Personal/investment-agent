@@ -1,0 +1,62 @@
+{
+  "run_id": "rule3-disposition",
+  "written_utc": "2026-09-13T00:00:00Z",
+  "prompt_sha256": "e32d16994f6803bb7c24274fbc567ec317b681fcca2e2f099c7aa3885644d4ac",
+  "git_commit_at_write": "PENDING_DRIVER_COMMIT",
+  "abort_on_mismatch_rule": "If this file already exists with content differing from what is written here, ABORT and report the discrepancy rather than overwrite.",
+  "locked_population": {
+    "source": "analysis/data/value_attribution_v2/PREREGISTRATION.json -> stage_b.populations.simulator_population",
+    "n_events": 195,
+    "universe": "ALL16 (AAPL, AMD, AVGO, GOOGL, MSFT, NVDA, ORCL, TSLA, AMPX, ENVX, EOSE, FSLR, QS, RUN, SPWR, TTD)",
+    "window": "2022-01-01 through 2024-06-12 (call_date <= 2024-06-12), zero 2025 calls"
+  },
+  "settled_configuration": {
+    "cadence_K": 30,
+    "scope": "new_calls_only",
+    "funding_mode": "swap_funding",
+    "limit_pp_X": 2.5,
+    "execution_order": "pooled",
+    "trim_budget_scope": "per_event_date",
+    "veto_p": 0.0,
+    "initial_capital": 100000.0,
+    "note": "X is held fixed at 2.5 points in every single arm of this run, per the prompt's constraint #4 and Stage D's finding that raising X makes the real system $28,947.35 worse."
+  },
+  "reference_figures_to_reproduce": {
+    "control_R3_keep": {"value": 179944.91, "provenance": "wrap-ups/value-attribution-v2-stage-c3-out.md Step 2 table row 'B4' / docs/architecture/VERSION_REGISTRY.json -> benchmarks.settled_control.figures.final_value; forward draw, single path, seed=0"},
+    "R3_remove_B2": {"value": 189362.81, "provenance": "wrap-ups/value-attribution-v2-stage-c3-out.md Step 2 table row 'B2 -- disable Rule 3'; analysis/data/value_attribution_v2/stage_c3_manifest.json -> step2_ablations.arms.B2_disable_rule3.final_value; forward draw, single path, seed=0"},
+    "buy_and_hold": {"value": 195584.28, "provenance": "analysis/data/value_attribution_v2/stage_c3_manifest.json -> step_0c_arm_0c_cash_share.final_value; forward draw"}
+  },
+  "three_configurations": {
+    "R3_keep": {
+      "description": "Control / status quo. Rule 3 guard is live in allocator_v2._decide_add exactly as shipped (analysis/simulator/allocator_v2.py lines 143-147). No code change of any kind vs. the real system.",
+      "mechanism": "Unmodified code path. When the guard fires (tier=='speculative' and day_price < weighted cost basis), decide_v3's natural buy trades for that event are []. The session driver (analysis/sweep_cadence_and_session_model.py) still computes 'intended' target dollars for the Add leg independent of Rule 3 (lines ~866-877), so the full target becomes a 'shortfall' at the swap_funding step (lines 658-732) and is funded by displacing (selling) another held position. This is the mechanism Stage C3 found: Rule 3, as executed, changes funding source, not whether the add happens."
+    },
+    "R3_remove": {
+      "description": "Rule 3 guard disabled entirely. Speculative adds below cost basis are no longer blocked at all -- decide_v3's natural buy trades are computed as if the guard did not exist.",
+      "mechanism": "Monkeypatch analysis.simulator.allocator_v2._weighted_cost_basis to always return None (identical technique to Stage C3's ablation_B2_disable_rule3), so the guard's 'cb is not None' condition is always False and the guard never fires. Restored after the arm via a context manager. Zero shortfall is created BECAUSE of Rule 3 specifically (a shortfall may still exist for other reasons, e.g. session-limit clipping, but not from this guard)."
+    },
+    "R3_enforce": {
+      "description": "Rule 3 guard live AND made to actually enforce: a blocked add genuinely does not happen -- no displacement funding is generated to cover it.",
+      "mechanism_settled": "Replicate Rule 3's exact predicate (tier=='speculative' and day_price < analysis.simulator.allocator_v2._weighted_cost_basis(portfolio, ticker)) at the point in analysis/sweep_cadence_and_session_model.py where the 'add' leg's dollar delta is computed and added into 'intended' (lines ~865-877, inside the v2_leg_applies / final_action=='Add' branch). When the predicate fires, the add-leg delta is NOT added to 'intended' for that event -- i.e., the target amount simply vanishes for that event/ticker/session, exactly as if the allocator had decided the delta was 0. No candidate with a nonzero 'add' component is created for that event in that case, so cand['intended'] never reaches the swap_funding shortfall/displacement logic for the blocked amount, and no donor is sold to cover it. The starter leg (first-call auto-starter, computed separately at lines ~852-864) is structurally unaffected: Rule 3's predicate requires an existing position with a nonzero weighted cost basis, and _weighted_cost_basis always returns None when no position exists yet (which is exactly when the starter leg fires), so the starter can never trigger this guard in the first place -- this is not a special case carved out for this run, it follows from the guard's own precondition.",
+      "ambiguity_considered_and_resolved": "The prompt flagged that if there is more than one defensible way to make a blocked add 'genuinely not happen,' the ambiguity should be reported and none picked. Three candidate mechanics were considered: (a) the target amount simply vanishes for that event (implemented above); (b) the allocator retries with a smaller size (e.g., some fraction up to cost basis); (c) the allocator skips to the next-ranked candidate in the pooled session, redirecting the freed pool capacity to it. On inspection, (b) and (c) have NO existing implementation or partial scaffolding anywhere in analysis/simulator/*.py or analysis/sweep_cadence_and_session_model.py -- there is no retry-at-smaller-size code path and no next-candidate-substitution code path for any allocator rule, let alone Rule 3 specifically. Only (a) is grounded in the code's own existing logic (it is, in fact, exactly how every OTHER 'do nothing' case in this codebase is represented: an event whose final_action is 'Hold', or whose delta is <=0, contributes nothing to 'intended' -- this reuses that identical shape). Per the prompt's own standing rule that a real code inspection can resolve a pre-registered ambiguity (see Stage C3's B2 confirmation, which found no ambiguity where PREREGISTRATION.json expected one), this run resolves the ambiguity to option (a) rather than reporting it as unresolved, and states this reasoning explicitly and verifiably rather than picking silently. If Luis disagrees that (a) is the right reading of 'genuinely does not happen,' this is the specific paragraph to revisit -- (b) and (c) remain live design alternatives requiring new code, not evaluated in this run.",
+      "code_change_scope": "A pure driver-side, monkeypatch/wrapper technique -- NOT an edit to analysis/sweep_cadence_and_session_model.py or analysis/simulator/allocator_v2.py. Implemented in the run's own driver script by wrapping run_session_sweep_cell's event-processing loop is not directly monkeypatchable at that granularity (the intended-computation logic is inline, not a separate function), so this arm is implemented via a small local reimplementation of the intended-computation guard as a post-hoc CORRECTION: after decide_v3 returns natural_buy_trades for an event, if Rule 3's predicate fired for that event (checked directly via the same _weighted_cost_basis call the guard itself uses), the driver marks that event's 'intended' add-delta as suppressed via a monkeypatched wrapper around the module-level function that computes it. See the driver file for the exact implementation; this preregistration commits to the OUTCOME (target vanishes, no displacement) regardless of the precise code mechanics used to produce it, since sweep_cadence_and_session_model.py's relevant logic is inline in run_session_sweep_cell rather than a separately-patchable helper."
+    }
+  },
+  "leave_one_out_design": {
+    "scope": "R3-enforce only, 16 runs, each dropping one of the 16 ALL16 tickers from the universe entirely (not held via final_action -- genuinely absent from the events passed to the simulator).",
+    "comparator": "Each R3-enforce run in a reduced universe is compared against a FRESH R3-keep (control) run in THAT SAME reduced universe -- not against the full-universe control. Effect = R3_enforce_final_value(universe minus ticker X) - R3_keep_final_value(universe minus ticker X).",
+    "restated_not_rerun": "R3-remove's leave-one-out already exists from Stage C3 (B2_disable_rule3): 16/16 sign preserved, ENVX the largest mover ($4,786.40 change, dropping ENVX raises the effect from $9,417.91 to $14,204.30). This run restates it beside the new R3-enforce figures per the prompt's instruction; it is NOT re-run here."
+  },
+  "step3_ceiling_design": {
+    "reuse": "Reuses Stage D's exact D-both oracle labels and ORACLE_SYNTHESIS, injected at the same per_call_rec injection point, per analysis/value_attribution_v2_stage_d_driver.py's build_oracle_labels()/apply_oracle()/ORACLE_SYNTHESIS -- imported directly from that driver module, not regenerated independently.",
+    "three_runs": "R3-keep, R3-remove, R3-enforce, each under D-both labels, X=2.5 throughout.",
+    "labeling_rule": "Every figure from this step is reported as a look-ahead ceiling, never as an achievable result, per Stage D's own labeling convention."
+  },
+  "fixed_seed": 0,
+  "phase_offset": 0,
+  "notes": [
+    "No LLM calls anywhere in this run. No DB writes. No stored Analysis row touched.",
+    "X (session speed limit) held at 2.5 points in every arm without exception.",
+    "No promotion, no production file edit: allocator_v2.py, allocator_v3.py, sweep_cadence_and_session_model.py, versions.js, VERSION_REGISTRY.json, PROMOTION_GATE.md, EVALUATION_PROMPT.md all untouched on disk at the end of this run -- all configuration changes are monkeypatches/wrappers inside the driver script, restored after each arm."
+  ]
+}

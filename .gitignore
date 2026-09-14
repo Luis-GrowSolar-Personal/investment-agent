@@ -40,6 +40,11 @@ analysis/data/*
 # committed not gitignored.
 !analysis/data/scorecard_repair/
 !analysis/data/scorecard_repair/**
+# Exception: rule3_disposition holds this run's pre-registration -- same
+# §10b citation-record reasoning as run_manifests/run_state, must be
+# committed not gitignored.
+!analysis/data/rule3_disposition/
+!analysis/data/rule3_disposition/**
 .envrc.zsh
 cat_output
 diff_output
