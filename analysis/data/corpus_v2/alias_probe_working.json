@@ -1,0 +1,80 @@
+{
+  "GOOGL": {
+    "GOOGL": {
+      "candidate_symbol": "GOOGL",
+      "in_symbol_list": false,
+      "exchange": null,
+      "n_calls_2020_2025": 0,
+      "first_call": null,
+      "last_call": null,
+      "max_gap_days": 0,
+      "company_name": null
+    },
+    "GOOG": {
+      "candidate_symbol": "GOOG",
+      "in_symbol_list": true,
+      "exchange": "NASDAQ",
+      "n_calls_2020_2025": 24,
+      "first_call": "2020-02-03",
+      "last_call": "2025-10-29",
+      "max_gap_days": 100,
+      "company_name": "Alphabet Inc."
+    }
+  },
+  "SIVB": {
+    "SIVB": {
+      "candidate_symbol": "SIVB",
+      "in_symbol_list": true,
+      "exchange": "NASDAQ",
+      "n_calls_2020_2025": 0,
+      "first_call": null,
+      "last_call": null,
+      "max_gap_days": 0,
+      "company_name": "SVB Financial Group"
+    },
+    "SIVBQ": {
+      "candidate_symbol": "SIVBQ",
+      "in_symbol_list": false,
+      "exchange": null,
+      "n_calls_2020_2025": 0,
+      "first_call": null,
+      "last_call": null,
+      "max_gap_days": 0,
+      "company_name": null
+    },
+    "SIVB.Q": {
+      "candidate_symbol": "SIVB.Q",
+      "in_symbol_list": false,
+      "exchange": null,
+      "n_calls_2020_2025": 0,
+      "first_call": null,
+      "last_call": null,
+      "max_gap_days": 0,
+      "company_name": null
+    }
+  },
+  "HON": {
+    "HON": {
+      "candidate_symbol": "HON",
+      "in_symbol_list": true,
+      "exchange": "NASDAQ",
+      "n_calls_2020_2025": 24,
+      "first_call": "2020-01-31",
+      "last_call": "2025-10-23",
+      "max_gap_days": 105,
+      "company_name": "Honeywell International Inc."
+    }
+  },
+  "UPS": {
+    "UPS": {
+      "candidate_symbol": "UPS",
+      "in_symbol_list": true,
+      "exchange": "NYSE",
+      "n_calls_2020_2025": 24,
+      "first_call": "2020-01-30",
+      "last_call": "2025-10-28",
+      "max_gap_days": 105,
+      "company_name": "United Parcel Service, Inc."
+    }
+  }
+}

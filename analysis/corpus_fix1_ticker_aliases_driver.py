@@ -22,7 +22,7 @@ import urllib.request, urllib.parse, urllib.error
 from dotenv import load_dotenv
 
 script_dir = Path(__file__).parent.resolve()
-repo_root = script_dir
+repo_root = script_dir.parent
 load_dotenv(repo_root / ".env")
 
 RUN_ID = "corpus-construction"

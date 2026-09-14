@@ -158,3 +158,90 @@ splits: ~$33-$83. Restated per CLAUDE.md and the prompt's own instruction:
 anything scored on this corpus uses a CURRENT model and is therefore a NEW
 baseline, not an extension of v6/existing figures -- every existing
 benchmark figure becomes historical the instant this corpus is scored.
+## corpus-fix-1-ticker-aliases vendor probe (2026-09-14T13:56:55.692409+00:00)
+
+Candidates tried: {"GOOGL": ["GOOGL", "GOOG"], "SIVB": ["SIVB", "SIVBQ", "SIVB.Q"], "HON": ["HON"], "UPS": ["UPS"]}
+
+Raw results: {
+  "GOOGL": {
+    "GOOGL": {
+      "candidate_symbol": "GOOGL",
+      "in_symbol_list": false,
+      "exchange": null,
+      "n_calls_2020_2025": 0,
+      "first_call": null,
+      "last_call": null,
+      "max_gap_days": 0,
+      "company_name": null
+    },
+    "GOOG": {
+      "candidate_symbol": "GOOG",
+      "in_symbol_list": true,
+      "exchange": "NASDAQ",
+      "n_calls_2020_2025": 24,
+      "first_call": "2020-02-03",
+      "last_call": "2025-10-29",
+      "max_gap_days": 100,
+      "company_name": "Alphabet Inc."
+    }
+  },
+  "SIVB": {
+    "SIVB": {
+      "candidate_symbol": "SIVB",
+      "in_symbol_list": true,
+      "exchange": "NASDAQ",
+      "n_calls_2020_2025": 0,
+      "first_call": null,
+      "last_call": null,
+      "max_gap_days": 0,
+      "company_name": "SVB Financial Group"
+    },
+    "SIVBQ": {
+      "candidate_symbol": "SIVBQ",
+      "in_symbol_list": false,
+      "exchange": null,
+      "n_calls_2020_2025": 0,
+      "first_call": null,
+      "last_call": null,
+      "max_gap_days": 0,
+      "company_name": null
+    },
+    "SIVB.Q": {
+      "candidate_symbol": "SIVB.Q",
+      "in_symbol_list": false,
+      "exchange": null,
+      "n_calls_2020_2025": 0,
+      "first_call": null,
+      "last_call": null,
+      "max_gap_days": 0,
+      "company_name": null
+    }
+  },
+  "HON": {
+    "HON": {
+      "candidate_symbol": "HON",
+      "in_symbol_list": true,
+      "exchange": "NASDAQ",
+      "n_calls_2020_2025": 24,
+      "first_call": "2020-01-31",
+      "last_call": "2025-10-23",
+      "max_gap_days": 105,
+      "company_name": "Honeywell International Inc."
+    }
+  },
+  "UPS": {
+    "UPS": {
+      "candidate_symbol": "UPS",
+      "in_symbol_list": true,
+      "exchange": "NYSE",
+      "n_calls_2020_2025": 24,
+      "first_call": "2020-01-30",
+      "last_call": "2025-10-28",
+      "max_gap_days": 105,
+      "company_name": "United Parcel Service, Inc."
+    }
+  }
+}
+
+Vendor calls this script: 5 (cumulative total this run/billing period: 172).
+

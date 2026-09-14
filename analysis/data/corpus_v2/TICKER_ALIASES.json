@@ -1,0 +1,60 @@
+{
+  "run_id": "corpus-construction",
+  "prompt": "corpus-fix-1-ticker-aliases",
+  "generated_at": "2026-09-14T00:00:00Z",
+  "preregistration_addendum_path": "analysis/data/corpus_v2/PREREGISTRATION_FIX.json",
+  "preregistration_addendum_key": "A5_ticker_alias_resolution",
+  "vendor_probe_raw_path": "analysis/data/corpus_v2/alias_probe_working.json",
+  "note": "This map records identity resolution only. No eligibility rule or availability threshold was changed. A recovered company still must pass its stratum's registered rule (A1's 240-day rule, or A2's S4 rule) exactly as before.",
+  "entries": [
+    {
+      "original_symbol": "GOOGL",
+      "stratum": "S5",
+      "manifest_status_before": "in_vendor_symbol_list=false, n_calls_2020_2025=0 -- CORPUS_MANIFEST_V2.json strata.S5.frozen (GOOGL entry)",
+      "working_symbol": "GOOG",
+      "evidence": "vendor /events for GOOG on NASDAQ returns company_name 'Alphabet Inc.', 24 events in 2020-2025, first_call 2020-02-03, last_call 2025-10-29, max_gap_days 100 -- analysis/data/corpus_v2/alias_probe_working.json -> GOOGL.GOOG",
+      "identity_confirmed": true,
+      "mechanism": "share-class variant -- vendor keys Alphabet's transcripts to the Class C ticker (GOOG), not the Class A ticker (GOOGL) this corpus originally queried.",
+      "would_pass_a1_if_reclassified": true,
+      "a1_check": "n=24 (>=12 required) and max_gap_days=100 (<=240 required) -- both satisfied under A1's registered rule, same as if GOOG had been the original query symbol.",
+      "membership_effect": "NONE. GOOGL is in S5, which the prompt's own framing (and this run's scope) treats as exempt from eviction on this basis -- GOOGL was already a corpus member regardless of its zero-event reading. This identity fix upgrades WHY it qualifies (real data under GOOG, not an exemption) but does not change its stratum, its membership, or S5's count."
+    },
+    {
+      "original_symbol": "SIVB",
+      "stratum": "S4",
+      "manifest_status_before": "in_vendor_symbol_list=true, n_calls_2020_2025=0 -- CORPUS_MANIFEST_V2.json strata.S4.note (SIVB excluded)",
+      "working_symbol": null,
+      "candidates_tried": ["SIVBQ", "SIVB.Q"],
+      "evidence": "SIVB itself IS in the vendor's symbol table (NASDAQ, company_name 'SVB Financial Group') but returns 0 events for 2020-2025. Both post-bankruptcy alias forms tried (SIVBQ, SIVB.Q) are absent from the vendor's symbol list entirely -- analysis/data/corpus_v2/alias_probe_working.json -> SIVB.*",
+      "identity_confirmed": false,
+      "mechanism": "none found -- the vendor has a valid SIVB row (so this is not a lookup-key mismatch) but that row carries no earnings-call events, and the delisted/post-receivership symbol forms this run checked do not exist in the vendor's table either.",
+      "membership_effect": "NONE. SIVB remains excluded. This confirms the original zero-event reading was a genuine coverage gap, not an identity artifact -- the contradiction the prompt named as the most likely finding to watch for."
+    },
+    {
+      "original_symbol": "HON",
+      "stratum": "S1",
+      "manifest_status_before": "in_vendor_symbol_list=false, n_calls_2020_2025=null -- CORPUS_MANIFEST_V2.json strata.S1.frozen (HON entry); this field was carried from the FIRST PASS and was never re-queried during the fix pass (absent from availability_fix_working.json).",
+      "working_symbol": "HON",
+      "evidence": "Re-querying HON directly (no alias) returns company_name 'Honeywell International Inc.', 24 events, first_call 2020-01-31, last_call 2025-10-23, max_gap_days 105 -- analysis/data/corpus_v2/alias_probe_working.json -> HON.HON",
+      "identity_confirmed": null,
+      "mechanism": "not an identity problem -- no rename, no bankruptcy, no share-class variant applies to Honeywell. The manifest's in_vendor_symbol_list=false field for HON appears to be STALE (either a first-pass query artifact, or the vendor's symbol-list/coverage has changed since the first pass). Flagged as a finding, not corrected in this run.",
+      "a1_check": "n=24 (>=12) and max_gap_days=105 (<=240) -- both satisfied under HON's own original symbol.",
+      "membership_effect": "NONE per this run's scope. HON was already an S1 member (retained under the first pass's no-eviction rule, per CORPUS_MANIFEST_V2.json strata.S1.note) regardless of this data point. This finding does not change membership; it only shows the member's underlying vendor-coverage field was already wrong before this run started, which corpus-fix-2/3 or a future pass should correct."
+    },
+    {
+      "original_symbol": "UPS",
+      "stratum": "S1",
+      "manifest_status_before": "in_vendor_symbol_list=false, n_calls_2020_2025=null -- CORPUS_MANIFEST_V2.json strata.S1.frozen (UPS entry); same first-pass-only provenance as HON, never re-queried in the fix pass.",
+      "working_symbol": "UPS",
+      "evidence": "Re-querying UPS directly (no alias) returns company_name 'United Parcel Service, Inc.', 24 events, first_call 2020-01-30, last_call 2025-10-28, max_gap_days 105 -- analysis/data/corpus_v2/alias_probe_working.json -> UPS.UPS",
+      "identity_confirmed": null,
+      "mechanism": "not an identity problem -- same reasoning as HON. Manifest field appears stale.",
+      "a1_check": "n=24 (>=12) and max_gap_days=105 (<=240) -- both satisfied under UPS's own original symbol.",
+      "membership_effect": "NONE per this run's scope, same reasoning as HON."
+    }
+  ],
+  "vendor_calls_this_run": 5,
+  "vendor_calls_running_total_before_this_run": 167,
+  "vendor_calls_running_total_after_this_run": 172,
+  "vendor_calls_running_total_source": "analysis/data/run_state/corpus-construction/progress.json -> calls_used_total"
+}

@@ -30,9 +30,14 @@
     "fix_stepE_split_and_holdout": "done",
     "fix_stepF_detection_threshold": "done",
     "fix_stepG_cost": "done",
-    "fix_stepH_report": "done"
+    "fix_stepH_report": "done",
+    "fix1_step1_addendum": "done",
+    "fix1_step2_candidate_list": "done",
+    "fix1_step3_query": "done",
+    "fix1_step4_apply_rules_unchanged": "done",
+    "fix1_step5_report_no_v3_needed": "done"
   },
-  "next_action": "Full run complete through Step G. Nothing pending for this run_id. Any future work is a NEW pre-registration (e.g. widening the S4 candidate pool with domain-correct names, or actually scoring the v2 corpus -- which per CLAUDE.md/versionGuard rules must assert the prompt hash against VERSION_REGISTRY.json first and would establish a new baseline, not extend v6).",
+  "next_action": "corpus-fix-1 complete. Next: corpus-fix-2-balance-and-split.md and corpus-fix-3-threshold-and-cost.md, not started by this run.",
   "notes": [
     "FIX PASS (2026-09-14, same day as first pass): Step A wrote PREREGISTRATION_FIX.json BEFORE any company was re-tested -- A1 (240-day gap threshold, replacing the quarters-based rule), A2 (S4-specific rule: >=4 calls, no trailing-gap test, >=2 calls in the 12mo before the terminal event), A3 (all 15 new S4 candidate names verified and REJECTED -- domain mismatch and/or not public/not S&P500 as of 2020-12-31, evidence recorded per name), A4 (S4-both-ways disclosure requirement). Justifications for A1/A2 cite only reporting-cadence/coverage mechanics, never a return or which companies would be restored -- verified by re-reading PREREGISTRATION_FIX.json's own text before writing this note. No return of any kind was looked at before fix Step C's freeze.",
     "Fix Step B (vendor re-test, 85 calls, cumulative 167 this run): re-fetched exact per-call dates (not the quarter-rounded approximation) for all 82 first-pass tickers plus the first pass's own already-recorded S4 reserve names. RESTORED under A1: INTC (183d), KO (184d), MCD (184d), TMO (194d) -- all previously failed by margins of 1-13 days over the old 182-day-equivalent cutoff. POWI still fails A1 (273 days > 240). RESTORED under A2: FRC (6 calls, 4 in the 12mo before its 2023-05-01 receivership), RMO (6 calls, 3 in the 12mo before its 2022-08-19 forced merger), SUNW (10 calls, 4 in the 12mo before its 2023-07-14 bankruptcy). SIVB still fails -- 0 events in vendor, a structural absence, not a rule artifact. WOLF and NOVA (already frozen) both independently re-confirmed passing under A2. GOOGL (S5) again absent from vendor (known gap, unchanged). None of the first pass's own S4 reserve candidates that fail domain (SBNY, PTRA, FSR, NKLA, RIDE, LICY) were restored despite several passing the new A2 availability test on paper -- excluded on eligibility grounds, independently re-confirmed in Step A's A3 verification, not on availability.",
@@ -50,9 +55,10 @@
     "Step 4b outcome balance (excluding S5 per its pre-registered exclusion): 44.4% beats / 35.2% lags / 20.4% moves-with (n=54), vs the existing corpus's 46.2%/42.1%/11.7%. Not re-picked regardless, per the pre-registered rule.",
     "S1 ranks 21-40 are sourced from general published knowledge of Dec-2020 mega-cap ordering, not one independently retrieved ranked table for that specific range -- flagged as a limitation in the wrap-up.",
     "Wikipedia's dated 2020-12-31 revision (oldid=997494787) could only be retrieved in full for its first ~234 rows (A-H) due to fetch-tool truncation; I-Z membership checks relied on cross-referencing the separate Historical-components change log rather than a full direct read of that half of the table -- flagged as a limitation.",
-    "FIX PASS CONTINUED (same session, coordinator directive): Steps D-G completed. Step D: outcome_balance_v2.json, ex-S5 44.6/37.5/18.9 (n=56) vs first pass 44.4/35.2/20.4 (n=54) and existing corpus 46.2/42.1/11.7; ex-S5-and-S4 45.5/36.4/18.2 (n=55); finding that 4/5 S4 companies have no post-failure forward price series (S4-only n=1, WOLF). Step E: SPLIT_V2.json, train=28/tune=26/holdout=24, seed 20201231, holdout sha256 d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23, locked into CORPUS_MANIFEST_V2.json; PROMOTION_GATE.md Sec10 holdout-lock note added (was not already present). Step F (the deliverable): realistic (train+tune, n=54) paired MDE=1pp, unpaired=7pp -- clears 3pp; fallback half-survival (n=27) paired MDE=4pp -- does NOT clear 3pp; fallback in-scope-strata-only (n=25) paired MDE=4pp -- does NOT clear 3pp. Cross-checked against the published scorecard-repair manifest's own data_volume_answer (multiplier 4/n=64/mde=1) -- exact match, confirms correct reuse of the methodology. Published today-baseline is 6pp (this run's own quick 60-trial recompute gave 5pp, attributed to Monte Carlo noise from the reduced trial count -- cite the published 6pp, not this run's recheck). Step G: train+tune 1,134 calls (~$23-57 illustrative), all three splits 1,652 calls (~$33-83 illustrative), per-call cost assumption stated not measured; new-baseline warning restated."
+    "FIX PASS CONTINUED (same session, coordinator directive): Steps D-G completed. Step D: outcome_balance_v2.json, ex-S5 44.6/37.5/18.9 (n=56) vs first pass 44.4/35.2/20.4 (n=54) and existing corpus 46.2/42.1/11.7; ex-S5-and-S4 45.5/36.4/18.2 (n=55); finding that 4/5 S4 companies have no post-failure forward price series (S4-only n=1, WOLF). Step E: SPLIT_V2.json, train=28/tune=26/holdout=24, seed 20201231, holdout sha256 d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23, locked into CORPUS_MANIFEST_V2.json; PROMOTION_GATE.md Sec10 holdout-lock note added (was not already present). Step F (the deliverable): realistic (train+tune, n=54) paired MDE=1pp, unpaired=7pp -- clears 3pp; fallback half-survival (n=27) paired MDE=4pp -- does NOT clear 3pp; fallback in-scope-strata-only (n=25) paired MDE=4pp -- does NOT clear 3pp. Cross-checked against the published scorecard-repair manifest's own data_volume_answer (multiplier 4/n=64/mde=1) -- exact match, confirms correct reuse of the methodology. Published today-baseline is 6pp (this run's own quick 60-trial recompute gave 5pp, attributed to Monte Carlo noise from the reduced trial count -- cite the published 6pp, not this run's recheck). Step G: train+tune 1,134 calls (~$23-57 illustrative), all three splits 1,652 calls (~$33-83 illustrative), per-call cost assumption stated not measured; new-baseline warning restated.",
+    "corpus-fix-1-ticker-aliases: GOOGL recovered under alias GOOG (24 events, meets A1). SIVB alias candidates (SIVBQ, SIVB.Q) absent from vendor -- SIVB remains a genuine coverage gap, S4 stays 5/8. HON/UPS found to have stale in_vendor_symbol_list=false fields in CORPUS_MANIFEST_V2.json (never re-queried in the fix pass) -- both actually have full valid vendor data under their own symbols; no membership change since both were already retained. 5 vendor calls this run, running total 167 -> 172."
   ],
-  "calls_used_total": 167,
+  "calls_used_total": 172,
   "last_call_ts": 1789392981.347467,
   "call_log": [
     {
@@ -1633,7 +1639,61 @@
       },
       "script": "fix",
       "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:56:41.445584+00:00",
+      "endpoint": "symbols-v2.txt",
+      "params": {},
+      "script": "fix1_ticker_aliases",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:56:44.947996+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "GOOG"
+      },
+      "script": "fix1_ticker_aliases",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:56:48.451326+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "SIVB"
+      },
+      "script": "fix1_ticker_aliases",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:56:51.953060+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "HON"
+      },
+      "script": "fix1_ticker_aliases",
+      "status": 200
+    },
+    {
+      "ts": "2026-09-14T13:56:55.455256+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NYSE",
+        "symbol": "UPS"
+      },
+      "script": "fix1_ticker_aliases",
+      "status": 200
     }
   ],
-  "calls_used_this_fix_script": 85
+  "calls_used_this_fix_script": 85,
+  "calls_used_this_fix1_script": 5,
+  "last_call_ts_fix1": 1789394215.4552472,
+  "prompt_sha256_fix1_ticker_aliases": "61b482ff5129d128d1a695eb89d7b73108209f97a541e5f7ce9acc09ab2e3d72",
+  "driver_commit_fix1_ticker_aliases": "f6cc2b5",
+  "ticker_aliases_path": "analysis/data/corpus_v2/TICKER_ALIASES.json",
+  "manifest_v3_written": false,
+  "manifest_v3_reason": "No pass/fail membership status changed. GOOGL was already an S5 member (exempt); SIVB remains excluded (genuine gap, alias candidates absent from vendor); HON/UPS were already S1 members (no-eviction retention) -- their vendor data turned out to be valid under their own original symbols, a stale-manifest-field finding, not a membership change."
 }
