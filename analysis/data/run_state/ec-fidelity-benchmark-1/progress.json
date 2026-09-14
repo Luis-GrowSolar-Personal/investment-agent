@@ -10389,7 +10389,7 @@
       }
     }
   },
-  "calls_used_total": 211,
+  "calls_used_total": 214,
   "call_log": [
     {
       "ts": "2026-09-06T21:09:51.041238+00:00",
@@ -13082,9 +13082,39 @@
       },
       "status": 200,
       "note": null
+    },
+    {
+      "ts": "2026-09-06T22:37:01.092818+00:00",
+      "endpoint": "symbols-v2.txt",
+      "params": {},
+      "status": 200,
+      "note": "probe_google_cslr"
+    },
+    {
+      "ts": "2026-09-06T22:37:05.254370+00:00",
+      "endpoint": "events",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "GOOG"
+      },
+      "status": 200,
+      "note": "probe_google_cslr"
+    },
+    {
+      "ts": "2026-09-06T23:00:34.551762+00:00",
+      "endpoint": "transcript",
+      "params": {
+        "exchange": "NASDAQ",
+        "symbol": "GOOG",
+        "year": 2026,
+        "quarter": 2,
+        "level": 2
+      },
+      "status": 200,
+      "note": "verify_alias_and_gate"
     }
   ],
-  "last_call_ts": "2026-09-06T21:24:03.215380+00:00",
+  "last_call_ts": "2026-09-06T23:00:35.200717+00:00",
   "hard_call_cap": 300,
   "transcript_level": 2,
   "steps": {
