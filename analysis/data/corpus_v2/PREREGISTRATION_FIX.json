@@ -1,0 +1,47 @@
+{
+  "run_id": "corpus-construction",
+  "prompt": "corpus-construction-fix",
+  "registered_at": "2026-09-14T00:00:00Z",
+  "supersedes": "does not replace PREREGISTRATION.json (first pass) -- this is a SECOND, additive pre-registration for the fix pass, per the prompt's instruction",
+  "ordering_attestation": "Written before any company was re-tested under the new rules and before any return was looked at. The justifications below (A1, A2) cite ONLY coverage/reporting-cadence mechanics -- never a company's outcome or return, and never a reference to which companies would be restored as a result of the rule change.",
+
+  "A1_gap_rule_days": {
+    "rule": "Replace the first pass's '2 consecutive quarters' gap test with a fixed 240-calendar-day threshold between consecutive earnings calls within the coverage window, for every stratum except S4 (S4 uses A2 instead).",
+    "justification_coverage_only": "Ordinary quarterly reporting cadence is approximately 91 days. A single skipped quarter (e.g. a fiscal-calendar irregularity, a switched reporting date, or a one-quarter combined release) produces a gap of roughly 182 days. The first pass's rule measured gaps in QUARTERS (gap_days / 91) and applied a hard 2.0-quarter cutoff, which is equivalent to 182 days -- leaving ZERO headroom past a single skipped quarter before the rule treats the company as having a coverage hole. That is a rounding/measurement-granularity defect, not a substantive coverage requirement: a company with one irregular gap year over an otherwise complete six-year window is not meaningfully less available than one without. 240 days gives headroom of about 58 days beyond a single-skip gap (182 days) without accepting a genuine two-quarter-skip gap (about 273 days), so it preserves the substantive intent of the original rule (catch real coverage holes) while removing the artifact of measuring in imprecise quarter-units.",
+    "will_be_reported_regardless_of_effect": "The full distribution of max-gap-in-days across every candidate, and how many candidates fall within 20 days of the 240-day line on either side, is reported in Step B as a brittleness finding -- not used to retune the threshold."
+  },
+
+  "A2_s4_rule": {
+    "rule": "S4 (failures/distress stratum) uses its own availability rule, separate from A1: (a) at least 4 calls within the coverage window; (b) NO trailing-gap test after the last available call -- the stratum's defining feature is that the company stops reporting because it fails, so a trailing gap is the outcome being studied, not a coverage defect; (c) at least 2 of those calls fall within the 12 months preceding the terminal event (bankruptcy filing, receivership, forced/distressed merger, or delisting); (d) any INTERNAL gap between calls BEFORE the terminal event is still subject to A1's 240-day threshold -- a company that stopped reporting mid-window for reasons unrelated to its eventual failure would still need to show ordinary coverage up to that point.",
+    "justification_coverage_only": "The first pass's single mechanical rule (12+ calls in the full window, no gap > 2 quarters) structurally cannot be satisfied by a company whose failure ends its reporting history early -- the rule and the stratum's defining event (failure) are in direct tension by construction, independent of any observed outcome or return. A rule for a stratum defined by 'this company failed' cannot simultaneously require 'and it kept behaving like a company that didn't fail for six years.' The fix separates 'was this company covered while it was still an active reporter' (part a/c/d, testable) from 'did it keep reporting after failing' (which by definition it did not, and dropping it for that is circular)."
+  },
+
+  "A3_new_s4_candidates": {
+    "candidate_list": ["Signature Bank", "Lordstown Motors", "Fisker", "Nikola", "Proterra",
+                        "Li-Cycle", "Canoo", "Core Scientific", "Amyris", "Virgin Orbit",
+                        "Rite Aid", "Yellow Corporation", "Party City", "Emergent BioSolutions", "Invacare"],
+    "eligibility_test": "Eligible only if (i) S&P 500 constituent per the dated 2020-12-31 list used by the first pass, OR (ii) within DOMAIN.md's Tier 1/Tier 2 universe (solar, energy storage, semiconductors, IT/software/cloud, scoped crypto) as of 2020. Neither test satisfied means NOT eligible, regardless of how well-known the company's collapse became.",
+    "verification": {
+      "Signature Bank": "NOT eligible. Confirmed via web search (S&P Global press release, 2021-12-03): added to the S&P 500 effective 2021-12-20 -- one year after the 2020-12-31 cutoff. Not in DOMAIN.md universe (regional bank / financials).",
+      "Lordstown Motors": "NOT eligible. Completed SPAC merger with DiamondPeak 2020-10-23 (public in 2020) but was never an S&P 500 constituent (too small; delisted 2023 pre-bankruptcy). Not in DOMAIN.md universe -- EV/truck manufacturing is not solar, storage, semiconductors, software, or scoped crypto.",
+      "Fisker": "NOT eligible. Never S&P 500. EV manufacturing, not in DOMAIN.md universe.",
+      "Nikola": "NOT eligible. Never S&P 500. Hydrogen/EV truck manufacturing, not in DOMAIN.md universe (not an energy-storage systems company; a vehicle OEM).",
+      "Proterra": "NOT eligible on point-in-time grounds even before the domain test: merger with ArcLight Clean Transition Corp. closed 2021-06-14 -- Proterra was NOT a public company as of 2020-12-31. Also never S&P 500. Electric bus manufacturing not in DOMAIN.md universe.",
+      "Li-Cycle": "NOT eligible. Business combination with Peridot Acquisition Corp. completed 2021-08-10 -- not public as of 2020-12-31. Never S&P 500. Battery recycling/materials-recovery is adjacent to but not itself 'energy storage' as DOMAIN.md scopes it (a systems/technology company, not a recycler).",
+      "Canoo": "NOT eligible. Never S&P 500. EV manufacturing, not in DOMAIN.md universe.",
+      "Core Scientific": "NOT eligible on point-in-time grounds: SPAC merger with XPDI closed 2022-01-19, began trading 2022-01-20 -- not public until over a year after the 2020-12-31 cutoff. Never S&P 500. A bitcoin-mining infrastructure operator does not meet DOMAIN.md's crypto scope, which is 'scoped to mass-adoption use cases,' not mining/infrastructure operators.",
+      "Amyris": "NOT eligible. Publicly traded since 2010 but never S&P 500. Synthetic biology / renewable specialty ingredients is not in DOMAIN.md's Tier 1/2 universe.",
+      "Virgin Orbit": "NOT eligible on point-in-time grounds: SPAC shareholder approval 2021-12-28, began trading 2021-12-30 -- not public as of 2020-12-31 (misses the cutoff by essentially one trading day at the very end of 2021, not 2020). Never S&P 500. Space launch is not in DOMAIN.md universe.",
+      "Rite Aid": "NOT eligible. Not an S&P 500 constituent as of 2020-12-31 (small-cap by then). Pharmacy retail is not in DOMAIN.md universe.",
+      "Yellow Corporation": "NOT eligible. Never S&P 500. Trucking/logistics is not in DOMAIN.md universe.",
+      "Party City": "NOT eligible. Never S&P 500. Specialty retail is not in DOMAIN.md universe.",
+      "Emergent BioSolutions": "NOT eligible. Was an S&P MidCap 400 constituent, not S&P 500, as of 2020-12-31. Biopharma/biodefense manufacturing is not in DOMAIN.md universe.",
+      "Invacare": "NOT eligible. Never S&P 500 (small-cap). Medical-device manufacturing is not in DOMAIN.md universe."
+    },
+    "result": "ZERO of the 15 registered candidates are eligible under either test. All 15 rejected -- 8 for domain mismatch alone, 4 additionally fail on 2020-12-31 public-company timing (Proterra, Li-Cycle, Core Scientific, Virgin Orbit), 1 additionally fails on S&P-500 timing by exactly one year (Signature Bank), 1 fails on S&P-500 tier (Emergent BioSolutions was MidCap 400, not S&P 500). No new S4 candidates are added by this step. S4's shortfall, if any remains after Step B's restoration pass on the ORIGINAL candidate pool (SIVB, FRC, RMO, SUNW, WOLF, NOVA) under the new A2 rule, is reported as an unresolved shortfall, not closed by new names, per the prompt's explicit instruction not to lower A2's thresholds to close the gap."
+  },
+
+  "A4_s4_weighting_disclosure": {
+    "statement": "S4 is defined by outcome (companies known in advance to have failed or nearly failed) and therefore over-represents distress relative to any real, ex-ante population of companies in this universe. Every ruler figure downstream of this corpus (outcome balance, detection-threshold projection, cost estimate) MUST be reported BOTH including and excluding S4, with S4's share of total companies and total calls stated explicitly each time it appears."
+  }
+}
