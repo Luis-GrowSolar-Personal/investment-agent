@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-09-14T18:43:02.223337+00:00",
+  "audit": [
+    {
+      "addendum": "A1",
+      "registers": "240-day gap rule for ordinary strata",
+      "in_manifest": true,
+      "in_split": true,
+      "status": "PASS",
+      "note": "rule_applied='A1' and meets_new_rule present on every non-S4 entry with call data, except GOOGL -- that single exception is the same defect already reported under A5, not a second A1-specific gap"
+    },
+    {
+      "addendum": "A2",
+      "registers": "S4's own 4-call / 12mo-pre-terminal rule",
+      "in_manifest": true,
+      "in_split": true,
+      "status": "PASS",
+      "note": "rule_applied='A2' present on all 4 S4 manifest entries"
+    },
+    {
+      "addendum": "A3",
+      "registers": "S4 candidate additions (WOLF/NOVA/FRC/SUNW research)",
+      "in_manifest": true,
+      "in_split": true,
+      "status": "PASS",
+      "note": "WOLF/NOVA/FRC/SUNW present in both manifest and split"
+    },
+    {
+      "addendum": "A4",
+      "registers": "S4 weighting disclosure for outcome measurement",
+      "in_manifest": "N/A",
+      "in_split": "N/A",
+      "status": "N/A (not a manifest/split concern)",
+      "note": "A4 governs how S4 is weighted in outcome_balance_v3's distribution_excluding_S5_and_S4_per_A4 -- reflected there, not a manifest field. Out of this audit's scope (membership/split only)."
+    },
+    {
+      "addendum": "A5",
+      "registers": "GOOGL identity resolves to GOOG (24 calls)",
+      "in_manifest": false,
+      "in_split": "N/A (GOOGL always in S5, membership unaffected)",
+      "status": "FAIL (before this run) -> FIXED by B2",
+      "note": "CORPUS_MANIFEST_V2.json showed GOOGL n_calls_2020_2025=0 despite A5 (registered 2026-09-14 in corpus-fix-1) already verifying 24 calls under GOOG. Corrected in this run's B2."
+    },
+    {
+      "addendum": "A6",
+      "registers": "terminal-value=0 grading for verified wipeouts",
+      "in_manifest": "N/A",
+      "in_split": "N/A",
+      "status": "N/A (not a manifest/split concern)",
+      "note": "A6 governs outcome grading (corpus_construction_outcomes_v3_terminal.py), applied at measurement time, not at membership/split time -- confirmed applied there, out of scope here."
+    },
+    {
+      "addendum": "A7",
+      "registers": "expansion round 2 (not yet registered)",
+      "in_manifest": false,
+      "in_split": false,
+      "status": "N/A -- not registered yet",
+      "note": "corpus-fix-5 Job 2 remains pending; A7 does not exist in PREREGISTRATION_FIX.json"
+    },
+    {
+      "addendum": "A8",
+      "registers": "price-coverage gate, flat 12-call floor",
+      "in_manifest": false,
+      "in_split": false,
+      "status": "FAIL -- lives only in COVERAGE_GATE_SWEEP.json, a side file",
+      "note": "Same shape of defect as A5's: A8 was registered and swept, but its per-company verdict was never written back into CORPUS_MANIFEST_V2.json or any split file. A future read of the manifest alone would not know 8 companies fail it. Corrected only once Step E's V4 freeze embeds gate verdicts as manifest fields."
+    },
+    {
+      "addendum": "A9",
+      "registers": "per-stratum call-count floor (this run)",
+      "in_manifest": false,
+      "in_split": false,
+      "status": "Not yet -- expected; this run's own Step E is what propagates it",
+      "note": "Registered in this run; propagated into CORPUS_MANIFEST_V4.json by Step E below."
+    }
+  ],
+  "s2_powi_check": "selection_working.json S2.selected includes POWI, absent from CORPUS_MANIFEST_V2.json S2.frozen -- checked against availability_fix_working.json: POWI has max_gap_days=273 (>240), correctly fails A1 and was legitimately dropped post-selection, pre-freeze. NOT a bug (unlike HON/UPS, which were never in S1.selected at all)."
+}

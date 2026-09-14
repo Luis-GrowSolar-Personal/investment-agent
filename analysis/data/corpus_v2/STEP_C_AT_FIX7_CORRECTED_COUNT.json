@@ -1,0 +1,45 @@
+{
+  "run_id": "corpus-construction",
+  "pass": "corpus-fix-7, Step D -- threshold at the fully-corrected gradable-and-available count",
+  "n": 48,
+  "n_note": "48 = train+tune tickers from SPLIT_V3_RMO_REMOVED.json (53), minus HON/UPS (B1 correction, never real S1 members), minus NOVA/WOLF (A9-corrected S4 gate failures, unrecoverable price gaps, no reserve), minus SPWR (S5 carve-out, excluded from the count per A8, stays in the corpus). SUNW and FRC, which failed the flat-12 A8 gate, now PASS under A9's S4 floor of 4 and count toward this 48.",
+  "sqrt_estimates": {
+    "published_baseline_24_over_sqrt_n": 3.46,
+    "this_run_recheck_20_over_sqrt_n": 2.89
+  },
+  "real_population_stats": {
+    "n_real_companies": 16,
+    "n_real_calls": 359,
+    "mean_accuracy": 0.40227040036902567,
+    "spread_stdev_pp_observed": 16.48
+  },
+  "spread_brackets": {
+    "observed": {
+      "spread_pp": 16.48,
+      "results_by_n": {
+        "48": {
+          "paired_mde_pp": 3,
+          "unpaired_mde_pp": 8
+        }
+      }
+    },
+    "lower": {
+      "spread_pp": 8.24,
+      "results_by_n": {
+        "48": {
+          "paired_mde_pp": 2,
+          "unpaired_mde_pp": 7
+        }
+      }
+    },
+    "higher": {
+      "spread_pp": 24.72,
+      "results_by_n": {
+        "48": {
+          "paired_mde_pp": 4,
+          "unpaired_mde_pp": 10
+        }
+      }
+    }
+  }
+}

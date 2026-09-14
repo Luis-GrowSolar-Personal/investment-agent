@@ -95,5 +95,14 @@
     ],
     "identity_resolution_note": "A company is not failed for an identity problem. Every symbol tried and what it returned is recorded per-company in COVERAGE_GATE_SWEEP.json; any newly-working symbol is added to TICKER_ALIASES.json.",
     "no_eligibility_or_threshold_rule_other_than_this_one_was_changed": true
+  },
+  "A9_price_gate_threshold_by_stratum": {
+    "registered_at": "2026-09-14T18:40:19.778387+00:00",
+    "prompt": "corpus-fix-7-manifest-corrections",
+    "ordering_attestation": "Registered before re-running the price-coverage gate or looking at any company's verdict change. No company's return, direction, or pass/fail status under A9 was examined before this addendum was written.",
+    "justification_scope_restriction": "This addendum's justification rests ONLY on the fact that A2 already exists and already governs S4's call-count floor for exactly this reason: a company defined by having failed necessarily stops reporting, so a single flat call-count line built for ordinary (still-reporting) companies structurally cannot be satisfied by S4 members without re-imposing the survival requirement A2 was written to remove. NO justification here references any company's return, direction, or which companies this correction recovers -- that is reported as a mechanical consequence in Step A, after the rule is fixed.",
+    "rule": "The A8 price-coverage gate's call-count floor is NOT a single flat number across all strata. It inherits whichever call-count threshold ALREADY governs the company's stratum under A1/A2: ordinary strata (S1/S2/S3/S5) use A1's 12-call floor; the failures stratum (S4) uses A2's 4-call floor. A8's window-coverage test (real price on both ends of the 182-day window, OR the A6 terminal rule) is UNCHANGED -- only the pass/fail call-count line changes, and only for S4.",
+    "error_being_corrected": "A8, as registered, applied a single 12-call floor to every stratum including S4. That silently re-imposed the ordinary-company survival requirement onto a stratum whose entire membership criterion is having failed -- the same category of mistake the original corpus build made and that A2 was written to fix, repeated one layer up in the price-coverage gate.",
+    "no_other_a8_provision_changed": true
   }
 }
