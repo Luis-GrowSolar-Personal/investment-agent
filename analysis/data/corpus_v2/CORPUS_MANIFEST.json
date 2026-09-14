@@ -1,0 +1,799 @@
+{
+  "run_id": "corpus-construction",
+  "frozen_at": "2026-09-14T13:14:19.294739+00:00",
+  "preregistration_path": "analysis/data/corpus_v2/PREREGISTRATION.json",
+  "point_in_time_source": {
+    "name": "Wikipedia 'List of S&P 500 companies', dated revision",
+    "url": "https://en.wikipedia.org/w/index.php?title=List_of_S%26P_500_companies&oldid=997494787",
+    "as_of_date": "2020-12-31"
+  },
+  "strata": {
+    "S1": {
+      "target": 20,
+      "frozen": [
+        {
+          "ticker": "CMCSA",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-23",
+          "last_call": "2025-10-30",
+          "max_gap_quarters": 1.1,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "NFLX",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-21",
+          "last_call": "2025-10-21",
+          "max_gap_quarters": 1.07,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "XOM",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-31",
+          "last_call": "2025-10-31",
+          "max_gap_quarters": 1.14,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "VZ",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-30",
+          "last_call": "2025-10-29",
+          "max_gap_quarters": 1.1,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "NKE",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-03-24",
+          "last_call": "2025-12-18",
+          "max_gap_quarters": 1.1,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "MRK",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-05",
+          "last_call": "2025-10-30",
+          "max_gap_quarters": 1.34,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "PFE",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-28",
+          "last_call": "2025-11-04",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "T",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-29",
+          "last_call": "2025-10-22",
+          "max_gap_quarters": 2.0,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "ABT",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-22",
+          "last_call": "2025-10-15",
+          "max_gap_quarters": 1.79,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "CRM",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-25",
+          "last_call": "2025-12-03",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "PEP",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-13",
+          "last_call": "2025-10-09",
+          "max_gap_quarters": 1.47,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "CSCO",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-12",
+          "last_call": "2025-11-12",
+          "max_gap_quarters": 1.11,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "ACN",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-03-19",
+          "last_call": "2025-12-18",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "COST",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-03-05",
+          "last_call": "2025-12-11",
+          "max_gap_quarters": 1.36,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "QCOM",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-05",
+          "last_call": "2025-11-05",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "TXN",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-22",
+          "last_call": "2025-10-21",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "HON",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-31",
+          "last_call": "2025-10-23",
+          "max_gap_quarters": 1.15,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "UPS",
+          "stratum": "S1",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-30",
+          "last_call": "2025-10-28",
+          "max_gap_quarters": 1.15,
+          "meets_availability_threshold": true
+        }
+      ],
+      "drops": {
+        "dropped": [
+          "INTC",
+          "KO",
+          "MCD",
+          "TMO"
+        ],
+        "replacements": [
+          "HON",
+          "UPS"
+        ],
+        "shortfall": 2
+      }
+    },
+    "S2": {
+      "target": 16,
+      "frozen": [
+        {
+          "ticker": "AMAT",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-12",
+          "last_call": "2025-11-13",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "LRCX",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 25,
+          "first_call": "2020-01-29",
+          "last_call": "2025-10-22",
+          "max_gap_quarters": 2.0,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "MU",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-03-25",
+          "last_call": "2025-12-17",
+          "max_gap_quarters": 1.1,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "NXPI",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 23,
+          "first_call": "2020-04-28",
+          "last_call": "2025-10-28",
+          "max_gap_quarters": 1.15,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "ADBE",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-03-12",
+          "last_call": "2025-12-10",
+          "max_gap_quarters": 1.13,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "IBM",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-21",
+          "last_call": "2025-10-22",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "FORM",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 20,
+          "first_call": "2021-02-03",
+          "last_call": "2025-10-29",
+          "max_gap_quarters": 1.15,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "SLAB",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 17,
+          "first_call": "2021-10-27",
+          "last_call": "2025-11-04",
+          "max_gap_quarters": 1.13,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "BOX",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 21,
+          "first_call": "2020-12-01",
+          "last_call": "2025-12-02",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "ENTG",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 21,
+          "first_call": "2020-10-22",
+          "last_call": "2025-10-30",
+          "max_gap_quarters": 1.14,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "DIOD",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 20,
+          "first_call": "2021-02-16",
+          "last_call": "2025-11-06",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "AMSC",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 19,
+          "first_call": "2021-06-03",
+          "last_call": "2025-11-06",
+          "max_gap_quarters": 1.38,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "ARRY",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 21,
+          "first_call": "2020-11-06",
+          "last_call": "2025-11-05",
+          "max_gap_quarters": 1.59,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "SHLS",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 20,
+          "first_call": "2021-03-15",
+          "last_call": "2025-11-04",
+          "max_gap_quarters": 1.33,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "BLDP",
+          "stratum": "S2",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 16,
+          "first_call": "2022-03-14",
+          "last_call": "2025-11-13",
+          "max_gap_quarters": 1.43,
+          "meets_availability_threshold": true
+        }
+      ],
+      "drops": {
+        "dropped": [
+          "POWI"
+        ],
+        "replacements": [],
+        "shortfall": 1
+      }
+    },
+    "S3": {
+      "target": 20,
+      "frozen": [
+        {
+          "ticker": "GIS",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-03-18",
+          "last_call": "2025-12-17",
+          "max_gap_quarters": 1.15,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "KMB",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 23,
+          "first_call": "2020-04-22",
+          "last_call": "2025-10-30",
+          "max_gap_quarters": 1.14,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "CL",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-31",
+          "last_call": "2025-10-31",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "HRL",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-20",
+          "last_call": "2025-12-04",
+          "max_gap_quarters": 1.15,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "CVS",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-12",
+          "last_call": "2025-10-29",
+          "max_gap_quarters": 1.12,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "HUM",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-05",
+          "last_call": "2025-11-05",
+          "max_gap_quarters": 1.16,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "BMY",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-06",
+          "last_call": "2025-10-30",
+          "max_gap_quarters": 1.1,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "WFC",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-14",
+          "last_call": "2025-10-14",
+          "max_gap_quarters": 1.05,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "USB",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-15",
+          "last_call": "2025-10-16",
+          "max_gap_quarters": 1.13,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "AIG",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 23,
+          "first_call": "2020-05-05",
+          "last_call": "2025-11-05",
+          "max_gap_quarters": 1.16,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "JPM",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-14",
+          "last_call": "2025-10-14",
+          "max_gap_quarters": 1.78,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "CAT",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-31",
+          "last_call": "2025-10-29",
+          "max_gap_quarters": 1.13,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "DE",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-20",
+          "last_call": "2025-11-26",
+          "max_gap_quarters": 1.67,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "GE",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-29",
+          "last_call": "2025-10-31",
+          "max_gap_quarters": 1.16,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "MMM",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 27,
+          "first_call": "2020-01-28",
+          "last_call": "2025-10-21",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "CVX",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 23,
+          "first_call": "2020-01-31",
+          "last_call": "2025-10-31",
+          "max_gap_quarters": 2.0,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "COP",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-04",
+          "last_call": "2025-11-06",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "VLO",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-30",
+          "last_call": "2025-10-23",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "PSX",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 23,
+          "first_call": "2020-01-29",
+          "last_call": "2025-10-29",
+          "max_gap_quarters": 2.0,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "NEE",
+          "stratum": "S3",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-24",
+          "last_call": "2025-10-28",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        }
+      ],
+      "drops": {
+        "dropped": [],
+        "replacements": [],
+        "shortfall": 0
+      }
+    },
+    "S4": {
+      "target": 8,
+      "frozen": [
+        {
+          "ticker": "WOLF",
+          "stratum": "S4",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-29",
+          "last_call": "2025-10-29",
+          "max_gap_quarters": 2.01,
+          "meets_availability_threshold": false
+        },
+        {
+          "ticker": "NOVA",
+          "stratum": "S4",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 18,
+          "first_call": "2020-10-29",
+          "last_call": "2025-03-03",
+          "max_gap_quarters": 1.35,
+          "meets_availability_threshold": true
+        }
+      ],
+      "drops": {
+        "dropped": [
+          "FRC",
+          "SIVB",
+          "RMO",
+          "SUNW"
+        ],
+        "replacements": [],
+        "shortfall": 4
+      },
+      "note": "S4 collapses under the availability rule -- see findings.md Step 3. 2/8 achieved."
+    },
+    "S5": {
+      "target": 16,
+      "frozen": [
+        {
+          "ticker": "AAPL",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-28",
+          "last_call": "2025-10-30",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "AMD",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-28",
+          "last_call": "2025-11-04",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "AVGO",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-03-12",
+          "last_call": "2025-12-11",
+          "max_gap_quarters": 1.11,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "GOOGL",
+          "stratum": "S5",
+          "in_vendor_symbol_list": false,
+          "n_calls_2020_2025": 0,
+          "first_call": null,
+          "last_call": null,
+          "max_gap_quarters": null,
+          "meets_availability_threshold": false
+        },
+        {
+          "ticker": "MSFT",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-29",
+          "last_call": "2025-10-29",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "NVDA",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-02-13",
+          "last_call": "2025-11-19",
+          "max_gap_quarters": 1.08,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "ORCL",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-03-12",
+          "last_call": "2025-12-10",
+          "max_gap_quarters": 1.07,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "TSLA",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 24,
+          "first_call": "2020-01-29",
+          "last_call": "2025-10-22",
+          "max_gap_quarters": 3.05,
+          "meets_availability_threshold": false
+        },
+        {
+          "ticker": "AMPX",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 13,
+          "first_call": "2022-11-10",
+          "last_call": "2025-11-06",
+          "max_gap_quarters": 1.46,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "ENVX",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 18,
+          "first_call": "2021-08-10",
+          "last_call": "2025-11-05",
+          "max_gap_quarters": 1.26,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "EOSE",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 20,
+          "first_call": "2021-02-25",
+          "last_call": "2025-11-06",
+          "max_gap_quarters": 1.31,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "FSLR",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 23,
+          "first_call": "2020-05-08",
+          "last_call": "2025-10-30",
+          "max_gap_quarters": 1.36,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "QS",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 20,
+          "first_call": "2021-02-16",
+          "last_call": "2025-10-22",
+          "max_gap_quarters": 1.24,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "RUN",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 15,
+          "first_call": "2022-05-04",
+          "last_call": "2025-11-06",
+          "max_gap_quarters": 1.23,
+          "meets_availability_threshold": true
+        },
+        {
+          "ticker": "SPWR",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 16,
+          "first_call": "2020-10-28",
+          "last_call": "2025-10-21",
+          "max_gap_quarters": 6.75,
+          "meets_availability_threshold": false
+        },
+        {
+          "ticker": "TTD",
+          "stratum": "S5",
+          "in_vendor_symbol_list": true,
+          "n_calls_2020_2025": 20,
+          "first_call": "2021-02-18",
+          "last_call": "2025-11-06",
+          "max_gap_quarters": 1.1,
+          "meets_availability_threshold": true
+        }
+      ],
+      "drops": {
+        "dropped": [],
+        "replacements": [],
+        "shortfall": 0,
+        "note": "exempt from the drop rule -- carried forward unchanged regardless of availability"
+      },
+      "note": "Carried forward unchanged (ALL16). EXCLUDED from Step 6 ruler-detection headline figures per PREREGISTRATION.json."
+    }
+  },
+  "totals": {
+    "target_total": 80,
+    "target_new": 64,
+    "frozen_total": 71,
+    "frozen_new": 55,
+    "distinct_check": 71
+  },
+  "vendor_calls_this_run": 82,
+  "vendor_call_budget_note": "Symbols-v2.txt + /events metadata only; no transcript content requested. Cumulative billing-period usage including ec-fidelity-benchmark-1's prior 211 calls: ~293/1000 (Premium plan monthly figure per that run's wrap-up)."
+}

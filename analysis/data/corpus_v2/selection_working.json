@@ -1,0 +1,323 @@
+{
+  "run_id": "corpus-construction",
+  "generated_at": "2026-09-14T13:07:37.988384+00:00",
+  "S1": {
+    "target": 20,
+    "selected": [
+      "CMCSA",
+      "NFLX",
+      "XOM",
+      "INTC",
+      "VZ",
+      "KO",
+      "NKE",
+      "MRK",
+      "PFE",
+      "T",
+      "ABT",
+      "CRM",
+      "PEP",
+      "TMO",
+      "CSCO",
+      "ACN",
+      "COST",
+      "MCD",
+      "QCOM",
+      "TXN"
+    ],
+    "rule": "ranks 21-40 minus ALL16 collisions"
+  },
+  "S2": {
+    "target": 16,
+    "selected": [
+      "AMAT",
+      "LRCX",
+      "MU",
+      "NXPI",
+      "ADBE",
+      "IBM",
+      "FORM",
+      "SLAB",
+      "BOX",
+      "ENTG",
+      "POWI",
+      "DIOD",
+      "AMSC",
+      "ARRY",
+      "SHLS",
+      "BLDP"
+    ],
+    "by_band": {
+      "large": [
+        "AMAT",
+        "LRCX",
+        "MU",
+        "NXPI",
+        "ADBE",
+        "IBM"
+      ],
+      "small": [
+        "FORM",
+        "SLAB",
+        "BOX",
+        "ENTG",
+        "POWI",
+        "DIOD"
+      ],
+      "micro": [
+        "AMSC",
+        "ARRY",
+        "SHLS",
+        "BLDP"
+      ]
+    },
+    "reserves": {
+      "large_reserve": [
+        "INTU",
+        "KLAC",
+        "ADI",
+        "MCHP"
+      ],
+      "small_reserve": [
+        "PSTG",
+        "MPWR",
+        "FIVN",
+        "CREE",
+        "SWKS",
+        "AMKR",
+        "SEDG",
+        "ON",
+        "ENPH"
+      ],
+      "micro_reserve": [
+        "MAXN",
+        "CSIQ",
+        "STEM",
+        "JKS",
+        "GEVO"
+      ]
+    }
+  },
+  "S3": {
+    "target": 20,
+    "selected": [
+      "GIS",
+      "KMB",
+      "CL",
+      "HRL",
+      "CVS",
+      "HUM",
+      "BMY",
+      "WFC",
+      "USB",
+      "AIG",
+      "JPM",
+      "CAT",
+      "DE",
+      "GE",
+      "MMM",
+      "CVX",
+      "COP",
+      "VLO",
+      "PSX",
+      "NEE"
+    ],
+    "reserves": {
+      "consumer_staples": [],
+      "healthcare_pharma": [],
+      "financials": [
+        "BAC",
+        "TRV"
+      ],
+      "industrials": [
+        "UPS",
+        "HON"
+      ],
+      "energy": [
+        "SLB"
+      ],
+      "utilities": [
+        "EXC",
+        "D"
+      ],
+      "materials": [
+        "APD",
+        "FCX"
+      ],
+      "real_estate": [
+        "PLD",
+        "AMT"
+      ],
+      "media_telecom": []
+    }
+  },
+  "S4": {
+    "target": 8,
+    "selected": [
+      "SIVB",
+      "FRC",
+      "WOLF",
+      "NOVA",
+      "RMO",
+      "SUNW"
+    ],
+    "detail": [
+      {
+        "name": "SVB Financial Group",
+        "ticker": "SIVB",
+        "verify": "2020 S&P 500 constituent (long-standing member; not listed as an addition in the 2021-2025 change log, and removed only via the 2023-03-15 FDIC receivership event, which reads as departure of an existing member, not a new one)",
+        "qualifies": true,
+        "failure_mode": "FDIC receivership, March 2023"
+      },
+      {
+        "name": "First Republic Bank",
+        "ticker": "FRC",
+        "verify": "Confirmed present in the Wikipedia 2020-12-31 revision, item 192 ('FRC - First Republic Bank')",
+        "qualifies": true,
+        "failure_mode": "FDIC receivership, May 2023"
+      },
+      {
+        "name": "Signature Bank",
+        "ticker": "SBNY",
+        "verify": "NOT a 2020-12-31 constituent -- added 2021-12-20 per the Historical-components change log, and not in DOMAIN.md's universe (bank, no solar/storage/semiconductor/software/crypto thesis). FAILS the pre-registered rule.",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Proterra Inc.",
+        "ticker": "PTRA",
+        "verify": "Never an S&P 500 constituent (SPAC-listed 2021, small cap). Core business is electric bus manufacturing, not energy storage as a business in its own right (DOMAIN.md's storage tier is about grid/behind-the-meter storage systems and market dynamics, not vehicle OEMs) -- treated as NOT in DOMAIN.md's 2020 universe. FAILS the pre-registered rule.",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Fisker Inc.",
+        "ticker": "FSR",
+        "verify": "Never an S&P 500 constituent; EV OEM, not an energy-storage or semiconductor business -- outside DOMAIN.md. FAILS.",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Nikola Corporation",
+        "ticker": "NKLA",
+        "verify": "Never an S&P 500 constituent; hydrogen/EV truck OEM, not solar/storage/semiconductor/software -- outside DOMAIN.md. FAILS.",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Lordstown Motors",
+        "ticker": "RIDE",
+        "verify": "Never an S&P 500 constituent; EV truck OEM -- outside DOMAIN.md. FAILS.",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Li-Cycle Holdings",
+        "ticker": "LICY",
+        "verify": "Never an S&P 500 constituent; battery-materials recycler. DOMAIN.md's storage tier does not name recycling/materials-recovery as in-scope -- treated as outside DOMAIN.md for this run. FAILS (kept on the S6 reserve list as a borderline case worth a future explicit domain ruling).",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Wolfspeed, Inc.",
+        "ticker": "WOLF",
+        "verify": "Traded as CREE through 2020 (renamed Wolfspeed, ticker WOLF, October 2021). Core business is silicon-carbide power semiconductors -- squarely DOMAIN.md Tier 1 (Semiconductors). Not verified as an S&P 500 constituent in 2020 (mid-cap at the time), but qualifies via the DOMAIN.md branch of the rule.",
+        "qualifies": true,
+        "failure_mode": "Chapter 11 bankruptcy filing, 2025"
+      }
+    ],
+    "dropped_candidates": [
+      {
+        "name": "Signature Bank",
+        "ticker": "SBNY",
+        "verify": "NOT a 2020-12-31 constituent -- added 2021-12-20 per the Historical-components change log, and not in DOMAIN.md's universe (bank, no solar/storage/semiconductor/software/crypto thesis). FAILS the pre-registered rule.",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Proterra Inc.",
+        "ticker": "PTRA",
+        "verify": "Never an S&P 500 constituent (SPAC-listed 2021, small cap). Core business is electric bus manufacturing, not energy storage as a business in its own right (DOMAIN.md's storage tier is about grid/behind-the-meter storage systems and market dynamics, not vehicle OEMs) -- treated as NOT in DOMAIN.md's 2020 universe. FAILS the pre-registered rule.",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Fisker Inc.",
+        "ticker": "FSR",
+        "verify": "Never an S&P 500 constituent; EV OEM, not an energy-storage or semiconductor business -- outside DOMAIN.md. FAILS.",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Nikola Corporation",
+        "ticker": "NKLA",
+        "verify": "Never an S&P 500 constituent; hydrogen/EV truck OEM, not solar/storage/semiconductor/software -- outside DOMAIN.md. FAILS.",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Lordstown Motors",
+        "ticker": "RIDE",
+        "verify": "Never an S&P 500 constituent; EV truck OEM -- outside DOMAIN.md. FAILS.",
+        "qualifies": false,
+        "failure_mode": null
+      },
+      {
+        "name": "Li-Cycle Holdings",
+        "ticker": "LICY",
+        "verify": "Never an S&P 500 constituent; battery-materials recycler. DOMAIN.md's storage tier does not name recycling/materials-recovery as in-scope -- treated as outside DOMAIN.md for this run. FAILS (kept on the S6 reserve list as a borderline case worth a future explicit domain ruling).",
+        "qualifies": false,
+        "failure_mode": null
+      }
+    ],
+    "used_from_reserve": [
+      {
+        "name": "Sunnova Energy International",
+        "ticker": "NOVA",
+        "verify": "DOMAIN.md Tier 1 (residential solar + storage). Not a 2020 S&P 500 constituent, qualifies via DOMAIN.md branch.",
+        "qualifies": true,
+        "failure_mode": "Chapter 11 bankruptcy filing, 2025"
+      },
+      {
+        "name": "Romeo Power",
+        "ticker": "RMO",
+        "verify": "DOMAIN.md Tier 1 (battery/energy storage systems). Not a 2020 S&P 500 constituent, qualifies via DOMAIN.md branch. Added via the dated 2026-09-14 reserve-pool amendment in PREREGISTRATION.json, written before any outcome look.",
+        "qualifies": true,
+        "failure_mode": "Forced distressed all-stock merger into Nikola, 2022, after going-concern warnings"
+      },
+      {
+        "name": "Sunworks",
+        "ticker": "SUNW",
+        "verify": "DOMAIN.md Tier 1 (residential/commercial solar EPC). Not a 2020 S&P 500 constituent, qualifies via DOMAIN.md branch. Added via the dated 2026-09-14 reserve-pool amendment in PREREGISTRATION.json, written before any outcome look.",
+        "qualifies": true,
+        "failure_mode": "Chapter 11 bankruptcy filing, 2025"
+      }
+    ],
+    "shortfall_after_reserve": 2
+  },
+  "S5": {
+    "target": 16,
+    "selected": [
+      "AAPL",
+      "AMD",
+      "AVGO",
+      "GOOGL",
+      "MSFT",
+      "NVDA",
+      "ORCL",
+      "TSLA",
+      "AMPX",
+      "ENVX",
+      "EOSE",
+      "FSLR",
+      "QS",
+      "RUN",
+      "SPWR",
+      "TTD"
+    ],
+    "note": "carried forward unchanged; excluded from Step 6 headline figures"
+  },
+  "total_companies": 78,
+  "distinct_companies": 78,
+  "duplicate_tickers_across_strata": []
+}
