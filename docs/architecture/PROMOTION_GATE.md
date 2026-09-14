@@ -539,20 +539,28 @@ Each step ships and is usable on its own; resist building all at once.
 
 - **corpus-construction holdout lock (added 2026-09-14, the ONE authorized
   edit to this file made by the `corpus-construction-fix` prompt's Step E;
-  updated 2026-09-14 by `corpus-fix-4-threshold-and-terminal-value`'s Step D,
+  updated 2026-09-14 by `corpus-fix-4-threshold-and-terminal-value`'s Step D;
+  updated again 2026-09-14 by `corpus-fix-7-manifest-corrections`'s Step E,
   the ONE authorized edit that run makes).**
-  `analysis/data/corpus_v2/CORPUS_MANIFEST_V2.json`'s holdout is now the
-  77-company corpus's holdout (RMO removed from the corpus entirely, Luis's
-  explicit instruction — see `analysis/data/corpus_v2/SPLIT_V3_RMO_REMOVED.json`):
-  **24 companies, stratified across S1-S5 including S4; sha256
-  `5ab7ef18c3e3f22160f6b6ae60a82c99638b70c26b1c17d6477e6b5615795c84`, seed
-  20201231 (same seed, re-run over the corrected 77-company corpus).**
-  Superseded value, kept for audit trail: the prior 78-company (RMO-included)
-  holdout sha256 was
+  `analysis/data/corpus_v2/CORPUS_MANIFEST_V4.json`'s holdout is now the
+  75-company corpus's holdout (corpus-fix-7 removed HON and UPS from S1 —
+  never members of the registered S1 selection, see
+  `wrap-ups/corpus-fix-7-manifest-corrections-out.md` §3 — and corrected
+  GOOGL's call data to A5's verified GOOG figures; no company was added or
+  removed on outcome grounds): **24 companies, stratified across S1-S5
+  including S4; sha256
+  `1d05ee0496842e2dd033924ce82d387213b80f20c3e36582eabb66d33de87569`, seed
+  20201231 (same seed, re-run over the corrected 75-company corpus) — see
+  `analysis/data/corpus_v2/SPLIT_V4_MANIFEST_CORRECTIONS.json`.**
+  Superseded values, kept for audit trail: the 77-company (RMO-removed,
+  pre-manifest-correction) holdout sha256 was
+  `5ab7ef18c3e3f22160f6b6ae60a82c99638b70c26b1c17d6477e6b5615795c84`
+  (`analysis/data/corpus_v2/SPLIT_V3_RMO_REMOVED.json`); the prior 78-company
+  (RMO-included) holdout sha256 was
   `d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23`
   (`analysis/data/corpus_v2/SPLIT_V2.json`). Re-locking was safe and cost
-  nothing: no company in either corpus has ever been scored, and the holdout
-  had never been used for any measurement — see
+  nothing each time: no company in any of these corpora has ever been scored,
+  and the holdout had never been used for any measurement — see
   `wrap-ups/corpus-fix-4-threshold-and-terminal-value-out.md` Step D for the
   full argument. This note must not be scored during iteration. Any run —
   sweep, prompt-candidate comparison, allocator gate — that touches any
