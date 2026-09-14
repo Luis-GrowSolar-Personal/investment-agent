@@ -72,3 +72,33 @@ Passing under new rule: ['AAPL', 'ABT', 'ACN', 'ADBE', 'AIG', 'AMAT', 'AMD', 'AM
 
 Failing under new rule: ['GOOGL', 'POWI', 'SBNY', 'SIVB', 'SPWR', 'TSLA']
 
+
+## Step D outcome balance on CORPUS_MANIFEST_V2.json (2026-09-14, fix pass)
+
+Ran analysis/corpus_construction_outcomes_v2.py (182-day forward vs SPY,
++/-5pt dead band, per-company proxy on last call date -- same method as the
+first pass's Step 4b). Wrote analysis/data/corpus_v2/outcome_balance_v2.json.
+
+**Finding, contradicting an expectation of this run:** 4 of the 5 S4
+companies (NOVA, FRC, RMO, SUNW) are skipped as "missing price data" --
+yfinance has no forward-window price series for them under their original
+tickers, because they were delisted/acquired/liquidated at or shortly after
+their failure (exactly what the stratum is designed to study). Only WOLF
+(which survived as a going concern, ticker intact) produces a measurable
+182-day-forward outcome. This means the outcome-balance measurement
+structurally under-samples S4 even after Step B's availability restoration
+worked as intended -- restoring a company's CALL coverage does not restore
+its POST-FAILURE PRICE coverage under the original ticker. S4-only n=1
+(WOLF), not 5. This is reported as a finding, not corrected by re-picking or
+by substituting a successor-entity ticker (out of scope for this pass).
+
+Ex-S5 balance (n=56, directly comparable to prior figures): 44.6% beats /
+37.5% lags / 17.9% moves-with. Ex-S5-and-S4 (n=55, per A4): 45.5%/36.4%/18.2%.
+All-including (n=71, includes S5 and the 1 measurable S4 company): 39.4%
+beats / 46.5% lags / 14.1% moves-with.
+
+Comparison: first pass (v1, ex-S5, n=54): 44.4/35.2/20.4. Existing corpus:
+46.2/42.1/11.7. The v2 ex-S5 figure (44.6/37.5/17.9, n=56) is close to but
+not identical to the v1 figure -- driven by the same 4 S1 restorations
+(INTC/KO/MCD/TMO) plus WOLF's inclusion changing denominator from 54 to 56.
+Not re-picked regardless of this small shift, per the pre-registered rule.

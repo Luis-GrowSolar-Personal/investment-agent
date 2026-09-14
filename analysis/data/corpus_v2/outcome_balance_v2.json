@@ -1,0 +1,769 @@
+{
+  "generated_at": "2026-09-14T13:42:00.587789+00:00",
+  "method": "Same as first pass (analysis/corpus_construction_outcomes.py): 182-day forward return of each company's LAST call vs SPY, +/-5pt dead band, per-company proxy.",
+  "manifest_source": "analysis/data/corpus_v2/CORPUS_MANIFEST_V2.json",
+  "n_companies_measured": 71,
+  "n_skipped": 4,
+  "skipped_detail": [
+    {
+      "ticker": "NOVA",
+      "stratum": "S4",
+      "last_call": "2025-03-03",
+      "skipped": "missing price data"
+    },
+    {
+      "ticker": "FRC",
+      "stratum": "S4",
+      "last_call": "2023-04-24",
+      "skipped": "missing price data"
+    },
+    {
+      "ticker": "RMO",
+      "stratum": "S4",
+      "last_call": "2022-05-09",
+      "skipped": "missing price data"
+    },
+    {
+      "ticker": "SUNW",
+      "stratum": "S4",
+      "last_call": "2023-11-10",
+      "skipped": "missing price data"
+    }
+  ],
+  "distribution_all_including_S4_and_S5": {
+    "n": 71,
+    "counts": {
+      "beats": 28,
+      "lags": 33,
+      "moves_with": 10
+    },
+    "pct": {
+      "beats": 39.4,
+      "lags": 46.5,
+      "moves_with": 14.1
+    }
+  },
+  "distribution_excluding_S5_only": {
+    "n": 56,
+    "counts": {
+      "beats": 25,
+      "lags": 21,
+      "moves_with": 10
+    },
+    "pct": {
+      "beats": 44.6,
+      "lags": 37.5,
+      "moves_with": 17.9
+    },
+    "note": "This is the figure directly comparable to the first pass's headline (44.4/35.2/20.4, n=54) and the existing corpus (46.2/42.1/11.7) -- both of those ALSO exclude S5 but do NOT separately exclude S4."
+  },
+  "distribution_excluding_S5_and_S4_per_A4": {
+    "n": 55,
+    "counts": {
+      "beats": 25,
+      "lags": 20,
+      "moves_with": 10
+    },
+    "pct": {
+      "beats": 45.5,
+      "lags": 36.4,
+      "moves_with": 18.2
+    },
+    "note": "Per PREREGISTRATION_FIX.json A4: S4 is outcome-defined (failures) and must be reported both ways. This is the ex-S4 version of the line above."
+  },
+  "s4_only": {
+    "n": 1,
+    "counts": {
+      "beats": 0,
+      "lags": 1,
+      "moves_with": 0
+    },
+    "pct": {
+      "beats": 0.0,
+      "lags": 100.0,
+      "moves_with": 0.0
+    },
+    "s4_share_of_ex_s5_companies": 1.8,
+    "s4_share_of_ex_s5_calls": null
+  },
+  "prior_figures_for_comparison": {
+    "first_pass_v1_ex_s5": {
+      "beats": 44.4,
+      "lags": 35.2,
+      "moves_with": 20.4,
+      "n": 54,
+      "source": "analysis/data/corpus_v2/outcome_balance.json -> distribution_excluding_S5_ruler_headline.pct"
+    },
+    "existing_corpus": {
+      "beats": 46.2,
+      "lags": 42.1,
+      "moves_with": 11.7,
+      "source": "analysis/corpus_construction_outcomes.py -> existing_corpus_comparison (hardcoded prior baseline)"
+    }
+  },
+  "per_company": [
+    {
+      "ticker": "CMCSA",
+      "stratum": "S1",
+      "last_call": "2025-10-30",
+      "stock_ret_pct": 5.61,
+      "spy_ret_pct": 5.71,
+      "diff_pts": -0.11,
+      "bucket": "moves_with"
+    },
+    {
+      "ticker": "NFLX",
+      "stratum": "S1",
+      "last_call": "2025-10-21",
+      "stock_ret_pct": -25.42,
+      "spy_ret_pct": 4.88,
+      "diff_pts": -30.3,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "XOM",
+      "stratum": "S1",
+      "last_call": "2025-10-31",
+      "stock_ret_pct": 33.57,
+      "spy_ret_pct": 5.66,
+      "diff_pts": 27.91,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "VZ",
+      "stratum": "S1",
+      "last_call": "2025-10-29",
+      "stock_ret_pct": 15.92,
+      "spy_ret_pct": 3.52,
+      "diff_pts": 12.4,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "NKE",
+      "stratum": "S1",
+      "last_call": "2025-12-18",
+      "stock_ret_pct": -31.13,
+      "spy_ret_pct": 10.39,
+      "diff_pts": -41.52,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "MRK",
+      "stratum": "S1",
+      "last_call": "2025-10-30",
+      "stock_ret_pct": 26.54,
+      "spy_ret_pct": 5.71,
+      "diff_pts": 20.83,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "PFE",
+      "stratum": "S1",
+      "last_call": "2025-11-04",
+      "stock_ret_pct": 8.85,
+      "spy_ret_pct": 7.19,
+      "diff_pts": 1.66,
+      "bucket": "moves_with"
+    },
+    {
+      "ticker": "T",
+      "stratum": "S1",
+      "last_call": "2025-10-22",
+      "stock_ret_pct": 1.68,
+      "spy_ret_pct": 6.5,
+      "diff_pts": -4.82,
+      "bucket": "moves_with"
+    },
+    {
+      "ticker": "ABT",
+      "stratum": "S1",
+      "last_call": "2025-10-15",
+      "stock_ret_pct": -21.54,
+      "spy_ret_pct": 5.23,
+      "diff_pts": -26.77,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "CRM",
+      "stratum": "S1",
+      "last_call": "2025-12-03",
+      "stock_ret_pct": -20.15,
+      "spy_ret_pct": 10.29,
+      "diff_pts": -30.44,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "PEP",
+      "stratum": "S1",
+      "last_call": "2025-10-09",
+      "stock_ret_pct": 8.83,
+      "spy_ret_pct": 1.3,
+      "diff_pts": 7.53,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "CSCO",
+      "stratum": "S1",
+      "last_call": "2025-11-12",
+      "stock_ret_pct": 37.74,
+      "spy_ret_pct": 8.62,
+      "diff_pts": 29.11,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "ACN",
+      "stratum": "S1",
+      "last_call": "2025-12-18",
+      "stock_ret_pct": -52.59,
+      "spy_ret_pct": 10.39,
+      "diff_pts": -62.98,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "COST",
+      "stratum": "S1",
+      "last_call": "2025-12-11",
+      "stock_ret_pct": 10.31,
+      "spy_ret_pct": 7.05,
+      "diff_pts": 3.26,
+      "bucket": "moves_with"
+    },
+    {
+      "ticker": "QCOM",
+      "stratum": "S1",
+      "last_call": "2025-11-05",
+      "stock_ret_pct": 7.15,
+      "spy_ret_pct": 8.3,
+      "diff_pts": -1.15,
+      "bucket": "moves_with"
+    },
+    {
+      "ticker": "TXN",
+      "stratum": "S1",
+      "last_call": "2025-10-21",
+      "stock_ret_pct": 28.93,
+      "spy_ret_pct": 4.88,
+      "diff_pts": 24.04,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "INTC",
+      "stratum": "S1",
+      "last_call": "2025-10-23",
+      "stock_ret_pct": 75.0,
+      "spy_ret_pct": 5.46,
+      "diff_pts": 69.54,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "KO",
+      "stratum": "S1",
+      "last_call": "2025-10-21",
+      "stock_ret_pct": 4.89,
+      "spy_ret_pct": 4.88,
+      "diff_pts": 0.0,
+      "bucket": "moves_with"
+    },
+    {
+      "ticker": "MCD",
+      "stratum": "S1",
+      "last_call": "2025-11-05",
+      "stock_ret_pct": -7.06,
+      "spy_ret_pct": 8.3,
+      "diff_pts": -15.36,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "TMO",
+      "stratum": "S1",
+      "last_call": "2025-10-22",
+      "stock_ret_pct": -9.38,
+      "spy_ret_pct": 6.5,
+      "diff_pts": -15.88,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "AMAT",
+      "stratum": "S2",
+      "last_call": "2025-11-13",
+      "stock_ret_pct": 97.36,
+      "spy_ret_pct": 11.33,
+      "diff_pts": 86.03,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "LRCX",
+      "stratum": "S2",
+      "last_call": "2025-10-22",
+      "stock_ret_pct": 88.0,
+      "spy_ret_pct": 6.5,
+      "diff_pts": 81.5,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "MU",
+      "stratum": "S2",
+      "last_call": "2025-12-17",
+      "stock_ret_pct": 362.57,
+      "spy_ret_pct": 10.36,
+      "diff_pts": 352.21,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "NXPI",
+      "stratum": "S2",
+      "last_call": "2025-10-28",
+      "stock_ret_pct": 8.18,
+      "spy_ret_pct": 3.58,
+      "diff_pts": 4.6,
+      "bucket": "moves_with"
+    },
+    {
+      "ticker": "ADBE",
+      "stratum": "S2",
+      "last_call": "2025-12-10",
+      "stock_ret_pct": -31.98,
+      "spy_ret_pct": 5.51,
+      "diff_pts": -37.49,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "IBM",
+      "stratum": "S2",
+      "last_call": "2025-10-22",
+      "stock_ret_pct": -12.4,
+      "spy_ret_pct": 6.5,
+      "diff_pts": -18.9,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "FORM",
+      "stratum": "S2",
+      "last_call": "2025-10-29",
+      "stock_ret_pct": 184.01,
+      "spy_ret_pct": 3.52,
+      "diff_pts": 180.49,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "SLAB",
+      "stratum": "S2",
+      "last_call": "2025-11-04",
+      "stock_ret_pct": 72.18,
+      "spy_ret_pct": 7.19,
+      "diff_pts": 64.99,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "BOX",
+      "stratum": "S2",
+      "last_call": "2025-12-02",
+      "stock_ret_pct": -8.32,
+      "spy_ret_pct": 11.45,
+      "diff_pts": -19.77,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "ENTG",
+      "stratum": "S2",
+      "last_call": "2025-10-30",
+      "stock_ret_pct": 61.58,
+      "spy_ret_pct": 5.71,
+      "diff_pts": 55.87,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "DIOD",
+      "stratum": "S2",
+      "last_call": "2025-11-06",
+      "stock_ret_pct": 117.36,
+      "spy_ret_pct": 9.14,
+      "diff_pts": 108.21,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "AMSC",
+      "stratum": "S2",
+      "last_call": "2025-11-06",
+      "stock_ret_pct": 45.61,
+      "spy_ret_pct": 9.14,
+      "diff_pts": 36.47,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "ARRY",
+      "stratum": "S2",
+      "last_call": "2025-11-05",
+      "stock_ret_pct": -2.28,
+      "spy_ret_pct": 8.3,
+      "diff_pts": -10.59,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "SHLS",
+      "stratum": "S2",
+      "last_call": "2025-11-04",
+      "stock_ret_pct": -12.01,
+      "spy_ret_pct": 7.19,
+      "diff_pts": -19.2,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "BLDP",
+      "stratum": "S2",
+      "last_call": "2025-11-13",
+      "stock_ret_pct": 29.47,
+      "spy_ret_pct": 11.33,
+      "diff_pts": 18.14,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "GIS",
+      "stratum": "S3",
+      "last_call": "2025-12-17",
+      "stock_ret_pct": -31.37,
+      "spy_ret_pct": 10.36,
+      "diff_pts": -41.73,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "KMB",
+      "stratum": "S3",
+      "last_call": "2025-10-30",
+      "stock_ret_pct": -18.12,
+      "spy_ret_pct": 5.71,
+      "diff_pts": -23.83,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "CL",
+      "stratum": "S3",
+      "last_call": "2025-10-31",
+      "stock_ret_pct": 13.25,
+      "spy_ret_pct": 5.66,
+      "diff_pts": 7.59,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "HRL",
+      "stratum": "S3",
+      "last_call": "2025-12-04",
+      "stock_ret_pct": -3.6,
+      "spy_ret_pct": 10.62,
+      "diff_pts": -14.22,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "CVS",
+      "stratum": "S3",
+      "last_call": "2025-10-29",
+      "stock_ret_pct": 4.09,
+      "spy_ret_pct": 3.52,
+      "diff_pts": 0.58,
+      "bucket": "moves_with"
+    },
+    {
+      "ticker": "HUM",
+      "stratum": "S3",
+      "last_call": "2025-11-05",
+      "stock_ret_pct": -7.02,
+      "spy_ret_pct": 8.3,
+      "diff_pts": -15.33,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "BMY",
+      "stratum": "S3",
+      "last_call": "2025-10-30",
+      "stock_ret_pct": 32.81,
+      "spy_ret_pct": 5.71,
+      "diff_pts": 27.1,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "WFC",
+      "stratum": "S3",
+      "last_call": "2025-10-14",
+      "stock_ret_pct": -3.38,
+      "spy_ret_pct": 4.87,
+      "diff_pts": -8.25,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "USB",
+      "stratum": "S3",
+      "last_call": "2025-10-16",
+      "stock_ret_pct": 21.53,
+      "spy_ret_pct": 6.21,
+      "diff_pts": 15.32,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "AIG",
+      "stratum": "S3",
+      "last_call": "2025-11-05",
+      "stock_ret_pct": 1.8,
+      "spy_ret_pct": 8.3,
+      "diff_pts": -6.51,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "JPM",
+      "stratum": "S3",
+      "last_call": "2025-10-14",
+      "stock_ret_pct": 2.99,
+      "spy_ret_pct": 4.87,
+      "diff_pts": -1.87,
+      "bucket": "moves_with"
+    },
+    {
+      "ticker": "CAT",
+      "stratum": "S3",
+      "last_call": "2025-10-29",
+      "stock_ret_pct": 38.35,
+      "spy_ret_pct": 3.52,
+      "diff_pts": 34.84,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "DE",
+      "stratum": "S3",
+      "last_call": "2025-11-26",
+      "stock_ret_pct": 12.67,
+      "spy_ret_pct": 10.41,
+      "diff_pts": 2.25,
+      "bucket": "moves_with"
+    },
+    {
+      "ticker": "GE",
+      "stratum": "S3",
+      "last_call": "2025-10-31",
+      "stock_ret_pct": -7.26,
+      "spy_ret_pct": 5.66,
+      "diff_pts": -12.92,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "MMM",
+      "stratum": "S3",
+      "last_call": "2025-10-21",
+      "stock_ret_pct": -10.9,
+      "spy_ret_pct": 4.88,
+      "diff_pts": -15.79,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "CVX",
+      "stratum": "S3",
+      "last_call": "2025-10-31",
+      "stock_ret_pct": 20.87,
+      "spy_ret_pct": 5.66,
+      "diff_pts": 15.21,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "COP",
+      "stratum": "S3",
+      "last_call": "2025-11-06",
+      "stock_ret_pct": 34.11,
+      "spy_ret_pct": 9.14,
+      "diff_pts": 24.97,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "VLO",
+      "stratum": "S3",
+      "last_call": "2025-10-23",
+      "stock_ret_pct": 35.06,
+      "spy_ret_pct": 5.46,
+      "diff_pts": 29.6,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "PSX",
+      "stratum": "S3",
+      "last_call": "2025-10-29",
+      "stock_ret_pct": 25.72,
+      "spy_ret_pct": 3.52,
+      "diff_pts": 22.2,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "NEE",
+      "stratum": "S3",
+      "last_call": "2025-10-28",
+      "stock_ret_pct": 15.48,
+      "spy_ret_pct": 3.58,
+      "diff_pts": 11.9,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "WOLF",
+      "stratum": "S4",
+      "last_call": "2025-10-29",
+      "stock_ret_pct": -19.88,
+      "spy_ret_pct": 3.52,
+      "diff_pts": -23.4,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "NOVA",
+      "stratum": "S4",
+      "last_call": "2025-03-03",
+      "skipped": "missing price data"
+    },
+    {
+      "ticker": "FRC",
+      "stratum": "S4",
+      "last_call": "2023-04-24",
+      "skipped": "missing price data"
+    },
+    {
+      "ticker": "RMO",
+      "stratum": "S4",
+      "last_call": "2022-05-09",
+      "skipped": "missing price data"
+    },
+    {
+      "ticker": "SUNW",
+      "stratum": "S4",
+      "last_call": "2023-11-10",
+      "skipped": "missing price data"
+    },
+    {
+      "ticker": "AAPL",
+      "stratum": "S5",
+      "last_call": "2025-10-30",
+      "stock_ret_pct": -0.02,
+      "spy_ret_pct": 5.71,
+      "diff_pts": -5.73,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "AMD",
+      "stratum": "S5",
+      "last_call": "2025-11-04",
+      "stock_ret_pct": 42.08,
+      "spy_ret_pct": 7.19,
+      "diff_pts": 34.89,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "AVGO",
+      "stratum": "S5",
+      "last_call": "2025-12-11",
+      "stock_ret_pct": -5.12,
+      "spy_ret_pct": 7.05,
+      "diff_pts": -12.17,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "MSFT",
+      "stratum": "S5",
+      "last_call": "2025-10-29",
+      "stock_ret_pct": -21.62,
+      "spy_ret_pct": 3.52,
+      "diff_pts": -25.14,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "NVDA",
+      "stratum": "S5",
+      "last_call": "2025-11-19",
+      "stock_ret_pct": 19.81,
+      "spy_ret_pct": 11.86,
+      "diff_pts": 7.95,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "ORCL",
+      "stratum": "S5",
+      "last_call": "2025-12-10",
+      "stock_ret_pct": -9.75,
+      "spy_ret_pct": 5.51,
+      "diff_pts": -15.26,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "TSLA",
+      "stratum": "S5",
+      "last_call": "2025-10-22",
+      "stock_ret_pct": -11.72,
+      "spy_ret_pct": 6.5,
+      "diff_pts": -18.22,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "AMPX",
+      "stratum": "S5",
+      "last_call": "2025-11-06",
+      "stock_ret_pct": 43.07,
+      "spy_ret_pct": 9.14,
+      "diff_pts": 33.93,
+      "bucket": "beats"
+    },
+    {
+      "ticker": "ENVX",
+      "stratum": "S5",
+      "last_call": "2025-11-05",
+      "stock_ret_pct": -40.9,
+      "spy_ret_pct": 8.3,
+      "diff_pts": -49.2,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "EOSE",
+      "stratum": "S5",
+      "last_call": "2025-11-06",
+      "stock_ret_pct": -58.4,
+      "spy_ret_pct": 9.14,
+      "diff_pts": -67.54,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "FSLR",
+      "stratum": "S5",
+      "last_call": "2025-10-30",
+      "stock_ret_pct": -13.57,
+      "spy_ret_pct": 5.71,
+      "diff_pts": -19.28,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "QS",
+      "stratum": "S5",
+      "last_call": "2025-10-22",
+      "stock_ret_pct": -46.17,
+      "spy_ret_pct": 6.5,
+      "diff_pts": -52.67,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "RUN",
+      "stratum": "S5",
+      "last_call": "2025-11-06",
+      "stock_ret_pct": -32.42,
+      "spy_ret_pct": 9.14,
+      "diff_pts": -41.56,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "SPWR",
+      "stratum": "S5",
+      "last_call": "2025-10-21",
+      "stock_ret_pct": -43.5,
+      "spy_ret_pct": 4.88,
+      "diff_pts": -48.38,
+      "bucket": "lags"
+    },
+    {
+      "ticker": "TTD",
+      "stratum": "S5",
+      "last_call": "2025-11-06",
+      "stock_ret_pct": -48.82,
+      "spy_ret_pct": 9.14,
+      "diff_pts": -57.96,
+      "bucket": "lags"
+    }
+  ]
+}
