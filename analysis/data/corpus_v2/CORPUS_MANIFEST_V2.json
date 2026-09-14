@@ -754,18 +754,6 @@
           "restored_this_pass": true
         },
         {
-          "ticker": "RMO",
-          "stratum": "S4",
-          "in_vendor_symbol_list": true,
-          "n_calls_2020_2025": 6,
-          "first_call": "2021-03-30",
-          "last_call": "2022-05-09",
-          "max_gap_days": 106,
-          "rule_applied": "A2",
-          "meets_new_rule": true,
-          "restored_this_pass": true
-        },
-        {
           "ticker": "SUNW",
           "stratum": "S4",
           "in_vendor_symbol_list": true,
@@ -778,7 +766,7 @@
           "restored_this_pass": true
         }
       ],
-      "note": "SIVB remains excluded: 0 events in vendor (structural vendor-coverage absence, not an availability-rule artifact). No A3 candidate is eligible (all 15 rejected in PREREGISTRATION_FIX.json; the first pass's own S4 reserve pool -- SBNY, PTRA, FSR, NKLA, RIDE, LICY -- independently re-fails domain/point-in-time eligibility, confirmed again in Step A). S4 reaches 5/8, not 8/8; shortfall of 3 is NOT closed by loosening A2's thresholds, per the prompt's explicit instruction."
+      "note": "SIVB remains excluded: 0 events in vendor (structural vendor-coverage absence, not an availability-rule artifact). No A3 candidate is eligible (all 15 rejected in PREREGISTRATION_FIX.json; the first pass's own S4 reserve pool -- SBNY, PTRA, FSR, NKLA, RIDE, LICY -- independently re-fails domain/point-in-time eligibility, confirmed again in Step A). S4 reaches 5/8, not 8/8; shortfall of 3 is NOT closed by loosening A2's thresholds, per the prompt's explicit instruction. corpus-fix-4 Step D: RMO removed from the corpus entirely (Luis's explicit instruction). S4 now 4/8."
     },
     "S5": {
       "target": 16,
@@ -982,19 +970,18 @@
   "totals": {
     "target_total": 80,
     "frozen_total_v1": 71,
-    "frozen_total_v2": 78,
+    "frozen_total_v2": 77,
     "restorations_this_pass": [
       "INTC",
       "KO",
       "MCD",
       "TMO",
       "FRC",
-      "RMO",
       "SUNW"
     ],
-    "restorations_count": 7,
+    "restorations_count": 6,
     "new_a3_candidates_added": [],
-    "total_calls_2020_2025_v2": 1652
+    "total_calls_2020_2025_v2": 1646
   },
   "vendor_calls_this_fix_pass": 85,
   "vendor_calls_cumulative_this_run": 167,
@@ -1122,5 +1109,11 @@
     ],
     "holdout_sha256": "d4e40fe0b5f1234b34c3fe7ccd5e704afff4e5aaf4e17dbc0e53c2223e412a23",
     "holdout_lock_note": "Holdout must not be scored during iteration. Any run touching it must say so prominently. See docs/architecture/PROMOTION_GATE.md Sec10."
+  },
+  "corpus_fix_4_rmo_removal": {
+    "removed_ticker": "RMO",
+    "reason": "Luis's explicit instruction (prompts/corpus-fix-4-threshold-and-terminal-value.md Step A) -- no verification required for this one.",
+    "corpus_size_before": 78,
+    "corpus_size_after": 77
   }
 }

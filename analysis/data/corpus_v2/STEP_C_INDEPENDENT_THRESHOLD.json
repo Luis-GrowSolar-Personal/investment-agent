@@ -1,0 +1,234 @@
+{
+  "run_id": "corpus-construction",
+  "pass": "fix (corpus-fix-4), Step C -- honest threshold projection, independent blocks",
+  "method": "Each synthetic company draws its OWN accuracy from Normal(mean, spread) and its OWN i.i.d. Bernoulli(accuracy) per-call outcomes -- no company is a literal copy of another. Mean/spread and call-count distribution estimated from the real 16-ticker scored ALL16 population (value_attribution_v2_stage_b_driver.build_populations()['scorer_thin_filtered'], n=359 calls).",
+  "seed": 20260913,
+  "n_trials": 150,
+  "disagreement_rate": 0.15,
+  "real_population_stats": {
+    "n_real_companies": 16,
+    "n_real_calls": 359,
+    "mean_accuracy_pct": 40.2,
+    "spread_stdev_pp_observed": 16.5
+  },
+  "spread_brackets": {
+    "observed": {
+      "multiplier_on_observed": 1.0,
+      "spread_stdev_pp": 16.5,
+      "results_by_n": {
+        "16": {
+          "n_companies": 16,
+          "paired_mde_pp": 9,
+          "unpaired_mde_pp": 13,
+          "v6_accuracy_pct_in_synth_pop": 46.8,
+          "wall_seconds": 9.8
+        },
+        "30": {
+          "n_companies": 30,
+          "paired_mde_pp": 3,
+          "unpaired_mde_pp": 11,
+          "v6_accuracy_pct_in_synth_pop": 37.2,
+          "wall_seconds": 16.4
+        },
+        "54": {
+          "n_companies": 54,
+          "paired_mde_pp": 2,
+          "unpaired_mde_pp": 7,
+          "v6_accuracy_pct_in_synth_pop": 39.9,
+          "wall_seconds": 27.5
+        },
+        "78": {
+          "n_companies": 78,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 6,
+          "v6_accuracy_pct_in_synth_pop": 37.2,
+          "wall_seconds": 44.2
+        },
+        "100": {
+          "n_companies": 100,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 6,
+          "v6_accuracy_pct_in_synth_pop": 37.3,
+          "wall_seconds": 55.3
+        },
+        "120": {
+          "n_companies": 120,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 5,
+          "v6_accuracy_pct_in_synth_pop": 40.4,
+          "wall_seconds": 77.6
+        },
+        "150": {
+          "n_companies": 150,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 5,
+          "v6_accuracy_pct_in_synth_pop": 40.2,
+          "wall_seconds": 97.9
+        },
+        "200": {
+          "n_companies": 200,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 4,
+          "v6_accuracy_pct_in_synth_pop": 40.7,
+          "wall_seconds": 129.6
+        }
+      }
+    },
+    "lower": {
+      "multiplier_on_observed": 0.5,
+      "spread_stdev_pp": 8.2,
+      "results_by_n": {
+        "16": {
+          "n_companies": 16,
+          "paired_mde_pp": 5,
+          "unpaired_mde_pp": 11,
+          "v6_accuracy_pct_in_synth_pop": 42.1,
+          "wall_seconds": 10.2
+        },
+        "30": {
+          "n_companies": 30,
+          "paired_mde_pp": 3,
+          "unpaired_mde_pp": 8,
+          "v6_accuracy_pct_in_synth_pop": 39.4,
+          "wall_seconds": 16.8
+        },
+        "54": {
+          "n_companies": 54,
+          "paired_mde_pp": 2,
+          "unpaired_mde_pp": 6,
+          "v6_accuracy_pct_in_synth_pop": 40.8,
+          "wall_seconds": 27.7
+        },
+        "78": {
+          "n_companies": 78,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 5,
+          "v6_accuracy_pct_in_synth_pop": 38.0,
+          "wall_seconds": 42.4
+        },
+        "100": {
+          "n_companies": 100,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 5,
+          "v6_accuracy_pct_in_synth_pop": 38.1,
+          "wall_seconds": 54.4
+        },
+        "120": {
+          "n_companies": 120,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 4,
+          "v6_accuracy_pct_in_synth_pop": 40.5,
+          "wall_seconds": 78.3
+        },
+        "150": {
+          "n_companies": 150,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 4,
+          "v6_accuracy_pct_in_synth_pop": 39.8,
+          "wall_seconds": 99.5
+        },
+        "200": {
+          "n_companies": 200,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 4,
+          "v6_accuracy_pct_in_synth_pop": 39.6,
+          "wall_seconds": 131.4
+        }
+      }
+    },
+    "higher": {
+      "multiplier_on_observed": 1.5,
+      "spread_stdev_pp": 24.7,
+      "results_by_n": {
+        "16": {
+          "n_companies": 16,
+          "paired_mde_pp": 9,
+          "unpaired_mde_pp": null,
+          "v6_accuracy_pct_in_synth_pop": 49.6,
+          "wall_seconds": 9.1
+        },
+        "30": {
+          "n_companies": 30,
+          "paired_mde_pp": 4,
+          "unpaired_mde_pp": 13,
+          "v6_accuracy_pct_in_synth_pop": 39.0,
+          "wall_seconds": 17.0
+        },
+        "54": {
+          "n_companies": 54,
+          "paired_mde_pp": 2,
+          "unpaired_mde_pp": 8,
+          "v6_accuracy_pct_in_synth_pop": 40.6,
+          "wall_seconds": 30.3
+        },
+        "78": {
+          "n_companies": 78,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 7,
+          "v6_accuracy_pct_in_synth_pop": 36.8,
+          "wall_seconds": 45.3
+        },
+        "100": {
+          "n_companies": 100,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 7,
+          "v6_accuracy_pct_in_synth_pop": 36.4,
+          "wall_seconds": 55.9
+        },
+        "120": {
+          "n_companies": 120,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 6,
+          "v6_accuracy_pct_in_synth_pop": 40.5,
+          "wall_seconds": 75.3
+        },
+        "150": {
+          "n_companies": 150,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 6,
+          "v6_accuracy_pct_in_synth_pop": 40.3,
+          "wall_seconds": 98.6
+        },
+        "200": {
+          "n_companies": 200,
+          "paired_mde_pp": 1,
+          "unpaired_mde_pp": 5,
+          "v6_accuracy_pct_in_synth_pop": 41.7,
+          "wall_seconds": 126.6
+        }
+      }
+    }
+  },
+  "n_list": [
+    16,
+    30,
+    54,
+    78,
+    100,
+    120,
+    150,
+    200
+  ],
+  "sqrt_estimates": {
+    "published_baseline_24_over_sqrt_n": {
+      "16": 6.0,
+      "30": 4.4,
+      "54": 3.3,
+      "78": 2.7,
+      "100": 2.4,
+      "120": 2.2,
+      "150": 2.0,
+      "200": 1.7
+    },
+    "this_run_recheck_20_over_sqrt_n": {
+      "16": 5.0,
+      "30": 3.7,
+      "54": 2.7,
+      "78": 2.3,
+      "100": 2.0,
+      "120": 1.8,
+      "150": 1.6,
+      "200": 1.4
+    }
+  }
+}
