@@ -1,0 +1,91 @@
+{
+  "run_id": "corpus-construction",
+  "written_at": "2026-09-14T00:00:00Z",
+  "purpose": "Pre-register the entire corpus selection procedure BEFORE looking at a single company's actual return. Written and committed before Step 1's point-in-time source is fetched a second time or any stratum's members are looked up against price history.",
+  "point_in_time_source": {
+    "name": "Wikipedia 'List of S&P 500 companies' article, dated revision",
+    "url": "https://en.wikipedia.org/w/index.php?title=List_of_S%26P_500_companies&oldid=997494787",
+    "revision_id": 997494787,
+    "revision_timestamp": "2020-12-31T19:55:00Z",
+    "as_of_date": "2020-12-31",
+    "why_this_counts_as_dated_not_survivors_only": "This is a specific, timestamped historical revision of the article as it existed on 2020-12-31, not the current live article. It therefore includes companies that were constituents on that date regardless of what happened to them afterward. Cross-referenced against the separate 'Historical components of the S&P 500' change-log page (https://en.wikipedia.org/wiki/Historical_components_of_the_S%26P_500) to confirm post-2020-12-31 departures are real and traceable to a dated change event.",
+    "known_limitation": "The revision's full ~500-row table could not be retrieved in one piece through the available fetch tooling (responses truncate around row ~234, alphabetically through 'H'). Rows A-H (items 1-234) were retrieved verbatim and are treated as individually confirmed. Rows I-Z were not retrieved as a complete table in this run; membership for specific I-Z tickers used below was instead corroborated against the 'Historical components' change log (a ticker not shown as added after 2020-12-31, and shown as removed only via a dated post-2020 event, is treated as having been a 2020-12-31 constituent) or is flagged inline as unverified-by-this-run and resting on general market knowledge. This is a genuine limitation, stated in the wrap-up, not silently patched over."
+  },
+  "strata": {
+    "S1": {
+      "name": "Large cap, point-in-time",
+      "quota": 20,
+      "rule": "Ranks 21-40 by market cap on the 2020-12-31 list, deterministic, no randomness. Tie-break / collision rule (pre-registered here, not improvised later): if a rank-eligible ticker is already a member of S5 (ALL16), it is skipped and the next-lower-ranked ticker is used instead, so no company appears in two strata. Market cap ranks for this run are sourced from general published knowledge of December 2020 mega-cap ordering (Apple, Microsoft, Amazon, Alphabet, Facebook, Tesla, Berkshire Hathaway, Visa, JPMorgan, Johnson & Johnson occupying ranks 1-10 is well-established and cross-checked across sources), NOT from a single retrieved authoritative ranked table for ranks 21-40 specifically -- flagged as a limitation, see wrap-up."
+    },
+    "S2": {
+      "name": "In scope, mixed cap",
+      "quota": 16,
+      "size_bands": {"large": 6, "small": 6, "micro": 4},
+      "rule": "Candidate pool fixed below, restricted to companies within DOMAIN.md's Tier 1 (solar/storage/semiconductors) or Tier 2 (IT/software/cloud, scoped crypto) universe, confirmed public and trading in 2020, and excluding every ALL16 (S5) ticker. Random selection within each size band using Python random.sample with the fixed seed below, applied to the band's candidate pool in the fixed order listed.",
+      "seed": 20201231,
+      "candidate_pool": {
+        "large": ["QCOM", "TXN", "INTC", "MU", "ADI", "AMAT", "LRCX", "KLAC", "NXPI", "MCHP", "ADBE", "INTU", "CRM", "CSCO", "IBM"],
+        "small": ["ON", "SWKS", "ENPH", "SEDG", "MPWR", "CREE", "ENTG", "FORM", "AMKR", "DIOD", "SLAB", "POWI", "PSTG", "BOX", "FIVN"],
+        "micro": ["MAXN", "SPI", "CSIQ", "JKS", "ARRY", "SHLS", "STEM", "SUNW", "AMSC", "GEVO", "BLDP"]
+      },
+      "note": "Large-band pool intentionally overlaps with S1's candidate rank range on a few names (e.g. QCOM, TXN, CRM, CSCO); S1's deterministic rank list is fixed first, and any ticker S1 claims is removed from this pool before S2's random draw, applied mechanically in that order."
+    },
+    "S3": {
+      "name": "Out of scope, mixed cap",
+      "quota": 20,
+      "size_bands": {"large": 6, "small": 6, "micro": 4, "extra_for_sector_quota": 4},
+      "rule": "Outside DOMAIN.md entirely (no solar/storage/semiconductor/software-cloud/crypto exposure). Sector quota: at most 4 companies per GICS-style sector. Random within sector using the fixed seed, applied to the fixed candidate pool below.",
+      "seed": 20201231,
+      "sector_cap": 4,
+      "candidate_pool": {
+        "consumer_staples": ["KO", "PEP", "CL", "KMB", "GIS", "HRL"],
+        "healthcare_pharma": ["PFE", "MRK", "ABT", "BMY", "CVS", "HUM"],
+        "financials": ["JPM", "BAC", "WFC", "USB", "TRV", "AIG"],
+        "industrials": ["HON", "UPS", "CAT", "DE", "GE", "MMM"],
+        "energy": ["XOM", "CVX", "COP", "SLB", "PSX", "VLO"],
+        "utilities": ["DUK", "SO", "AEP", "EXC", "D", "NEE"],
+        "materials": ["LIN", "APD", "NEM", "DOW", "ECL", "FCX"],
+        "real_estate": ["AMT", "PLD", "SPG", "EQIX", "O", "PSA"],
+        "media_telecom": ["VZ", "T", "CMCSA", "DIS", "CHTR", "NFLX"]
+      }
+    },
+    "S4": {
+      "name": "Failures",
+      "quota": 8,
+      "rule": "Companies that were 2020-12-31 S&P 500 constituents (per Step 1's source) OR were within DOMAIN.md's Tier 1/2 universe as of 2020, and subsequently failed outright, were acquired under distress (regulatory receivership, forced sale), or were delisted. Selected by verified 2020 membership/domain-fit FIRST, without reference to which quarter they later collapsed in. The prompt's suggested candidate list (SVB Financial, First Republic, Signature Bank, Proterra, Fisker, Nikola, Lordstown, Li-Cycle, Wolfspeed) is checked one by one against this rule in Step 2, mechanically -- a candidate that fails verification is dropped, not swapped for a similar-looking name after the fact; any quota shortfall is filled from the reserve pool below, ordered as listed, before considering any other name.",
+      "reserve_pool_for_shortfall": ["Sunnova Energy (NOVA)", "Complete Solaria (CSLR)", "Li-Cycle (LICY)", "Proterra (PTRA)"]
+    },
+    "S5": {
+      "name": "Continuity (ALL16)",
+      "quota": 16,
+      "rule": "The existing ALL16 universe, carried forward unchanged. Source: docs/architecture/VERSION_REGISTRY.json -> artifacts.ticker_universe.canonical (ESTABLISHED + SPECULATIVE). Excluded from Step 6's headline detection-threshold figures; this exclusion is recorded in CORPUS_MANIFEST.json, not left implicit.",
+      "members": {
+        "ESTABLISHED": ["AAPL", "AMD", "AVGO", "GOOGL", "MSFT", "NVDA", "ORCL", "TSLA"],
+        "SPECULATIVE": ["AMPX", "ENVX", "EOSE", "FSLR", "QS", "RUN", "SPWR", "TTD"]
+      }
+    },
+    "S6": {
+      "name": "Reserve",
+      "rule": "Named, ranked replacement lists per stratum (S1/S2/S3 pools above already list more candidates than each stratum's quota in most bands; unused, lower-priority draws from the same seeded random.sample ordering serve as that band's ranked reserve list; S4's reserve_pool_for_shortfall above serves S4). Used only by Step 3's drop-and-replace rule -- never to fix an outcome-balance result post hoc (Step 4b's rule forbids that explicitly)."
+    }
+  },
+  "availability_thresholds": {
+    "window": ["2020-01-01", "2025-12-31"],
+    "min_calls_in_window": 12,
+    "max_gap_consecutive_quarters": 2
+  },
+  "drop_and_replace_rule": {
+    "trigger": "fewer than 12 calls in the window, OR a gap longer than 2 consecutive quarters, per the vendor's events metadata",
+    "action": "drop the company and replace it with the next name in that stratum's S6 reserve list, applied mechanically with no judgment call",
+    "recording": "every drop and its replacement recorded in CORPUS_MANIFEST.json and findings.md at the moment it happens"
+  },
+  "three_way_split_procedure": {
+    "unit_of_split": "company (never call -- all of one company's calls stay in one split)",
+    "shares": {"train": "~1/3", "tune": "~1/3", "holdout": "~1/3"},
+    "stratification": "proportional representation of every stratum, including S4, in each split",
+    "seed": 20201231,
+    "method": "Python random.shuffle per stratum with the fixed seed, then round-robin assignment train/tune/holdout to preserve proportionality within rounding",
+    "holdout_lock": "Holdout company list and its sha256 are recorded in CORPUS_MANIFEST.json. A standing note is added to docs/architecture/PROMOTION_GATE.md Sec10 (the only authorized edit to that file in this run) stating the holdout must not be scored during iteration."
+  },
+  "abort_clause": "If this file already exists with different content than what is written here, ABORT the run and report the discrepancy rather than silently proceeding on either version."
+}

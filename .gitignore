@@ -45,6 +45,11 @@ analysis/data/*
 # committed not gitignored.
 !analysis/data/rule3_disposition/
 !analysis/data/rule3_disposition/**
+# Exception: corpus_v2 holds corpus-construction's pre-registration and
+# frozen manifest -- same §10b citation-record reasoning as
+# run_manifests/run_state, must be committed not gitignored.
+!analysis/data/corpus_v2/
+!analysis/data/corpus_v2/**
 .envrc.zsh
 cat_output
 diff_output

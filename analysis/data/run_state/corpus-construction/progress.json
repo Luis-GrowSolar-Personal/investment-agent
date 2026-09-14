@@ -1,0 +1,25 @@
+{
+  "run_id": "corpus-construction",
+  "prompt_sha256": "f44b14c3baf7051002fc76f03ee95782b622c654ddcc8815aefbe1ac409f5f58",
+  "driver_commit": "145acf2d0037b9578a1d5a62647a3cf1ccf61454",
+  "git_dirty_at_start": false,
+  "zero_anthropic_api_calls_asserted": true,
+  "steps": {
+    "step_minus1_resume": "done",
+    "step0_hygiene_preregistration": "in_progress",
+    "step1_point_in_time_universe": "pending",
+    "step2_strata": "pending",
+    "step3_availability": "pending",
+    "step4_freeze_and_outcomes": "pending",
+    "step5_split_and_holdout": "pending",
+    "step6_detection_threshold": "pending",
+    "step7_cost": "pending",
+    "step8_report": "pending"
+  },
+  "next_action": "Read required docs (scorecard-repair-out.md, value-attribution-v2-stage-d-out.md, DOMAIN.md, DESIGN_PRINCIPLES.md, ALLOCATOR_OPERATING_MODEL.md sec10b), find ec_vendor_evaluation wrap-up, find ALL16 list, then write PREREGISTRATION.json",
+  "notes": [
+    "New run, no prior state found in analysis/data/run_state/corpus-construction/ or analysis/data/corpus_v2/.",
+    "Unrelated dirty working-tree state stashed as 'unrelated-wip-before-corpus-construction' before starting.",
+    "ZERO Anthropic API calls in this run. This run selects/freezes a corpus; it does not score."
+  ]
+}
