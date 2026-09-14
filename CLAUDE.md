@@ -40,10 +40,10 @@ registry-build run wired up.
 
 **"Read the state of play" means this file, and only this file:**
 
-    docs/handoffs/2026-09-03-state-of-play.md
+    docs/handoffs/2026-09-14-state-of-play.md
 
 Reading version (renders correctly anywhere, including on a phone):
-<https://claude.ai/code/artifact/b1c5428c-1075-4145-b3fa-1a2dfca91aaa>
+<https://claude.ai/code/artifact/552cc2ad-cc29-4905-b181-09cf1deba7d1>
 
 It carries the defined terms (§0), the settled configuration, what is open, and
 the queued test plan (§7). Read §0 before anything else — several parameter
