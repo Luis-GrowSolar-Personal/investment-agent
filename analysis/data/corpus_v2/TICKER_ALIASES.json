@@ -90,6 +90,22 @@
       "a1_check": "n=24 (>=12) and max_gap_days=95 (<=240) -- both satisfied",
       "added_by": "corpus-fix-8-expand-to-150",
       "added_at": "2026-09-14T19:15:18.427184+00:00"
+    },
+    {
+      "original_symbol": "BK",
+      "working_symbol": "BNY",
+      "mechanism": "The Bank of New York Mellon Corporation rebranded to 'BNY' and changed its ticker from BK to BNY (2025) -- Yahoo/yfinance has fully purged BK, no historical data under that symbol at all",
+      "identity_confirmed": true,
+      "added_by": "corpus-fix-8-followup-bk-maxn-ipg-recheck",
+      "added_at": "2026-09-14T19:32:47.458190+00:00"
+    },
+    {
+      "original_symbol": "MAXN",
+      "working_symbol": "MAXNQ",
+      "mechanism": "Maxeon Solar Technologies delisted from Nasdaq and moved to OTC Pink Markets under the Q-suffix form, same pattern as SUNW/SUNWQ and FRC/FRCB",
+      "identity_confirmed": true,
+      "added_by": "corpus-fix-8-followup-bk-maxn-ipg-recheck",
+      "added_at": "2026-09-14T19:32:47.458339+00:00"
     }
   ],
   "vendor_calls_this_run": 5,
