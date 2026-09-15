@@ -1,0 +1,53 @@
+{
+  "ticker": "NEM",
+  "original_ticker": "NEM",
+  "call_date": "2020-02-20",
+  "year": 2019,
+  "quarter": 4,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "NEM",
+    "year": 2019,
+    "quarter": 4
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T02:11:17Z",
+  "raw_payload": {
+    "event": {
+      "year": 2019,
+      "quarter": 4,
+      "conference_date": "2020-02-20T11:00:00.000-05:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk01",
+        "text": "Good morning and welcome to Newmont's full year and fourth quarter 2019 earnings call. All participants will be in listen-only mode. Should you need assistance, please signal a conference specialist by pressing the star key followed by zero. After today's presentation, there will be an opportunity to ask questions. Please note this event is being recorded. I would now like to turn the conference over to Jessica Largent, Vice President of Investor Relations. Please go ahead."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you and good morning everyone. Welcome to Newmont's full year and fourth quarter 2019 earnings conference call. Joining us on the call today are Tom Palmer, President and Chief Executive Officer, Rob Atkinson, Chief Operating Officer, and Nancy Beze, Chief Financial Officer. They will be available to answer questions at the end of the call along with other members of our executive team. Turning to slide two. Please take a moment to review the cautionary statement shown here and refer to our SEC filings which can be found on our website at newmont.com. And now I'll turn it over to Tom on slide three."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thanks Jess. Good morning and thank you all for joining our call. Newmont has a track record of superior operating and financial performance. And we are continuing to build on this proven record by exceeding the commitments we made early last year. As we enter our centenary year, I'm excited about the opportunities we have in front of us to safely deliver superior value for all of our stakeholders. Turning to slide four for a recap of our major achievements. In 2019, we continued to lead in environmental, social and governance stewardship by achieving our public targets and being recognised as the gold industry leader for our performance. Last year we completed two historic transactions, creating the most balanced portfolio of long life assets with the ability to generate robust free cash flow for decades to come. We produced 6.9 million gold equivalent ounces, including 6.3 million ounces of gold at all in sustaining costs of $966 an ounce. in line with our four-year guidance. We generated $3.7 billion in adjusted EBITDA and have realised significant value from the Goldcorp acquisition exceeding our targets. We also reported the largest reserves in company history with an industry-leading 100 million ounces of gold reserves. We drove improvement across our portfolio and have now delivered $2.7 billion in value through our full potential program since 2013. We also delivered four projects on four continents on time and within budget and approved full funds for our next expansion at Tanami. We reached agreement to divest Red Lake, KCGM and our holdings in Continental to generate more than $1.4 billion in cash proceeds. And we returned an unprecedented $1.4 billion to shareholders last year, with $900 million in dividends and $500 million in share buybacks. This is unmatched in the gold industry. Our 2019 performance is evidence that we continue to deliver on our commitments. Turning to slide five. We are making excellent progress and exceeding our commitments to value delivery from our five new operations. At the start of last year, we made a commitment to deliver $365 million of run rate improvements per annum by the end of 2021. I'm very pleased that we are on track to exceed that commitment by nearly 40%. realising more than $500 million of cash flow improvements in 2021 through accelerating G&A and exploration synergies, along with higher than planned full potential improvements at Penasquito and Cerro Negro. This year alone, we expect to achieve $340 million in cash flow improvements, representing over 90% of the commitment we made for value delivery from this transaction. Each of our accomplishments were grounded in the safety of our people and the sustainability of our operations. Turning to slide six. Improving safety remains a relentless focus for all of us here at Newmont. Ensuring that everyone working in our business can return home safely to their family and friends is paramount. Through our visible caring leadership and the integrated systems we put into place, to manage risk consistently across our global operations, we are working to significantly and sustainably improve our safety performance. My expectation is that everyone who works in our business understands first and foremost the fatality risks associated with their work and are ensuring that the"
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk01": {
+        "name": "Operator",
+        "title": "Conference Operator"
+      },
+      "spk00": {
+        "name": "Jessica Largent",
+        "title": "Vice President of Investor Relations"
+      },
+      "spk02": {
+        "name": "Tom Palmer",
+        "title": "President and Chief Executive Officer"
+      }
+    }
+  },
+  "text": "Operator (Conference Operator): Good morning and welcome to Newmont's full year and fourth quarter 2019 earnings call. All participants will be in listen-only mode. Should you need assistance, please signal a conference specialist by pressing the star key followed by zero. After today's presentation, there will be an opportunity to ask questions. Please note this event is being recorded. I would now like to turn the conference over to Jessica Largent, Vice President of Investor Relations. Please go ahead.\n\nJessica Largent (Vice President of Investor Relations): Thank you and good morning everyone. Welcome to Newmont's full year and fourth quarter 2019 earnings conference call. Joining us on the call today are Tom Palmer, President and Chief Executive Officer, Rob Atkinson, Chief Operating Officer, and Nancy Beze, Chief Financial Officer. They will be available to answer questions at the end of the call along with other members of our executive team. Turning to slide two. Please take a moment to review the cautionary statement shown here and refer to our SEC filings which can be found on our website at newmont.com. And now I'll turn it over to Tom on slide three.\n\nTom Palmer (President and Chief Executive Officer): Thanks Jess. Good morning and thank you all for joining our call. Newmont has a track record of superior operating and financial performance. And we are continuing to build on this proven record by exceeding the commitments we made early last year. As we enter our centenary year, I'm excited about the opportunities we have in front of us to safely deliver superior value for all of our stakeholders. Turning to slide four for a recap of our major achievements. In 2019, we continued to lead in environmental, social and governance stewardship by achieving our public targets and being recognised as the gold industry leader for our performance. Last year we completed two historic transactions, creating the most balanced portfolio of long life assets with the ability to generate robust free cash flow for decades to come. We produced 6.9 million gold equivalent ounces, including 6.3 million ounces of gold at all in sustaining costs of $966 an ounce. in line with our four-year guidance. We generated $3.7 billion in adjusted EBITDA and have realised significant value from the Goldcorp acquisition exceeding our targets. We also reported the largest reserves in company history with an industry-leading 100 million ounces of gold reserves. We drove improvement across our portfolio and have now delivered $2.7 billion in value through our full potential program since 2013. We also delivered four projects on four continents on time and within budget and approved full funds for our next expansion at Tanami. We reached agreement to divest Red Lake, KCGM and our holdings in Continental to generate more than $1.4 billion in cash proceeds. And we returned an unprecedented $1.4 billion to shareholders last year, with $900 million in dividends and $500 million in share buybacks. This is unmatched in the gold industry. Our 2019 performance is evidence that we continue to deliver on our commitments. Turning to slide five. We are making excellent progress and exceeding our commitments to value delivery from our five new operations. At the start of last year, we made a commitment to deliver $365 million of run rate improvements per annum by the end of 2021. I'm very pleased that we are on track to exceed that commitment by nearly 40%. realising more than $500 million of cash flow improvements in 2021 through accelerating G&A and exploration synergies, along with higher than planned full potential improvements at Penasquito and Cerro Negro. This year alone, we expect to achieve $340 million in cash flow improvements, representing over 90% of the commitment we made for value delivery from this transaction. Each of our accomplishments were grounded in the safety of our people and the sustainability of our operations. Turning to slide six. Improving safety remains a relentless focus for all of us here at Newmont. Ensuring that everyone working in our business can return home safely to their family and friends is paramount. Through our visible caring leadership and the integrated systems we put into place, to manage risk consistently across our global operations, we are working to significantly and sustainably improve our safety performance. My expectation is that everyone who works in our business understands first and foremost the fatality risks associated with their work and are ensuring that the",
+  "n_turns": 3
+}

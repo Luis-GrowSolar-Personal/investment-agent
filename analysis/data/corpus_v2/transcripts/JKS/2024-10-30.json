@@ -1,0 +1,289 @@
+{
+  "ticker": "JKS",
+  "original_ticker": "JKS",
+  "call_date": "2024-10-30",
+  "year": 2024,
+  "quarter": 3,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "JKS",
+    "year": 2024,
+    "quarter": 3
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T01:57:05Z",
+  "raw_payload": {
+    "event": {
+      "year": 2024,
+      "quarter": 3,
+      "conference_date": "2024-10-30T08:30:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk00",
+        "text": "Hello ladies and gentlemen, and thank you for standing by for Genco Solar Holding Co. Limited's third quarter 2024 earnings conference call. At this time, all participants are in listen-only mode. After management's prepared remarks, there will be a question and answer session. As a reminder, today's conference call is being recorded. I would now like to turn the meeting over to your host for today's call, Ms. Stella Wang, Jinko Solar's investor relations. Please proceed, Stella."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thank you, operator. Thank you, everyone, for joining us today for Jinko Solar's third quarter 2024 earnings conference call. The company's results were released earlier today and available on our company's IR website at www.jinkosolar.com, as well as on Newswire's services. We have also provided a supplemental presentation for today's earnings call, which can also be found on the IR website. On the call today from Zinco Solar are Mr. Lee Sandell, Chairman and CEO of Zinco Solar Holding Company Limited, Mr. Janet Miao, CMO of Zinco Solar Company Limited, Mr. Pan Li, CFO of Zinco Solar Holding Company Limited, and Mr. Charlie Tao, CFO of Zinco Solar Company Limited. Mr. Li will discuss Zinco Solar's basis operations and company highlights followed by Mr. Myung, who will talk about sales and marketing, and then Mr. Pan Lee, who will go through the financials. They will all be available to answer your questions during the Q&A session that follows. Please note that today's discussion will contain forward-looking statements made under the Safe Harbor provisions of the U.S. Private Security Certification Reform Act of 1995. Forward-looking statements involve inherent risks and uncertainties. As such, our future results may be materially different from the views expressed today. Further information regarding this and other risks is included in Sinkhole Solar's public volume with the Securities and Exchange Commission. Sinkhole Solar does not assume any obligation to update any forward-looking statements except as required under the applicable law. It's now my pleasure to introduce Mr. Lee Sander, Chairman and CEO of Sinkhole Solar Holdings. Mr. Li will speak in Mandarin and I will translate his comments into English."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Please go ahead, Mr. Li. While earnings were under pressure across the industry during the quarter,"
+      },
+      {
+        "speaker": "spk02",
+        "text": "We achieved relatively outstanding results, leveraging our leading position in anti-TopCon technology, competitive products, as well as global sales and manufacturing networks. Imbalance between supply and demand led to continuous price decline in the end market, causing loss to almost the whole industrial chain. As we worked to balance utilization rates, shipments, and profitability, Prices in the third quarter were stable sequentially, and shipments to the U.S. market increased significantly quarter over quarter. We also continued to optimize our integrated costs through technical advancement and slide chain management. Growth margin was 15.7%, and the net income was U.S. dollars 3.2 million, significantly improved sequentially."
+      },
+      {
+        "speaker": "spk10",
+        "text": "In September of 2024, China's growth growth record was 20.89. The same growth rate was 32.4%, and the return rate was 26.9%. This changed the trend of continuous weakening in the past two months. Due to some overseas market demand and institutional fluctuation, the export size gradually decreased in September, and the demand for liquid products decreased. However, the supply chain is rapidly increasing. In the context of the long-term pressure of the entire industry, some cash flows are not enough. Businesses with poor supply capabilities are likely to go bankrupt, replenish, or be acquired. In February and April, the Guanghu Industry Association held a special conference to prevent industry internal competition. We hope that the industry will be able to take care of itself at the current price and the present. We believe that this will help accelerate the promotion and industry regulation of backward production. I believe that the domestic market management of relevant departments may expect a return of domestic prices."
+      },
+      {
+        "speaker": "spk02",
+        "text": "In September, the newly added installation was 20.89 gigawatts in China, up 32.4% year-over-year and 26.9% sequentially, reversing the sequential declining trend of the previous two months. Due to signal demand volatility in some overseas markets, module exports in September decreased sequentially. Demand was slightly weak while clearing out of supply were accelerated. With profitability throughout the whole industrial chain and the pressure, some companies with insufficient cash flow and poor risk resistance have gone bankrupt, reorganized or being acquired from time to time. During this month, the CPIA held symposiums aimed at encouraging manufacturers to adopt self-discipline in their pricing strategies and production volume management. CPIA also released a report calling on manufacturers to participate in bidding in rational manners, avoid selling or bidding with prices low cost, and also bid organizers to formulate reasonable bidding plans, shifting the focus to product and service quality as well as contract performance. We believe these matters may help eliminate uncompetitive capacity and accelerate the industry consolidation."
+      },
+      {
+        "speaker": "spk10",
+        "text": "We believe that with enhanced provision of related departments, domestic prices will eventually return to reasonable levels. In the third quarter, we further consolidated our competitiveness edges."
+      },
+      {
+        "speaker": "spk02",
+        "text": "By the end of this quarter, the mass-produced efficiency for our n-type TopCon cells improved to approximately 26.2%. As TopCon is still in a stage of rapid technology and product upgrades, we have continued to invest in R&D and are gradually adopting certain new technologies into mass production based on market demand, investment, and payback periods to maintain a leading position in the industry."
+      },
+      {
+        "speaker": "spk10",
+        "text": "We not only improve the level of artificial intelligence production, but also lead the light industry to digitalization. Recently, we have worked with a large company in Shanxi to build a transparent factory 360 artificial intelligence platform. And through TUV's permanent certification, through deep integration of MES, QMS and other systems, as well as Internet, artificial intelligence, big data analysis, and other cutting-edge technologies, We continuously improve our smart production capabilities to lead the industry in digital transformation."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Recently, at our Shanxi megabase, we built the Zinco 360 smart platform in cooperation with Dahua Technology, and it has been certified by TUV Inland. By integrating MES and QMS systems with some cutting-edge technologies such as the Internet of Things, AI, and big data analysis, the platform can improve real-time equipment monitoring in the vast majority of our production process and ensure whole process management from warehousing of raw materials to warehousing of finished products."
+      },
+      {
+        "speaker": "spk10",
+        "text": "We have completed the third-party ESG audit of most key suppliers, and the majority of suppliers have issued supplier behavior standards."
+      },
+      {
+        "speaker": "spk02",
+        "text": "As one of the leading voices in the fight against climate change, Thinko Solar has always aligned its operations with global climate goals. Recently, we participated in the 2024 New York Climate Week, where we officially launched the English version of our first climate white paper. We have kept improving ESG management in our supply chain, and so far we have completed third-party ESG audits for most of our key suppliers. and the majority of our suppliers have signed our code of conduct."
+      },
+      {
+        "speaker": "spk10",
+        "text": "In the course of the business cycle, the head company will show a more obvious advantage in terms of cost control, marketing layout, and cash flow management. In the long term, continuous research and development and overseas diversification layout will further expand the characteristics of the head company. We will continue to pay attention to balance the results and profit level of the export area. As we navigate through cycles, the leading enterprises in our industry will emerge ahead thanks to their superior cost control"
+      },
+      {
+        "speaker": "spk02",
+        "text": "extensive sales network, and effective cash flow management. In the long term, they will continue to benefit from continuous investments in R&D and expansion of their global capabilities. We will focus more on balancing market structure and the profits. We expect the model shimmers to be between 90 gigawatts to 100 gigawatts for four years, 2024, and 22.3 to 32.3 gigawatts for the fourth quarter. We will also continue to optimize our assets and the liability structure, as well as turn over efficiency, further strengthening our resilience to risk."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thank you, Ms. Lee. Our total shipments were 25.9 gigawatts in the third quarter, with module shipment accounting for 92%, nearly flat sequentially. We maintained our global leading position in module shipment during both the third quarter and the first three quarters. This achievement is a testament to the trust of our global clients in our reliable, high-efficiency products and services. In the third quarter, around 60% of modules were shipped overseas, with Europe, North America, and emerging markets all healthy. Distribution business accounted for approximately 37% of total shipment, compared to approximately 45% in the second quarter. Thanks to continuous improvement in Tiger News product strength, Tiger News shipments accounted for nearly 90% of total shipment, a steady increase from 85% in the second quarter. In China, the ratio of Tiger News has grown to over 90%, while it increased to nearly 70% in North America. We once again topped the PVTECH 2024 Q3 Module Tech Bankability Report with a triple A reading and also received the highest bankability score in this industry. This honor rewards our commitment to quality, innovation, and R&D, as well as global client trust in our product quality, bankability, and reliability over the long term. Recently, we launched the next generation TopCon technology solar panel named the Tiger Neo 3.0. The Tiger Neo 3.0 product will be manufactured on the production line of a zero-carbon factory certified by TUV Rheinland, catering to the client's demand for the high-efficient, reliable, and clean product. Also, in the latest BNEF energy storage Tier 1 list in Q4 2024 ranking, Jinko Energy has once again been recognized as a Tier 1 manufacturer by Bloomberg for its outstanding performance in the energy storage sector. By the end of the quarter, our accumulative global shipment exceeds 280 gigawatts. We helped our global clients achieve the grid parity with green and economic renewable energy solutions. Short-term cycle volatility in this industry shifts in the macro environment and the disturbance from international trade policy bring PV companies not only challenges but also opportunities. We always proactively seize opportunities from challenges in the market demand, balance market risk, and then lead the industry development with more high efficiency and reliable products and services while maintaining a reasonable market share."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank you, General. We are pleased to have achieved steadily improving financial results with our leading position in anti-top-com technology, competitive products, global marketing and manufacturing network, as well as our efforts to control costs and expenses. Key financial metrics such as total revenue, gross margin, operating income and net income all increased sequentially. We'll continue to improve the efficiency of our working capital, achieving sustainable growth in operating cash flow, and enhanced our resilience to risk. Let me go into more details now. Total revenue was about 3.5 billion, up 2% sequentially, and down 23% year-on-year. The sequential increase was mainly due to the increase in module shipments. The year-on-year decrease was mainly due to the decrease in the average selling price of solar modules. Birth margin was 5.7% compared with 11.1% in the second quarter and 19.3% in the third quarter last year. The sequential increase was mainly due to the increase in the average selling price of modules and the year-over-year decrease was mainly due to the decrease in ASP of modules. Total operating expenses were $539 million, down about 1% sequentially and up 20% year-over-year. The year-over-year increase was mainly due to the increase in shipping costs. As the shipments of the solar modules increased, an increase in impairment of long-lived assets So breaking expenses accounted for 15.4% of total revenues in the third quarter compared to 15.9% in the second quarter this year and about 10% in the third quarter last year. Net income attribute to our ordinary shareholders was 3.2 million in the third quarter excluding impacts of a change in fair value of the convertible nodes and long-term investments in solar supply chain companies, share-based compensation expenses, and impairment of the capacity utilization, which was strategically adjusted by the company. The adjusted net income attribute to our ordinary shareholders was 14.8 million. Moving to the balance sheet, at the end of the third quarter, our cash and cash equivalent were about $3.2 billion compared with about $2 billion in the second quarter. AL turnover days were 98 days compared with 89 days in the second quarter this year. And inventory turnover days was 66 days compared with 82 days in the second quarter this year as a result of improved operating efficiency. At the end of the third quarter, total debt was $5.23 billion compared to $3.86 billion in the second quarter this year. was $2.05 billion compared to $1.95 billion in the second quarter this year. This concludes our prepared remarks. We're now happy to take your questions. Operator, please proceed."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you. If you wish to ask a question, please press star 1 on your telephone and wait for your name to be announced. If you wish to cancel your request, please press star 2. If you're on a speakerphone, please pick up the handset to ask your question. Your first question comes from Philip Shen with Roth Capital Partners. Please go ahead."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Hi, everyone. Thanks for taking my questions. First one is on the volume of modules shipped into the U.S. in Q3. Can you confirm what it was? Sorry if I missed it. And then can you also provide the megawatts you expect to ship into the U.S. in Q4?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks. Okay. So, yeah, our Q3 shipment to U.S."
+      },
+      {
+        "speaker": "spk06",
+        "text": "is roughly 15 to 18 percent of total shipment. So I think you can figure out the detail numbers. We forecast that the number will be lower because of the seasonality issues and the market turbulence. However, when we look into the whole year, it should fall into our expectations, which is roughly 5 to 10 percent of the total shipment. So the total number should be within the expectations."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Great. Thanks, Shannon. Can you share what it might be for 2025 as well? With the risk of, you know, with this volume in the U.S. and the ADCVD decision coming, how, like, what's your confidence level in whether or not it will be retroactive and also won't be a high number? How are you guys managing that risk? Thanks."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, so from our perspective, we still take the U.S. market as a long-term market. So no matter how the policy or tariff changes, we're always trying to figure out the solutions to survive and compete in the U.S. market. So regarding 2025, we still have not decided a final number yet because of the upcoming election and also there will be the numbers of ADCVD announced pretty soon. So we think we will figure out the numbers after that when we see more certainty. So we will talk maybe soon regarding that topic. Regarding the retroactive risks, we still believe, we heard about the petitioner's request on this, I think it's CVD. So we are still evaluating the risk and waiting for the final decision. Regarding the ADs, since we are in the sample list, we are cooperating with our lawyers to try to not trigger the retroactive risk. So we are doing our best to avoid the unnecessary risks."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Once again, if you wish to ask a question, please press star 1 on your telephone and wait for your name to be announced. Your next question comes from Rajiv Shudra with Sunsara Capital. Please go ahead."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Good morning and congratulations on a good quarter. I have a few questions. The first question is on... your average selling prices in the third quarter were obviously higher than they were in the second quarter. And the reason was the increased shipment to the United States. If the shipments to the U.S. are going to go down in Q4 as a percentage, should we expect a pretty significant decline in ASPs quarter over quarter in the double digit range?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "The third quarter, you know, the ASP quarter by quarter is quite flat given we have more shipments in the U.S. And looking to the fourth quarter, you know, the market price in recent three months is downward trend. And so we think it's kind of moderate and downward in terms of the price in the fourth quarter, which is the third quarter."
+      },
+      {
+        "speaker": "spk08",
+        "text": "So I guess another way of asking the question is, what is the expectation for ASPs in China in the fourth quarter relative to the third quarter, and also in Europe, again, the Q4 versus Q3?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yeah, so kind of if you look at the index, InfoLink, a lot of, you know, independent target publishers price, the trend is quite similar. you know, the CTIA, the China sort of a tech industry association is leading the policy studies and trying to, I think, you know, to mitigate the oversupply versus pricing problems in the industries. And we think the price has already reached to the bottom and hopefully, you know, We think the price will be stabilized and, you know, help the industry, you know, to be go to the, you know, relatively disciplined approach."
+      },
+      {
+        "speaker": "spk08",
+        "text": "So I guess the question is, if prices stay stable from here in China and Europe for the rest of the year, are they still down relative to the third quarter?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "Oh, I got a question. Because of the mix of different readings, right, we have lower shipments in the U.S., which is, you know, our readings in the fourth quarter. So the blended ASP should be a little bit lower."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Right. Okay. Moving on to the EBITDA number for the third quarter. Can you tell me what the depreciation number was in Q3? And also, can you confirm if EBITDA in Q3 was in excess of $400 million? No."
+      },
+      {
+        "speaker": "spk09",
+        "text": "EBITDA, we have discussed the data numbers and depreciation per quarter, roughly $70 million. So you can do the calculations."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Charlie, can you repeat the depreciation in the third quarter?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "It's a rough 70 million U.S. dollars a quarter."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Seventy-eight million. Seventy."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Seven zero."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Seven zero. Yes. Okay. And next question is on storage. Can you give us an update on the storage business? And are you likely to hit $100 million in revenues this year? Or is it still smaller than that?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Rajiv, I don't think it's the right time to disclose the detailed numbers. We are still trying our best to grow the storage business into an ambitious goal. We think we will share the positive or good news with all the investors once it's ready. But for us, it's still an early stage business. We think it's not the right timing to disclose the numbers."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay. Thank you. And finally, on shipping costs, can you give us an idea of what the trend line in shipping costs was in the third quarter and what you expect Q4 and beyond? I'm talking about shipping costs per unit, per watt."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yes, yes. In the first half of the year, the logistic cost is higher, particularly the political tensions in the Middle East. And, you know, impact all regions, including U.S. logistic cost. And now we're expecting the logistic cost will be lower, you know, starting fourth quarter And from the supply side, you know, the containers, there's just sufficient containers to supply, you know, the demands. So we're expecting the logistics cost will be relatively lower quarter by quarter."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Also, a final question is on the GNA expenses. Last year, in the fourth quarter, the G&A expenses were over $200 million. Should we expect a sharp increase from the third quarter? Should we expect a similar trend in the fourth quarter this year?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "Throughout this year, we continue to train the operating expenses, including G&A expenses. versus Q3, we are expecting the operating expenses will be lower, Q4 versus Q3. I see. Okay."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thank you. Thank you."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Once again, if you wish to ask a question, please press star 1 on your telephone and wait for your name to be announced. We will now pause momentarily to allow questions to be registered. Once again, if you wish to ask a question, please press star 1 on your telephone. Your next question comes from Brian Lee with Goldman Sachs & Co. Please go ahead."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hey, everyone. Thanks for taking the questions. Just a couple housekeeping ones. Did you give us the free cash flow number in the quarter and also the CapEx number in the quarter? And I had a follow-up."
+      },
+      {
+        "speaker": "spk09",
+        "text": "For the full year, you know, we estimate, you know, I don't have the exact numbers, you know, for the third quarter, but the full year, the 2024, the capex will be around 9 billion RMB. Our premium cash flow is roughly 5 billion, so net operating cash flow, you know, the free cash flow is negative, the 4 billion RMB."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Okay, that's helpful. And then can you give us an update on the latest status of your Frankfurt listing efforts and also maybe a little bit of color around your net proceeds expected and what we should be sort of modeling in terms of cash impact on the balance sheet plus dilution."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thanks, guys. You know, the GDR, you know, the GDR, you know, we just announced it's roughly total is 4.5 billion RMB. and roughly the dilution will be 5% or 6% depending on the, you know, the issuer's price. But the timetable is still in the early stage in the preparations and we expect the GDR and will be roughly completed in the second quarter of next year. And the use of the seed and we have discussed is the majority is for the, existing, you know, the San Xi Chopra factory, the second phase, we have roughly been in construction and to be completed by the end of this year. And the main part will be the use for the working capital purposes as well as the small numbers and for the U.S. existing module capacity"
+      },
+      {
+        "speaker": "spk04",
+        "text": "further expansions. All right. Thanks a lot. Best of luck with it. Appreciate it."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you. Once again, if you wish to ask a question, please press star 1 on your telephone and wait for your name to be announced. Your next question comes from Mohammed Ahmed with Emirates Development Bank. Please go ahead."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah. So my question is... How much of your business is from the utility segment and from the rooftop solar segment? And another question is that your diluted EPS is 0.57 per ADS. How it is calculated? Because the number of shares is 53.4 million and the basic shares are 52 million, but the"
+      },
+      {
+        "speaker": "spk09",
+        "text": "For the detailed EPS, we can share the detailed calculation, and I think it's very simple. So after the call, we can share the detailed calculation with you."
+      },
+      {
+        "speaker": "spk06",
+        "text": "I think we talked about it during the prepared remarks that the DG ratio is roughly a high 30 range. So if you want to know the detail numbers, we can share with you. Hold on a second. It's roughly 37 percent. That's DG. It means 63 percent is utility."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Okay. Thank you."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Once again, if you wish to ask a question, please press star 1 on your telephone and wait for your name to be announced. We will now pause momentarily to allow questions to be registered. There are no further questions at this time. That does conclude our conference for today. Thank you for participating. You may now disconnect."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk00": {
+        "name": "Operator",
+        "title": "Conference Operator"
+      },
+      "spk01": {
+        "name": "Philip Shen",
+        "title": "Analyst, Roth Capital Partners"
+      },
+      "spk02": {
+        "name": "Stella Wang",
+        "title": "Director of Investor Relations"
+      },
+      "spk03": {
+        "name": "Brian Lee",
+        "title": "Analyst, Goldman Sachs & Co."
+      },
+      "spk04": {
+        "name": "Unknown Speaker",
+        "title": ""
+      },
+      "spk05": {
+        "name": "Pan Li",
+        "title": "CFO, Zinco Solar Holding Co. Limited"
+      },
+      "spk06": {
+        "name": "Janet Miao",
+        "title": "CMO, Zinco Solar Company Limited"
+      },
+      "spk07": {
+        "name": "Mohammed Ahmed",
+        "title": "Analyst, Emirates Development Bank"
+      },
+      "spk08": {
+        "name": "Rajiv Shudra",
+        "title": "Analyst, Sunsara Capital"
+      },
+      "spk09": {
+        "name": "Charlie Tao",
+        "title": "CFO, Zinco Solar Company Limited"
+      },
+      "spk10": {
+        "name": "Lee Sandell",
+        "title": "Chairman and CEO, Zinco Solar Holding Co. Limited"
+      }
+    }
+  },
+  "text": "Operator (Conference Operator): Hello ladies and gentlemen, and thank you for standing by for Genco Solar Holding Co. Limited's third quarter 2024 earnings conference call. At this time, all participants are in listen-only mode. After management's prepared remarks, there will be a question and answer session. As a reminder, today's conference call is being recorded. I would now like to turn the meeting over to your host for today's call, Ms. Stella Wang, Jinko Solar's investor relations. Please proceed, Stella.\n\nStella Wang (Director of Investor Relations): Thank you, operator. Thank you, everyone, for joining us today for Jinko Solar's third quarter 2024 earnings conference call. The company's results were released earlier today and available on our company's IR website at www.jinkosolar.com, as well as on Newswire's services. We have also provided a supplemental presentation for today's earnings call, which can also be found on the IR website. On the call today from Zinco Solar are Mr. Lee Sandell, Chairman and CEO of Zinco Solar Holding Company Limited, Mr. Janet Miao, CMO of Zinco Solar Company Limited, Mr. Pan Li, CFO of Zinco Solar Holding Company Limited, and Mr. Charlie Tao, CFO of Zinco Solar Company Limited. Mr. Li will discuss Zinco Solar's basis operations and company highlights followed by Mr. Myung, who will talk about sales and marketing, and then Mr. Pan Lee, who will go through the financials. They will all be available to answer your questions during the Q&A session that follows. Please note that today's discussion will contain forward-looking statements made under the Safe Harbor provisions of the U.S. Private Security Certification Reform Act of 1995. Forward-looking statements involve inherent risks and uncertainties. As such, our future results may be materially different from the views expressed today. Further information regarding this and other risks is included in Sinkhole Solar's public volume with the Securities and Exchange Commission. Sinkhole Solar does not assume any obligation to update any forward-looking statements except as required under the applicable law. It's now my pleasure to introduce Mr. Lee Sander, Chairman and CEO of Sinkhole Solar Holdings. Mr. Li will speak in Mandarin and I will translate his comments into English.\n\nLee Sandell (Chairman and CEO, Zinco Solar Holding Co. Limited): Please go ahead, Mr. Li. While earnings were under pressure across the industry during the quarter,\n\nStella Wang (Director of Investor Relations): We achieved relatively outstanding results, leveraging our leading position in anti-TopCon technology, competitive products, as well as global sales and manufacturing networks. Imbalance between supply and demand led to continuous price decline in the end market, causing loss to almost the whole industrial chain. As we worked to balance utilization rates, shipments, and profitability, Prices in the third quarter were stable sequentially, and shipments to the U.S. market increased significantly quarter over quarter. We also continued to optimize our integrated costs through technical advancement and slide chain management. Growth margin was 15.7%, and the net income was U.S. dollars 3.2 million, significantly improved sequentially.\n\nLee Sandell (Chairman and CEO, Zinco Solar Holding Co. Limited): In September of 2024, China's growth growth record was 20.89. The same growth rate was 32.4%, and the return rate was 26.9%. This changed the trend of continuous weakening in the past two months. Due to some overseas market demand and institutional fluctuation, the export size gradually decreased in September, and the demand for liquid products decreased. However, the supply chain is rapidly increasing. In the context of the long-term pressure of the entire industry, some cash flows are not enough. Businesses with poor supply capabilities are likely to go bankrupt, replenish, or be acquired. In February and April, the Guanghu Industry Association held a special conference to prevent industry internal competition. We hope that the industry will be able to take care of itself at the current price and the present. We believe that this will help accelerate the promotion and industry regulation of backward production. I believe that the domestic market management of relevant departments may expect a return of domestic prices.\n\nStella Wang (Director of Investor Relations): In September, the newly added installation was 20.89 gigawatts in China, up 32.4% year-over-year and 26.9% sequentially, reversing the sequential declining trend of the previous two months. Due to signal demand volatility in some overseas markets, module exports in September decreased sequentially. Demand was slightly weak while clearing out of supply were accelerated. With profitability throughout the whole industrial chain and the pressure, some companies with insufficient cash flow and poor risk resistance have gone bankrupt, reorganized or being acquired from time to time. During this month, the CPIA held symposiums aimed at encouraging manufacturers to adopt self-discipline in their pricing strategies and production volume management. CPIA also released a report calling on manufacturers to participate in bidding in rational manners, avoid selling or bidding with prices low cost, and also bid organizers to formulate reasonable bidding plans, shifting the focus to product and service quality as well as contract performance. We believe these matters may help eliminate uncompetitive capacity and accelerate the industry consolidation.\n\nLee Sandell (Chairman and CEO, Zinco Solar Holding Co. Limited): We believe that with enhanced provision of related departments, domestic prices will eventually return to reasonable levels. In the third quarter, we further consolidated our competitiveness edges.\n\nStella Wang (Director of Investor Relations): By the end of this quarter, the mass-produced efficiency for our n-type TopCon cells improved to approximately 26.2%. As TopCon is still in a stage of rapid technology and product upgrades, we have continued to invest in R&D and are gradually adopting certain new technologies into mass production based on market demand, investment, and payback periods to maintain a leading position in the industry.\n\nLee Sandell (Chairman and CEO, Zinco Solar Holding Co. Limited): We not only improve the level of artificial intelligence production, but also lead the light industry to digitalization. Recently, we have worked with a large company in Shanxi to build a transparent factory 360 artificial intelligence platform. And through TUV's permanent certification, through deep integration of MES, QMS and other systems, as well as Internet, artificial intelligence, big data analysis, and other cutting-edge technologies, We continuously improve our smart production capabilities to lead the industry in digital transformation.\n\nStella Wang (Director of Investor Relations): Recently, at our Shanxi megabase, we built the Zinco 360 smart platform in cooperation with Dahua Technology, and it has been certified by TUV Inland. By integrating MES and QMS systems with some cutting-edge technologies such as the Internet of Things, AI, and big data analysis, the platform can improve real-time equipment monitoring in the vast majority of our production process and ensure whole process management from warehousing of raw materials to warehousing of finished products.\n\nLee Sandell (Chairman and CEO, Zinco Solar Holding Co. Limited): We have completed the third-party ESG audit of most key suppliers, and the majority of suppliers have issued supplier behavior standards.\n\nStella Wang (Director of Investor Relations): As one of the leading voices in the fight against climate change, Thinko Solar has always aligned its operations with global climate goals. Recently, we participated in the 2024 New York Climate Week, where we officially launched the English version of our first climate white paper. We have kept improving ESG management in our supply chain, and so far we have completed third-party ESG audits for most of our key suppliers. and the majority of our suppliers have signed our code of conduct.\n\nLee Sandell (Chairman and CEO, Zinco Solar Holding Co. Limited): In the course of the business cycle, the head company will show a more obvious advantage in terms of cost control, marketing layout, and cash flow management. In the long term, continuous research and development and overseas diversification layout will further expand the characteristics of the head company. We will continue to pay attention to balance the results and profit level of the export area. As we navigate through cycles, the leading enterprises in our industry will emerge ahead thanks to their superior cost control\n\nStella Wang (Director of Investor Relations): extensive sales network, and effective cash flow management. In the long term, they will continue to benefit from continuous investments in R&D and expansion of their global capabilities. We will focus more on balancing market structure and the profits. We expect the model shimmers to be between 90 gigawatts to 100 gigawatts for four years, 2024, and 22.3 to 32.3 gigawatts for the fourth quarter. We will also continue to optimize our assets and the liability structure, as well as turn over efficiency, further strengthening our resilience to risk.\n\nJanet Miao (CMO, Zinco Solar Company Limited): Thank you, Ms. Lee. Our total shipments were 25.9 gigawatts in the third quarter, with module shipment accounting for 92%, nearly flat sequentially. We maintained our global leading position in module shipment during both the third quarter and the first three quarters. This achievement is a testament to the trust of our global clients in our reliable, high-efficiency products and services. In the third quarter, around 60% of modules were shipped overseas, with Europe, North America, and emerging markets all healthy. Distribution business accounted for approximately 37% of total shipment, compared to approximately 45% in the second quarter. Thanks to continuous improvement in Tiger News product strength, Tiger News shipments accounted for nearly 90% of total shipment, a steady increase from 85% in the second quarter. In China, the ratio of Tiger News has grown to over 90%, while it increased to nearly 70% in North America. We once again topped the PVTECH 2024 Q3 Module Tech Bankability Report with a triple A reading and also received the highest bankability score in this industry. This honor rewards our commitment to quality, innovation, and R&D, as well as global client trust in our product quality, bankability, and reliability over the long term. Recently, we launched the next generation TopCon technology solar panel named the Tiger Neo 3.0. The Tiger Neo 3.0 product will be manufactured on the production line of a zero-carbon factory certified by TUV Rheinland, catering to the client's demand for the high-efficient, reliable, and clean product. Also, in the latest BNEF energy storage Tier 1 list in Q4 2024 ranking, Jinko Energy has once again been recognized as a Tier 1 manufacturer by Bloomberg for its outstanding performance in the energy storage sector. By the end of the quarter, our accumulative global shipment exceeds 280 gigawatts. We helped our global clients achieve the grid parity with green and economic renewable energy solutions. Short-term cycle volatility in this industry shifts in the macro environment and the disturbance from international trade policy bring PV companies not only challenges but also opportunities. We always proactively seize opportunities from challenges in the market demand, balance market risk, and then lead the industry development with more high efficiency and reliable products and services while maintaining a reasonable market share.\n\nPan Li (CFO, Zinco Solar Holding Co. Limited): Thank you, General. We are pleased to have achieved steadily improving financial results with our leading position in anti-top-com technology, competitive products, global marketing and manufacturing network, as well as our efforts to control costs and expenses. Key financial metrics such as total revenue, gross margin, operating income and net income all increased sequentially. We'll continue to improve the efficiency of our working capital, achieving sustainable growth in operating cash flow, and enhanced our resilience to risk. Let me go into more details now. Total revenue was about 3.5 billion, up 2% sequentially, and down 23% year-on-year. The sequential increase was mainly due to the increase in module shipments. The year-on-year decrease was mainly due to the decrease in the average selling price of solar modules. Birth margin was 5.7% compared with 11.1% in the second quarter and 19.3% in the third quarter last year. The sequential increase was mainly due to the increase in the average selling price of modules and the year-over-year decrease was mainly due to the decrease in ASP of modules. Total operating expenses were $539 million, down about 1% sequentially and up 20% year-over-year. The year-over-year increase was mainly due to the increase in shipping costs. As the shipments of the solar modules increased, an increase in impairment of long-lived assets So breaking expenses accounted for 15.4% of total revenues in the third quarter compared to 15.9% in the second quarter this year and about 10% in the third quarter last year. Net income attribute to our ordinary shareholders was 3.2 million in the third quarter excluding impacts of a change in fair value of the convertible nodes and long-term investments in solar supply chain companies, share-based compensation expenses, and impairment of the capacity utilization, which was strategically adjusted by the company. The adjusted net income attribute to our ordinary shareholders was 14.8 million. Moving to the balance sheet, at the end of the third quarter, our cash and cash equivalent were about $3.2 billion compared with about $2 billion in the second quarter. AL turnover days were 98 days compared with 89 days in the second quarter this year. And inventory turnover days was 66 days compared with 82 days in the second quarter this year as a result of improved operating efficiency. At the end of the third quarter, total debt was $5.23 billion compared to $3.86 billion in the second quarter this year. was $2.05 billion compared to $1.95 billion in the second quarter this year. This concludes our prepared remarks. We're now happy to take your questions. Operator, please proceed.\n\nOperator (Conference Operator): Thank you. If you wish to ask a question, please press star 1 on your telephone and wait for your name to be announced. If you wish to cancel your request, please press star 2. If you're on a speakerphone, please pick up the handset to ask your question. Your first question comes from Philip Shen with Roth Capital Partners. Please go ahead.\n\nPhilip Shen (Analyst, Roth Capital Partners): Hi, everyone. Thanks for taking my questions. First one is on the volume of modules shipped into the U.S. in Q3. Can you confirm what it was? Sorry if I missed it. And then can you also provide the megawatts you expect to ship into the U.S. in Q4?\n\nUnknown Speaker (): Thanks. Okay. So, yeah, our Q3 shipment to U.S.\n\nJanet Miao (CMO, Zinco Solar Company Limited): is roughly 15 to 18 percent of total shipment. So I think you can figure out the detail numbers. We forecast that the number will be lower because of the seasonality issues and the market turbulence. However, when we look into the whole year, it should fall into our expectations, which is roughly 5 to 10 percent of the total shipment. So the total number should be within the expectations.\n\nPhilip Shen (Analyst, Roth Capital Partners): Great. Thanks, Shannon. Can you share what it might be for 2025 as well? With the risk of, you know, with this volume in the U.S. and the ADCVD decision coming, how, like, what's your confidence level in whether or not it will be retroactive and also won't be a high number? How are you guys managing that risk? Thanks.\n\nJanet Miao (CMO, Zinco Solar Company Limited): Yeah, so from our perspective, we still take the U.S. market as a long-term market. So no matter how the policy or tariff changes, we're always trying to figure out the solutions to survive and compete in the U.S. market. So regarding 2025, we still have not decided a final number yet because of the upcoming election and also there will be the numbers of ADCVD announced pretty soon. So we think we will figure out the numbers after that when we see more certainty. So we will talk maybe soon regarding that topic. Regarding the retroactive risks, we still believe, we heard about the petitioner's request on this, I think it's CVD. So we are still evaluating the risk and waiting for the final decision. Regarding the ADs, since we are in the sample list, we are cooperating with our lawyers to try to not trigger the retroactive risk. So we are doing our best to avoid the unnecessary risks.\n\nOperator (Conference Operator): Once again, if you wish to ask a question, please press star 1 on your telephone and wait for your name to be announced. Your next question comes from Rajiv Shudra with Sunsara Capital. Please go ahead.\n\nRajiv Shudra (Analyst, Sunsara Capital): Good morning and congratulations on a good quarter. I have a few questions. The first question is on... your average selling prices in the third quarter were obviously higher than they were in the second quarter. And the reason was the increased shipment to the United States. If the shipments to the U.S. are going to go down in Q4 as a percentage, should we expect a pretty significant decline in ASPs quarter over quarter in the double digit range?\n\nCharlie Tao (CFO, Zinco Solar Company Limited): The third quarter, you know, the ASP quarter by quarter is quite flat given we have more shipments in the U.S. And looking to the fourth quarter, you know, the market price in recent three months is downward trend. And so we think it's kind of moderate and downward in terms of the price in the fourth quarter, which is the third quarter.\n\nRajiv Shudra (Analyst, Sunsara Capital): So I guess another way of asking the question is, what is the expectation for ASPs in China in the fourth quarter relative to the third quarter, and also in Europe, again, the Q4 versus Q3?\n\nCharlie Tao (CFO, Zinco Solar Company Limited): Yeah, so kind of if you look at the index, InfoLink, a lot of, you know, independent target publishers price, the trend is quite similar. you know, the CTIA, the China sort of a tech industry association is leading the policy studies and trying to, I think, you know, to mitigate the oversupply versus pricing problems in the industries. And we think the price has already reached to the bottom and hopefully, you know, We think the price will be stabilized and, you know, help the industry, you know, to be go to the, you know, relatively disciplined approach.\n\nRajiv Shudra (Analyst, Sunsara Capital): So I guess the question is, if prices stay stable from here in China and Europe for the rest of the year, are they still down relative to the third quarter?\n\nCharlie Tao (CFO, Zinco Solar Company Limited): Oh, I got a question. Because of the mix of different readings, right, we have lower shipments in the U.S., which is, you know, our readings in the fourth quarter. So the blended ASP should be a little bit lower.\n\nRajiv Shudra (Analyst, Sunsara Capital): Right. Okay. Moving on to the EBITDA number for the third quarter. Can you tell me what the depreciation number was in Q3? And also, can you confirm if EBITDA in Q3 was in excess of $400 million? No.\n\nCharlie Tao (CFO, Zinco Solar Company Limited): EBITDA, we have discussed the data numbers and depreciation per quarter, roughly $70 million. So you can do the calculations.\n\nRajiv Shudra (Analyst, Sunsara Capital): Charlie, can you repeat the depreciation in the third quarter?\n\nCharlie Tao (CFO, Zinco Solar Company Limited): It's a rough 70 million U.S. dollars a quarter.\n\nRajiv Shudra (Analyst, Sunsara Capital): Seventy-eight million. Seventy.\n\nMohammed Ahmed (Analyst, Emirates Development Bank): Seven zero.\n\nRajiv Shudra (Analyst, Sunsara Capital): Seven zero. Yes. Okay. And next question is on storage. Can you give us an update on the storage business? And are you likely to hit $100 million in revenues this year? Or is it still smaller than that?\n\nJanet Miao (CMO, Zinco Solar Company Limited): Rajiv, I don't think it's the right time to disclose the detailed numbers. We are still trying our best to grow the storage business into an ambitious goal. We think we will share the positive or good news with all the investors once it's ready. But for us, it's still an early stage business. We think it's not the right timing to disclose the numbers.\n\nRajiv Shudra (Analyst, Sunsara Capital): Okay. Thank you. And finally, on shipping costs, can you give us an idea of what the trend line in shipping costs was in the third quarter and what you expect Q4 and beyond? I'm talking about shipping costs per unit, per watt.\n\nCharlie Tao (CFO, Zinco Solar Company Limited): Yes, yes. In the first half of the year, the logistic cost is higher, particularly the political tensions in the Middle East. And, you know, impact all regions, including U.S. logistic cost. And now we're expecting the logistic cost will be lower, you know, starting fourth quarter And from the supply side, you know, the containers, there's just sufficient containers to supply, you know, the demands. So we're expecting the logistics cost will be relatively lower quarter by quarter.\n\nRajiv Shudra (Analyst, Sunsara Capital): Also, a final question is on the GNA expenses. Last year, in the fourth quarter, the G&A expenses were over $200 million. Should we expect a sharp increase from the third quarter? Should we expect a similar trend in the fourth quarter this year?\n\nCharlie Tao (CFO, Zinco Solar Company Limited): Throughout this year, we continue to train the operating expenses, including G&A expenses. versus Q3, we are expecting the operating expenses will be lower, Q4 versus Q3. I see. Okay.\n\nRajiv Shudra (Analyst, Sunsara Capital): Thank you. Thank you.\n\nOperator (Conference Operator): Once again, if you wish to ask a question, please press star 1 on your telephone and wait for your name to be announced. We will now pause momentarily to allow questions to be registered. Once again, if you wish to ask a question, please press star 1 on your telephone. Your next question comes from Brian Lee with Goldman Sachs & Co. Please go ahead.\n\nBrian Lee (Analyst, Goldman Sachs & Co.): Hey, everyone. Thanks for taking the questions. Just a couple housekeeping ones. Did you give us the free cash flow number in the quarter and also the CapEx number in the quarter? And I had a follow-up.\n\nCharlie Tao (CFO, Zinco Solar Company Limited): For the full year, you know, we estimate, you know, I don't have the exact numbers, you know, for the third quarter, but the full year, the 2024, the capex will be around 9 billion RMB. Our premium cash flow is roughly 5 billion, so net operating cash flow, you know, the free cash flow is negative, the 4 billion RMB.\n\nBrian Lee (Analyst, Goldman Sachs & Co.): Okay, that's helpful. And then can you give us an update on the latest status of your Frankfurt listing efforts and also maybe a little bit of color around your net proceeds expected and what we should be sort of modeling in terms of cash impact on the balance sheet plus dilution.\n\nCharlie Tao (CFO, Zinco Solar Company Limited): Thanks, guys. You know, the GDR, you know, the GDR, you know, we just announced it's roughly total is 4.5 billion RMB. and roughly the dilution will be 5% or 6% depending on the, you know, the issuer's price. But the timetable is still in the early stage in the preparations and we expect the GDR and will be roughly completed in the second quarter of next year. And the use of the seed and we have discussed is the majority is for the, existing, you know, the San Xi Chopra factory, the second phase, we have roughly been in construction and to be completed by the end of this year. And the main part will be the use for the working capital purposes as well as the small numbers and for the U.S. existing module capacity\n\nUnknown Speaker (): further expansions. All right. Thanks a lot. Best of luck with it. Appreciate it.\n\nOperator (Conference Operator): Thank you. Once again, if you wish to ask a question, please press star 1 on your telephone and wait for your name to be announced. Your next question comes from Mohammed Ahmed with Emirates Development Bank. Please go ahead.\n\nMohammed Ahmed (Analyst, Emirates Development Bank): Yeah. So my question is... How much of your business is from the utility segment and from the rooftop solar segment? And another question is that your diluted EPS is 0.57 per ADS. How it is calculated? Because the number of shares is 53.4 million and the basic shares are 52 million, but the\n\nCharlie Tao (CFO, Zinco Solar Company Limited): For the detailed EPS, we can share the detailed calculation, and I think it's very simple. So after the call, we can share the detailed calculation with you.\n\nJanet Miao (CMO, Zinco Solar Company Limited): I think we talked about it during the prepared remarks that the DG ratio is roughly a high 30 range. So if you want to know the detail numbers, we can share with you. Hold on a second. It's roughly 37 percent. That's DG. It means 63 percent is utility.\n\nUnknown Speaker (): Okay. Thank you.\n\nOperator (Conference Operator): Once again, if you wish to ask a question, please press star 1 on your telephone and wait for your name to be announced. We will now pause momentarily to allow questions to be registered. There are no further questions at this time. That does conclude our conference for today. Thank you for participating. You may now disconnect.",
+  "n_turns": 54
+}

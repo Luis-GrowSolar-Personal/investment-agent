@@ -1,0 +1,289 @@
+{
+  "ticker": "PSX",
+  "original_ticker": "PSX",
+  "call_date": "2020-07-31",
+  "year": 2020,
+  "quarter": 2,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "PSX",
+    "year": 2020,
+    "quarter": 2
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T02:20:11Z",
+  "raw_payload": {
+    "event": {
+      "year": 2020,
+      "quarter": 2,
+      "conference_date": "2020-07-31T00:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk02",
+        "text": "Welcome to the second quarter 2020 Phillips 66 Partners Earnings Conference Call."
+      },
+      {
+        "speaker": "spk10",
+        "text": "My name is David and I will be your operator for today's call. At this time, all participants are in a listen-only mode. Later, we will conduct a question and answer session. Please note that this conference is being recorded. I will now turn the call over to Jeff Dietert, Vice President, Investor Relations. Jeff, you may begin."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Good afternoon and welcome to Phillips 66 Partners second quarter earnings conference call. Participants on today's call will include Kevin Mitchell, Vice President and CFO, Tim Roberts, Vice President Operations, and Rosie Zuklik, Vice President and Chief Operating Officer. Today's presentation materials can be found on the events section of the Phillips 66 Partners website, along with supplemental financial and operating information. Slide two contains our safe harbor statement. We will be making forward-looking statements during the presentation and our Q&A session. Actual results may differ materially from today's comments. Factors that could cause actual results to differ are included here as well as in our SEC filings. With that, I'll turn the call over to Kevin Mitchell."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you, Jeff, and good afternoon, everyone. During the second quarter, Phillips 66 partners operated reliably and safely and achieved key milestones on its growth projects. The Grey Oak Pipeline began full service and supplied the first crude oil into the South Texas Gateway Terminal, which recently saw its first cargo loading. The Board of Directors approved a second quarter distribution of 87.5 cents per common unit, a 2% increase over second quarter 2019 and unchanged from the first quarter of 2020. Phillips 66 Partners is well positioned to navigate the current business environment with our investment grade credit rating and strong liquidity. We remain focused on operating excellence, maintaining our strong balance sheet and disciplined capital allocation. Moving on to slide four to discuss financial results. The partnership reported second quarter earnings of $255 million. This includes recognition of an $84 million gain related to the partnership's prior year sale of an interest in the Grey Oak Pipeline. Adjusted EBITDA and Distributable Cash Flow were both down about $50 million. The decreases from the first quarter reflect reduced volumes on wholly owned and joint venture assets driven by lower domestic oil production, refinery utilization, and product demand. Slide five highlights our financial flexibility and liquidity. We ended the second quarter with $7 million of cash and $532 million available under our revolving credit facility. The partnership funded $311 million of growth capital during the quarter. This included investments in the Grove Pipeline and South Texas Gateway Terminal, as well as spend on the C2G Pipeline and the Sweeney to Pasadena Pipeline. In addition, the partnership continues to fund its share of commitments for the Deferred Liberty Pipeline project. The debt to EBITDA ratio on a revolver covenant basis was 3.1, which remains below our targeted long-term leverage ratio of 3.5. for distribution coverage ratio was 1.09. We recognize the uncertainty associated with the Dakota Access Pipeline litigation. The economic implications of a temporary shutdown extend beyond the pipeline owners to customers, state and local governments, consumers, and workers throughout the energy value chain. Dakota Access Pipeline has a history of safe operations, and we believe it should be allowed to operate while this matter continues through the judicial process. Dakota Access Pipeline has appealed the District Court ruling to the DC Circuit Court. We believe the merits of the appeal are well-founded. For the year, distribution coverage for Phillips 66 partners could be negatively impacted by an adverse ruling on the Dakota Access Pipeline. However, we will continue to target long-term coverage in excess of 1.2 and take actions as necessary to achieve this. Maintaining a strong balance sheet remains a top priority. Now Rosie will provide an update on our growth projects."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thanks, Kevin, and hello, everyone. Moving on to slide six, I'll talk about our growth projects. We recently completed the storage capacity expansion at Clemens Caverns from 9 million barrels to 16.5 million barrels, which supports the C2G pipeline and the Phillips 66 Sweeney-Frax II and III. The project was done ahead of schedule and on budget. We expect the new caverns to contribute to third quarter results. The Gray Oak Pipeline commenced full operations from West Texas and the Eagleford to the Texas Gulf Coast, marking completion of the project. The partnership has a 42.25% ownership interest in the Gray Oak Pipeline. Gray Oak connects multiple refineries and export facilities in the Corpus Christi area, including the South Texas Gateway Terminal. The first dock and eight tanks totaling 3.4 million barrels of storage capacity have been commissioned and the terminal began crude oil export operations in July. Marine operations including the second dock are expected to ramp up by the end of this year as additional phases of construction are finished. We expect the project to be completed in the first quarter of 2021 with total storage capacity of 8.6 million barrels and up to 800,000 barrels per day of export capacity. Phillips 66 Partners owns a 25% interest in the terminal. The Sweeney to Pasadena capacity expansion reached mechanical completion in July and began operations this quarter. The project is supported by long-term pipeline and terminal voting commitments from Phillips 66. This concludes our prepared remarks. We will now open the line for questions."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Thank you. We will now begin the question and answer session. As we open the call for questions, as a courtesy to all participants, please limit yourself to one question and a follow-up. If you have a question, please press star, then one on your touchtone phone. If you wish to be removed from the queue, please press the pound key. If you are using a speakerphone, you may need to pick up the handset first before pressing the numbers. Once again, if you have a question, please press star, then one on your touchtone phone. Gabe Marine from Mizuho, please go ahead. Your line is open."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Hi, good afternoon, everyone. I'm just wondering if I could start out with the DAPL, and if a stay is not achieved, I guess you're Thank you very much."
+      },
+      {
+        "speaker": "spk00",
+        "text": "In the event the pipeline has to shut down, that means we will still hold the distribution at the same level. That's something we will evaluate. We'll make a decision around that at that point in time. And the two main levers we've got available to ourselves are the distribution and the level of capital spend. Obviously, when you look at the capital spend in terms of this year, there's not that much flexibility. There's a lot more flexibility as you look into next year as a lot of these projects complete. But in the event of the pipeline having to shut down, that would be a reason for us to consider the distribution and where that needs to be."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Understood. Thank you. And then I guess I also have a question as to I think you have other assets in the Bakken. There's a rail terminal there. There, I think that you at least have a partial interest in, would there be any benefit to that if you get some customers' logins over to that asset in the event of a DAPL shutdown?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, no, this is Rosie, Gabe. And, yeah, you're thinking about it right. We would see benefit there at the Palermo rail terminal from an event like that."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Rosie, can you just talk about how much volume you're doing there currently versus capacity?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "I don't. It's probably at a 60% rate right now."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay, understood. Thank you."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Piero Dunas from Credit Suisse. Please go ahead. Your line is open."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hey, Anthony, guys. First question, just follow up on the Apple briefly. I know it's been covered a lot in the last few calls, but in the event of an extended or more permanent shutdown. Just curious where Liberty would stand in that scenario. Just trying to understand, I guess, how quickly you could sort of mobilize and get that project back up on the foreground. And is that a realistic alternative for you?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Well, this is Tim Roberts. So thanks for the question. You know, I would say right now with Liberty that we're still, Liberty is going to really be dependent. We deferred it. It's really going to be dependent on our ability to get long-term commitments. So if there are long-term investment-grade commitments that people are willing to make, producers, shippers, or anybody else who wants to get on that line, obviously that would help into achieving acceptable returns. Obviously, those are interesting for us. I would say that I wouldn't, with the timing between the two, it's hard to say that what happens on Bakken is going to impact what's going to happen on Liberty. It could very well, but I think it's too much uncertainty right now, to be honest with you. And so, and plus, when we put Liberty in place, Liberty was really meant to be also Powder River Basin coupled with some parts of the Bakken coupled with barrels up in the Rockies, DJ and so forth. So it really wasn't a Bakken play as much. I think that complemented it, but it wasn't that specific play. So I think at this point, still too early to call and we still look at Liberty on its own merits. If we have enough interest that makes sense to possibly advance that project, we'll do it."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Got it. Thanks, Sam. That makes sense. Switching gears to MVCs, I believe the accounting here means that we'll see some of those MVCs realized in revenue on a forward basis as the credits are used up. And so do you have any sense for what the total deficiency amount was this quarter, I guess, for both wholly owned and JV assets, and maybe over how many quarters going forward we can see that start to get realized through EBITDA?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "You know, I don't have a number for you, but I mean, and it's hard to say, but just simply because so many of the JVs have different ways of, you know, when it comes to their distributions, you know, in some cases, some of them pay out like March, April, and May, as opposed to actually paying out, you know, the actual quarter months. But you are thinking about it, right? You know, as the next month, as the next quarter moves forward and we are actually seeing the volumes go closer to the MVC levels, we should actually start seeing benefits there from a cash flow perspective and earnings perspective."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Elvira Escado from RVC Capital Markets. Please go ahead. Your line is open."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Hey, good afternoon, everyone. So you talked about the two levers in the event of a DAFL shutdown that PSXP itself could pull, which would be CapEx and distribution. So let's just start a minute with CapEx. You said that, you know, with the most of your growth projects essentially finished or close to being complete, You know, this year you still have some CapEx spend, but what would be a reasonable run rate for growth CapEx in 2021 and beyond?"
+      },
+      {
+        "speaker": "spk00",
+        "text": "Hey, Elvira, it's Kevin. You know, if you just look at the major projects that we've got going, the only one that has a decent amount of spend in 2021 is the C2G FAME pipeline. And then the rest, it will be small projects on top of that. So I'm not in a position to give capital guidance for 2021 at this point. That's something we do later in the year. But I think the point is we're highlighting that there's the potential for it to be quite a bit lower than where we were this year. So this year in aggregate is something close to $900 million. And so it could come down by a reasonable order of magnitude from that, but not in a position to give a specific number at this point."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Okay, thanks. And then just my second question is just around the distribution as a lever that you said you would look at the distribution. So if DAPL, just trying to understand, if DAPL were shut down, is the distribution, should we think Thank you very much."
+      },
+      {
+        "speaker": "spk00",
+        "text": "The loss of EBITDA, the loss of cash flow from the pipeline being shut down, if that's what happens, that impacts a certain element of our metrics. The distribution can help offset that if we make a decision on the distribution. But we're also looking at leverage metrics as well because they get impacted. So we're sort of triangulating around all of those different elements And then also it depends on what's the sort of economic outlook, the broader economic position at that point in time. So the distribution is an easy one to do, but that doesn't mean to say that a shutdown automatically means a reduction of whatever percent. That's something that we won't make any, we won't be definitive around that until we're at that point where we're ready to go there."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Teresa Chen from Barclays. Please go ahead. Your line is open."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Hi. Just to clarify expectations around the DAPL process, what are you expecting in terms of the timeline itself of the appeal process?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "From the process it stands right now, we're expecting some sort of response from the Court of Appeals any time. And any time can be hours, days, or weeks. So we do think all the briefings have been submitted, so that's been done. They are now going through that process, so we'll hear what they come back with. Regardless of whatever that outcome may be, there still is another avenue to appeal, which would then, the appellate process would send you up to the Supreme Court, which I would suspect either party, depending on what side of the decision you're on, is probably going to take that course. So that in itself, you can get an emergency process through there, and I That again turns into, that's not, if you look at the nationwide permit, for example, that was just recently went up through an emergency process, I believe that took around six weeks before they came back with a response on that. So that's not a given, but it just gives us another data point on what that could potentially look like."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Okay, so from the time that permit landed or the appeal for the permit landed on the Supreme Court's desk, The time that a decision was rendered, it was six weeks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, I think by the time the appeal process was started with the Supreme Court, it was six weeks. So, yeah, we may be saying the same thing, Teresa, but, yeah, you can... I look at it from the time you get an answer from this District Court of Appeals. I think we look at it six weeks from that point on getting another answer if, you know, it goes through that process."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Got it. And... In relation to the gap between the MVCs and throughput, which you were made whole on in terms of DCF and coverage. So I believe, and please correct me if I'm wrong, but I believe that will be recognized in earnings once the makeup period for the ship or your affiliate is over. When you look at the timing of when each contract started within the year and assuming that period is around a year, do you see any lumpiness in the recognition of earnings as we go on?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "There could be, but you're right. I mean, I think that, you know, Every JV pipeline has a slightly different agreements with their shippers. So it's not going to be all the same. And, you know, in some cases, like I was describing earlier to Spiro, the way the distributions of their cash is also a little bit off. But so that causes a little bit of lumpiness too. But you are thinking about it right."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Jeremy Toney from JPMorgan. Please go ahead. Your line is open."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Hi, good afternoon. Just wanted to touch base, I guess, with your expectations for refined product volumes and incredible volumes, if you will, over your system for the balance of the year. If you could just kind of give us like a live snapshot of what you're seeing now and how recovery you think will progress across your areas and how those volumes, you know, could recover over the balance of the year, that'd be helpful."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yes, Jeremy, we averaged 75% utilization in the second quarter. And on the PSX call, we talked about averaging in the low 80% range during the month of July. As we look forward into the rest of the third quarter and the back half of the year, It's really going to depend on how rapidly demand recovers and the economy recovers and what the demand for refined products, how that evolves in the back half of the year. We expect to increase utilization as demand continues to recover."
+      },
+      {
+        "speaker": "spk08",
+        "text": "That's very helpful. Thanks. Just wondering if you could provide a bit more color on your JV EBITDA. Everything's kind of consolidated there. And so wondering if you could give us a flavor on the year-over-year look by the individual assets, which ones kind of had bigger changes than others?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "I think, well, the way from what I saw this quarter at least is just simply, you know, no surprise the DAPL pipeline came in and that's just lower from the first quarter and that's just the result of the shedding of the wells that happened in the Bakken area. Gray Oak was increased from the first quarter and that's, again, to be expected as we saw additional ramp up in that pipeline. I mean, when it comes to the Sandhills and Southern Hills, NGL pipes have been doing well and so we were pleasantly surprised from the contributions that we received from those pipes in this order."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Chris Hainalfi from Jefferies. Please go ahead. Your line is open."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hey, good afternoon, everyone. Hi, Chris. Kevin, I just wanted to follow up on Gabe and Elvira's questions regarding DAVL. I mean, I appreciate that this process is uncertain. There's a lot of moving parts. Your response will be shaped by lots of different things, depending on what the regulatory and legal outcomes are. But as I understand it, you and the other co-venturers in Dakota Access provided a contingent equity contribution agreement in association with the Spring 19 Midwest Connector notes offering. and your securities filings have made reference to an equity contribution trigger event, I guess as determined by the code access, which would require essentially you to maybe put up your portion of the debt. And so with regard to that, I mean, obviously questions around what the courts do. My question is more, what constitutes the trigger event? Is it a timing related issue? Is it like if the stay fails in the DC circuit and at the Supreme Court, is that a trigger event? to just help us better understand that component as well."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Yeah, so the way to think about that is a temporary shutdown would not be a trigger event, but something that revoked the permit permanently would be a trigger event. The whole notion of the triggering event, it's really all around the permit, the availability of the permit, and therefore the ability of the pipeline to continue operations. So an interim period of shutdown while the core completes its work would not be a triggering event, but a permanent revoke of the permit would. That's how I think about it. But Tim, anything?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "No, that's right. That's exactly right. Okay. I do want to clarify one comment. I just verified it's about eight weeks was the nationwide permit 12, not six. So, but that's still in the hands of the Supreme Court, so that can be less. They may not take it, or it could be longer. So, that's just with a guideline from that last ruling that they did make."
+      },
+      {
+        "speaker": "spk09",
+        "text": "And there can be significant variance around that time period."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Absolutely. So, that's just a data point, not a, wouldn't necessarily make that set in stone."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Okay. So, with regard to, if let's just say that the efforts around securing a stay fail, and we have to go through a formal EIS process and that might take a year or longer, that you and your partners would effectively service the DAPL debt? Is that the way to think about it? And then depending on the outcome of the EIS, then that's at what point the trigger event determination is made. If pipeline goes back into service, everything's fine. If there's a challenge, then it's an issue."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Yeah, so in that event, there's a period of 12 months or so, whatever that period is of the pipeline being shut down, then the co-venturers would probably have to put cash in to fund the debt service, the interest expense. Okay. Perfect."
+      },
+      {
+        "speaker": "spk06",
+        "text": "That's all I had. Thank you very much for your patience. Thanks, Chris."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Theresa Chen from Barclays. Please go ahead. Your line is open."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Hi. Hello, can you hear me? Yes. Okay. Sorry. Sorry. So to your follow-up on the nationwide permit, do you expect that this process will need the full Supreme Court or that it would just be adjudicated by Justice Roberts?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, now you're out of my league. I would probably have to refer and just get back to you on what that is, Teresa. But I don't think it's a full spring port, but that's a guess. So I'm going to pull back and say, let me check."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Okay. And then if I could just squeeze one more line from one investor, how long would you be comfortable running sub one times coverage while DAPL plays out?"
+      },
+      {
+        "speaker": "spk00",
+        "text": "Well, we... We think about coverage really on an annual basis. And so you've got the quarter by quarter, it can fluctuate. And so you could certainly have a situation where in a given quarter, you drop below one, but you wouldn't expect that to continue over multiple quarters. And so it's an extended, a shutdown scenario is an event that would cause us to consider where the distribution needs to be if we need to take action on that. But we wouldn't go for an extended period at sub one coverage."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thank you very much."
+      },
+      {
+        "speaker": "spk10",
+        "text": "We have reached the end of today's call. I will now turn the call back over to Jeff."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thank you, David, and thank all of you for your interest in Phillips 66 Partners. If you have additional questions, please call Brent or me. Thank you."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Thank you, ladies and gentlemen. This concludes today's conference. You may now disconnect."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk00": {
+        "name": "Kevin Mitchell",
+        "title": "Vice President and CFO"
+      },
+      "spk01": {
+        "name": "Elvira Escado",
+        "title": "Analyst, RVC Capital Markets"
+      },
+      "spk02": {
+        "name": "Piero Dunas",
+        "title": "Analyst, Credit Suisse"
+      },
+      "spk03": {
+        "name": "Rosie Zuklik",
+        "title": "Vice President and Chief Operating Officer"
+      },
+      "spk04": {
+        "name": "Teresa Chen",
+        "title": "Analyst, Barclays"
+      },
+      "spk05": {
+        "name": "Gabe Marine",
+        "title": "Analyst, Mizuho Securities"
+      },
+      "spk06": {
+        "name": "Chris Hainalfi",
+        "title": "Analyst, Jefferies"
+      },
+      "spk07": {
+        "name": "Tim Roberts",
+        "title": "Vice President, Operations"
+      },
+      "spk08": {
+        "name": "Jeremy Toney",
+        "title": "Analyst, JPMorgan"
+      },
+      "spk09": {
+        "name": "Jeff Dietert",
+        "title": "Vice President, Investor Relations"
+      },
+      "spk10": {
+        "name": "David",
+        "title": "Conference Call Operator"
+      }
+    }
+  },
+  "text": "Piero Dunas (Analyst, Credit Suisse): Welcome to the second quarter 2020 Phillips 66 Partners Earnings Conference Call.\n\nDavid (Conference Call Operator): My name is David and I will be your operator for today's call. At this time, all participants are in a listen-only mode. Later, we will conduct a question and answer session. Please note that this conference is being recorded. I will now turn the call over to Jeff Dietert, Vice President, Investor Relations. Jeff, you may begin.\n\nJeff Dietert (Vice President, Investor Relations): Good afternoon and welcome to Phillips 66 Partners second quarter earnings conference call. Participants on today's call will include Kevin Mitchell, Vice President and CFO, Tim Roberts, Vice President Operations, and Rosie Zuklik, Vice President and Chief Operating Officer. Today's presentation materials can be found on the events section of the Phillips 66 Partners website, along with supplemental financial and operating information. Slide two contains our safe harbor statement. We will be making forward-looking statements during the presentation and our Q&A session. Actual results may differ materially from today's comments. Factors that could cause actual results to differ are included here as well as in our SEC filings. With that, I'll turn the call over to Kevin Mitchell.\n\nKevin Mitchell (Vice President and CFO): Thank you, Jeff, and good afternoon, everyone. During the second quarter, Phillips 66 partners operated reliably and safely and achieved key milestones on its growth projects. The Grey Oak Pipeline began full service and supplied the first crude oil into the South Texas Gateway Terminal, which recently saw its first cargo loading. The Board of Directors approved a second quarter distribution of 87.5 cents per common unit, a 2% increase over second quarter 2019 and unchanged from the first quarter of 2020. Phillips 66 Partners is well positioned to navigate the current business environment with our investment grade credit rating and strong liquidity. We remain focused on operating excellence, maintaining our strong balance sheet and disciplined capital allocation. Moving on to slide four to discuss financial results. The partnership reported second quarter earnings of $255 million. This includes recognition of an $84 million gain related to the partnership's prior year sale of an interest in the Grey Oak Pipeline. Adjusted EBITDA and Distributable Cash Flow were both down about $50 million. The decreases from the first quarter reflect reduced volumes on wholly owned and joint venture assets driven by lower domestic oil production, refinery utilization, and product demand. Slide five highlights our financial flexibility and liquidity. We ended the second quarter with $7 million of cash and $532 million available under our revolving credit facility. The partnership funded $311 million of growth capital during the quarter. This included investments in the Grove Pipeline and South Texas Gateway Terminal, as well as spend on the C2G Pipeline and the Sweeney to Pasadena Pipeline. In addition, the partnership continues to fund its share of commitments for the Deferred Liberty Pipeline project. The debt to EBITDA ratio on a revolver covenant basis was 3.1, which remains below our targeted long-term leverage ratio of 3.5. for distribution coverage ratio was 1.09. We recognize the uncertainty associated with the Dakota Access Pipeline litigation. The economic implications of a temporary shutdown extend beyond the pipeline owners to customers, state and local governments, consumers, and workers throughout the energy value chain. Dakota Access Pipeline has a history of safe operations, and we believe it should be allowed to operate while this matter continues through the judicial process. Dakota Access Pipeline has appealed the District Court ruling to the DC Circuit Court. We believe the merits of the appeal are well-founded. For the year, distribution coverage for Phillips 66 partners could be negatively impacted by an adverse ruling on the Dakota Access Pipeline. However, we will continue to target long-term coverage in excess of 1.2 and take actions as necessary to achieve this. Maintaining a strong balance sheet remains a top priority. Now Rosie will provide an update on our growth projects.\n\nRosie Zuklik (Vice President and Chief Operating Officer): Thanks, Kevin, and hello, everyone. Moving on to slide six, I'll talk about our growth projects. We recently completed the storage capacity expansion at Clemens Caverns from 9 million barrels to 16.5 million barrels, which supports the C2G pipeline and the Phillips 66 Sweeney-Frax II and III. The project was done ahead of schedule and on budget. We expect the new caverns to contribute to third quarter results. The Gray Oak Pipeline commenced full operations from West Texas and the Eagleford to the Texas Gulf Coast, marking completion of the project. The partnership has a 42.25% ownership interest in the Gray Oak Pipeline. Gray Oak connects multiple refineries and export facilities in the Corpus Christi area, including the South Texas Gateway Terminal. The first dock and eight tanks totaling 3.4 million barrels of storage capacity have been commissioned and the terminal began crude oil export operations in July. Marine operations including the second dock are expected to ramp up by the end of this year as additional phases of construction are finished. We expect the project to be completed in the first quarter of 2021 with total storage capacity of 8.6 million barrels and up to 800,000 barrels per day of export capacity. Phillips 66 Partners owns a 25% interest in the terminal. The Sweeney to Pasadena capacity expansion reached mechanical completion in July and began operations this quarter. The project is supported by long-term pipeline and terminal voting commitments from Phillips 66. This concludes our prepared remarks. We will now open the line for questions.\n\nDavid (Conference Call Operator): Thank you. We will now begin the question and answer session. As we open the call for questions, as a courtesy to all participants, please limit yourself to one question and a follow-up. If you have a question, please press star, then one on your touchtone phone. If you wish to be removed from the queue, please press the pound key. If you are using a speakerphone, you may need to pick up the handset first before pressing the numbers. Once again, if you have a question, please press star, then one on your touchtone phone. Gabe Marine from Mizuho, please go ahead. Your line is open.\n\nGabe Marine (Analyst, Mizuho Securities): Hi, good afternoon, everyone. I'm just wondering if I could start out with the DAPL, and if a stay is not achieved, I guess you're Thank you very much.\n\nKevin Mitchell (Vice President and CFO): In the event the pipeline has to shut down, that means we will still hold the distribution at the same level. That's something we will evaluate. We'll make a decision around that at that point in time. And the two main levers we've got available to ourselves are the distribution and the level of capital spend. Obviously, when you look at the capital spend in terms of this year, there's not that much flexibility. There's a lot more flexibility as you look into next year as a lot of these projects complete. But in the event of the pipeline having to shut down, that would be a reason for us to consider the distribution and where that needs to be.\n\nGabe Marine (Analyst, Mizuho Securities): Understood. Thank you. And then I guess I also have a question as to I think you have other assets in the Bakken. There's a rail terminal there. There, I think that you at least have a partial interest in, would there be any benefit to that if you get some customers' logins over to that asset in the event of a DAPL shutdown?\n\nRosie Zuklik (Vice President and Chief Operating Officer): Yeah, no, this is Rosie, Gabe. And, yeah, you're thinking about it right. We would see benefit there at the Palermo rail terminal from an event like that.\n\nGabe Marine (Analyst, Mizuho Securities): Rosie, can you just talk about how much volume you're doing there currently versus capacity?\n\nRosie Zuklik (Vice President and Chief Operating Officer): I don't. It's probably at a 60% rate right now.\n\nGabe Marine (Analyst, Mizuho Securities): Okay, understood. Thank you.\n\nDavid (Conference Call Operator): Piero Dunas from Credit Suisse. Please go ahead. Your line is open.\n\nPiero Dunas (Analyst, Credit Suisse): Hey, Anthony, guys. First question, just follow up on the Apple briefly. I know it's been covered a lot in the last few calls, but in the event of an extended or more permanent shutdown. Just curious where Liberty would stand in that scenario. Just trying to understand, I guess, how quickly you could sort of mobilize and get that project back up on the foreground. And is that a realistic alternative for you?\n\nTim Roberts (Vice President, Operations): Well, this is Tim Roberts. So thanks for the question. You know, I would say right now with Liberty that we're still, Liberty is going to really be dependent. We deferred it. It's really going to be dependent on our ability to get long-term commitments. So if there are long-term investment-grade commitments that people are willing to make, producers, shippers, or anybody else who wants to get on that line, obviously that would help into achieving acceptable returns. Obviously, those are interesting for us. I would say that I wouldn't, with the timing between the two, it's hard to say that what happens on Bakken is going to impact what's going to happen on Liberty. It could very well, but I think it's too much uncertainty right now, to be honest with you. And so, and plus, when we put Liberty in place, Liberty was really meant to be also Powder River Basin coupled with some parts of the Bakken coupled with barrels up in the Rockies, DJ and so forth. So it really wasn't a Bakken play as much. I think that complemented it, but it wasn't that specific play. So I think at this point, still too early to call and we still look at Liberty on its own merits. If we have enough interest that makes sense to possibly advance that project, we'll do it.\n\nPiero Dunas (Analyst, Credit Suisse): Got it. Thanks, Sam. That makes sense. Switching gears to MVCs, I believe the accounting here means that we'll see some of those MVCs realized in revenue on a forward basis as the credits are used up. And so do you have any sense for what the total deficiency amount was this quarter, I guess, for both wholly owned and JV assets, and maybe over how many quarters going forward we can see that start to get realized through EBITDA?\n\nRosie Zuklik (Vice President and Chief Operating Officer): You know, I don't have a number for you, but I mean, and it's hard to say, but just simply because so many of the JVs have different ways of, you know, when it comes to their distributions, you know, in some cases, some of them pay out like March, April, and May, as opposed to actually paying out, you know, the actual quarter months. But you are thinking about it, right? You know, as the next month, as the next quarter moves forward and we are actually seeing the volumes go closer to the MVC levels, we should actually start seeing benefits there from a cash flow perspective and earnings perspective.\n\nDavid (Conference Call Operator): Elvira Escado from RVC Capital Markets. Please go ahead. Your line is open.\n\nElvira Escado (Analyst, RVC Capital Markets): Hey, good afternoon, everyone. So you talked about the two levers in the event of a DAFL shutdown that PSXP itself could pull, which would be CapEx and distribution. So let's just start a minute with CapEx. You said that, you know, with the most of your growth projects essentially finished or close to being complete, You know, this year you still have some CapEx spend, but what would be a reasonable run rate for growth CapEx in 2021 and beyond?\n\nKevin Mitchell (Vice President and CFO): Hey, Elvira, it's Kevin. You know, if you just look at the major projects that we've got going, the only one that has a decent amount of spend in 2021 is the C2G FAME pipeline. And then the rest, it will be small projects on top of that. So I'm not in a position to give capital guidance for 2021 at this point. That's something we do later in the year. But I think the point is we're highlighting that there's the potential for it to be quite a bit lower than where we were this year. So this year in aggregate is something close to $900 million. And so it could come down by a reasonable order of magnitude from that, but not in a position to give a specific number at this point.\n\nElvira Escado (Analyst, RVC Capital Markets): Okay, thanks. And then just my second question is just around the distribution as a lever that you said you would look at the distribution. So if DAPL, just trying to understand, if DAPL were shut down, is the distribution, should we think Thank you very much.\n\nKevin Mitchell (Vice President and CFO): The loss of EBITDA, the loss of cash flow from the pipeline being shut down, if that's what happens, that impacts a certain element of our metrics. The distribution can help offset that if we make a decision on the distribution. But we're also looking at leverage metrics as well because they get impacted. So we're sort of triangulating around all of those different elements And then also it depends on what's the sort of economic outlook, the broader economic position at that point in time. So the distribution is an easy one to do, but that doesn't mean to say that a shutdown automatically means a reduction of whatever percent. That's something that we won't make any, we won't be definitive around that until we're at that point where we're ready to go there.\n\nElvira Escado (Analyst, RVC Capital Markets): Thank you.\n\nDavid (Conference Call Operator): Teresa Chen from Barclays. Please go ahead. Your line is open.\n\nTeresa Chen (Analyst, Barclays): Hi. Just to clarify expectations around the DAPL process, what are you expecting in terms of the timeline itself of the appeal process?\n\nTim Roberts (Vice President, Operations): From the process it stands right now, we're expecting some sort of response from the Court of Appeals any time. And any time can be hours, days, or weeks. So we do think all the briefings have been submitted, so that's been done. They are now going through that process, so we'll hear what they come back with. Regardless of whatever that outcome may be, there still is another avenue to appeal, which would then, the appellate process would send you up to the Supreme Court, which I would suspect either party, depending on what side of the decision you're on, is probably going to take that course. So that in itself, you can get an emergency process through there, and I That again turns into, that's not, if you look at the nationwide permit, for example, that was just recently went up through an emergency process, I believe that took around six weeks before they came back with a response on that. So that's not a given, but it just gives us another data point on what that could potentially look like.\n\nTeresa Chen (Analyst, Barclays): Okay, so from the time that permit landed or the appeal for the permit landed on the Supreme Court's desk, The time that a decision was rendered, it was six weeks.\n\nTim Roberts (Vice President, Operations): Yeah, I think by the time the appeal process was started with the Supreme Court, it was six weeks. So, yeah, we may be saying the same thing, Teresa, but, yeah, you can... I look at it from the time you get an answer from this District Court of Appeals. I think we look at it six weeks from that point on getting another answer if, you know, it goes through that process.\n\nTeresa Chen (Analyst, Barclays): Got it. And... In relation to the gap between the MVCs and throughput, which you were made whole on in terms of DCF and coverage. So I believe, and please correct me if I'm wrong, but I believe that will be recognized in earnings once the makeup period for the ship or your affiliate is over. When you look at the timing of when each contract started within the year and assuming that period is around a year, do you see any lumpiness in the recognition of earnings as we go on?\n\nRosie Zuklik (Vice President and Chief Operating Officer): There could be, but you're right. I mean, I think that, you know, Every JV pipeline has a slightly different agreements with their shippers. So it's not going to be all the same. And, you know, in some cases, like I was describing earlier to Spiro, the way the distributions of their cash is also a little bit off. But so that causes a little bit of lumpiness too. But you are thinking about it right.\n\nDavid (Conference Call Operator): Jeremy Toney from JPMorgan. Please go ahead. Your line is open.\n\nJeremy Toney (Analyst, JPMorgan): Hi, good afternoon. Just wanted to touch base, I guess, with your expectations for refined product volumes and incredible volumes, if you will, over your system for the balance of the year. If you could just kind of give us like a live snapshot of what you're seeing now and how recovery you think will progress across your areas and how those volumes, you know, could recover over the balance of the year, that'd be helpful.\n\nJeff Dietert (Vice President, Investor Relations): Yes, Jeremy, we averaged 75% utilization in the second quarter. And on the PSX call, we talked about averaging in the low 80% range during the month of July. As we look forward into the rest of the third quarter and the back half of the year, It's really going to depend on how rapidly demand recovers and the economy recovers and what the demand for refined products, how that evolves in the back half of the year. We expect to increase utilization as demand continues to recover.\n\nJeremy Toney (Analyst, JPMorgan): That's very helpful. Thanks. Just wondering if you could provide a bit more color on your JV EBITDA. Everything's kind of consolidated there. And so wondering if you could give us a flavor on the year-over-year look by the individual assets, which ones kind of had bigger changes than others?\n\nRosie Zuklik (Vice President and Chief Operating Officer): I think, well, the way from what I saw this quarter at least is just simply, you know, no surprise the DAPL pipeline came in and that's just lower from the first quarter and that's just the result of the shedding of the wells that happened in the Bakken area. Gray Oak was increased from the first quarter and that's, again, to be expected as we saw additional ramp up in that pipeline. I mean, when it comes to the Sandhills and Southern Hills, NGL pipes have been doing well and so we were pleasantly surprised from the contributions that we received from those pipes in this order.\n\nDavid (Conference Call Operator): Chris Hainalfi from Jefferies. Please go ahead. Your line is open.\n\nChris Hainalfi (Analyst, Jefferies): Hey, good afternoon, everyone. Hi, Chris. Kevin, I just wanted to follow up on Gabe and Elvira's questions regarding DAVL. I mean, I appreciate that this process is uncertain. There's a lot of moving parts. Your response will be shaped by lots of different things, depending on what the regulatory and legal outcomes are. But as I understand it, you and the other co-venturers in Dakota Access provided a contingent equity contribution agreement in association with the Spring 19 Midwest Connector notes offering. and your securities filings have made reference to an equity contribution trigger event, I guess as determined by the code access, which would require essentially you to maybe put up your portion of the debt. And so with regard to that, I mean, obviously questions around what the courts do. My question is more, what constitutes the trigger event? Is it a timing related issue? Is it like if the stay fails in the DC circuit and at the Supreme Court, is that a trigger event? to just help us better understand that component as well.\n\nKevin Mitchell (Vice President and CFO): Yeah, so the way to think about that is a temporary shutdown would not be a trigger event, but something that revoked the permit permanently would be a trigger event. The whole notion of the triggering event, it's really all around the permit, the availability of the permit, and therefore the ability of the pipeline to continue operations. So an interim period of shutdown while the core completes its work would not be a triggering event, but a permanent revoke of the permit would. That's how I think about it. But Tim, anything?\n\nTim Roberts (Vice President, Operations): No, that's right. That's exactly right. Okay. I do want to clarify one comment. I just verified it's about eight weeks was the nationwide permit 12, not six. So, but that's still in the hands of the Supreme Court, so that can be less. They may not take it, or it could be longer. So, that's just with a guideline from that last ruling that they did make.\n\nJeff Dietert (Vice President, Investor Relations): And there can be significant variance around that time period.\n\nTim Roberts (Vice President, Operations): Absolutely. So, that's just a data point, not a, wouldn't necessarily make that set in stone.\n\nChris Hainalfi (Analyst, Jefferies): Okay. So, with regard to, if let's just say that the efforts around securing a stay fail, and we have to go through a formal EIS process and that might take a year or longer, that you and your partners would effectively service the DAPL debt? Is that the way to think about it? And then depending on the outcome of the EIS, then that's at what point the trigger event determination is made. If pipeline goes back into service, everything's fine. If there's a challenge, then it's an issue.\n\nKevin Mitchell (Vice President and CFO): Yeah, so in that event, there's a period of 12 months or so, whatever that period is of the pipeline being shut down, then the co-venturers would probably have to put cash in to fund the debt service, the interest expense. Okay. Perfect.\n\nChris Hainalfi (Analyst, Jefferies): That's all I had. Thank you very much for your patience. Thanks, Chris.\n\nDavid (Conference Call Operator): Theresa Chen from Barclays. Please go ahead. Your line is open.\n\nTeresa Chen (Analyst, Barclays): Hi. Hello, can you hear me? Yes. Okay. Sorry. Sorry. So to your follow-up on the nationwide permit, do you expect that this process will need the full Supreme Court or that it would just be adjudicated by Justice Roberts?\n\nTim Roberts (Vice President, Operations): Yeah, now you're out of my league. I would probably have to refer and just get back to you on what that is, Teresa. But I don't think it's a full spring port, but that's a guess. So I'm going to pull back and say, let me check.\n\nTeresa Chen (Analyst, Barclays): Okay. And then if I could just squeeze one more line from one investor, how long would you be comfortable running sub one times coverage while DAPL plays out?\n\nKevin Mitchell (Vice President and CFO): Well, we... We think about coverage really on an annual basis. And so you've got the quarter by quarter, it can fluctuate. And so you could certainly have a situation where in a given quarter, you drop below one, but you wouldn't expect that to continue over multiple quarters. And so it's an extended, a shutdown scenario is an event that would cause us to consider where the distribution needs to be if we need to take action on that. But we wouldn't go for an extended period at sub one coverage.\n\nTeresa Chen (Analyst, Barclays): Thank you very much.\n\nDavid (Conference Call Operator): We have reached the end of today's call. I will now turn the call back over to Jeff.\n\nJeff Dietert (Vice President, Investor Relations): Thank you, David, and thank all of you for your interest in Phillips 66 Partners. If you have additional questions, please call Brent or me. Thank you.\n\nDavid (Conference Call Operator): Thank you, ladies and gentlemen. This concludes today's conference. You may now disconnect.",
+  "n_turns": 54
+}

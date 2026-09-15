@@ -1,0 +1,621 @@
+{
+  "ticker": "FRC",
+  "original_ticker": "FRC",
+  "call_date": "2023-01-13",
+  "year": 2022,
+  "quarter": 4,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "FRC",
+    "year": 2022,
+    "quarter": 4
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T01:49:12Z",
+  "raw_payload": {
+    "event": {
+      "year": 2022,
+      "quarter": 4,
+      "conference_date": "2023-01-13T10:00:00.000-05:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk05",
+        "text": "Greetings and welcome to First Republic Bank's fourth quarter and full year 2022 earnings conference call. Today's conference is being recorded. During today's call, the lines will be in a listen-only mode. Following the presentation, the conference will be opened for questions. To join the queue, please press star 1 on your telephone keypad at any point during the call. I would now like to turn the call over to Mike Ionelli Vice President and Director of Investor Relations. Please go ahead."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you and welcome to First Republic Bank's fourth quarter 2022 conference call. Speaking today will be Jim Herbert, Founder and Executive Chairman. Mike Roffler, CEO and President. Mike Selfridge, Chief Banking Officer. Bob Thornton, President, Private Wealth Management. Olga Sokova, Chief Accounting Officer and Deputy Chief Financial Officer, and Neil Holland, Chief Financial Officer. Before I hand the call over to Jim, please note that we may make forward-looking statements during today's call that are subject to risks, uncertainties, and assumptions. We also discuss certain non-GAAP measures of our financial performance, which should be considered in addition to, not as a substitute for, financial measures prepared in accordance with GAAP. For more complete discussion of the risks and uncertainties that could cause actual results to differ materially from any forward-looking statements, and for reconciliations of the non-GAAP calculation of certain financial measures to the most comparable GAAP financial measure, see the bank's FDIC filings, including the Form 8-K filed today, all available on the bank's website. And now I'd like to turn the call over to Jim Herbert."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Thank you, Mike, very much. And good morning, everyone. It was a very strong year for First Republic. Our time tested business model and service culture continue to perform really well. In fact, it was our best year ever in many ways. Our new 2022 net promoter score, which was announced this morning, is our highest ever client satisfaction level. It's actually extraordinarily strong. Our non-performing assets a year in were just five basis points. This is low even for First Republic. Exceptional client service and our strong, focused lending led to safe, organic growth during the year. In 2022, total loans grew $32 billion, a record. And we had record earnings for the year. In uncertain times like these, an ability to continue to grow safely is quite viable and very rare. Let me take a moment to provide some perspective on the current rate environment and the Fed tightening cycle as we see it. Since our last call about 90 days ago, the Fed has raised rates another 125 basis points. At the same time, the 10-year Treasury has declined 50 basis points. The resulting increased rate inversion has begun to put some pressure on our net interest margin and net interest income. However, history and experience has shown that this type of inverted yield curve has a limited duration. Cycles are just that, they're cycles. During First Republic's 37-year history, there have been five tightening cycles. We've continued to grow and prosper through them, and especially after each one. On average, over the last 40 years, The Fed has started to cut rates less than a year after the 10-year yield has peaked. The market currently expects the Fed to start cutting rates during the back half of this year, which would be consistent with prior tightening cycles and is also our current assumption. We are staying focused on executing our model, and we remain very committed to delivering solid results through all market conditions. The bedrock of our performance is providing truly exceptional differentiated service, maintaining very strong credit, delivering safe organic growth, and the results follow. Now let me turn the call over to Mike Crawford, CEO and President."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Thanks, Jim. 2022 was a terrific year with record loan growth, record loan origination volume, record revenue, and record earnings per share. Let me begin by covering some key results for the year. Total loans were outstanding, were up 24%. Total deposits have grown 13%. Wealth management assets were down only 3%, while the S&P 500 was down more than 19% over the same period. This strong growth, in turn, has led to strong financial performance. Year over year, total revenues have grown 17%. Net interest income has grown 17%. Earnings per share has grown 7%. And importantly, tangible book value per share has increased 11% during the year. As we look to a more challenging year ahead, we remain well positioned to deliver safe, strong growth through the consistent execution of our service-focused culture and business model. We remain very well capitalized as a result of raising capital methodically and opportunistically over time. Our Tier 1 leverage ratio was 851 at quarter end. Credit quality remains excellent. net charge-offs for the fourth quarter were less than $1 million. For the entire year, net charge-offs were less than $3 million, or less than one-fifth of a single basis point of average loans. Non-performing assets ended the year at only five basis points of total assets. As Jim mentioned, this is one of our best levels ever. We do not stretch on credit quality to deliver loan growth. Our growth is driven by consistent execution of exceptional client service, one client at a time, each and every day. Today we release the results of our 2022 NEP Promoter Score Survey, our Client Satisfaction Scorecard. We are pleased to have achieved a record high score of 80. This is an increase from last year's score. which was also a record at the time. At the same time, client satisfaction has declined for the overall banking industry. In 2022, the Net Promoter Score for the U.S. banking industry declined to only 31. Our service-focused model is truly differentiated, even more so during challenging and disruptive environments. During 2022, we also continued to make thoughtful investments that support service excellence and growth. We expanded into the Seattle area by opening our first banking location in the market. We brought on 13 new wealth manager teams, one of our best recruiting years ever. And we successfully upgraded our core banking system, the largest technology project we've ever undertaken. As Jim mentioned, since mid-November, we have been operating with a challenging yield curve. To help us navigate the margin pressure in the near term, we continue to moderate our expense growth. At the same time, we remain focused on the long term and continue to leverage our reputation of exceptional service to drive new business and grow total households. Our focus on service drives our growth as clients stay with us, do more with us, and refer their friends and colleagues. In fact, during 2022, and driven by our highest ever level of client satisfaction, total households increased a very strong 15%. This is nearly double the growth rate of the prior year. Over time, this growth compounds, continuing to deliver shareholder value and consistent profitability as it has for 37 years since our founding. Overall, 2022 was a very strong year for First Republic. Now I'd like to turn the call over to Mike Selfridge, Chief Banking Officer."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thank you, Mike. Let me provide an update on lending and deposits across our business. Loan origination volume was a record for the year at $73 billion. Our real estate secured lending remained well diversified. Both single-family residential and multifamily achieved record volumes for the year. Purchase activity accounted for 54% of single-family residential volume during the year and 64% during the fourth quarter. As refinance activity has slowed, so have the repayment rates. This provides a strong base for loan growth. We continue to expect to deliver mid-teens loan growth for 2023. I would note that loan originations have some seasonality with the first quarter typically being somewhat slower. In terms of credit, we continue to maintain our conservative underwriting standards. The average loan to value ratio for all real estate loans originated during the year was just 57%. Turning to business banking, we continue to deepen our relationships by following clients to the businesses they own or influence. Our relationship-based model also leads to a strong level of referrals to new business clients. In 2022, our business client base grew by 18%. Business loans and line commitments were up 14% year-over-year. The utilization rate on capital call lines of credit increased slightly to approximately 33% during the fourth quarter. Our capital call line commitments grew 16% during the year as we continue to acquire new clients. Turning to deposits, we are pleased that total deposits were up 13% year over year and 2.4% quarter over quarter. We continue to see a shift in deposit product mix as a result of rising rates. Checking represented 59% of total deposits at year end, down from 64% in September. And CDs accounted for 14% of total deposits at year end, up from 9% in September. Preferred banking offices continue to provide an important service channel for our clients and drive deposit gathering. Over the next year, we expect to selectively open new offices to deepen our presence in our existing footprint. Our programs for acquiring and growing our next generation of client relationships, which began more than a decade ago, continue to deliver strong results. In 2022, millennial households grew 17%. These younger households are the same high-quality clients that we have always attracted and are part of our strategy to see the long-term growth of First Republic. As Mike and Jim noted, our exceptional Net Promoter Score continues to demonstrate our ability to deliver differentiated client service. Let me take a moment to provide some additional detail. For clients who identify us as lead bank, our Net Promoter Score is 87, even higher than our overall score. And importantly, nearly two-thirds of our clients now consider us as lead bank. Remarkably, our net promoter score increased in each of the past three years as we have dealt with a pandemic and rising levels of economic uncertainty and as we implemented a new core banking system in early 2022. And during this time, our consistently high scores also increased across every region every line of business, and every generation of clients. Our high client satisfaction remains the driver of our long-term growth. Now let me turn the call over to Bob Thornton, President, Private Wealth Management."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you, Mike. It was a very successful year for our wealth management business. During the year, total assets under management were down only 3%, while the S&P 500 was down more than 19%. Investment management assets actually increased during the year, driven by strong net client inflow. Wealth management fee revenue was up more than 15% from the prior year. This includes strong growth in fees from brokerage, trusts, insurance, and foreign exchange services. The combined fees from these services increased 29% year over year. And the strong growth in these products has also further diversified our wealth management fee revenue. As we have noted before, our exceptional client service is even more highly valued by clients during times of marked volatility. We take these opportunities to engage our clients and understand their needs as market conditions change. In fact, a key strength of our business model is our holistic approach to meeting our clients' banking and wealth management needs. This benefits clients and has driven growth through a strong level of internal referrals and a deepening of client relationships. In this regard, 2022 was a particularly strong year. Our bankers referred over $11.5 billion of AUM to Wealth Management and deposit balances from new relationships referred by our Wealth Management colleagues during the year totaled more than $3 billion. Wealth management referred deposits and suite balances now represent over 13% of the bank's total deposits. Our integrated banking and wealth management model also continues to make First Republic a very attractive destination for successful wealth professionals. In 2022, we welcomed 13 new wealth manager teams to First Republic in one of our strongest years ever. This included five teams in the fourth quarter alone. So far in 2020-2023, we've already welcomed two new wealth management teams to First Republic, reflecting our continued investment in the long-term success of this business. Overall, our team continues to execute very well. Times like these are a great opportunity to demonstrate our exceptional service, deepen existing relationships, and acquire new households. Now I'd like to turn the call over to Olga Sokova, Chief Accounting Officer and Deputy Chief Financial Officer."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thank you, Bob. I will briefly discuss our strength and stability. Our capital position remains strong. During 2022, we added over $400 million of net new Tier 1 capital through a successful common stock offering. At year end, Tier 1 leverage ratio was 8.51%. Liquidity also remains strong. High quality liquid assets were 13% of average total assets in the fourth quarter. Our credit quality remains excellent. Net charges for the year were only $3 million. Over the same period, our provision for credit losses was $107 million, which was driven by our strong loan growth. This is a multiple of nearly 40x. Heading into 2023, our balance sheet remains strong. And now I'll turn the call over to Neil Holland, Chief Financial Officer."
+      },
+      {
+        "speaker": "spk24",
+        "text": "Thank you, Olga. It was a very strong year. Our exceptional client service and strong credit powered our safe growth. Our 2022 results were in line with or better than the expectations communicated at the start of the year. Let me take a moment to talk about the year ahead. With a rapid rise in rates and the current inverted yield curve, we continue to experience margin pressure. We currently expect the Fed funds rate to peak at 5% and then to gradually decline in the second half of the year. As a result, for the full year 2023, our expected net interest margin to be approximately 25 to 30 basis points lower than the fourth quarter. As a growth bank, we create value by consistently compounding our asset base, a direct result of the exceptional service we provide. Therefore, Net interest income is a key metric for our differentiated business model. Despite the current margin pressure, we expect net interest income for the full year 2023 to be down only 2% to 5% given our continued strong growth in loans and investments. As we look to 2024, we expect continued strong loan growth in a more normalized rate environment. As a result, we expect to deliver strong, double-digit net interest income growth in line with our past performance. As Jim mentioned, the years following tightening cycles have historically been strong for the bank. Turning to expenses, for 2023, we expect expense growth in the high single digits. As a reminder, expenses are typically higher in the first quarter due to the seasonal impact of payroll taxes and benefits. As we discussed at Investor Day, we continue to prioritize our expenses in a way that will not sacrifice client service, growth, or safety and soundness. We have identified $150 million in planned expenses that we will not incur in 2023. This is already having a positive impact on our expense base and helped us keep expenses flat from the third to fourth quarter. With respect to income taxes, the full-year tax rate is expected to be around 24%. While the current rate environment is challenging, our model is strong. We will continue to deliver exceptional client service, grow new households, and provide safe growth in 2023 and beyond. Now, let me turn the call back to Mike Roffler."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Thank you, Neil. Thank you, Neil. It was a strong year with record client service levels. record loan growth, and record credit performance. Our time-tested service model remains solid. Our entire team remains focused on executing our client service strategy one client at a time. Now we'd be happy to take your questions."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank you. If you would like to ask a question, please signal by pressing star 1 on your telephone keypad. If you are using a speakerphone, Please make sure your mute function is turned off to allow your signal to reach our equipment. Again, press star 1 to ask a question, and we'll pause for just a moment to allow for an opportunity to signal for questions."
+      },
+      {
+        "speaker": "spk15",
+        "text": "And we'll take our first question from Stephen Alexopoulos with JP Morgan."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Please go ahead."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Hey, good morning, everyone."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Good morning, Steve."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Good morning, Mike. So from a big picture view, if we look at the dim outlook, it's a bit worse than what you had guided to at the investor day. And before I get into my deeper questions, what's changed since the investor day, which is driving the lower dim outlook for the year?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "Yes, Steve, thanks. I think if you look at investor day, what's happened since then, and I think we highlighted this a bit in the prepared remarks, the 10-year has gone down 50, 60 basis points. And so the inversion of the yield curve has had a pretty significant impact on just rates in general. And obviously the macro environment is a thing that we can't control. The things we can control are our service levels and how we acquire households. And so with that inversion, which as we noted, won't last a very long time, And we are now partway through it. And so I think that is the biggest driver for the change in outlook relative to about 65 days ago."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay. And Mike, it sounds like you're upping the expectations for expense management. And I think you guided to about a 65% efficiency ratio for 2023. Is that still intact when you put these pieces together?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "Because of the margin outlook, it will be a little bit higher. But we have identified incremental expenses that will be deferred, not planned for the current year."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Are you willing to share a new range with us?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "Yeah, I mean, just because of the revenue side of the equation, it's just doing the math of a 2% to 5% decline with net interest income. It's about 66% to 68% with that guidepost. with high single-digit growth rates of expenses. Okay."
+      },
+      {
+        "speaker": "spk10",
+        "text": "And then just to dive in to the deposit side a little deeper. So it's pretty remarkable to see that with the rate being paid on checking balances more than double from the prior quarter, but average balances still came down about $9 billion. Can you take us behind the scenes in the quarter? What's the typical conversation you had with customers and maybe underlying the NIM assumptions Where do you see the rate paid on checking moving to, and maybe where does that mix stabilize? Thanks."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Well, importantly, I think there's still about $67 billion, I think, of zero-cost checking, which is operating balances and costs. Obviously, as rates have gone to 4.5%, The conversations between our clients facing people and clients have talked about, you know, where might they be able to achieve a bit better yield. And as a service organization, that's what we continue to focus on is that relationship with our clients to ensure they're leaving the right balances and checking for their operating needs. And there are other yield alternatives either in wealth management, money market, certificates of deposit, different alternatives. I think we communicated a low 30s data on overall deposits in the past, and we feel like sort of 30 to 35 is about the right range still at this point, and that's consistent with what we said before at Investor Day. Okay."
+      },
+      {
+        "speaker": "spk10",
+        "text": "And then if I could just squeeze one more, Mike. Going back to the new NIM outlook, I know Jim said in his commentary that you guys expect rates have declined more in line with the market in the second half of 2023. If rates were to move to, say, by 5.5% range and stay there and not come down in the second half, how would that change your NIM outlook for 2023?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Thanks."
+      },
+      {
+        "speaker": "spk19",
+        "text": "So once it stabilizes, you sort of stabilize from there. So I don't think it changes it a whole lot. I think the pace of change is what has happened this year that led to the increase or the increase in funding costs. And the real impact, if you think about it, is in the future, if you leap forward to 24 and you're stable, is when you'll start to see the inflection where net interest income starts to grow. Right now, that looks like the back half of the year on a linked quarter basis. If the Fed delays, that might delay that a quarter, but then you start to see the inflection higher thereafter."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Great. Thanks for taking my questions."
+      },
+      {
+        "speaker": "spk05",
+        "text": "We'll take the next question from Dave Rochester with Compass Point. Please go ahead."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Hey, good morning, guys. Just on your NIM guide real quick, are you assuming for the funding of earning asset growth, primarily CDs and borrowings at this point, maybe just talk about the mix there and the growth of deposits that you're thinking about? And then you did have a decent amount of runoff and non-interest bearing, which a lot of banks are experiencing at this point. I was just curious, should we expect this type of pace to continue, or do you see a level \u2013 at which you'd expect the trend to sort of subside and then get down to more of a sticky base that's remaining? Where do you see that sort of trailing off? Thanks."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Yeah, maybe what you're getting at is the average balance size. It has come down. So average balances per account peaked probably at the end of last year. They have come down closer to their pre-pandemic levels. And then obviously, as I mentioned earlier, there's a level of operating needs that clients have to have to operate with. I think that the outlook, you know, we're going to largely fund loan growth with deposits, and then there'll be a mix of borrowings that is also utilized, just like we have in the past. And the growth rate will probably be greater in CDs than it will be in checking, given where the rates are this year, and that's reflected in our outlook."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Okay, great. And then maybe just on capital, tier one leverage looks good. Notice the CET1 ratio did down a little bit below 9%. Is that an issue at all? And just how are you thinking about that level going forward? Thanks."
+      },
+      {
+        "speaker": "spk19",
+        "text": "No, no issue with our capital currently. We, as always, remain opportunistic and methodical. Uh, relative to, um, capital would be a preferred or common."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Great and then maybe 1 last 1 on a loan production rates. Maybe if you could just kind of go through the. The key products and talk about where your pricing loans today. That'd be great. Thanks."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Sure, uh, David, it's Mike Selfridge to give you a couple of indicators here and look more rather look more at the lock pipeline as of, um. as of today. So single-family, a lot of pipeline. These are deals that are in the queue and due to close soon. Single-family mortgages, about 580. Multifamily, about 5.4%. Commercial, about 5.6%. And the whole locked real estate loans right now are a little over 5%, maybe 510. And then on the business banking side, nothing's changed there. Capital call lines tend to be the larger part of and that still remains in the prime minus 75 to prime minus 100 basis point range."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Great. Thanks for the call, guys. Appreciate it."
+      },
+      {
+        "speaker": "spk15",
+        "text": "We'll take the next question from Ibrahim Bumala with Bank of America."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Please go ahead."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Hey, good morning. I just wanted to follow up on the margin on two things. One, I think, like you mentioned, still expect the 30% to 35% deposit beta. In the world where rates don't actually get cut and the forward curve doesn't play out, just handicap the risk. I think the concern on the margin outlook generally has been that deposit costs mix, shift. We heard from some of the other big banks today could be much worse than we've seen just given that we've not tested for this in a long, long time. What's the comfort level on that 30% to 35% beta holding?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "So that, you know, is our best perspective at this point in time given our outlook. And as Jim mentioned, you know, this doesn't last forever given history of 40-plus years. And so the 10-year is also telling you something where it's dipped to 344 as of yesterday as to where the market feels rates are moving. And so the, you know, the beta could be a little bit higher if they, if they hold an extra quarter. Or 2, but the fact that the pace is slowing. There'll be a little bit of what I call catch up that always is at the end of a cycle. but the pace slows because the time just passes. And so I would say that we feel pretty confident where we are. And, you know, it'll be dependent upon macro outlook, which is the one thing that you all know we don't control, and nor does anyone else."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Understood. And just, I'm sorry if I missed it. Did you talk about, like, in terms of the margin, I'm assuming there's some benefit in the back half if you assume rate cuts in your NIM guidance of down 25 to 30 bips. How should we think about the NIM trajectory? Like, does it fall closer to 2% by the middle of the year, by the second or third quarter before rebounding in the back half?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "No, I wouldn't go to 2%. It sort of stabilizes at the middle part of the year. And importantly, after you have a little bit of a dip in net interest income here in the first half, then you start to see it increase towards the back half of the year and starts to have a real positive trajectory into 24."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Understood. And just one last question around growth. I know, Jim, you've talked about market share in environments like this. Just give us a sense of is this environment any different in terms of gaining market share? And how are your customers \u2013 there's been a ton of wealth destruction. How is that factoring in? in terms of just the appetite to buy homes and in terms of mortgage loan growth today versus the last 10 or 15 years?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "Well, this disruptive moment, and we all know that the mortgage market is being disrupted a little bit, is an extraordinary opportunity for us to take share. Moments like this are very special. The volume of demand is lower. We all know that, although my guess is it will pick up in the spring quite a lot. But the disruptive nature, the disruption that's going on in the mortgage market, people pulling back, et cetera, is just handing us \u2013 it's on a silver platter."
+      },
+      {
+        "speaker": "spk12",
+        "text": "And does that create some pricing power? Like as the yield curve, Mike, you mentioned earlier, dropped, did the spreads widen on this product?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "It's not a pricing issue. It's a service issue and availability issue."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Got it. But I'm just wondering, are you able to see better spreads when the yield curve or is the pricing on these like the 580 Mike mentioned, will that tend more or less with whatever happens with the yield curve?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "Let me turn this to Mike. But the pricing on the acquisition of a new well-off household on a short-term asset like a four- or five-year mortgage is semi-irrelevant. You take on a new household like this, they stay with you for life."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, and Ibrahim, I want to clarify on Dave Rochester's comment. The lock production on the single family is a little under 5% is what I meant to say, about 480. But these are still, as we've said in the past, A-plus clients, and they get very good pricing for full relationship and full service at First Republic."
+      },
+      {
+        "speaker": "spk12",
+        "text": "That helps with the clarification."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Thank you so much, and thanks for taking my questions."
+      },
+      {
+        "speaker": "spk05",
+        "text": "The next question comes from Casey here with Jefferies. Please go ahead."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Yes, thanks. Good morning, everyone. Operating lever question for 24. Appreciate the guide on NII up low double digits next year. Just wondering, you know, just given that you guys are doing a good job on the expense front and deferring, I think you bumped it up to $150 million. Just wondering, do we see a catch-up next year on all this expense deferral, or is there an opportunity to improve the efficiency ratio from that 66, 68, you know, when NIM starts going the right way?"
+      },
+      {
+        "speaker": "spk24",
+        "text": "Yeah, there's a strong opportunity in 24 to see a very strong improvement in our efficiency ratio as we're really looking for ways to optimize, prioritize, make the company even more efficient than we are today. We expect strong operating leverage into the future."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay, very good. On the switching gears to the loan growth, can we get a sense for how the pipeline is doing at year-end versus 930?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hi, Casey. Mike Selfridge. I would say, I would characterize it as healthy. It's down from the last quarter, but it's up year-over-year. There's been headwinds on the refinance side, and that's been more difficult. But there's other parts of the pipeline, I would note, that are doing very well. Business banking, for example, is at a high. Other avenues, PLP, PLOC, securities lending. So, again, healthy pipeline going into the quarter. Okay, thanks, Mike. And just following up on that. And, Dave, on the loan growth, let me add \u2013 oh, go ahead. No, go ahead, go ahead. I was just going to say with the loan growth itself \u2013 Also note that CPRs are down, and so that gives us a good base from which to grow. Yep."
+      },
+      {
+        "speaker": "spk08",
+        "text": "And then the capital call, that came in a little bit stronger than certainly what you were sort of experiencing in November. Just any color on, is that business picking up?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "I would say, well, you know, a little bit of improvement from 32% to 33% utilization. That's down from a year ago, which was just over 40%. That industry is still seeing its challenge in the sense of slower velocity of deals, just like last quarter, slower pace of fundraising, but cautious but still active investors. And there was a slight tick up in private equity activity overall for the industry, and that drove a little bit of the utilization for us."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay, great. And just one more. The spot deposit costs at 1231 versus \u2013 versus the 99 bps in the quarter, and also the spot CD costs, if you could provide that, given that's a critical driver here."
+      },
+      {
+        "speaker": "spk24",
+        "text": "Yeah, we ended the quarter with an average of 99 basis points, and looking at where we ended spot at 1231, we were up about 30 basis points from there."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay, any color on the CDs versus that 279 level in the quarter?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "Yeah, it just tends to move around depending on where we're trying to position. So I don't think it's a meaningful, I think the 129 spots, the right place to be."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Okay, thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "We'll take the next question from Manan Gosalia with Morgan Stanley. Please go ahead."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Hi, good morning. I had a question on the duration of the CD book. Some of the promo CD durations that you were offering or some of the promo CDs you were offering in the past were closer to four months. So my question is, what are you seeing clients doing there? Are they just rolling those CDs over for the same term or perhaps are they maybe extending the term a little bit given that you're also offering an eight-month promo rate right now? And then if you have any comments on what the duration of the CD book is and what percentage will likely reprice over the course of the next couple of quarters."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Currently, I'd say clients are a little more inclined on the 8- and 10-month versus shorter. Usually, every rollover opportunity presents an opportunity for us to demonstrate our extraordinary client service. And so our bankers in the offices are engaging with clients to talk about their needs and maybe do they want to be shorter? Do they want to lock in a little bit more? Do they have other cash needs? And so I think what's important is the rollover opportunity drives a conversation with the client most importantly. Given what we talked about with the cycles earlier, staying in sort of what I'll call a four to seven month range for us has made a lot of sense if you believe that the cycle does roll over sort of mid-year. And so that's been our duration has been pretty much in that range."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Got it."
+      },
+      {
+        "speaker": "spk01",
+        "text": "So should we assume a majority of the CDs are going to reprice over the course of the next three to six months?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "Yes, that's a fair assumption."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Okay, great. And then maybe just related to that, you know, you've said in the past that you like CDs over FHLB funding, given that CDs are a good customer acquisition tool. Is there anything you can share there on maybe the number of new customers that you're bringing in through the promo CD offerings? And do they typically come with some checking account openings as well? And is there a rate you have in mind at which it might make more sense to pivot to FHLB over CDs?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "Thanks. So I think we'd always choose the client first on the first part there. And typically, the CD pricing actually is a little bit more attractive than the FHLB, especially right now. And so those are two benefits, but the first being the client first and foremost. And absolutely, when they come into an office, they experience something different versus other offices. And so our service level is meant to, one, bring them in, but second, develop a relationship where we have their checking and their primary banking. And so typically, we're able to get checking accounts on a very good percentage of those and build the relationship over time. which is the most important because we're playing for the long-term client relationship, not just the rate offering in the current moment."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Appreciate it. Thanks for taking my questions."
+      },
+      {
+        "speaker": "spk05",
+        "text": "We'll take our next question from Jared Shaw with Wells Fargo. Please go ahead."
+      },
+      {
+        "speaker": "spk20",
+        "text": "Hi, good morning. Maybe circling back on the expenses and the deferred expenses, could you maybe separate those out on how much of that is coming from maybe deferred hiring versus systems or technology spending versus overall marketing and general spending?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "So, Jared, it's a good question. I think it's really broad-based. So some of it is we've hired a lot of people in the last couple years, so we have efficiencies from the new core system. Maybe we'll hire a little bit less in certain areas. As Mike Selfridge said, and I think Jim, mortgage volume, there's less refinance, so you need less growth in headcount there. And so some of it is if we had projected to grow ahead of count, we're going to grow a little bit less. Olga, I think, and Neil had mentioned this at Investor Day, there's some natural adjustment to our compensation levels given the mix of business we're doing. That's also factored in. And then everywhere else is a team approach in marketing, IT, everywhere where the team really bands together and think about where's the best dollars to spend for client service. and to make sure we continue to be safe and sound to grow, and that's how we're focused. For example, we've hired, already announced, two teams this year in wealth management. As Bob mentioned, that's a great opportunity for us to hire terrific people, bring them over, and have new clients come to the bank at the same time. And so it's a little bit more of prioritizing and optimizing our spend to continue to drive safe, stable growth over time."
+      },
+      {
+        "speaker": "spk20",
+        "text": "Okay. Great. Thanks. Just finally for me, I guess on the securities portfolio, can you give an update on reinvestment rates and what we should expect as maybe a target securities and cash to total assets as we go out the next few quarters?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hi, Jared. This is Olga. So if we look at our purchases in the fourth quarter, the yields on HQAs were in low fives. And the munis came high and low six, like 6.1, 6.3. And if we look at the yields today, or just at quarter end or subsequent to quarter end, HQLA remained relatively similar levels at five, five and a quarter. And munis yields load slightly from what we've seen during the quarter. They were at five, five and a half."
+      },
+      {
+        "speaker": "spk14",
+        "text": "And we expect to keep cash at the same level of the total assets through the next year. Great. Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Next question comes from John Pancari with Evercore. Please go ahead."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Good morning."
+      },
+      {
+        "speaker": "spk09",
+        "text": "On the loan growth, on the mid-teens growth expectation, could you perhaps kind of break it out by loan category, what you're thinking is a reasonable expectation for growth, you know, particularly on the mortgage side, given where we're looking at rates as well as purchase activity. If you can give us a breakdown of that mid-teens and the key drivers, that would be really helpful. Thanks."
+      },
+      {
+        "speaker": "spk02",
+        "text": "John, it's Mike. Yeah, mid-teens loan growth, we're comfortable with that. I would say the mix is going to be consistent as it has been in years previous, so nothing unusual there. And where it's coming from, Jim mentioned the disruption going on. It's never been a better time to acquire clients at First Republic, and that's true for the lending side as well. You know, we were pleasantly surprised that even refi mix was 36%. Keep in mind, those are new households as well. The majority of those refis are other banks' clients that we acquire. So nothing unusual in terms of the mix."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Okay. All right."
+      },
+      {
+        "speaker": "spk09",
+        "text": "And then separately, on the fee side, just wondering what non-interest income growth expectation do you have baked into that? 66 to 68% efficiency range. And then more specifically, can you kind of give us some color on how you think about growth that is likely in investment management and brokerage and investment fees? I'm curious what type of upside you see there and maybe what your basic case assumption is for the S&P and how it could impact their wealth management revenue."
+      },
+      {
+        "speaker": "spk03",
+        "text": "This is Bob. Maybe I'll start. So the first quarter, we're looking at investment management fees somewhere in the range of $150 million. And that reflects in part, we had a number of team hires late in the year that we hadn't seen fully reflect, but we got some of the benefits. S&P is up since September 30th and new team hires. So we look for this year to be a pretty strong year in terms of our overall growth. And investment management fees and total wealth management fees."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Yeah, John, and if I just stand back for total non-interest income, we'd expect it to be in the, you know, double digits, which is inclusive of wealth management is a big part of that. And then the other items that we also have had, you know, loan fees, deposit fees, et cetera."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Okay, got it. Thanks, Mike. And then my last question is just around the The LTV comment, I know you mentioned 57% loan value on all your real estate loans that you had produced. I guess that was, I think, over the year. But maybe if you can give us a little bit more color on commercial real estate. What is the LTV at origination in your commercial real estate portfolio? And more importantly, what is Do you have an indication of what the refreshed LTV is in that portfolio?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "John, it's Mike. The last two years, and that would go for today, the median LTV on commercial real estate origination has been about just under 50%, about 46% to be precise. Median size, about $2 million. Okay."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Do you have a refreshed LTV for your commercial real estate book to try to Give us an idea of how that book is positioned here as we start to see pressure in office and other areas."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, no change from our conservative underwriting standards. We have always been conservative and cautious, even more cautious, and I even think our clients are more cautious. So just expect very conservative underwriting."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Okay, thanks, Mike. Appreciate it."
+      },
+      {
+        "speaker": "spk05",
+        "text": "We'll take the next question from Bill Kirkocchi with Wolf Research. Please go ahead."
+      },
+      {
+        "speaker": "spk22",
+        "text": "Thank you. Good morning. I wanted to follow up on the NIM commentary. Your net interest spread is down to 174 basis points versus your NIM at 245 basis points. How would you address the growing divergence across those metrics, including concerns that the net interest margin will eventually converge with the spread?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "Well, Bill, I think that the big thing that, you know, difference between those two items is the spread doesn't factor in the nearly $67 billion of non-interest. So we're much more focused on, as we talked about earlier, net interest income versus what the, you know, the margin will be. And so the divergence doesn't, you know, really concern us at all."
+      },
+      {
+        "speaker": "spk22",
+        "text": "Okay. And then on that topic, as we sort of think about, like, remixing You know, the CD mix, you've moved back closer to pre-COVID levels, but there's growing concern that we could see CD mix revert to pre-GFC levels in this rate environment. Your mix of CDs was just over 30% of deposits back in 2010. You know, how are you thinking about, like, the remixing of, you know, non-interest bearing deposits, essentially the mix of non-interest bearing deposits coming lower and CDs remixing higher? Any thoughts around that would be helpful."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Yeah, there is a level of operating accounts that our business clients and consumers do need. And we, as we mentioned earlier, average balances are approaching and starting to close in on pre-pandemic. We have run CDs higher in the past, and some of our outlook that we provided earlier does reflect that we expect that to continue here into 2023. And as we mentioned earlier, it's a terrific way to get trial with new households and continue to deepen relationship with clients. And so it's a tool the bank has used for 37 years. In some periods, you just use it a lot less than others. And now as one of those periods, we're using it more."
+      },
+      {
+        "speaker": "spk22",
+        "text": "Understood. If I may, with a final question on, you guys have historically done very little with derivative financial instruments. With the yield that you're earning on cash now roughly in line with your loan yields, does that dynamic influence in any way whether you'd consider putting on swaps or at all change how you've thought about the use of derivatives?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "It does not."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Okay. Well, thank you for taking my questions."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Next question will come from Erica Nadurian with UBS. Please go ahead."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Hi, good morning. My first question is for Mike Roffler. I think that, you know, how the market is responding to, you know, your guidance today is a clear indication that the expected difficulty in 2023 and, you know, are looking ahead to 24. And to that end, Could you share with us what you envision to be the natural efficiency ratio for First Republic as we put more volatile rate moves behind us? We think about a more normal investment cycle and also contemplate the impact of HQA build to a modified LCR goal."
+      },
+      {
+        "speaker": "spk19",
+        "text": "uh thank you eric i think you're um right to look forward to 2024 and i think when you get through this period where the margin and net interest income is a bit under pressure and then you go forward when after we stabilize when the cycle turns you'd come back to sort of a 62 to 64 range which is where we've been you know for many years"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thank you. And as a follow-up there, you know, obviously, you know, in 2024, you know, the investors are starting to think about cuts to Fed funds. And to that end, right, it's been a while since we've seen a terminal rate above zero. How should we think about where your deposits would settle to, deposit costs would settle to relative to the terminal rate, right? We've been so used to you know, where deposits have dropped relative to zero. And when we've looked at other points historically, deposit costs tend to drop above, you know, where Fed funds troughs. So, you know, perhaps give us a sense of how much you think you can cut deposit costs as the Fed starts easing."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Eric, thanks for the question. It'll be very mixed driven, right? And so one of the things that we've talked about is that through 2023, checking ends up about 50% of our deposits by the end of the year, which continues to be extremely valuable from a relative cost perspective to wherever the terminal rate ends up. And that's reflective of deep client relationships and the growth in the business banking. And then money market and CDs will again depend on client appetite and where do they want to lock in possibly for CD versus money market. And it's hard to project what that will be just because the mix does shift from time to time like it has now. But I think the most important thing is the value of the checking with the terminal rates above zero continues to be very strong relative to going forward."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Eric, I might add for a little bit, give a little historical perspective. The long-term, as Mike said, the long-term checking, if you go back many years, even when we bought the bank back, but even before that, tends to be in the 50%, 55% range, and the CDs range between sort of 10% and 20% of total. It is a mixed issue, and in between that is the money market. At what rate they land, it's hard to predict. But the mix is actually the driver. It was an abnormal mix when checking went up into the high 60s. Got it."
+      },
+      {
+        "speaker": "spk15",
+        "text": "And it's good to hear from you, Jim."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "I'll take our next question from Chris McGrady with KBW. Please go ahead."
+      },
+      {
+        "speaker": "spk21",
+        "text": "Oh, great. Just a quick modeling question. Most of the margin questions, I think, have been addressed. The BOLI run rate, any help there? I know you lowered the tax rate a bit, but any help? I know there's some seasonality quarter to quarter, but kind of a full year comment on BOLI income would be great. Thanks."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hi, Chris. So in the fourth quarter, we have a couple of items that contributed to increase from the third quarter of the year. One, we had a benefit from the life insurance policy, which we realized in the fourth quarter. And also, we had a positive impact from market to market on some of our insurance contracts. And just to remind you, I think we brought it up on one of the last calls that we used to offset some of the increases and changes from our benefit costs. So those two components contributed to the change from the third quarter. And yes, if you think about the run rate for the quarter, removing those two items, I would say still within 2022 million and a quarter."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Okay, thanks."
+      },
+      {
+        "speaker": "spk05",
+        "text": "We'll take our next question from Terry McEvoy with Stevens. Please go ahead."
+      },
+      {
+        "speaker": "spk23",
+        "text": "Thanks. I was wondering if you could add some more color on the new offices in 2023, certain markets that you think present the best opportunities and Strategically, is the near-term focus on deposits and or kind of capturing some of the market disruption that Jim mentioned earlier on the call?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Terry, the answer is yes. We are capturing a lot in terms of the disruption that Jim mentioned, but we're focused on relationships, and with relationships comes the full breadth of what we offer. We probably expect maybe around six offices over the next year or so. existing footprint. And then as Mike mentioned in his remarks, we're delighted to have expanded into Bellevue, Seattle, and we expect good things out of that region."
+      },
+      {
+        "speaker": "spk23",
+        "text": "And one last question. Checking account attrition in 2022. Did that differ at all from that? I think it's that 1% longer term average you guys put in the investor presentation."
+      },
+      {
+        "speaker": "spk14",
+        "text": "I know it did not. That's good to hear. Thanks for taking my questions."
+      },
+      {
+        "speaker": "spk05",
+        "text": "We'll take the next question from Andrew Leash with Piper Sandler. Please go ahead."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Thanks, everyone. Good morning. Just a question on credit, everything else been asked and answered. Are you seeing anything concerning out there? And when you do expect credit to turn, what areas of the portfolio would you expect to see the most stress?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Andrew, it's Mike. We feel very good about our positioning right now in credit. We don't expect any issues going forward. So the answer is it's business as usual from our perspective. And Mike noted the credit quality in his remarks and look at the three basis points of net charge us over a 23-year period. So sticking to our knitting, being cautious, selective, focusing on relationships."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Great. You've covered everything else. Thanks so much."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And the next question comes from David Smith with Autonomous. Please go ahead."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Good morning. Thanks for taking my question. I had a question about the wealth management team profitability. You've been adding a lot of teams there lately, both last year and, you know, even the first few weeks of this year. Historically, how long is it before you tend to see these teams reach their run rate profitability? How long does it kind of take to ramp up there?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, it's actually relatively quick, usually within a year to 18 months. And that's, you know, really a function of fact that the teams we hire generally have a lot of traction with their clients. And then also we're getting the deposit benefit from those teams as well, which has been quite successful."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Got it. Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And that concludes today's question and answer sessions. At this time, I will turn the conference back to Mike Roffler for any additional or closing remarks."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Thank you, everyone, for joining us on today's call. We're optimistic about the future and continue to look forward to the year ahead. Have a wonderful weekend."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And this concludes today's call. Thank you for your participation. You may now disconnect."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk00": {
+        "name": "Mike Ionelli",
+        "title": "Vice President and Director of Investor Relations"
+      },
+      "spk02": {
+        "name": "Mike Selfridge",
+        "title": "Chief Banking Officer"
+      },
+      "spk03": {
+        "name": "Bob Thornton",
+        "title": "President, Private Wealth Management"
+      },
+      "spk04": {
+        "name": "Erica Nadurian",
+        "title": "Analyst, UBS"
+      },
+      "spk05": {
+        "name": "Operator",
+        "title": "Conference Call Operator"
+      },
+      "spk06": {
+        "name": "Olga Sokova",
+        "title": "Chief Accounting Officer and Deputy Chief Financial Officer"
+      },
+      "spk07": {
+        "name": "David Smith",
+        "title": "Analyst, Autonomous"
+      },
+      "spk08": {
+        "name": "Casey",
+        "title": "Analyst, Jefferies"
+      },
+      "spk09": {
+        "name": "John Pancari",
+        "title": "Analyst, Evercore"
+      },
+      "spk10": {
+        "name": "Stephen Alexopoulos",
+        "title": "Analyst, JP Morgan"
+      },
+      "spk11": {
+        "name": "Dave Rochester",
+        "title": "Analyst, Compass Point"
+      },
+      "spk12": {
+        "name": "Ibrahim Bumala",
+        "title": "Analyst, Bank of America"
+      },
+      "spk13": {
+        "name": "Jim Herbert",
+        "title": "Founder and Executive Chairman"
+      },
+      "spk14": {
+        "name": "Unidentified Participant",
+        "title": "Analyst"
+      },
+      "spk15": {
+        "name": "Moderator",
+        "title": "Conference Call Moderator"
+      },
+      "spk16": {
+        "name": "Stephen Alexopoulos",
+        "title": "Analyst, JP Morgan"
+      },
+      "spk18": {
+        "name": "Andrew Leash",
+        "title": "Analyst, Piper Sandler"
+      },
+      "spk19": {
+        "name": "Mike Roffler",
+        "title": "CEO and President"
+      },
+      "spk20": {
+        "name": "Jared Shaw",
+        "title": "Analyst, Wells Fargo"
+      },
+      "spk21": {
+        "name": "Chris McGrady",
+        "title": "Analyst, KBW"
+      },
+      "spk22": {
+        "name": "Bill Kirkocchi",
+        "title": "Analyst, Wolf Research"
+      },
+      "spk23": {
+        "name": "Terry McEvoy",
+        "title": "Analyst, Stevens"
+      },
+      "spk24": {
+        "name": "Neil Holland",
+        "title": "Chief Financial Officer"
+      }
+    }
+  },
+  "text": "Operator (Conference Call Operator): Greetings and welcome to First Republic Bank's fourth quarter and full year 2022 earnings conference call. Today's conference is being recorded. During today's call, the lines will be in a listen-only mode. Following the presentation, the conference will be opened for questions. To join the queue, please press star 1 on your telephone keypad at any point during the call. I would now like to turn the call over to Mike Ionelli Vice President and Director of Investor Relations. Please go ahead.\n\nMike Ionelli (Vice President and Director of Investor Relations): Thank you and welcome to First Republic Bank's fourth quarter 2022 conference call. Speaking today will be Jim Herbert, Founder and Executive Chairman. Mike Roffler, CEO and President. Mike Selfridge, Chief Banking Officer. Bob Thornton, President, Private Wealth Management. Olga Sokova, Chief Accounting Officer and Deputy Chief Financial Officer, and Neil Holland, Chief Financial Officer. Before I hand the call over to Jim, please note that we may make forward-looking statements during today's call that are subject to risks, uncertainties, and assumptions. We also discuss certain non-GAAP measures of our financial performance, which should be considered in addition to, not as a substitute for, financial measures prepared in accordance with GAAP. For more complete discussion of the risks and uncertainties that could cause actual results to differ materially from any forward-looking statements, and for reconciliations of the non-GAAP calculation of certain financial measures to the most comparable GAAP financial measure, see the bank's FDIC filings, including the Form 8-K filed today, all available on the bank's website. And now I'd like to turn the call over to Jim Herbert.\n\nJim Herbert (Founder and Executive Chairman): Thank you, Mike, very much. And good morning, everyone. It was a very strong year for First Republic. Our time tested business model and service culture continue to perform really well. In fact, it was our best year ever in many ways. Our new 2022 net promoter score, which was announced this morning, is our highest ever client satisfaction level. It's actually extraordinarily strong. Our non-performing assets a year in were just five basis points. This is low even for First Republic. Exceptional client service and our strong, focused lending led to safe, organic growth during the year. In 2022, total loans grew $32 billion, a record. And we had record earnings for the year. In uncertain times like these, an ability to continue to grow safely is quite viable and very rare. Let me take a moment to provide some perspective on the current rate environment and the Fed tightening cycle as we see it. Since our last call about 90 days ago, the Fed has raised rates another 125 basis points. At the same time, the 10-year Treasury has declined 50 basis points. The resulting increased rate inversion has begun to put some pressure on our net interest margin and net interest income. However, history and experience has shown that this type of inverted yield curve has a limited duration. Cycles are just that, they're cycles. During First Republic's 37-year history, there have been five tightening cycles. We've continued to grow and prosper through them, and especially after each one. On average, over the last 40 years, The Fed has started to cut rates less than a year after the 10-year yield has peaked. The market currently expects the Fed to start cutting rates during the back half of this year, which would be consistent with prior tightening cycles and is also our current assumption. We are staying focused on executing our model, and we remain very committed to delivering solid results through all market conditions. The bedrock of our performance is providing truly exceptional differentiated service, maintaining very strong credit, delivering safe organic growth, and the results follow. Now let me turn the call over to Mike Crawford, CEO and President.\n\nMike Roffler (CEO and President): Thanks, Jim. 2022 was a terrific year with record loan growth, record loan origination volume, record revenue, and record earnings per share. Let me begin by covering some key results for the year. Total loans were outstanding, were up 24%. Total deposits have grown 13%. Wealth management assets were down only 3%, while the S&P 500 was down more than 19% over the same period. This strong growth, in turn, has led to strong financial performance. Year over year, total revenues have grown 17%. Net interest income has grown 17%. Earnings per share has grown 7%. And importantly, tangible book value per share has increased 11% during the year. As we look to a more challenging year ahead, we remain well positioned to deliver safe, strong growth through the consistent execution of our service-focused culture and business model. We remain very well capitalized as a result of raising capital methodically and opportunistically over time. Our Tier 1 leverage ratio was 851 at quarter end. Credit quality remains excellent. net charge-offs for the fourth quarter were less than $1 million. For the entire year, net charge-offs were less than $3 million, or less than one-fifth of a single basis point of average loans. Non-performing assets ended the year at only five basis points of total assets. As Jim mentioned, this is one of our best levels ever. We do not stretch on credit quality to deliver loan growth. Our growth is driven by consistent execution of exceptional client service, one client at a time, each and every day. Today we release the results of our 2022 NEP Promoter Score Survey, our Client Satisfaction Scorecard. We are pleased to have achieved a record high score of 80. This is an increase from last year's score. which was also a record at the time. At the same time, client satisfaction has declined for the overall banking industry. In 2022, the Net Promoter Score for the U.S. banking industry declined to only 31. Our service-focused model is truly differentiated, even more so during challenging and disruptive environments. During 2022, we also continued to make thoughtful investments that support service excellence and growth. We expanded into the Seattle area by opening our first banking location in the market. We brought on 13 new wealth manager teams, one of our best recruiting years ever. And we successfully upgraded our core banking system, the largest technology project we've ever undertaken. As Jim mentioned, since mid-November, we have been operating with a challenging yield curve. To help us navigate the margin pressure in the near term, we continue to moderate our expense growth. At the same time, we remain focused on the long term and continue to leverage our reputation of exceptional service to drive new business and grow total households. Our focus on service drives our growth as clients stay with us, do more with us, and refer their friends and colleagues. In fact, during 2022, and driven by our highest ever level of client satisfaction, total households increased a very strong 15%. This is nearly double the growth rate of the prior year. Over time, this growth compounds, continuing to deliver shareholder value and consistent profitability as it has for 37 years since our founding. Overall, 2022 was a very strong year for First Republic. Now I'd like to turn the call over to Mike Selfridge, Chief Banking Officer.\n\nMike Selfridge (Chief Banking Officer): Thank you, Mike. Let me provide an update on lending and deposits across our business. Loan origination volume was a record for the year at $73 billion. Our real estate secured lending remained well diversified. Both single-family residential and multifamily achieved record volumes for the year. Purchase activity accounted for 54% of single-family residential volume during the year and 64% during the fourth quarter. As refinance activity has slowed, so have the repayment rates. This provides a strong base for loan growth. We continue to expect to deliver mid-teens loan growth for 2023. I would note that loan originations have some seasonality with the first quarter typically being somewhat slower. In terms of credit, we continue to maintain our conservative underwriting standards. The average loan to value ratio for all real estate loans originated during the year was just 57%. Turning to business banking, we continue to deepen our relationships by following clients to the businesses they own or influence. Our relationship-based model also leads to a strong level of referrals to new business clients. In 2022, our business client base grew by 18%. Business loans and line commitments were up 14% year-over-year. The utilization rate on capital call lines of credit increased slightly to approximately 33% during the fourth quarter. Our capital call line commitments grew 16% during the year as we continue to acquire new clients. Turning to deposits, we are pleased that total deposits were up 13% year over year and 2.4% quarter over quarter. We continue to see a shift in deposit product mix as a result of rising rates. Checking represented 59% of total deposits at year end, down from 64% in September. And CDs accounted for 14% of total deposits at year end, up from 9% in September. Preferred banking offices continue to provide an important service channel for our clients and drive deposit gathering. Over the next year, we expect to selectively open new offices to deepen our presence in our existing footprint. Our programs for acquiring and growing our next generation of client relationships, which began more than a decade ago, continue to deliver strong results. In 2022, millennial households grew 17%. These younger households are the same high-quality clients that we have always attracted and are part of our strategy to see the long-term growth of First Republic. As Mike and Jim noted, our exceptional Net Promoter Score continues to demonstrate our ability to deliver differentiated client service. Let me take a moment to provide some additional detail. For clients who identify us as lead bank, our Net Promoter Score is 87, even higher than our overall score. And importantly, nearly two-thirds of our clients now consider us as lead bank. Remarkably, our net promoter score increased in each of the past three years as we have dealt with a pandemic and rising levels of economic uncertainty and as we implemented a new core banking system in early 2022. And during this time, our consistently high scores also increased across every region every line of business, and every generation of clients. Our high client satisfaction remains the driver of our long-term growth. Now let me turn the call over to Bob Thornton, President, Private Wealth Management.\n\nBob Thornton (President, Private Wealth Management): Thank you, Mike. It was a very successful year for our wealth management business. During the year, total assets under management were down only 3%, while the S&P 500 was down more than 19%. Investment management assets actually increased during the year, driven by strong net client inflow. Wealth management fee revenue was up more than 15% from the prior year. This includes strong growth in fees from brokerage, trusts, insurance, and foreign exchange services. The combined fees from these services increased 29% year over year. And the strong growth in these products has also further diversified our wealth management fee revenue. As we have noted before, our exceptional client service is even more highly valued by clients during times of marked volatility. We take these opportunities to engage our clients and understand their needs as market conditions change. In fact, a key strength of our business model is our holistic approach to meeting our clients' banking and wealth management needs. This benefits clients and has driven growth through a strong level of internal referrals and a deepening of client relationships. In this regard, 2022 was a particularly strong year. Our bankers referred over $11.5 billion of AUM to Wealth Management and deposit balances from new relationships referred by our Wealth Management colleagues during the year totaled more than $3 billion. Wealth management referred deposits and suite balances now represent over 13% of the bank's total deposits. Our integrated banking and wealth management model also continues to make First Republic a very attractive destination for successful wealth professionals. In 2022, we welcomed 13 new wealth manager teams to First Republic in one of our strongest years ever. This included five teams in the fourth quarter alone. So far in 2020-2023, we've already welcomed two new wealth management teams to First Republic, reflecting our continued investment in the long-term success of this business. Overall, our team continues to execute very well. Times like these are a great opportunity to demonstrate our exceptional service, deepen existing relationships, and acquire new households. Now I'd like to turn the call over to Olga Sokova, Chief Accounting Officer and Deputy Chief Financial Officer.\n\nOlga Sokova (Chief Accounting Officer and Deputy Chief Financial Officer): Thank you, Bob. I will briefly discuss our strength and stability. Our capital position remains strong. During 2022, we added over $400 million of net new Tier 1 capital through a successful common stock offering. At year end, Tier 1 leverage ratio was 8.51%. Liquidity also remains strong. High quality liquid assets were 13% of average total assets in the fourth quarter. Our credit quality remains excellent. Net charges for the year were only $3 million. Over the same period, our provision for credit losses was $107 million, which was driven by our strong loan growth. This is a multiple of nearly 40x. Heading into 2023, our balance sheet remains strong. And now I'll turn the call over to Neil Holland, Chief Financial Officer.\n\nNeil Holland (Chief Financial Officer): Thank you, Olga. It was a very strong year. Our exceptional client service and strong credit powered our safe growth. Our 2022 results were in line with or better than the expectations communicated at the start of the year. Let me take a moment to talk about the year ahead. With a rapid rise in rates and the current inverted yield curve, we continue to experience margin pressure. We currently expect the Fed funds rate to peak at 5% and then to gradually decline in the second half of the year. As a result, for the full year 2023, our expected net interest margin to be approximately 25 to 30 basis points lower than the fourth quarter. As a growth bank, we create value by consistently compounding our asset base, a direct result of the exceptional service we provide. Therefore, Net interest income is a key metric for our differentiated business model. Despite the current margin pressure, we expect net interest income for the full year 2023 to be down only 2% to 5% given our continued strong growth in loans and investments. As we look to 2024, we expect continued strong loan growth in a more normalized rate environment. As a result, we expect to deliver strong, double-digit net interest income growth in line with our past performance. As Jim mentioned, the years following tightening cycles have historically been strong for the bank. Turning to expenses, for 2023, we expect expense growth in the high single digits. As a reminder, expenses are typically higher in the first quarter due to the seasonal impact of payroll taxes and benefits. As we discussed at Investor Day, we continue to prioritize our expenses in a way that will not sacrifice client service, growth, or safety and soundness. We have identified $150 million in planned expenses that we will not incur in 2023. This is already having a positive impact on our expense base and helped us keep expenses flat from the third to fourth quarter. With respect to income taxes, the full-year tax rate is expected to be around 24%. While the current rate environment is challenging, our model is strong. We will continue to deliver exceptional client service, grow new households, and provide safe growth in 2023 and beyond. Now, let me turn the call back to Mike Roffler.\n\nMike Roffler (CEO and President): Thank you, Neil. Thank you, Neil. It was a strong year with record client service levels. record loan growth, and record credit performance. Our time-tested service model remains solid. Our entire team remains focused on executing our client service strategy one client at a time. Now we'd be happy to take your questions.\n\nOperator (Conference Call Operator): Thank you. If you would like to ask a question, please signal by pressing star 1 on your telephone keypad. If you are using a speakerphone, Please make sure your mute function is turned off to allow your signal to reach our equipment. Again, press star 1 to ask a question, and we'll pause for just a moment to allow for an opportunity to signal for questions.\n\nModerator (Conference Call Moderator): And we'll take our first question from Stephen Alexopoulos with JP Morgan.\n\nOperator (Conference Call Operator): Please go ahead.\n\nStephen Alexopoulos (Analyst, JP Morgan): Hey, good morning, everyone.\n\nModerator (Conference Call Moderator): Good morning, Steve.\n\nStephen Alexopoulos (Analyst, JP Morgan): Good morning, Mike. So from a big picture view, if we look at the dim outlook, it's a bit worse than what you had guided to at the investor day. And before I get into my deeper questions, what's changed since the investor day, which is driving the lower dim outlook for the year?\n\nMike Roffler (CEO and President): Yes, Steve, thanks. I think if you look at investor day, what's happened since then, and I think we highlighted this a bit in the prepared remarks, the 10-year has gone down 50, 60 basis points. And so the inversion of the yield curve has had a pretty significant impact on just rates in general. And obviously the macro environment is a thing that we can't control. The things we can control are our service levels and how we acquire households. And so with that inversion, which as we noted, won't last a very long time, And we are now partway through it. And so I think that is the biggest driver for the change in outlook relative to about 65 days ago.\n\nStephen Alexopoulos (Analyst, JP Morgan): Okay. And Mike, it sounds like you're upping the expectations for expense management. And I think you guided to about a 65% efficiency ratio for 2023. Is that still intact when you put these pieces together?\n\nMike Roffler (CEO and President): Because of the margin outlook, it will be a little bit higher. But we have identified incremental expenses that will be deferred, not planned for the current year.\n\nStephen Alexopoulos (Analyst, JP Morgan): Are you willing to share a new range with us?\n\nMike Roffler (CEO and President): Yeah, I mean, just because of the revenue side of the equation, it's just doing the math of a 2% to 5% decline with net interest income. It's about 66% to 68% with that guidepost. with high single-digit growth rates of expenses. Okay.\n\nStephen Alexopoulos (Analyst, JP Morgan): And then just to dive in to the deposit side a little deeper. So it's pretty remarkable to see that with the rate being paid on checking balances more than double from the prior quarter, but average balances still came down about $9 billion. Can you take us behind the scenes in the quarter? What's the typical conversation you had with customers and maybe underlying the NIM assumptions Where do you see the rate paid on checking moving to, and maybe where does that mix stabilize? Thanks.\n\nMike Roffler (CEO and President): Well, importantly, I think there's still about $67 billion, I think, of zero-cost checking, which is operating balances and costs. Obviously, as rates have gone to 4.5%, The conversations between our clients facing people and clients have talked about, you know, where might they be able to achieve a bit better yield. And as a service organization, that's what we continue to focus on is that relationship with our clients to ensure they're leaving the right balances and checking for their operating needs. And there are other yield alternatives either in wealth management, money market, certificates of deposit, different alternatives. I think we communicated a low 30s data on overall deposits in the past, and we feel like sort of 30 to 35 is about the right range still at this point, and that's consistent with what we said before at Investor Day. Okay.\n\nStephen Alexopoulos (Analyst, JP Morgan): And then if I could just squeeze one more, Mike. Going back to the new NIM outlook, I know Jim said in his commentary that you guys expect rates have declined more in line with the market in the second half of 2023. If rates were to move to, say, by 5.5% range and stay there and not come down in the second half, how would that change your NIM outlook for 2023?\n\nStephen Alexopoulos (Analyst, JP Morgan): Thanks.\n\nMike Roffler (CEO and President): So once it stabilizes, you sort of stabilize from there. So I don't think it changes it a whole lot. I think the pace of change is what has happened this year that led to the increase or the increase in funding costs. And the real impact, if you think about it, is in the future, if you leap forward to 24 and you're stable, is when you'll start to see the inflection where net interest income starts to grow. Right now, that looks like the back half of the year on a linked quarter basis. If the Fed delays, that might delay that a quarter, but then you start to see the inflection higher thereafter.\n\nStephen Alexopoulos (Analyst, JP Morgan): Great. Thanks for taking my questions.\n\nOperator (Conference Call Operator): We'll take the next question from Dave Rochester with Compass Point. Please go ahead.\n\nDave Rochester (Analyst, Compass Point): Hey, good morning, guys. Just on your NIM guide real quick, are you assuming for the funding of earning asset growth, primarily CDs and borrowings at this point, maybe just talk about the mix there and the growth of deposits that you're thinking about? And then you did have a decent amount of runoff and non-interest bearing, which a lot of banks are experiencing at this point. I was just curious, should we expect this type of pace to continue, or do you see a level \u2013 at which you'd expect the trend to sort of subside and then get down to more of a sticky base that's remaining? Where do you see that sort of trailing off? Thanks.\n\nMike Roffler (CEO and President): Yeah, maybe what you're getting at is the average balance size. It has come down. So average balances per account peaked probably at the end of last year. They have come down closer to their pre-pandemic levels. And then obviously, as I mentioned earlier, there's a level of operating needs that clients have to have to operate with. I think that the outlook, you know, we're going to largely fund loan growth with deposits, and then there'll be a mix of borrowings that is also utilized, just like we have in the past. And the growth rate will probably be greater in CDs than it will be in checking, given where the rates are this year, and that's reflected in our outlook.\n\nDave Rochester (Analyst, Compass Point): Okay, great. And then maybe just on capital, tier one leverage looks good. Notice the CET1 ratio did down a little bit below 9%. Is that an issue at all? And just how are you thinking about that level going forward? Thanks.\n\nMike Roffler (CEO and President): No, no issue with our capital currently. We, as always, remain opportunistic and methodical. Uh, relative to, um, capital would be a preferred or common.\n\nDave Rochester (Analyst, Compass Point): Great and then maybe 1 last 1 on a loan production rates. Maybe if you could just kind of go through the. The key products and talk about where your pricing loans today. That'd be great. Thanks.\n\nMike Selfridge (Chief Banking Officer): Sure, uh, David, it's Mike Selfridge to give you a couple of indicators here and look more rather look more at the lock pipeline as of, um. as of today. So single-family, a lot of pipeline. These are deals that are in the queue and due to close soon. Single-family mortgages, about 580. Multifamily, about 5.4%. Commercial, about 5.6%. And the whole locked real estate loans right now are a little over 5%, maybe 510. And then on the business banking side, nothing's changed there. Capital call lines tend to be the larger part of and that still remains in the prime minus 75 to prime minus 100 basis point range.\n\nUnidentified Participant (Analyst): Great. Thanks for the call, guys. Appreciate it.\n\nModerator (Conference Call Moderator): We'll take the next question from Ibrahim Bumala with Bank of America.\n\nOperator (Conference Call Operator): Please go ahead.\n\nIbrahim Bumala (Analyst, Bank of America): Hey, good morning. I just wanted to follow up on the margin on two things. One, I think, like you mentioned, still expect the 30% to 35% deposit beta. In the world where rates don't actually get cut and the forward curve doesn't play out, just handicap the risk. I think the concern on the margin outlook generally has been that deposit costs mix, shift. We heard from some of the other big banks today could be much worse than we've seen just given that we've not tested for this in a long, long time. What's the comfort level on that 30% to 35% beta holding?\n\nMike Roffler (CEO and President): So that, you know, is our best perspective at this point in time given our outlook. And as Jim mentioned, you know, this doesn't last forever given history of 40-plus years. And so the 10-year is also telling you something where it's dipped to 344 as of yesterday as to where the market feels rates are moving. And so the, you know, the beta could be a little bit higher if they, if they hold an extra quarter. Or 2, but the fact that the pace is slowing. There'll be a little bit of what I call catch up that always is at the end of a cycle. but the pace slows because the time just passes. And so I would say that we feel pretty confident where we are. And, you know, it'll be dependent upon macro outlook, which is the one thing that you all know we don't control, and nor does anyone else.\n\nIbrahim Bumala (Analyst, Bank of America): Understood. And just, I'm sorry if I missed it. Did you talk about, like, in terms of the margin, I'm assuming there's some benefit in the back half if you assume rate cuts in your NIM guidance of down 25 to 30 bips. How should we think about the NIM trajectory? Like, does it fall closer to 2% by the middle of the year, by the second or third quarter before rebounding in the back half?\n\nMike Roffler (CEO and President): No, I wouldn't go to 2%. It sort of stabilizes at the middle part of the year. And importantly, after you have a little bit of a dip in net interest income here in the first half, then you start to see it increase towards the back half of the year and starts to have a real positive trajectory into 24.\n\nIbrahim Bumala (Analyst, Bank of America): Understood. And just one last question around growth. I know, Jim, you've talked about market share in environments like this. Just give us a sense of is this environment any different in terms of gaining market share? And how are your customers \u2013 there's been a ton of wealth destruction. How is that factoring in? in terms of just the appetite to buy homes and in terms of mortgage loan growth today versus the last 10 or 15 years?\n\nJim Herbert (Founder and Executive Chairman): Well, this disruptive moment, and we all know that the mortgage market is being disrupted a little bit, is an extraordinary opportunity for us to take share. Moments like this are very special. The volume of demand is lower. We all know that, although my guess is it will pick up in the spring quite a lot. But the disruptive nature, the disruption that's going on in the mortgage market, people pulling back, et cetera, is just handing us \u2013 it's on a silver platter.\n\nIbrahim Bumala (Analyst, Bank of America): And does that create some pricing power? Like as the yield curve, Mike, you mentioned earlier, dropped, did the spreads widen on this product?\n\nJim Herbert (Founder and Executive Chairman): It's not a pricing issue. It's a service issue and availability issue.\n\nIbrahim Bumala (Analyst, Bank of America): Got it. But I'm just wondering, are you able to see better spreads when the yield curve or is the pricing on these like the 580 Mike mentioned, will that tend more or less with whatever happens with the yield curve?\n\nJim Herbert (Founder and Executive Chairman): Let me turn this to Mike. But the pricing on the acquisition of a new well-off household on a short-term asset like a four- or five-year mortgage is semi-irrelevant. You take on a new household like this, they stay with you for life.\n\nMike Selfridge (Chief Banking Officer): Yeah, and Ibrahim, I want to clarify on Dave Rochester's comment. The lock production on the single family is a little under 5% is what I meant to say, about 480. But these are still, as we've said in the past, A-plus clients, and they get very good pricing for full relationship and full service at First Republic.\n\nIbrahim Bumala (Analyst, Bank of America): That helps with the clarification.\n\nModerator (Conference Call Moderator): Thank you so much, and thanks for taking my questions.\n\nOperator (Conference Call Operator): The next question comes from Casey here with Jefferies. Please go ahead.\n\nCasey (Analyst, Jefferies): Yes, thanks. Good morning, everyone. Operating lever question for 24. Appreciate the guide on NII up low double digits next year. Just wondering, you know, just given that you guys are doing a good job on the expense front and deferring, I think you bumped it up to $150 million. Just wondering, do we see a catch-up next year on all this expense deferral, or is there an opportunity to improve the efficiency ratio from that 66, 68, you know, when NIM starts going the right way?\n\nNeil Holland (Chief Financial Officer): Yeah, there's a strong opportunity in 24 to see a very strong improvement in our efficiency ratio as we're really looking for ways to optimize, prioritize, make the company even more efficient than we are today. We expect strong operating leverage into the future.\n\nCasey (Analyst, Jefferies): Okay, very good. On the switching gears to the loan growth, can we get a sense for how the pipeline is doing at year-end versus 930?\n\nMike Selfridge (Chief Banking Officer): Hi, Casey. Mike Selfridge. I would say, I would characterize it as healthy. It's down from the last quarter, but it's up year-over-year. There's been headwinds on the refinance side, and that's been more difficult. But there's other parts of the pipeline, I would note, that are doing very well. Business banking, for example, is at a high. Other avenues, PLP, PLOC, securities lending. So, again, healthy pipeline going into the quarter. Okay, thanks, Mike. And just following up on that. And, Dave, on the loan growth, let me add \u2013 oh, go ahead. No, go ahead, go ahead. I was just going to say with the loan growth itself \u2013 Also note that CPRs are down, and so that gives us a good base from which to grow. Yep.\n\nCasey (Analyst, Jefferies): And then the capital call, that came in a little bit stronger than certainly what you were sort of experiencing in November. Just any color on, is that business picking up?\n\nMike Selfridge (Chief Banking Officer): I would say, well, you know, a little bit of improvement from 32% to 33% utilization. That's down from a year ago, which was just over 40%. That industry is still seeing its challenge in the sense of slower velocity of deals, just like last quarter, slower pace of fundraising, but cautious but still active investors. And there was a slight tick up in private equity activity overall for the industry, and that drove a little bit of the utilization for us.\n\nCasey (Analyst, Jefferies): Okay, great. And just one more. The spot deposit costs at 1231 versus \u2013 versus the 99 bps in the quarter, and also the spot CD costs, if you could provide that, given that's a critical driver here.\n\nNeil Holland (Chief Financial Officer): Yeah, we ended the quarter with an average of 99 basis points, and looking at where we ended spot at 1231, we were up about 30 basis points from there.\n\nCasey (Analyst, Jefferies): Okay, any color on the CDs versus that 279 level in the quarter?\n\nMike Roffler (CEO and President): Yeah, it just tends to move around depending on where we're trying to position. So I don't think it's a meaningful, I think the 129 spots, the right place to be.\n\nUnidentified Participant (Analyst): Okay, thank you.\n\nOperator (Conference Call Operator): We'll take the next question from Manan Gosalia with Morgan Stanley. Please go ahead.\n\nspk01 (): Hi, good morning. I had a question on the duration of the CD book. Some of the promo CD durations that you were offering or some of the promo CDs you were offering in the past were closer to four months. So my question is, what are you seeing clients doing there? Are they just rolling those CDs over for the same term or perhaps are they maybe extending the term a little bit given that you're also offering an eight-month promo rate right now? And then if you have any comments on what the duration of the CD book is and what percentage will likely reprice over the course of the next couple of quarters.\n\nMike Roffler (CEO and President): Currently, I'd say clients are a little more inclined on the 8- and 10-month versus shorter. Usually, every rollover opportunity presents an opportunity for us to demonstrate our extraordinary client service. And so our bankers in the offices are engaging with clients to talk about their needs and maybe do they want to be shorter? Do they want to lock in a little bit more? Do they have other cash needs? And so I think what's important is the rollover opportunity drives a conversation with the client most importantly. Given what we talked about with the cycles earlier, staying in sort of what I'll call a four to seven month range for us has made a lot of sense if you believe that the cycle does roll over sort of mid-year. And so that's been our duration has been pretty much in that range.\n\nUnidentified Participant (Analyst): Got it.\n\nspk01 (): So should we assume a majority of the CDs are going to reprice over the course of the next three to six months?\n\nMike Roffler (CEO and President): Yes, that's a fair assumption.\n\nspk01 (): Okay, great. And then maybe just related to that, you know, you've said in the past that you like CDs over FHLB funding, given that CDs are a good customer acquisition tool. Is there anything you can share there on maybe the number of new customers that you're bringing in through the promo CD offerings? And do they typically come with some checking account openings as well? And is there a rate you have in mind at which it might make more sense to pivot to FHLB over CDs?\n\nMike Roffler (CEO and President): Thanks. So I think we'd always choose the client first on the first part there. And typically, the CD pricing actually is a little bit more attractive than the FHLB, especially right now. And so those are two benefits, but the first being the client first and foremost. And absolutely, when they come into an office, they experience something different versus other offices. And so our service level is meant to, one, bring them in, but second, develop a relationship where we have their checking and their primary banking. And so typically, we're able to get checking accounts on a very good percentage of those and build the relationship over time. which is the most important because we're playing for the long-term client relationship, not just the rate offering in the current moment.\n\nUnidentified Participant (Analyst): Appreciate it. Thanks for taking my questions.\n\nOperator (Conference Call Operator): We'll take our next question from Jared Shaw with Wells Fargo. Please go ahead.\n\nJared Shaw (Analyst, Wells Fargo): Hi, good morning. Maybe circling back on the expenses and the deferred expenses, could you maybe separate those out on how much of that is coming from maybe deferred hiring versus systems or technology spending versus overall marketing and general spending?\n\nMike Roffler (CEO and President): So, Jared, it's a good question. I think it's really broad-based. So some of it is we've hired a lot of people in the last couple years, so we have efficiencies from the new core system. Maybe we'll hire a little bit less in certain areas. As Mike Selfridge said, and I think Jim, mortgage volume, there's less refinance, so you need less growth in headcount there. And so some of it is if we had projected to grow ahead of count, we're going to grow a little bit less. Olga, I think, and Neil had mentioned this at Investor Day, there's some natural adjustment to our compensation levels given the mix of business we're doing. That's also factored in. And then everywhere else is a team approach in marketing, IT, everywhere where the team really bands together and think about where's the best dollars to spend for client service. and to make sure we continue to be safe and sound to grow, and that's how we're focused. For example, we've hired, already announced, two teams this year in wealth management. As Bob mentioned, that's a great opportunity for us to hire terrific people, bring them over, and have new clients come to the bank at the same time. And so it's a little bit more of prioritizing and optimizing our spend to continue to drive safe, stable growth over time.\n\nJared Shaw (Analyst, Wells Fargo): Okay. Great. Thanks. Just finally for me, I guess on the securities portfolio, can you give an update on reinvestment rates and what we should expect as maybe a target securities and cash to total assets as we go out the next few quarters?\n\nOlga Sokova (Chief Accounting Officer and Deputy Chief Financial Officer): Hi, Jared. This is Olga. So if we look at our purchases in the fourth quarter, the yields on HQAs were in low fives. And the munis came high and low six, like 6.1, 6.3. And if we look at the yields today, or just at quarter end or subsequent to quarter end, HQLA remained relatively similar levels at five, five and a quarter. And munis yields load slightly from what we've seen during the quarter. They were at five, five and a half.\n\nUnidentified Participant (Analyst): And we expect to keep cash at the same level of the total assets through the next year. Great. Thank you.\n\nOperator (Conference Call Operator): Next question comes from John Pancari with Evercore. Please go ahead.\n\nUnidentified Participant (Analyst): Good morning.\n\nJohn Pancari (Analyst, Evercore): On the loan growth, on the mid-teens growth expectation, could you perhaps kind of break it out by loan category, what you're thinking is a reasonable expectation for growth, you know, particularly on the mortgage side, given where we're looking at rates as well as purchase activity. If you can give us a breakdown of that mid-teens and the key drivers, that would be really helpful. Thanks.\n\nMike Selfridge (Chief Banking Officer): John, it's Mike. Yeah, mid-teens loan growth, we're comfortable with that. I would say the mix is going to be consistent as it has been in years previous, so nothing unusual there. And where it's coming from, Jim mentioned the disruption going on. It's never been a better time to acquire clients at First Republic, and that's true for the lending side as well. You know, we were pleasantly surprised that even refi mix was 36%. Keep in mind, those are new households as well. The majority of those refis are other banks' clients that we acquire. So nothing unusual in terms of the mix.\n\nUnidentified Participant (Analyst): Okay. All right.\n\nJohn Pancari (Analyst, Evercore): And then separately, on the fee side, just wondering what non-interest income growth expectation do you have baked into that? 66 to 68% efficiency range. And then more specifically, can you kind of give us some color on how you think about growth that is likely in investment management and brokerage and investment fees? I'm curious what type of upside you see there and maybe what your basic case assumption is for the S&P and how it could impact their wealth management revenue.\n\nBob Thornton (President, Private Wealth Management): This is Bob. Maybe I'll start. So the first quarter, we're looking at investment management fees somewhere in the range of $150 million. And that reflects in part, we had a number of team hires late in the year that we hadn't seen fully reflect, but we got some of the benefits. S&P is up since September 30th and new team hires. So we look for this year to be a pretty strong year in terms of our overall growth. And investment management fees and total wealth management fees.\n\nMike Roffler (CEO and President): Yeah, John, and if I just stand back for total non-interest income, we'd expect it to be in the, you know, double digits, which is inclusive of wealth management is a big part of that. And then the other items that we also have had, you know, loan fees, deposit fees, et cetera.\n\nJohn Pancari (Analyst, Evercore): Okay, got it. Thanks, Mike. And then my last question is just around the The LTV comment, I know you mentioned 57% loan value on all your real estate loans that you had produced. I guess that was, I think, over the year. But maybe if you can give us a little bit more color on commercial real estate. What is the LTV at origination in your commercial real estate portfolio? And more importantly, what is Do you have an indication of what the refreshed LTV is in that portfolio?\n\nMike Selfridge (Chief Banking Officer): John, it's Mike. The last two years, and that would go for today, the median LTV on commercial real estate origination has been about just under 50%, about 46% to be precise. Median size, about $2 million. Okay.\n\nJohn Pancari (Analyst, Evercore): Do you have a refreshed LTV for your commercial real estate book to try to Give us an idea of how that book is positioned here as we start to see pressure in office and other areas.\n\nMike Selfridge (Chief Banking Officer): Yeah, no change from our conservative underwriting standards. We have always been conservative and cautious, even more cautious, and I even think our clients are more cautious. So just expect very conservative underwriting.\n\nUnidentified Participant (Analyst): Okay, thanks, Mike. Appreciate it.\n\nOperator (Conference Call Operator): We'll take the next question from Bill Kirkocchi with Wolf Research. Please go ahead.\n\nBill Kirkocchi (Analyst, Wolf Research): Thank you. Good morning. I wanted to follow up on the NIM commentary. Your net interest spread is down to 174 basis points versus your NIM at 245 basis points. How would you address the growing divergence across those metrics, including concerns that the net interest margin will eventually converge with the spread?\n\nMike Roffler (CEO and President): Well, Bill, I think that the big thing that, you know, difference between those two items is the spread doesn't factor in the nearly $67 billion of non-interest. So we're much more focused on, as we talked about earlier, net interest income versus what the, you know, the margin will be. And so the divergence doesn't, you know, really concern us at all.\n\nBill Kirkocchi (Analyst, Wolf Research): Okay. And then on that topic, as we sort of think about, like, remixing You know, the CD mix, you've moved back closer to pre-COVID levels, but there's growing concern that we could see CD mix revert to pre-GFC levels in this rate environment. Your mix of CDs was just over 30% of deposits back in 2010. You know, how are you thinking about, like, the remixing of, you know, non-interest bearing deposits, essentially the mix of non-interest bearing deposits coming lower and CDs remixing higher? Any thoughts around that would be helpful.\n\nMike Roffler (CEO and President): Yeah, there is a level of operating accounts that our business clients and consumers do need. And we, as we mentioned earlier, average balances are approaching and starting to close in on pre-pandemic. We have run CDs higher in the past, and some of our outlook that we provided earlier does reflect that we expect that to continue here into 2023. And as we mentioned earlier, it's a terrific way to get trial with new households and continue to deepen relationship with clients. And so it's a tool the bank has used for 37 years. In some periods, you just use it a lot less than others. And now as one of those periods, we're using it more.\n\nBill Kirkocchi (Analyst, Wolf Research): Understood. If I may, with a final question on, you guys have historically done very little with derivative financial instruments. With the yield that you're earning on cash now roughly in line with your loan yields, does that dynamic influence in any way whether you'd consider putting on swaps or at all change how you've thought about the use of derivatives?\n\nMike Roffler (CEO and President): It does not.\n\nUnidentified Participant (Analyst): Okay. Well, thank you for taking my questions.\n\nOperator (Conference Call Operator): Next question will come from Erica Nadurian with UBS. Please go ahead.\n\nErica Nadurian (Analyst, UBS): Hi, good morning. My first question is for Mike Roffler. I think that, you know, how the market is responding to, you know, your guidance today is a clear indication that the expected difficulty in 2023 and, you know, are looking ahead to 24. And to that end, Could you share with us what you envision to be the natural efficiency ratio for First Republic as we put more volatile rate moves behind us? We think about a more normal investment cycle and also contemplate the impact of HQA build to a modified LCR goal.\n\nMike Roffler (CEO and President): uh thank you eric i think you're um right to look forward to 2024 and i think when you get through this period where the margin and net interest income is a bit under pressure and then you go forward when after we stabilize when the cycle turns you'd come back to sort of a 62 to 64 range which is where we've been you know for many years\n\nErica Nadurian (Analyst, UBS): Thank you. And as a follow-up there, you know, obviously, you know, in 2024, you know, the investors are starting to think about cuts to Fed funds. And to that end, right, it's been a while since we've seen a terminal rate above zero. How should we think about where your deposits would settle to, deposit costs would settle to relative to the terminal rate, right? We've been so used to you know, where deposits have dropped relative to zero. And when we've looked at other points historically, deposit costs tend to drop above, you know, where Fed funds troughs. So, you know, perhaps give us a sense of how much you think you can cut deposit costs as the Fed starts easing.\n\nMike Roffler (CEO and President): Eric, thanks for the question. It'll be very mixed driven, right? And so one of the things that we've talked about is that through 2023, checking ends up about 50% of our deposits by the end of the year, which continues to be extremely valuable from a relative cost perspective to wherever the terminal rate ends up. And that's reflective of deep client relationships and the growth in the business banking. And then money market and CDs will again depend on client appetite and where do they want to lock in possibly for CD versus money market. And it's hard to project what that will be just because the mix does shift from time to time like it has now. But I think the most important thing is the value of the checking with the terminal rates above zero continues to be very strong relative to going forward.\n\nJim Herbert (Founder and Executive Chairman): Eric, I might add for a little bit, give a little historical perspective. The long-term, as Mike said, the long-term checking, if you go back many years, even when we bought the bank back, but even before that, tends to be in the 50%, 55% range, and the CDs range between sort of 10% and 20% of total. It is a mixed issue, and in between that is the money market. At what rate they land, it's hard to predict. But the mix is actually the driver. It was an abnormal mix when checking went up into the high 60s. Got it.\n\nModerator (Conference Call Moderator): And it's good to hear from you, Jim.\n\nUnidentified Participant (Analyst): Thank you.\n\nOperator (Conference Call Operator): I'll take our next question from Chris McGrady with KBW. Please go ahead.\n\nChris McGrady (Analyst, KBW): Oh, great. Just a quick modeling question. Most of the margin questions, I think, have been addressed. The BOLI run rate, any help there? I know you lowered the tax rate a bit, but any help? I know there's some seasonality quarter to quarter, but kind of a full year comment on BOLI income would be great. Thanks.\n\nOlga Sokova (Chief Accounting Officer and Deputy Chief Financial Officer): Hi, Chris. So in the fourth quarter, we have a couple of items that contributed to increase from the third quarter of the year. One, we had a benefit from the life insurance policy, which we realized in the fourth quarter. And also, we had a positive impact from market to market on some of our insurance contracts. And just to remind you, I think we brought it up on one of the last calls that we used to offset some of the increases and changes from our benefit costs. So those two components contributed to the change from the third quarter. And yes, if you think about the run rate for the quarter, removing those two items, I would say still within 2022 million and a quarter.\n\nUnidentified Participant (Analyst): Okay, thanks.\n\nOperator (Conference Call Operator): We'll take our next question from Terry McEvoy with Stevens. Please go ahead.\n\nTerry McEvoy (Analyst, Stevens): Thanks. I was wondering if you could add some more color on the new offices in 2023, certain markets that you think present the best opportunities and Strategically, is the near-term focus on deposits and or kind of capturing some of the market disruption that Jim mentioned earlier on the call?\n\nMike Selfridge (Chief Banking Officer): Terry, the answer is yes. We are capturing a lot in terms of the disruption that Jim mentioned, but we're focused on relationships, and with relationships comes the full breadth of what we offer. We probably expect maybe around six offices over the next year or so. existing footprint. And then as Mike mentioned in his remarks, we're delighted to have expanded into Bellevue, Seattle, and we expect good things out of that region.\n\nTerry McEvoy (Analyst, Stevens): And one last question. Checking account attrition in 2022. Did that differ at all from that? I think it's that 1% longer term average you guys put in the investor presentation.\n\nUnidentified Participant (Analyst): I know it did not. That's good to hear. Thanks for taking my questions.\n\nOperator (Conference Call Operator): We'll take the next question from Andrew Leash with Piper Sandler. Please go ahead.\n\nAndrew Leash (Analyst, Piper Sandler): Thanks, everyone. Good morning. Just a question on credit, everything else been asked and answered. Are you seeing anything concerning out there? And when you do expect credit to turn, what areas of the portfolio would you expect to see the most stress?\n\nMike Selfridge (Chief Banking Officer): Andrew, it's Mike. We feel very good about our positioning right now in credit. We don't expect any issues going forward. So the answer is it's business as usual from our perspective. And Mike noted the credit quality in his remarks and look at the three basis points of net charge us over a 23-year period. So sticking to our knitting, being cautious, selective, focusing on relationships.\n\nUnidentified Participant (Analyst): Great. You've covered everything else. Thanks so much.\n\nOperator (Conference Call Operator): And the next question comes from David Smith with Autonomous. Please go ahead.\n\nDavid Smith (Analyst, Autonomous): Good morning. Thanks for taking my question. I had a question about the wealth management team profitability. You've been adding a lot of teams there lately, both last year and, you know, even the first few weeks of this year. Historically, how long is it before you tend to see these teams reach their run rate profitability? How long does it kind of take to ramp up there?\n\nBob Thornton (President, Private Wealth Management): Yeah, it's actually relatively quick, usually within a year to 18 months. And that's, you know, really a function of fact that the teams we hire generally have a lot of traction with their clients. And then also we're getting the deposit benefit from those teams as well, which has been quite successful.\n\nUnidentified Participant (Analyst): Got it. Thank you.\n\nOperator (Conference Call Operator): And that concludes today's question and answer sessions. At this time, I will turn the conference back to Mike Roffler for any additional or closing remarks.\n\nMike Roffler (CEO and President): Thank you, everyone, for joining us on today's call. We're optimistic about the future and continue to look forward to the year ahead. Have a wonderful weekend.\n\nOperator (Conference Call Operator): And this concludes today's call. Thank you for your participation. You may now disconnect.",
+  "n_turns": 125
+}

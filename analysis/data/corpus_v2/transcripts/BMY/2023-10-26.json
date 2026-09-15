@@ -1,0 +1,333 @@
+{
+  "ticker": "BMY",
+  "original_ticker": "BMY",
+  "call_date": "2023-10-26",
+  "year": 2023,
+  "quarter": 3,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "BMY",
+    "year": 2023,
+    "quarter": 3
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T01:31:29Z",
+  "raw_payload": {
+    "event": {
+      "year": 2023,
+      "quarter": 3,
+      "conference_date": "2023-10-26T08:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk15",
+        "text": "but also we continue to see opportunities in our portfolio. As you know, we had multiple readouts this quarter, you know, LPA being one of those, as well as additional indications for Opdivo, and we had first-line commands. But as we step back and what we shared at R&D Day, we see opportunities to continue to accelerate in our R&D pipeline. So that's why we revised our guidance to incorporate the dilution from Mirati, but as well as the investments that we're making in a new product portfolio and the R&D portfolio."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, David. Keith, can we go to the next question, please?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, and that comes from Seamus Fernandez with Guggenheim."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Oh, thanks for the question. So just trying to get a little bit of a better sense on the 37% margin guidance, you know, is that something that we should anticipate is a potential floor in 2024 as you lose the Keytruda royalty, or is Is it really sort of a sequential floor for margins in 2025 as you lose Sprycel and Pomalyst following the loss of the Contruda Royalty? So just trying to get a sense of kind of the path to 2025 as we move through the balance of this year and next year. Thanks."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Yeah. Thanks, Seamus, for the question. And the 37% guidance is a floor that we've provided as we look forward to that mid-term period, which is 2025. We haven't provided guidance yet. We'll do that on the fourth quarter earnings call as it relates, you know, to 2024, which I think is what your question is getting after. I'd say the one thing to think about is one, you know, we've talked about Revlimid in the past and that we said, you know, we've revised Revlimid this year from $5.5 to $6 billion. And we still see next year stepping down to about that $4 billion. And, you know, and then we'll update you on all the other line items when we do our fourth quarter earnings as far as profitability next year. But you should think about the operating margin as a floor as we look forward through 25. Thanks, David."
+      },
+      {
+        "speaker": "spk04",
+        "text": "And thanks for the question, Seamus. Keith, could we go to the next question, please?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, certainly. And that comes from Chris Ashibutani with Goldman Sachs."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thank you very much. You made some comments about SOTITU and the reimbursement environment as that is evolving and the constraints that you have, perhaps from Adam or whoever would be appropriate. Do you comment further about what you're seeing there and how we should be thinking about the cadence? I think the setup had been that 24 would be an opportunity, and that seems to be slightly different."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Chris, thank you for the question. First, I want to say we're very pleased with the performance of Sotictu. Our goal remains to be the standard of care in the oral market. In fact, as you heard, we have achieved now a 40% share of newly written prescriptions and we're the third most newly prescribed systemic therapy, and we've done that in a little over a year post-launch. Now, as you have stated, our focus really is around accelerating access, and we anticipate achieving broader access in 2024 and continuing in 2025. Remember, today, so TIC2 is not covered on approximately 80% of lives in the United States. And so, you know, we expect to see significant improvements coming next year. We're in the throes of negotiations with the PBMs, so we would expect to see a market improvement in 2024, and that could continue into 2025, where we would expect to have very broad access across the other two PBMs. And that's, you know, we're very confident in our ability to achieve that."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, Adam. Could we go to the next question, please, Keith?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, certainly. And that comes from Steven Scala with TD Gallant."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Thank you very much. Regarding the midterm guidance changes, I'm a bit puzzled as to why now, particularly when you had a major meeting last month and time to go through the specifics. I'm sure these changes were evident at that point. or wait until Q4 when you have to set the stage for 2024 and beyond? I think the answer will be that that was an R&D meeting last month. But still, Chris, you opened the meeting by kind of setting the stage and tone for the company. So I'm just wondering why you're fitting these changes in on a Q3 call. Thank you."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Sure, Steve. Let me take that and then David can provide additional color. So the timing of this shift is really driven by the fact that in the short term, we have seen additional trends mainly around ABECMA that have required that we change our short-term guidance, and that's giving the guidance for the new product portfolio for this year. And as we've said, we expect that portfolio to be roughly $3.5 billion this year, and that is slightly less than what we had anticipated when we began this year. As a result of that change and what we're seeing with the new product portfolio, the dynamics of which I described in the prepared remarks, We made the decision that we wanted to update the 2025 guidance. As we anticipated, that would be a question that would come out on this call. And so that's why we made the decision to change the 2025 guidance. And then, of course, as we get into next year, we'll provide additional color as to how we expect 2024 to proceed. But that was really the motivation for the timing of why we decided to make the changes in guidance today."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, Chris. Keith, could we go to the next question, please?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Certainly. And that comes from Terrence Flynn with Morgan Stanley."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Hi. Thanks for taking the questions. I guess, Chris, maybe for you, just the launch reboot strategy for some of the drugs that have come in below your expectations. Maybe you could just walk us through each of those and some of the steps you're taking and why you're confident that that's going to have success. Thank you."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Sure. Terrence, let me start, and then I'll ask Adam to provide some specifics really around the products where we think we're going to need to have either a reboot or where we are moving to accelerate. I think the way I characterized in the opening remarks is right. We have a number of products which are either hitting or exceeding our expectations. Certainly, Optulag, Reblazil is performing very, very well. Breonzi, as David alluded to, we saw good performance in the quarter, but importantly, we're seeing very strong manufacturing performance, and we anticipate both supply and the quality of manufacturing for that product to improve. And given the profile of the drug, we have every expectation that's going to continue to perform very well as we get, into 2024. So those products we feel very good about. For SOTIC 2 and CAM-ZIOS, the dynamics are the products are just taking a bit longer and the trajectory for those products requires that we think about the time to peak being shifted back. What's important, and Adam can speak to this, is the fundamentals for both of those products continue to be very, very strong. We get good, strong share for SOTIC2. We anticipate, given the quality of that data and what we're seeing from customers, this will become the oral standard of choice, which is, remember, what the objective was when we launched the product. And for Camxios, every metric across this product, whether it relates to how physicians see the product and how patients see the product, remains very strong. the dynamics in the cardiovascular market are such that that's just simply going to take a bit longer. I'll have Adam speak to any additional color on those two products, but mainly focus on Abecma and on Ziposia."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yes. Thanks, Chris. And thanks, Terrence, for the question. Let me just add a little bit more color. As you heard, we have said that we're seeing continued impact from additional BCMA agents pressuring Abecma growth. And so our teams are focused on Number one, expanding our site footprint, both in the U.S. and internationally. We're differentiating and contextualizing Beckman real-world data for physicians, which really look very similar and consistent with our clinical trials. And we're educating on the sequencing and some of the emerging data that the use of cell therapy ahead of bispecifics is ultimately better for patient outcomes. We're also very pleased with the progress we've made on manufacturing around our predictability and low out-of-spec rates. So that's what we're really doing around ABECMA. As it relates to Ziposia, as Chris mentioned, and then I'll shift to the others, we continue to see quarterly demand growth. MS is really driving that growth. And so we've made a lot of progress on the MS front, even in a declining oral market in favor of B-cells. And so we continue to expect growth in the MS market. Now, we have certainly an opportunity for continued growth in UC. We're making progress, but Our access challenges, they remain, and we're working to improve our access position. But we're also seeing progress in Ziposia in the first-line setting post-ASA as physicians are identifying Ziposia really as a good treatment option based on its efficacy and safety profile. So we're focusing there on expanding breadth of prescribing and continuing to really drive adoption across our, you know, a broader use of physicians. So for those reasons, we do expect to see continued growth and uptake for Ziposia. Now, as it relates to Camxios and Citictu, as Chris opened, he talked about the importance of those two products and really not a matter of if but a matter of when, and that's why we made that decision. And so for Camxios, we are pleased with the uptake there. The focus on Camxios remains to continue to increase our breadth in our COEs, go outside of the COEs to the non-centers of excellence to expand utilization. We're seeing doctors get much more comfortable in using the patient response has also been very, very strong there and continuing to bring patients out of the hub. Remember, these patients are going to be on treatment for a very long time. And then finally, just again, I'll just close on CITIC2. You know, I mentioned Some of the key areas we're focused on around access, and David talked about pulling through those patients through the hub, but we're also continuing to drive breadth of prescribers where we're making really meaningful progress and reinforcing our superior efficacy profile compared to a Tesla."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, Adam. Keith, can we go to the next question, please?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Sure, and that comes from Evan Sigerman with BMO Capital."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hi, guys. Thank you for taking my question. This one's on Mirati. So, Crisati and the general K-Rez G12C class has recently really fallen below expectations. Can you just walk me through your thinking of the opportunity for Crisati? What's the key value driver here in the acquisition? And what can you do differently versus Mirati to accelerate growth of this asset?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, thanks, Evan, for the question. You know, number one, we're very confident in Crisati's significant commercial opportunity as we believe this is a best-in-class K-Rez G12C asset. Remember, the real opportunity for Crizzati is in the first-line setting, and so in lung cancer. And so we have, you know, Mirati has started their Phase III study in combination with PD-1. You know, we'll also see data around the triplet to PD-1 chemo KRAS. I think that's another significant advantage of Crizzati, where it can combine with multiple agents, including PD-1. We'll obviously need data to understand the potential of that opportunity. But, Evan, we think this could bring significantly greater upside to this opportunity. And then also we're very excited about the other assets that Mirati has, PRMT5, KRS-G12D, and the SAS1 inhibitor, which we think also showing very promising early efficacy. So taken together, We do believe that this is a really exciting deal for the company and will be a strong catalyst of growth in the back end of this decade."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, Adam. Keith, can we go to the next question, please?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, certainly. That comes from Carter Gold with Barclays."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Hi. Good morning, guys. On a BECMA, can you help frame \u2013 you mentioned some of the headwinds, and some of those are obviously transient in nature \u2013 how should we think about how long it might take to get back to sort of the run rate you were seeing in the first half of 23? And I guess along those lines as well, given some of the commentary on the guidance, just your confidence in an on-time approval of CARMA 3. Thank you."
+      },
+      {
+        "speaker": "spk14",
+        "text": "So let me just start off with the CARMA 3 part. First, as you know, that we have a PDUFA date in December, and that's all pretty much we can comment on as we continue to work with the regulatory agencies to bring it forward."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, Carter, I'll just expand on that just a little bit. You know, we mentioned two things in last quarter's earnings, if you remember. Number one, you know, the S-12 maintenance that occurred in June would dampen Q3 sales. And, you know, we're seeing that happen. However, you know, we're also seeing a continued impact from additional BCMA targeted agents. So we knew this was going to be a highly competitive market, putting pressure on growth. And I talked about what we're doing to really stabilize that business and return it to growth. Clearly, a CARMID-3 approval would move a BACMA into earlier lines of treatment and be a catalyst to return a BACMA to growth by opening up a significantly larger patient pool. But as Samit said, obviously, we have to wait to see that approval come."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, Adam. Can we go to the next question, please?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Certainly. That comes from Andrew Baum with Citi. Thank you."
+      },
+      {
+        "speaker": "spk13",
+        "text": "A question for Adam. Many of your predecessors have been scarred trying to get off the bridge onto reimbursed plans. Are you still confident that you're going to be able to, by the end of this year, get 60% of your CVS-insured patients off the bridge onto a reimbursed basis?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, Andrew, thanks for the question. So conversion is going as we expected. You know, we are focused on pulling through the early access win for Sotictu at CVS and shifting those patients to commercial product from bridge. As I said last time on the call, it takes about two to three months for patients to move from bridge to commercial, and we have started to see that conversion happening towards the end of Q3. We believe the majority of CVS patients will be coming out of the hub by Q4 and start to see some benefit towards the tail end of Q4 and into Q1. We're also seeing new patients on CVS move very quickly into commercial products, so that's also helping to accelerate performance. So I talked earlier, you know, that coupled with broader formulary access in January of 2024, we're confident that will be a strong accelerator of growth for CITIC2 in 2024 and beyond."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thank you, Adam. Keith, could we go to our next question, please?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Please press star and then one if you would like to ask a question. And the next question comes from Tim Anderson, Wolf Research."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Tim Anderson Thank you. So, you gave product-specific peak sales targets out to 2030. I think you did that for almost 10 products. Are any of those trending ahead? of what those prior targets were. We've heard of several things, it sounds like, where it might be trending below that. And are we going to get updated 2030 targets on those same list of products at some point? Thank you."
+      },
+      {
+        "speaker": "spk08",
+        "text": "So, Tim, let me start, and then I'll ask Adam to comment on how we're seeing performance trends overall. But what I would say is, look, I would go back to how I characterized the new product portfolio at the beginning. We've launched nine new products over the last two and a half years, and it's a portfolio of products. And we are seeing some products perform at or better than expected. I think when you factor in some of the early manufacturing constraints that we had, I look at a product like Breonzi, It's a best-in-class profile. That product has considerable opportunity to meet or exceed expectations. Look, I think we knew the competitive dynamics around ABECMA coming into this launch. I fully expect that the team is going to get that product back on track as it relates to competition from other BCMA-targeted agents. But in the long run, that product will continue to be a competitive product for us. And then certainly as we look at the opportunity for a product like CAMSIOs, and a product like SOTIC2, we think the long-term potential still remains on track, and possibly for a product like CAM-Zios, in excess of what we had anticipated. And then, as you would expect in any portfolio product, there are a couple of products where performance is lagging. We've highlighted what those are, but maybe I'll ask Adam to comment on any additional underlying dynamics he wants to speak to."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah. Thanks for the question. I think, you know, when we looked at totality of a portfolio, you know, we obviously see some products that are ahead, where we projected them to be at peak, and some are tracking behind. But taken together, you know, we don't see any changes in what we had discussed, which is on a non-risk-adjusted basis, that the new product portfolio, you know, could exceed that objective, you know, by 2030. You know, Chris talked about some of the, you know, the pushes and pulls. I would just add, I think, Rebelsville, is certainly a product that we're seeing that is tracking at or even ahead of expectations with the commands label. Camxios, we also see that tracking ahead in the longer term. Yes, it's taking slower than we initially guided to, but it's tracking very similar to a very, very strong cardiovascular launch. And so we expect that adoption to continue with sustained growth into the long term. Chris mentioned Breonzi. Breonzi has been seen as the best in class cell therapy agent, and coming into next year, we're going to be in a much better supply position, and that is going to help accelerate and catalyze that product. And also CITIC2 as well, because if you think about CITIC2, you know, once we are able to secure access early next year, we'll see accelerations in PSO, but we also have important data readouts, as you know, coming in PSA and in SLE or lupus, which will all contribute to having to exceed potentially our expectations in the back end of this decade."
+      },
+      {
+        "speaker": "spk08",
+        "text": "So, Tim, just to close it out, we had said that that product portfolio had $25 billion plus potential. Where we sit today, we still see that potential at least $25 billion as we get to the end of this decade."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, Chris. Can we go to the next question, please, Keith?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, and that comes from David Reisinger with Learing Partners."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yes, thanks very much. So I just wanted to sort of pivot to 2026. So considering that you extended the new product portfolio revenue guidance to 26, could you please comment on both the inline product segment and the recent LOE segments for 26, specifically how you'd frame the magnitude of potential declines for Eloquus and Revlimid given the pressures that they are set to face? Thank you very much."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Thanks, Dave. Just as a reminder, the only change that we made was from a new product portfolio going to 26. We're not providing line item guidance for the other line items, but what I would like to do is just remind you there's really no change to that in-line portfolio growing from 2010 to 2025 at $8 to $10 billion. I feel very confident in that, and I think the double-digit growth you saw on Opdivo year-to-date demonstrates our continued confidence there. And the only change that we made in relation to the guidance was in that new product portfolio after 26. As it relates to the LOE, again, we increased the guidance this year for Revlimid from 5.5 to 6. And as we said on the second quarter, there's really no change to how we're looking at it, which is pretty consistent with where consensus is for 24 and 25, dropping down to about $4 billion next year and $2 billion in 25. And remember, by the time we finish this year, Revlimid will be beyond 60% of the erosion of that product. So, and a significant portion of our growth going forward is going to be represented by that, you know, in-line and new product portfolio. LOEs in 2025 would be less than 10% of our total revenue. So, you know, we'll have a much younger portfolio by the time we get to 2025, and it'll set us up well for 26. And, you know, that's where we stand today."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Great. Thanks, David."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Go to the next question, please, Keith. Yes, next question is from Roman Karnowskis with Truist."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Hi. I mean, I think all the questions are focused on near-term, but I have gotten a lot of bullish indicators on your launches thinking more longer-term, like next year. We've heard from KOLs that LVEF drops in the real world for Kansaios seem to be better than what we're seeing in the clinical trials. Maybe you can provide some color on what you're seeing and how that impacted uptake. And I think big picture is Do you see any potential for changes to REMS because of what you're saying? Thanks."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Thank you, Robin. I think what we have heard and what Adam has talked about in the past as well, the overall profile for chems IOS as we think about patients and the prescribers remains very, very positive, and we remain very confident on that profile as well. As it relates to the REMS impact, look, these are data that we have to collect for a long time from the real world. There is no commitment in terms of really getting the REMS changed, but certainly we'll continue to try as more and more data evolves and more and more patients are put on Chemzios. Overall, once the patient goes on Chemzios, we have not heard of any stories of patients trying to get off Chemzios. In fact, even if they have to interrupt for any other reasons, they want to go back on the drug because of the benefit that they see in their quality of life and how they perform on their overall daily living."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks so much. Can we go to the next question, please?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, and that comes from Mohit Bansar with Wells Fargo."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Great. Thank you for taking my question. And my question is regarding \u2013 my question is related to SOTIC2 because it seems like in prepared remarks you mentioned that SOTIC2 contracting to zero stop edits \u2013 stop edits may run to 2025. And you mentioned because there are some changes in the immunologic contracting markets. Can you please help us understand them a little bit better? What are these changes? And how should we think about the long-term net pricing for this category? Thank you."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, Mohit, thanks for the question. I'll take that one. So, you know, as I said, we are working to improve significantly our formula access in 2024. And as I said, we have approximately 80% of lives today that are not covered on Sotictio. We expect that to change dramatically as we move into next year. However, when you look at, you know, where we will likely be in 2024, we will likely have the majority of our business in either a zero or one-step edit position. When we're talking to PBMs, and the reason why we're talking a little bit about 2025, PBMs are really thinking about different ways to manage the PSO class as well as the border immunology class with now more and more biosimilar Humira coming into the market. And so those decisions have not yet been finalized for 2025, but as I stated, we're very confident that we will see a significantly broader access position next year. So we'll go from non-covered to being covered, which will be a really nice growth opportunity for Sotictu as you move into early next year."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Let's go to the next question, please."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, and that comes from Olivia Bray with Cantor Fitzgerald."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Hey, good morning, and thank you for the question. M&A has obviously been something that you guys have leaned into. So does that strategy change at all after the Mirati deal? And if there is still an appetite for midsize deals, are there certain areas that maybe best fit your growth strategy going forward?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Sure. Let me take that one. So as we've said consistently, business development remains the top priority for capital allocation at the company. What I would say is at a macro level, the way we think about business development is somewhat consistent with the way we've always thought about it, which is we are going to be looking for deals that are scientifically interesting and related to things that we know well. They're going to be strategically relevant for the company, and of course, they have to be financially sound. The one thing that I would add is that we are going to index more heavily on those deals that enhance the growth profile of the company. That's an area that we remain fixated on as a management team. And so I think that's going to factor into how we think about business development going forward. And we're going to see areas, of course, that enhance the portfolio or help us to continue to give us capabilities or products that we don't have today. I think in some ways that's how you can think about Mirati. Mirati continues to diversify our oncology business away. towards targeted therapies. We're very excited about that opportunity. But I think, generally speaking, the way we approach business development will be largely consistent. Again, though, we'll be focusing on great science that can enhance the growth profile of the company. Great."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, Keith. Can we go to our last question, please?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, and that comes from Dane Leone with Raymond James."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Hi, guys. This is Sean on for Dane. Thanks for taking the questions. It does appear, maybe we can get a little bit more color on those CAM-XIOS script trends. It does appear that the number of patients entering the hub may be slightly slowing. So just any further color on what you've been hearing from physicians on the burden, how burdensome the REMS program is and what you expect for further growth. Thanks."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Sure, Sean. I'll take that question. So, we're very pleased with what we're seeing in the launch of CAMS IOS. You know, we continue to see week over week consistency in patient starts and rapid conversion of patients from the hub to commercial. You know, as we all said, we would expect to see steady, consistent, and sustained uptake for this product into the you know, the distant future. We don't expect an inflection, but rather an accumulation of patients coming on to treatment and staying on treatment for a very long period of time. And so right now, you know, we've got 5,000 patients in the hub and approximately 3,500 patients on commercial products. So that, coupled with patient and physician feedback, which continues to be very strong, we're focusing on driving penetration in our top centers where we have 90% adoption in our top 100 centers and expanding use outside of those COEs. We're also focused on increasing diagnosis rates by activating patients. And as you know, we recently received approval internationally as well in Europe. So that will also be a contributor to growth. So taken together, we're very confident this will lead to a continued and sustained growth of this important product."
+      },
+      {
+        "speaker": "spk08",
+        "text": "So maybe I'll close. So first, thank you all for joining the call. I know it's a very busy day. What I would just say to summarize where we are is Look, this team has continued to be fixated on driving the growth profile of the company. How we go about doing that is, as we've discussed on the call, we're going to continue to drive in-line product performance. The new product portfolio, we have continued very strong conviction in the long-term potential of this portfolio. Our focus is going to be continuing to drive where we have momentum today and accelerate those products where we need to accelerate, and that focus on execution is transcends across the entire portfolio, including continuing to drive execution in R&D and continue to find and source really attractive assets externally. And with that, we'll close the call. And as always, the team is available to answer any questions following today's discussion. Hope you all have a good day and the rest of the week."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank you. The conference has now concluded. Thank you for attending today's presentation. You may now disconnect."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk04": {
+        "name": "Keith",
+        "title": "Executive"
+      },
+      "spk05": {
+        "name": "Operator",
+        "title": "Operator"
+      },
+      "spk15": {
+        "name": "David",
+        "title": "CEO"
+      },
+      "spk10": {
+        "name": "Seamus Fernandez",
+        "title": "Analyst at Guggenheim"
+      },
+      "spk02": {
+        "name": "Chris Ashibutani",
+        "title": "Analyst at Goldman Sachs"
+      },
+      "spk16": {
+        "name": "Steven Scala",
+        "title": "Analyst at TD Gallant"
+      },
+      "spk08": {
+        "name": "Adam",
+        "title": "Executive"
+      },
+      "spk00": {
+        "name": "Operator",
+        "title": "Operator"
+      },
+      "spk09": {
+        "name": "Evan Sigerman",
+        "title": "Analyst at BMO Capital"
+      },
+      "spk14": {
+        "name": "Adam",
+        "title": "Executive"
+      },
+      "spk18": {
+        "name": "Carter Gold",
+        "title": "Analyst at Barclays"
+      },
+      "spk13": {
+        "name": "Tim Anderson",
+        "title": "Analyst at Wolf Research"
+      },
+      "spk01": {
+        "name": "Dave Reisinger",
+        "title": "Analyst at Learing Partners"
+      },
+      "spk12": {
+        "name": "Robin",
+        "title": "Analyst at Truist"
+      },
+      "spk17": {
+        "name": "Olivia Bray",
+        "title": "Analyst at Cantor Fitzgerald"
+      },
+      "spk07": {
+        "name": "Sean (on behalf of Dane Leone)",
+        "title": "Analyst at Raymond James"
+      },
+      "spk11": {
+        "name": "Mohit Bansar",
+        "title": "Analyst at Wells Fargo"
+      }
+    }
+  },
+  "text": "David (CEO): but also we continue to see opportunities in our portfolio. As you know, we had multiple readouts this quarter, you know, LPA being one of those, as well as additional indications for Opdivo, and we had first-line commands. But as we step back and what we shared at R&D Day, we see opportunities to continue to accelerate in our R&D pipeline. So that's why we revised our guidance to incorporate the dilution from Mirati, but as well as the investments that we're making in a new product portfolio and the R&D portfolio.\n\nKeith (Executive): Thanks, David. Keith, can we go to the next question, please?\n\nOperator (Operator): Yes, and that comes from Seamus Fernandez with Guggenheim.\n\nSeamus Fernandez (Analyst at Guggenheim): Oh, thanks for the question. So just trying to get a little bit of a better sense on the 37% margin guidance, you know, is that something that we should anticipate is a potential floor in 2024 as you lose the Keytruda royalty, or is Is it really sort of a sequential floor for margins in 2025 as you lose Sprycel and Pomalyst following the loss of the Contruda Royalty? So just trying to get a sense of kind of the path to 2025 as we move through the balance of this year and next year. Thanks.\n\nDavid (CEO): Yeah. Thanks, Seamus, for the question. And the 37% guidance is a floor that we've provided as we look forward to that mid-term period, which is 2025. We haven't provided guidance yet. We'll do that on the fourth quarter earnings call as it relates, you know, to 2024, which I think is what your question is getting after. I'd say the one thing to think about is one, you know, we've talked about Revlimid in the past and that we said, you know, we've revised Revlimid this year from $5.5 to $6 billion. And we still see next year stepping down to about that $4 billion. And, you know, and then we'll update you on all the other line items when we do our fourth quarter earnings as far as profitability next year. But you should think about the operating margin as a floor as we look forward through 25. Thanks, David.\n\nKeith (Executive): And thanks for the question, Seamus. Keith, could we go to the next question, please?\n\nOperator (Operator): Yes, certainly. And that comes from Chris Ashibutani with Goldman Sachs.\n\nChris Ashibutani (Analyst at Goldman Sachs): Thank you very much. You made some comments about SOTITU and the reimbursement environment as that is evolving and the constraints that you have, perhaps from Adam or whoever would be appropriate. Do you comment further about what you're seeing there and how we should be thinking about the cadence? I think the setup had been that 24 would be an opportunity, and that seems to be slightly different.\n\nspk06 (): Chris, thank you for the question. First, I want to say we're very pleased with the performance of Sotictu. Our goal remains to be the standard of care in the oral market. In fact, as you heard, we have achieved now a 40% share of newly written prescriptions and we're the third most newly prescribed systemic therapy, and we've done that in a little over a year post-launch. Now, as you have stated, our focus really is around accelerating access, and we anticipate achieving broader access in 2024 and continuing in 2025. Remember, today, so TIC2 is not covered on approximately 80% of lives in the United States. And so, you know, we expect to see significant improvements coming next year. We're in the throes of negotiations with the PBMs, so we would expect to see a market improvement in 2024, and that could continue into 2025, where we would expect to have very broad access across the other two PBMs. And that's, you know, we're very confident in our ability to achieve that.\n\nKeith (Executive): Thanks, Adam. Could we go to the next question, please, Keith?\n\nOperator (Operator): Yes, certainly. And that comes from Steven Scala with TD Gallant.\n\nSteven Scala (Analyst at TD Gallant): Thank you very much. Regarding the midterm guidance changes, I'm a bit puzzled as to why now, particularly when you had a major meeting last month and time to go through the specifics. I'm sure these changes were evident at that point. or wait until Q4 when you have to set the stage for 2024 and beyond? I think the answer will be that that was an R&D meeting last month. But still, Chris, you opened the meeting by kind of setting the stage and tone for the company. So I'm just wondering why you're fitting these changes in on a Q3 call. Thank you.\n\nAdam (Executive): Sure, Steve. Let me take that and then David can provide additional color. So the timing of this shift is really driven by the fact that in the short term, we have seen additional trends mainly around ABECMA that have required that we change our short-term guidance, and that's giving the guidance for the new product portfolio for this year. And as we've said, we expect that portfolio to be roughly $3.5 billion this year, and that is slightly less than what we had anticipated when we began this year. As a result of that change and what we're seeing with the new product portfolio, the dynamics of which I described in the prepared remarks, We made the decision that we wanted to update the 2025 guidance. As we anticipated, that would be a question that would come out on this call. And so that's why we made the decision to change the 2025 guidance. And then, of course, as we get into next year, we'll provide additional color as to how we expect 2024 to proceed. But that was really the motivation for the timing of why we decided to make the changes in guidance today.\n\nKeith (Executive): Thanks, Chris. Keith, could we go to the next question, please?\n\nOperator (Operator): Certainly. And that comes from Terrence Flynn with Morgan Stanley.\n\nOperator (Operator): Hi. Thanks for taking the questions. I guess, Chris, maybe for you, just the launch reboot strategy for some of the drugs that have come in below your expectations. Maybe you could just walk us through each of those and some of the steps you're taking and why you're confident that that's going to have success. Thank you.\n\nAdam (Executive): Sure. Terrence, let me start, and then I'll ask Adam to provide some specifics really around the products where we think we're going to need to have either a reboot or where we are moving to accelerate. I think the way I characterized in the opening remarks is right. We have a number of products which are either hitting or exceeding our expectations. Certainly, Optulag, Reblazil is performing very, very well. Breonzi, as David alluded to, we saw good performance in the quarter, but importantly, we're seeing very strong manufacturing performance, and we anticipate both supply and the quality of manufacturing for that product to improve. And given the profile of the drug, we have every expectation that's going to continue to perform very well as we get, into 2024. So those products we feel very good about. For SOTIC 2 and CAM-ZIOS, the dynamics are the products are just taking a bit longer and the trajectory for those products requires that we think about the time to peak being shifted back. What's important, and Adam can speak to this, is the fundamentals for both of those products continue to be very, very strong. We get good, strong share for SOTIC2. We anticipate, given the quality of that data and what we're seeing from customers, this will become the oral standard of choice, which is, remember, what the objective was when we launched the product. And for Camxios, every metric across this product, whether it relates to how physicians see the product and how patients see the product, remains very strong. the dynamics in the cardiovascular market are such that that's just simply going to take a bit longer. I'll have Adam speak to any additional color on those two products, but mainly focus on Abecma and on Ziposia.\n\nspk06 (): Yes. Thanks, Chris. And thanks, Terrence, for the question. Let me just add a little bit more color. As you heard, we have said that we're seeing continued impact from additional BCMA agents pressuring Abecma growth. And so our teams are focused on Number one, expanding our site footprint, both in the U.S. and internationally. We're differentiating and contextualizing Beckman real-world data for physicians, which really look very similar and consistent with our clinical trials. And we're educating on the sequencing and some of the emerging data that the use of cell therapy ahead of bispecifics is ultimately better for patient outcomes. We're also very pleased with the progress we've made on manufacturing around our predictability and low out-of-spec rates. So that's what we're really doing around ABECMA. As it relates to Ziposia, as Chris mentioned, and then I'll shift to the others, we continue to see quarterly demand growth. MS is really driving that growth. And so we've made a lot of progress on the MS front, even in a declining oral market in favor of B-cells. And so we continue to expect growth in the MS market. Now, we have certainly an opportunity for continued growth in UC. We're making progress, but Our access challenges, they remain, and we're working to improve our access position. But we're also seeing progress in Ziposia in the first-line setting post-ASA as physicians are identifying Ziposia really as a good treatment option based on its efficacy and safety profile. So we're focusing there on expanding breadth of prescribing and continuing to really drive adoption across our, you know, a broader use of physicians. So for those reasons, we do expect to see continued growth and uptake for Ziposia. Now, as it relates to Camxios and Citictu, as Chris opened, he talked about the importance of those two products and really not a matter of if but a matter of when, and that's why we made that decision. And so for Camxios, we are pleased with the uptake there. The focus on Camxios remains to continue to increase our breadth in our COEs, go outside of the COEs to the non-centers of excellence to expand utilization. We're seeing doctors get much more comfortable in using the patient response has also been very, very strong there and continuing to bring patients out of the hub. Remember, these patients are going to be on treatment for a very long time. And then finally, just again, I'll just close on CITIC2. You know, I mentioned Some of the key areas we're focused on around access, and David talked about pulling through those patients through the hub, but we're also continuing to drive breadth of prescribers where we're making really meaningful progress and reinforcing our superior efficacy profile compared to a Tesla.\n\nKeith (Executive): Thanks, Adam. Keith, can we go to the next question, please?\n\nOperator (Operator): Sure, and that comes from Evan Sigerman with BMO Capital.\n\nEvan Sigerman (Analyst at BMO Capital): Hi, guys. Thank you for taking my question. This one's on Mirati. So, Crisati and the general K-Rez G12C class has recently really fallen below expectations. Can you just walk me through your thinking of the opportunity for Crisati? What's the key value driver here in the acquisition? And what can you do differently versus Mirati to accelerate growth of this asset?\n\nspk06 (): Yeah, thanks, Evan, for the question. You know, number one, we're very confident in Crisati's significant commercial opportunity as we believe this is a best-in-class K-Rez G12C asset. Remember, the real opportunity for Crizzati is in the first-line setting, and so in lung cancer. And so we have, you know, Mirati has started their Phase III study in combination with PD-1. You know, we'll also see data around the triplet to PD-1 chemo KRAS. I think that's another significant advantage of Crizzati, where it can combine with multiple agents, including PD-1. We'll obviously need data to understand the potential of that opportunity. But, Evan, we think this could bring significantly greater upside to this opportunity. And then also we're very excited about the other assets that Mirati has, PRMT5, KRS-G12D, and the SAS1 inhibitor, which we think also showing very promising early efficacy. So taken together, We do believe that this is a really exciting deal for the company and will be a strong catalyst of growth in the back end of this decade.\n\nKeith (Executive): Thanks, Adam. Keith, can we go to the next question, please?\n\nOperator (Operator): Yes, certainly. That comes from Carter Gold with Barclays.\n\nCarter Gold (Analyst at Barclays): Hi. Good morning, guys. On a BECMA, can you help frame \u2013 you mentioned some of the headwinds, and some of those are obviously transient in nature \u2013 how should we think about how long it might take to get back to sort of the run rate you were seeing in the first half of 23? And I guess along those lines as well, given some of the commentary on the guidance, just your confidence in an on-time approval of CARMA 3. Thank you.\n\nAdam (Executive): So let me just start off with the CARMA 3 part. First, as you know, that we have a PDUFA date in December, and that's all pretty much we can comment on as we continue to work with the regulatory agencies to bring it forward.\n\nspk06 (): Yeah, Carter, I'll just expand on that just a little bit. You know, we mentioned two things in last quarter's earnings, if you remember. Number one, you know, the S-12 maintenance that occurred in June would dampen Q3 sales. And, you know, we're seeing that happen. However, you know, we're also seeing a continued impact from additional BCMA targeted agents. So we knew this was going to be a highly competitive market, putting pressure on growth. And I talked about what we're doing to really stabilize that business and return it to growth. Clearly, a CARMID-3 approval would move a BACMA into earlier lines of treatment and be a catalyst to return a BACMA to growth by opening up a significantly larger patient pool. But as Samit said, obviously, we have to wait to see that approval come.\n\nKeith (Executive): Thanks, Adam. Can we go to the next question, please?\n\nOperator (Operator): Certainly. That comes from Andrew Baum with Citi. Thank you.\n\nTim Anderson (Analyst at Wolf Research): A question for Adam. Many of your predecessors have been scarred trying to get off the bridge onto reimbursed plans. Are you still confident that you're going to be able to, by the end of this year, get 60% of your CVS-insured patients off the bridge onto a reimbursed basis?\n\nspk06 (): Yeah, Andrew, thanks for the question. So conversion is going as we expected. You know, we are focused on pulling through the early access win for Sotictu at CVS and shifting those patients to commercial product from bridge. As I said last time on the call, it takes about two to three months for patients to move from bridge to commercial, and we have started to see that conversion happening towards the end of Q3. We believe the majority of CVS patients will be coming out of the hub by Q4 and start to see some benefit towards the tail end of Q4 and into Q1. We're also seeing new patients on CVS move very quickly into commercial products, so that's also helping to accelerate performance. So I talked earlier, you know, that coupled with broader formulary access in January of 2024, we're confident that will be a strong accelerator of growth for CITIC2 in 2024 and beyond.\n\nKeith (Executive): Thank you, Adam. Keith, could we go to our next question, please?\n\nOperator (Operator): Please press star and then one if you would like to ask a question. And the next question comes from Tim Anderson, Wolf Research.\n\nspk03 (): Tim Anderson Thank you. So, you gave product-specific peak sales targets out to 2030. I think you did that for almost 10 products. Are any of those trending ahead? of what those prior targets were. We've heard of several things, it sounds like, where it might be trending below that. And are we going to get updated 2030 targets on those same list of products at some point? Thank you.\n\nAdam (Executive): So, Tim, let me start, and then I'll ask Adam to comment on how we're seeing performance trends overall. But what I would say is, look, I would go back to how I characterized the new product portfolio at the beginning. We've launched nine new products over the last two and a half years, and it's a portfolio of products. And we are seeing some products perform at or better than expected. I think when you factor in some of the early manufacturing constraints that we had, I look at a product like Breonzi, It's a best-in-class profile. That product has considerable opportunity to meet or exceed expectations. Look, I think we knew the competitive dynamics around ABECMA coming into this launch. I fully expect that the team is going to get that product back on track as it relates to competition from other BCMA-targeted agents. But in the long run, that product will continue to be a competitive product for us. And then certainly as we look at the opportunity for a product like CAMSIOs, and a product like SOTIC2, we think the long-term potential still remains on track, and possibly for a product like CAM-Zios, in excess of what we had anticipated. And then, as you would expect in any portfolio product, there are a couple of products where performance is lagging. We've highlighted what those are, but maybe I'll ask Adam to comment on any additional underlying dynamics he wants to speak to.\n\nspk06 (): Yeah. Thanks for the question. I think, you know, when we looked at totality of a portfolio, you know, we obviously see some products that are ahead, where we projected them to be at peak, and some are tracking behind. But taken together, you know, we don't see any changes in what we had discussed, which is on a non-risk-adjusted basis, that the new product portfolio, you know, could exceed that objective, you know, by 2030. You know, Chris talked about some of the, you know, the pushes and pulls. I would just add, I think, Rebelsville, is certainly a product that we're seeing that is tracking at or even ahead of expectations with the commands label. Camxios, we also see that tracking ahead in the longer term. Yes, it's taking slower than we initially guided to, but it's tracking very similar to a very, very strong cardiovascular launch. And so we expect that adoption to continue with sustained growth into the long term. Chris mentioned Breonzi. Breonzi has been seen as the best in class cell therapy agent, and coming into next year, we're going to be in a much better supply position, and that is going to help accelerate and catalyze that product. And also CITIC2 as well, because if you think about CITIC2, you know, once we are able to secure access early next year, we'll see accelerations in PSO, but we also have important data readouts, as you know, coming in PSA and in SLE or lupus, which will all contribute to having to exceed potentially our expectations in the back end of this decade.\n\nAdam (Executive): So, Tim, just to close it out, we had said that that product portfolio had $25 billion plus potential. Where we sit today, we still see that potential at least $25 billion as we get to the end of this decade.\n\nKeith (Executive): Thanks, Chris. Can we go to the next question, please, Keith?\n\nOperator (Operator): Yes, and that comes from David Reisinger with Learing Partners.\n\nDave Reisinger (Analyst at Learing Partners): Yes, thanks very much. So I just wanted to sort of pivot to 2026. So considering that you extended the new product portfolio revenue guidance to 26, could you please comment on both the inline product segment and the recent LOE segments for 26, specifically how you'd frame the magnitude of potential declines for Eloquus and Revlimid given the pressures that they are set to face? Thank you very much.\n\nDavid (CEO): Thanks, Dave. Just as a reminder, the only change that we made was from a new product portfolio going to 26. We're not providing line item guidance for the other line items, but what I would like to do is just remind you there's really no change to that in-line portfolio growing from 2010 to 2025 at $8 to $10 billion. I feel very confident in that, and I think the double-digit growth you saw on Opdivo year-to-date demonstrates our continued confidence there. And the only change that we made in relation to the guidance was in that new product portfolio after 26. As it relates to the LOE, again, we increased the guidance this year for Revlimid from 5.5 to 6. And as we said on the second quarter, there's really no change to how we're looking at it, which is pretty consistent with where consensus is for 24 and 25, dropping down to about $4 billion next year and $2 billion in 25. And remember, by the time we finish this year, Revlimid will be beyond 60% of the erosion of that product. So, and a significant portion of our growth going forward is going to be represented by that, you know, in-line and new product portfolio. LOEs in 2025 would be less than 10% of our total revenue. So, you know, we'll have a much younger portfolio by the time we get to 2025, and it'll set us up well for 26. And, you know, that's where we stand today.\n\nKeith (Executive): Great. Thanks, David.\n\nOperator (Operator): Go to the next question, please, Keith. Yes, next question is from Roman Karnowskis with Truist.\n\nRobin (Analyst at Truist): Hi. I mean, I think all the questions are focused on near-term, but I have gotten a lot of bullish indicators on your launches thinking more longer-term, like next year. We've heard from KOLs that LVEF drops in the real world for Kansaios seem to be better than what we're seeing in the clinical trials. Maybe you can provide some color on what you're seeing and how that impacted uptake. And I think big picture is Do you see any potential for changes to REMS because of what you're saying? Thanks.\n\nAdam (Executive): Thank you, Robin. I think what we have heard and what Adam has talked about in the past as well, the overall profile for chems IOS as we think about patients and the prescribers remains very, very positive, and we remain very confident on that profile as well. As it relates to the REMS impact, look, these are data that we have to collect for a long time from the real world. There is no commitment in terms of really getting the REMS changed, but certainly we'll continue to try as more and more data evolves and more and more patients are put on Chemzios. Overall, once the patient goes on Chemzios, we have not heard of any stories of patients trying to get off Chemzios. In fact, even if they have to interrupt for any other reasons, they want to go back on the drug because of the benefit that they see in their quality of life and how they perform on their overall daily living.\n\nKeith (Executive): Thanks so much. Can we go to the next question, please?\n\nOperator (Operator): Yes, and that comes from Mohit Bansar with Wells Fargo.\n\nMohit Bansar (Analyst at Wells Fargo): Great. Thank you for taking my question. And my question is regarding \u2013 my question is related to SOTIC2 because it seems like in prepared remarks you mentioned that SOTIC2 contracting to zero stop edits \u2013 stop edits may run to 2025. And you mentioned because there are some changes in the immunologic contracting markets. Can you please help us understand them a little bit better? What are these changes? And how should we think about the long-term net pricing for this category? Thank you.\n\nspk06 (): Yeah, Mohit, thanks for the question. I'll take that one. So, you know, as I said, we are working to improve significantly our formula access in 2024. And as I said, we have approximately 80% of lives today that are not covered on Sotictio. We expect that to change dramatically as we move into next year. However, when you look at, you know, where we will likely be in 2024, we will likely have the majority of our business in either a zero or one-step edit position. When we're talking to PBMs, and the reason why we're talking a little bit about 2025, PBMs are really thinking about different ways to manage the PSO class as well as the border immunology class with now more and more biosimilar Humira coming into the market. And so those decisions have not yet been finalized for 2025, but as I stated, we're very confident that we will see a significantly broader access position next year. So we'll go from non-covered to being covered, which will be a really nice growth opportunity for Sotictu as you move into early next year.\n\nKeith (Executive): Let's go to the next question, please.\n\nOperator (Operator): Yes, and that comes from Olivia Bray with Cantor Fitzgerald.\n\nOlivia Bray (Analyst at Cantor Fitzgerald): Hey, good morning, and thank you for the question. M&A has obviously been something that you guys have leaned into. So does that strategy change at all after the Mirati deal? And if there is still an appetite for midsize deals, are there certain areas that maybe best fit your growth strategy going forward?\n\nAdam (Executive): Sure. Let me take that one. So as we've said consistently, business development remains the top priority for capital allocation at the company. What I would say is at a macro level, the way we think about business development is somewhat consistent with the way we've always thought about it, which is we are going to be looking for deals that are scientifically interesting and related to things that we know well. They're going to be strategically relevant for the company, and of course, they have to be financially sound. The one thing that I would add is that we are going to index more heavily on those deals that enhance the growth profile of the company. That's an area that we remain fixated on as a management team. And so I think that's going to factor into how we think about business development going forward. And we're going to see areas, of course, that enhance the portfolio or help us to continue to give us capabilities or products that we don't have today. I think in some ways that's how you can think about Mirati. Mirati continues to diversify our oncology business away. towards targeted therapies. We're very excited about that opportunity. But I think, generally speaking, the way we approach business development will be largely consistent. Again, though, we'll be focusing on great science that can enhance the growth profile of the company. Great.\n\nKeith (Executive): Thanks, Keith. Can we go to our last question, please?\n\nOperator (Operator): Yes, and that comes from Dane Leone with Raymond James.\n\nSean (on behalf of Dane Leone) (Analyst at Raymond James): Hi, guys. This is Sean on for Dane. Thanks for taking the questions. It does appear, maybe we can get a little bit more color on those CAM-XIOS script trends. It does appear that the number of patients entering the hub may be slightly slowing. So just any further color on what you've been hearing from physicians on the burden, how burdensome the REMS program is and what you expect for further growth. Thanks.\n\nspk06 (): Sure, Sean. I'll take that question. So, we're very pleased with what we're seeing in the launch of CAMS IOS. You know, we continue to see week over week consistency in patient starts and rapid conversion of patients from the hub to commercial. You know, as we all said, we would expect to see steady, consistent, and sustained uptake for this product into the you know, the distant future. We don't expect an inflection, but rather an accumulation of patients coming on to treatment and staying on treatment for a very long period of time. And so right now, you know, we've got 5,000 patients in the hub and approximately 3,500 patients on commercial products. So that, coupled with patient and physician feedback, which continues to be very strong, we're focusing on driving penetration in our top centers where we have 90% adoption in our top 100 centers and expanding use outside of those COEs. We're also focused on increasing diagnosis rates by activating patients. And as you know, we recently received approval internationally as well in Europe. So that will also be a contributor to growth. So taken together, we're very confident this will lead to a continued and sustained growth of this important product.\n\nAdam (Executive): So maybe I'll close. So first, thank you all for joining the call. I know it's a very busy day. What I would just say to summarize where we are is Look, this team has continued to be fixated on driving the growth profile of the company. How we go about doing that is, as we've discussed on the call, we're going to continue to drive in-line product performance. The new product portfolio, we have continued very strong conviction in the long-term potential of this portfolio. Our focus is going to be continuing to drive where we have momentum today and accelerate those products where we need to accelerate, and that focus on execution is transcends across the entire portfolio, including continuing to drive execution in R&D and continue to find and source really attractive assets externally. And with that, we'll close the call. And as always, the team is available to answer any questions following today's discussion. Hope you all have a good day and the rest of the week.\n\nOperator (Operator): Thank you. The conference has now concluded. Thank you for attending today's presentation. You may now disconnect.",
+  "n_turns": 59
+}

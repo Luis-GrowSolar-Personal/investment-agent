@@ -1,0 +1,225 @@
+{
+  "ticker": "MMM",
+  "original_ticker": "MMM",
+  "call_date": "2025-07-18",
+  "year": 2025,
+  "quarter": 2,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "MMM",
+    "year": 2025,
+    "quarter": 2
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T02:02:50Z",
+  "raw_payload": {
+    "event": {
+      "year": 2025,
+      "quarter": 2,
+      "conference_date": "2025-07-18T08:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk05",
+        "text": "I was hoping you'd take us through the changes in your tariff assumptions, you know, the benefit of the pause that was implemented. But did you make any specific mitigation actions in the quarter? And, you know, kind of what was the decision about including it in guidance on a go-forward basis?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "So so the last time we said it was 60 cents gross. Now it's 20. The biggest change really going to be around China. You know, last year, last quarter, you know, about 80 percent of the tariff impact. You know, at the time, the rate was 125, 145. So you has 145. China was 125%. They've come down dramatically to 10 and 30. That was the biggest source of change. Things are moving around still a little bit, but we included it in the guidance mainly because we're more than halfway through the year. Things have stabilized at least a little bit. And any changes from here, you know, we'd only have a couple of months in the balance of the year that would impact 25. The rest would roll into 2026. So we feel we're pretty well calibrated. Of course, we're watching very carefully what happens in the EU. You know, we've got to watch against any re-escalation in trade tensions with China. You know, that could be a change. But from the way we see it today, I think we know enough about it in terms of the gross and net impact to roll it through into guidance, which I think is cleaner for investors. So we're offsetting $0.20 a gross tariff with both cost and sourcing. changes, which is about half of the offset, and the other half is coming through price. So the gross amount is about $140 million. Net's around 70. About half of that, say, $35, $40 million is price. The other half, $35-ish million, is going to be cost savings as well as sourcing. And the pricing piece of it, that's one of the elements that's helping us push second half growth a little bit because that's mostly a second half item."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Great. And then in your answer, they just put the spotlight on China. And, you know, there might have been an expectation there'd be some fallout because of tariffs and maybe some pushback on on your business there. But up single digits look pretty healthy. So just it was. Have you seen much of a fallout, and how much is embedded in the second half?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "So, Dean, no. We actually had a very good first half up mid-single digits. Frankly, it was better than we expected coming into the year. Early in the year, we were thinking it's low single digits. It's been mid single digits in the front half. We do expect it will slow down in the back half. That's embedded in our numbers. For us, it's roughly half is domestic, half is export. And both were performing very well. It's some of the local stimulus happening in China. For appliances, white goods, which we sell a lot of tape products into, as well as the export market, a lot of which was electronics. Again, that for us has been pretty healthy. But again, we do see it softening in the back half of the year. We're committed to China. It's a big part of the company. Seven factories, 5,000 people there. We have a great team, great business, really driving a great job on commercial excellence there in China. And again, it'll slow down but still be up for the year."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Great. Thank you."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Sure."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Our next question comes from the line of Nicole DeBlake with Deutsche Bank. Please proceed with your question."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yeah, thanks. Good morning."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Good morning, Nicole."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Maybe just starting with the demand trends through the quarter, I guess, you know, there's still been some concern out there that we've heard about, like, whether there was any sign of tariff pre-buy. It seems like we're kind of on the verge of tabling that. So just wanted to hear your thoughts, Bill, and if what you've seen through July kind of gives conviction that pre-buy wasn't really a factor."
+      },
+      {
+        "speaker": "spk03",
+        "text": "So it's hard to discern that. There's probably a little bit hanging out there, but it's not substantial. You know, anything that might happen from Q2 into Q1, we see Q3 coming into Q2. So I don't think the pre-buy is an issue. For the quarter, you know, our orders were up low single digits, as we described in the materials, a little bit better in S-I-B-G orders. you know, about Flattish and TEPG down a little bit in consumer, you know, but consumer accelerated over the course of the quarter. So June was better than May. May was better than April. So we saw some acceleration there. July, it's still very, very early. You know, we saw some similar progress here in July, but again, it's only a couple of weeks, so it's hard to discern a pattern over that. But Q2 orders were up low single digit. Our backlog grew. It's about 1% sequentially, so about $2 billion. And as Anurag mentioned in his comments, I mean, we're not really a backlog-driven business. We're more book and ship, but We saw some backlog growth sequentially, and 20%, 25% of Q3 is covered in backlog, which is a pretty good place to be. So what I'm pleased about is orders are hanging in there, and backlog is hanging in, if not growing a little bit sequentially."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thanks, Bill. That's helpful. And then on Europe, I feel like there's definitely been a little bit of excitement building about the potential course of recovery there. I know you guys were flat in the quarter, but have you seen anything when you look at those orders and backlog that suggests green shoots in Europe?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "So we're hopeful for Europe in the back half. You know, it's an important market for us. You know, the thing, the watch item for us is going to be auto, Nicole, actually. You know, what we've seen overall is IHS builds globally are sort of flattish. So it moved from down a little bit to up a couple of tenths, you know, in the latest drop a couple of days ago. You know, a lot of that's China, which is driving that growth. Europe and North America are both down, which adversely affects China. You know, Europe is expected to be down in the back half on auto build, and that's one that's important to us. Other parts of our business, you know, are showing some signs of growth. We saw SIBG up in the quarter in Europe, and I think there's signs that there could be growth on that side. But auto is a watch area for us in Europe in the back half."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk04",
+        "text": "I'll pass it on. Our next question comes from the line of Chris Snyder with Morgan Stanley. Please proceed with your question."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thank you. I wanted to ask about back half organic growth, you know, to 2.5%, so up from the 1.5% in the first half. The comps do get a bit tougher. It sounds like you guys think the macro continues to go sideways. So is that lift really all just price that's coming through and maybe some help from the NPI or And is there any buffer in that guide for maybe some volume pressure should there have been first half channel build?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you. So, Chris, thanks for the question. Look, there is some price in there. You know, it's probably 40 basis points, let's say, of price in that 2.5. So, you know, if you look at just comparable to Q1, it's 1.5 to 2.1. So it's up there. In terms of growth rate, sequentially Q first half of the second half, but there is some pricing benefits. I went through some of the drivers on the general industrial side, the safety business. The one area I talked a little bit about electronics, so softening a little bit in the back half, but still up. There is some end markets that are up. We do see some larger orders that have come through on the government side, on the electrical product side. The one area that I didn't speak about was on the automotive side, even though automotive will remain weak. We are working hard on repositioning our business there and driving growth with new models. We do expect us to be flattish in the back half from being down in the front half, even though the builds are still weak in the back half. Part of it is really aggressive commercial excellence efforts to go back and recapture opportunities in the tiers, particularly bonding and joining and acoustics and other things. There's some model switchovers happening where we're specced in. And we're hopeful that we can continue our position on those new models as they get into production later on this year. So auto is a watch area for us. We do expect that to be better in the back half and more flattish versus down in the front. But that's an important driver of their second half performance. Chris. Thank you. I appreciate that."
+      },
+      {
+        "speaker": "spk02",
+        "text": "And if I could follow up on maybe competitive tailwinds. that could support demand. I imagine, you know, particularly in consumer, there's a lot of low-cost competitors from Asia, you know, if we look at the online marketplaces. Have you seen any impact here from tariff costs on those competitors that could maybe give you guys some pricing in consumer, which I know is typically difficult, or even some share gain opportunities?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you. Hey, Chris, thank you. You know, some, but not going to be price. It's more volume. And there's, you know, all of the U.S. retailers are looking very carefully at where their source of supply is. If it's coming from non-U.S. markets, it's important. Obviously, the tariff impact makes them a little less economic and makes us a little more attractive. So on the margin, yes, there are some opportunities there, and the team and CBG are really pushing that. It's not going to come through necessarily in price. It's more likely to be in volume, and those are some of the opportunities that are embedded in the back half of the year for CBG. I appreciate that. Thank you. You bet."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Our next question comes from the line of Nigel Koh with Wolf Research. Please proceed with your question."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thanks. Good morning. Thanks for the question. Obviously, a lot of my questions have been answered already. Just want to make sure, Bill, I heard, you know, the price contribution in the second half. I think you said 40 basis points. Is that 40 basis points absolute price or is that 40 basis points improvement versus the first half?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "No, it's 40 basis points of absolute year-over-year improvement. Let me just step back on the whole thing, just because for the year, we're getting about 70 basis points, more or less, of price. We typically would see about 50 basis points, which is what is required to offset 2%. material cost inflation. So 2% on 6 billion in materials, 120 million. And if we pass it through in price, which we've done, that's 50 basis points. We're getting about 70 basis points. So it's a little bit of an extra lift. Part of that is coming because we're offsetting tariff headwind. And a lot of that's going to happen in the back half of the year. You know, but part of it is going to come from some of the pricing discipline, you know, that we're putting in place. You know, what we see in very different processes on price governance in SIBG and now moving to TEBG as well. So in SIBG, we used to have about 60 percent or more of the deals were less than $20,000. So very small. You know, today that's less than 20 percent. So we're trying to be more strategic on where we give price. pricing discounts to larger customers and make sure we get the volume for it. So that's showing an effect in some price as well. So, you know, long-winded way of saying, yes, it's 40 basis points a year over year, and it's 70 basis points for the full year price."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay. That's helpful. And then I find it curious or maybe a little bit ironic that, you know, SIPG growth is actually superior despite the fact that Otis is lagging the other two segments. So, number one, are you still on track to get ODIF within SIBG to 90% by year-end? And if you were to guess, you know, if you can improve ODIF from 83% to 93%, What kind of growth uplift would you expect to see?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Again, the question gets back to like sort of trying to get harsh, you know, an OTIF to a revenue. It's very difficult to do that. But we do know that not delivering on time is a source of churn, and reducing churn implicitly drives growth. So, look, 83% just over that was a good result, not what we had expected. We expect more from that. You know, as we transition into July, we're a little north of 85%. You know, we expect to be in the high 80s now by the end of the year. You know, the team tells me they want to exit the year at 90. I think that's a stretch goal. You know, you may have noticed our inventories are running a little bit higher than last year. So part of it is, you know, we're making up for... lower OTIF with higher inventory. So we've got to make sure that we both drive OTIF improvement in the back end, which we're really, really focused on, and at the same time we bring down inventory. So that's what we're trying to do. The team's focused on this. We're making progress. I would say I wish it would be faster. I think Chris would expect it to be faster, but good progress, and we know that's going to drive growth in the back end."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay, thanks, Bill."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Our next question comes from the line of Andy Kapowitz with Citigroup. Please proceed with your question."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Good morning, everyone. Good morning, Andy. I get a nice jump in margin after what seemed like a few quarters of pressure in TBG. So could you talk about what if anything changed? I know you talked about the metering of investments that you're making for the company. Does it hit that segment a bit more than others or maybe you're getting closer to fully absorbing PFAS stranded costs or maybe it's just better mix? Any color would be helpful."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Great. Thanks for the question, Andy. It's driven by volume and productivity. It's not so much of the investment. I think all the three segments, the margin expansion was very, very good, specifically in TBG. Volume was about a point higher than last year. But just the productivity, which we did both on the supply chain and on the G&A side, it spread across all the three business groups and also in TBG. which more than mitigated the stranded cost that they had. So, you know, when we, the past couple of quarters, TBG margins have been down. We see this pick up. And as we go through the course of the year, in our current margin guide of 150 to 200 basis points, you should see all three business groups doing well. SIBG and CBG will definitely do better. TBG a little bit lighter because of the stranded cost that you pointed out. But the productivity is flowing through well there."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thank you for that. And, Bill, I think it might be helpful to hear about your thoughts on the fiscal environment here in the U.S., maybe a little bit of color on how you're thinking about the big, beautiful bill. I think it does put money in industrial companies' pockets, you know, giving bonus depreciation, et cetera. But it doesn't seem like you're reacting to it at all. Is it just too early? How do you think about it? How might companies react to it moving forward?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "So it's a good question. It's a very broad question. You know, I think specifically to the tax bill, it's favorable to us, it's favorable to other companies. In the sense it helps us with, you know, maintaining reasonable, fitty, guilty rates, which is important to us, helps us maintain that. our effective tax rate in the 20% range, which is what we had anticipated and hoped for. So it maintains where we happen to be. It's good news because it could have gone the other way. Bonus depreciation and the R&D expense, it doesn't really work for us for the next couple of years because of the some of the PWS costs and other things, but that will help us in the out years. But right now, 50 guilty rates hovering around, maintaining around 14%, which I think they made permanent, is good news for the company, for sure. So I won't comment on the relative fiscal environment, but that's certainly, from a tax perspective, helpful to the company. Appreciate the call, Eric."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Our next question comes from the line of Joe O'Day with Wells Fargo. Please proceed with your question."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hi, good morning. Just wanted to make sure, hi, just want to make sure I'm thinking about the back half organic construct across the segments where if there's roughly 100 basis points better year-over-year growth in 2H versus 1H, that we would see a stronger than average improvement in SIBG And TEBG improving growth a little bit and consumer, maybe that growth rate is more consistent with the first half. Is that a reasonable framework?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, that's exactly what it is. Yeah. So both SIBG and TEBG should be a little bit better in the back half and consumer in line with that, maybe a tick or two up. But but again, it depends on the consumer behavior. But it's really good. And it's a smaller business, but it hinges on the first two."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Got it. And then I actually thought the consumer margin was the most impressive. I think organic was up 30 bps year-over-year, and nonprofit was up north of 20%. And so just any unpacking of the bridge there, the self-help side of things, absence of any items that were a drag last year, any color would be helpful."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Yeah. So we finished over 21% on CBG on the consumer business group, which is very good. Last year, we ended on the 19% level. So this was really good. I think where you'd see the benefit more is around the productivity side. In fact, the investments actually did go up in the consumer group relative to last year. The one compared from Q2 of last year was obviously the equity comp timing, which did impact consumer as well. But I would say more of the Our performance on the margin is driven by the productivity that we're driving both on the supply chain side as well as on the G&A side, which trickled through to the consumer business. Great. Thank you."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Our last question comes from the line of Lawrence Alexander with Jefferies. Please proceed with your question."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Good morning. Just two hopefully very quick ones. One is how do you think about the effect of your metering of investments on operating leverage if demand surprises on the upside either back half of this year or next year? And secondly, can you, on the PFAS question, I just want to follow up on kind of if I understood one of your comments, how are you thinking about the property damage side of PFAS litigation? When do you think you'll have visibility around a legal strategy to ring fence the liabilities there?"
+      },
+      {
+        "speaker": "spk00",
+        "text": "Yeah, maybe I'll just start off with the operating leverage first. On the operating leverage piece, we should see that flow through. Okay, today our operating leverage is about, I mean, our increments is about 35%. That will probably be the same, if not go higher, if volume picks up on the upside. Because if you look at the metering of investments, I mean, we're spending $175 million of a step up in investment this year relative to last year. The metering was more because of the demand calibration. You know, demand... softens up a little bit, then you don't spend so much on advertising and merchandising. You look at a tariff landscape, then you look at different projects and you say, okay, let's prioritize them. But when it comes to R&D, comes to sales, we've added it. For the second quarter, we had envisioned about $85 million of pickup and investment. We did more than $40 million. So it's still quite a significant amount. So that investment is probably going in the right direction. Second half, we're still maintaining the investment that we always had. And if volume comes up, I think the operating leverage should be north of 35% in the second half or in time to come."
+      },
+      {
+        "speaker": "spk03",
+        "text": "And on the PFAS question, you know, a lot of the environmental, natural resources, property issues are encompassed in the AG cases, you know, part of which was resolved in New Jersey. Vermont's coming up and, you know, moved out to November, and the rest are in the MDL. And we'll handle them as they come forward and, you know, won't circumscribe any particular number on that. There's plenty of disclosure in our 10Q."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk05": {
+        "name": "Unknown",
+        "title": "Analyst"
+      },
+      "spk03": {
+        "name": "Bill",
+        "title": "Chief Financial Officer"
+      },
+      "spk04": {
+        "name": "Operator",
+        "title": ""
+      },
+      "spk09": {
+        "name": "Nicole DeBlake",
+        "title": "Analyst, Deutsche Bank"
+      },
+      "spk08": {
+        "name": "Unknown",
+        "title": "Investor Relations"
+      },
+      "spk02": {
+        "name": "Chris Snyder",
+        "title": "Analyst, Morgan Stanley"
+      },
+      "spk07": {
+        "name": "Unknown",
+        "title": "Investor Relations"
+      },
+      "spk00": {
+        "name": "Unknown",
+        "title": "Company Executive"
+      },
+      "spk06": {
+        "name": "Joe O'Day",
+        "title": "Analyst, Wells Fargo"
+      },
+      "spk01": {
+        "name": "Lawrence Alexander",
+        "title": "Analyst, Jefferies"
+      }
+    }
+  },
+  "text": "Unknown (Analyst): I was hoping you'd take us through the changes in your tariff assumptions, you know, the benefit of the pause that was implemented. But did you make any specific mitigation actions in the quarter? And, you know, kind of what was the decision about including it in guidance on a go-forward basis?\n\nBill (Chief Financial Officer): So so the last time we said it was 60 cents gross. Now it's 20. The biggest change really going to be around China. You know, last year, last quarter, you know, about 80 percent of the tariff impact. You know, at the time, the rate was 125, 145. So you has 145. China was 125%. They've come down dramatically to 10 and 30. That was the biggest source of change. Things are moving around still a little bit, but we included it in the guidance mainly because we're more than halfway through the year. Things have stabilized at least a little bit. And any changes from here, you know, we'd only have a couple of months in the balance of the year that would impact 25. The rest would roll into 2026. So we feel we're pretty well calibrated. Of course, we're watching very carefully what happens in the EU. You know, we've got to watch against any re-escalation in trade tensions with China. You know, that could be a change. But from the way we see it today, I think we know enough about it in terms of the gross and net impact to roll it through into guidance, which I think is cleaner for investors. So we're offsetting $0.20 a gross tariff with both cost and sourcing. changes, which is about half of the offset, and the other half is coming through price. So the gross amount is about $140 million. Net's around 70. About half of that, say, $35, $40 million is price. The other half, $35-ish million, is going to be cost savings as well as sourcing. And the pricing piece of it, that's one of the elements that's helping us push second half growth a little bit because that's mostly a second half item.\n\nUnknown (Analyst): Great. And then in your answer, they just put the spotlight on China. And, you know, there might have been an expectation there'd be some fallout because of tariffs and maybe some pushback on on your business there. But up single digits look pretty healthy. So just it was. Have you seen much of a fallout, and how much is embedded in the second half?\n\nBill (Chief Financial Officer): So, Dean, no. We actually had a very good first half up mid-single digits. Frankly, it was better than we expected coming into the year. Early in the year, we were thinking it's low single digits. It's been mid single digits in the front half. We do expect it will slow down in the back half. That's embedded in our numbers. For us, it's roughly half is domestic, half is export. And both were performing very well. It's some of the local stimulus happening in China. For appliances, white goods, which we sell a lot of tape products into, as well as the export market, a lot of which was electronics. Again, that for us has been pretty healthy. But again, we do see it softening in the back half of the year. We're committed to China. It's a big part of the company. Seven factories, 5,000 people there. We have a great team, great business, really driving a great job on commercial excellence there in China. And again, it'll slow down but still be up for the year.\n\nUnknown (Analyst): Great. Thank you.\n\nBill (Chief Financial Officer): Sure.\n\nOperator (): Our next question comes from the line of Nicole DeBlake with Deutsche Bank. Please proceed with your question.\n\nNicole DeBlake (Analyst, Deutsche Bank): Yeah, thanks. Good morning.\n\nUnknown (Investor Relations): Good morning, Nicole.\n\nNicole DeBlake (Analyst, Deutsche Bank): Maybe just starting with the demand trends through the quarter, I guess, you know, there's still been some concern out there that we've heard about, like, whether there was any sign of tariff pre-buy. It seems like we're kind of on the verge of tabling that. So just wanted to hear your thoughts, Bill, and if what you've seen through July kind of gives conviction that pre-buy wasn't really a factor.\n\nBill (Chief Financial Officer): So it's hard to discern that. There's probably a little bit hanging out there, but it's not substantial. You know, anything that might happen from Q2 into Q1, we see Q3 coming into Q2. So I don't think the pre-buy is an issue. For the quarter, you know, our orders were up low single digits, as we described in the materials, a little bit better in S-I-B-G orders. you know, about Flattish and TEPG down a little bit in consumer, you know, but consumer accelerated over the course of the quarter. So June was better than May. May was better than April. So we saw some acceleration there. July, it's still very, very early. You know, we saw some similar progress here in July, but again, it's only a couple of weeks, so it's hard to discern a pattern over that. But Q2 orders were up low single digit. Our backlog grew. It's about 1% sequentially, so about $2 billion. And as Anurag mentioned in his comments, I mean, we're not really a backlog-driven business. We're more book and ship, but We saw some backlog growth sequentially, and 20%, 25% of Q3 is covered in backlog, which is a pretty good place to be. So what I'm pleased about is orders are hanging in there, and backlog is hanging in, if not growing a little bit sequentially.\n\nNicole DeBlake (Analyst, Deutsche Bank): Thanks, Bill. That's helpful. And then on Europe, I feel like there's definitely been a little bit of excitement building about the potential course of recovery there. I know you guys were flat in the quarter, but have you seen anything when you look at those orders and backlog that suggests green shoots in Europe?\n\nBill (Chief Financial Officer): So we're hopeful for Europe in the back half. You know, it's an important market for us. You know, the thing, the watch item for us is going to be auto, Nicole, actually. You know, what we've seen overall is IHS builds globally are sort of flattish. So it moved from down a little bit to up a couple of tenths, you know, in the latest drop a couple of days ago. You know, a lot of that's China, which is driving that growth. Europe and North America are both down, which adversely affects China. You know, Europe is expected to be down in the back half on auto build, and that's one that's important to us. Other parts of our business, you know, are showing some signs of growth. We saw SIBG up in the quarter in Europe, and I think there's signs that there could be growth on that side. But auto is a watch area for us in Europe in the back half.\n\nNicole DeBlake (Analyst, Deutsche Bank): Thank you.\n\nOperator (): I'll pass it on. Our next question comes from the line of Chris Snyder with Morgan Stanley. Please proceed with your question.\n\nChris Snyder (Analyst, Morgan Stanley): Thank you. I wanted to ask about back half organic growth, you know, to 2.5%, so up from the 1.5% in the first half. The comps do get a bit tougher. It sounds like you guys think the macro continues to go sideways. So is that lift really all just price that's coming through and maybe some help from the NPI or And is there any buffer in that guide for maybe some volume pressure should there have been first half channel build?\n\nBill (Chief Financial Officer): Thank you. So, Chris, thanks for the question. Look, there is some price in there. You know, it's probably 40 basis points, let's say, of price in that 2.5. So, you know, if you look at just comparable to Q1, it's 1.5 to 2.1. So it's up there. In terms of growth rate, sequentially Q first half of the second half, but there is some pricing benefits. I went through some of the drivers on the general industrial side, the safety business. The one area I talked a little bit about electronics, so softening a little bit in the back half, but still up. There is some end markets that are up. We do see some larger orders that have come through on the government side, on the electrical product side. The one area that I didn't speak about was on the automotive side, even though automotive will remain weak. We are working hard on repositioning our business there and driving growth with new models. We do expect us to be flattish in the back half from being down in the front half, even though the builds are still weak in the back half. Part of it is really aggressive commercial excellence efforts to go back and recapture opportunities in the tiers, particularly bonding and joining and acoustics and other things. There's some model switchovers happening where we're specced in. And we're hopeful that we can continue our position on those new models as they get into production later on this year. So auto is a watch area for us. We do expect that to be better in the back half and more flattish versus down in the front. But that's an important driver of their second half performance. Chris. Thank you. I appreciate that.\n\nChris Snyder (Analyst, Morgan Stanley): And if I could follow up on maybe competitive tailwinds. that could support demand. I imagine, you know, particularly in consumer, there's a lot of low-cost competitors from Asia, you know, if we look at the online marketplaces. Have you seen any impact here from tariff costs on those competitors that could maybe give you guys some pricing in consumer, which I know is typically difficult, or even some share gain opportunities?\n\nBill (Chief Financial Officer): Thank you. Hey, Chris, thank you. You know, some, but not going to be price. It's more volume. And there's, you know, all of the U.S. retailers are looking very carefully at where their source of supply is. If it's coming from non-U.S. markets, it's important. Obviously, the tariff impact makes them a little less economic and makes us a little more attractive. So on the margin, yes, there are some opportunities there, and the team and CBG are really pushing that. It's not going to come through necessarily in price. It's more likely to be in volume, and those are some of the opportunities that are embedded in the back half of the year for CBG. I appreciate that. Thank you. You bet.\n\nOperator (): Our next question comes from the line of Nigel Koh with Wolf Research. Please proceed with your question.\n\nUnknown (Investor Relations): Thanks. Good morning. Thanks for the question. Obviously, a lot of my questions have been answered already. Just want to make sure, Bill, I heard, you know, the price contribution in the second half. I think you said 40 basis points. Is that 40 basis points absolute price or is that 40 basis points improvement versus the first half?\n\nBill (Chief Financial Officer): No, it's 40 basis points of absolute year-over-year improvement. Let me just step back on the whole thing, just because for the year, we're getting about 70 basis points, more or less, of price. We typically would see about 50 basis points, which is what is required to offset 2%. material cost inflation. So 2% on 6 billion in materials, 120 million. And if we pass it through in price, which we've done, that's 50 basis points. We're getting about 70 basis points. So it's a little bit of an extra lift. Part of that is coming because we're offsetting tariff headwind. And a lot of that's going to happen in the back half of the year. You know, but part of it is going to come from some of the pricing discipline, you know, that we're putting in place. You know, what we see in very different processes on price governance in SIBG and now moving to TEBG as well. So in SIBG, we used to have about 60 percent or more of the deals were less than $20,000. So very small. You know, today that's less than 20 percent. So we're trying to be more strategic on where we give price. pricing discounts to larger customers and make sure we get the volume for it. So that's showing an effect in some price as well. So, you know, long-winded way of saying, yes, it's 40 basis points a year over year, and it's 70 basis points for the full year price.\n\nUnknown (Investor Relations): Okay. That's helpful. And then I find it curious or maybe a little bit ironic that, you know, SIPG growth is actually superior despite the fact that Otis is lagging the other two segments. So, number one, are you still on track to get ODIF within SIBG to 90% by year-end? And if you were to guess, you know, if you can improve ODIF from 83% to 93%, What kind of growth uplift would you expect to see?\n\nBill (Chief Financial Officer): Again, the question gets back to like sort of trying to get harsh, you know, an OTIF to a revenue. It's very difficult to do that. But we do know that not delivering on time is a source of churn, and reducing churn implicitly drives growth. So, look, 83% just over that was a good result, not what we had expected. We expect more from that. You know, as we transition into July, we're a little north of 85%. You know, we expect to be in the high 80s now by the end of the year. You know, the team tells me they want to exit the year at 90. I think that's a stretch goal. You know, you may have noticed our inventories are running a little bit higher than last year. So part of it is, you know, we're making up for... lower OTIF with higher inventory. So we've got to make sure that we both drive OTIF improvement in the back end, which we're really, really focused on, and at the same time we bring down inventory. So that's what we're trying to do. The team's focused on this. We're making progress. I would say I wish it would be faster. I think Chris would expect it to be faster, but good progress, and we know that's going to drive growth in the back end.\n\nUnknown (Investor Relations): Okay, thanks, Bill.\n\nOperator (): Our next question comes from the line of Andy Kapowitz with Citigroup. Please proceed with your question.\n\nUnknown (Investor Relations): Good morning, everyone. Good morning, Andy. I get a nice jump in margin after what seemed like a few quarters of pressure in TBG. So could you talk about what if anything changed? I know you talked about the metering of investments that you're making for the company. Does it hit that segment a bit more than others or maybe you're getting closer to fully absorbing PFAS stranded costs or maybe it's just better mix? Any color would be helpful.\n\nUnknown (Company Executive): Great. Thanks for the question, Andy. It's driven by volume and productivity. It's not so much of the investment. I think all the three segments, the margin expansion was very, very good, specifically in TBG. Volume was about a point higher than last year. But just the productivity, which we did both on the supply chain and on the G&A side, it spread across all the three business groups and also in TBG. which more than mitigated the stranded cost that they had. So, you know, when we, the past couple of quarters, TBG margins have been down. We see this pick up. And as we go through the course of the year, in our current margin guide of 150 to 200 basis points, you should see all three business groups doing well. SIBG and CBG will definitely do better. TBG a little bit lighter because of the stranded cost that you pointed out. But the productivity is flowing through well there.\n\nUnknown (Investor Relations): Thank you for that. And, Bill, I think it might be helpful to hear about your thoughts on the fiscal environment here in the U.S., maybe a little bit of color on how you're thinking about the big, beautiful bill. I think it does put money in industrial companies' pockets, you know, giving bonus depreciation, et cetera. But it doesn't seem like you're reacting to it at all. Is it just too early? How do you think about it? How might companies react to it moving forward?\n\nBill (Chief Financial Officer): So it's a good question. It's a very broad question. You know, I think specifically to the tax bill, it's favorable to us, it's favorable to other companies. In the sense it helps us with, you know, maintaining reasonable, fitty, guilty rates, which is important to us, helps us maintain that. our effective tax rate in the 20% range, which is what we had anticipated and hoped for. So it maintains where we happen to be. It's good news because it could have gone the other way. Bonus depreciation and the R&D expense, it doesn't really work for us for the next couple of years because of the some of the PWS costs and other things, but that will help us in the out years. But right now, 50 guilty rates hovering around, maintaining around 14%, which I think they made permanent, is good news for the company, for sure. So I won't comment on the relative fiscal environment, but that's certainly, from a tax perspective, helpful to the company. Appreciate the call, Eric.\n\nOperator (): Our next question comes from the line of Joe O'Day with Wells Fargo. Please proceed with your question.\n\nJoe O'Day (Analyst, Wells Fargo): Hi, good morning. Just wanted to make sure, hi, just want to make sure I'm thinking about the back half organic construct across the segments where if there's roughly 100 basis points better year-over-year growth in 2H versus 1H, that we would see a stronger than average improvement in SIBG And TEBG improving growth a little bit and consumer, maybe that growth rate is more consistent with the first half. Is that a reasonable framework?\n\nBill (Chief Financial Officer): Yeah, that's exactly what it is. Yeah. So both SIBG and TEBG should be a little bit better in the back half and consumer in line with that, maybe a tick or two up. But but again, it depends on the consumer behavior. But it's really good. And it's a smaller business, but it hinges on the first two.\n\nJoe O'Day (Analyst, Wells Fargo): Got it. And then I actually thought the consumer margin was the most impressive. I think organic was up 30 bps year-over-year, and nonprofit was up north of 20%. And so just any unpacking of the bridge there, the self-help side of things, absence of any items that were a drag last year, any color would be helpful.\n\nUnknown (Company Executive): Yeah. So we finished over 21% on CBG on the consumer business group, which is very good. Last year, we ended on the 19% level. So this was really good. I think where you'd see the benefit more is around the productivity side. In fact, the investments actually did go up in the consumer group relative to last year. The one compared from Q2 of last year was obviously the equity comp timing, which did impact consumer as well. But I would say more of the Our performance on the margin is driven by the productivity that we're driving both on the supply chain side as well as on the G&A side, which trickled through to the consumer business. Great. Thank you.\n\nOperator (): Our last question comes from the line of Lawrence Alexander with Jefferies. Please proceed with your question.\n\nLawrence Alexander (Analyst, Jefferies): Good morning. Just two hopefully very quick ones. One is how do you think about the effect of your metering of investments on operating leverage if demand surprises on the upside either back half of this year or next year? And secondly, can you, on the PFAS question, I just want to follow up on kind of if I understood one of your comments, how are you thinking about the property damage side of PFAS litigation? When do you think you'll have visibility around a legal strategy to ring fence the liabilities there?\n\nUnknown (Company Executive): Yeah, maybe I'll just start off with the operating leverage first. On the operating leverage piece, we should see that flow through. Okay, today our operating leverage is about, I mean, our increments is about 35%. That will probably be the same, if not go higher, if volume picks up on the upside. Because if you look at the metering of investments, I mean, we're spending $175 million of a step up in investment this year relative to last year. The metering was more because of the demand calibration. You know, demand... softens up a little bit, then you don't spend so much on advertising and merchandising. You look at a tariff landscape, then you look at different projects and you say, okay, let's prioritize them. But when it comes to R&D, comes to sales, we've added it. For the second quarter, we had envisioned about $85 million of pickup and investment. We did more than $40 million. So it's still quite a significant amount. So that investment is probably going in the right direction. Second half, we're still maintaining the investment that we always had. And if volume comes up, I think the operating leverage should be north of 35% in the second half or in time to come.\n\nBill (Chief Financial Officer): And on the PFAS question, you know, a lot of the environmental, natural resources, property issues are encompassed in the AG cases, you know, part of which was resolved in New Jersey. Vermont's coming up and, you know, moved out to November, and the rest are in the MDL. And we'll handle them as they come forward and, you know, won't circumscribe any particular number on that. There's plenty of disclosure in our 10Q.",
+  "n_turns": 39
+}

@@ -1,0 +1,513 @@
+{
+  "ticker": "DD",
+  "original_ticker": "DD",
+  "call_date": "2024-11-05",
+  "year": 2024,
+  "quarter": 3,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "DD",
+    "year": 2024,
+    "quarter": 3
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T01:40:01Z",
+  "raw_payload": {
+    "event": {
+      "year": 2024,
+      "quarter": 3,
+      "conference_date": "2024-11-05T08:00:00-05:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk18",
+        "text": "Thank you for standing by. My name is Pam and I will be your conference operator today. At this time, I would like to welcome everyone to the DuPont third quarter 2024 earnings conference call. All lines have been placed on mute to prevent any background noise. After the speaker's remarks, there will be a question and answer session. If you would like to ask a question during this time, simply press star followed by the number one on your telephone keypad. If you would like to withdraw your question, press star one again. Thank you. I would now like to turn the conference over to Chris McRae, Investor Relations. You may begin."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Good morning, and thank you for joining us for DuPont's third quarter 2024 financial results conference call. Joining me today are Ed Breen, Executive Chairman, Lori Koch, Chief Executive Officer, and Antonella Franzen, Chief Financial Officer. We've prepared slides to supplement our remarks, which are posted on DuPont's website under the Investor Relations tab and through the webcast link. Please read the forward-looking statement disclaimer contained in the slides. During this call, we'll make forward-looking statements regarding our expectations or predictions about the future. Because these statements are based on current assumptions and factors that involve risks and uncertainties, our actual performance results may differ materially from our forward-looking statements. Our Form 10-K, as updated by our current and periodic reports, includes detailed discussion of principal risks and uncertainties which may cause such differences. Unless otherwise specified, all historical financial measures presented today are on a continuing operations basis and exclude significant items. We will also refer to other non-GAAP measures. A reconciliation of the most directly comparable GAAP financial measure is included in our press release and presentation materials and have been posted to DuPont's Investor Relations website. I'll now turn the call over to Laurie who will begin."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Good morning, and thanks everyone for joining our third quarter call. Earlier today, we reported another strong quarter of financial performance with continued sequential improvement across all key financial metrics. We posted a solid quarter highlighted by year-over-year growth for consolidated net sales, operating EBITDA, and adjusted EPS. Third quarter sales of 3.2 billion included a return to organic sales growth, which increased 3% versus the year-ago period. Operating EBITDA of 857 million increased 11%, with operating EBITDA margin increasing 150 basis points to 26.8%. Third quarter adjusted EPS of $1.18 increased 28% year-over-year. We also delivered another strong quarter of cash generation with transaction-adjusted pre-cash flow conversion of 130%, highlighting our disciplined working capital management. For the full year 2024, we are raising our guidance for operating EBITDA and adjusted EPS, which Antonella will detail shortly. From an end market view, the electronics and industrial segment saw another quarter of double-digit sales growth in both the SEMI and EricssonX solutions lines of business, which continue to benefit from strong demand for advanced node chips and AI-enabling technology. In the water and protection segment, we saw better than expected sequential improvement in water, including continued stabilization in China volume. We also saw further sequential sales lift in medical packaging and markets, which are returning to more normalized buying patterns. Overall, I'm encouraged by our continued positive results. Volume recovery has been a key driver of our financial performance, coupled with our team's continued strong operational execution and helped by savings from the restructuring actions taken earlier this year. I am pleased to say we have made real progress with our operational excellence initiative, with benefits seen in improved margins and working capital and enhanced customer reliability metrics. By fostering our culture of continuous improvement and equipping our teams with the right tools and training, we are well positioned to unlock long-term value across each business line. Specific to the training aspect, We have been actively investing in our people and have completed around 30,000 hours of training year to date. We count on operational excellence to drive productivity every year as a key offset to inflation. Through focus on process optimization, we have successfully reduced costs across critical operations with benefits from increased uptime, leading to incremental capacity relief and lower fixed and variable costs. all in we are pleased to report a strong third quarter and are well positioned for a solid finish to the year i'll now turn the call over to ed who can provide a few comments around our progress on the planned separations on slide four thanks lori and good morning everyone we clearly remain focused on driving results and demonstrating the performance potential of our portfolio"
+      },
+      {
+        "speaker": "spk03",
+        "text": "while also advancing our plans to unlock value through the previously announced separations of our electronics and water businesses. We remain excited about this value creation opportunity and believe our investors broadly appreciate the potential that we expect these three industry leading companies to realize by leveraging tailored growth strategies. Our teams remain highly motivated and have the experience to ensure that the new companies are prepared to operate and execute from day one. We continue to make progress on our separation related work streams. We are also working diligently to accelerate our timing to potentially complete the separations closer to the earlier end of the 18 to 24 months timeline set at our May announcement, and we'll update you as we progress. In addition, we are making progress in establishing the new boards, which have been a major focus of mine, and we expect to be able to announce board members of each company, along with key executive leadership appointments for electronics and water by the end of the first quarter of 2025. With that, I'll turn it over to Antonella, who will cover our financial results and outlook."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Thanks, Ed, and good morning, everyone. We are very pleased that our third quarter results reflect sequential improvement across all key financial metrics and a return to organic sales growth at the consolidated level. Both earnings and cash flow benefited from volume recovery and improved production rates at key operating sites, and our team has executed well on productivity and cost actions announced last year. Turning to slide five, I will cover our third quarter financial highlights in further detail. Net sales of $3.2 billion increased 4% versus the year-ago period on organic sales growth of 3% and favorable portfolio impact of 2%, reflecting contributions from both the Spectrum and Donatel acquisitions. These increases were partially offset by a 1% currency headwind. The organic sales growth of 3% reflects a 5% increase in volume, partially offset by a 2% decrease in price. Higher volume was driven by continued broad-based growth in electronics and markets, with semi- and interconnect solution volumes both up double digits, coupled with a return to year-over-year volume growth in water solutions. On a segment view, E&I organic sales grew 10%, and W&P's quarterly organic sales decline moderated further to 2%, on its way to an anticipated return to positive growth in the fourth quarter. Organic sales in corporate declined 6% versus the year-ago period, driven by continued weakness in China solar markets, which led us to exit a photovoltaic film product line during the third quarter. This product line represents less than 1% of consolidated . From a regional perspective, Asia Pacific delivered 9% organic sales growth versus the year-ago period, led by another strong quarter in China, where organic sales were up low double digits driven by electronics and markets. In other regions, organic sales in Europe were 1%, while North America was down 2%. Second quarter operating EBITDA of 857 million increased 11% versus the year-ago period, as volume gains along with improved plant utilization and savings from restructuring actions were partially offset by higher variable compensation and select growth investments. Operating EBITDA margin during the quarter increased to 26.8%, up 150 basis points versus the year-ago period, and up 160 basis points on a sequential basis. Third quarter reflected another period of strong cash generation and conversion, reflecting both improved volume as well as strong working capital discipline across each business line. On a continuing operations basis, Cash flow from operations of $737 million, less capital expenditures of $109 million, and $12 million of separation-related transaction cost payments resulted in transaction-adjusted free cash flow of $640 million and related conversions of 130%. Turning to slide six, adjusted EPS for the quarter of $1.18 per share increased 28% from $0.92 in the year-ago period. Higher segment earnings of $0.14, as well as the benefit of a lower share count of $0.09 and lower tax rate of $0.06 were partially offset by higher depreciation of $0.03. Our base tax rate for the quarter was 19.8%, down from 24.6% a year ago. driven by tax benefits reported in the current period. We now estimate our full year 2024 base tax rate to be approximately 23.5%. Turning to segment results, beginning with E&I on slide seven. E&I third quarter sales of 1.6 billion increased 13% versus the year-ago period, as organic sales growth of 10%, and the Spectrum and DataTel sales contribution of 4% were slightly offset by a 1% currency headwind. Organic sales growth of 10% reflects an 11% increase in volume slightly offset by a 1% decrease in price. At the line of business level, organic sales were up more than 20% for the second consecutive quarter, reflecting continued overall semi-demand recovery driven by AI technology ramps and share gains in certain products. Semi-demand was notably strong in China, including continued customer pre-buying, similar to what we saw last quarter. As we move forward, we expect China demand to normalize, but still remain strong. Overall, semi-fab utilization continues to improve, averaging 76% during the quarter, though notably stronger for advanced node chips due in part to AI-related demand acceleration. InterConnect Solutions delivered another strong quarter as well, with organic sales of low double digits, reflecting continued broad-based electronic recovery, including a demand benefit from AI-driven technology rent. We saw content and share gain within high-value electronic applications and a volume recovery within the overall printed circuit board space. The year-over-year sales decline in Industrial Solutions continues to moderate as organic sales were down slightly during the quarter, and strength in printing and packaging applications was offset by ongoing volume headwinds for CalGRIS. Also within Industrial Solutions, we completed the acquisition of Donatel, a medical device manufacturer, at the end of August. We are very pleased with the integration of Donatel into Spectrum. and are seeing the potential benefit to leverage DotaTilt's technology and capabilities to other businesses, as well as cross-selling opportunities within our healthcare platform. Operating EBITDA for E&I of 467 million was up 22% versus the year-ago period, driven by volume growth, the impact of higher production rates, savings from restructuring actions, as well as the earnings contribution from Spectrum and DotaTilt. These gains offset by higher variable compensation and select growth investments related primarily to the ongoing transition to advanced nodes and new and ramping AI applications across both semi- and interconnect solutions. Operating EBITDA margin during the quarter was 30.1%, up 210 basis points versus the year-ago period. Turning to slide eight. WMP third quarter net sales of 1.4 billion declined 2% versus the year-ago period, primarily due to price headwinds as overall segment volumes were flat. Within safety solutions, organic sales were down this single digit, largely on price decline, although with lower volumes driven mainly by Tyvek medical packaging. We did see a second consecutive order of sequential sales in medical packaging, with sales up 10% in Q3. Shelter solution sales went down slightly on an organic basis, with headwinds in North American residential construction markets, mostly offset by growth in commercial construction. The third quarter includes a return to year-over-year sales growth for water solutions, where organic sales were up low single digits. Higher volumes were driven by strength in ultrafiltration technologies, along with continued volume recovery in China. On a sequential basis, water solution sales also increased for our second consecutive quarter, with sales up 3%, which was better than our expectation coming into the quarter. Operating EBITDA for WNP during the quarter of 364 million was up 1% versus the year-ago period, as productivity and savings from restructuring actions more than offset the organic revenue decline and higher variable compensation. Operating EBITDA margin during the quarter was 26.3%, up 70 basis points from the year-ago period. As we move into the fourth quarter, we expect strong volume growth on a year-over-year basis. Moving to our outlook of slide nine. For the fourth quarter, we expect net sales, operating EBITDA, and adjusted EPS of about 3.07 billion, 790 million, and 98 cents per share, respectively. On a year-over-year basis, our fourth quarter guidance assumes sales and earnings growth from both E&I and W&P, translating to total company growth and net sales of about 6%, operating EBITDA of 10%, and adjusted EPS of 13%. Sequentially, we assume normal seasonal declines in electronics and construction markets. Additionally, as I mentioned earlier, we expect to see a moderation of growth in China as pre-fine and semi plays out, as well as the impact of exiting the PV-filled product line. Partially offsetting these sequential declines is the continued recovery in water and medical packaging and markets. For the full year 2024, we are raising our earnings guidance above the highest of our prior range and now expect operating EBITDA of about 3.125 billion and adjusted EPS of $3.90 per share, which reflects 12% EPS growth year over year. With that, we are pleased to take your questions, and let me turn it back to the operator to open the Q&A."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Thank you. We'll now begin the question and answer session. If you have dialed in and would like to ask a question, please press star 1 on your telephone keypad to raise your hand and join the queue. If you would like to withdraw your question, simply press star 1 again. Please be reminded that you can ask one question and one follow-up. And the first question comes from the line of Steve Kusa from J.P. Morgan."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Please go ahead. Steve Tusa of J.P. Morgan, please go ahead. Thanks, Pam. We can come back to him."
+      },
+      {
+        "speaker": "spk18",
+        "text": "All right. Our next question comes from the line of Scott Davis from Milius Research. Please go ahead."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Hey, good morning, Chris and Ed, Laurie, Antonella. Congrats on the quarter. Ed, I wanted to come back to your comments on the, looks like the bid ask on the 18 to 24 months has narrowed down a bit, but what are the work streams? You put the work streams on slide four, six of them, but what are the gating factors? Why do you feel a little bit more comfortable today perhaps than three months ago in that timeframe getting short?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah. Yeah, we've made great progress. You know, two of the longer polls in the tent, the legal entity work and the IT work to separate everything, and the teams have made tremendous progress on that. So our confidence level is definitely up, and that's why we made the comment that, you know, we might be more on the 18-month timeline somewhere and maybe in that zip code, which if we could get it all the way to that would be December 2025. So we'll keep you posted on that. We're pretty positive we're going to move it in. The issue is, can we move it in all that way?"
+      },
+      {
+        "speaker": "spk19",
+        "text": "Okay, fair enough. And guys, the electronics business, the pre-buy, we've talked about that the last two quarters. Why is there, maybe I can get it back up a little bit, why is there a pre-buy? Are they concerned about not having enough or you not being able to supply enough products? product on time? Why do they want to build inventory, I guess?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, so a lot of it, Scott, is around the new fabs that are being put in place in China. So last quarter, we had mentioned 30 million in total, 20 million of which was in sending. This quarter, it's another 20 million for a total of 40 over the second half. And it's really the new fabs coming online. So about half of the global fabs that are being constructed are in China. There's about seven of them, four in the logic space and three in the memory space. And as they bring their new fabs online, they pre-buy to get through qualifications and the ramp. So it's really a function of that from the pre-buy perspective that we had quoted."
+      },
+      {
+        "speaker": "spk19",
+        "text": "That's what happens when you're not a tech analyst. I had no idea. So I'll pass it on. Thank you. You're welcome."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Bye-bye."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from the line of Steve Tusa from JP Morgan."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Hey, guys. Good morning. Sorry about that."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Okay. Good morning. Good morning, Steve."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Just a lot going on today, I guess. Can you just talk about the trend you saw, you know, in exiting September and into October just for, you know, broadly the various businesses in the portfolio? Anything move around materially?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Now, minus the normal seasonality that you see in the quarter with the last month being the strongest primarily in the water space, there wasn't a lot of variability as we exited the quarter. I mean, if we go into the fourth quarter, we have the usual seasonal weakness that we see primarily within the electronic space and in the shelter space. And as you recall, as we had done on the last Ernie's call, we had mentioned that the recovery kind of came early and the seasonality that you normally would see from 2Q to 3Q was a little muted. And therefore, to see the seasonality as you head into the fourth quarter, you have to compare the fourth quarter to the second quarter. And that's where you see that about 100 million that we typically see between the electronics and the shelter space."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay. And then in the W&P margins, anything unusual there? Really strong margins in the quarter. And anything going on there, any raw material relief or, you know, maybe price costs, something like that?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, we were really pleased with the margins that we saw. You know, it's a lot of operational execution that we've been driving across the whole company. So, you know, we took a lot of restructuring actions earlier this year. We're seeing the benefit of those. We're driving productivity and operational excellence. We shuttered a couple lines. older lines in the U.S. in the safety business that are nicely impacting our margin profile. So we're encouraged by the 26% plus that we posted in Q3."
+      },
+      {
+        "speaker": "spk10",
+        "text": "So that should be able to leverage nicely as volumes come back, I would assume."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yes."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay, great. Thanks a lot."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from Chris Parkinson from Wolf Research. Please go ahead."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Great. Good morning. Just want to dig in a little bit more into the semi-tech side of it. I mean, you know, clearly you have some benefits from some of the shiny steps, but can you just dig in a little bit more by, you know, product substrate in terms of, you know, the pad flurries? It just seems like there's a bit of a bifurcation between some of the product categories versus others based on what's evolving in the marketplace. So any color there would be particularly helpful. Thank you."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, I mean, we saw strength across all the key semi-technologies. So within the CMP space with pads and flurries, within the list of space, we saw really nice results and in the clean space. So it's a combination of one, the market recovery from the desock that happened last year to the strength that we have in China. So we are a larger footprint in China than some of our peers. And that's where a lot of the new fab construction is going on. A lot of the outsized recovery is happening. And then our exposure to advanced nodes versus the legacy nodes and DRAM versus memory is driving our results. So we had been up 50% plus in China, so that was a key driver of the overall SEMI results being up in the low 20% range."
+      },
+      {
+        "speaker": "spk13",
+        "text": "That's helpful. And just as a follow-up on the WMP side, you've got some things going pretty well, but it still seems like the macro is overall a little bit sluggish still. Just digging into the water side of it, could you just hit on kind of the drivers of the ultra filtration strength? It seems like China's, you know, kind of beginning to turn the corner. Just how we should ultimately be thinking about that. Is this now back to normalization as we kind of get into 2025? Or are there any other considerations we should be looking at? Thank you."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, we should start to see activity more normalized now. I think we're clearly past the worst of it. We've seen sequential improvement from the first quarter to the second quarter. We saw it again going into Q3. And we would expect we continue to see some sequential improvement as we move into Q4. So overall, the business has definitely gotten back to where, getting close back to where we used to be. I would tell you the activity in China has improved. The ultrafiltration activity isn't particularly just in any one region. to call it out, but we're definitely seeing much better activity overall in water, and it's kind of past the destock."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Very helpful. Thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from Vincent Andrews from Morgan Stanley. Please go ahead."
+      },
+      {
+        "speaker": "spk21",
+        "text": "Thank you, and good morning, everybody. One more item of something that needs to turn the corner a little bit is the CalRes destocking. Are you sort of at the bottom of that? And should we start to see that inflect?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, we're definitely at the bottom. We actually saw sequential improvement. We're still seeing year-over-year headwinds. So we expect the business to continue to stabilize and see recovery as we head into 2025. So just a reminder of the CalRes end markets. It is largely semi-CAPEX exposed. So the long-term profile and expectations for top-line growth in that business are very sound as there continues to be an expectation of, you know, mid-single-digit capacity expansions within the semi-space."
+      },
+      {
+        "speaker": "spk21",
+        "text": "And then I'd be curious to get your thoughts on interest rates. You know, I think we've all been sort of poised and waiting for these cuts, and they're kind of starting to happen, but the curve is not sort of behaving the way I think we all thought it would, and that the back end has kind of stayed high and the front end has come down. So maybe you could just talk about, you know, if rates do get cut, which parts of your businesses will benefit the most from the front end coming down versus which parts really need the back end to come down?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, I mean, on the front end, it would be the construction markets, you know, primarily the North America residential space. And so we had mentioned in our 4Q expectations that they're a little needed in the shelter space because the rate cuts didn't happen quickly enough. We'll see what happens here at the next meeting. The expectations will cut again. But I would say the front end, that's our largest exposure with respect to positive news and the breaks we're going to need to slide down. More broadly, obviously, the lower rates versus broader economic activity that we favor all of our businesses."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from Josh Spector of UBS. Please go ahead."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Yeah, hi, good morning. I wanted to ask on not necessarily the SPIN timeline per se, but really are there alternatives still being explored for any of the businesses, water or electronic, outside of the SPINs, be it a sale or RMT? And just if you are, how do you think about maybe achieving something there versus the SPIN timeline? What would be more important to you?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, no, it's a little simpler than that, Josh. Our plan is to do the separation of both water and electronics, and we're moving very rapidly down that road. As we mentioned on the prepared remarks, we're talking to potential board members."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Okay, clear enough. On the core business, I wanted to ask about, you did some comments about increased investments, increased variable comp. Obviously, some of that makes sense given the better operating performance. But I was wondering if we think about the level of investment taking place now, is that fully back to normal in that if we look at growth, the incrementals become higher as we look forward? Or are you still investing at a lower level given demand remains tepid?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, I mean, we're not going gangbusters, right? So we had some growth investments primarily within the electronic space as we looked to continue to take advantage of the AI recovery. And we had mentioned the variable compensation headwind. So you can see in our approximate results from last year, our variable compensation was, you know, with an average of 50% payout. So that would be a headwind as we head into next year. You know, we continue to keep button down until we're really confident that we've got recovery across the board. We continue to make CapEx levels at the same level as where they were last year. We'll continue to expect to revise those down as best we can below the 5% level. So no, I wouldn't expect any outsized investments. We continue to be really smart. One of the key areas I think that's driving the margin profile that we're seeing is we did take a lot of action, especially on the plant fixed cost front as we saw the volumes decline last year. And we've done a really nice job keeping those out even as volumes have recovered. So that's also driving a piece of our margin recoveries."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Okay, thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from John Roberts of Mizuho. Please go ahead."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thank you. Is China about 50% of the electronic sales, and how much of that would be made in China for China as opposed to imported into China and might have some risks from some trade retaliation by China?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, so China is about 30% of those electronic sales. So about half of that is China for China, and the other half goes in and comes back out for global consumption."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Okay. And then how is advanced mobility looking with the slowdown in both EVs and ICE vehicles outside of China?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, so we continue to see nice performance within the VEV side. We just got a really nice long-term thing with one of the large European OEMs within the VEV space. So it is muted, the growth expectations, just as everybody else is with respect to the IHS revising down their expectations for total bills across the state, but we continue to be encouraged more broad-based and longer-term with the VEV transition to VEV."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from Alexei Yefremov of KeyBank. Please go ahead."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thanks. Good morning. In InterConnect, can you discuss two things, the share gains that you cite and then the AI-driven ramps? What products are you seeing ramping in AI? What kind of applications?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, on the AI side, it's in the packaging space within the interconnect system, so we're seeing nice improvement there. And on the share gain side, it's also a function of being a greater share of wallet with some of our key customers as we expand beyond just the phones and some of the other devices that our key customers are using. with the results there. We had mentioned, I think, on the last call about a lot of the ITS being driven by thermal management and packaging opportunities, and that continues to play out for us."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thanks a lot."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from David Beckletter of Deutsche Bank. Please go ahead."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thank you. Good morning. Laurie, E&I margins were above 30% in the quarter. Is that level sustainable for the entirety of 2025?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, we've seen nice margins growth in both segments, both E&I and W&P. It's a little early to talk about specifics of 2025 at this point, but we are encouraged. There's not one-timers driving that number, I'll say, from that perspective. So as long as you can maintain the top line numbers that we're posting and the productivity initiatives should stay in place that we're driving and we should be in a nice position to access that more normalized margin profile for the United States."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Very good. And just in safety solutions, what's driving the decrease in pricing?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "So I think it's important to keep in mind that when you look for the last couple of years, particularly in some select businesses, we did have price increases that were in the mid-teens. which more than covered our cost increases. So it wouldn't be too surprising that we would give back, you know, a couple of points in order to maintain share as we go forward."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from Frank Mitch of Fermium Research. Please go ahead."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hey, good morning, and nice results. I want to stay on the pricing area. In ENI, you know, price was down a percent. Volumes were very impressive, but price was down a percent. You have to go back to the second quarter of last year when you saw price flat. Since then, it's been ticking down. Can you expand upon, you know, what's driving the lower price and what your outlook is there?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, we look specifically at E&I to your point. Typically, there is about a point of price give back. A lot of it relates to new products kind of coming into the market and volumes going up. So there's typically about one point of price. That's historically what we see in A&I. And we would expect that trend to continue as we go forward."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Gotcha. So as you're pricing new products, you're giving discounts to the customers?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "No, you're getting priced on the new product introductions, Frank, but you get paid a little bit of price change on the older products, which are very typical of the electronics business like that. COVID and D-Stock and all that. But that's typically been the model. So higher growth business, you know, more up in the mid to high teens, but you give up about 1% on price. All right."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Understood. Thank you. And just on the restructuring benefits, I believe the last time you mentioned it was going to be about $115 million benefit in 2024. Is that still a good number? And any initial thoughts on 2025?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, actually that benefit number is a bit higher. We got to our quarterly run rate of benefits in the third quarter, so we are getting a nice impact this year. There will be a little bit of carry forward as we go into 2025. Thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from Mike Susan of Wells Fargo. Please go ahead."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Hey, good morning. Nice quarter in outlook. You know, Ed, a lot of the chemical companies thus far have kind of painted an exciting picture for the first half of 25 and maybe 25 in total. As you've noted, your end markets are different. So I know it's a little bit early to get specific outlooks for 2025, but could you sort of give us your thoughts on how maybe semiconductors, electronics, and some of the water and industrial businesses shape up for next year?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, I'll let Lori walk you through some detail. I just, I don't mean this flippantly, but to make a comment, we really worked the portfolio very differently than we were five, six, seven years ago, away from more of a chemical company into a multi-industrial. And I think you see that in a lot of our industry. but I'll let Morrie maybe walk you through some puts and takes."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, no, there's no significant changes from the commentary we had provided on the last call about some initial 2025 expectations. So from, you know, an electronics perspective, we continue to expect SEMI to grow, to accelerate, really driven by the AI and the new facts coming online. And just a reminder that the memory markets and some of the more mature technologies Technology markets haven't recovered yet, so that recovery is on the come as we head into 2025. There's also, on the interconnect side, continued utilization in the PCB space, especially as you look for a refresh cycle within the AI space and consumer devices. Within W&P, we expect Tyvek Healthcare to continue to recover. As we had mentioned, we saw a sequential lift from Q2 to Q3 of 10%. We expect a further sequential list in Q4 and then more normalized buying patterns as we head into 2025. And we expect a more normalized demand environment within air and water. We'll expect to continue to recover as well. So no changes from what we said last year or last quarter with respect to 2025."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Great. Thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from Patrick Cunningham of Citi. Please go ahead."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Hi, good morning. Are you still anticipating price givebacks and shelter in 4Q and maybe into 2025? And what was the dynamic between positive growth and commercial construction versus resi and any sort of early view on a broad-based resi recovery into next year?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, given what we saw in pricing this year and as we're exiting the year, you would expect that you would have some price give back carry forward going into 2025. But I think the one thing that you have to keep in mind is we still got to take a deep look at where our thoughts next year relative to raws, logistics, and utilities, and that will determine if there's any pluses or minuses associated with that. So, I would expect that as we go forward. In terms of the resi and the construction markets, you know, we are seeing a little bit less activity than what we originally anticipated. As Laurie mentioned earlier, when you look at kind of rates and where they are, there was a few rain cuts that were expected in 2024. I mean, we had one, but we had it a little too late in the building cycle to really have an impact. So as we go into next year, I would say in terms of the construction markets, We would expect, you know, low single-digit activity, and I think that that's kind of predicated on some additional rate cuts coming. But we'll see what happens."
+      },
+      {
+        "speaker": "spk09",
+        "text": "I would add that our current midpoint of guidance in the fourth quarter assumes slightly less price giveback than we saw during the third quarter."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Understood. Very helpful. And then just on consolidated WMP, I mean, it seems you'll have easier comps on water, medical packaging. Does most of that sequential EBITDA decline come from more typical seasonality on shelter and safety? And if you could remind us, what was the 25 million discrete impact from last year? And that won't repeat this year, just for clarification."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yes, so the Q3 to Q4 in WMP would be your typical seasonality. Q3 tends to be the highest quarter and comes down a bit in Q4. A big piece of that would be related to the shelter business as we kind of go into the winter months. For WNC explicitly, we did call out about 25 million of one-time items last year that were related to, you know, a land sale and some supply agreements that we had certain benefits from, I would say. Keep in mind that in totality, in Q4 of last year, we actually called out 40 million of one-time items. The remaining 15 million was within corporate."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Great. Thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from John McNulty of BMO Capital Markets. Please go ahead."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Hi, good morning. This is Bhavesh Lodaya for John. Can you talk about some of the competitive dynamics around your electronic peers in China? China is bringing in a lot of new fabs, as you mentioned, but they're also investing in kind of like a homegrown domestic supply chain. You mentioned gaining some market share. Not sure if that was in China as well, but overall, how do you see this landscape developing over the next few years?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, can you have a nice position within China? I think our exposure in China within the 70 spaces outside versus some of the peers, so we're about 30% China, where some of the peers I think are less than that. So you're seeing that disparity play out nicely in our numbers as a lot of the bills are more concentrated there with respect to the global output. We have a nice position with the local players. As we had mentioned, we also have a nice position with the global OEMs that are in China that are favoring our China results as well."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from Aaron Viswanathan of RBC Capital Markets. Please go ahead."
+      },
+      {
+        "speaker": "spk20",
+        "text": "Great. Thanks for taking my question. Just wanted to go back to maybe some initial thoughts on 25. So, you know, this year you showed, looks like you're showing, you know, pretty good mid-teens EBITDA growth in E&I, although you have been, that's been offset slightly by some of that water destocking and headwinds. As you look into next year, maybe if you adjust for the pre-buy that you saw in E&I, um would that kind of decrease maybe to like a high single digit rate and then but maybe you could see some recovery in WNP and so uh overall you still expect um you know maybe uh mid mid to high single digit EBITDA growth for next year"
+      },
+      {
+        "speaker": "spk17",
+        "text": "If that's where it provided, you know, some color on the top line, that's where our expectations are. I would say it's a bit too early to start commenting on EBITDA growth for next year. We'll give more detailed guidance as we get on to the next quarter call. But clearly volume will be a driver, as we noted this year. We would expect to have the continued benefits of our restructuring actions that we took this year to continue to benefit us as we move forward."
+      },
+      {
+        "speaker": "spk20",
+        "text": "Okay, I understand. And just on that note, then, assuming that you do see some continued margin growth, how should we think about free cash flow and maybe how you deploy that? You know, are there any significant extra capex projects in the pipeline, or will you likely be using most of your cash for standing up to businesses, or could you potentially deploy more and return more to shareholders? Thanks."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, so as you're talking about free cash flow conversion, as I mentioned for this quarter, we did have a really strong free cash flow conversion. It was about 130%. We're at 109% for the year, and we did know, you know, we do expect to be well above our target for this year. As we go into next year, I would expect that we continue to have good free cash flow conversion. The teams have done a great job relative to managing working capital, even while, you know, sales are increasing and we're now having a use of working capital. As you think about our cash deployment for next year, given it is the year of the separation, the majority of cash will be used for our separation costs. We did note last quarter on the fall, we do not expect to do any additional share of our purchases this year. I would say that applies to next year as well. And no significant outsized capex that you should be expecting next year relative to this year."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Great. Thanks."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Your next question comes from Mike of Barclays. Please go ahead."
+      },
+      {
+        "speaker": "spk22",
+        "text": "Great. Thanks. Good morning, team. I think DuPont filed an ITC complaint last month around illegal Tyvek imports. I guess first, is the issue you're seeing somebody else claiming and naming something to be Tyvek, and it's not? Or is it named something else, and the issue is they're using DuPont's proprietary technology? And then just more broadly, how is the Tyvek business performing today?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, so, you know, the ICC filing speaks for itself. We'll continue to defend our patents and our trade secrets. So that's, you know, really all we want to say on that point. The Tyvek business and market performance continues to recover nicely. You know, a lot of the headwinds that we had saw throughout 2024 was related to medical packaging, and we've highlighted a few times about the nice recovery that we're seeing there up 10% sequentially and up even further sequentially as we head into Q4. So we're really encouraged of the rebound that we're seeing there."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Great. Thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "And your last question comes from Steve Byrne of Bank of America. Please go ahead."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Yes, I'd like to ask another one about that ITC complaint. When did you start to see these competing versions of Tyvek coming into the States. And is this across your broad platform? Is this, you know, Tyvek house wrap? Is this packaging? Is this, you know, PPE? Is it all of them? And you're seeing this, you know, this competing version. When did this happen? And just curious on the timing of this."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah. So, I mean, we had mentioned that the filing speaks for itself. It's a public filing that can be read. So, you know, we started seeing it in, you know, in recent months, the release of our name, in addition to some trade secrets, infringement for who we were seeing, which is what led us to the filing."
+      },
+      {
+        "speaker": "spk08",
+        "text": "And then maybe just one more across new DuPont. Any new projects and developments that, you know, you could be enrolling that could drive growth in new departments other than just the recovery and in markets?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, so I had mentioned earlier that the really nice win that we saw on the battery adhesive space was one of the largest European OEMs, so that it was a nice win for us to solidify our position in the ED space. We have a really nice growing position within healthcare, so we closed the Donatello acquisition in August. We were actually out there as physicians and with the board visiting that site and were even more encouraged by what we saw with respect to cross-selling with some of the larger medical devices as well as leveraging the really high-end machining capabilities that Donatel has to not only our medical packaging businesses but our other parts businesses that are in the DuPont portfolio. So we're really encouraged that that space will continue to be a nice driver for us."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "There are no more questions. I will now turn the conference back over to Chris McRae for closing remarks."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Thank you, everyone, for joining the call. And for your reference, a copy of the transcript will be posted on our website. This concludes the call. Thank you."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Thank you all for joining. You may now disconnect."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk18": {
+        "name": "Pam",
+        "title": "Conference Operator"
+      },
+      "spk11": {
+        "name": "Chris McRae",
+        "title": "Investor Relations"
+      },
+      "spk16": {
+        "name": "Lori Koch",
+        "title": "Chief Executive Officer"
+      },
+      "spk03": {
+        "name": "Ed Breen",
+        "title": "Executive Chairman"
+      },
+      "spk17": {
+        "name": "Antonella Franzen",
+        "title": "Chief Financial Officer"
+      },
+      "spk12": {
+        "name": "Steve Tusa",
+        "title": "Analyst at J.P. Morgan"
+      },
+      "spk19": {
+        "name": "Scott Davis",
+        "title": "Analyst at Milius Research"
+      },
+      "spk10": {
+        "name": "Steve Tusa",
+        "title": "Analyst at J.P. Morgan"
+      },
+      "spk13": {
+        "name": "Chris Parkinson",
+        "title": "Analyst at Wolf Research"
+      },
+      "spk21": {
+        "name": "Vincent Andrews",
+        "title": "Analyst at Morgan Stanley"
+      },
+      "spk00": {
+        "name": "Josh Spector",
+        "title": "Analyst at UBS"
+      },
+      "spk07": {
+        "name": "John Roberts",
+        "title": "Analyst at Mizuho"
+      },
+      "spk02": {
+        "name": "Alexei Yefremov",
+        "title": "Analyst at KeyBank"
+      },
+      "spk04": {
+        "name": "David Beckletter",
+        "title": "Analyst at Deutsche Bank"
+      },
+      "spk05": {
+        "name": "Unknown",
+        "title": "Analyst at Deutsche Bank"
+      },
+      "spk06": {
+        "name": "Frank Mitch",
+        "title": "Analyst at Fermium Research"
+      },
+      "spk15": {
+        "name": "Mike Susan",
+        "title": "Analyst at Wells Fargo"
+      },
+      "spk22": {
+        "name": "Mike",
+        "title": "Analyst at Barclays"
+      },
+      "spk08": {
+        "name": "Steve Byrne",
+        "title": "Analyst at Bank of America"
+      },
+      "spk09": {
+        "name": "Unknown",
+        "title": "Unknown"
+      },
+      "spk20": {
+        "name": "Aaron Viswanathan",
+        "title": "Analyst at RBC Capital Markets"
+      },
+      "spk01": {
+        "name": "Bhavesh Lodaya",
+        "title": "Analyst at BMO Capital Markets"
+      }
+    }
+  },
+  "text": "Pam (Conference Operator): Thank you for standing by. My name is Pam and I will be your conference operator today. At this time, I would like to welcome everyone to the DuPont third quarter 2024 earnings conference call. All lines have been placed on mute to prevent any background noise. After the speaker's remarks, there will be a question and answer session. If you would like to ask a question during this time, simply press star followed by the number one on your telephone keypad. If you would like to withdraw your question, press star one again. Thank you. I would now like to turn the conference over to Chris McRae, Investor Relations. You may begin.\n\nChris McRae (Investor Relations): Good morning, and thank you for joining us for DuPont's third quarter 2024 financial results conference call. Joining me today are Ed Breen, Executive Chairman, Lori Koch, Chief Executive Officer, and Antonella Franzen, Chief Financial Officer. We've prepared slides to supplement our remarks, which are posted on DuPont's website under the Investor Relations tab and through the webcast link. Please read the forward-looking statement disclaimer contained in the slides. During this call, we'll make forward-looking statements regarding our expectations or predictions about the future. Because these statements are based on current assumptions and factors that involve risks and uncertainties, our actual performance results may differ materially from our forward-looking statements. Our Form 10-K, as updated by our current and periodic reports, includes detailed discussion of principal risks and uncertainties which may cause such differences. Unless otherwise specified, all historical financial measures presented today are on a continuing operations basis and exclude significant items. We will also refer to other non-GAAP measures. A reconciliation of the most directly comparable GAAP financial measure is included in our press release and presentation materials and have been posted to DuPont's Investor Relations website. I'll now turn the call over to Laurie who will begin.\n\nLori Koch (Chief Executive Officer): Good morning, and thanks everyone for joining our third quarter call. Earlier today, we reported another strong quarter of financial performance with continued sequential improvement across all key financial metrics. We posted a solid quarter highlighted by year-over-year growth for consolidated net sales, operating EBITDA, and adjusted EPS. Third quarter sales of 3.2 billion included a return to organic sales growth, which increased 3% versus the year-ago period. Operating EBITDA of 857 million increased 11%, with operating EBITDA margin increasing 150 basis points to 26.8%. Third quarter adjusted EPS of $1.18 increased 28% year-over-year. We also delivered another strong quarter of cash generation with transaction-adjusted pre-cash flow conversion of 130%, highlighting our disciplined working capital management. For the full year 2024, we are raising our guidance for operating EBITDA and adjusted EPS, which Antonella will detail shortly. From an end market view, the electronics and industrial segment saw another quarter of double-digit sales growth in both the SEMI and EricssonX solutions lines of business, which continue to benefit from strong demand for advanced node chips and AI-enabling technology. In the water and protection segment, we saw better than expected sequential improvement in water, including continued stabilization in China volume. We also saw further sequential sales lift in medical packaging and markets, which are returning to more normalized buying patterns. Overall, I'm encouraged by our continued positive results. Volume recovery has been a key driver of our financial performance, coupled with our team's continued strong operational execution and helped by savings from the restructuring actions taken earlier this year. I am pleased to say we have made real progress with our operational excellence initiative, with benefits seen in improved margins and working capital and enhanced customer reliability metrics. By fostering our culture of continuous improvement and equipping our teams with the right tools and training, we are well positioned to unlock long-term value across each business line. Specific to the training aspect, We have been actively investing in our people and have completed around 30,000 hours of training year to date. We count on operational excellence to drive productivity every year as a key offset to inflation. Through focus on process optimization, we have successfully reduced costs across critical operations with benefits from increased uptime, leading to incremental capacity relief and lower fixed and variable costs. all in we are pleased to report a strong third quarter and are well positioned for a solid finish to the year i'll now turn the call over to ed who can provide a few comments around our progress on the planned separations on slide four thanks lori and good morning everyone we clearly remain focused on driving results and demonstrating the performance potential of our portfolio\n\nEd Breen (Executive Chairman): while also advancing our plans to unlock value through the previously announced separations of our electronics and water businesses. We remain excited about this value creation opportunity and believe our investors broadly appreciate the potential that we expect these three industry leading companies to realize by leveraging tailored growth strategies. Our teams remain highly motivated and have the experience to ensure that the new companies are prepared to operate and execute from day one. We continue to make progress on our separation related work streams. We are also working diligently to accelerate our timing to potentially complete the separations closer to the earlier end of the 18 to 24 months timeline set at our May announcement, and we'll update you as we progress. In addition, we are making progress in establishing the new boards, which have been a major focus of mine, and we expect to be able to announce board members of each company, along with key executive leadership appointments for electronics and water by the end of the first quarter of 2025. With that, I'll turn it over to Antonella, who will cover our financial results and outlook.\n\nAntonella Franzen (Chief Financial Officer): Thanks, Ed, and good morning, everyone. We are very pleased that our third quarter results reflect sequential improvement across all key financial metrics and a return to organic sales growth at the consolidated level. Both earnings and cash flow benefited from volume recovery and improved production rates at key operating sites, and our team has executed well on productivity and cost actions announced last year. Turning to slide five, I will cover our third quarter financial highlights in further detail. Net sales of $3.2 billion increased 4% versus the year-ago period on organic sales growth of 3% and favorable portfolio impact of 2%, reflecting contributions from both the Spectrum and Donatel acquisitions. These increases were partially offset by a 1% currency headwind. The organic sales growth of 3% reflects a 5% increase in volume, partially offset by a 2% decrease in price. Higher volume was driven by continued broad-based growth in electronics and markets, with semi- and interconnect solution volumes both up double digits, coupled with a return to year-over-year volume growth in water solutions. On a segment view, E&I organic sales grew 10%, and W&P's quarterly organic sales decline moderated further to 2%, on its way to an anticipated return to positive growth in the fourth quarter. Organic sales in corporate declined 6% versus the year-ago period, driven by continued weakness in China solar markets, which led us to exit a photovoltaic film product line during the third quarter. This product line represents less than 1% of consolidated . From a regional perspective, Asia Pacific delivered 9% organic sales growth versus the year-ago period, led by another strong quarter in China, where organic sales were up low double digits driven by electronics and markets. In other regions, organic sales in Europe were 1%, while North America was down 2%. Second quarter operating EBITDA of 857 million increased 11% versus the year-ago period, as volume gains along with improved plant utilization and savings from restructuring actions were partially offset by higher variable compensation and select growth investments. Operating EBITDA margin during the quarter increased to 26.8%, up 150 basis points versus the year-ago period, and up 160 basis points on a sequential basis. Third quarter reflected another period of strong cash generation and conversion, reflecting both improved volume as well as strong working capital discipline across each business line. On a continuing operations basis, Cash flow from operations of $737 million, less capital expenditures of $109 million, and $12 million of separation-related transaction cost payments resulted in transaction-adjusted free cash flow of $640 million and related conversions of 130%. Turning to slide six, adjusted EPS for the quarter of $1.18 per share increased 28% from $0.92 in the year-ago period. Higher segment earnings of $0.14, as well as the benefit of a lower share count of $0.09 and lower tax rate of $0.06 were partially offset by higher depreciation of $0.03. Our base tax rate for the quarter was 19.8%, down from 24.6% a year ago. driven by tax benefits reported in the current period. We now estimate our full year 2024 base tax rate to be approximately 23.5%. Turning to segment results, beginning with E&I on slide seven. E&I third quarter sales of 1.6 billion increased 13% versus the year-ago period, as organic sales growth of 10%, and the Spectrum and DataTel sales contribution of 4% were slightly offset by a 1% currency headwind. Organic sales growth of 10% reflects an 11% increase in volume slightly offset by a 1% decrease in price. At the line of business level, organic sales were up more than 20% for the second consecutive quarter, reflecting continued overall semi-demand recovery driven by AI technology ramps and share gains in certain products. Semi-demand was notably strong in China, including continued customer pre-buying, similar to what we saw last quarter. As we move forward, we expect China demand to normalize, but still remain strong. Overall, semi-fab utilization continues to improve, averaging 76% during the quarter, though notably stronger for advanced node chips due in part to AI-related demand acceleration. InterConnect Solutions delivered another strong quarter as well, with organic sales of low double digits, reflecting continued broad-based electronic recovery, including a demand benefit from AI-driven technology rent. We saw content and share gain within high-value electronic applications and a volume recovery within the overall printed circuit board space. The year-over-year sales decline in Industrial Solutions continues to moderate as organic sales were down slightly during the quarter, and strength in printing and packaging applications was offset by ongoing volume headwinds for CalGRIS. Also within Industrial Solutions, we completed the acquisition of Donatel, a medical device manufacturer, at the end of August. We are very pleased with the integration of Donatel into Spectrum. and are seeing the potential benefit to leverage DotaTilt's technology and capabilities to other businesses, as well as cross-selling opportunities within our healthcare platform. Operating EBITDA for E&I of 467 million was up 22% versus the year-ago period, driven by volume growth, the impact of higher production rates, savings from restructuring actions, as well as the earnings contribution from Spectrum and DotaTilt. These gains offset by higher variable compensation and select growth investments related primarily to the ongoing transition to advanced nodes and new and ramping AI applications across both semi- and interconnect solutions. Operating EBITDA margin during the quarter was 30.1%, up 210 basis points versus the year-ago period. Turning to slide eight. WMP third quarter net sales of 1.4 billion declined 2% versus the year-ago period, primarily due to price headwinds as overall segment volumes were flat. Within safety solutions, organic sales were down this single digit, largely on price decline, although with lower volumes driven mainly by Tyvek medical packaging. We did see a second consecutive order of sequential sales in medical packaging, with sales up 10% in Q3. Shelter solution sales went down slightly on an organic basis, with headwinds in North American residential construction markets, mostly offset by growth in commercial construction. The third quarter includes a return to year-over-year sales growth for water solutions, where organic sales were up low single digits. Higher volumes were driven by strength in ultrafiltration technologies, along with continued volume recovery in China. On a sequential basis, water solution sales also increased for our second consecutive quarter, with sales up 3%, which was better than our expectation coming into the quarter. Operating EBITDA for WNP during the quarter of 364 million was up 1% versus the year-ago period, as productivity and savings from restructuring actions more than offset the organic revenue decline and higher variable compensation. Operating EBITDA margin during the quarter was 26.3%, up 70 basis points from the year-ago period. As we move into the fourth quarter, we expect strong volume growth on a year-over-year basis. Moving to our outlook of slide nine. For the fourth quarter, we expect net sales, operating EBITDA, and adjusted EPS of about 3.07 billion, 790 million, and 98 cents per share, respectively. On a year-over-year basis, our fourth quarter guidance assumes sales and earnings growth from both E&I and W&P, translating to total company growth and net sales of about 6%, operating EBITDA of 10%, and adjusted EPS of 13%. Sequentially, we assume normal seasonal declines in electronics and construction markets. Additionally, as I mentioned earlier, we expect to see a moderation of growth in China as pre-fine and semi plays out, as well as the impact of exiting the PV-filled product line. Partially offsetting these sequential declines is the continued recovery in water and medical packaging and markets. For the full year 2024, we are raising our earnings guidance above the highest of our prior range and now expect operating EBITDA of about 3.125 billion and adjusted EPS of $3.90 per share, which reflects 12% EPS growth year over year. With that, we are pleased to take your questions, and let me turn it back to the operator to open the Q&A.\n\nPam (Conference Operator): Thank you. We'll now begin the question and answer session. If you have dialed in and would like to ask a question, please press star 1 on your telephone keypad to raise your hand and join the queue. If you would like to withdraw your question, simply press star 1 again. Please be reminded that you can ask one question and one follow-up. And the first question comes from the line of Steve Kusa from J.P. Morgan.\n\nSteve Tusa (Analyst at J.P. Morgan): Please go ahead. Steve Tusa of J.P. Morgan, please go ahead. Thanks, Pam. We can come back to him.\n\nPam (Conference Operator): All right. Our next question comes from the line of Scott Davis from Milius Research. Please go ahead.\n\nScott Davis (Analyst at Milius Research): Hey, good morning, Chris and Ed, Laurie, Antonella. Congrats on the quarter. Ed, I wanted to come back to your comments on the, looks like the bid ask on the 18 to 24 months has narrowed down a bit, but what are the work streams? You put the work streams on slide four, six of them, but what are the gating factors? Why do you feel a little bit more comfortable today perhaps than three months ago in that timeframe getting short?\n\nEd Breen (Executive Chairman): Yeah. Yeah, we've made great progress. You know, two of the longer polls in the tent, the legal entity work and the IT work to separate everything, and the teams have made tremendous progress on that. So our confidence level is definitely up, and that's why we made the comment that, you know, we might be more on the 18-month timeline somewhere and maybe in that zip code, which if we could get it all the way to that would be December 2025. So we'll keep you posted on that. We're pretty positive we're going to move it in. The issue is, can we move it in all that way?\n\nScott Davis (Analyst at Milius Research): Okay, fair enough. And guys, the electronics business, the pre-buy, we've talked about that the last two quarters. Why is there, maybe I can get it back up a little bit, why is there a pre-buy? Are they concerned about not having enough or you not being able to supply enough products? product on time? Why do they want to build inventory, I guess?\n\nLori Koch (Chief Executive Officer): Yeah, so a lot of it, Scott, is around the new fabs that are being put in place in China. So last quarter, we had mentioned 30 million in total, 20 million of which was in sending. This quarter, it's another 20 million for a total of 40 over the second half. And it's really the new fabs coming online. So about half of the global fabs that are being constructed are in China. There's about seven of them, four in the logic space and three in the memory space. And as they bring their new fabs online, they pre-buy to get through qualifications and the ramp. So it's really a function of that from the pre-buy perspective that we had quoted.\n\nScott Davis (Analyst at Milius Research): That's what happens when you're not a tech analyst. I had no idea. So I'll pass it on. Thank you. You're welcome.\n\nSteve Tusa (Analyst at J.P. Morgan): Bye-bye.\n\nPam (Conference Operator): Your next question comes from the line of Steve Tusa from JP Morgan.\n\nSteve Tusa (Analyst at J.P. Morgan): Hey, guys. Good morning. Sorry about that.\n\nAntonella Franzen (Chief Financial Officer): Okay. Good morning. Good morning, Steve.\n\nSteve Tusa (Analyst at J.P. Morgan): Just a lot going on today, I guess. Can you just talk about the trend you saw, you know, in exiting September and into October just for, you know, broadly the various businesses in the portfolio? Anything move around materially?\n\nLori Koch (Chief Executive Officer): Now, minus the normal seasonality that you see in the quarter with the last month being the strongest primarily in the water space, there wasn't a lot of variability as we exited the quarter. I mean, if we go into the fourth quarter, we have the usual seasonal weakness that we see primarily within the electronic space and in the shelter space. And as you recall, as we had done on the last Ernie's call, we had mentioned that the recovery kind of came early and the seasonality that you normally would see from 2Q to 3Q was a little muted. And therefore, to see the seasonality as you head into the fourth quarter, you have to compare the fourth quarter to the second quarter. And that's where you see that about 100 million that we typically see between the electronics and the shelter space.\n\nSteve Tusa (Analyst at J.P. Morgan): Okay. And then in the W&P margins, anything unusual there? Really strong margins in the quarter. And anything going on there, any raw material relief or, you know, maybe price costs, something like that?\n\nLori Koch (Chief Executive Officer): Yeah, we were really pleased with the margins that we saw. You know, it's a lot of operational execution that we've been driving across the whole company. So, you know, we took a lot of restructuring actions earlier this year. We're seeing the benefit of those. We're driving productivity and operational excellence. We shuttered a couple lines. older lines in the U.S. in the safety business that are nicely impacting our margin profile. So we're encouraged by the 26% plus that we posted in Q3.\n\nSteve Tusa (Analyst at J.P. Morgan): So that should be able to leverage nicely as volumes come back, I would assume.\n\nLori Koch (Chief Executive Officer): Yes.\n\nSteve Tusa (Analyst at J.P. Morgan): Okay, great. Thanks a lot.\n\nPam (Conference Operator): Your next question comes from Chris Parkinson from Wolf Research. Please go ahead.\n\nChris Parkinson (Analyst at Wolf Research): Great. Good morning. Just want to dig in a little bit more into the semi-tech side of it. I mean, you know, clearly you have some benefits from some of the shiny steps, but can you just dig in a little bit more by, you know, product substrate in terms of, you know, the pad flurries? It just seems like there's a bit of a bifurcation between some of the product categories versus others based on what's evolving in the marketplace. So any color there would be particularly helpful. Thank you.\n\nLori Koch (Chief Executive Officer): Yeah, I mean, we saw strength across all the key semi-technologies. So within the CMP space with pads and flurries, within the list of space, we saw really nice results and in the clean space. So it's a combination of one, the market recovery from the desock that happened last year to the strength that we have in China. So we are a larger footprint in China than some of our peers. And that's where a lot of the new fab construction is going on. A lot of the outsized recovery is happening. And then our exposure to advanced nodes versus the legacy nodes and DRAM versus memory is driving our results. So we had been up 50% plus in China, so that was a key driver of the overall SEMI results being up in the low 20% range.\n\nChris Parkinson (Analyst at Wolf Research): That's helpful. And just as a follow-up on the WMP side, you've got some things going pretty well, but it still seems like the macro is overall a little bit sluggish still. Just digging into the water side of it, could you just hit on kind of the drivers of the ultra filtration strength? It seems like China's, you know, kind of beginning to turn the corner. Just how we should ultimately be thinking about that. Is this now back to normalization as we kind of get into 2025? Or are there any other considerations we should be looking at? Thank you.\n\nAntonella Franzen (Chief Financial Officer): Yeah, we should start to see activity more normalized now. I think we're clearly past the worst of it. We've seen sequential improvement from the first quarter to the second quarter. We saw it again going into Q3. And we would expect we continue to see some sequential improvement as we move into Q4. So overall, the business has definitely gotten back to where, getting close back to where we used to be. I would tell you the activity in China has improved. The ultrafiltration activity isn't particularly just in any one region. to call it out, but we're definitely seeing much better activity overall in water, and it's kind of past the destock.\n\nChris Parkinson (Analyst at Wolf Research): Very helpful. Thank you.\n\nPam (Conference Operator): Your next question comes from Vincent Andrews from Morgan Stanley. Please go ahead.\n\nVincent Andrews (Analyst at Morgan Stanley): Thank you, and good morning, everybody. One more item of something that needs to turn the corner a little bit is the CalRes destocking. Are you sort of at the bottom of that? And should we start to see that inflect?\n\nLori Koch (Chief Executive Officer): Yeah, we're definitely at the bottom. We actually saw sequential improvement. We're still seeing year-over-year headwinds. So we expect the business to continue to stabilize and see recovery as we head into 2025. So just a reminder of the CalRes end markets. It is largely semi-CAPEX exposed. So the long-term profile and expectations for top-line growth in that business are very sound as there continues to be an expectation of, you know, mid-single-digit capacity expansions within the semi-space.\n\nVincent Andrews (Analyst at Morgan Stanley): And then I'd be curious to get your thoughts on interest rates. You know, I think we've all been sort of poised and waiting for these cuts, and they're kind of starting to happen, but the curve is not sort of behaving the way I think we all thought it would, and that the back end has kind of stayed high and the front end has come down. So maybe you could just talk about, you know, if rates do get cut, which parts of your businesses will benefit the most from the front end coming down versus which parts really need the back end to come down?\n\nLori Koch (Chief Executive Officer): Yeah, I mean, on the front end, it would be the construction markets, you know, primarily the North America residential space. And so we had mentioned in our 4Q expectations that they're a little needed in the shelter space because the rate cuts didn't happen quickly enough. We'll see what happens here at the next meeting. The expectations will cut again. But I would say the front end, that's our largest exposure with respect to positive news and the breaks we're going to need to slide down. More broadly, obviously, the lower rates versus broader economic activity that we favor all of our businesses.\n\nPam (Conference Operator): Your next question comes from Josh Spector of UBS. Please go ahead.\n\nJosh Spector (Analyst at UBS): Yeah, hi, good morning. I wanted to ask on not necessarily the SPIN timeline per se, but really are there alternatives still being explored for any of the businesses, water or electronic, outside of the SPINs, be it a sale or RMT? And just if you are, how do you think about maybe achieving something there versus the SPIN timeline? What would be more important to you?\n\nEd Breen (Executive Chairman): Yeah, no, it's a little simpler than that, Josh. Our plan is to do the separation of both water and electronics, and we're moving very rapidly down that road. As we mentioned on the prepared remarks, we're talking to potential board members.\n\nJosh Spector (Analyst at UBS): Okay, clear enough. On the core business, I wanted to ask about, you did some comments about increased investments, increased variable comp. Obviously, some of that makes sense given the better operating performance. But I was wondering if we think about the level of investment taking place now, is that fully back to normal in that if we look at growth, the incrementals become higher as we look forward? Or are you still investing at a lower level given demand remains tepid?\n\nLori Koch (Chief Executive Officer): Yeah, I mean, we're not going gangbusters, right? So we had some growth investments primarily within the electronic space as we looked to continue to take advantage of the AI recovery. And we had mentioned the variable compensation headwind. So you can see in our approximate results from last year, our variable compensation was, you know, with an average of 50% payout. So that would be a headwind as we head into next year. You know, we continue to keep button down until we're really confident that we've got recovery across the board. We continue to make CapEx levels at the same level as where they were last year. We'll continue to expect to revise those down as best we can below the 5% level. So no, I wouldn't expect any outsized investments. We continue to be really smart. One of the key areas I think that's driving the margin profile that we're seeing is we did take a lot of action, especially on the plant fixed cost front as we saw the volumes decline last year. And we've done a really nice job keeping those out even as volumes have recovered. So that's also driving a piece of our margin recoveries.\n\nBhavesh Lodaya (Analyst at BMO Capital Markets): Okay, thank you.\n\nPam (Conference Operator): Your next question comes from John Roberts of Mizuho. Please go ahead.\n\nJohn Roberts (Analyst at Mizuho): Thank you. Is China about 50% of the electronic sales, and how much of that would be made in China for China as opposed to imported into China and might have some risks from some trade retaliation by China?\n\nLori Koch (Chief Executive Officer): Yeah, so China is about 30% of those electronic sales. So about half of that is China for China, and the other half goes in and comes back out for global consumption.\n\nJohn Roberts (Analyst at Mizuho): Okay. And then how is advanced mobility looking with the slowdown in both EVs and ICE vehicles outside of China?\n\nLori Koch (Chief Executive Officer): Yeah, so we continue to see nice performance within the VEV side. We just got a really nice long-term thing with one of the large European OEMs within the VEV space. So it is muted, the growth expectations, just as everybody else is with respect to the IHS revising down their expectations for total bills across the state, but we continue to be encouraged more broad-based and longer-term with the VEV transition to VEV.\n\nJohn Roberts (Analyst at Mizuho): Thank you.\n\nPam (Conference Operator): Your next question comes from Alexei Yefremov of KeyBank. Please go ahead.\n\nAlexei Yefremov (Analyst at KeyBank): Thanks. Good morning. In InterConnect, can you discuss two things, the share gains that you cite and then the AI-driven ramps? What products are you seeing ramping in AI? What kind of applications?\n\nLori Koch (Chief Executive Officer): Yeah, on the AI side, it's in the packaging space within the interconnect system, so we're seeing nice improvement there. And on the share gain side, it's also a function of being a greater share of wallet with some of our key customers as we expand beyond just the phones and some of the other devices that our key customers are using. with the results there. We had mentioned, I think, on the last call about a lot of the ITS being driven by thermal management and packaging opportunities, and that continues to play out for us.\n\nUnknown (Unknown): Thanks a lot.\n\nPam (Conference Operator): Your next question comes from David Beckletter of Deutsche Bank. Please go ahead.\n\nDavid Beckletter (Analyst at Deutsche Bank): Thank you. Good morning. Laurie, E&I margins were above 30% in the quarter. Is that level sustainable for the entirety of 2025?\n\nLori Koch (Chief Executive Officer): Yeah, we've seen nice margins growth in both segments, both E&I and W&P. It's a little early to talk about specifics of 2025 at this point, but we are encouraged. There's not one-timers driving that number, I'll say, from that perspective. So as long as you can maintain the top line numbers that we're posting and the productivity initiatives should stay in place that we're driving and we should be in a nice position to access that more normalized margin profile for the United States.\n\nUnknown (Analyst at Deutsche Bank): Very good. And just in safety solutions, what's driving the decrease in pricing?\n\nAntonella Franzen (Chief Financial Officer): So I think it's important to keep in mind that when you look for the last couple of years, particularly in some select businesses, we did have price increases that were in the mid-teens. which more than covered our cost increases. So it wouldn't be too surprising that we would give back, you know, a couple of points in order to maintain share as we go forward.\n\nUnknown (Analyst at Deutsche Bank): Thank you.\n\nPam (Conference Operator): Your next question comes from Frank Mitch of Fermium Research. Please go ahead.\n\nFrank Mitch (Analyst at Fermium Research): Hey, good morning, and nice results. I want to stay on the pricing area. In ENI, you know, price was down a percent. Volumes were very impressive, but price was down a percent. You have to go back to the second quarter of last year when you saw price flat. Since then, it's been ticking down. Can you expand upon, you know, what's driving the lower price and what your outlook is there?\n\nAntonella Franzen (Chief Financial Officer): Yeah, we look specifically at E&I to your point. Typically, there is about a point of price give back. A lot of it relates to new products kind of coming into the market and volumes going up. So there's typically about one point of price. That's historically what we see in A&I. And we would expect that trend to continue as we go forward.\n\nFrank Mitch (Analyst at Fermium Research): Gotcha. So as you're pricing new products, you're giving discounts to the customers?\n\nEd Breen (Executive Chairman): No, you're getting priced on the new product introductions, Frank, but you get paid a little bit of price change on the older products, which are very typical of the electronics business like that. COVID and D-Stock and all that. But that's typically been the model. So higher growth business, you know, more up in the mid to high teens, but you give up about 1% on price. All right.\n\nFrank Mitch (Analyst at Fermium Research): Understood. Thank you. And just on the restructuring benefits, I believe the last time you mentioned it was going to be about $115 million benefit in 2024. Is that still a good number? And any initial thoughts on 2025?\n\nAntonella Franzen (Chief Financial Officer): Yeah, actually that benefit number is a bit higher. We got to our quarterly run rate of benefits in the third quarter, so we are getting a nice impact this year. There will be a little bit of carry forward as we go into 2025. Thank you.\n\nPam (Conference Operator): Your next question comes from Mike Susan of Wells Fargo. Please go ahead.\n\nMike Susan (Analyst at Wells Fargo): Hey, good morning. Nice quarter in outlook. You know, Ed, a lot of the chemical companies thus far have kind of painted an exciting picture for the first half of 25 and maybe 25 in total. As you've noted, your end markets are different. So I know it's a little bit early to get specific outlooks for 2025, but could you sort of give us your thoughts on how maybe semiconductors, electronics, and some of the water and industrial businesses shape up for next year?\n\nEd Breen (Executive Chairman): Yeah, I'll let Lori walk you through some detail. I just, I don't mean this flippantly, but to make a comment, we really worked the portfolio very differently than we were five, six, seven years ago, away from more of a chemical company into a multi-industrial. And I think you see that in a lot of our industry. but I'll let Morrie maybe walk you through some puts and takes.\n\nLori Koch (Chief Executive Officer): Yeah, no, there's no significant changes from the commentary we had provided on the last call about some initial 2025 expectations. So from, you know, an electronics perspective, we continue to expect SEMI to grow, to accelerate, really driven by the AI and the new facts coming online. And just a reminder that the memory markets and some of the more mature technologies Technology markets haven't recovered yet, so that recovery is on the come as we head into 2025. There's also, on the interconnect side, continued utilization in the PCB space, especially as you look for a refresh cycle within the AI space and consumer devices. Within W&P, we expect Tyvek Healthcare to continue to recover. As we had mentioned, we saw a sequential lift from Q2 to Q3 of 10%. We expect a further sequential list in Q4 and then more normalized buying patterns as we head into 2025. And we expect a more normalized demand environment within air and water. We'll expect to continue to recover as well. So no changes from what we said last year or last quarter with respect to 2025.\n\nMike Susan (Analyst at Wells Fargo): Great. Thank you.\n\nPam (Conference Operator): Your next question comes from Patrick Cunningham of Citi. Please go ahead.\n\nChris Parkinson (Analyst at Wolf Research): Hi, good morning. Are you still anticipating price givebacks and shelter in 4Q and maybe into 2025? And what was the dynamic between positive growth and commercial construction versus resi and any sort of early view on a broad-based resi recovery into next year?\n\nAntonella Franzen (Chief Financial Officer): Yeah, given what we saw in pricing this year and as we're exiting the year, you would expect that you would have some price give back carry forward going into 2025. But I think the one thing that you have to keep in mind is we still got to take a deep look at where our thoughts next year relative to raws, logistics, and utilities, and that will determine if there's any pluses or minuses associated with that. So, I would expect that as we go forward. In terms of the resi and the construction markets, you know, we are seeing a little bit less activity than what we originally anticipated. As Laurie mentioned earlier, when you look at kind of rates and where they are, there was a few rain cuts that were expected in 2024. I mean, we had one, but we had it a little too late in the building cycle to really have an impact. So as we go into next year, I would say in terms of the construction markets, We would expect, you know, low single-digit activity, and I think that that's kind of predicated on some additional rate cuts coming. But we'll see what happens.\n\nUnknown (Unknown): I would add that our current midpoint of guidance in the fourth quarter assumes slightly less price giveback than we saw during the third quarter.\n\nChris Parkinson (Analyst at Wolf Research): Understood. Very helpful. And then just on consolidated WMP, I mean, it seems you'll have easier comps on water, medical packaging. Does most of that sequential EBITDA decline come from more typical seasonality on shelter and safety? And if you could remind us, what was the 25 million discrete impact from last year? And that won't repeat this year, just for clarification.\n\nAntonella Franzen (Chief Financial Officer): Yes, so the Q3 to Q4 in WMP would be your typical seasonality. Q3 tends to be the highest quarter and comes down a bit in Q4. A big piece of that would be related to the shelter business as we kind of go into the winter months. For WNC explicitly, we did call out about 25 million of one-time items last year that were related to, you know, a land sale and some supply agreements that we had certain benefits from, I would say. Keep in mind that in totality, in Q4 of last year, we actually called out 40 million of one-time items. The remaining 15 million was within corporate.\n\nUnknown (Unknown): Great. Thank you.\n\nPam (Conference Operator): Your next question comes from John McNulty of BMO Capital Markets. Please go ahead.\n\nBhavesh Lodaya (Analyst at BMO Capital Markets): Hi, good morning. This is Bhavesh Lodaya for John. Can you talk about some of the competitive dynamics around your electronic peers in China? China is bringing in a lot of new fabs, as you mentioned, but they're also investing in kind of like a homegrown domestic supply chain. You mentioned gaining some market share. Not sure if that was in China as well, but overall, how do you see this landscape developing over the next few years?\n\nLori Koch (Chief Executive Officer): Yeah, can you have a nice position within China? I think our exposure in China within the 70 spaces outside versus some of the peers, so we're about 30% China, where some of the peers I think are less than that. So you're seeing that disparity play out nicely in our numbers as a lot of the bills are more concentrated there with respect to the global output. We have a nice position with the local players. As we had mentioned, we also have a nice position with the global OEMs that are in China that are favoring our China results as well.\n\nSteve Tusa (Analyst at J.P. Morgan): Thank you.\n\nPam (Conference Operator): Your next question comes from Aaron Viswanathan of RBC Capital Markets. Please go ahead.\n\nAaron Viswanathan (Analyst at RBC Capital Markets): Great. Thanks for taking my question. Just wanted to go back to maybe some initial thoughts on 25. So, you know, this year you showed, looks like you're showing, you know, pretty good mid-teens EBITDA growth in E&I, although you have been, that's been offset slightly by some of that water destocking and headwinds. As you look into next year, maybe if you adjust for the pre-buy that you saw in E&I, um would that kind of decrease maybe to like a high single digit rate and then but maybe you could see some recovery in WNP and so uh overall you still expect um you know maybe uh mid mid to high single digit EBITDA growth for next year\n\nAntonella Franzen (Chief Financial Officer): If that's where it provided, you know, some color on the top line, that's where our expectations are. I would say it's a bit too early to start commenting on EBITDA growth for next year. We'll give more detailed guidance as we get on to the next quarter call. But clearly volume will be a driver, as we noted this year. We would expect to have the continued benefits of our restructuring actions that we took this year to continue to benefit us as we move forward.\n\nAaron Viswanathan (Analyst at RBC Capital Markets): Okay, I understand. And just on that note, then, assuming that you do see some continued margin growth, how should we think about free cash flow and maybe how you deploy that? You know, are there any significant extra capex projects in the pipeline, or will you likely be using most of your cash for standing up to businesses, or could you potentially deploy more and return more to shareholders? Thanks.\n\nAntonella Franzen (Chief Financial Officer): Yeah, so as you're talking about free cash flow conversion, as I mentioned for this quarter, we did have a really strong free cash flow conversion. It was about 130%. We're at 109% for the year, and we did know, you know, we do expect to be well above our target for this year. As we go into next year, I would expect that we continue to have good free cash flow conversion. The teams have done a great job relative to managing working capital, even while, you know, sales are increasing and we're now having a use of working capital. As you think about our cash deployment for next year, given it is the year of the separation, the majority of cash will be used for our separation costs. We did note last quarter on the fall, we do not expect to do any additional share of our purchases this year. I would say that applies to next year as well. And no significant outsized capex that you should be expecting next year relative to this year.\n\nBhavesh Lodaya (Analyst at BMO Capital Markets): Great. Thanks.\n\nPam (Conference Operator): Your next question comes from Mike of Barclays. Please go ahead.\n\nMike (Analyst at Barclays): Great. Thanks. Good morning, team. I think DuPont filed an ITC complaint last month around illegal Tyvek imports. I guess first, is the issue you're seeing somebody else claiming and naming something to be Tyvek, and it's not? Or is it named something else, and the issue is they're using DuPont's proprietary technology? And then just more broadly, how is the Tyvek business performing today?\n\nLori Koch (Chief Executive Officer): Yeah, so, you know, the ICC filing speaks for itself. We'll continue to defend our patents and our trade secrets. So that's, you know, really all we want to say on that point. The Tyvek business and market performance continues to recover nicely. You know, a lot of the headwinds that we had saw throughout 2024 was related to medical packaging, and we've highlighted a few times about the nice recovery that we're seeing there up 10% sequentially and up even further sequentially as we head into Q4. So we're really encouraged of the rebound that we're seeing there.\n\nUnknown (Unknown): Great. Thank you.\n\nPam (Conference Operator): And your last question comes from Steve Byrne of Bank of America. Please go ahead.\n\nSteve Byrne (Analyst at Bank of America): Yes, I'd like to ask another one about that ITC complaint. When did you start to see these competing versions of Tyvek coming into the States. And is this across your broad platform? Is this, you know, Tyvek house wrap? Is this packaging? Is this, you know, PPE? Is it all of them? And you're seeing this, you know, this competing version. When did this happen? And just curious on the timing of this.\n\nLori Koch (Chief Executive Officer): Yeah. So, I mean, we had mentioned that the filing speaks for itself. It's a public filing that can be read. So, you know, we started seeing it in, you know, in recent months, the release of our name, in addition to some trade secrets, infringement for who we were seeing, which is what led us to the filing.\n\nSteve Byrne (Analyst at Bank of America): And then maybe just one more across new DuPont. Any new projects and developments that, you know, you could be enrolling that could drive growth in new departments other than just the recovery and in markets?\n\nLori Koch (Chief Executive Officer): Yeah, so I had mentioned earlier that the really nice win that we saw on the battery adhesive space was one of the largest European OEMs, so that it was a nice win for us to solidify our position in the ED space. We have a really nice growing position within healthcare, so we closed the Donatello acquisition in August. We were actually out there as physicians and with the board visiting that site and were even more encouraged by what we saw with respect to cross-selling with some of the larger medical devices as well as leveraging the really high-end machining capabilities that Donatel has to not only our medical packaging businesses but our other parts businesses that are in the DuPont portfolio. So we're really encouraged that that space will continue to be a nice driver for us.\n\nUnknown (Unknown): Thank you.\n\nPam (Conference Operator): There are no more questions. I will now turn the conference back over to Chris McRae for closing remarks.\n\nChris McRae (Investor Relations): Thank you, everyone, for joining the call. And for your reference, a copy of the transcript will be posted on our website. This concludes the call. Thank you.\n\nPam (Conference Operator): Thank you all for joining. You may now disconnect.",
+  "n_turns": 99
+}

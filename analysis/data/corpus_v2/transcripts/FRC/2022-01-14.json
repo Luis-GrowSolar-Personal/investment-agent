@@ -1,0 +1,461 @@
+{
+  "ticker": "FRC",
+  "original_ticker": "FRC",
+  "call_date": "2022-01-14",
+  "year": 2021,
+  "quarter": 4,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "FRC",
+    "year": 2021,
+    "quarter": 4
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T01:49:27Z",
+  "raw_payload": {
+    "event": {
+      "year": 2021,
+      "quarter": 4,
+      "conference_date": "2022-01-14T10:00:00.000-05:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk13",
+        "text": "After saving with customized car insurance from Liberty Mutual, I customize everything."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Like Marco's backpack. Wow, check you out. Eating lower sugar Halo Top fruit pops. Doing all that running. Taking bubble baths. Sculpting inner peace. Hand basking in the great outdoors. You make self-love look easy. Put yourself on top. Halo Top."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Greetings and welcome to First Republic Bank's fourth quarter and full year 2021 earnings conference call. Today's conference is being recorded. During today's call, the lines will be in a listen-only mode. Following the presentation, the conference will be over questions. To join the queue, please press star 1 on your telephone keypad at any point during the call. I would now like to turn the call over to Mike Iannilli, Vice President and Director of Investor Relations. Please go ahead."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thank you, and welcome to First Republic Bank's fourth quarter 2021 conference call. Speaking today will be Mike Roffler, President and Acting Co-CEO, Mike Selfridge, Chief Banking Officer, Bob Thornton, President, Private Wealth Management, and Olga Sokova, Chief Accounting Officer and Acting Chief Financial Officer. Before I hand the call over to Mike, please note that we may make forward-looking statements during today's call that are subject to risks, uncertainties, and assumptions. For a more complete discussion of the risks and uncertainties that could cause actual results to differ materially from any forward-looking statements, see the bank's FDIC filings, including the Form 8-K filed today, all available on the bank's website. And now I'd like to turn the call over to Mike Roffler."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thank you, Mike. Let me begin by sending our best wishes to Jim Herbert, the bank's founder and co-CEO, who recently began a temporary medical leave of absence. Jim, I'm sure you're listening, and we look forward to your healthy return. 2021 was another very strong year for First Republic. This was the bank's 36th consecutive year of profitability since it was founded in 1985. First Republic continues to deliver safe, consistent organic growth by doing what we do best, providing exceptional client service. Now let me cover a few key results for the year. Total loans outstanding were up 20%. Total deposits have grown 36%. I would note that checking deposits made up 72% of total deposits at year end. And wealth management assets increased 44%. This strong growth, in turn, led to strong financial performance. Year over year, our total revenues have grown 29% to more than $5 billion. Net interest income has grown 26%. Earnings per share have grown a very strong 32%. And tangible book value per share has increased more than 17% during the year. Importantly, our credit quality continues to be excellent. Consistently strong credit has been a hallmark of First Republic since our founding. Net charge-offs for the fourth quarter were only $64,000. Net charge-offs for the entire year were only 2.1 million, less than one basis point of average loans. Non-performing assets end of the year at only eight basis points of total assets. Our capital remains very strong. At year end, our Tier 1 leverage ratio was 8.76%. This includes the benefits from five successful capital raises in 2021. Olga will touch on this momentarily. This year's results demonstrate the power of our client service culture. Our culture is our competitive advantage. Each one of our 6,300 colleagues is dedicated to serving our clients and one another. The result is a client satisfaction level as measured by our Net Promoter Score that is over two times the banking industry average. Preliminary results from our 2021 Net Promoter Score survey indicate that our service level actually increased during the year. Importantly, a greater percentage of clients now consider us their lead bank. Highly differentiated service drives our organic growth through repeat business and client referrals. Each year, more than 80% of the bank's growth comes from these two sources. Our colleagues' focus and dedication are the foundation of our success. As a leadership team, we are collectively focused on empowering our people to be their best. Let me take a few moments to cover some of the other highlights of the year. Leveraging technology to drive client satisfaction and scale our client facing colleagues remains a top priority. To this end, in 2021, we continue to invest in technology and our regulatory infrastructure to further strengthen First Republic and enhance our client service model. For example, we have made significant progress on our core system conversion, an important project for First Republic. This initiative remains on schedule. In addition, we recorded tax credits for research and development for the first time, reflecting our continued investment in client service innovation. Olga will speak more about this in a moment. Taking care of our colleagues and communities also remains a top focus of First Republic. In 2021, we expanded our employee base by 15% to support the continued growth of the franchise. We also raised our minimum wage to $30 per hour. We supported the volunteer efforts of our colleagues. who contributed more than 22,000 hours to nonprofit organizations. We also launched the First Republic Foundation, which expands and complements our existing philanthropic initiatives. And we enhanced our commitment to the environment by becoming carbon neutral for the first time and purchasing 100% renewable energy to cover our electricity needs. The simplicity of our business model has enabled us to remain focused on delivering exceptional client service. In 2021, the outcome once again was strong financial performance. Thank you to all of our colleagues for their great teamwork and collaboration in serving our clients. Now I'll turn the call over to Mike Selfridge."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Thank you, Mike. Let me begin with an update on our lending activities. Loan origination volume was a record for both the quarter and the year at $17 billion and $65 billion, respectively. Single family residential volume for the year was also a record at $30 billion. Refinance activity accounted for 55% of single family residential volume during the year, and a large portion of refinancing refinance activity came from clients with loans at other institutions. This continues to create an ongoing opportunity for new client acquisition. Multifamily volume for the year was also a record at $4.8 billion. In terms of credit, we continue to maintain our conservative underwriting standards. The average loan-to-value for all real estate loans originated during the year was just 57%. As we head into 2022, our clients remain very active, and our loan pipeline is quite strong up from the same time last year. I would note that loan originations have some seasonality, with the fourth quarter typically being strong and the first quarter typically being somewhat slower. Turning to business banking, it was a very strong year. We continue to deepen our relationships by following clients to the businesses that they own or influence. Our relationship-based model also leads to a strong level of referrals to new business clients. In 2021, our client business base grew by more than 20%. Business loans and line commitments excluding PPP loans were up a strong 23% year over year. During the fourth quarter, the utilization rate on capital call lines of credit increased to 42%. This is at the higher end of our utilization range. In terms of funding, it was an exceptional year. Total deposits were up $41 billion, or 36%, compared to a year ago. We continue to maintain a diversified deposit funding base. Checking deposits represented 72% of total deposits at year end, our highest level ever. And business deposits represented 60% of total deposits at year end. The average rate paid on all deposits for the quarter was just five basis points, leading to an overall funding cost of just 12 basis points. Our preferred banking offices continue to provide an important service channel for our clients and drive deposit gathering. In 2021, we opened two new preferred banking offices, both in New York. And we plan to open another six offices across our footprint over the next 18 months. Our strategy for acquiring and growing our next generation of client relationships, a strategy that was in place well over a decade ago, continues to deliver strong results. In 2021, millennial households accounted for nearly half of our growth in consumer households. Overall, our service model continues to resonate well with clients, driving strong growth across the franchise. Now I'd like to turn the call over to Bob Thornton."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Thank you, Mike. Wealth management had another very successful year. Asset center management grew 44% or $85 billion year over year. Of this, $51 billion came from net client inflow. The fourth quarter is particularly strong, with AUM increasing by $28 billion, with nearly 60% from net client inflow. In addition, wealth management households grew nearly 20% this past year. Wealth management fee revenue for 2021 was $760 million, up 44% from the prior year. We also continue to further diversify our wealth management revenue, growing our fee revenue for services that are less subject to market fluctuations. Brokerage, insurance, trust, and foreign exchange fees together grew 57% during the year. These accounted for 27% of total wealth management fees, up 23% five years ago. A key strength of our business model is a collaborative approach to serving our clients across their banking and wealth management needs. The partnership between our bankers and wealth professionals reflects our non-followed approach. This benefits clients and drives growth from both a strong level of internal referrals and deepening of our client relationships. For example, in 2021, I would note that our bankers referred over $7 billion to of AUM to Wealth Management, an increase of 22% from the prior year. In addition, our Wealth Management colleagues referred over $3 billion of deposits to the bank. Wealth Management referred deposits and sweeps now represent over 13% of total bank deposits. These deposits have grown at a compounded annual rate of 44% over the past three years. It is our integrated banking and wealth management model that makes First Republic an attractive destination for very successful wealth managers and other leading producers. And once hired, we continue to successfully integrate our new colleagues into our highly collaborative culture. During 2021, we welcomed 11 new wealth manager teams to First Republic. And we're also delighted to have welcomed another highly regarded entity in New York just last Friday. overall we're very pleased to have reached nearly 280 billion in assets under management in 2021 and we're looking forward to continued success in 2022. now i'd like to turn the call over to olga sokova thank you bob let me review the results for the year and quarter and also offer some guidance for 2022 our capital position remains strong during 2021 we added over 2.8 billion dollars of net"
+      },
+      {
+        "speaker": "spk01",
+        "text": "new Tier 1 capital through five capital raises. This includes $740 million of 4.5% perpetual preferred stock issued during the fourth quarter. With this, our weighted average cost of preferred stock is less than 4.5%. Liquidity also remains strong. High-quality liquid assets were 17% of average total assets in the fourth quarter. Our credit quality remains excellent. For the fourth quarter, net charge-offs were only $64,000. Our provision for credit losses for the quarter was $24 million, driven almost entirely by our strong loan growth. Our net interest margin was 2.68% for the fourth quarter and 2.67% for the full year 2021, in line with our guidance. Importantly, net interest income was up a very strong 26% year over year. This is primarily due to the robust growth in earning assets. Our efficiency ratio was 63.3% for the fourth quarter and 62.5% for the full year 2021, also in line with our guidance. The fourth quarter results included two unusual items. The first, was a tax credit for our research and development activities, which reflect innovation and technology enhancements made over the past few years. This lowered our effective tax rate. The second was the one-time executive compensation expense. This increased the fourth quarter efficiency ratio by approximately 180 basis points. The net effect of these two items, mostly offsetting one another, was only a $0.03 decrease to earnings per share. Also, as previously disclosed, we prepaid $4 billion of FHLB advances in October, and the prepayment cost of $19 million is included in other expenses. Our effective tax rate was 16.1% for the fourth quarter and 19.1% for the full year 2021. Now let me provide some guidance for the full year 2022. Loan growth is expected to be in the mid teens. Our net interest margin is expected to be in the range of 2.65 to 2.75%. Given our higher level of cash, we currently expect to operate near the lower end of this range. The efficiency ratio is expected to be in the range of 62% to 64%. As a reminder, our first quarter efficiency ratio is typically higher due to the seasonal impact of payroll taxes and benefits. With respect to income taxes, the full year tax rate is expected to be in the range of 20% to 21%. Overall, it was a very strong quarter in year. Now I'll turn the call back over to Mike Roffler."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thank you, Mike, Bob, and Olga. It was a great quarter in year. The bank's service model is as strong as ever. Our entire team remains focused on executing our client service strategy. This approach has driven remarkably consistent results for many years, and we have great momentum heading into 2022. Now we'd be happy to take your questions."
+      },
+      {
+        "speaker": "spk08",
+        "text": "And if you would like to ask a question, please signal by pressing star one on your telephone keypad. If you are using a speakerphone, please make sure your mute function is turned off to allow your signal to reach our equipment. Again, press star one to ask a question. We'll pause for just a moment to allow an opportunity to signal for questions. To our first question. from Steven Alexopoulos with JP Morgan."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Hey, good morning, everyone."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hi, good morning, Steve."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Mike, I wanted to start. So 2021 was clearly a great year for the company. With that said, given all the management turnover recently, the market concern is how this might impact the performance of the company moving forward, right? And this is the first public call you're hosting since news came out of Jim needs to take medical leave and then news on Gaia resigning. So hopefully you could use this call to allay some market concerns. Now that it's been two weeks since news broke on Gaia resigning, can you offer any additional light on why she left the company?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "Steve, thanks for the question. And we certainly understand the comments and feelings out there. Really, we talked about it in our filing or our announcement in early January. Gaia chose to resign from the firm. We appreciate all the contributions that she made over the years, and we really can't comment any further than that at this time."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Okay. Mike, are you able to answer whether her resignation was tied to some action from the company which would entitle her to severance? I know you said there was one time. executive comp charge in the court. I don't know if it's related to that or whether she just left to pursue an opportunity at another firm."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Um, so she did resign to pursue other opportunities. And I think, I think what we'd, what we'd say is what, what we've disclosed is really what we're going to talk about. What, what I'd really like to sort of focus on a little is we have a terrific team in place and we have a fantastic client service culture. and are focused on delivering to clients each and every day. And so our business model and culture is what has prevailed over the years in spite of any challenges that might exist. And this is an example of another one. The board of directors and the leadership team remain incredibly optimistic about the prospects we have for the year ahead. Our business model is resonating with clients. Our brand is very strong in the markets. Um, and clients clients are resonating with that. And so, um, we've dealt with challenges and the rest of the executive team is very confident with the opportunities in front of us. And it's about looking forward. Um, and, you know, just just an observation, uh, Jim is on a temporary leave. Um, he has, he has helped us all collectively be ready for this kind of challenge. And the board thinks about these things and we're ready to pick up the baton and keep running forward."
+      },
+      {
+        "speaker": "spk11",
+        "text": "So Mike, maybe to follow up on that, you know, what's been the impact to employee morale, right? Given the announcements and has there been any disruption to client service or the business tied to these management changes?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "Uh, so the simple answer to your second part is no, uh, client service has not been impacted. Clients remain very active. Business is starting off the year very strong. Bob mentioned a terrific team in New York that joined us last Friday. And our colleagues, you know, to what you said, there may have been some surprise, but you know what? That gets over very quickly, and we move forward. And everyone here is very focused on serving clients. Okay."
+      },
+      {
+        "speaker": "spk11",
+        "text": "That's great. And just final question, now that Korn Ferry has been hired, I'd assume they've started the process for the CEO search. Do you have a best guess? What can you tell us in terms of when we might expect that process will be completed? Thanks."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yeah, no, thanks for the question, Steve. I mean, the board is conducting a search with Korn Ferry's assistance to identify the best candidate for the CEO role. It's one of their top priorities. I don't think there's going to be a rush because the focus is for finding the best candidate. to carry on a very strong client-focused culture and business model. I think that's the focus versus speed. Yeah."
+      },
+      {
+        "speaker": "spk11",
+        "text": "But Mike, your key message to everybody is, because there's so much uncertainty, the speculation, I've almost never seen this before, is that there's still stability at the company, which is what First Republic's known for, and it's not having any notable impact to morale, client service, right? The things that led to a great 2021, there's nothing that you see at this point that should derail that from having another great year in 2022. Is that right?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "That's absolutely correct. Morale is strong and the opportunities ahead of us are terrific and clients are very engaged and it's very active right now. Okay."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Great. Thanks for taking my questions."
+      },
+      {
+        "speaker": "spk08",
+        "text": "take our next question from Bill Carcacci with Wolf Research."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Thank you. Good morning. The higher compensation costs, could you parse out how much of the increase was associated with the fact that you're just simply growing the employee base versus how much is inflationary? And if you could, you know, give a little bit of color across your businesses, you know, including some of the teams on the wealth management side that you brought on board, you know, how much more it's costing you to onboard employees today? versus last year?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "So it's a good question. I think more of our compensation-related increases are tied to production levels and growth in deposits, wealth management fees, and I can have Bob talk about sort of the hiring practices. I think from an inflation standpoint, There is competition for what I'd say new hires and people onboarding to the company, but I don't think that's a meaningful part of the increase. It's largely tied to much greater production levels."
+      },
+      {
+        "speaker": "spk14",
+        "text": "And on teams, this is Bob Thornton, the cost of hiring teams has not appreciably changed in the last year versus prior years or more recently. Right."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Understood. And you also mentioned that your core system conversion remains on schedule, but part of the increase in expenses was attributable to information systems initiatives. Can you give some color on what's behind those initiatives?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "So in terms of overall initiatives, like we've, nothing's changed from this aspect, right? We continue to invest in the franchise for client service delivery, helping our colleagues, become more efficient, and it allows them what I would say is more emotional time or more client time versus processing. And so we're always investing in mobile. We're obviously working on the core conversion and just continue ways to help our colleagues and clients be more efficient with their time."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Got it. So I guess sort of putting that all together, is the message on expenses then that despite the sort of the upward pressure relative to expectations, your outlook for operating efficiency is unchanged? And does that then suggest that you don't expect those expense pressures to persist? It's really just production driven?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah, I would comment that we expect our expenses to grow in line with the growth of our revenues, and this is what we have embedded in our guidance that we just provided."
+      },
+      {
+        "speaker": "spk13",
+        "text": "That's great. Thanks. If I could squeeze in one last one. I guess, is there anything notable behind the acceleration in next-gen loan growth that you saw this quarter? And that's it for me. Thanks very much for taking my questions."
+      },
+      {
+        "speaker": "spk16",
+        "text": "No, nothing unusual there. And as I mentioned, that's a strategy that has been well in place for over a decade. So we're very pleased with our continued momentum. And as you know, both our household debt refinance product and our professional lines of credit have very solid momentum looking forward."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Great. Thank you."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Our next question from Casey Hare with Jefferies."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Thanks. Good morning, everyone. Follow-up question on the NIM. I'm curious what kind of rate hikes are baked into the NIM guide, as well as excess liquidity deployment. Cash balance is up slightly on the quarter. Thanks."
+      },
+      {
+        "speaker": "spk01",
+        "text": "We anticipate three Fed moves during 2022 and slightly flatter yield curve. And we still expect our cash levels to be elevated and this puts us in the lower end of our guided range."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yeah, I might add to that just a little bit, Casey. I think you've heard us talk about this in the past, right? We're okay to carry elevated cash levels given our strong deposit growth. We're going to deploy it first and foremost for client opportunity and client activity. in investments on a strategic basis or on an additive basis. The reality of it is we're focused more on net interest income growth than we are what the reported margin might be. And yes, it's been at the lower end of our range here for a while, but if you look at our net interest income growth, it's been incredibly strong the last several quarters."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah, for sure. Okay, and on the deposit growth, you know, 36% year over year. I know it's difficult to forecast, but are you still seeing pretty strong momentum in that front, or do you expect that to kind of moderate from this pace seen in 2021?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Hey, Casey, it's Mike. Yeah, obviously, it was an incredible year in terms of deposit growth, and there's a number of factors. New household acquisition, I'd say it was a good split between business and consumer, probably two-thirds business, a third consumer, increase in average balances overall. And just given the general industry dynamics and excess deposits in the system, stimulus driven, the stimulus has stopped. So that probably will moderate deposit growth from 36%. But we're very optimistic about our ability to continue to generate deposits in new households to support the the good loan growth that we've been able to demonstrate over years."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Okay, great. And just last one for me on the FHLBs, you know, pretty dramatic decline from that sort of 10% of the balance sheet historically at a little under 3%. Are we, how much of this do you anticipate being permanent? Because obviously this, that would be a very nice positive makeshift to the funding base?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yeah, no, thanks for the question, Casey. I mean, it sort of builds off, you know, what Mike Selfridge said. I mean, given the extremely strong liquidity that all banks have benefited from in their deposit base, we've repaid, as you've seen, you know, FHLB. We do like to use the FHLB as a duration match. And so I think there will be a time where it will increase again. But right now, It doesn't feel like that's sort of in the cards for a little while, given how strong the liquidity is in the banking system and including us."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Very good. Thank you."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Next to Terry McEvoy with Stevens."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hi, thanks. Good morning, everyone."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Um, maybe first question, um, were there any other employee departures, uh, in recent weeks that, that didn't warrant a press release or an eight K filing, uh, but maybe were longstanding employees at the bank and, and, and important to the outlook."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Uh, no, no, nothing like that. Um, I would like to say something though about this because you, you, you mentioned something that's of interest. So periodically, right. Um. very long standing employees get to a point where they like to retire, including on the relationship management side. And just a comment on that, like when they have happened, their books of business and transition. There's no disruption. We have a very thoughtful approach when that happens because we discuss it with our colleagues and you transition the business to people who've worked with the clients. And there's typically no disruption. And frankly, it usually leads to a growth in the business because it's another contact point. And our clients deeply appreciate the thoughtfulness with which we approach this."
+      },
+      {
+        "speaker": "spk16",
+        "text": "And I would, Terry, just add one point that goes to the next generation relationship manager program that has been in place for almost seven years. And that's grooming our next generation relationship managers to meet the needs of those next generation clients. And so there's a combination of both hiring and grooming from within, and I think that adds a lot to the depth of the franchise."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Great. I appreciate that."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Just to be clear to your first question, no other turnover."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Great. Thank you both. And then as my follow-up, maybe a question on interest rate sensitivity. What you provide in the deck is, as of September 30th, So I guess my questions are, has that changed or did that change at all over the last three months? And I know in the queue it talks about incorporating future growth projections. Could you maybe just talk about balance sheet dynamics and underlying growth that's behind the 1.4% increase in NII?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yeah, no, from quarter to quarter, those disclosures don't change a lot. And that's largely because of how consistent and stable we are. So we'll have the year end numbers, you know, here in our 10K in a bit. You know, a few comments on this because the bank has always been about consistency and stability, especially when you think of financial metrics, right? So our net interest margin, our efficiency ratio, if you go through the two years of the pandemic, frankly, much of that never changed, right? The efficiency got better over time. And our margin, we didn't deviate at all, notwithstanding liquidity in the system, the Fed reducing rates very, very quickly. And if you go back over time, that's pretty much the case. And so a few dynamics that help with that. 72% of our deposits are in checking. That gives you some protection as rates starts to rise. And then one that's probably you highlight when you said it, growth. The loan portfolio growth at 15 to 20% per annum, coupled with 25 to 27% already floating, leads to nearly half the portfolio repricing in a year. And so, again, what does that lead to? Consistency, especially as you can lag some of your deposit pricing. And so when we provide our guidance, that's all factored in, also with a growing balance sheet and, importantly, growing net interest income."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thank you, Mike."
+      },
+      {
+        "speaker": "spk08",
+        "text": "We'll go next to John Pancari with Evercore."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hi, good morning. This is Tom Stevens on for John Pancari. I just want to talk about your loan growth guidance for 2022. Can you talk about some of the underlying growth dynamics that you guys expect, specifically on CNI, cap call, and mortgage settlement?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Hi, it's Mike Selfridge. We provided mid-teens guidance. We're comfortable with that guidance. And in terms of Mike Roffler alluded a bit to our positioning going into the market for 2022, our pipeline is strong up from last year. There are some natural headwinds to refinance given the expected increase in interest rates. But having said that, I would point you to our very modest market share today. our positioning as it relates to client loyalty. And so we do expect continued growth for the year, both in single family, multifamily, and on the cap call line, it's been very active. You saw the increase in utilization rate given the activity in 2021 and our positioning in the business banking sector looks very good looking forward."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Great. Thank you for that. And then just quickly, I know you guys pointed out that $19 million FHLB prepayment expense and other expenses. Can you just talk about a good runway going forward for that line item?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "So, yeah, we had elevated levels, obviously, this past quarter with a significant amount of prepays. Once in a while when we prepay, we have prepayment costs like we had some small amount last quarter. If we look at our outstanding FHLB advances, the next maturity dates will be sometime in 2023. So this is kind of the next maturity of those. So we don't expect, obviously this quarter was elevated level, so we don't expect that going forward."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Great. Thank you for taking my questions."
+      },
+      {
+        "speaker": "spk08",
+        "text": "We'll take our next question from Andrew Leash with Piper Sandler."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hi, good morning, everyone. Thanks for taking the questions. Good morning. On the 180 basis point or so hit to the efficiency ratio on the salaries and benefits, how much of that was severance versus, say, just the true up in bonuses?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "So, what I'd say is this. There was a contractual arrangement that was entered into in July. And we were paid in line with that contract, and it includes what I call two items. One would be severance, and the second would be the unamortized RSU expense, because those are continuing to vest under the terms of the contract."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Got it. Okay. That's helpful. So, if I take that out and take out the 19 million of the prepayment penalties, I'm getting close to an efficiency ratio of 60%. and your guidance is notably higher than that. Is that just more of a return from travel and entertainment costs, more client events next year? I'm just trying to figure out why the efficiency ratio could rise four percentage points from there."
+      },
+      {
+        "speaker": "spk01",
+        "text": "So you're correct. When we think about 2022, obviously Omicron \u2013 Delayed things quite a bit. We still plan to go back to the offices in 2022 and start hosting client events. But at the same time, we don't slow down and continue investing in our franchise. And this is what you'll see embedded in our guidance for 2022."
+      },
+      {
+        "speaker": "spk09",
+        "text": "The other thing, you know, Andrea, the way you just did that, our efficiency ratio relative to third quarter, relative to fourth quarter a year ago, are all in line, right? So, again, think about consistency over long terms. Think about the business model over a long period of time, and that consistency sort of is a manifestation of that, and you see that in our overall results."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Got it. Okay. Thank you. And then just on the mid-teens loan growth guidance, Certainly there are some headwinds on refi, but it seems like you still have a pretty good pipeline, especially bringing over new clients. I mean, that does sound like a slowdown from the last few years. Is there anything in there that could cause that slowdown, or is this somewhat conservatism on the growth outlook?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Well, I'd say it's realistic. And when we look at the opportunities ahead, it's what we feel comfortable with. And, yeah, I would note, even in rising rate environments, the last one being 2016 to 2018, Refis generally over 10 years have never gone below 40% of our single family originations. And so you'll see a mix between purchase and refi in terms of the percentage. And it's still a very active market, still a very active purchase market. I would note that's on the purchase side, an area where we very much excel as it relates to the competition given our ability to execute and deliver for our clients."
+      },
+      {
+        "speaker": "spk09",
+        "text": "The other thing I'd add is when rates have been pretty low right now, CPRs have been elevated. And so you're seeing the growth that we have produced the last couple years, especially in that elevated environment. There is some impact that it will slow down a little bit as rates rise. That said, the volume of activity remains incredibly strong right now."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Got it. Okay, thanks for taking the questions."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Take our next question from Chris McGrady with KBW."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Hey, good morning. I was wondering if you could start or provide a comment on new production yields and what you're buying in the bond book compared to last quarter. Thanks."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Let me start with the lending side and turn over to Mike or Olga on the investment side. But single-family originations are coming in right around probably 270. Multifamily about 310. Commercial real estate about 340. Cap call lines accredited probably in the prime minus 75 basis point range."
+      },
+      {
+        "speaker": "spk09",
+        "text": "And on the investment side, you know, municipals have been sort of in the low threes, up to three and a quarter. HQLA. Some of the recent activity we've seen is around 2%."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thanks for that. Maybe the follow-up would be with all the preferred actions in the quarter, could you just help us with the run rate going forward, Mike?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "Sorry, could you say that again just so I caught it?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Just the new run rate for the preferred dividend because of the movement in the quarter."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah, this was $38 million. It was expected to be in the first quarter."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Got it. Thanks."
+      },
+      {
+        "speaker": "spk08",
+        "text": "And we'll take our next question from Jared Shaw with Wells Fargo Securities."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Hi, good morning. Thanks for taking my questions. Maybe just on the pipeline, you mentioned that it's up year over year going into the first quarter. Should we expect that that is more similar to the, I guess, the lower rate of annual growth that we saw this quarter, or should that recover back up to the to a higher level that we saw earlier in the year."
+      },
+      {
+        "speaker": "spk09",
+        "text": "I assume you're referencing that loans grew about 5% quarter on quarter?"
+      },
+      {
+        "speaker": "spk10",
+        "text": "Well, I guess I was looking at the origination level of 1% year over year versus when it was closer to 50%."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yeah, let me add some context. I mean, the fourth quarter of last year, if you sort of recall what happened, Uh, March, April, May was a pretty big slowdown in 2020 of client activity. Cause that was obviously the very first stay at home orders. People had to figure out how to do appraisals and, and home visits. And then there was an acceleration. So the, the, the typical path of originations last year was different. This year probably is more normal, but Mike."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Yeah, I think, Jared, in particular, if you look at single family quarter of a quarter, there was just a little bit of unusual bunching that occurred in 2020 given the pandemic. I'd steer you more towards the annual origination number, which was a record at $65 billion, up 23%, significantly in single family, multifamily, CRE, and capital call lines of credit."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay. All right. That's a good color. Thanks. And then, Looking at capital, obviously, all the regulatory ratios look really strong. TCE, though, continues to trend down. When you look at, in the past, the desire to hold two years of growth capital, do you feel that you're there right now, or could we see some additional capital bolstering to get that two-year cushion again?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "thanks jared for the question i mean we were really pleased with the five offerings that we did in in 2021 and really bolstering the bank's capital and similar to you know the past we're opportunistic and we look at both markets and depending upon you know the opportunities we'll we'll go into um we'll go into one or the other and we feel really good where we're at now and we think that this gives um gives us running room, and so we remain opportunistic, but, you know, nothing, you know, from an immediate standpoint."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay. And just finally for me, I guess, you know, on the management front, one, have there been any other internal promotions, I guess, besides yourself and Olga over the last few weeks? And then sort of second, for a company that is really always prided itself on developing in-house talent, Does hiring Korn Ferry for the CEO search signal a change and should we expect potentially the next permanent CEO to be from the outside?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "So in terms of the first question, there have been promotions internally. We have promotions each year internally as people advance their career and take on more responsibility. And we have a terrific team, a deep team. that has continued to take on these additional responsibilities in the face of this change. In terms of the search process, you know, the board is conducting a thorough process, and I don't think it signals necessarily a change in approach, but we've been working at succession for, I've been at the bank 12 years. I'm a product of that succession as I was hired as the deputy CFO with my predecessor, Willis Newton, as the CFO. Mike Selfridge is here as part of that. And so the board has been focused on this, and it's been one of their biggest priorities for the better part of a decade. And the team in place is outstanding. And so the last part of this is the CEO successor, and they're now focused on the right cultural fit to carry our business and business model forward."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Great. Appreciate the color and taking the questions."
+      },
+      {
+        "speaker": "spk08",
+        "text": "And that concludes today's question and answer session. Mr. Roffler, at this time I'll turn the conference back to you for any additional or closing remarks."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thank you everybody for the questions. I'd just like to close with 2021 was a terrific year with strong growth growth across the board we're starting 2022 with client satisfaction at an all-time high a robust loan pipeline and great opportunities in front of us we're very optimistic about the future and are looking forward to the year ahead have a great day everyone this concludes today's call thank you for your participation you may now disconnect"
+      },
+      {
+        "speaker": "spk13",
+        "text": "You know Liberty Mutual customizes your car insurance? So you only pay for what you need? Like how I customized this scarf? Check out this backpack I made for Marco. Only pay for what you need."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk00": {
+        "name": "Halo Top Ad Voice",
+        "title": "Advertisement"
+      },
+      "spk01": {
+        "name": "Olga Sokova",
+        "title": "Chief Accounting Officer and Acting Chief Financial Officer"
+      },
+      "spk02": {
+        "name": "Andrew Leash",
+        "title": "Analyst, Piper Sandler"
+      },
+      "spk03": {
+        "name": "Tom Stevens (on behalf of John Pancari)",
+        "title": "Analyst, Evercore"
+      },
+      "spk04": {
+        "name": "Mike Iannilli",
+        "title": "Vice President and Director of Investor Relations"
+      },
+      "spk06": {
+        "name": "Unknown Analyst",
+        "title": "Analyst"
+      },
+      "spk08": {
+        "name": "Conference Call Operator",
+        "title": "Operator"
+      },
+      "spk09": {
+        "name": "Mike Roffler",
+        "title": "President and Acting Co-CEO"
+      },
+      "spk10": {
+        "name": "Jared Shaw",
+        "title": "Analyst, Wells Fargo Securities"
+      },
+      "spk11": {
+        "name": "Steven Alexopoulos",
+        "title": "Analyst, JP Morgan"
+      },
+      "spk12": {
+        "name": "Casey Hare",
+        "title": "Analyst, Jefferies"
+      },
+      "spk13": {
+        "name": "Bill Carcacci",
+        "title": "Analyst, Wolf Research"
+      },
+      "spk14": {
+        "name": "Bob Thornton",
+        "title": "President, Private Wealth Management"
+      },
+      "spk15": {
+        "name": "Terry McEvoy",
+        "title": "Analyst, Stevens"
+      },
+      "spk16": {
+        "name": "Mike Selfridge",
+        "title": "Chief Banking Officer"
+      }
+    }
+  },
+  "text": "Bill Carcacci (Analyst, Wolf Research): After saving with customized car insurance from Liberty Mutual, I customize everything.\n\nHalo Top Ad Voice (Advertisement): Like Marco's backpack. Wow, check you out. Eating lower sugar Halo Top fruit pops. Doing all that running. Taking bubble baths. Sculpting inner peace. Hand basking in the great outdoors. You make self-love look easy. Put yourself on top. Halo Top.\n\nConference Call Operator (Operator): Greetings and welcome to First Republic Bank's fourth quarter and full year 2021 earnings conference call. Today's conference is being recorded. During today's call, the lines will be in a listen-only mode. Following the presentation, the conference will be over questions. To join the queue, please press star 1 on your telephone keypad at any point during the call. I would now like to turn the call over to Mike Iannilli, Vice President and Director of Investor Relations. Please go ahead.\n\nMike Iannilli (Vice President and Director of Investor Relations): Thank you, and welcome to First Republic Bank's fourth quarter 2021 conference call. Speaking today will be Mike Roffler, President and Acting Co-CEO, Mike Selfridge, Chief Banking Officer, Bob Thornton, President, Private Wealth Management, and Olga Sokova, Chief Accounting Officer and Acting Chief Financial Officer. Before I hand the call over to Mike, please note that we may make forward-looking statements during today's call that are subject to risks, uncertainties, and assumptions. For a more complete discussion of the risks and uncertainties that could cause actual results to differ materially from any forward-looking statements, see the bank's FDIC filings, including the Form 8-K filed today, all available on the bank's website. And now I'd like to turn the call over to Mike Roffler.\n\nMike Roffler (President and Acting Co-CEO): Thank you, Mike. Let me begin by sending our best wishes to Jim Herbert, the bank's founder and co-CEO, who recently began a temporary medical leave of absence. Jim, I'm sure you're listening, and we look forward to your healthy return. 2021 was another very strong year for First Republic. This was the bank's 36th consecutive year of profitability since it was founded in 1985. First Republic continues to deliver safe, consistent organic growth by doing what we do best, providing exceptional client service. Now let me cover a few key results for the year. Total loans outstanding were up 20%. Total deposits have grown 36%. I would note that checking deposits made up 72% of total deposits at year end. And wealth management assets increased 44%. This strong growth, in turn, led to strong financial performance. Year over year, our total revenues have grown 29% to more than $5 billion. Net interest income has grown 26%. Earnings per share have grown a very strong 32%. And tangible book value per share has increased more than 17% during the year. Importantly, our credit quality continues to be excellent. Consistently strong credit has been a hallmark of First Republic since our founding. Net charge-offs for the fourth quarter were only $64,000. Net charge-offs for the entire year were only 2.1 million, less than one basis point of average loans. Non-performing assets end of the year at only eight basis points of total assets. Our capital remains very strong. At year end, our Tier 1 leverage ratio was 8.76%. This includes the benefits from five successful capital raises in 2021. Olga will touch on this momentarily. This year's results demonstrate the power of our client service culture. Our culture is our competitive advantage. Each one of our 6,300 colleagues is dedicated to serving our clients and one another. The result is a client satisfaction level as measured by our Net Promoter Score that is over two times the banking industry average. Preliminary results from our 2021 Net Promoter Score survey indicate that our service level actually increased during the year. Importantly, a greater percentage of clients now consider us their lead bank. Highly differentiated service drives our organic growth through repeat business and client referrals. Each year, more than 80% of the bank's growth comes from these two sources. Our colleagues' focus and dedication are the foundation of our success. As a leadership team, we are collectively focused on empowering our people to be their best. Let me take a few moments to cover some of the other highlights of the year. Leveraging technology to drive client satisfaction and scale our client facing colleagues remains a top priority. To this end, in 2021, we continue to invest in technology and our regulatory infrastructure to further strengthen First Republic and enhance our client service model. For example, we have made significant progress on our core system conversion, an important project for First Republic. This initiative remains on schedule. In addition, we recorded tax credits for research and development for the first time, reflecting our continued investment in client service innovation. Olga will speak more about this in a moment. Taking care of our colleagues and communities also remains a top focus of First Republic. In 2021, we expanded our employee base by 15% to support the continued growth of the franchise. We also raised our minimum wage to $30 per hour. We supported the volunteer efforts of our colleagues. who contributed more than 22,000 hours to nonprofit organizations. We also launched the First Republic Foundation, which expands and complements our existing philanthropic initiatives. And we enhanced our commitment to the environment by becoming carbon neutral for the first time and purchasing 100% renewable energy to cover our electricity needs. The simplicity of our business model has enabled us to remain focused on delivering exceptional client service. In 2021, the outcome once again was strong financial performance. Thank you to all of our colleagues for their great teamwork and collaboration in serving our clients. Now I'll turn the call over to Mike Selfridge.\n\nMike Selfridge (Chief Banking Officer): Thank you, Mike. Let me begin with an update on our lending activities. Loan origination volume was a record for both the quarter and the year at $17 billion and $65 billion, respectively. Single family residential volume for the year was also a record at $30 billion. Refinance activity accounted for 55% of single family residential volume during the year, and a large portion of refinancing refinance activity came from clients with loans at other institutions. This continues to create an ongoing opportunity for new client acquisition. Multifamily volume for the year was also a record at $4.8 billion. In terms of credit, we continue to maintain our conservative underwriting standards. The average loan-to-value for all real estate loans originated during the year was just 57%. As we head into 2022, our clients remain very active, and our loan pipeline is quite strong up from the same time last year. I would note that loan originations have some seasonality, with the fourth quarter typically being strong and the first quarter typically being somewhat slower. Turning to business banking, it was a very strong year. We continue to deepen our relationships by following clients to the businesses that they own or influence. Our relationship-based model also leads to a strong level of referrals to new business clients. In 2021, our client business base grew by more than 20%. Business loans and line commitments excluding PPP loans were up a strong 23% year over year. During the fourth quarter, the utilization rate on capital call lines of credit increased to 42%. This is at the higher end of our utilization range. In terms of funding, it was an exceptional year. Total deposits were up $41 billion, or 36%, compared to a year ago. We continue to maintain a diversified deposit funding base. Checking deposits represented 72% of total deposits at year end, our highest level ever. And business deposits represented 60% of total deposits at year end. The average rate paid on all deposits for the quarter was just five basis points, leading to an overall funding cost of just 12 basis points. Our preferred banking offices continue to provide an important service channel for our clients and drive deposit gathering. In 2021, we opened two new preferred banking offices, both in New York. And we plan to open another six offices across our footprint over the next 18 months. Our strategy for acquiring and growing our next generation of client relationships, a strategy that was in place well over a decade ago, continues to deliver strong results. In 2021, millennial households accounted for nearly half of our growth in consumer households. Overall, our service model continues to resonate well with clients, driving strong growth across the franchise. Now I'd like to turn the call over to Bob Thornton.\n\nBob Thornton (President, Private Wealth Management): Thank you, Mike. Wealth management had another very successful year. Asset center management grew 44% or $85 billion year over year. Of this, $51 billion came from net client inflow. The fourth quarter is particularly strong, with AUM increasing by $28 billion, with nearly 60% from net client inflow. In addition, wealth management households grew nearly 20% this past year. Wealth management fee revenue for 2021 was $760 million, up 44% from the prior year. We also continue to further diversify our wealth management revenue, growing our fee revenue for services that are less subject to market fluctuations. Brokerage, insurance, trust, and foreign exchange fees together grew 57% during the year. These accounted for 27% of total wealth management fees, up 23% five years ago. A key strength of our business model is a collaborative approach to serving our clients across their banking and wealth management needs. The partnership between our bankers and wealth professionals reflects our non-followed approach. This benefits clients and drives growth from both a strong level of internal referrals and deepening of our client relationships. For example, in 2021, I would note that our bankers referred over $7 billion to of AUM to Wealth Management, an increase of 22% from the prior year. In addition, our Wealth Management colleagues referred over $3 billion of deposits to the bank. Wealth Management referred deposits and sweeps now represent over 13% of total bank deposits. These deposits have grown at a compounded annual rate of 44% over the past three years. It is our integrated banking and wealth management model that makes First Republic an attractive destination for very successful wealth managers and other leading producers. And once hired, we continue to successfully integrate our new colleagues into our highly collaborative culture. During 2021, we welcomed 11 new wealth manager teams to First Republic. And we're also delighted to have welcomed another highly regarded entity in New York just last Friday. overall we're very pleased to have reached nearly 280 billion in assets under management in 2021 and we're looking forward to continued success in 2022. now i'd like to turn the call over to olga sokova thank you bob let me review the results for the year and quarter and also offer some guidance for 2022 our capital position remains strong during 2021 we added over 2.8 billion dollars of net\n\nOlga Sokova (Chief Accounting Officer and Acting Chief Financial Officer): new Tier 1 capital through five capital raises. This includes $740 million of 4.5% perpetual preferred stock issued during the fourth quarter. With this, our weighted average cost of preferred stock is less than 4.5%. Liquidity also remains strong. High-quality liquid assets were 17% of average total assets in the fourth quarter. Our credit quality remains excellent. For the fourth quarter, net charge-offs were only $64,000. Our provision for credit losses for the quarter was $24 million, driven almost entirely by our strong loan growth. Our net interest margin was 2.68% for the fourth quarter and 2.67% for the full year 2021, in line with our guidance. Importantly, net interest income was up a very strong 26% year over year. This is primarily due to the robust growth in earning assets. Our efficiency ratio was 63.3% for the fourth quarter and 62.5% for the full year 2021, also in line with our guidance. The fourth quarter results included two unusual items. The first, was a tax credit for our research and development activities, which reflect innovation and technology enhancements made over the past few years. This lowered our effective tax rate. The second was the one-time executive compensation expense. This increased the fourth quarter efficiency ratio by approximately 180 basis points. The net effect of these two items, mostly offsetting one another, was only a $0.03 decrease to earnings per share. Also, as previously disclosed, we prepaid $4 billion of FHLB advances in October, and the prepayment cost of $19 million is included in other expenses. Our effective tax rate was 16.1% for the fourth quarter and 19.1% for the full year 2021. Now let me provide some guidance for the full year 2022. Loan growth is expected to be in the mid teens. Our net interest margin is expected to be in the range of 2.65 to 2.75%. Given our higher level of cash, we currently expect to operate near the lower end of this range. The efficiency ratio is expected to be in the range of 62% to 64%. As a reminder, our first quarter efficiency ratio is typically higher due to the seasonal impact of payroll taxes and benefits. With respect to income taxes, the full year tax rate is expected to be in the range of 20% to 21%. Overall, it was a very strong quarter in year. Now I'll turn the call back over to Mike Roffler.\n\nMike Roffler (President and Acting Co-CEO): Thank you, Mike, Bob, and Olga. It was a great quarter in year. The bank's service model is as strong as ever. Our entire team remains focused on executing our client service strategy. This approach has driven remarkably consistent results for many years, and we have great momentum heading into 2022. Now we'd be happy to take your questions.\n\nConference Call Operator (Operator): And if you would like to ask a question, please signal by pressing star one on your telephone keypad. If you are using a speakerphone, please make sure your mute function is turned off to allow your signal to reach our equipment. Again, press star one to ask a question. We'll pause for just a moment to allow an opportunity to signal for questions. To our first question. from Steven Alexopoulos with JP Morgan.\n\nSteven Alexopoulos (Analyst, JP Morgan): Hey, good morning, everyone.\n\nMike Roffler (President and Acting Co-CEO): Hi, good morning, Steve.\n\nSteven Alexopoulos (Analyst, JP Morgan): Mike, I wanted to start. So 2021 was clearly a great year for the company. With that said, given all the management turnover recently, the market concern is how this might impact the performance of the company moving forward, right? And this is the first public call you're hosting since news came out of Jim needs to take medical leave and then news on Gaia resigning. So hopefully you could use this call to allay some market concerns. Now that it's been two weeks since news broke on Gaia resigning, can you offer any additional light on why she left the company?\n\nMike Roffler (President and Acting Co-CEO): Steve, thanks for the question. And we certainly understand the comments and feelings out there. Really, we talked about it in our filing or our announcement in early January. Gaia chose to resign from the firm. We appreciate all the contributions that she made over the years, and we really can't comment any further than that at this time.\n\nSteven Alexopoulos (Analyst, JP Morgan): Okay. Mike, are you able to answer whether her resignation was tied to some action from the company which would entitle her to severance? I know you said there was one time. executive comp charge in the court. I don't know if it's related to that or whether she just left to pursue an opportunity at another firm.\n\nMike Roffler (President and Acting Co-CEO): Um, so she did resign to pursue other opportunities. And I think, I think what we'd, what we'd say is what, what we've disclosed is really what we're going to talk about. What, what I'd really like to sort of focus on a little is we have a terrific team in place and we have a fantastic client service culture. and are focused on delivering to clients each and every day. And so our business model and culture is what has prevailed over the years in spite of any challenges that might exist. And this is an example of another one. The board of directors and the leadership team remain incredibly optimistic about the prospects we have for the year ahead. Our business model is resonating with clients. Our brand is very strong in the markets. Um, and clients clients are resonating with that. And so, um, we've dealt with challenges and the rest of the executive team is very confident with the opportunities in front of us. And it's about looking forward. Um, and, you know, just just an observation, uh, Jim is on a temporary leave. Um, he has, he has helped us all collectively be ready for this kind of challenge. And the board thinks about these things and we're ready to pick up the baton and keep running forward.\n\nSteven Alexopoulos (Analyst, JP Morgan): So Mike, maybe to follow up on that, you know, what's been the impact to employee morale, right? Given the announcements and has there been any disruption to client service or the business tied to these management changes?\n\nMike Roffler (President and Acting Co-CEO): Uh, so the simple answer to your second part is no, uh, client service has not been impacted. Clients remain very active. Business is starting off the year very strong. Bob mentioned a terrific team in New York that joined us last Friday. And our colleagues, you know, to what you said, there may have been some surprise, but you know what? That gets over very quickly, and we move forward. And everyone here is very focused on serving clients. Okay.\n\nSteven Alexopoulos (Analyst, JP Morgan): That's great. And just final question, now that Korn Ferry has been hired, I'd assume they've started the process for the CEO search. Do you have a best guess? What can you tell us in terms of when we might expect that process will be completed? Thanks.\n\nMike Roffler (President and Acting Co-CEO): Yeah, no, thanks for the question, Steve. I mean, the board is conducting a search with Korn Ferry's assistance to identify the best candidate for the CEO role. It's one of their top priorities. I don't think there's going to be a rush because the focus is for finding the best candidate. to carry on a very strong client-focused culture and business model. I think that's the focus versus speed. Yeah.\n\nSteven Alexopoulos (Analyst, JP Morgan): But Mike, your key message to everybody is, because there's so much uncertainty, the speculation, I've almost never seen this before, is that there's still stability at the company, which is what First Republic's known for, and it's not having any notable impact to morale, client service, right? The things that led to a great 2021, there's nothing that you see at this point that should derail that from having another great year in 2022. Is that right?\n\nMike Roffler (President and Acting Co-CEO): That's absolutely correct. Morale is strong and the opportunities ahead of us are terrific and clients are very engaged and it's very active right now. Okay.\n\nUnknown Analyst (Analyst): Great. Thanks for taking my questions.\n\nConference Call Operator (Operator): take our next question from Bill Carcacci with Wolf Research.\n\nBill Carcacci (Analyst, Wolf Research): Thank you. Good morning. The higher compensation costs, could you parse out how much of the increase was associated with the fact that you're just simply growing the employee base versus how much is inflationary? And if you could, you know, give a little bit of color across your businesses, you know, including some of the teams on the wealth management side that you brought on board, you know, how much more it's costing you to onboard employees today? versus last year?\n\nMike Roffler (President and Acting Co-CEO): So it's a good question. I think more of our compensation-related increases are tied to production levels and growth in deposits, wealth management fees, and I can have Bob talk about sort of the hiring practices. I think from an inflation standpoint, There is competition for what I'd say new hires and people onboarding to the company, but I don't think that's a meaningful part of the increase. It's largely tied to much greater production levels.\n\nBob Thornton (President, Private Wealth Management): And on teams, this is Bob Thornton, the cost of hiring teams has not appreciably changed in the last year versus prior years or more recently. Right.\n\nBill Carcacci (Analyst, Wolf Research): Understood. And you also mentioned that your core system conversion remains on schedule, but part of the increase in expenses was attributable to information systems initiatives. Can you give some color on what's behind those initiatives?\n\nMike Roffler (President and Acting Co-CEO): So in terms of overall initiatives, like we've, nothing's changed from this aspect, right? We continue to invest in the franchise for client service delivery, helping our colleagues, become more efficient, and it allows them what I would say is more emotional time or more client time versus processing. And so we're always investing in mobile. We're obviously working on the core conversion and just continue ways to help our colleagues and clients be more efficient with their time.\n\nBill Carcacci (Analyst, Wolf Research): Got it. So I guess sort of putting that all together, is the message on expenses then that despite the sort of the upward pressure relative to expectations, your outlook for operating efficiency is unchanged? And does that then suggest that you don't expect those expense pressures to persist? It's really just production driven?\n\nOlga Sokova (Chief Accounting Officer and Acting Chief Financial Officer): Yeah, I would comment that we expect our expenses to grow in line with the growth of our revenues, and this is what we have embedded in our guidance that we just provided.\n\nBill Carcacci (Analyst, Wolf Research): That's great. Thanks. If I could squeeze in one last one. I guess, is there anything notable behind the acceleration in next-gen loan growth that you saw this quarter? And that's it for me. Thanks very much for taking my questions.\n\nMike Selfridge (Chief Banking Officer): No, nothing unusual there. And as I mentioned, that's a strategy that has been well in place for over a decade. So we're very pleased with our continued momentum. And as you know, both our household debt refinance product and our professional lines of credit have very solid momentum looking forward.\n\nUnknown Analyst (Analyst): Great. Thank you.\n\nConference Call Operator (Operator): Our next question from Casey Hare with Jefferies.\n\nCasey Hare (Analyst, Jefferies): Thanks. Good morning, everyone. Follow-up question on the NIM. I'm curious what kind of rate hikes are baked into the NIM guide, as well as excess liquidity deployment. Cash balance is up slightly on the quarter. Thanks.\n\nOlga Sokova (Chief Accounting Officer and Acting Chief Financial Officer): We anticipate three Fed moves during 2022 and slightly flatter yield curve. And we still expect our cash levels to be elevated and this puts us in the lower end of our guided range.\n\nMike Roffler (President and Acting Co-CEO): Yeah, I might add to that just a little bit, Casey. I think you've heard us talk about this in the past, right? We're okay to carry elevated cash levels given our strong deposit growth. We're going to deploy it first and foremost for client opportunity and client activity. in investments on a strategic basis or on an additive basis. The reality of it is we're focused more on net interest income growth than we are what the reported margin might be. And yes, it's been at the lower end of our range here for a while, but if you look at our net interest income growth, it's been incredibly strong the last several quarters.\n\nCasey Hare (Analyst, Jefferies): Yeah, for sure. Okay, and on the deposit growth, you know, 36% year over year. I know it's difficult to forecast, but are you still seeing pretty strong momentum in that front, or do you expect that to kind of moderate from this pace seen in 2021?\n\nMike Selfridge (Chief Banking Officer): Hey, Casey, it's Mike. Yeah, obviously, it was an incredible year in terms of deposit growth, and there's a number of factors. New household acquisition, I'd say it was a good split between business and consumer, probably two-thirds business, a third consumer, increase in average balances overall. And just given the general industry dynamics and excess deposits in the system, stimulus driven, the stimulus has stopped. So that probably will moderate deposit growth from 36%. But we're very optimistic about our ability to continue to generate deposits in new households to support the the good loan growth that we've been able to demonstrate over years.\n\nCasey Hare (Analyst, Jefferies): Okay, great. And just last one for me on the FHLBs, you know, pretty dramatic decline from that sort of 10% of the balance sheet historically at a little under 3%. Are we, how much of this do you anticipate being permanent? Because obviously this, that would be a very nice positive makeshift to the funding base?\n\nMike Roffler (President and Acting Co-CEO): Yeah, no, thanks for the question, Casey. I mean, it sort of builds off, you know, what Mike Selfridge said. I mean, given the extremely strong liquidity that all banks have benefited from in their deposit base, we've repaid, as you've seen, you know, FHLB. We do like to use the FHLB as a duration match. And so I think there will be a time where it will increase again. But right now, It doesn't feel like that's sort of in the cards for a little while, given how strong the liquidity is in the banking system and including us.\n\nUnknown Analyst (Analyst): Very good. Thank you.\n\nConference Call Operator (Operator): Next to Terry McEvoy with Stevens.\n\nUnknown Analyst (Analyst): Hi, thanks. Good morning, everyone.\n\nTerry McEvoy (Analyst, Stevens): Um, maybe first question, um, were there any other employee departures, uh, in recent weeks that, that didn't warrant a press release or an eight K filing, uh, but maybe were longstanding employees at the bank and, and, and important to the outlook.\n\nMike Roffler (President and Acting Co-CEO): Uh, no, no, nothing like that. Um, I would like to say something though about this because you, you, you mentioned something that's of interest. So periodically, right. Um. very long standing employees get to a point where they like to retire, including on the relationship management side. And just a comment on that, like when they have happened, their books of business and transition. There's no disruption. We have a very thoughtful approach when that happens because we discuss it with our colleagues and you transition the business to people who've worked with the clients. And there's typically no disruption. And frankly, it usually leads to a growth in the business because it's another contact point. And our clients deeply appreciate the thoughtfulness with which we approach this.\n\nMike Selfridge (Chief Banking Officer): And I would, Terry, just add one point that goes to the next generation relationship manager program that has been in place for almost seven years. And that's grooming our next generation relationship managers to meet the needs of those next generation clients. And so there's a combination of both hiring and grooming from within, and I think that adds a lot to the depth of the franchise.\n\nTerry McEvoy (Analyst, Stevens): Great. I appreciate that.\n\nMike Roffler (President and Acting Co-CEO): Just to be clear to your first question, no other turnover.\n\nTerry McEvoy (Analyst, Stevens): Great. Thank you both. And then as my follow-up, maybe a question on interest rate sensitivity. What you provide in the deck is, as of September 30th, So I guess my questions are, has that changed or did that change at all over the last three months? And I know in the queue it talks about incorporating future growth projections. Could you maybe just talk about balance sheet dynamics and underlying growth that's behind the 1.4% increase in NII?\n\nMike Roffler (President and Acting Co-CEO): Yeah, no, from quarter to quarter, those disclosures don't change a lot. And that's largely because of how consistent and stable we are. So we'll have the year end numbers, you know, here in our 10K in a bit. You know, a few comments on this because the bank has always been about consistency and stability, especially when you think of financial metrics, right? So our net interest margin, our efficiency ratio, if you go through the two years of the pandemic, frankly, much of that never changed, right? The efficiency got better over time. And our margin, we didn't deviate at all, notwithstanding liquidity in the system, the Fed reducing rates very, very quickly. And if you go back over time, that's pretty much the case. And so a few dynamics that help with that. 72% of our deposits are in checking. That gives you some protection as rates starts to rise. And then one that's probably you highlight when you said it, growth. The loan portfolio growth at 15 to 20% per annum, coupled with 25 to 27% already floating, leads to nearly half the portfolio repricing in a year. And so, again, what does that lead to? Consistency, especially as you can lag some of your deposit pricing. And so when we provide our guidance, that's all factored in, also with a growing balance sheet and, importantly, growing net interest income.\n\nUnknown Analyst (Analyst): Thank you, Mike.\n\nConference Call Operator (Operator): We'll go next to John Pancari with Evercore.\n\nTom Stevens (on behalf of John Pancari) (Analyst, Evercore): Hi, good morning. This is Tom Stevens on for John Pancari. I just want to talk about your loan growth guidance for 2022. Can you talk about some of the underlying growth dynamics that you guys expect, specifically on CNI, cap call, and mortgage settlement?\n\nMike Selfridge (Chief Banking Officer): Hi, it's Mike Selfridge. We provided mid-teens guidance. We're comfortable with that guidance. And in terms of Mike Roffler alluded a bit to our positioning going into the market for 2022, our pipeline is strong up from last year. There are some natural headwinds to refinance given the expected increase in interest rates. But having said that, I would point you to our very modest market share today. our positioning as it relates to client loyalty. And so we do expect continued growth for the year, both in single family, multifamily, and on the cap call line, it's been very active. You saw the increase in utilization rate given the activity in 2021 and our positioning in the business banking sector looks very good looking forward.\n\nTom Stevens (on behalf of John Pancari) (Analyst, Evercore): Great. Thank you for that. And then just quickly, I know you guys pointed out that $19 million FHLB prepayment expense and other expenses. Can you just talk about a good runway going forward for that line item?\n\nUnknown Analyst (Analyst): Thank you.\n\nOlga Sokova (Chief Accounting Officer and Acting Chief Financial Officer): So, yeah, we had elevated levels, obviously, this past quarter with a significant amount of prepays. Once in a while when we prepay, we have prepayment costs like we had some small amount last quarter. If we look at our outstanding FHLB advances, the next maturity dates will be sometime in 2023. So this is kind of the next maturity of those. So we don't expect, obviously this quarter was elevated level, so we don't expect that going forward.\n\nUnknown Analyst (Analyst): Great. Thank you for taking my questions.\n\nConference Call Operator (Operator): We'll take our next question from Andrew Leash with Piper Sandler.\n\nAndrew Leash (Analyst, Piper Sandler): Hi, good morning, everyone. Thanks for taking the questions. Good morning. On the 180 basis point or so hit to the efficiency ratio on the salaries and benefits, how much of that was severance versus, say, just the true up in bonuses?\n\nMike Roffler (President and Acting Co-CEO): So, what I'd say is this. There was a contractual arrangement that was entered into in July. And we were paid in line with that contract, and it includes what I call two items. One would be severance, and the second would be the unamortized RSU expense, because those are continuing to vest under the terms of the contract.\n\nAndrew Leash (Analyst, Piper Sandler): Got it. Okay. That's helpful. So, if I take that out and take out the 19 million of the prepayment penalties, I'm getting close to an efficiency ratio of 60%. and your guidance is notably higher than that. Is that just more of a return from travel and entertainment costs, more client events next year? I'm just trying to figure out why the efficiency ratio could rise four percentage points from there.\n\nOlga Sokova (Chief Accounting Officer and Acting Chief Financial Officer): So you're correct. When we think about 2022, obviously Omicron \u2013 Delayed things quite a bit. We still plan to go back to the offices in 2022 and start hosting client events. But at the same time, we don't slow down and continue investing in our franchise. And this is what you'll see embedded in our guidance for 2022.\n\nMike Roffler (President and Acting Co-CEO): The other thing, you know, Andrea, the way you just did that, our efficiency ratio relative to third quarter, relative to fourth quarter a year ago, are all in line, right? So, again, think about consistency over long terms. Think about the business model over a long period of time, and that consistency sort of is a manifestation of that, and you see that in our overall results.\n\nAndrew Leash (Analyst, Piper Sandler): Got it. Okay. Thank you. And then just on the mid-teens loan growth guidance, Certainly there are some headwinds on refi, but it seems like you still have a pretty good pipeline, especially bringing over new clients. I mean, that does sound like a slowdown from the last few years. Is there anything in there that could cause that slowdown, or is this somewhat conservatism on the growth outlook?\n\nMike Selfridge (Chief Banking Officer): Well, I'd say it's realistic. And when we look at the opportunities ahead, it's what we feel comfortable with. And, yeah, I would note, even in rising rate environments, the last one being 2016 to 2018, Refis generally over 10 years have never gone below 40% of our single family originations. And so you'll see a mix between purchase and refi in terms of the percentage. And it's still a very active market, still a very active purchase market. I would note that's on the purchase side, an area where we very much excel as it relates to the competition given our ability to execute and deliver for our clients.\n\nMike Roffler (President and Acting Co-CEO): The other thing I'd add is when rates have been pretty low right now, CPRs have been elevated. And so you're seeing the growth that we have produced the last couple years, especially in that elevated environment. There is some impact that it will slow down a little bit as rates rise. That said, the volume of activity remains incredibly strong right now.\n\nUnknown Analyst (Analyst): Got it. Okay, thanks for taking the questions.\n\nConference Call Operator (Operator): Take our next question from Chris McGrady with KBW.\n\nspk05 (): Hey, good morning. I was wondering if you could start or provide a comment on new production yields and what you're buying in the bond book compared to last quarter. Thanks.\n\nMike Selfridge (Chief Banking Officer): Let me start with the lending side and turn over to Mike or Olga on the investment side. But single-family originations are coming in right around probably 270. Multifamily about 310. Commercial real estate about 340. Cap call lines accredited probably in the prime minus 75 basis point range.\n\nMike Roffler (President and Acting Co-CEO): And on the investment side, you know, municipals have been sort of in the low threes, up to three and a quarter. HQLA. Some of the recent activity we've seen is around 2%.\n\nspk05 (): Thanks for that. Maybe the follow-up would be with all the preferred actions in the quarter, could you just help us with the run rate going forward, Mike?\n\nMike Roffler (President and Acting Co-CEO): Sorry, could you say that again just so I caught it?\n\nspk05 (): Just the new run rate for the preferred dividend because of the movement in the quarter.\n\nOlga Sokova (Chief Accounting Officer and Acting Chief Financial Officer): Yeah, this was $38 million. It was expected to be in the first quarter.\n\nUnknown Analyst (Analyst): Got it. Thanks.\n\nConference Call Operator (Operator): And we'll take our next question from Jared Shaw with Wells Fargo Securities.\n\nJared Shaw (Analyst, Wells Fargo Securities): Hi, good morning. Thanks for taking my questions. Maybe just on the pipeline, you mentioned that it's up year over year going into the first quarter. Should we expect that that is more similar to the, I guess, the lower rate of annual growth that we saw this quarter, or should that recover back up to the to a higher level that we saw earlier in the year.\n\nMike Roffler (President and Acting Co-CEO): I assume you're referencing that loans grew about 5% quarter on quarter?\n\nJared Shaw (Analyst, Wells Fargo Securities): Well, I guess I was looking at the origination level of 1% year over year versus when it was closer to 50%.\n\nMike Roffler (President and Acting Co-CEO): Yeah, let me add some context. I mean, the fourth quarter of last year, if you sort of recall what happened, Uh, March, April, May was a pretty big slowdown in 2020 of client activity. Cause that was obviously the very first stay at home orders. People had to figure out how to do appraisals and, and home visits. And then there was an acceleration. So the, the, the typical path of originations last year was different. This year probably is more normal, but Mike.\n\nMike Selfridge (Chief Banking Officer): Yeah, I think, Jared, in particular, if you look at single family quarter of a quarter, there was just a little bit of unusual bunching that occurred in 2020 given the pandemic. I'd steer you more towards the annual origination number, which was a record at $65 billion, up 23%, significantly in single family, multifamily, CRE, and capital call lines of credit.\n\nJared Shaw (Analyst, Wells Fargo Securities): Okay. All right. That's a good color. Thanks. And then, Looking at capital, obviously, all the regulatory ratios look really strong. TCE, though, continues to trend down. When you look at, in the past, the desire to hold two years of growth capital, do you feel that you're there right now, or could we see some additional capital bolstering to get that two-year cushion again?\n\nMike Roffler (President and Acting Co-CEO): thanks jared for the question i mean we were really pleased with the five offerings that we did in in 2021 and really bolstering the bank's capital and similar to you know the past we're opportunistic and we look at both markets and depending upon you know the opportunities we'll we'll go into um we'll go into one or the other and we feel really good where we're at now and we think that this gives um gives us running room, and so we remain opportunistic, but, you know, nothing, you know, from an immediate standpoint.\n\nJared Shaw (Analyst, Wells Fargo Securities): Okay. And just finally for me, I guess, you know, on the management front, one, have there been any other internal promotions, I guess, besides yourself and Olga over the last few weeks? And then sort of second, for a company that is really always prided itself on developing in-house talent, Does hiring Korn Ferry for the CEO search signal a change and should we expect potentially the next permanent CEO to be from the outside?\n\nMike Roffler (President and Acting Co-CEO): So in terms of the first question, there have been promotions internally. We have promotions each year internally as people advance their career and take on more responsibility. And we have a terrific team, a deep team. that has continued to take on these additional responsibilities in the face of this change. In terms of the search process, you know, the board is conducting a thorough process, and I don't think it signals necessarily a change in approach, but we've been working at succession for, I've been at the bank 12 years. I'm a product of that succession as I was hired as the deputy CFO with my predecessor, Willis Newton, as the CFO. Mike Selfridge is here as part of that. And so the board has been focused on this, and it's been one of their biggest priorities for the better part of a decade. And the team in place is outstanding. And so the last part of this is the CEO successor, and they're now focused on the right cultural fit to carry our business and business model forward.\n\nUnknown Analyst (Analyst): Great. Appreciate the color and taking the questions.\n\nConference Call Operator (Operator): And that concludes today's question and answer session. Mr. Roffler, at this time I'll turn the conference back to you for any additional or closing remarks.\n\nMike Roffler (President and Acting Co-CEO): Thank you everybody for the questions. I'd just like to close with 2021 was a terrific year with strong growth growth across the board we're starting 2022 with client satisfaction at an all-time high a robust loan pipeline and great opportunities in front of us we're very optimistic about the future and are looking forward to the year ahead have a great day everyone this concludes today's call thank you for your participation you may now disconnect\n\nBill Carcacci (Analyst, Wolf Research): You know Liberty Mutual customizes your car insurance? So you only pay for what you need? Like how I customized this scarf? Check out this backpack I made for Marco. Only pay for what you need.",
+  "n_turns": 93
+}

@@ -1,0 +1,501 @@
+{
+  "ticker": "MRK",
+  "original_ticker": "MRK",
+  "call_date": "2024-07-30",
+  "year": 2024,
+  "quarter": 2,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "MRK",
+    "year": 2024,
+    "quarter": 2
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T02:04:48Z",
+  "raw_payload": {
+    "event": {
+      "year": 2024,
+      "quarter": 2,
+      "conference_date": "2024-07-30T09:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk07",
+        "text": "This call is being recorded. If you have any objections, you may disconnect at this time. I would now like to turn the call over to Mr. Peter Dannenbaum, Senior Vice President, Investor Relations. Sir, you may begin."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Thank you, Brad, and good morning, everyone. Welcome to Merck's second quarter 2024 conference call. Speaking on today's call will be Rob Davis, Chairman and Chief Executive Officer, Caroline Litchfield, Chief Financial Officer, and Dr. Dean Lee, President of Merck Research Labs. Before we get started, I'd like to point out that we have items in our GAAP results, such as acquisition-related charges, restructuring costs, and certain other items, and that we have excluded these from our non-GAAP results. There is a reconciliation in our press release. I will also remind you that some of the statements that we make today may be considered forward-looking statements within the meaning of the safe harbor provision of the U.S. Private Securities Litigation Reform Act of 1995. Such statements are made based on the current beliefs of Merck's management and are subject to significant risks and uncertainties. If our underlying assumptions prove inaccurate or uncertainties materialize, actual results may differ materially from those set forth in the forward-looking statements. Our SEC filings, including Item 1A and the 2023 10-K, identify certain risk factors and cautionary statements that could cause the company's actual results to differ materially from those projected in any of our forward-looking statements made this morning. Merck undertakes no obligation to publicly update any forward-looking statements. During today's call, a slide presentation will accompany our speaker's prepared remarks. These slides, along with the earnings release, today's prepared remarks, and our SEC filings are all posted to the investor relations section of Merck's website. With that, I'd like to turn the call over to Rob."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Thanks, Peter. Good morning, and thank you for joining today's call. Our business is demonstrating strong momentum as we exit the first half of the year. We remain guided by our purpose of harnessing the power of leading-edge science to save and improve lives around the world. Our ambitious and dedicated teams are working tirelessly to reach more patients with our broad commercial portfolio and advance our deep pipeline with the goal of delivering future innovations that solve for additional unmet medical needs. Through excellent scientific, commercial, and operational execution, we're achieving significant milestones for our company and for patients. This quarter, we're proud to have successfully launched WinRiver, which has introduced a novel mechanism to treat adults suffering with pulmonary arterial hypertension. We're also pleased by the recent FDA approval of Capvaxiv, the first approved pneumococcal conjugate vaccine specifically designed for adults, as well as the subsequent ACIP recommendation. Both of these important innovations demonstrate our unwavering commitment to creating value for patients and shareholders. And we remain committed to the execution of strategic business development to further augment our pipeline. We recently announced and have now closed the acquisition of iBio, which expands our effort in ophthalmology and brings to Merck a novel late-phase candidate for the treatment of retinal diseases. This promising new mechanism adds another substantial potential commercial opportunity to our expanding pipeline in an area of significant unmet medical need. In addition, our animal health business closed the acquisition of Lenco's Aqua business, which establishes Merck as a leader in this important production animal category. Three years ago, I was honored to step into the role of CEO. and it remains my top priority to uphold and build on Merck's legacy as a premier science-driven, patient-focused biopharmaceutical company. At that time, I affirmed Merck's strategic commitment to the research and development of innovative medicines and vaccines as a source of long-term value creation. I communicated our intention to be appropriately aggressive in making the necessary investments to both advance our broad internal pipeline and augment it with the best external science through business development. Since then, we've made substantial progress in expanding and evolving our pipeline for the benefit of future patients. We have the potential to bring as many new drugs to market in the next five years as we launched over the last 10 years across a greater number of therapeutic areas and modalities, and with a significant proportion having Blockbuster Plus potential. We've made tremendous progress building on our past successes, enabling the creation of a sustainable engine that will drive future innovations for patients. And we continue to leverage our scientific prowess to identify new therapeutic targets where we can add value through our expertise in clinical development and regulatory affairs and our global commercial scale. I'm also proud of the substantial improvements we've made across our sustainability focus areas. We're reaching more people with our medicines and vaccines across a greater number of countries globally than ever before, and doing so with a dedicated, highly talented and diverse employee base. Finally, we're driving increased innovation and productivity through widespread integration of data, digital and analytics in all areas of our business. Going forward, I'm committed to ensuring our actions remain aligned with our strategy, and I'm confident that we are well positioned to deliver value to patients and shareholders long into the future. Turning to our second quarter results, we achieved strong growth reflecting continued demand across our broad portfolio, which was reflected in our updated foliar guidance, which Caroline will speak to in just a moment. Turning to our broader research efforts and new launches, in cardiometabolic, we've seen very favorable reception by physicians, patients, and payers to the availability of WinRiver. While still early, the U.S. launch has gone very well, in line with our own high expectations. We've deployed a focused, customer-centric rare disease model and are pleased to see an increasing number of prescriptions being written and patients obtaining access. We've also received a positive CHMP opinion and look forward to potential regulatory approval in Europe in the near future. we continue to see a tremendous opportunity to positively impact the lives of patients living with this devastating disease. In vaccines, we've continued to bring forward innovations for both adults and children. We are proud of the recent FDA approval of CABACCIV for the prevention of invasive pneumococcal disease and pneumococcal pneumonia in adults and the unanimous ACIP recommendation. Given its compelling clinical profile, we expect that cabvaxib will achieve a majority market share in the adult setting. We were also pleased to announce positive top-line results from the Phase 2b3 clinical trial for clozorovimab, our investigational monoclonal antibody for the prevention of RSV in infants, and we are moving swiftly to bring this important option to market. Finally, at our ASCO investor event, We highlighted the significant broadening of our oncology pipeline and the progress we've made in building on the success of Keytruda. We presented data from multiple novel candidates demonstrating our commitment to advancing standards of care and maintaining leadership over the long term. As a company, we remain highly focused and continue to work with urgency to bring forward these innovations and others for the patients we serve. In summary, I want to again recognize the tremendous efforts of our global team. Together, we've made significant progress across our diverse pipeline and portfolio. As a company, we've been advancing science for the benefit of patients for over 130 years, and I'm confident that Merck is well-positioned to deliver value to patients, shareholders, and to all of our stakeholders well into the future. With that, I'll turn the call over to Caroline."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Thank you, Rob. Good morning. As Rob noted, we delivered another excellent quarter with growth driven by robust global demand across our innovative portfolio. These results are enabled by the excellent execution of our teams and reinforce the conviction we have in our science-led strategy. We remain confident in our ability to continue to deliver strong results in the near term and are committed to making disciplined investments in compelling science to drive long-term value for patients, customers, and shareholders. Now turning to our second quarter results. Total company revenues were $16.1 billion, an increase of 7% or 11% excluding the impact of foreign exchange. The following revenue comments will be on an exchange basis. Our human health business sustained its momentum with double-digit growth of 11%, primarily driven by oncology. Our animal health business also delivered solid performance, with sales increasing 6%, driven by growth in livestock products. Turning to the performance of our key brands. In oncology, sales of Keytruda grew 21% to $7.3 billion, driven by increased uptake from earlier stage cancers and continued strong global demand for metastatic indications. In the U.S., Keytruda grew across a broad range of tumors. In the earlier stage setting, the increase was largely attributable to uptake from Keynote 671 and Keynote 091 in non-small cell lung cancer. Keytruda has now achieved market leadership in the neoadjuvant and adjuvant settings, building on its existing leadership position as adjuvant therapy. In metastatic disease, we saw continued strong uptake in first-line advanced urothelial cancer following the recent launch of Keynote A39. Keytruda plus PADSES has now surpassed platinum chemotherapy-based regimens in new patient starts. Outside the U.S., Keytruda growth was driven by increased use in certain earlier stage cancers, including high-risk early stage triple negative breast cancer and intermediate high or high-risk renal cell carcinoma, as well as continued strong demand from patients with metastatic disease. Inflation-related price increases, consistent with market practice in Argentina, also contributed to growth. Alliance revenue from Limpaza and Lempema each grew 4%. Wellireg sales more than doubled to $126 million, driven by increased uptake in certain patients with previously treated advanced renal cell carcinoma. Our vaccines portfolio delivered solid growth. Gardasil sales increased 4% to $2.5 billion. In the U.S., sales benefited from price as well as demand and favorable CDC purchasing patterns. Outside the U.S., higher demand across many international markets was partially offset by the timing of shipments to China. In New Macaulay, vaccine advance sales increased 16% to $189 million. Growth was driven by ongoing launches in international markets. As Rob noted, we are very excited by the opportunity to positively impact the lives of adult patients with pulmonary arterial hypertension following the recent US launch of WinRever. Recall, we received FDA approval on March the 26th, with the first patients receiving therapy about one month later. Initial patient and physician feedback has been favorable. and we recorded $70 million of sales in the quarter. We estimate that approximately 40% of sales were attributable to doses administered to patients, with the remainder due to distributors building inventory in support of increasing demand. The launch is off to a strong start. As of the end of June, more than 2,000 patients received a prescription for WinRever. Our experience to date with those prescriptions would suggest that approximately 75% to 80% will receive commercial product. Of those, more than 1,000 patients started treatment in the quarter, largely reflecting prescriptions written in April and May, as it currently takes approximately one month to complete the steps necessary to commence therapy. More than 500 physicians have written at least one prescription with many looking to gain experience with the product as they prioritize treating the most advanced patients who are in greatest need of additional therapy. Most prescribers are from either large academic centers or larger private practices. We are pleased that payers are recognizing the value of WinRever and are already providing access to patients. Many payers have established coverage policies consistent with the label or stellar study criteria, while others are in the process of developing their policies. In summary, we are pleased with the strong start and look forward to continued progress in enabling access for appropriate patients over the coming months. Our animal health business delivered another solid quarter, with sales increasing 6%. Livestock sales grew 11%, driven by higher demand for poultry and ruminant products, as well as price. Companion animal sales grew 1%, reflecting price partially offset by a reduction in distributor inventory. We are also excited to have launched a long-acting Brevecto injectable in a number of international markets during June. I will now walk you through the remainder of our P&L, and my comments will be on a non-GAAP basis. Gross margin was 80.9%, an increase of 4.3 percentage points, driven by reduced royalty rates for Keytruda and Gardasil, as well as favorable product mix. Operating expenses decreased to $6.2 billion. There were no significant business development expenses in the quarter, compared with a $10.2 billion charge a year ago. Excluding this charge, operating expenses grew 8%, reflecting strategic investments to realize the promise of our robust early and late phase pipeline and support the promotion of our key growth drivers. Other expense was $108 million. Our tax rate was 14.1%. Taken together, earnings per share were $2.28. Now turning to our 2024 non-GAAP guidance. The continued operational strength of our business has enabled us to raise and narrow our full-year revenue guidance. We now expect revenue to be between $63.4 and $64.4 billion, an increase of approximately $200 million at the midpoint. Our increased guidance range represents strong year-over-year revenue growth of 5% to 7%, including an approximate 3 percentage point negative impact from foreign exchange using mid-July rates. Our gross margin assumption remains approximately 81%. We now expect operating expenses to be between $26.8 and $27.6 billion. This range reflects an incremental $1.5 billion of charges related to the runtime cost to acquire iBio and ongoing expenses to advance the assets, as well as investments to progress our innovative pipeline. As a reminder, our guidance does not assume additional significant potential business development transactions. Other expense is expected to be approximately $350 million, which now includes financing costs for the acquisitions of iBio and Elanco's Aqua business. Our full year tax rate is now expected to be between 15.5% and 16.5%. which includes an unfavorable impact related to the iBio acquisition that is not tax deductible. We assume approximately 2.54 billion shares outstanding. Taken together, we expect EPS of $7.94 to $8.04. This range includes a negative impact from foreign exchange of more than 30 cents using mid-July rates. Recall, Our prior guidance range was $8.53 to $8.65, including the one-time charge of $1.3 billion, or 51 cents per share, related to the acquisition of iBio, and an estimated 9 cents to advance the assets, as well as finance the iBio and Elanco aqua business transactions. Our prior guidance range would have been $7.93 to $8.05, with a midpoint of $7.99. Our current guidance midpoint remains the same, as our higher revenue estimate is being offset by increased investments to support our business. As you consider your models, there are a few items to keep in mind. We look forward to the opportunity to help protect certain adults from invasive pneumococcal disease and pneumococcal pneumonia following the recent FDA approval and ACIP recommendation of Capfaxiv. We are now working toward the achievement of certain milestones that will enable commercial uptake. These milestones include publication in the Morbidity and Mortality Weekly Report, which typically lags an ACIP recommendation by a few months, as well as obtaining payer coverage and contracting with customers. For Gardasil, over the past few years, we've benefited from extremely strong demand in China, including from the expanded indication for Gardasil 9 to the 9 to 45-year age cohort in late 2022. In the second quarter, however, there was a significant step down in shipments from our distributor and commercialization partner, Shefei, into the points of vaccination compared with prior quarters, resulting in above normal inventory levels at Chaffee. We are working closely with them to more fully understand the dynamics that caused this change. As we learn more, we will assess future shipments to our partner and work to bring their inventory back to more normal levels. If shipments from Chaffee into the points of vaccination do not increase, it is likely that we will ship less than our full year 2024 contracted doses by the end of this year. We believe the opportunity in China remains very attractive as there are more than 120 million females in the addressable population living in Tier 1 to Tier 5 cities who have not yet received the protection of an HPV vaccine. As we said before, it will take increasing efforts to educate and activate the next wave of patients. Together with Chaffee, we are focused on and committed to investing in additional resources and patient education on the value of Gardasil, given the important benefits it provides. We also look forward to the potential approval for males, which we believe represents a meaningful opportunity. More broadly, we remain confident in the opportunity for Gardasil globally, based on the protection it provides against HPV-related cancers and low immunization levels overall, and continue to believe we will achieve sales of over $11 billion by 2030. Our initial launch of WinRever is having a positive impact for patients. We are very pleased with its performance, and look forward to supporting more patients in the US and across the globe. Outside the US, we are pleased with the positive CHMP opinion and potential near-term launch in Europe. Following EU approval, we will need to obtain reimbursement, which should occur in 2025 in most major markets, but expect that Germany will receive reimbursement and launch this year. We remain confident in the successful launch of WinRiver, consistent with our high expectations, and look forward to providing further updates on our progress. Now turning to capital allocation, where our strategy remains unchanged. We will prioritize investments in our business to drive near and long-term growth. We will continue to invest in our expansive pipeline of novel candidates, each of which has significant potential to address important unmet medical needs. We remain committed to our dividend and plan to increase it over time. Business development remains a priority and we are well positioned to pursue additional science-driven, value-enhancing transactions. We will continue to execute a modest level of share repurchases. To conclude, As we enter the second half of the year, there is continued strength in our business, driven by global demand and commercial execution. We remain confident in our outlook, driven by our unwavering commitment to leverage leading edge science to save and improve the lives of patients. With investment in innovation and our ongoing focus on execution, we are well positioned to deliver value to patients, customers, and shareholders now and well into the future. With that, I'd now like to turn the call over to Dave."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you, Caroline. Momentum continued in the second quarter with several clinical and regulatory milestones as well as progress in our science-led business development strategy. Today, I will speak first to programs in vaccines, then cover oncology followed by cardiometabolic disease. As Rob noted, last month, the FDA approved Kebvaxiv, our 21-valent pneumococcal conjugate vaccine, and we subsequently received a unanimous recommendation from the CDC's Advisory Committee of Immunization Practices for its use in certain adult populations. Kebvaxiv is the first vaccine specifically designed to help protect adults against pneumococcal pneumonia, an invasive pneumococcal disease, and as such, provides an important new public health option. It has been designed to address those serotypes responsible for approximately 85% of the incidence of invasive pneumococcal disease in individuals 65 years and older based on CDC-generated surveillance data. The CAVAXIV marketing authorization application is also under review by the European Medicines Agency's Committee for Medicinal Products for Human Use. We continue to evaluate novel approaches to alleviate the burden of infectious disease. Recently, we announced positive top-line results for clozrobimab, our investigational respiratory syncytial virus preventative antibody, a single, fixed-dose option to help protect infants from birth through their first full RSV season. In the Phase 2B-3 trial, Clasrobimab met its primary efficacy and safety endpoints, as well as its secondary endpoint regarding RSV-associated hospitalization. Detailed findings of the study will be presented at an upcoming scientific congress, and we plan to file these data with global regulatory authorities. Globally, RSV infection is a leading cause of hospitalization for otherwise healthy infants under one year of age. The historically high surge in incidents in the 2022-2023 season reinforced the need for more effective preventative measures."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Now, to oncology. During the event, event at ASCO, we"
+      },
+      {
+        "speaker": "spk03",
+        "text": "We're a survival benefit in high-risk, early-stage, triple-negative breast cancer based on the Keynote 522 study. earlier stage indications, of which four have now demonstrated a statistically significant overall survival benefit, including in small cell lung cancer."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Thank you. It's statistically significant overall survival in 25 trials. Next."
+      },
+      {
+        "speaker": "spk03",
+        "text": "with unresectable or metastatic urethelial carcinoma. We are also advancing a broad portfolio of diverse antibody drug conjugates with Kulun Biotech and Daiichi Sankyo, as well as our own internal programs."
+      },
+      {
+        "speaker": "spk14",
+        "text": "For the treatment of certain adult physically treated with two or more systemic therapies. The letter was issued based on findings from an inspection of a third Yeah, and I'm fighting this year. treatment option for certain."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Pipeline with the best external science through our one pipeline approach. We recently closed the acquisition of iBio that includes Restoret, MK3000, and an investigational late phase, potentially first age-related macular degeneration, as well as additional preclinical acids targeting retinal diseases. There remains a significant medical need in this space and our teams are eager to work alongside the talented iBio teams."
+      },
+      {
+        "speaker": "spk08",
+        "text": "strong momentum, and I look forward to providing further updates on our progress."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Now, I turn the call back to Peter. Thank you."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Ladies and gentlemen, if you would like to ask a question, please press star 1 on your telephone keypad. You may withdraw your question."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Once again, if you have"
+      },
+      {
+        "speaker": "spk05",
+        "text": "And maybe as part of that, the 2024 guidance update is the potential for headwind to numbers to the extent that played out. Thank you."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Great. Thanks, Chris. Thanks for the question. And I'll maybe take the first part and then ask Caroline to comment on the guidance."
+      },
+      {
+        "speaker": "spk14",
+        "text": "To your question, China represents the"
+      },
+      {
+        "speaker": "spk11",
+        "text": "The opportunity that exists for Gardasil in China remains very attractive, with more than 120 million eligible females in China yet to be protected against HPV, which represents against HPV-related disease is clear, and importantly aligns with China's Healthy 2030 initiative."
+      },
+      {
+        "speaker": "spk14",
+        "text": "So the underlying support we continue to believe is there."
+      },
+      {
+        "speaker": "spk11",
+        "text": "In addition, we have filed for the mail indication, which has been accepted and represents another significant opportunity."
+      },
+      {
+        "speaker": "spk14",
+        "text": "quarter of 2024."
+      },
+      {
+        "speaker": "spk11",
+        "text": "So as we look at this, we're wanting to understand what would cause the trend break we saw. And I can tell you what we know as of now is we believe there could be multiple factors that may be contributing to this dynamic, and we're working closely with our partner to try to tease out what exactly is happening. Overall, the data we track indicates that the whole we've gathered, activity in the HPV vaccine area has been recently impacted by China's anti-corruption drive, which, as you know, started really last year."
+      },
+      {
+        "speaker": "spk14",
+        "text": "And up to that point, we really haven't seen much."
+      },
+      {
+        "speaker": "spk11",
+        "text": "There has been, as a result of this, a reduction in scientific engagement primarily in the CDC within China, and fewer immunizations. So we need to tease that out more. And in addition, we did see reduced levels of promotional support for HPV vaccination at the same time that our distribution broadened its portfolio. of the remaining female opportunity, and this includes both resources at GERFAE and more selling resources and promotional resources, as well as promotional resources being deployed directly from Merck."
+      },
+      {
+        "speaker": "spk14",
+        "text": "As we look forward, we will have to see how... with our partner."
+      },
+      {
+        "speaker": "spk11",
+        "text": "So hopefully that gives you a sense of what we're seeing, but I just would reiterate one other point, and that's that as we look to the long term, given both the opportunity in China I mentioned for 120 million remaining females, as well as the potential for the male indication, outside of China, iterate our confidence in the $11 billion number by 2030, even taking into account what we saw China happening in China this quarter. So with that, maybe I'll turn over to Caroline and she can address your guidance specific question. Caroline."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Thank you, Rob. So Chris, in terms of our guidance, we've assumed a range of scenarios from providing the fully contracted 2024 doses during this year, to providing something less than that. If I anchor to the midpoint of our guidance, we have been measured in assuming a scenario that has less than the contracted 2024 Gardasil doses shipped to China."
+      },
+      {
+        "speaker": "spk14",
+        "text": "And even with that, we were able to raise our guidance at the midpoint by 200%. including oncology with Keytruda and acquisition of the Elanco Aqua business. And we remain confident in our expectations."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Great. Thank you, Chris. Next question, please, Brad."
+      },
+      {
+        "speaker": "spk07",
+        "text": "The next question comes from . Your line is open."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thanks for taking my question. Can I just dial down the Gardasil point just a little more? Rob, I know you mentioned there's an anti-corruption drive going on in China, which started last year, but it also feels like some of"
+      },
+      {
+        "speaker": "spk14",
+        "text": "future contracting happening and whether your long sometime next year come into the marketplace."
+      },
+      {
+        "speaker": "spk11",
+        "text": "I don't believe from anything we've heard in the marketplace from competitive intelligence as well as what we're hearing from JIRFE that that is what's happening here. As we look forward, and Caroline can comment specifically, you know, we have always expected that as we see the peak move through from the \u2013 continue to drive the business forward from there. Nothing has changed in that dynamic in what we're seeing right now. So as we look forward, our belief in China being a significant contributor is unchanged. But I'll let maybe Caroline can speak specifically as we're thinking about some of the guidance around how we think about next year."
+      },
+      {
+        "speaker": "spk10",
+        "text": "So what I would add is we have always contemplated that we would have a nine-valent competitor within the Chinese market. As such, the current contracted doses with Shifei for 2025 are less than what the contract is for 2024, as we would expect to participate in that market but understand a competitor would likely gain share in that market. We also, though, as was said in the prepared remarks, have the potential opportunity of a mail launch in China. And we are hopeful for an approval with Gardasil 4 and 9 by the first half of next year. It's an important part of our Gardasil business as we move forward. And more importantly, we are confident in the opportunity to drive Gardasil longer."
+      },
+      {
+        "speaker": "spk14",
+        "text": "that could be there is what I would point out, you know, first of all, as we see how this is impacting us, at the CDC, we have seen"
+      },
+      {
+        "speaker": "spk11",
+        "text": "some dampening in them engaging in scientific discussions and driving for vaccination. We believe some of this could be due to the fact that there was criminal charges brought against a senior scientific representative, one of the local players related to a COVID vaccine that we believe has had a dampening effect overall. And how long this lasts, how it will continue to play out, we'll have to see. But I thought I'd provide additional color because I don't want to assume that you all are aware of what really is happening there."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Great. Thanks, Umar. Next question, please, Brad."
+      },
+      {
+        "speaker": "spk07",
+        "text": "The next question comes from Carter Gould of Barclays. Your line is open."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Good morning. Thanks for taking the question. Maybe to switch gears, you have new starts."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Do you see that sort of as sustainable? or surpassable, and as we think about sort of that one month delayed timeline from prescription to start, can you maybe characterize how much of that is sort of payer versus sort of the nurse training driven, and if there's a chance that might have ."
+      },
+      {
+        "speaker": "spk14",
+        "text": "As of the end of June, we've had more than 2,000 patients receive a prescription for when"
+      },
+      {
+        "speaker": "spk11",
+        "text": "is that about 75% to 80% of those receiving a prescription will convert to commercial product. So that gives you a sense of what's happening. Right now, actually, in the quarter, driving the revenue you saw was about 1,000 patients"
+      },
+      {
+        "speaker": "spk14",
+        "text": "convert to be commercial sales."
+      },
+      {
+        "speaker": "spk11",
+        "text": "And so what's driving that difference, some of that is due to access, but also some of it is due to patient dropout and the fact that you will have some patients who, despite getting a certificate after they go through board work and go through the medical evaluation, from an access perspective, is about two weeks to three weeks. So there is, you know, obviously opportunities to improve that."
+      },
+      {
+        "speaker": "spk07",
+        "text": "The next question comes from Tim Anderson of Wolf Research. Your line is open, sir."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Oh, thank you very much."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Just going back to Gardasil, I know you're reiterating your"
+      },
+      {
+        "speaker": "spk14",
+        "text": "year-on-year sales actually contract you know six years"
+      },
+      {
+        "speaker": "spk11",
+        "text": "a flattening of the curve as we see the female indication be more fully penetrated. Obviously, more to go there, given what we believe is still the addressable population. And then it will ramp back to growth as the male population comes on in full."
+      },
+      {
+        "speaker": "spk14",
+        "text": "So that is what"
+      },
+      {
+        "speaker": "spk11",
+        "text": "how provinces and actually then determining ultimately that end sale to the point of vaccination. As we look forward, you know, I think it's important to understand that Gardasil, as we think about the addressable population, we continue to believe will be a highly sought after vaccine, even in the face of competition. And we're dealing in an overall population when we quote the 200 million total females of which we would say were 30 to 40% penetrated today, that's really in the tier one to five cities that we think can afford a cash pay market. The total population accessible in China is much bigger. And so I don't think we should assume we're all competing for that small slice. There's a much bigger slice. We've chosen not to go for that bigger piece because obviously we can't get into the local vaccination program"
+      },
+      {
+        "speaker": "spk14",
+        "text": "because we don't produce in China. Our competitors opportunity in China that will benefit both us and the competitors chance we could be sitting alone with that as well. So the dynamics need to play themselves out. of TD Cohen."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your line is open."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Oh, thank you. How does Clostrovumab compare on hospitalizations to Bifortis data-specifics? But for instance, would you say your product is highly competitive? And I'm just curious, how does it achieve longer durability given that it has a shorter half-life than bifortis. Thank you."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, so this is Dean. Thanks for the question. As you point out, there is a"
+      },
+      {
+        "speaker": "spk03",
+        "text": "PKPD in relationship to the half-life in relationship to the affinity, but the prevention, which was studied, would cover the entire RSV season, which is five to six months. We did announce the public presentation of these that we hope to have at a at some session in the second half. I do point out that what you highlight is really important, which is, you know, the RSV-associated hospitalization will be a really important point in the relationship to look at... Your line is open."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Thank you very much for taking my question. And just to try to understand the long-term growth path for Gardasil, it seems like, and correct me if I'm wrong, a lot of it would depend. The question is, of those tier one to five cities, Where do you think there is a bigger opportunity?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Because I'm going to"
+      },
+      {
+        "speaker": "spk11",
+        "text": "A little bit less penetrated. I think we're around kind of say 30th percent in the four and five tier cities, and we're around 40% in the one to three. So there's not a huge spread between the tier one to three and the four to five. So we will continue to focus efforts across all of those areas as we have been to date. And then it's a whole different exercise to activate the male population across that same area which frankly isn't there today because of the fact that we don't yet have the indication. As you think about how all of this fits into the broader global picture, I think it's also important just to remind everyone that the total penetration of Gardasil on a global basis to the eligible population is approximately 10%."
+      },
+      {
+        "speaker": "spk14",
+        "text": "So our opportunity to"
+      },
+      {
+        "speaker": "spk11",
+        "text": "driving double-digit growth across the rest of the world outside of China. Part of it is we are starting to see uptake in that private market activation, both in Europe and across parts of Latin America and Asia Pacific more broadly. We're going to continue to drive into the low- and middle-income markets. We see that as a meaningful opportunity going forward, and we are well on our way to getting our costs into position. to be able to compete in that space quite effectively."
+      },
+      {
+        "speaker": "spk14",
+        "text": "We will continue to drive that example of where we need to get a male education to drive for gender neutral vaccination parts of the world where there still is a lot of opportunity to drive for gender neutral for males there as well."
+      },
+      {
+        "speaker": "spk11",
+        "text": "So the opportunities are significant. The context of how we will drive growth has multiple levers for us to look at to do that. And that's why we are confident in the $11 billion."
+      },
+      {
+        "speaker": "spk08",
+        "text": "The next question is from Louisa Hector of Barenberg. Your line is open."
+      },
+      {
+        "speaker": "spk09",
+        "text": "can file in all major markets this year. And then I just wondered about China in this context. Is that a market where you'll be filing soon and what the opportunity is there, how much education is required to access the private market? Thank you."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Yeah, so let me just... This level set in relationship to clozorobimab and the RSV antibody."
+      },
+      {
+        "speaker": "spk03",
+        "text": "So I want to make sure that there's no concept that this is coming out this RSVP season. We're targeting next RSVP season."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Maybe just on the broader question, you know, could this be an opportunity in China?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "We are continuing to look at all global markets. And I would point out, as Dean pointed out, we're looking at the 25-26 RSV season, so next year."
+      },
+      {
+        "speaker": "spk14",
+        "text": "And then beyond that, we're looking at the 25-26 RSV season, so next year."
+      },
+      {
+        "speaker": "spk01",
+        "text": "I want to ask about the recent ODAC that was on periadjuvant development in lung cancer. I wonder, let's assume FDA takes a hard line on requiring the contribution of the neoadjuvant and adjuvant phases, and you look forward to the current Keytruda development program. Do you see any risk to that hard line to any of your label extension plans? how are you going back to looking at your development, especially of novel combos in the early stage, given that discussion? Thank you."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you very much. So, you know, just to provide some context, the recent adcom talked about how much of a PD-1 or a PD-L1 is put in earlier stage, especially in the resectable."
+      },
+      {
+        "speaker": "spk14",
+        "text": "And there, And that's why we always emphasize we have nine earlier stage approvals, but we highlight that over our survivals. I do want to also been very clear. That over survival is the gold standard, especially in earlier stages. of Jefferies. Your line is open. Hey, thanks so much. And really helpful color on Gardasil. Just one more question. years bake in the upside for potential male approval? And should we expect the ZFA contract to get re- This stage is focused on the current approval that we have in the market."
+      },
+      {
+        "speaker": "spk10",
+        "text": "So it's really focused on the female population in the age of nine through 45. As we move forward and we have a male indication, we will of course be working with our partner to have the appropriate doses."
+      },
+      {
+        "speaker": "spk00",
+        "text": "at the end of June, there was a big discussion on the plus 50 population for the product. They never got around to reviewing it. So is it possible we can get that looked at in October for a potential updated recommendation?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you so much for bringing that up. There was a lot of discussion. There were a lot of points that the ACIP working group had to vote on. And what they had said is that they were very interested in revisiting this in October. I want to be very clear that we have not had a formal confirmation of that re-evaluation, but we did listen to the discussion, and the discussion was very clear that there was an interest in revisiting that."
+      },
+      {
+        "speaker": "spk14",
+        "text": "disparities."
+      },
+      {
+        "speaker": "spk03",
+        "text": "And I went back to the comments that were made by different individuals, but I focused on some of the points that those who actually vote in the ACIP, one resonated with me when that member said, you know, the burden in 50 to 64-year-old black individuals is comparable to greater than 65 when we're all endorsing universal recommendation for over 65. And that member wondered whether we, which is the ACIP, was missing something, too, by not deciding, and that we, the ACIP, needed to decide at some point, and I hope we get there pretty soon, in part because of the racial and ethnic disparities in the invasive disease. So we are very confident in our data, and we look forward to the ACIP considering this expanded age gap."
+      },
+      {
+        "speaker": "spk07",
+        "text": "The next question is from Louise Chen of Cantor. Your line is open."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Hi, thank you for taking my question here. I wanted to ask you on WinRiver, how do you think... Thank you for the question, Louise."
+      },
+      {
+        "speaker": "spk10",
+        "text": "We feel that we're off to a really strong start with WinRiver. As we've described, as at the end of the quarter, we have 2,000 patients who now have the prescription for WinRiver. of which 75% to 80% historically have been receiving commercial product. So we're confident in what we expect for the profile for WinRiver in the third quarter."
+      },
+      {
+        "speaker": "spk14",
+        "text": "And we do actually expect that this"
+      },
+      {
+        "speaker": "spk08",
+        "text": "business development, this is typically a question that you get posed. In June, you did comment that the company does have an expressed interest in the cardio metabolic."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah. Chris, thanks for the question. Obviously, we discussed what we did in the quarter with Iowa. the continuation of the strategy we've been following. We continue to have financial flexibility to consider deals of all sizes, but as we've pointed out, we can find opportunities to look at Next generation plays in that space. Those will be things we will continue to combine ability and preservation of muscle mass."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Those are the areas of focus for us. And if we see something, we continue to have the capacity and the interest to act."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Great."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Thank you, Chris. Next question, please, Brad. The next question is just a two-part on when we're there for me."
+      },
+      {
+        "speaker": "spk05",
+        "text": "I was just wondering if you think you've already worked through the initial bolus of patients and kind"
+      },
+      {
+        "speaker": "spk14",
+        "text": "terms of the patients that have already started on Sotater. So thank you."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yeah, as you would expect, some of the sicker patients are who doctors are putting on the drug first. So there is a large amount on triple therapy or double therapy, and you are seeing uses with prostacycline. So that is and frankly consistent with what you would have seen in stellar as well. So we are seeing that pretty much as you'd expect. And then over time, we would expect to move into the earlier lines of therapy as we go. As it relates to what we see going forward with the bolus, I would say that it's not necessary that we think the bolus has been worked through. What I would tell you more broadly is we're seeing a continued growth in both the breadth and the depth of prescribers who are prescribing, which we're at a little over 500 doctors now prescribing."
+      },
+      {
+        "speaker": "spk14",
+        "text": "So we still have a ways to go to get to what I would consider to be heavy prescribers of the medicine. One, we feel very good. We have about a third of all lives are in reimbursement related to Winn-Rivera."
+      },
+      {
+        "speaker": "spk11",
+        "text": "We expect that to continue to grow because I would remind you that a lot of plans actually put in place just by the rule that they will wait 90 to 120 days-ish to put in place the plan."
+      },
+      {
+        "speaker": "spk14",
+        "text": "a coverage plan after a drug is launched. So you have a lot of plans still used update today. So given the interest in"
+      },
+      {
+        "speaker": "spk03",
+        "text": "on and what are the adverse effects that will drive a patient not to take the drug. So that phase 2A was really important. That triggered the phase 2B. So I'll just lay out that, you know, if we see things that are comparable to that phase 2A and our phase 2B, we would be eager to see such results."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Great. Thank you, Evan. Brad, one more question, please."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your final question comes from James Shin of Deutsche Bank. Your line is open, sir."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Good morning. Thank you for the question. For wind reviewer, is the conversion of the 75 to 80% of scripts into commercial within"
+      },
+      {
+        "speaker": "spk03",
+        "text": "You know, that's something that we're focused on getting the Phase 3 fully enrolled and to move forward."
+      },
+      {
+        "speaker": "spk14",
+        "text": "We'll see that program. Great. Thank you."
+      },
+      {
+        "speaker": "spk11",
+        "text": "bill in China, but the fact that we see strengthening and I would call them green shoots around Gardasil everywhere else in the world gives us confidence in the 11 billion for that, as we've talked about. But then beyond that, the growing breadth of our pipeline, obviously, Catruda continues to deliver meaningfully for the business and for patients, but I am growing in my own excitement for the breadth and depth of the pipeline we have coming. I hopefully it wasn't lost on everyone that we pointed out we would be launching more drugs in the next five years than we've launched in the last 10, many, many of which will be Blockbuster Plus opportunities. So the pipeline is maturing, and we're starting to see the green shoots of opportunity that continue to grow our confidence as to 2028."
+      },
+      {
+        "speaker": "spk14",
+        "text": "of what's driving my confidence and my appreciation for your support of the stock. Thank you."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thank you for your participation in our conference call. At this time, all parties may disconnect."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk07": {
+        "name": "Brad",
+        "title": "Operator"
+      },
+      "spk15": {
+        "name": "Peter Dannenbaum",
+        "title": "Senior Vice President, Investor Relations"
+      },
+      "spk11": {
+        "name": "Rob Davis",
+        "title": "Chairman and Chief Executive Officer"
+      },
+      "spk10": {
+        "name": "Caroline Litchfield",
+        "title": "Chief Financial Officer"
+      },
+      "spk03": {
+        "name": "Dr. Dean Lee",
+        "title": "President of Merck Research Labs"
+      },
+      "spk14": {
+        "name": "Dave",
+        "title": "Unknown"
+      },
+      "spk05": {
+        "name": "Chris",
+        "title": "Unknown"
+      },
+      "spk02": {
+        "name": "Carter Gould",
+        "title": "Analyst at Barclays"
+      },
+      "spk09": {
+        "name": "Louisa Hector",
+        "title": "Analyst at Barenberg"
+      },
+      "spk12": {
+        "name": "Louise Chen",
+        "title": "Analyst at Cantor"
+      },
+      "spk06": {
+        "name": "Tim Anderson",
+        "title": "Analyst at Wolf Research"
+      },
+      "spk08": {
+        "name": "Umar",
+        "title": "Unknown"
+      },
+      "spk16": {
+        "name": "Unknown",
+        "title": "Unknown"
+      },
+      "spk01": {
+        "name": "Unknown",
+        "title": "Unknown"
+      },
+      "spk00": {
+        "name": "Unknown",
+        "title": "Unknown"
+      }
+    }
+  },
+  "text": "Brad (Operator): This call is being recorded. If you have any objections, you may disconnect at this time. I would now like to turn the call over to Mr. Peter Dannenbaum, Senior Vice President, Investor Relations. Sir, you may begin.\n\nPeter Dannenbaum (Senior Vice President, Investor Relations): Thank you, Brad, and good morning, everyone. Welcome to Merck's second quarter 2024 conference call. Speaking on today's call will be Rob Davis, Chairman and Chief Executive Officer, Caroline Litchfield, Chief Financial Officer, and Dr. Dean Lee, President of Merck Research Labs. Before we get started, I'd like to point out that we have items in our GAAP results, such as acquisition-related charges, restructuring costs, and certain other items, and that we have excluded these from our non-GAAP results. There is a reconciliation in our press release. I will also remind you that some of the statements that we make today may be considered forward-looking statements within the meaning of the safe harbor provision of the U.S. Private Securities Litigation Reform Act of 1995. Such statements are made based on the current beliefs of Merck's management and are subject to significant risks and uncertainties. If our underlying assumptions prove inaccurate or uncertainties materialize, actual results may differ materially from those set forth in the forward-looking statements. Our SEC filings, including Item 1A and the 2023 10-K, identify certain risk factors and cautionary statements that could cause the company's actual results to differ materially from those projected in any of our forward-looking statements made this morning. Merck undertakes no obligation to publicly update any forward-looking statements. During today's call, a slide presentation will accompany our speaker's prepared remarks. These slides, along with the earnings release, today's prepared remarks, and our SEC filings are all posted to the investor relations section of Merck's website. With that, I'd like to turn the call over to Rob.\n\nRob Davis (Chairman and Chief Executive Officer): Thanks, Peter. Good morning, and thank you for joining today's call. Our business is demonstrating strong momentum as we exit the first half of the year. We remain guided by our purpose of harnessing the power of leading-edge science to save and improve lives around the world. Our ambitious and dedicated teams are working tirelessly to reach more patients with our broad commercial portfolio and advance our deep pipeline with the goal of delivering future innovations that solve for additional unmet medical needs. Through excellent scientific, commercial, and operational execution, we're achieving significant milestones for our company and for patients. This quarter, we're proud to have successfully launched WinRiver, which has introduced a novel mechanism to treat adults suffering with pulmonary arterial hypertension. We're also pleased by the recent FDA approval of Capvaxiv, the first approved pneumococcal conjugate vaccine specifically designed for adults, as well as the subsequent ACIP recommendation. Both of these important innovations demonstrate our unwavering commitment to creating value for patients and shareholders. And we remain committed to the execution of strategic business development to further augment our pipeline. We recently announced and have now closed the acquisition of iBio, which expands our effort in ophthalmology and brings to Merck a novel late-phase candidate for the treatment of retinal diseases. This promising new mechanism adds another substantial potential commercial opportunity to our expanding pipeline in an area of significant unmet medical need. In addition, our animal health business closed the acquisition of Lenco's Aqua business, which establishes Merck as a leader in this important production animal category. Three years ago, I was honored to step into the role of CEO. and it remains my top priority to uphold and build on Merck's legacy as a premier science-driven, patient-focused biopharmaceutical company. At that time, I affirmed Merck's strategic commitment to the research and development of innovative medicines and vaccines as a source of long-term value creation. I communicated our intention to be appropriately aggressive in making the necessary investments to both advance our broad internal pipeline and augment it with the best external science through business development. Since then, we've made substantial progress in expanding and evolving our pipeline for the benefit of future patients. We have the potential to bring as many new drugs to market in the next five years as we launched over the last 10 years across a greater number of therapeutic areas and modalities, and with a significant proportion having Blockbuster Plus potential. We've made tremendous progress building on our past successes, enabling the creation of a sustainable engine that will drive future innovations for patients. And we continue to leverage our scientific prowess to identify new therapeutic targets where we can add value through our expertise in clinical development and regulatory affairs and our global commercial scale. I'm also proud of the substantial improvements we've made across our sustainability focus areas. We're reaching more people with our medicines and vaccines across a greater number of countries globally than ever before, and doing so with a dedicated, highly talented and diverse employee base. Finally, we're driving increased innovation and productivity through widespread integration of data, digital and analytics in all areas of our business. Going forward, I'm committed to ensuring our actions remain aligned with our strategy, and I'm confident that we are well positioned to deliver value to patients and shareholders long into the future. Turning to our second quarter results, we achieved strong growth reflecting continued demand across our broad portfolio, which was reflected in our updated foliar guidance, which Caroline will speak to in just a moment. Turning to our broader research efforts and new launches, in cardiometabolic, we've seen very favorable reception by physicians, patients, and payers to the availability of WinRiver. While still early, the U.S. launch has gone very well, in line with our own high expectations. We've deployed a focused, customer-centric rare disease model and are pleased to see an increasing number of prescriptions being written and patients obtaining access. We've also received a positive CHMP opinion and look forward to potential regulatory approval in Europe in the near future. we continue to see a tremendous opportunity to positively impact the lives of patients living with this devastating disease. In vaccines, we've continued to bring forward innovations for both adults and children. We are proud of the recent FDA approval of CABACCIV for the prevention of invasive pneumococcal disease and pneumococcal pneumonia in adults and the unanimous ACIP recommendation. Given its compelling clinical profile, we expect that cabvaxib will achieve a majority market share in the adult setting. We were also pleased to announce positive top-line results from the Phase 2b3 clinical trial for clozorovimab, our investigational monoclonal antibody for the prevention of RSV in infants, and we are moving swiftly to bring this important option to market. Finally, at our ASCO investor event, We highlighted the significant broadening of our oncology pipeline and the progress we've made in building on the success of Keytruda. We presented data from multiple novel candidates demonstrating our commitment to advancing standards of care and maintaining leadership over the long term. As a company, we remain highly focused and continue to work with urgency to bring forward these innovations and others for the patients we serve. In summary, I want to again recognize the tremendous efforts of our global team. Together, we've made significant progress across our diverse pipeline and portfolio. As a company, we've been advancing science for the benefit of patients for over 130 years, and I'm confident that Merck is well-positioned to deliver value to patients, shareholders, and to all of our stakeholders well into the future. With that, I'll turn the call over to Caroline.\n\nCaroline Litchfield (Chief Financial Officer): Thank you, Rob. Good morning. As Rob noted, we delivered another excellent quarter with growth driven by robust global demand across our innovative portfolio. These results are enabled by the excellent execution of our teams and reinforce the conviction we have in our science-led strategy. We remain confident in our ability to continue to deliver strong results in the near term and are committed to making disciplined investments in compelling science to drive long-term value for patients, customers, and shareholders. Now turning to our second quarter results. Total company revenues were $16.1 billion, an increase of 7% or 11% excluding the impact of foreign exchange. The following revenue comments will be on an exchange basis. Our human health business sustained its momentum with double-digit growth of 11%, primarily driven by oncology. Our animal health business also delivered solid performance, with sales increasing 6%, driven by growth in livestock products. Turning to the performance of our key brands. In oncology, sales of Keytruda grew 21% to $7.3 billion, driven by increased uptake from earlier stage cancers and continued strong global demand for metastatic indications. In the U.S., Keytruda grew across a broad range of tumors. In the earlier stage setting, the increase was largely attributable to uptake from Keynote 671 and Keynote 091 in non-small cell lung cancer. Keytruda has now achieved market leadership in the neoadjuvant and adjuvant settings, building on its existing leadership position as adjuvant therapy. In metastatic disease, we saw continued strong uptake in first-line advanced urothelial cancer following the recent launch of Keynote A39. Keytruda plus PADSES has now surpassed platinum chemotherapy-based regimens in new patient starts. Outside the U.S., Keytruda growth was driven by increased use in certain earlier stage cancers, including high-risk early stage triple negative breast cancer and intermediate high or high-risk renal cell carcinoma, as well as continued strong demand from patients with metastatic disease. Inflation-related price increases, consistent with market practice in Argentina, also contributed to growth. Alliance revenue from Limpaza and Lempema each grew 4%. Wellireg sales more than doubled to $126 million, driven by increased uptake in certain patients with previously treated advanced renal cell carcinoma. Our vaccines portfolio delivered solid growth. Gardasil sales increased 4% to $2.5 billion. In the U.S., sales benefited from price as well as demand and favorable CDC purchasing patterns. Outside the U.S., higher demand across many international markets was partially offset by the timing of shipments to China. In New Macaulay, vaccine advance sales increased 16% to $189 million. Growth was driven by ongoing launches in international markets. As Rob noted, we are very excited by the opportunity to positively impact the lives of adult patients with pulmonary arterial hypertension following the recent US launch of WinRever. Recall, we received FDA approval on March the 26th, with the first patients receiving therapy about one month later. Initial patient and physician feedback has been favorable. and we recorded $70 million of sales in the quarter. We estimate that approximately 40% of sales were attributable to doses administered to patients, with the remainder due to distributors building inventory in support of increasing demand. The launch is off to a strong start. As of the end of June, more than 2,000 patients received a prescription for WinRever. Our experience to date with those prescriptions would suggest that approximately 75% to 80% will receive commercial product. Of those, more than 1,000 patients started treatment in the quarter, largely reflecting prescriptions written in April and May, as it currently takes approximately one month to complete the steps necessary to commence therapy. More than 500 physicians have written at least one prescription with many looking to gain experience with the product as they prioritize treating the most advanced patients who are in greatest need of additional therapy. Most prescribers are from either large academic centers or larger private practices. We are pleased that payers are recognizing the value of WinRever and are already providing access to patients. Many payers have established coverage policies consistent with the label or stellar study criteria, while others are in the process of developing their policies. In summary, we are pleased with the strong start and look forward to continued progress in enabling access for appropriate patients over the coming months. Our animal health business delivered another solid quarter, with sales increasing 6%. Livestock sales grew 11%, driven by higher demand for poultry and ruminant products, as well as price. Companion animal sales grew 1%, reflecting price partially offset by a reduction in distributor inventory. We are also excited to have launched a long-acting Brevecto injectable in a number of international markets during June. I will now walk you through the remainder of our P&L, and my comments will be on a non-GAAP basis. Gross margin was 80.9%, an increase of 4.3 percentage points, driven by reduced royalty rates for Keytruda and Gardasil, as well as favorable product mix. Operating expenses decreased to $6.2 billion. There were no significant business development expenses in the quarter, compared with a $10.2 billion charge a year ago. Excluding this charge, operating expenses grew 8%, reflecting strategic investments to realize the promise of our robust early and late phase pipeline and support the promotion of our key growth drivers. Other expense was $108 million. Our tax rate was 14.1%. Taken together, earnings per share were $2.28. Now turning to our 2024 non-GAAP guidance. The continued operational strength of our business has enabled us to raise and narrow our full-year revenue guidance. We now expect revenue to be between $63.4 and $64.4 billion, an increase of approximately $200 million at the midpoint. Our increased guidance range represents strong year-over-year revenue growth of 5% to 7%, including an approximate 3 percentage point negative impact from foreign exchange using mid-July rates. Our gross margin assumption remains approximately 81%. We now expect operating expenses to be between $26.8 and $27.6 billion. This range reflects an incremental $1.5 billion of charges related to the runtime cost to acquire iBio and ongoing expenses to advance the assets, as well as investments to progress our innovative pipeline. As a reminder, our guidance does not assume additional significant potential business development transactions. Other expense is expected to be approximately $350 million, which now includes financing costs for the acquisitions of iBio and Elanco's Aqua business. Our full year tax rate is now expected to be between 15.5% and 16.5%. which includes an unfavorable impact related to the iBio acquisition that is not tax deductible. We assume approximately 2.54 billion shares outstanding. Taken together, we expect EPS of $7.94 to $8.04. This range includes a negative impact from foreign exchange of more than 30 cents using mid-July rates. Recall, Our prior guidance range was $8.53 to $8.65, including the one-time charge of $1.3 billion, or 51 cents per share, related to the acquisition of iBio, and an estimated 9 cents to advance the assets, as well as finance the iBio and Elanco aqua business transactions. Our prior guidance range would have been $7.93 to $8.05, with a midpoint of $7.99. Our current guidance midpoint remains the same, as our higher revenue estimate is being offset by increased investments to support our business. As you consider your models, there are a few items to keep in mind. We look forward to the opportunity to help protect certain adults from invasive pneumococcal disease and pneumococcal pneumonia following the recent FDA approval and ACIP recommendation of Capfaxiv. We are now working toward the achievement of certain milestones that will enable commercial uptake. These milestones include publication in the Morbidity and Mortality Weekly Report, which typically lags an ACIP recommendation by a few months, as well as obtaining payer coverage and contracting with customers. For Gardasil, over the past few years, we've benefited from extremely strong demand in China, including from the expanded indication for Gardasil 9 to the 9 to 45-year age cohort in late 2022. In the second quarter, however, there was a significant step down in shipments from our distributor and commercialization partner, Shefei, into the points of vaccination compared with prior quarters, resulting in above normal inventory levels at Chaffee. We are working closely with them to more fully understand the dynamics that caused this change. As we learn more, we will assess future shipments to our partner and work to bring their inventory back to more normal levels. If shipments from Chaffee into the points of vaccination do not increase, it is likely that we will ship less than our full year 2024 contracted doses by the end of this year. We believe the opportunity in China remains very attractive as there are more than 120 million females in the addressable population living in Tier 1 to Tier 5 cities who have not yet received the protection of an HPV vaccine. As we said before, it will take increasing efforts to educate and activate the next wave of patients. Together with Chaffee, we are focused on and committed to investing in additional resources and patient education on the value of Gardasil, given the important benefits it provides. We also look forward to the potential approval for males, which we believe represents a meaningful opportunity. More broadly, we remain confident in the opportunity for Gardasil globally, based on the protection it provides against HPV-related cancers and low immunization levels overall, and continue to believe we will achieve sales of over $11 billion by 2030. Our initial launch of WinRever is having a positive impact for patients. We are very pleased with its performance, and look forward to supporting more patients in the US and across the globe. Outside the US, we are pleased with the positive CHMP opinion and potential near-term launch in Europe. Following EU approval, we will need to obtain reimbursement, which should occur in 2025 in most major markets, but expect that Germany will receive reimbursement and launch this year. We remain confident in the successful launch of WinRiver, consistent with our high expectations, and look forward to providing further updates on our progress. Now turning to capital allocation, where our strategy remains unchanged. We will prioritize investments in our business to drive near and long-term growth. We will continue to invest in our expansive pipeline of novel candidates, each of which has significant potential to address important unmet medical needs. We remain committed to our dividend and plan to increase it over time. Business development remains a priority and we are well positioned to pursue additional science-driven, value-enhancing transactions. We will continue to execute a modest level of share repurchases. To conclude, As we enter the second half of the year, there is continued strength in our business, driven by global demand and commercial execution. We remain confident in our outlook, driven by our unwavering commitment to leverage leading edge science to save and improve the lives of patients. With investment in innovation and our ongoing focus on execution, we are well positioned to deliver value to patients, customers, and shareholders now and well into the future. With that, I'd now like to turn the call over to Dave.\n\nDr. Dean Lee (President of Merck Research Labs): Thank you, Caroline. Momentum continued in the second quarter with several clinical and regulatory milestones as well as progress in our science-led business development strategy. Today, I will speak first to programs in vaccines, then cover oncology followed by cardiometabolic disease. As Rob noted, last month, the FDA approved Kebvaxiv, our 21-valent pneumococcal conjugate vaccine, and we subsequently received a unanimous recommendation from the CDC's Advisory Committee of Immunization Practices for its use in certain adult populations. Kebvaxiv is the first vaccine specifically designed to help protect adults against pneumococcal pneumonia, an invasive pneumococcal disease, and as such, provides an important new public health option. It has been designed to address those serotypes responsible for approximately 85% of the incidence of invasive pneumococcal disease in individuals 65 years and older based on CDC-generated surveillance data. The CAVAXIV marketing authorization application is also under review by the European Medicines Agency's Committee for Medicinal Products for Human Use. We continue to evaluate novel approaches to alleviate the burden of infectious disease. Recently, we announced positive top-line results for clozrobimab, our investigational respiratory syncytial virus preventative antibody, a single, fixed-dose option to help protect infants from birth through their first full RSV season. In the Phase 2B-3 trial, Clasrobimab met its primary efficacy and safety endpoints, as well as its secondary endpoint regarding RSV-associated hospitalization. Detailed findings of the study will be presented at an upcoming scientific congress, and we plan to file these data with global regulatory authorities. Globally, RSV infection is a leading cause of hospitalization for otherwise healthy infants under one year of age. The historically high surge in incidents in the 2022-2023 season reinforced the need for more effective preventative measures.\n\nDave (Unknown): Now, to oncology. During the event, event at ASCO, we\n\nDr. Dean Lee (President of Merck Research Labs): We're a survival benefit in high-risk, early-stage, triple-negative breast cancer based on the Keynote 522 study. earlier stage indications, of which four have now demonstrated a statistically significant overall survival benefit, including in small cell lung cancer.\n\nDave (Unknown): Thank you. It's statistically significant overall survival in 25 trials. Next.\n\nDr. Dean Lee (President of Merck Research Labs): with unresectable or metastatic urethelial carcinoma. We are also advancing a broad portfolio of diverse antibody drug conjugates with Kulun Biotech and Daiichi Sankyo, as well as our own internal programs.\n\nDave (Unknown): For the treatment of certain adult physically treated with two or more systemic therapies. The letter was issued based on findings from an inspection of a third Yeah, and I'm fighting this year. treatment option for certain.\n\nDr. Dean Lee (President of Merck Research Labs): Pipeline with the best external science through our one pipeline approach. We recently closed the acquisition of iBio that includes Restoret, MK3000, and an investigational late phase, potentially first age-related macular degeneration, as well as additional preclinical acids targeting retinal diseases. There remains a significant medical need in this space and our teams are eager to work alongside the talented iBio teams.\n\nUmar (Unknown): strong momentum, and I look forward to providing further updates on our progress.\n\nDave (Unknown): Now, I turn the call back to Peter. Thank you.\n\nUmar (Unknown): Ladies and gentlemen, if you would like to ask a question, please press star 1 on your telephone keypad. You may withdraw your question.\n\nDave (Unknown): Once again, if you have\n\nChris (Unknown): And maybe as part of that, the 2024 guidance update is the potential for headwind to numbers to the extent that played out. Thank you.\n\nRob Davis (Chairman and Chief Executive Officer): Great. Thanks, Chris. Thanks for the question. And I'll maybe take the first part and then ask Caroline to comment on the guidance.\n\nDave (Unknown): To your question, China represents the\n\nRob Davis (Chairman and Chief Executive Officer): The opportunity that exists for Gardasil in China remains very attractive, with more than 120 million eligible females in China yet to be protected against HPV, which represents against HPV-related disease is clear, and importantly aligns with China's Healthy 2030 initiative.\n\nDave (Unknown): So the underlying support we continue to believe is there.\n\nRob Davis (Chairman and Chief Executive Officer): In addition, we have filed for the mail indication, which has been accepted and represents another significant opportunity.\n\nDave (Unknown): quarter of 2024.\n\nRob Davis (Chairman and Chief Executive Officer): So as we look at this, we're wanting to understand what would cause the trend break we saw. And I can tell you what we know as of now is we believe there could be multiple factors that may be contributing to this dynamic, and we're working closely with our partner to try to tease out what exactly is happening. Overall, the data we track indicates that the whole we've gathered, activity in the HPV vaccine area has been recently impacted by China's anti-corruption drive, which, as you know, started really last year.\n\nDave (Unknown): And up to that point, we really haven't seen much.\n\nRob Davis (Chairman and Chief Executive Officer): There has been, as a result of this, a reduction in scientific engagement primarily in the CDC within China, and fewer immunizations. So we need to tease that out more. And in addition, we did see reduced levels of promotional support for HPV vaccination at the same time that our distribution broadened its portfolio. of the remaining female opportunity, and this includes both resources at GERFAE and more selling resources and promotional resources, as well as promotional resources being deployed directly from Merck.\n\nDave (Unknown): As we look forward, we will have to see how... with our partner.\n\nRob Davis (Chairman and Chief Executive Officer): So hopefully that gives you a sense of what we're seeing, but I just would reiterate one other point, and that's that as we look to the long term, given both the opportunity in China I mentioned for 120 million remaining females, as well as the potential for the male indication, outside of China, iterate our confidence in the $11 billion number by 2030, even taking into account what we saw China happening in China this quarter. So with that, maybe I'll turn over to Caroline and she can address your guidance specific question. Caroline.\n\nCaroline Litchfield (Chief Financial Officer): Thank you, Rob. So Chris, in terms of our guidance, we've assumed a range of scenarios from providing the fully contracted 2024 doses during this year, to providing something less than that. If I anchor to the midpoint of our guidance, we have been measured in assuming a scenario that has less than the contracted 2024 Gardasil doses shipped to China.\n\nDave (Unknown): And even with that, we were able to raise our guidance at the midpoint by 200%. including oncology with Keytruda and acquisition of the Elanco Aqua business. And we remain confident in our expectations.\n\nPeter Dannenbaum (Senior Vice President, Investor Relations): Great. Thank you, Chris. Next question, please, Brad.\n\nBrad (Operator): The next question comes from . Your line is open.\n\nCarter Gould (Analyst at Barclays): Thanks for taking my question. Can I just dial down the Gardasil point just a little more? Rob, I know you mentioned there's an anti-corruption drive going on in China, which started last year, but it also feels like some of\n\nDave (Unknown): future contracting happening and whether your long sometime next year come into the marketplace.\n\nRob Davis (Chairman and Chief Executive Officer): I don't believe from anything we've heard in the marketplace from competitive intelligence as well as what we're hearing from JIRFE that that is what's happening here. As we look forward, and Caroline can comment specifically, you know, we have always expected that as we see the peak move through from the \u2013 continue to drive the business forward from there. Nothing has changed in that dynamic in what we're seeing right now. So as we look forward, our belief in China being a significant contributor is unchanged. But I'll let maybe Caroline can speak specifically as we're thinking about some of the guidance around how we think about next year.\n\nCaroline Litchfield (Chief Financial Officer): So what I would add is we have always contemplated that we would have a nine-valent competitor within the Chinese market. As such, the current contracted doses with Shifei for 2025 are less than what the contract is for 2024, as we would expect to participate in that market but understand a competitor would likely gain share in that market. We also, though, as was said in the prepared remarks, have the potential opportunity of a mail launch in China. And we are hopeful for an approval with Gardasil 4 and 9 by the first half of next year. It's an important part of our Gardasil business as we move forward. And more importantly, we are confident in the opportunity to drive Gardasil longer.\n\nDave (Unknown): that could be there is what I would point out, you know, first of all, as we see how this is impacting us, at the CDC, we have seen\n\nRob Davis (Chairman and Chief Executive Officer): some dampening in them engaging in scientific discussions and driving for vaccination. We believe some of this could be due to the fact that there was criminal charges brought against a senior scientific representative, one of the local players related to a COVID vaccine that we believe has had a dampening effect overall. And how long this lasts, how it will continue to play out, we'll have to see. But I thought I'd provide additional color because I don't want to assume that you all are aware of what really is happening there.\n\nPeter Dannenbaum (Senior Vice President, Investor Relations): Great. Thanks, Umar. Next question, please, Brad.\n\nBrad (Operator): The next question comes from Carter Gould of Barclays. Your line is open.\n\nDave (Unknown): Good morning. Thanks for taking the question. Maybe to switch gears, you have new starts.\n\nspk04 (): Do you see that sort of as sustainable? or surpassable, and as we think about sort of that one month delayed timeline from prescription to start, can you maybe characterize how much of that is sort of payer versus sort of the nurse training driven, and if there's a chance that might have .\n\nDave (Unknown): As of the end of June, we've had more than 2,000 patients receive a prescription for when\n\nRob Davis (Chairman and Chief Executive Officer): is that about 75% to 80% of those receiving a prescription will convert to commercial product. So that gives you a sense of what's happening. Right now, actually, in the quarter, driving the revenue you saw was about 1,000 patients\n\nDave (Unknown): convert to be commercial sales.\n\nRob Davis (Chairman and Chief Executive Officer): And so what's driving that difference, some of that is due to access, but also some of it is due to patient dropout and the fact that you will have some patients who, despite getting a certificate after they go through board work and go through the medical evaluation, from an access perspective, is about two weeks to three weeks. So there is, you know, obviously opportunities to improve that.\n\nBrad (Operator): The next question comes from Tim Anderson of Wolf Research. Your line is open, sir.\n\nTim Anderson (Analyst at Wolf Research): Oh, thank you very much.\n\nUmar (Unknown): Just going back to Gardasil, I know you're reiterating your\n\nDave (Unknown): year-on-year sales actually contract you know six years\n\nRob Davis (Chairman and Chief Executive Officer): a flattening of the curve as we see the female indication be more fully penetrated. Obviously, more to go there, given what we believe is still the addressable population. And then it will ramp back to growth as the male population comes on in full.\n\nDave (Unknown): So that is what\n\nRob Davis (Chairman and Chief Executive Officer): how provinces and actually then determining ultimately that end sale to the point of vaccination. As we look forward, you know, I think it's important to understand that Gardasil, as we think about the addressable population, we continue to believe will be a highly sought after vaccine, even in the face of competition. And we're dealing in an overall population when we quote the 200 million total females of which we would say were 30 to 40% penetrated today, that's really in the tier one to five cities that we think can afford a cash pay market. The total population accessible in China is much bigger. And so I don't think we should assume we're all competing for that small slice. There's a much bigger slice. We've chosen not to go for that bigger piece because obviously we can't get into the local vaccination program\n\nDave (Unknown): because we don't produce in China. Our competitors opportunity in China that will benefit both us and the competitors chance we could be sitting alone with that as well. So the dynamics need to play themselves out. of TD Cohen.\n\nBrad (Operator): Your line is open.\n\nTim Anderson (Analyst at Wolf Research): Oh, thank you. How does Clostrovumab compare on hospitalizations to Bifortis data-specifics? But for instance, would you say your product is highly competitive? And I'm just curious, how does it achieve longer durability given that it has a shorter half-life than bifortis. Thank you.\n\nDave (Unknown): Yeah, so this is Dean. Thanks for the question. As you point out, there is a\n\nDr. Dean Lee (President of Merck Research Labs): PKPD in relationship to the half-life in relationship to the affinity, but the prevention, which was studied, would cover the entire RSV season, which is five to six months. We did announce the public presentation of these that we hope to have at a at some session in the second half. I do point out that what you highlight is really important, which is, you know, the RSV-associated hospitalization will be a really important point in the relationship to look at... Your line is open.\n\nUnknown (Unknown): Thank you very much for taking my question. And just to try to understand the long-term growth path for Gardasil, it seems like, and correct me if I'm wrong, a lot of it would depend. The question is, of those tier one to five cities, Where do you think there is a bigger opportunity?\n\nDave (Unknown): Because I'm going to\n\nRob Davis (Chairman and Chief Executive Officer): A little bit less penetrated. I think we're around kind of say 30th percent in the four and five tier cities, and we're around 40% in the one to three. So there's not a huge spread between the tier one to three and the four to five. So we will continue to focus efforts across all of those areas as we have been to date. And then it's a whole different exercise to activate the male population across that same area which frankly isn't there today because of the fact that we don't yet have the indication. As you think about how all of this fits into the broader global picture, I think it's also important just to remind everyone that the total penetration of Gardasil on a global basis to the eligible population is approximately 10%.\n\nDave (Unknown): So our opportunity to\n\nRob Davis (Chairman and Chief Executive Officer): driving double-digit growth across the rest of the world outside of China. Part of it is we are starting to see uptake in that private market activation, both in Europe and across parts of Latin America and Asia Pacific more broadly. We're going to continue to drive into the low- and middle-income markets. We see that as a meaningful opportunity going forward, and we are well on our way to getting our costs into position. to be able to compete in that space quite effectively.\n\nDave (Unknown): We will continue to drive that example of where we need to get a male education to drive for gender neutral vaccination parts of the world where there still is a lot of opportunity to drive for gender neutral for males there as well.\n\nRob Davis (Chairman and Chief Executive Officer): So the opportunities are significant. The context of how we will drive growth has multiple levers for us to look at to do that. And that's why we are confident in the $11 billion.\n\nUmar (Unknown): The next question is from Louisa Hector of Barenberg. Your line is open.\n\nLouisa Hector (Analyst at Barenberg): can file in all major markets this year. And then I just wondered about China in this context. Is that a market where you'll be filing soon and what the opportunity is there, how much education is required to access the private market? Thank you.\n\nUmar (Unknown): Yeah, so let me just... This level set in relationship to clozorobimab and the RSV antibody.\n\nDr. Dean Lee (President of Merck Research Labs): So I want to make sure that there's no concept that this is coming out this RSVP season. We're targeting next RSVP season.\n\nDave (Unknown): Maybe just on the broader question, you know, could this be an opportunity in China?\n\nRob Davis (Chairman and Chief Executive Officer): We are continuing to look at all global markets. And I would point out, as Dean pointed out, we're looking at the 25-26 RSV season, so next year.\n\nDave (Unknown): And then beyond that, we're looking at the 25-26 RSV season, so next year.\n\nUnknown (Unknown): I want to ask about the recent ODAC that was on periadjuvant development in lung cancer. I wonder, let's assume FDA takes a hard line on requiring the contribution of the neoadjuvant and adjuvant phases, and you look forward to the current Keytruda development program. Do you see any risk to that hard line to any of your label extension plans? how are you going back to looking at your development, especially of novel combos in the early stage, given that discussion? Thank you.\n\nDr. Dean Lee (President of Merck Research Labs): Thank you very much. So, you know, just to provide some context, the recent adcom talked about how much of a PD-1 or a PD-L1 is put in earlier stage, especially in the resectable.\n\nDave (Unknown): And there, And that's why we always emphasize we have nine earlier stage approvals, but we highlight that over our survivals. I do want to also been very clear. That over survival is the gold standard, especially in earlier stages. of Jefferies. Your line is open. Hey, thanks so much. And really helpful color on Gardasil. Just one more question. years bake in the upside for potential male approval? And should we expect the ZFA contract to get re- This stage is focused on the current approval that we have in the market.\n\nCaroline Litchfield (Chief Financial Officer): So it's really focused on the female population in the age of nine through 45. As we move forward and we have a male indication, we will of course be working with our partner to have the appropriate doses.\n\nUnknown (Unknown): at the end of June, there was a big discussion on the plus 50 population for the product. They never got around to reviewing it. So is it possible we can get that looked at in October for a potential updated recommendation?\n\nDr. Dean Lee (President of Merck Research Labs): Thank you so much for bringing that up. There was a lot of discussion. There were a lot of points that the ACIP working group had to vote on. And what they had said is that they were very interested in revisiting this in October. I want to be very clear that we have not had a formal confirmation of that re-evaluation, but we did listen to the discussion, and the discussion was very clear that there was an interest in revisiting that.\n\nDave (Unknown): disparities.\n\nDr. Dean Lee (President of Merck Research Labs): And I went back to the comments that were made by different individuals, but I focused on some of the points that those who actually vote in the ACIP, one resonated with me when that member said, you know, the burden in 50 to 64-year-old black individuals is comparable to greater than 65 when we're all endorsing universal recommendation for over 65. And that member wondered whether we, which is the ACIP, was missing something, too, by not deciding, and that we, the ACIP, needed to decide at some point, and I hope we get there pretty soon, in part because of the racial and ethnic disparities in the invasive disease. So we are very confident in our data, and we look forward to the ACIP considering this expanded age gap.\n\nBrad (Operator): The next question is from Louise Chen of Cantor. Your line is open.\n\nLouise Chen (Analyst at Cantor): Hi, thank you for taking my question here. I wanted to ask you on WinRiver, how do you think... Thank you for the question, Louise.\n\nCaroline Litchfield (Chief Financial Officer): We feel that we're off to a really strong start with WinRiver. As we've described, as at the end of the quarter, we have 2,000 patients who now have the prescription for WinRiver. of which 75% to 80% historically have been receiving commercial product. So we're confident in what we expect for the profile for WinRiver in the third quarter.\n\nDave (Unknown): And we do actually expect that this\n\nUmar (Unknown): business development, this is typically a question that you get posed. In June, you did comment that the company does have an expressed interest in the cardio metabolic.\n\nDave (Unknown): Yeah. Chris, thanks for the question. Obviously, we discussed what we did in the quarter with Iowa. the continuation of the strategy we've been following. We continue to have financial flexibility to consider deals of all sizes, but as we've pointed out, we can find opportunities to look at Next generation plays in that space. Those will be things we will continue to combine ability and preservation of muscle mass.\n\nRob Davis (Chairman and Chief Executive Officer): Those are the areas of focus for us. And if we see something, we continue to have the capacity and the interest to act.\n\nPeter Dannenbaum (Senior Vice President, Investor Relations): Great.\n\nDave (Unknown): Thank you, Chris. Next question, please, Brad. The next question is just a two-part on when we're there for me.\n\nChris (Unknown): I was just wondering if you think you've already worked through the initial bolus of patients and kind\n\nDave (Unknown): terms of the patients that have already started on Sotater. So thank you.\n\nRob Davis (Chairman and Chief Executive Officer): Yeah, as you would expect, some of the sicker patients are who doctors are putting on the drug first. So there is a large amount on triple therapy or double therapy, and you are seeing uses with prostacycline. So that is and frankly consistent with what you would have seen in stellar as well. So we are seeing that pretty much as you'd expect. And then over time, we would expect to move into the earlier lines of therapy as we go. As it relates to what we see going forward with the bolus, I would say that it's not necessary that we think the bolus has been worked through. What I would tell you more broadly is we're seeing a continued growth in both the breadth and the depth of prescribers who are prescribing, which we're at a little over 500 doctors now prescribing.\n\nDave (Unknown): So we still have a ways to go to get to what I would consider to be heavy prescribers of the medicine. One, we feel very good. We have about a third of all lives are in reimbursement related to Winn-Rivera.\n\nRob Davis (Chairman and Chief Executive Officer): We expect that to continue to grow because I would remind you that a lot of plans actually put in place just by the rule that they will wait 90 to 120 days-ish to put in place the plan.\n\nDave (Unknown): a coverage plan after a drug is launched. So you have a lot of plans still used update today. So given the interest in\n\nDr. Dean Lee (President of Merck Research Labs): on and what are the adverse effects that will drive a patient not to take the drug. So that phase 2A was really important. That triggered the phase 2B. So I'll just lay out that, you know, if we see things that are comparable to that phase 2A and our phase 2B, we would be eager to see such results.\n\nPeter Dannenbaum (Senior Vice President, Investor Relations): Great. Thank you, Evan. Brad, one more question, please.\n\nBrad (Operator): Your final question comes from James Shin of Deutsche Bank. Your line is open, sir.\n\nChris (Unknown): Good morning. Thank you for the question. For wind reviewer, is the conversion of the 75 to 80% of scripts into commercial within\n\nDr. Dean Lee (President of Merck Research Labs): You know, that's something that we're focused on getting the Phase 3 fully enrolled and to move forward.\n\nDave (Unknown): We'll see that program. Great. Thank you.\n\nRob Davis (Chairman and Chief Executive Officer): bill in China, but the fact that we see strengthening and I would call them green shoots around Gardasil everywhere else in the world gives us confidence in the 11 billion for that, as we've talked about. But then beyond that, the growing breadth of our pipeline, obviously, Catruda continues to deliver meaningfully for the business and for patients, but I am growing in my own excitement for the breadth and depth of the pipeline we have coming. I hopefully it wasn't lost on everyone that we pointed out we would be launching more drugs in the next five years than we've launched in the last 10, many, many of which will be Blockbuster Plus opportunities. So the pipeline is maturing, and we're starting to see the green shoots of opportunity that continue to grow our confidence as to 2028.\n\nDave (Unknown): of what's driving my confidence and my appreciation for your support of the stock. Thank you.\n\nUmar (Unknown): Thank you for your participation in our conference call. At this time, all parties may disconnect.",
+  "n_turns": 103
+}

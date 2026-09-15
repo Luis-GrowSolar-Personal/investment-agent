@@ -1,0 +1,369 @@
+{
+  "ticker": "ITW",
+  "original_ticker": "ITW",
+  "call_date": "2022-08-02",
+  "year": 2022,
+  "quarter": 2,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "ITW",
+    "year": 2022,
+    "quarter": 2
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T01:56:16Z",
+  "raw_payload": {
+    "event": {
+      "year": 2022,
+      "quarter": 2,
+      "conference_date": "2022-08-02T09:00:00-05:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk08",
+        "text": "Good morning, and welcome to ITW's second quarter 2022 conference call. I'm joined by our Chairman and CEO, Scott Santee, and Senior Vice President and CFO, Michael Larson. During today's call, we will discuss ITW's second quarter financial results and update our guidance for full year 2022. Slide two is a reminder that this presentation contains forward-looking statements. We refer you to the company's 2021 Form 10-K and subsequent reports filed with the SEC for more detail about important risks that could cause actual results to differ materially from our expectations. This presentation uses certain non-GAAP measures, and the reconciliation of those measures to the most directly comparable GAAP measures is contained in the press release. Please turn to slide three, and it's now my pleasure to turn the call over to our chairman and CEO, Scott Santee."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Thank you, Karen, and good morning, everyone. The ITW team delivered another quarter of strong operational execution and financial performance with organic growth of 10.4%, operating margin of 23.1%, after-tax return on invested capital of 27.8%, and gap EPS of $2.37. In the second quarter, we saw continued strong demand across our portfolio. Supported by our 80-20 front-to-back driven operational capabilities, our teams continue to do an exceptional job of delivering for our customers and aggressively executing our win-the-recovery strategy to accelerate profitable market penetration and organic growth. As a result of our advanced operational execution and delivery performance, we are being rewarded with meaningful additional share by our customers. as evidenced by our 10.5% organic growth in the first half of this year. While input cost inflation and supply chain issues remain challenging, we did see some stabilization on both fronts in Q2. In fact, for the first time in two years, price-cost margin dilution headwind improved sequentially from negative 250 basis points in Q1 to negative 160 basis points in Q2, as our businesses continue to do an excellent job of adjusting price to offset input cost inflation, and the pace and magnitude of input cost increases moderated somewhat. Importantly, our teams delivered these strong operational and financial results while continuing to drive meaningful progress on the execution of our long-term enterprise strategy, and they delivered another 90 basis points of margin improvement from enterprise initiatives in the quarter. Based on our first half results and projecting current demand and supply rates through the balance of the year, we are maintaining our guidance for full year 2022 with organic growth of 8.5% at the midpoint, margins in the range of 24% to 25%, and gap EPS of 9.20% at the midpoint, which would be an all-time record for the company. Excluding one-time tax items in both years, this represents EPS growth of 12%. While the near-term environment remains challenging and the global macro is certainly uncertain, ITW remains strongly positioned to continue to deliver differentiated performance for our shareholders, differentiated service to our customers, and continue progress on our path to ITW's full potential performance through the back half of the year and beyond. And with that, I'll turn the call over to Michael, who will provide more detail on the quarter and our full year outlook. Michael."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thank you, Scott, and good morning, everyone. In Q2, quarterly revenue grew 9 percent and exceeded $4 billion for the first time since 2012, with strong organic growth of 10.4 percent. The MTS acquisition contributed 3 percent to revenue. Foreign currency translation was a 4 percent headwind. Despite 10 cents of year-over-year EPS headwind from foreign currency translation and 5 cents of higher restructuring expense, GAAP EPS was $2.37 the second highest quarterly EPS ever. By geography, North America grew 14% and international grew 6% with 6% growth in Europe and 3% growth in Asia Pacific. China organic revenue was down 4%. And we estimate that the China lockdowns reduced our organic growth rate by about one percentage point at the enterprise level, which we fully expect to recover in the second half. Operating margin was 23.1 percent with operating leverage of 200 basis points and 90 basis points of enterprise initiatives. Margin headwinds included 50 basis points each from DMTS acquisition and higher restructuring expense related to 80-20 front-to-back projects. And the margin dilution impact from price-cost was 160 basis points. Free cash flow was $420 million, an increase of 69 percent versus Q1, Though we remain committed to intentional working capital investments to support growth, mitigate supply chain risk, and sustain service levels for our key customers. The routine resolution of a U.S. tax audit resulted in a one-time tax benefit of $0.16. And as you may recall, Q2 last year had a $0.35 one-time tax benefit. As a result, our Q2 tax rate this year was 18.3% as compared to 10.1% last year. Excluding these one-time tax benefits, the effective tax rate was 23.9% this year and 23% last year. Please turn to slide four with a look at price costs and the beginning of the improvement trend on margin dilution that Scott mentioned. Thanks to our business's decisive price actions throughout this inflationary cycle, we have stayed ahead of inflation on a dollar-per-dollar basis. And the seemingly endless barrage of cost increases over the last 12 months appear to have leveled off, such that we are beginning to recover the margin dilution impact. Based on all known costs and price increases, this positive trend is projected to continue, such that the margin impact is expected to be neutral in the second half. Throughout this two-year inflationary cycle, while we have more than covered cost increases on a dollar-for-dollar basis, we have absorbed as much as 250 basis points of margin dilution impact. As raw material cost inflation begins to moderate on a year-over-year basis, we are confident that we're going to recover this margin impact, hopefully starting in 2023. Moving on to the segments, automotive OEM delivered solid organic growth of 6% with 18% growth in North America. Europe was down about 1%, and China was down 11%. At this point, and consistent with our prior guidance, we do not expect a meaningful improvement in the chip shortage situation impacting auto production until 2023. In effect, our guidance assumes that automotive production remains around current levels for the second half. While we are getting positive signals from several of our customers in terms of preparing for a Q3 and Q4 ramp up in auto production, we are taking a more conservative approach to our guidance per our usual process. And even with revenue around current levels, keep in mind that the year-over-year comps ease in the second half, which sets the automotive OEM segment up as a meaningful contributor to the overall organic growth rate of the enterprise through the balance of the year. Operating margin was 17% when excluding 270 basis points of 80-20 front-to-back restructuring impact this quarter. As supply chain issues get resolved down the road and auto production ramps up, we're confident that we'll see some strong organic growth rates for an extended period of time and a return to the segment's historic margin rates in the low to mid-20s. Let's turn to slide five for food equipment, which led the way this quarter with an organic growth rate of 25 percent, record quarterly revenues of $614 million, an operating margin of 24.7 percent. North America grew 27 percent with double-digit growth in every major category and end market. Both restaurants and institutions were up around 40 percent, and retail growth was in the mid-teens. International revenue grew 23 percent, with Europe up 25 percent and Asia Pacific up 11 percent. Orders remain very strong in this segment. Test and measurement and electronics revenue grew 15%, with organic growth of 1%, which as you know, is uncharacteristically low for this segment, and entirely due to the timing of a large equipment order from an electronics customer in Q2 last year. Adjusted for that order, segment organic growth would have been about 7%, which is a more accurate representation of how strong the order intake is. Test and measurement organic growth was 8%, with continued strong demand for CapEx, as evidenced by in-strong growth of 5%, as well as continued strength in semiconductor-related end markets."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Moving to slide 6."
+      },
+      {
+        "speaker": "spk02",
+        "text": "On another positive note, welding's organic growth was also strong, at plus 22%, with equipment up 24% and consumables up 19%. Industrial grew 29% and the commercial business was up 19%. North America, which is about 80% of our sales, grew 25%. Oil and gas was up 8%. Sequentially from Q1, revenue was up 8% with continued strong order intake. Operating margin improved 80 basis points to 29.3%. Polymers and fluids grew 10 percent organically, with polymers up 25 percent on continued strength in MRO and heavy industry applications. Automotive aftermarket was up 4 percent, and fluids grew 3 percent. On a geographic basis, North America grew 8 percent, and international was up 13 percent. While sequential revenue grew from Q1, we did see some slowing demand in our automotive aftermarket business as consumers are dealing with rising inflation and gas prices. On to slide seven, and construction delivered strong organic growth of 15% with continuous strength in North America, which was up 29%. US residential grew 34% and commercial was up 20%. While Europe and Australia and New Zealand were up 5% and 4% respectively, the international businesses started to show some signs of slowing in their order rates towards the end of the quarter. Specialty was the only segment that didn't grow with organic revenue down 2% as supply chain constraints caused a delay in the delivery of some larger international equipment orders that are now on track for the second half. On a geographic basis, North America was up 5% while international was down 13%. Okay, let's turn to slide eight for an update on our full year 2022 guidance, which remains unchanged. Per our usual process, our guidance is based on our actual results year-to-date and a projection of current levels of demand through the balance of the year. As a result, our organic growth projection of 7% to 10% remains unchanged. The acquisition of MTS is projected to add 3% to revenue, and based on current foreign exchange rates, the headwind from foreign currency translation is now 4%, versus a prior expectation of 1.5%. We are maintaining our full-year GAAP EPS guidance range of $9 to $9.40. And compared to our prior guidance on May 3rd, the one-time favorable tax benefit of $0.16 in Q2 is offset by $0.20 of additional EPS headwind from foreign exchange, which is now embedded in the outlook. Our operating margin guidance is unchanged at 24% to 25% with about 100 basis points contribution from enterprise initiatives. Price cost margin dilution impact is unchanged at 100 basis points, which implies that the second half margin dilution impact is about neutral as compared to 200 basis points of headwind in the first half. Finally, there's no change to free cash flow generation or share repurchases of $1.5 billion. And our tax rate for the full year is expected to be in the range of 22% to 23%. We've often talked about the fact that ITW is a company that can deliver top-tier results in any environment, and this year is no exception. We're obviously not immune to the macro challenges and uncertainties that may lie ahead, but we remain confident that ITW is very well positioned to continue to deliver differentiated best-in-class performance as we leverage our diversified high-quality business portfolio, the competitive strength of ITW's proprietary business model, and our team's proven ability to execute at a very high level in any environment. With that, Karen, I'll turn it back to you."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay. Thanks, Michael. David, let's open up the lines for questions, please."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thank you. At this time, I'd like to remind everyone, in order to ask a question, press star then the number one on your telephone keypad. As a reminder for those participating in the Q&A, you'll have the opportunity to ask one question and, if needed, one follow-up question. We'll pause for just a moment to compile the Q&A roster. We'll take our first question from Andrew Kaplowitz with Citi. Your line is now open. Hey, good morning, everyone."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Andy."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Andy."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Scott or Mike, could you give us a little more color on underlying demand trends you're seeing in your more consumer versus capital goods businesses? I know you mentioned just tough comparison electronics, some slowing in auto aftermarket, but, you know, obviously we all have increased focus on macro slowdown. Are you seeing signs of moderating demand or is consumer demand still holding up?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "Go ahead. I was going to say, I think Michael told you exactly where we're seeing it, which is a One is the auto aftermarket business for reasons that are pretty logical related to gas prices and consumers' discretionary spending in that arena. And then the other is our international construction businesses that we did see a little bit of a pullback. Those businesses combined represent, I think, less than 15% of the company's overall revenues. And for the other 85%, we see things remain very strong."
+      },
+      {
+        "speaker": "spk01",
+        "text": "It's helpful, Scott. And then, Michael, I think you had talked about 200 base points of price cost impacting in Q2, and I think it read out at 160. So maybe give us a little more color in how you're thinking. I know you said neutral for the second half of the year, but obviously, commodity prices have come down pretty significantly lately. So how long does it take for that to read through? And is there maybe some upside to that second half neutral forecast?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Well, I think I explained to Andy kind of how we do this. I mean, based on all the known price and cost increases as we sit here today. We expect... And decreases. And decreases in certain cases. All of those things are cost decreases. All of those things are baked into our assumption today. And when you project that in a pretty mechanical calculation, so there's no assumption here that things get better or worse. It's based on what we know today. That margin dilution impact is essentially neutral here in the second half of the year. And that's how you get that 200 basis points swing in the second half of the year relative to the first half of the year."
+      },
+      {
+        "speaker": "spk01",
+        "text": "I try to appreciate it, Michael."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Next, we'll go to Tammy Zakaria with JP Morgan. Your line's open."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hi, good morning. Thanks for taking my questions. Just a quick follow-up on what you said earlier. I think you mentioned some weakness in international construction and markets. Is that focused on both resi and non-resi for you?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "Yeah, the biggest positions we have in both of those markets is by far residential. So I think they mostly speak to what's going on in those markets and the residential side in both Europe and Australia."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah. And I would just add to that, I mean, we're also seeing a lot of strength in other parts of the company. So while less than 15% may be experiencing a little bit of a slowdown, some of the other segments, food equipment, welding, test and measurement electronics, are off to a really strong start here in Q3. If you just look at our July numbers overall for the company, on a year-over-year basis, we're up 18%. So that is the highest monthly organic growth rate that we've seen all year. Sequentially from June, we are up in July where typically we are down. And actually five of seven segments are growing double digits. So there's a lot of strength in other parts of the company that, at least for the month of July, are offsetting some of the slowing we've seen in the parts of the company that we've talked about."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Got it, got it. That is super helpful, Color. And along the same lines, has your expectation for overall organic growth in Europe changed since the beginning of the year? The reason I ask, it seems like some people are thinking Europe would be in a recession in the back half. Does that alter your expectation for the region in the near term?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "I think we are pretty close to where we were on our last call, which I think we said we expect kind of low single-digit type growth rates in Europe, based again on current run rates. As you know, we're not assuming any change in the macro other than kind of what we're seeing today. We are in Europe, I should say. We are hearing some positive results. We are getting some positive signals, like I said, in the script from our automotive customers in terms of potential ramp up in production here in September and in Q4. And likewise, that's not baked into our guidance as we sit here today. So I hope you get the sense there's a lot of puts and takes across the company. And overall, we're on track to a really strong second half for the company."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Absolutely. Great. Thank you so much."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Sure."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay, next we'll go to Jeff Sprague with Vertical Research. Your line is now open."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hey, thanks. Good morning. Before my question, can we just clarify, Michael, interesting color on July. Thanks for that. You said in July the 85% that's not under pressure is up 18% or the total company is up 18%?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "The total company. Yeah, on an equal days basis. Total companies up 18% here in July."
+      },
+      {
+        "speaker": "spk03",
+        "text": "That's interesting and surprising. Good to hear. I'm just curious on welding. You know, I would have guessed perhaps that, you know, seeing that stronger number in welding, that maybe oil and gas would have been stronger than up 8%. So it sounds like it must have been pretty broad-based strength across companies. most of the markets that you can kind of see into. But maybe you could give a little bit of color there, what's going on in welding, both from a vertical market standpoint and any color on what's going on maybe in the channels."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, I mean, as you know, 80% of our business is North America, and that's where the strength was, up 25%. And really, you heard equipment up 24%, consumables up, 19, strength in industrial and commercial. And then the international side was up 8%. And that's where our primary oil and gas exposure resides. Europe was up 20%. And then the China business was down, which was the lockdowns again. So down about 6%. And we, like I said earlier, are fully expecting to recover that here in the back half of the year. But a lot of strength in the North America business for sure. And I would be remiss if I didn't point out the margin performance of north of 29% operating margin. So a really strong quarter for the welding business. And Q3 is looking really good so far."
+      },
+      {
+        "speaker": "spk13",
+        "text": "And just maybe a little additional color. The real strength there in Q2 was the industrial side. I think, Jeff, part of your question was related to the channel, and that's not a category of products that typically is inventoried in a significant degree of the channel. These are larger, more complex products, machines and systems, and they're typically sold into end users for specific projects. So there's not a lot of channel inventory at any point on those products. Great. I appreciate the call. Thanks, guys."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Sure. Next we'll go to Scott Davis with Mellius Research. Your line is now open."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Good morning, everybody."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Morning, Scott."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Just to be clear, guys, I know you don't disclose price explicitly, but is price still going up, net realized price still going up?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "We are still \u2013 there is a lag here. as you know, from the time we see the cost increases to the price is being realized. That is somewhere between one to two quarters, and we are still in catch-up mode here in the second half of the year. Obviously, on a margin basis, we talked about that, and also on a dollar basis."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Okay, that's what I thought. I just wanted to clarify. And then, I know, obviously, the FX has a translation impact, but It can have a trade impact. Can you remind us what businesses you are doing much export? We do almost."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Yeah, sorry. Sorry to cut you off, Scott. I didn't let you finish your question. I was just going to say we are producing locally to sell locally. We do very little cross-border commerce either on the input side or the export side. There's a little bit here and there, but less than 5% of our revenue overall."
+      },
+      {
+        "speaker": "spk02",
+        "text": "It's something like 2% of our imports are from China. I mean, it's really de minimis. We are produced where we sell a company. Our suppliers are local. Our customers are local. So our exposure is largely translation."
+      },
+      {
+        "speaker": "spk13",
+        "text": "So we are sourcing in the same currency that we are producing and selling in, in the vast majority of cases."
+      },
+      {
+        "speaker": "spk12",
+        "text": "All right. Helpful. I'll pass it on. Good luck. Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank you. Next, we'll go to Joe O'Day with Wells Fargo."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Your line's open. Hi, good morning. Thanks for taking my questions. I wanted to start on the consumer and the less than 15% that you were talking about. I think you've talked previously where maybe over half of revenue is broadly tied to consumer, but can you help segment that a little bit in terms of where you might have consumer exposure that would be a little bit more tied to consumer? something like overall consumer confidence and where you would have exposures that are a little bit more maybe durable in terms of demand trends and not as tied to what we would think about as sort of pressures related to a broad consumer slowdown."
+      },
+      {
+        "speaker": "spk02",
+        "text": "I think, Joe, we really highlighted the two big ones, which is construction, residential, and then the automotive aftermarket business."
+      },
+      {
+        "speaker": "spk13",
+        "text": "The other one maybe that I would add is in our specialty business, we do a fair amount of consumer packaging, so beverages, and resealable closures for things like cheese and other food products that I think have generally proven to be pretty resilient during times of economic contraction. Consumer staples, basically."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Got it. And then on supply chain, the PMI yesterday for July is still showing very extended lead times. I think you talked to stabilization, but I'm assuming that means exactly that, not that things are getting better. Can you talk about sort of any visibility that you have into timing of supply chain starting to improve a little bit from a point of stabilization?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "You know, what I would say overall is we have no visibility to any improvement. We are not planning on it. I'm sure that it will get better at some point. I think we have been, our businesses have been very resilient in terms of working their way through, you know, various issues and challenges and computer chips, you know, you name it. And we are finding a way to serve our customers. And that's, you know, that remains, I think, the posture that we have. And until it changes, we're not changing what we're doing. And, you know, I think we're on it, but it's still not easy. I appreciate it. Thanks."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Next, we'll go to Stephen Volkman with Jefferies. Your line's open."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Hi. Good morning, guys. I was wondering maybe if we could just go back to the price-cost margin dilution charts. I'm assuming there's some sort of a linear relationship here and that 3Q is probably still a small headwind and the exit rate at 4Q is probably a tailwind. Is that a reasonable expectation?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "I think, as we sit here today, I think that's a reasonable expectation, yes."
+      },
+      {
+        "speaker": "spk07",
+        "text": "And so, Michael, I'm trying to think a little bit further into 23 and just rather than think about volumes, they'll be whatever they are. But you're going to have a few things kind of moving here in terms of sort of price cost and, you know, dilution from MTS and some of the restructuring that you've done. Any way to start to think about what incremental margins in 23 might look like sort of when all is said and done?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, I think you're right. There is a lot going on. What I can tell you is that as we kind of peel back the onion on our incrementals. So adjusting for all the things you just talked about, MTS, restructuring, and price cost, we are right back at our core incremental margins in that 35% range right now. And we wouldn't expect anything different in 2023. Obviously, we haven't done the planning yet, but that's kind of long-term what you should expect from us is incrementals in that 35% range."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Great. That's helpful. Thank you, guys."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Sure. Next, we'll go to Midge DuBray with Baird. Your line's open."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Yeah, thanks for taking the question. Hey, Midge. I've been doing this for a while, but my name is always butchered on these earnings calls, so I'm used to it. Maybe to kind of follow up on Steve's question here, thinking about 23, I'm curious, as you're looking at the amount of pricing that you had to put through this year, is there a good way to think about the carryover that's going to go into 23 relative to 22 from a top line perspective, contribution to the top line?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "I think it's a little too early, Meg. I mean, clearly there will be some carryover, but to try and quantify that right now for you, I don't think would be helpful."
+      },
+      {
+        "speaker": "spk13",
+        "text": "We've got to get into our planning process, which is really, you know, we're talking about November-ish before we'll have a, reasonable view on that. And I think that's the appropriate time."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah. I mean, I think the only thing I would point back to is what I said in this prepared remarks is that if you add up the price cost margin dilution impact during this cycle over this year and last year of about 250 basis points, the expectation is that as things begin to normalize, we will recover that margin impact over time. Now, how exactly that will play out and the timing around that is not entirely clear as we sit here today, but I think it's reasonable to assume that some of that impact will be in 2023."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Okay."
+      },
+      {
+        "speaker": "spk10",
+        "text": "I guess if I may follow up on this, I'm trying to probe a little bit about your degree of confidence that the business overall will be able to outgrow industrial production as we're thinking 23 and, and, and beyond. Um, this has been a big topic, right? Over the past few years, you talked about winning the recovery and investing through the downturn. So, um, I'm, I'm curious if you can maybe update us a little bit on your degree of confidence that we can continue to see outgrowth. Well, I don't know. Um,"
+      },
+      {
+        "speaker": "spk13",
+        "text": "exactly what I can do to reassure you other than to tell you that it continues to be the number one dominant priority of every member of ITW from China to Europe to North America to South America. And it is certainly, we think we've got a terrific opportunity going forward. done a lot of things in terms of investing and positioning ourselves to execute on it, and the proof will be in the pudding. But it's already happening."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, I agree with that, Meg."
+      },
+      {
+        "speaker": "spk02",
+        "text": "I mean, I think if you look at the results we've put up so far, and granted there's some recovery in here, but last year organic was up 12. The first half is up 10% organic this year. I think relative to peers, we're certainly closing the gap compared to what we were kind of just a few years ago. So I think, yes, the proof will be in the organic growth rate numbers that we're going to put up. But I also will tell you there is a high degree of confidence that we are making significant progress. Lots more to do, but certainly we are headed in the right direction here for sure."
+      },
+      {
+        "speaker": "spk10",
+        "text": "All right. Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And we'll take our final question from Julian Mitchell with Barclays. Your line's open."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Julian? Go ahead, Julian. Your line's open. Julian Mitchell, your line's open."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Hello. Maybe on mute. There we go."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Sorry about that. Good morning. Just wanted to clarify on the margin outlook because I suppose the margin rate or the margin guide for the year implies the fourth quarter margins are maybe up 300, 400 basis points year on year or something. Just wanted to confirm that that's roughly the right way to think about the back half guide and maybe what are the main drivers of that big fourth quarter margin uplift?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, I mean, the big driver for the second half here is what we just talked about, which is 200 basis points of price-cost margin dilution impact in the first half. That's not projected to repeat in the second half. So that's probably the biggest driver. I think you also have to factor in, if you just run rate, if you just take our current revenues, and and project those into q3 and q4 because the comps are easing on a year-over-year basis we'll be putting up some meaningful organic growth rates with all the operating leverage and the incrementals that are returning to something a lot closer to our historical incrementals in the back half of the year and so those are kind of the big the big drivers here less price cost margin uh headwind and um significant organic growth year over year with more normal incremental margins in that 35% maybe plus range for the back half of the year."
+      },
+      {
+        "speaker": "spk00",
+        "text": "I understand. Thank you. And then just to follow up on free cash flow, I think your sort of 90% odd conversion guide for the year on free cash is You know, that implies, I think, sort of 50% growth in the free cash year on year in the second half. So just, you know, help us understand, you know, how did you get that monstrous sort of free cash flow expansion? Is there just a massive sort of inventory de-stock because, you know, supply chains are easing? Maybe just any color around that because it is a big move for a sort of large company."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah. It's a little bigger than usual. I mean, as you know, historically, our second half cash flows are always significantly higher than the first half. It's a little bit more this time. We've talked about the fact that we've been very intentional in terms of our working capital investments to support the growth that we're seeing, double-digit growth at the top line, mitigate supply chain risk, which is still a reality and then sustain the service levels for our customers. So we will carry whatever inventory we need to do those things. If you look at our months on hand, we're running right around three months on hand. And we really only need a slight improvement in the months on hand to get to those free cash flow numbers. So as we see here today, we do have a line of sight to a ramp up in the second half. But like I said, we think it's a smart use of this balance sheet you know, to support everything we're trying to do from an organic growth standpoint by taking care of our customers. And I will say this, if we come in at the low end of the range, it won't change anything in terms of our capital allocation plans for the year. We'll still do the buyback. We'll still do, obviously, investments. We'll still do the dividend. And so there's really no tradeoff here. But obviously, we'd like to hit the free cash flow number, and we have line of sight to doing that. for the back half of the year. And we're obviously aware that it's a little bit more of a ramp than what we normally have."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Understood. Thank you very much. All right. Thanks, Julian."
+      },
+      {
+        "speaker": "spk14",
+        "text": "This concludes today's conference call."
+      },
+      {
+        "speaker": "spk04",
+        "text": "You may now disconnect."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk08": {
+        "name": "Karen",
+        "title": "Conference Call Host / Investor Relations"
+      },
+      "spk13": {
+        "name": "Scott Santee",
+        "title": "Chairman and CEO"
+      },
+      "spk02": {
+        "name": "Michael Larson",
+        "title": "Senior Vice President and CFO"
+      },
+      "spk04": {
+        "name": "David",
+        "title": "Conference Call Moderator"
+      },
+      "spk01": {
+        "name": "Andrew Kaplowitz",
+        "title": "Analyst, Citi"
+      },
+      "spk05": {
+        "name": "Moderator",
+        "title": "Call Moderator"
+      },
+      "spk09": {
+        "name": "Tammy Zakaria",
+        "title": "Analyst, JP Morgan"
+      },
+      "spk03": {
+        "name": "Jeff Sprague",
+        "title": "Analyst, Vertical Research"
+      },
+      "spk12": {
+        "name": "Scott Davis",
+        "title": "Analyst, Mellius Research"
+      },
+      "spk11": {
+        "name": "Joe O'Day",
+        "title": "Analyst, Wells Fargo"
+      },
+      "spk07": {
+        "name": "Stephen Volkman",
+        "title": "Analyst, Jefferies"
+      },
+      "spk10": {
+        "name": "Midge DuBray",
+        "title": "Analyst, Baird"
+      },
+      "spk14": {
+        "name": "Facilitator",
+        "title": "Conference Call Facilitator"
+      },
+      "spk00": {
+        "name": "Julian Mitchell",
+        "title": "Analyst, Barclays"
+      }
+    }
+  },
+  "text": "Karen (Conference Call Host / Investor Relations): Good morning, and welcome to ITW's second quarter 2022 conference call. I'm joined by our Chairman and CEO, Scott Santee, and Senior Vice President and CFO, Michael Larson. During today's call, we will discuss ITW's second quarter financial results and update our guidance for full year 2022. Slide two is a reminder that this presentation contains forward-looking statements. We refer you to the company's 2021 Form 10-K and subsequent reports filed with the SEC for more detail about important risks that could cause actual results to differ materially from our expectations. This presentation uses certain non-GAAP measures, and the reconciliation of those measures to the most directly comparable GAAP measures is contained in the press release. Please turn to slide three, and it's now my pleasure to turn the call over to our chairman and CEO, Scott Santee.\n\nScott Santee (Chairman and CEO): Thank you, Karen, and good morning, everyone. The ITW team delivered another quarter of strong operational execution and financial performance with organic growth of 10.4%, operating margin of 23.1%, after-tax return on invested capital of 27.8%, and gap EPS of $2.37. In the second quarter, we saw continued strong demand across our portfolio. Supported by our 80-20 front-to-back driven operational capabilities, our teams continue to do an exceptional job of delivering for our customers and aggressively executing our win-the-recovery strategy to accelerate profitable market penetration and organic growth. As a result of our advanced operational execution and delivery performance, we are being rewarded with meaningful additional share by our customers. as evidenced by our 10.5% organic growth in the first half of this year. While input cost inflation and supply chain issues remain challenging, we did see some stabilization on both fronts in Q2. In fact, for the first time in two years, price-cost margin dilution headwind improved sequentially from negative 250 basis points in Q1 to negative 160 basis points in Q2, as our businesses continue to do an excellent job of adjusting price to offset input cost inflation, and the pace and magnitude of input cost increases moderated somewhat. Importantly, our teams delivered these strong operational and financial results while continuing to drive meaningful progress on the execution of our long-term enterprise strategy, and they delivered another 90 basis points of margin improvement from enterprise initiatives in the quarter. Based on our first half results and projecting current demand and supply rates through the balance of the year, we are maintaining our guidance for full year 2022 with organic growth of 8.5% at the midpoint, margins in the range of 24% to 25%, and gap EPS of 9.20% at the midpoint, which would be an all-time record for the company. Excluding one-time tax items in both years, this represents EPS growth of 12%. While the near-term environment remains challenging and the global macro is certainly uncertain, ITW remains strongly positioned to continue to deliver differentiated performance for our shareholders, differentiated service to our customers, and continue progress on our path to ITW's full potential performance through the back half of the year and beyond. And with that, I'll turn the call over to Michael, who will provide more detail on the quarter and our full year outlook. Michael.\n\nMichael Larson (Senior Vice President and CFO): Thank you, Scott, and good morning, everyone. In Q2, quarterly revenue grew 9 percent and exceeded $4 billion for the first time since 2012, with strong organic growth of 10.4 percent. The MTS acquisition contributed 3 percent to revenue. Foreign currency translation was a 4 percent headwind. Despite 10 cents of year-over-year EPS headwind from foreign currency translation and 5 cents of higher restructuring expense, GAAP EPS was $2.37 the second highest quarterly EPS ever. By geography, North America grew 14% and international grew 6% with 6% growth in Europe and 3% growth in Asia Pacific. China organic revenue was down 4%. And we estimate that the China lockdowns reduced our organic growth rate by about one percentage point at the enterprise level, which we fully expect to recover in the second half. Operating margin was 23.1 percent with operating leverage of 200 basis points and 90 basis points of enterprise initiatives. Margin headwinds included 50 basis points each from DMTS acquisition and higher restructuring expense related to 80-20 front-to-back projects. And the margin dilution impact from price-cost was 160 basis points. Free cash flow was $420 million, an increase of 69 percent versus Q1, Though we remain committed to intentional working capital investments to support growth, mitigate supply chain risk, and sustain service levels for our key customers. The routine resolution of a U.S. tax audit resulted in a one-time tax benefit of $0.16. And as you may recall, Q2 last year had a $0.35 one-time tax benefit. As a result, our Q2 tax rate this year was 18.3% as compared to 10.1% last year. Excluding these one-time tax benefits, the effective tax rate was 23.9% this year and 23% last year. Please turn to slide four with a look at price costs and the beginning of the improvement trend on margin dilution that Scott mentioned. Thanks to our business's decisive price actions throughout this inflationary cycle, we have stayed ahead of inflation on a dollar-per-dollar basis. And the seemingly endless barrage of cost increases over the last 12 months appear to have leveled off, such that we are beginning to recover the margin dilution impact. Based on all known costs and price increases, this positive trend is projected to continue, such that the margin impact is expected to be neutral in the second half. Throughout this two-year inflationary cycle, while we have more than covered cost increases on a dollar-for-dollar basis, we have absorbed as much as 250 basis points of margin dilution impact. As raw material cost inflation begins to moderate on a year-over-year basis, we are confident that we're going to recover this margin impact, hopefully starting in 2023. Moving on to the segments, automotive OEM delivered solid organic growth of 6% with 18% growth in North America. Europe was down about 1%, and China was down 11%. At this point, and consistent with our prior guidance, we do not expect a meaningful improvement in the chip shortage situation impacting auto production until 2023. In effect, our guidance assumes that automotive production remains around current levels for the second half. While we are getting positive signals from several of our customers in terms of preparing for a Q3 and Q4 ramp up in auto production, we are taking a more conservative approach to our guidance per our usual process. And even with revenue around current levels, keep in mind that the year-over-year comps ease in the second half, which sets the automotive OEM segment up as a meaningful contributor to the overall organic growth rate of the enterprise through the balance of the year. Operating margin was 17% when excluding 270 basis points of 80-20 front-to-back restructuring impact this quarter. As supply chain issues get resolved down the road and auto production ramps up, we're confident that we'll see some strong organic growth rates for an extended period of time and a return to the segment's historic margin rates in the low to mid-20s. Let's turn to slide five for food equipment, which led the way this quarter with an organic growth rate of 25 percent, record quarterly revenues of $614 million, an operating margin of 24.7 percent. North America grew 27 percent with double-digit growth in every major category and end market. Both restaurants and institutions were up around 40 percent, and retail growth was in the mid-teens. International revenue grew 23 percent, with Europe up 25 percent and Asia Pacific up 11 percent. Orders remain very strong in this segment. Test and measurement and electronics revenue grew 15%, with organic growth of 1%, which as you know, is uncharacteristically low for this segment, and entirely due to the timing of a large equipment order from an electronics customer in Q2 last year. Adjusted for that order, segment organic growth would have been about 7%, which is a more accurate representation of how strong the order intake is. Test and measurement organic growth was 8%, with continued strong demand for CapEx, as evidenced by in-strong growth of 5%, as well as continued strength in semiconductor-related end markets.\n\nFacilitator (Conference Call Facilitator): Moving to slide 6.\n\nMichael Larson (Senior Vice President and CFO): On another positive note, welding's organic growth was also strong, at plus 22%, with equipment up 24% and consumables up 19%. Industrial grew 29% and the commercial business was up 19%. North America, which is about 80% of our sales, grew 25%. Oil and gas was up 8%. Sequentially from Q1, revenue was up 8% with continued strong order intake. Operating margin improved 80 basis points to 29.3%. Polymers and fluids grew 10 percent organically, with polymers up 25 percent on continued strength in MRO and heavy industry applications. Automotive aftermarket was up 4 percent, and fluids grew 3 percent. On a geographic basis, North America grew 8 percent, and international was up 13 percent. While sequential revenue grew from Q1, we did see some slowing demand in our automotive aftermarket business as consumers are dealing with rising inflation and gas prices. On to slide seven, and construction delivered strong organic growth of 15% with continuous strength in North America, which was up 29%. US residential grew 34% and commercial was up 20%. While Europe and Australia and New Zealand were up 5% and 4% respectively, the international businesses started to show some signs of slowing in their order rates towards the end of the quarter. Specialty was the only segment that didn't grow with organic revenue down 2% as supply chain constraints caused a delay in the delivery of some larger international equipment orders that are now on track for the second half. On a geographic basis, North America was up 5% while international was down 13%. Okay, let's turn to slide eight for an update on our full year 2022 guidance, which remains unchanged. Per our usual process, our guidance is based on our actual results year-to-date and a projection of current levels of demand through the balance of the year. As a result, our organic growth projection of 7% to 10% remains unchanged. The acquisition of MTS is projected to add 3% to revenue, and based on current foreign exchange rates, the headwind from foreign currency translation is now 4%, versus a prior expectation of 1.5%. We are maintaining our full-year GAAP EPS guidance range of $9 to $9.40. And compared to our prior guidance on May 3rd, the one-time favorable tax benefit of $0.16 in Q2 is offset by $0.20 of additional EPS headwind from foreign exchange, which is now embedded in the outlook. Our operating margin guidance is unchanged at 24% to 25% with about 100 basis points contribution from enterprise initiatives. Price cost margin dilution impact is unchanged at 100 basis points, which implies that the second half margin dilution impact is about neutral as compared to 200 basis points of headwind in the first half. Finally, there's no change to free cash flow generation or share repurchases of $1.5 billion. And our tax rate for the full year is expected to be in the range of 22% to 23%. We've often talked about the fact that ITW is a company that can deliver top-tier results in any environment, and this year is no exception. We're obviously not immune to the macro challenges and uncertainties that may lie ahead, but we remain confident that ITW is very well positioned to continue to deliver differentiated best-in-class performance as we leverage our diversified high-quality business portfolio, the competitive strength of ITW's proprietary business model, and our team's proven ability to execute at a very high level in any environment. With that, Karen, I'll turn it back to you.\n\nKaren (Conference Call Host / Investor Relations): Okay. Thanks, Michael. David, let's open up the lines for questions, please.\n\nDavid (Conference Call Moderator): Thank you. At this time, I'd like to remind everyone, in order to ask a question, press star then the number one on your telephone keypad. As a reminder for those participating in the Q&A, you'll have the opportunity to ask one question and, if needed, one follow-up question. We'll pause for just a moment to compile the Q&A roster. We'll take our first question from Andrew Kaplowitz with Citi. Your line is now open. Hey, good morning, everyone.\n\nAndrew Kaplowitz (Analyst, Citi): Andy.\n\nMichael Larson (Senior Vice President and CFO): Andy.\n\nAndrew Kaplowitz (Analyst, Citi): Scott or Mike, could you give us a little more color on underlying demand trends you're seeing in your more consumer versus capital goods businesses? I know you mentioned just tough comparison electronics, some slowing in auto aftermarket, but, you know, obviously we all have increased focus on macro slowdown. Are you seeing signs of moderating demand or is consumer demand still holding up?\n\nScott Santee (Chairman and CEO): Go ahead. I was going to say, I think Michael told you exactly where we're seeing it, which is a One is the auto aftermarket business for reasons that are pretty logical related to gas prices and consumers' discretionary spending in that arena. And then the other is our international construction businesses that we did see a little bit of a pullback. Those businesses combined represent, I think, less than 15% of the company's overall revenues. And for the other 85%, we see things remain very strong.\n\nAndrew Kaplowitz (Analyst, Citi): It's helpful, Scott. And then, Michael, I think you had talked about 200 base points of price cost impacting in Q2, and I think it read out at 160. So maybe give us a little more color in how you're thinking. I know you said neutral for the second half of the year, but obviously, commodity prices have come down pretty significantly lately. So how long does it take for that to read through? And is there maybe some upside to that second half neutral forecast?\n\nMichael Larson (Senior Vice President and CFO): Well, I think I explained to Andy kind of how we do this. I mean, based on all the known price and cost increases as we sit here today. We expect... And decreases. And decreases in certain cases. All of those things are cost decreases. All of those things are baked into our assumption today. And when you project that in a pretty mechanical calculation, so there's no assumption here that things get better or worse. It's based on what we know today. That margin dilution impact is essentially neutral here in the second half of the year. And that's how you get that 200 basis points swing in the second half of the year relative to the first half of the year.\n\nAndrew Kaplowitz (Analyst, Citi): I try to appreciate it, Michael.\n\nModerator (Call Moderator): Next, we'll go to Tammy Zakaria with JP Morgan. Your line's open.\n\nTammy Zakaria (Analyst, JP Morgan): Hi, good morning. Thanks for taking my questions. Just a quick follow-up on what you said earlier. I think you mentioned some weakness in international construction and markets. Is that focused on both resi and non-resi for you?\n\nScott Santee (Chairman and CEO): Yeah, the biggest positions we have in both of those markets is by far residential. So I think they mostly speak to what's going on in those markets and the residential side in both Europe and Australia.\n\nMichael Larson (Senior Vice President and CFO): Yeah. And I would just add to that, I mean, we're also seeing a lot of strength in other parts of the company. So while less than 15% may be experiencing a little bit of a slowdown, some of the other segments, food equipment, welding, test and measurement electronics, are off to a really strong start here in Q3. If you just look at our July numbers overall for the company, on a year-over-year basis, we're up 18%. So that is the highest monthly organic growth rate that we've seen all year. Sequentially from June, we are up in July where typically we are down. And actually five of seven segments are growing double digits. So there's a lot of strength in other parts of the company that, at least for the month of July, are offsetting some of the slowing we've seen in the parts of the company that we've talked about.\n\nTammy Zakaria (Analyst, JP Morgan): Got it, got it. That is super helpful, Color. And along the same lines, has your expectation for overall organic growth in Europe changed since the beginning of the year? The reason I ask, it seems like some people are thinking Europe would be in a recession in the back half. Does that alter your expectation for the region in the near term?\n\nMichael Larson (Senior Vice President and CFO): I think we are pretty close to where we were on our last call, which I think we said we expect kind of low single-digit type growth rates in Europe, based again on current run rates. As you know, we're not assuming any change in the macro other than kind of what we're seeing today. We are in Europe, I should say. We are hearing some positive results. We are getting some positive signals, like I said, in the script from our automotive customers in terms of potential ramp up in production here in September and in Q4. And likewise, that's not baked into our guidance as we sit here today. So I hope you get the sense there's a lot of puts and takes across the company. And overall, we're on track to a really strong second half for the company.\n\nTammy Zakaria (Analyst, JP Morgan): Absolutely. Great. Thank you so much.\n\nMichael Larson (Senior Vice President and CFO): Sure.\n\nModerator (Call Moderator): Okay, next we'll go to Jeff Sprague with Vertical Research. Your line is now open.\n\nJeff Sprague (Analyst, Vertical Research): Hey, thanks. Good morning. Before my question, can we just clarify, Michael, interesting color on July. Thanks for that. You said in July the 85% that's not under pressure is up 18% or the total company is up 18%?\n\nFacilitator (Conference Call Facilitator): The total company. Yeah, on an equal days basis. Total companies up 18% here in July.\n\nJeff Sprague (Analyst, Vertical Research): That's interesting and surprising. Good to hear. I'm just curious on welding. You know, I would have guessed perhaps that, you know, seeing that stronger number in welding, that maybe oil and gas would have been stronger than up 8%. So it sounds like it must have been pretty broad-based strength across companies. most of the markets that you can kind of see into. But maybe you could give a little bit of color there, what's going on in welding, both from a vertical market standpoint and any color on what's going on maybe in the channels.\n\nMichael Larson (Senior Vice President and CFO): Yeah, I mean, as you know, 80% of our business is North America, and that's where the strength was, up 25%. And really, you heard equipment up 24%, consumables up, 19, strength in industrial and commercial. And then the international side was up 8%. And that's where our primary oil and gas exposure resides. Europe was up 20%. And then the China business was down, which was the lockdowns again. So down about 6%. And we, like I said earlier, are fully expecting to recover that here in the back half of the year. But a lot of strength in the North America business for sure. And I would be remiss if I didn't point out the margin performance of north of 29% operating margin. So a really strong quarter for the welding business. And Q3 is looking really good so far.\n\nScott Santee (Chairman and CEO): And just maybe a little additional color. The real strength there in Q2 was the industrial side. I think, Jeff, part of your question was related to the channel, and that's not a category of products that typically is inventoried in a significant degree of the channel. These are larger, more complex products, machines and systems, and they're typically sold into end users for specific projects. So there's not a lot of channel inventory at any point on those products. Great. I appreciate the call. Thanks, guys.\n\nModerator (Call Moderator): Sure. Next we'll go to Scott Davis with Mellius Research. Your line is now open.\n\nScott Davis (Analyst, Mellius Research): Good morning, everybody.\n\nModerator (Call Moderator): Morning, Scott.\n\nScott Davis (Analyst, Mellius Research): Just to be clear, guys, I know you don't disclose price explicitly, but is price still going up, net realized price still going up?\n\nMichael Larson (Senior Vice President and CFO): We are still \u2013 there is a lag here. as you know, from the time we see the cost increases to the price is being realized. That is somewhere between one to two quarters, and we are still in catch-up mode here in the second half of the year. Obviously, on a margin basis, we talked about that, and also on a dollar basis.\n\nScott Davis (Analyst, Mellius Research): Okay, that's what I thought. I just wanted to clarify. And then, I know, obviously, the FX has a translation impact, but It can have a trade impact. Can you remind us what businesses you are doing much export? We do almost.\n\nScott Santee (Chairman and CEO): Yeah, sorry. Sorry to cut you off, Scott. I didn't let you finish your question. I was just going to say we are producing locally to sell locally. We do very little cross-border commerce either on the input side or the export side. There's a little bit here and there, but less than 5% of our revenue overall.\n\nMichael Larson (Senior Vice President and CFO): It's something like 2% of our imports are from China. I mean, it's really de minimis. We are produced where we sell a company. Our suppliers are local. Our customers are local. So our exposure is largely translation.\n\nScott Santee (Chairman and CEO): So we are sourcing in the same currency that we are producing and selling in, in the vast majority of cases.\n\nScott Davis (Analyst, Mellius Research): All right. Helpful. I'll pass it on. Good luck. Thank you.\n\nModerator (Call Moderator): Thank you. Next, we'll go to Joe O'Day with Wells Fargo.\n\nJoe O'Day (Analyst, Wells Fargo): Your line's open. Hi, good morning. Thanks for taking my questions. I wanted to start on the consumer and the less than 15% that you were talking about. I think you've talked previously where maybe over half of revenue is broadly tied to consumer, but can you help segment that a little bit in terms of where you might have consumer exposure that would be a little bit more tied to consumer? something like overall consumer confidence and where you would have exposures that are a little bit more maybe durable in terms of demand trends and not as tied to what we would think about as sort of pressures related to a broad consumer slowdown.\n\nMichael Larson (Senior Vice President and CFO): I think, Joe, we really highlighted the two big ones, which is construction, residential, and then the automotive aftermarket business.\n\nScott Santee (Chairman and CEO): The other one maybe that I would add is in our specialty business, we do a fair amount of consumer packaging, so beverages, and resealable closures for things like cheese and other food products that I think have generally proven to be pretty resilient during times of economic contraction. Consumer staples, basically.\n\nJoe O'Day (Analyst, Wells Fargo): Got it. And then on supply chain, the PMI yesterday for July is still showing very extended lead times. I think you talked to stabilization, but I'm assuming that means exactly that, not that things are getting better. Can you talk about sort of any visibility that you have into timing of supply chain starting to improve a little bit from a point of stabilization?\n\nScott Santee (Chairman and CEO): You know, what I would say overall is we have no visibility to any improvement. We are not planning on it. I'm sure that it will get better at some point. I think we have been, our businesses have been very resilient in terms of working their way through, you know, various issues and challenges and computer chips, you know, you name it. And we are finding a way to serve our customers. And that's, you know, that remains, I think, the posture that we have. And until it changes, we're not changing what we're doing. And, you know, I think we're on it, but it's still not easy. I appreciate it. Thanks.\n\nModerator (Call Moderator): Next, we'll go to Stephen Volkman with Jefferies. Your line's open.\n\nStephen Volkman (Analyst, Jefferies): Hi. Good morning, guys. I was wondering maybe if we could just go back to the price-cost margin dilution charts. I'm assuming there's some sort of a linear relationship here and that 3Q is probably still a small headwind and the exit rate at 4Q is probably a tailwind. Is that a reasonable expectation?\n\nMichael Larson (Senior Vice President and CFO): I think, as we sit here today, I think that's a reasonable expectation, yes.\n\nStephen Volkman (Analyst, Jefferies): And so, Michael, I'm trying to think a little bit further into 23 and just rather than think about volumes, they'll be whatever they are. But you're going to have a few things kind of moving here in terms of sort of price cost and, you know, dilution from MTS and some of the restructuring that you've done. Any way to start to think about what incremental margins in 23 might look like sort of when all is said and done?\n\nMichael Larson (Senior Vice President and CFO): Yeah, I think you're right. There is a lot going on. What I can tell you is that as we kind of peel back the onion on our incrementals. So adjusting for all the things you just talked about, MTS, restructuring, and price cost, we are right back at our core incremental margins in that 35% range right now. And we wouldn't expect anything different in 2023. Obviously, we haven't done the planning yet, but that's kind of long-term what you should expect from us is incrementals in that 35% range.\n\nStephen Volkman (Analyst, Jefferies): Great. That's helpful. Thank you, guys.\n\nModerator (Call Moderator): Sure. Next, we'll go to Midge DuBray with Baird. Your line's open.\n\nMidge DuBray (Analyst, Baird): Yeah, thanks for taking the question. Hey, Midge. I've been doing this for a while, but my name is always butchered on these earnings calls, so I'm used to it. Maybe to kind of follow up on Steve's question here, thinking about 23, I'm curious, as you're looking at the amount of pricing that you had to put through this year, is there a good way to think about the carryover that's going to go into 23 relative to 22 from a top line perspective, contribution to the top line?\n\nMichael Larson (Senior Vice President and CFO): I think it's a little too early, Meg. I mean, clearly there will be some carryover, but to try and quantify that right now for you, I don't think would be helpful.\n\nScott Santee (Chairman and CEO): We've got to get into our planning process, which is really, you know, we're talking about November-ish before we'll have a, reasonable view on that. And I think that's the appropriate time.\n\nMichael Larson (Senior Vice President and CFO): Yeah. I mean, I think the only thing I would point back to is what I said in this prepared remarks is that if you add up the price cost margin dilution impact during this cycle over this year and last year of about 250 basis points, the expectation is that as things begin to normalize, we will recover that margin impact over time. Now, how exactly that will play out and the timing around that is not entirely clear as we sit here today, but I think it's reasonable to assume that some of that impact will be in 2023.\n\nFacilitator (Conference Call Facilitator): Okay.\n\nMidge DuBray (Analyst, Baird): I guess if I may follow up on this, I'm trying to probe a little bit about your degree of confidence that the business overall will be able to outgrow industrial production as we're thinking 23 and, and, and beyond. Um, this has been a big topic, right? Over the past few years, you talked about winning the recovery and investing through the downturn. So, um, I'm, I'm curious if you can maybe update us a little bit on your degree of confidence that we can continue to see outgrowth. Well, I don't know. Um,\n\nScott Santee (Chairman and CEO): exactly what I can do to reassure you other than to tell you that it continues to be the number one dominant priority of every member of ITW from China to Europe to North America to South America. And it is certainly, we think we've got a terrific opportunity going forward. done a lot of things in terms of investing and positioning ourselves to execute on it, and the proof will be in the pudding. But it's already happening.\n\nFacilitator (Conference Call Facilitator): Yeah, I agree with that, Meg.\n\nMichael Larson (Senior Vice President and CFO): I mean, I think if you look at the results we've put up so far, and granted there's some recovery in here, but last year organic was up 12. The first half is up 10% organic this year. I think relative to peers, we're certainly closing the gap compared to what we were kind of just a few years ago. So I think, yes, the proof will be in the organic growth rate numbers that we're going to put up. But I also will tell you there is a high degree of confidence that we are making significant progress. Lots more to do, but certainly we are headed in the right direction here for sure.\n\nMidge DuBray (Analyst, Baird): All right. Thank you.\n\nModerator (Call Moderator): And we'll take our final question from Julian Mitchell with Barclays. Your line's open.\n\nFacilitator (Conference Call Facilitator): Julian? Go ahead, Julian. Your line's open. Julian Mitchell, your line's open.\n\nModerator (Call Moderator): Hello. Maybe on mute. There we go.\n\nJulian Mitchell (Analyst, Barclays): Sorry about that. Good morning. Just wanted to clarify on the margin outlook because I suppose the margin rate or the margin guide for the year implies the fourth quarter margins are maybe up 300, 400 basis points year on year or something. Just wanted to confirm that that's roughly the right way to think about the back half guide and maybe what are the main drivers of that big fourth quarter margin uplift?\n\nMichael Larson (Senior Vice President and CFO): Yeah, I mean, the big driver for the second half here is what we just talked about, which is 200 basis points of price-cost margin dilution impact in the first half. That's not projected to repeat in the second half. So that's probably the biggest driver. I think you also have to factor in, if you just run rate, if you just take our current revenues, and and project those into q3 and q4 because the comps are easing on a year-over-year basis we'll be putting up some meaningful organic growth rates with all the operating leverage and the incrementals that are returning to something a lot closer to our historical incrementals in the back half of the year and so those are kind of the big the big drivers here less price cost margin uh headwind and um significant organic growth year over year with more normal incremental margins in that 35% maybe plus range for the back half of the year.\n\nJulian Mitchell (Analyst, Barclays): I understand. Thank you. And then just to follow up on free cash flow, I think your sort of 90% odd conversion guide for the year on free cash is You know, that implies, I think, sort of 50% growth in the free cash year on year in the second half. So just, you know, help us understand, you know, how did you get that monstrous sort of free cash flow expansion? Is there just a massive sort of inventory de-stock because, you know, supply chains are easing? Maybe just any color around that because it is a big move for a sort of large company.\n\nMichael Larson (Senior Vice President and CFO): Yeah. It's a little bigger than usual. I mean, as you know, historically, our second half cash flows are always significantly higher than the first half. It's a little bit more this time. We've talked about the fact that we've been very intentional in terms of our working capital investments to support the growth that we're seeing, double-digit growth at the top line, mitigate supply chain risk, which is still a reality and then sustain the service levels for our customers. So we will carry whatever inventory we need to do those things. If you look at our months on hand, we're running right around three months on hand. And we really only need a slight improvement in the months on hand to get to those free cash flow numbers. So as we see here today, we do have a line of sight to a ramp up in the second half. But like I said, we think it's a smart use of this balance sheet you know, to support everything we're trying to do from an organic growth standpoint by taking care of our customers. And I will say this, if we come in at the low end of the range, it won't change anything in terms of our capital allocation plans for the year. We'll still do the buyback. We'll still do, obviously, investments. We'll still do the dividend. And so there's really no tradeoff here. But obviously, we'd like to hit the free cash flow number, and we have line of sight to doing that. for the back half of the year. And we're obviously aware that it's a little bit more of a ramp than what we normally have.\n\nJulian Mitchell (Analyst, Barclays): Understood. Thank you very much. All right. Thanks, Julian.\n\nFacilitator (Conference Call Facilitator): This concludes today's conference call.\n\nDavid (Conference Call Moderator): You may now disconnect.",
+  "n_turns": 71
+}

@@ -1,0 +1,425 @@
+{
+  "ticker": "JKS",
+  "original_ticker": "JKS",
+  "call_date": "2022-10-28",
+  "year": 2022,
+  "quarter": 3,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "JKS",
+    "year": 2022,
+    "quarter": 3
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T01:57:36Z",
+  "raw_payload": {
+    "event": {
+      "year": 2022,
+      "quarter": 3,
+      "conference_date": "2022-10-28T08:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk04",
+        "text": "Hello, ladies and gentlemen, and thank you for standing by for Ginkgo Solar Holding Co. LTD Third Quarter 2022 Earnings Conference Call. At this time, all participants are in a listen-only mode. After management's prepared remarks, there will be a question and answer session. As you remember, today's conference call is being recorded. I would now like to turn the meeting over to your host for today's call, to Mrs. Stella Wang, Jinko Solar Investor Relations. Please proceed, Stella."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you, operator. Thank you, everyone, for joining us today for Jinko Solar's third quarter 2022 earnings conference call. The company's results were released earlier today and available on the company's IR website at www.jinkosolar.com, as well as on New Thrive Services website. We have also provided a supplemental presentation for today's earnings call, which can also be found on the IR website. On the call today from Zinco Solar are Mr. Lee Hsien-De, Chairman of the Board of Directors and Chief Executive Officer of Zinco Solar Holding Company Limited, Mr. Jenna Miao, Chief Marketing Officer of Zinco Solar Company Limited, Mr. Pan Li, Chief Financial Officer of Zinco Solar Holding Company Limited, and Mr. Charlie Cao, Chief Financial Officer of Zinco Solar Company Limited. Mr. Li will discuss Zinco Solar's business operations and company highlights, followed by Mr. Miao, who will talk about the sales and marketing, and then Mr. Pan Li, who will go through the financials. They will all be available to answer your questions during the Q&A session that follows. Please note that today's discussion will contain forward-looking statements made under the Safe Harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements involve inherent risks and uncertainties. As such, our future results may be materially different from the views expressed today. Further information regarding this and other risks is included in Dinko Solar's public filing with the Securities and Exchange Commission. Dinko Solar does not assume any obligation to update any forward-looking statements. except as required under the applicable law. It's now my pleasure to introduce Mr. Li Xiangde, Chairman and CEO of Zinco Solar Holdings. Mr. Li will speak in Mandarin and I will translate his comments into English. Please go ahead, Mr. Li. Mr. Li."
+      },
+      {
+        "speaker": "spk10",
+        "text": "The total sales volume of the third quarter was about 10.9 GW. The total profit was doubled. The total revenue was about 27.4 billion US dollars. The total growth was about 127.8%. We continuously improve the supply chain management to strengthen the control over costs. With the demonstration of N-type core battery production, our integrated production results continue to improve. According to the competitiveness, N-type product exports have increased significantly. The profit level of the third quarter has improved. The net profit of the third quarter is about 15.7% compared to the profit of the second quarter, which is about 14.7%. The net profit is about 77.3 million US dollars, which is about 183.1% of the net profit. The effect of the expansion debt and full-fledged expenses has been adjusted to about 60.1 million US dollars."
+      },
+      {
+        "speaker": "spk00",
+        "text": "We are pleased to announce better than expected results for the quarter, despite a number of headwinds, such as a continued rise in raw material prices, power rationing matters at our manufacturing facilities, and an earthquake in Sichuan Province, where one of our manufacturing facilities is based. Total solar measurements in the third quarter were roughly 10.9 gigawatts. doubling year-over-year. Total revenues were US dollar $2.74 billion, an increase of 1% to 7.8% year-over-year. We kept improving our supply chain management to enhance cost controls. With release of newly invested N-type cell capacity, we further optimized our integrated cost structure. As shipments of more competitive N-type products increased significantly compared with the second quarter, Profitability in the third quarter largely improved sequentially. Growth margin was 15.7% compared with 14.7% in the second quarter. Net income was US$77.3 million, an increase of 183.1% year-over-year. Excluding the impact of the convertible senior notes and share-based compensation expenses, Adjusted net income was US$60.1 million, improving 16.1% sequentially."
+      },
+      {
+        "speaker": "spk10",
+        "text": "China's market is expected to reach more than 400,000. With a demand of 20,000, the support material price is at a high level, and the price of recent components is relatively stable. With the widespread release of material production in 2023, the price of raw materials will stimulate the release of a large amount of demand. We will fully grasp the opportunities of market growth. On the one hand, we insist on a global layout strategy to strengthen the resource investment in the key market. Since the start of the fourth quarter, polysilicon capacity has been gradually released. Demand is strong in the China market, encouraged by non-hydro renewables consumption targets."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Both provincially guaranteed utility-scale projects and utility-scale projects in a liberalized power market are making rapid progress. Adding the demand from the DG market, we expect that the total installation in China will be over 40 gigawatts in the fourth quarter. While supply has increased recently, strong demand is keeping polysilicon prices steady at a high level, and currently the module prices remain stable. With substantial policy-making capacity to be released in 2023, we expect the prices of raw material to fall and to stimulate pent-up demand. We will fully seize the growth opportunities in the market, executing our globalization strategy and enhancing resources input in key markets. Also, we will control inventory turnover at a reasonable level with our efficient supply chain management. Leveraging our extensive global industrial chain building and our reliable products, we are confident to achieve increases in both sharements and market share next year."
+      },
+      {
+        "speaker": "spk10",
+        "text": "\u4f9d\u5ea6\u6211\u4eec\u5728N\u578b\u7814\u53d1\u6280\u672f\u548c\u91cf\u4ea7\u7ecf\u9a8c\u7684\u79ef\u7d2f\u548c\u4e0d\u61c8\u52aa\u529b, \u76f8\u7ee7\u5ea6\u6211\u4eec\u5728N\u578b\u4f53\u6548\u964d\u672c\u65b9\u9762\u53d6\u5f97\u4e86\u8fdb\u4e00\u6b65\u7684\u6210\u679c, \u4ee5\u6f2b\u957f\u768416GW Supercom\u7535\u6c60\u91cf\u4ea7\u6548\u7387\u8fbe\u5230\u4e8625%\u3002 The technical improvement and process improvement, such as the reduction of film, battery, and number of cameras, will continue to reduce the cost difference of MP1T. Recently, our 18N-type high-efficiency carbon fiber battery's experimental transfer efficiency reached 26.1%, breaking the record of 25.7% in April this year, combined with the process optimization on the S1 platform,"
+      },
+      {
+        "speaker": "spk00",
+        "text": "We made further progress in efficiency improvement and cost reduction for n-type products, thanks to the continuous efforts of our IND team, expanding on our accumulated knowledge and our mass production experience. Mass-producing efficiency for TopConCell, as we reached the full capacity of 16 gigawatts, reached 25%, and we are narrowing the gap in integrated cost for N-type compared to P-type products. Recently, the maximum solar conversion efficiency for our 182 monocrystalline silicon TopCon cell reached 26.1%, breaking the record of 25.7% with stats in April this year. Combined with process optimization with SDE technology, Mass production efficiency is expected to further improve next year."
+      },
+      {
+        "speaker": "spk10",
+        "text": "\u4f5c\u4e3a\u4e0eN\u578b\u4ea7\u80fd\u7684\u91ca\u653e\u548c\u5ba2\u670d\u7684\u63a5\u8fd1\u5ea6\u63d0\u5347, \u4e09\u5b63\u5ea6N\u578b\u7ec4\u4ef6\u51fa\u8d27\u7ea6\u4e09\u4e2aG\u74e6, \u73af\u6bd4\u589e\u957f\u4e86160%\u3002 \u6211\u4eec\u4e00\u76f4\u8d2f\u5207\u4e8e\u5ba2\u670d\u8d21\u732e\u53d1\u7535\u589e\u76ca\u7684\u7406\u5ff5, \u968f\u7740N\u578b\u7684\u4ea7\u54c1\u4f18\u52bf\u6e10\u5165\u4eba\u5fc3\u3002 \u6211\u4eec\u6709\u4fe1\u5fc3\u51ed\u501fN\u578b\u4ea7\u54c1\u7684\u6e17\u900f\u529b\u63d0\u9ad8\u548c\u9ad8\u6027\u4ef7"
+      },
+      {
+        "speaker": "spk00",
+        "text": "Benefiting from capacity release and higher client acceptance, treatments for N-type modules were up roughly 3 gigawatts in the third quarter, an increase of nearly 160% sequentially. We have always been committed to sharing the benefits from the gain in power generation with our clients. As our N-type products continue to be well received in the market, We are confident to lead the industry with increasing penetration and cost-effective performance."
+      },
+      {
+        "speaker": "spk10",
+        "text": "We are confident to lead the industry with increasing penetration and cost-effective performance. We have adjusted the expansion rhythm of the circuit, battery, and component production to reach 65 GW, 55 GW, and 70 GW at the end of the year."
+      },
+      {
+        "speaker": "spk00",
+        "text": "The second phase of 8 gigawatt top-concel capacity in Hefei, which commenced production in the third quarter, is ramping up smoothly. The second phase of 11 gigawatt top-concel capacity in Jianshan, which started construction in the third quarter, is expected to start production before the end of this year. Initiation and the ramping up of new capacities will help further optimize our integrated capacity structure and drive blended costs lower. Based on our operating strategy and market demand, we adjusted the pace of capacity expansion for wafers, cells, and modules. By the end of this year, we expected our annual production capacity for monowafers, solar cells, and solar modules to reach 65, 55, and 70 gigawatts, respectively."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Let me introduce the industry guidance. In the fourth quarter of 2022, the main supply will be in 13 to 15 gigawatts. We look forward to the growth of global demand and strive to continuously provide the best solution for customers with technological innovation and reliable products. We have adjusted the target of the main supply to 41.5 to 43 gigawatts."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Before turning over to Jenna, I would like to go over our guidance for the fourth quarter this year. We expected module measurements to be in the range of 13 to 15 gigawatts for the fourth quarter of 2022. We are bullish about demand growth in the global market and dedicated to providing optimal solutions to our clients with technical innovations and reliable products. We expect that the four-year module measurements to be in the range of 41.5 to 43.5 gigawatts."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thank you, Ms. Li. Despite short-term headwinds, such as power rationing measures and earthquake incidents, total shipments in the third quarter were 10.9 gigawatts, of which approximately 95% were module shipments, doubling year over year. on the back of a strong global demand. In specific market, China, Europe, and the emerging market contributed remarkable increment growth. Solar module shipments to the Chinese market during the third quarter increased five times year-over-year. While emerging market grew approximately 180% year-over-year, and Europe over 60%. With a rush of installations in China in fourth quarter, The Chinese market is expected to contribute an absolute majority, and we expect our penetration in the Chinese market to further increase. EG demand was strong in Europe. However, the low logistics turnover, inflation, and the labor shortage during holidays remain short-term challenges. We accelerated inventory turnover through proactive coordination with logistics suppliers as well as flexible methods and trade terms in order to support energy transformation in European market. In terms of the product, we enhanced the promotion and sales of our high-efficiency N-type Tiger Neo modules, leveraging our global marketing network layout and localized marketing team. In the third quarter, shipment for Tiger Neo modules approached approximately 3 gigawatts. an increase of 160% sequentially. Acceptance from various client types and markets for the Tiger Neo further increased. The premium was in line with our expectations. We have been establishing a business model to share the benefits from the GAN empowered generation by Tiger Neo modules with our clients and are committed to providing them with solutions that continuously bring down LCOE With gradual release of untyped capacity and increasing acceptance for Tiger New, shipments and penetration for Tiger New continued to grow in the fourth quarter. And the shipment proportion for Tiger New is expected to be above 60% of our total shipment in 2023. For business layout, DG demand remains strong in some markets, including Europe, emerging markets, and China. and digital business accounted for nearly 60% in the third quarter, about 10% higher than the last quarter. We expect the market demand to continue to increase in 2023, up over 30% year-over-year. Mainstream markets, including China, Europe, and U.S., are expected to contribute the growth. Under the backdrop of high prosperity in end markets, We will stick to our strategy for global market layout, focusing on Chinese market while enhancing attention to and explorations in emerging markets. We will strive to achieve around 50% growth in shipping next year compared to 2022 and keep solid position for global competitiveness. With that, I will turn the call over to Pat."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thank you, Jenner. We are pleased to report another quarter of improved financial results. Total shipments doubled and total revenues increased by 128% year-on-year as a result of strong demand globally. Thanks to our further optimized integrated capacity structure and shipment mix, key metrics including gross margin, operating margin, and net margin were improved sequentially. Short-term headwinds, such as power rationing measures and an earthquake, as well as new capacity ramp-up, all had some impact on profitability in the third quarter. We believe that as these negative factors gradually recede, we will see a gradual increase in profit contribution from additional release of anti-capacity and an increase in shipment proportion of anti-products. Let me go into more details. Total revenue was about $2.7 billion up sequentially and a significant increase year-over-year. Gross margin was 15.7% compared with 14.7% in the second quarter this year and 15.1% in third quarter last year. Total operating expenses were $423 million slightly down sequentially, and up year-over-year. The year-over-year increase was mainly attributed to an increase in shipping costs for solar modules. Total operating expenses accounted for 15.4% of total revenues in the third quarter, down from 16.2% in the second quarter this year, and up from 13.8% in the third quarter last year. Excluding the impact from a change in the fair value of the notes and the share-based compensation expense, adjusting net income attribute to Jinko Solar Holdings' ordinary shareholders was $16 million, improving sequentially. During the quarter, we continued to optimize our foreign exchange hedging. We realized the net foreign exchange gain, which including change in fair value of foreign exchange derivatives, of approximately 73 million in the third quarter, compared with a net gain of 34 million in the second quarter of 2022. Moving on to the balance sheet. At the end of the third quarter, the company had cash and cash equivalent of about 2.1 billion, slightly down at the end of the second quarter this year, and up from 1.1 billing at the end of the third quarter last year. Air turnover days were 69 days in both third quarter and second quarter of 2022. Inventory turnover days were 117 days in the third quarter compared with 104 days in the second quarter this year. Total debt was about 4.2 billion at the end of the third quarter, up from 3.8 billion. Net debt was about 2 billion compared with 1.7 billion at the end of the second quarter this year. This concludes our prepared remarks. We are now happy to take your questions. Operator, please proceed."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thank you. Ladies and gentlemen, if you wish to ask a question, please press 01. and 02 to come in. The first question comes from Brian Lee from Goldman Sachs. Please go ahead."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hi, thanks for taking the question. This is Grace on for Brian. I guess first one on your capacity, just given the passage of the Inflation Reduction Act, a number of your peers now in the US capacity expansion. So I just wonder what's your strategy there in the U.S., if any, and how are you going to fund that, and what's the implication to your free cash flow? Thank you."
+      },
+      {
+        "speaker": "spk11",
+        "text": "I think you're talking about the IRA, right, the impact on our strategies or capacity expansion in the United States."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yes. Yeah, yeah."
+      },
+      {
+        "speaker": "spk11",
+        "text": "I think from the company perspective, based on the initial assessment of the IRA Act, we believe this is very positive and the incentive is very significant to make the local production in the United States relatively competitive. We are aware and the details of IRA is going to be released in Q1 next year. So we are very closely following up the details. And as you know, we have a very small module capacity in the U.S., 400 megawatts, and we are optimistic. And after we, you know, the release of the details of IRA It's possible we expand our module capacity in the United States, but at this stage, we are still in the evaluation stage."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Okay, fair enough. And then maybe switching gears to your growth margin, it's interesting to see you print 15.7% this quarter. You mentioned it's helped by the module. Topcon module shipment. So I just wonder how much of your margin is helped by the M-type shipment module versus the currency, because I assume a lot of your operations is in China. And also, can you talk about your margin and AST expectation for the next several quarters? Thanks."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yeah. We improved the margins slightly, I think, this quarter, quarter over quarter. And we delivered the 3 gigawatts N-type top-count modules, which accounts for around 30% of our total shipment in this quarter. And the gross margin for the N-type is relatively higher than the P-type. I think it's around 2% from the gross margin perspective. And on top of that, as the prepared remarks by David Lee And in the third quarter, we face the power outage in Sichuan province, which has some negative impact. So overall, we think the end time, we are very, I think we're leading the industries from the product, from the efficiencies, and as well as the cost perspective. And our penetrations, penetrations on the end time continue to improve quarter by quarter, which will help us to drive, I think, the profitability increase, including the growth margin."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Okay, thank you. Can I squeeze in one more housekeeping question? You increased your module and wafer capacity. So what's your CapEx plan for 2022, and what was your DNA in 3Q? Thanks."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thank you for the question. The CapEx of this year, we still keep on the 3 billion U.S. dollars."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Okay, thank you. And the DNA for 3Q?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "So your question is, is GNA the absolute number, or percentage, or ? Thank you for your question."
+      },
+      {
+        "speaker": "spk09",
+        "text": "About GNA expenses, it takes about around 4% to 5% of the total variance. Thank you."
+      },
+      {
+        "speaker": "spk04",
+        "text": "The next question comes from from . Please go ahead."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Hi, everyone. Thanks for taking the questions. As a follow-up to some of those questions, I was wondering if you could talk about CapEx expectations for 2023. By the end of 2023, how much wafer, cell, and module capacity do you think you'll have? Thanks."
+      },
+      {
+        "speaker": "spk11",
+        "text": "By the end of this year, we have 65, 55, 70 gigawatts. I think we have sufficient capacities and we are in good positions to deliver our results next year. We will continue to evaluate the market conditions next year. I think the markets were optimistic for next year. So our investment will continue to focus on the n-type, I think, cell and module capacities next year, and to build sufficient capacity for both next two years, our shipment guidance. So we are going to release, I think, the guidance capacity expansion next year, in the next quarter. But, you know, the key focus will continue on the N-type, the TopCon, you know, the cell and module capacities."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay. Thanks, Charlie. What's after TopCon? I'm imagining you guys are already thinking about it, you know, with 60% N-type next year. Do you think you're going to move on to heterojunction, or have you decided on the technology roadmap beyond Topcon? Thanks."
+      },
+      {
+        "speaker": "spk11",
+        "text": "We are leading the Topcon technology on the capacity of the product, let's say the efficiencies. And we believe there's a significant room to continue to to deliver further high-quality products based on the end-time top-down technology. Our R&D teams have released laboratory testing and the efficiency will reach 26.1%. Our target for the mass production efficiencies by the end of next year will be reached to over, I think, 25.7%. And, you know, we have technology roadmap, you know, and we strongly believe that the top count will dominate, you know, the next markets in the next two or three years. So the top count is our focus. But from the R&D perspective, We closely monitor the HAT and BC technology, but we strongly believe the top count is the trend."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Great. Okay. Thanks, Ken. In terms of the U.S. market, the UFLPA enforcement and the CBP process that you're going through, I was wondering if you could talk about and give an update as to where things stand My understanding is the process has come to a close, and you're waiting on a decision. And so how much longer do you think we need to wait? And also, let's say you get released soon. Does that mean you can freely ship into the US, or do you think you have to secure something like an advanced letter of ruling to be able to freely ship into the US? Thanks."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yeah, we did a lot of work, you know, under the UF LPA and, you know, the standard is very, you know, very broad and the challenge, you know, for the traceability systems and we prepare documents and have several rounds, you know, discussing communication with the VP. We think, you know, our documentations are really, you know, and waiting for the final, you know, feedback from 3B. And, you know, we are optimistic for the results, but the detailed timing, you know, it's still uncertain, but I think it's not so far. And for your second question, after the release of the, let's say, detained, you know, the modules, and we try to improve our internal efficiencies and trying to continue to communicate with CPP to make sure, let's say, the bottleneck will be departed. And now it's a lot of internal, external factors, including the capacities from CPP have the impact on the efficiencies. We don't know, you know, what will be, let's say, the in the future, but I think after the learning curve, you know, in the last two or three months, we think it's going to be getting, you know, more and more smooth."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay. Charlie, can you talk about how many gigawatts of supply has been impacted for you since the first detention at the end of June? between then and now, end of October, and then let's say it continues through the end of the year, what kind of number can you share? How many gigawatts? I know that the detained modules are smaller. I'm talking about the total impact to customers. Are we talking about two gigawatts or maybe even more? Thanks."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yeah. You know, you're right, the detainment module is very small, but because of delayed deposits, right, it's going to have a lot of impact to the shipment to our U.S. customers. And we estimate this year, all year, and our shipments in the U.S. will be around 5%, which is the original, I think, the planning from the beginning of this year. It's a It's 10%, so it's roughly, I think, a significant impact."
+      },
+      {
+        "speaker": "spk05",
+        "text": "OK, 5% of the 44 or 40 plus gigawatts, roughly two gigawatts. Correct me if I'm wrong, of course. And then one last question for me. The growth for next year, I think, Jenner, you talked about a 50% growth that matches with your year-end module capacity, roughly. Can you talk about the geographic mix you expect? You know, how much, for example, are you expecting for the U.S. in 23? And then what do you think is the rest? How much will China be Europe emerging markets? Thanks."
+      },
+      {
+        "speaker": "spk11",
+        "text": "So... General, would you like to take the question? Okay, I think General is on the trip. Let me answer a question. Increasingly, we're thinking of next year, and China will dominate, take maybe 40% or 50% from the incremental value, the volume. And the second one is the U.S. and the European markets. But U.S., we don't believe... it's a demand, you know, concerns. It's purely the supply, you know, issues, including the potential impact from the U.S. LPA. And we believe the U.S., you know, if everything is smooth and maybe 40, you know, module demands and over 30 gigawatts, you know, the installation. And, yes, so that is, you know, and... This year, because the polysilicon is very high, the module price is high, which delayed a lot of utility scale projects installations. And next year, with the Botanic, the polysilicon gone, and the production volume will significantly increase, which will have very good timing for the utility scale developers to to buy the modules and connect circuits."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Right. Thanks, sir. So just to put numbers on it, so let's say China is 40% to 50%. Do you think US is 15% to 20% and similar with Europe?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yes. And from the incremental perspective, we think I think you're talking about incremental, right? We believe the total market size will be 30, 40."
+      },
+      {
+        "speaker": "spk05",
+        "text": "I'm sorry, Charlie. Sorry to interrupt. Let's say it's 65 gigawatts next year of shipments. You said 40% to 50% of the 65 would be China. I'm just trying to figure out what percentage of that 65 might be Europe and US."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Oh, OK. You mean the incremental, right?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "you know not necessarily metal it's not the increment yeah just general of the 65 gigawatts how much would be us you know maybe fifteen percent or five percent I mean assuming you're you're able to flow the modules freely thanks okay okay let's say the total size you know this year may be 250 right the installation the solar and next year may be 320"
+      },
+      {
+        "speaker": "spk11",
+        "text": "or maybe some others think it's 350. We believe China will take around, I think, 35%, 40% in the market here, and the U.S. will take around, I think, 10%. European will be around, I think, 20%."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Great. Appreciate the caller. Thanks for taking all the questions, Charlie. I'll pass it on."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Ladies and gentlemen, I would like to remind you that if you wish to ask a question, please press 01. The next question comes from Alan Lau from Jefferies. Sir, please go ahead."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thank you for taking my question and congratulations for the extremely good results. So we would like to know what is the outlook of the gross margin in the next quarter? And also, as the company has maintained 10 gigawatt of n-type shipment, so in Q4 can I expect there will be around 6 to 7 gigawatt of popcorn shipment?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yeah, I think, you know, We have capacity, I think, by the end of this year, 35 gigawatts. So you're right, if you do the calculations quarter by quarter, our measurements, I think, you know, Q4 will be around 5 to 6 gigawatts, and Q1 next year will be a little bit higher, you know, next year, Q1. And the growth margin, you know, it's, you know, Because of the end time, we'll take more percentage in Q4. On top of that, China will take more market shares, more shipments in Q4, and as well as the RMB depreciation. We believe there's a potential to the growth margin will continue to expand."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thank you. And then another question is the company has realized around 3 gigawatt of TopCon cells in 3Q. And also the company has mentioned it has reached the expected premium. So is it around RMB 10 cents of premium for the 3 gigawatt that has been sold in Q3?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "The price premium is around, you know, 7, 8 RMB cents. And given, after the consideration, the cost difference and the profitability, you know, per watt basis, the N-type is relatively higher than P-type by 4 RMB cents."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Understood. That's quite a lot, actually. In terms of net profit, right, $0.04 higher."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Sorry, could you repeat your questions?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "So $0.04 in terms of net profit, right, for the popcorn product. Yes, right, right."
+      },
+      {
+        "speaker": "spk11",
+        "text": "RMB, RMB for RMB. Okay."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yes. Thank you. And so I've noted that the company has raised the top coin shipment in 2023 from 50% to 60%. So what makes you raise the guidance, and should we expect a higher net profit for next year because of this increase?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yeah. We, you know, we will continue to invest in type TopCon module capacity next year. So based on our initial, you know, evaluations, we think we are able to deliver around 60% in type, you know, TopCon module next year. And we stretch more the TopCon modules. We, you know, more mix to TopCon modules. We think, you know, the profitability will relatively, you know, with more percentage and more higher profitability from, you know, for the total results."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thank you. And I think my last question is regarding to the partnership with the equipment provider, Octowell. So are they selling... Let me put it this way. So has Jingosolar benefited from the partnership with them by having more competitively priced equipment?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "I think you're talking about the module equipment producers, right?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah, but they are producing the autowheel, and they are selling... crystal growing equipment to Jinko and what I heard is the price is cheaper, right?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "We also invested some minority interest for the business and I think the volume is not very big and it's major for the R&D purpose and we want to you know, have more development on the technology and align with our suppliers to make the equipment more advanced, and particularly for the N-type, you know, the N-type, you know, the vapor production."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Understood. So thanks a lot, and once again, congratulations to the company, and I'll leave it at that. Thanks. Thank you."
+      },
+      {
+        "speaker": "spk04",
+        "text": "The last question comes from Rajiv Salguri from Sour Capital. Please go ahead."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Hello. I have two questions. One is on shipping costs. And we know that shipping costs have come down very substantially in the last three, four months. And actually, they are close to the levels they were at before COVID started. And I'm wondering... When we will start to see that in your numbers, how soon will those be reflected? And when that gets reflected, can we expect that shipping costs can go from 6% of revenues to maybe 3% of revenues? So that's my first question. Thank you."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yeah, you're right. The global economy is weak, right? And the shipment cost in the recent, I think, two months, the index has dropped a lot, you know, quarter by quarter, year over year. And it's going to be very positive starting from the next year. But for this year, starting Q4, I think the impact is not so, you know, the party impact is not so so significant because, you know, we have long-term arrangements with logistic companies, and the long-term contracts price is already, you know, below the market price. And with the market price dropped a lot, and the expectation of next year is continue to be back to our normal, you know, standards compared to a couple years ago. and we will renegotiate the long-term arrangements for next year. And that is going to be, you know, have the impact for next year."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay. And Charlie, the second question is about polysilicon cost. Can you give us your best guess or your best sense right now, judgment right now, on when you expect polysilicon costs to start to come down and what rate they will come down in 2023. For example, what do you think polysilicon costs might be by the end of 2023? And then related to that, what is your plan for sharing the benefit of this cost reduction with your customers? You had mentioned in the last call that that on the N-type, you are sharing the benefit of the N-type 50-50 with your customers. Are you planning to share the benefit of polysilicon cost reduction also 50-50 with your customers?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "This is a very complicated question. But we strongly believe the trend is there. a lot of, you know, the polysilicon capacity has been, you know, jumping up in the last two or three months. And, you know, the polysilicon volume will increase month over month dramatically. And next year, there are sufficient poly, you know, capacity and the volume to to support the total demand for next year. And now the silicon price is flat, and we see some potential, the silicon price will be downward trend starting from December. We're not sure, but I think the trend is there. it's very difficult to estimate what is the exact timing for the term round of the poly. And from our perspective, we try to have more signed orders for the next year, and particularly with our strategic customers And some of customers, they may have, you know, intentions and to have the price adjustment mechanism. And we, you know, we're thinking it's a win-win situation. And we will, you know, based on case-by-case, we will negotiate with different customers."
+      },
+      {
+        "speaker": "spk08",
+        "text": "So can you give us an overall sense, then, that if... price of polysilicon comes down by whatever, X number of cents, on an overall basis, how much of that you would pass on to the customers and how much you would keep to improve your own gross margin?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "It's not a very simple case. Some customers, we have fixed price. Some customers, we have variable price. and with some index to the market price. It's different case by case."
+      },
+      {
+        "speaker": "spk08",
+        "text": "OK, thank you."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Ladies and gentlemen, if you wish to ask a question, please press 01 on your telephone keypad. We have a new question from Robin Jiao from Y2 Capital. Sir, please go ahead."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Hello, management. I would like to know on what percentage you expect your fourth quarter shipment will be shipped to China because I can see that in the third quarter, it's around 40-something percent, maybe close to 50. So what do you expect in the fourth quarter?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "China will take a very large market in the fourth quarter. By the end of the year, a lot of utility-scale developers, they have strong pressures and intentions to start and connect the grids. And we estimate in Q4, we will have China markets Around, I think, 50% to 55%."
+      },
+      {
+        "speaker": "spk12",
+        "text": "OK. So do you think that the domestic increasing COVID control could be a challenge? Or you've already well prepared for those kind of domestic SOE developers for their project amount?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "There are some challenges. Because of COVID situations, I think the challenge is the logistic perspective. But we are seeing some improvement in some regions. So we think there is sufficient time by the end of this year to deliver the modules as scheduled."
+      },
+      {
+        "speaker": "spk12",
+        "text": "OK, thank you. For the next question is about on the top corn and top corn products. So in the third quarter where you ship those products Where is the major market for this product?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "It's like in Europe a US or mainly in Chinese market You know the majority parts Europe and We also have humans in China in you know, Latin America and the United Asia Pacific. It's good, yeah."
+      },
+      {
+        "speaker": "spk12",
+        "text": "So basically, maybe most parts south in China and then basically everywhere you have some like product demo for the global users?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "No, it's not product demos and we have, you know, promoting the products starting from last year and the You know, it's a significant shipment to different markets. And the European market is very big. And following that, there are shipments to different countries and regions, including China, Latin America, Australia, etc.,"
+      },
+      {
+        "speaker": "spk12",
+        "text": "My final question is regarding about the upstream supply other than polycylcon. Do you think that the quad fan material could be a bottleneck going forward in 2023 for your internal wafer production?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "So what kind of bottleneck materials you are talking about?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "Quad-sand."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Okay. Thank you, thank you. This has been talking about a long time, and we think it's a little bit tight for this particular material, it still can support over, we believe, 500 megawatts. And on top of that, there are capacity expansions. I think there are over, next year, maybe 90,000 tons. And from a technological perspective, we think So it's feasible, you know, to use more percentage of domestic produced materials other than the imported materials. And, you know, it's more like, you know, the impact is, let's say, the efficiency is cost perspective other than the volume perspective."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Okay, thank you. Thank you. I'll pass on."
+      },
+      {
+        "speaker": "spk04",
+        "text": "We have no further questions. There is no more questions. OK."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you, everyone. So we now end the call. Thank you. Good night."
+      },
+      {
+        "speaker": "spk04",
+        "text": "This concludes today's call. Thank you all for your participation."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk00": {
+        "name": "Stella Wang",
+        "title": "Investor Relations"
+      },
+      "spk02": {
+        "name": "Jenna Miao",
+        "title": "Chief Marketing Officer"
+      },
+      "spk09": {
+        "name": "Pan Li",
+        "title": "Chief Financial Officer"
+      },
+      "spk10": {
+        "name": "Li Xiangde",
+        "title": "Chairman and Chief Executive Officer"
+      },
+      "spk11": {
+        "name": "Li Xiangde",
+        "title": "Chairman and Chief Executive Officer"
+      },
+      "spk04": {
+        "name": "Operator",
+        "title": "Conference Operator"
+      },
+      "spk03": {
+        "name": "Grace",
+        "title": "Analyst, Goldman Sachs (on behalf of Brian Lee)"
+      },
+      "spk01": {
+        "name": "Alan Lau",
+        "title": "Analyst, Jefferies"
+      },
+      "spk05": {
+        "name": "Unknown",
+        "title": "Analyst"
+      },
+      "spk08": {
+        "name": "Rajiv Salguri",
+        "title": "Analyst, Sour Capital"
+      },
+      "spk12": {
+        "name": "Robin Jiao",
+        "title": "Analyst, Y2 Capital"
+      },
+      "spk07": {
+        "name": "Unknown",
+        "title": "Participant"
+      }
+    }
+  },
+  "text": "Operator (Conference Operator): Hello, ladies and gentlemen, and thank you for standing by for Ginkgo Solar Holding Co. LTD Third Quarter 2022 Earnings Conference Call. At this time, all participants are in a listen-only mode. After management's prepared remarks, there will be a question and answer session. As you remember, today's conference call is being recorded. I would now like to turn the meeting over to your host for today's call, to Mrs. Stella Wang, Jinko Solar Investor Relations. Please proceed, Stella.\n\nStella Wang (Investor Relations): Thank you, operator. Thank you, everyone, for joining us today for Jinko Solar's third quarter 2022 earnings conference call. The company's results were released earlier today and available on the company's IR website at www.jinkosolar.com, as well as on New Thrive Services website. We have also provided a supplemental presentation for today's earnings call, which can also be found on the IR website. On the call today from Zinco Solar are Mr. Lee Hsien-De, Chairman of the Board of Directors and Chief Executive Officer of Zinco Solar Holding Company Limited, Mr. Jenna Miao, Chief Marketing Officer of Zinco Solar Company Limited, Mr. Pan Li, Chief Financial Officer of Zinco Solar Holding Company Limited, and Mr. Charlie Cao, Chief Financial Officer of Zinco Solar Company Limited. Mr. Li will discuss Zinco Solar's business operations and company highlights, followed by Mr. Miao, who will talk about the sales and marketing, and then Mr. Pan Li, who will go through the financials. They will all be available to answer your questions during the Q&A session that follows. Please note that today's discussion will contain forward-looking statements made under the Safe Harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements involve inherent risks and uncertainties. As such, our future results may be materially different from the views expressed today. Further information regarding this and other risks is included in Dinko Solar's public filing with the Securities and Exchange Commission. Dinko Solar does not assume any obligation to update any forward-looking statements. except as required under the applicable law. It's now my pleasure to introduce Mr. Li Xiangde, Chairman and CEO of Zinco Solar Holdings. Mr. Li will speak in Mandarin and I will translate his comments into English. Please go ahead, Mr. Li. Mr. Li.\n\nLi Xiangde (Chairman and Chief Executive Officer): The total sales volume of the third quarter was about 10.9 GW. The total profit was doubled. The total revenue was about 27.4 billion US dollars. The total growth was about 127.8%. We continuously improve the supply chain management to strengthen the control over costs. With the demonstration of N-type core battery production, our integrated production results continue to improve. According to the competitiveness, N-type product exports have increased significantly. The profit level of the third quarter has improved. The net profit of the third quarter is about 15.7% compared to the profit of the second quarter, which is about 14.7%. The net profit is about 77.3 million US dollars, which is about 183.1% of the net profit. The effect of the expansion debt and full-fledged expenses has been adjusted to about 60.1 million US dollars.\n\nStella Wang (Investor Relations): We are pleased to announce better than expected results for the quarter, despite a number of headwinds, such as a continued rise in raw material prices, power rationing matters at our manufacturing facilities, and an earthquake in Sichuan Province, where one of our manufacturing facilities is based. Total solar measurements in the third quarter were roughly 10.9 gigawatts. doubling year-over-year. Total revenues were US dollar $2.74 billion, an increase of 1% to 7.8% year-over-year. We kept improving our supply chain management to enhance cost controls. With release of newly invested N-type cell capacity, we further optimized our integrated cost structure. As shipments of more competitive N-type products increased significantly compared with the second quarter, Profitability in the third quarter largely improved sequentially. Growth margin was 15.7% compared with 14.7% in the second quarter. Net income was US$77.3 million, an increase of 183.1% year-over-year. Excluding the impact of the convertible senior notes and share-based compensation expenses, Adjusted net income was US$60.1 million, improving 16.1% sequentially.\n\nLi Xiangde (Chairman and Chief Executive Officer): China's market is expected to reach more than 400,000. With a demand of 20,000, the support material price is at a high level, and the price of recent components is relatively stable. With the widespread release of material production in 2023, the price of raw materials will stimulate the release of a large amount of demand. We will fully grasp the opportunities of market growth. On the one hand, we insist on a global layout strategy to strengthen the resource investment in the key market. Since the start of the fourth quarter, polysilicon capacity has been gradually released. Demand is strong in the China market, encouraged by non-hydro renewables consumption targets.\n\nStella Wang (Investor Relations): Both provincially guaranteed utility-scale projects and utility-scale projects in a liberalized power market are making rapid progress. Adding the demand from the DG market, we expect that the total installation in China will be over 40 gigawatts in the fourth quarter. While supply has increased recently, strong demand is keeping polysilicon prices steady at a high level, and currently the module prices remain stable. With substantial policy-making capacity to be released in 2023, we expect the prices of raw material to fall and to stimulate pent-up demand. We will fully seize the growth opportunities in the market, executing our globalization strategy and enhancing resources input in key markets. Also, we will control inventory turnover at a reasonable level with our efficient supply chain management. Leveraging our extensive global industrial chain building and our reliable products, we are confident to achieve increases in both sharements and market share next year.\n\nLi Xiangde (Chairman and Chief Executive Officer): \u4f9d\u5ea6\u6211\u4eec\u5728N\u578b\u7814\u53d1\u6280\u672f\u548c\u91cf\u4ea7\u7ecf\u9a8c\u7684\u79ef\u7d2f\u548c\u4e0d\u61c8\u52aa\u529b, \u76f8\u7ee7\u5ea6\u6211\u4eec\u5728N\u578b\u4f53\u6548\u964d\u672c\u65b9\u9762\u53d6\u5f97\u4e86\u8fdb\u4e00\u6b65\u7684\u6210\u679c, \u4ee5\u6f2b\u957f\u768416GW Supercom\u7535\u6c60\u91cf\u4ea7\u6548\u7387\u8fbe\u5230\u4e8625%\u3002 The technical improvement and process improvement, such as the reduction of film, battery, and number of cameras, will continue to reduce the cost difference of MP1T. Recently, our 18N-type high-efficiency carbon fiber battery's experimental transfer efficiency reached 26.1%, breaking the record of 25.7% in April this year, combined with the process optimization on the S1 platform,\n\nStella Wang (Investor Relations): We made further progress in efficiency improvement and cost reduction for n-type products, thanks to the continuous efforts of our IND team, expanding on our accumulated knowledge and our mass production experience. Mass-producing efficiency for TopConCell, as we reached the full capacity of 16 gigawatts, reached 25%, and we are narrowing the gap in integrated cost for N-type compared to P-type products. Recently, the maximum solar conversion efficiency for our 182 monocrystalline silicon TopCon cell reached 26.1%, breaking the record of 25.7% with stats in April this year. Combined with process optimization with SDE technology, Mass production efficiency is expected to further improve next year.\n\nLi Xiangde (Chairman and Chief Executive Officer): \u4f5c\u4e3a\u4e0eN\u578b\u4ea7\u80fd\u7684\u91ca\u653e\u548c\u5ba2\u670d\u7684\u63a5\u8fd1\u5ea6\u63d0\u5347, \u4e09\u5b63\u5ea6N\u578b\u7ec4\u4ef6\u51fa\u8d27\u7ea6\u4e09\u4e2aG\u74e6, \u73af\u6bd4\u589e\u957f\u4e86160%\u3002 \u6211\u4eec\u4e00\u76f4\u8d2f\u5207\u4e8e\u5ba2\u670d\u8d21\u732e\u53d1\u7535\u589e\u76ca\u7684\u7406\u5ff5, \u968f\u7740N\u578b\u7684\u4ea7\u54c1\u4f18\u52bf\u6e10\u5165\u4eba\u5fc3\u3002 \u6211\u4eec\u6709\u4fe1\u5fc3\u51ed\u501fN\u578b\u4ea7\u54c1\u7684\u6e17\u900f\u529b\u63d0\u9ad8\u548c\u9ad8\u6027\u4ef7\n\nStella Wang (Investor Relations): Benefiting from capacity release and higher client acceptance, treatments for N-type modules were up roughly 3 gigawatts in the third quarter, an increase of nearly 160% sequentially. We have always been committed to sharing the benefits from the gain in power generation with our clients. As our N-type products continue to be well received in the market, We are confident to lead the industry with increasing penetration and cost-effective performance.\n\nLi Xiangde (Chairman and Chief Executive Officer): We are confident to lead the industry with increasing penetration and cost-effective performance. We have adjusted the expansion rhythm of the circuit, battery, and component production to reach 65 GW, 55 GW, and 70 GW at the end of the year.\n\nStella Wang (Investor Relations): The second phase of 8 gigawatt top-concel capacity in Hefei, which commenced production in the third quarter, is ramping up smoothly. The second phase of 11 gigawatt top-concel capacity in Jianshan, which started construction in the third quarter, is expected to start production before the end of this year. Initiation and the ramping up of new capacities will help further optimize our integrated capacity structure and drive blended costs lower. Based on our operating strategy and market demand, we adjusted the pace of capacity expansion for wafers, cells, and modules. By the end of this year, we expected our annual production capacity for monowafers, solar cells, and solar modules to reach 65, 55, and 70 gigawatts, respectively.\n\nLi Xiangde (Chairman and Chief Executive Officer): Let me introduce the industry guidance. In the fourth quarter of 2022, the main supply will be in 13 to 15 gigawatts. We look forward to the growth of global demand and strive to continuously provide the best solution for customers with technological innovation and reliable products. We have adjusted the target of the main supply to 41.5 to 43 gigawatts.\n\nStella Wang (Investor Relations): Before turning over to Jenna, I would like to go over our guidance for the fourth quarter this year. We expected module measurements to be in the range of 13 to 15 gigawatts for the fourth quarter of 2022. We are bullish about demand growth in the global market and dedicated to providing optimal solutions to our clients with technical innovations and reliable products. We expect that the four-year module measurements to be in the range of 41.5 to 43.5 gigawatts.\n\nJenna Miao (Chief Marketing Officer): Thank you, Ms. Li. Despite short-term headwinds, such as power rationing measures and earthquake incidents, total shipments in the third quarter were 10.9 gigawatts, of which approximately 95% were module shipments, doubling year over year. on the back of a strong global demand. In specific market, China, Europe, and the emerging market contributed remarkable increment growth. Solar module shipments to the Chinese market during the third quarter increased five times year-over-year. While emerging market grew approximately 180% year-over-year, and Europe over 60%. With a rush of installations in China in fourth quarter, The Chinese market is expected to contribute an absolute majority, and we expect our penetration in the Chinese market to further increase. EG demand was strong in Europe. However, the low logistics turnover, inflation, and the labor shortage during holidays remain short-term challenges. We accelerated inventory turnover through proactive coordination with logistics suppliers as well as flexible methods and trade terms in order to support energy transformation in European market. In terms of the product, we enhanced the promotion and sales of our high-efficiency N-type Tiger Neo modules, leveraging our global marketing network layout and localized marketing team. In the third quarter, shipment for Tiger Neo modules approached approximately 3 gigawatts. an increase of 160% sequentially. Acceptance from various client types and markets for the Tiger Neo further increased. The premium was in line with our expectations. We have been establishing a business model to share the benefits from the GAN empowered generation by Tiger Neo modules with our clients and are committed to providing them with solutions that continuously bring down LCOE With gradual release of untyped capacity and increasing acceptance for Tiger New, shipments and penetration for Tiger New continued to grow in the fourth quarter. And the shipment proportion for Tiger New is expected to be above 60% of our total shipment in 2023. For business layout, DG demand remains strong in some markets, including Europe, emerging markets, and China. and digital business accounted for nearly 60% in the third quarter, about 10% higher than the last quarter. We expect the market demand to continue to increase in 2023, up over 30% year-over-year. Mainstream markets, including China, Europe, and U.S., are expected to contribute the growth. Under the backdrop of high prosperity in end markets, We will stick to our strategy for global market layout, focusing on Chinese market while enhancing attention to and explorations in emerging markets. We will strive to achieve around 50% growth in shipping next year compared to 2022 and keep solid position for global competitiveness. With that, I will turn the call over to Pat.\n\nPan Li (Chief Financial Officer): Thank you, Jenner. We are pleased to report another quarter of improved financial results. Total shipments doubled and total revenues increased by 128% year-on-year as a result of strong demand globally. Thanks to our further optimized integrated capacity structure and shipment mix, key metrics including gross margin, operating margin, and net margin were improved sequentially. Short-term headwinds, such as power rationing measures and an earthquake, as well as new capacity ramp-up, all had some impact on profitability in the third quarter. We believe that as these negative factors gradually recede, we will see a gradual increase in profit contribution from additional release of anti-capacity and an increase in shipment proportion of anti-products. Let me go into more details. Total revenue was about $2.7 billion up sequentially and a significant increase year-over-year. Gross margin was 15.7% compared with 14.7% in the second quarter this year and 15.1% in third quarter last year. Total operating expenses were $423 million slightly down sequentially, and up year-over-year. The year-over-year increase was mainly attributed to an increase in shipping costs for solar modules. Total operating expenses accounted for 15.4% of total revenues in the third quarter, down from 16.2% in the second quarter this year, and up from 13.8% in the third quarter last year. Excluding the impact from a change in the fair value of the notes and the share-based compensation expense, adjusting net income attribute to Jinko Solar Holdings' ordinary shareholders was $16 million, improving sequentially. During the quarter, we continued to optimize our foreign exchange hedging. We realized the net foreign exchange gain, which including change in fair value of foreign exchange derivatives, of approximately 73 million in the third quarter, compared with a net gain of 34 million in the second quarter of 2022. Moving on to the balance sheet. At the end of the third quarter, the company had cash and cash equivalent of about 2.1 billion, slightly down at the end of the second quarter this year, and up from 1.1 billing at the end of the third quarter last year. Air turnover days were 69 days in both third quarter and second quarter of 2022. Inventory turnover days were 117 days in the third quarter compared with 104 days in the second quarter this year. Total debt was about 4.2 billion at the end of the third quarter, up from 3.8 billion. Net debt was about 2 billion compared with 1.7 billion at the end of the second quarter this year. This concludes our prepared remarks. We are now happy to take your questions. Operator, please proceed.\n\nOperator (Conference Operator): Thank you. Ladies and gentlemen, if you wish to ask a question, please press 01. and 02 to come in. The first question comes from Brian Lee from Goldman Sachs. Please go ahead.\n\nGrace (Analyst, Goldman Sachs (on behalf of Brian Lee)): Hi, thanks for taking the question. This is Grace on for Brian. I guess first one on your capacity, just given the passage of the Inflation Reduction Act, a number of your peers now in the US capacity expansion. So I just wonder what's your strategy there in the U.S., if any, and how are you going to fund that, and what's the implication to your free cash flow? Thank you.\n\nLi Xiangde (Chairman and Chief Executive Officer): I think you're talking about the IRA, right, the impact on our strategies or capacity expansion in the United States.\n\nUnknown (Participant): Yes. Yeah, yeah.\n\nLi Xiangde (Chairman and Chief Executive Officer): I think from the company perspective, based on the initial assessment of the IRA Act, we believe this is very positive and the incentive is very significant to make the local production in the United States relatively competitive. We are aware and the details of IRA is going to be released in Q1 next year. So we are very closely following up the details. And as you know, we have a very small module capacity in the U.S., 400 megawatts, and we are optimistic. And after we, you know, the release of the details of IRA It's possible we expand our module capacity in the United States, but at this stage, we are still in the evaluation stage.\n\nGrace (Analyst, Goldman Sachs (on behalf of Brian Lee)): Okay, fair enough. And then maybe switching gears to your growth margin, it's interesting to see you print 15.7% this quarter. You mentioned it's helped by the module. Topcon module shipment. So I just wonder how much of your margin is helped by the M-type shipment module versus the currency, because I assume a lot of your operations is in China. And also, can you talk about your margin and AST expectation for the next several quarters? Thanks.\n\nLi Xiangde (Chairman and Chief Executive Officer): Yeah. We improved the margins slightly, I think, this quarter, quarter over quarter. And we delivered the 3 gigawatts N-type top-count modules, which accounts for around 30% of our total shipment in this quarter. And the gross margin for the N-type is relatively higher than the P-type. I think it's around 2% from the gross margin perspective. And on top of that, as the prepared remarks by David Lee And in the third quarter, we face the power outage in Sichuan province, which has some negative impact. So overall, we think the end time, we are very, I think we're leading the industries from the product, from the efficiencies, and as well as the cost perspective. And our penetrations, penetrations on the end time continue to improve quarter by quarter, which will help us to drive, I think, the profitability increase, including the growth margin.\n\nGrace (Analyst, Goldman Sachs (on behalf of Brian Lee)): Okay, thank you. Can I squeeze in one more housekeeping question? You increased your module and wafer capacity. So what's your CapEx plan for 2022, and what was your DNA in 3Q? Thanks.\n\nPan Li (Chief Financial Officer): Thank you for the question. The CapEx of this year, we still keep on the 3 billion U.S. dollars.\n\nGrace (Analyst, Goldman Sachs (on behalf of Brian Lee)): Okay, thank you. And the DNA for 3Q?\n\nLi Xiangde (Chairman and Chief Executive Officer): So your question is, is GNA the absolute number, or percentage, or ? Thank you for your question.\n\nPan Li (Chief Financial Officer): About GNA expenses, it takes about around 4% to 5% of the total variance. Thank you.\n\nOperator (Conference Operator): The next question comes from from . Please go ahead.\n\nUnknown (Analyst): Hi, everyone. Thanks for taking the questions. As a follow-up to some of those questions, I was wondering if you could talk about CapEx expectations for 2023. By the end of 2023, how much wafer, cell, and module capacity do you think you'll have? Thanks.\n\nLi Xiangde (Chairman and Chief Executive Officer): By the end of this year, we have 65, 55, 70 gigawatts. I think we have sufficient capacities and we are in good positions to deliver our results next year. We will continue to evaluate the market conditions next year. I think the markets were optimistic for next year. So our investment will continue to focus on the n-type, I think, cell and module capacities next year, and to build sufficient capacity for both next two years, our shipment guidance. So we are going to release, I think, the guidance capacity expansion next year, in the next quarter. But, you know, the key focus will continue on the N-type, the TopCon, you know, the cell and module capacities.\n\nUnknown (Analyst): Okay. Thanks, Charlie. What's after TopCon? I'm imagining you guys are already thinking about it, you know, with 60% N-type next year. Do you think you're going to move on to heterojunction, or have you decided on the technology roadmap beyond Topcon? Thanks.\n\nLi Xiangde (Chairman and Chief Executive Officer): We are leading the Topcon technology on the capacity of the product, let's say the efficiencies. And we believe there's a significant room to continue to to deliver further high-quality products based on the end-time top-down technology. Our R&D teams have released laboratory testing and the efficiency will reach 26.1%. Our target for the mass production efficiencies by the end of next year will be reached to over, I think, 25.7%. And, you know, we have technology roadmap, you know, and we strongly believe that the top count will dominate, you know, the next markets in the next two or three years. So the top count is our focus. But from the R&D perspective, We closely monitor the HAT and BC technology, but we strongly believe the top count is the trend.\n\nUnknown (Analyst): Great. Okay. Thanks, Ken. In terms of the U.S. market, the UFLPA enforcement and the CBP process that you're going through, I was wondering if you could talk about and give an update as to where things stand My understanding is the process has come to a close, and you're waiting on a decision. And so how much longer do you think we need to wait? And also, let's say you get released soon. Does that mean you can freely ship into the US, or do you think you have to secure something like an advanced letter of ruling to be able to freely ship into the US? Thanks.\n\nLi Xiangde (Chairman and Chief Executive Officer): Yeah, we did a lot of work, you know, under the UF LPA and, you know, the standard is very, you know, very broad and the challenge, you know, for the traceability systems and we prepare documents and have several rounds, you know, discussing communication with the VP. We think, you know, our documentations are really, you know, and waiting for the final, you know, feedback from 3B. And, you know, we are optimistic for the results, but the detailed timing, you know, it's still uncertain, but I think it's not so far. And for your second question, after the release of the, let's say, detained, you know, the modules, and we try to improve our internal efficiencies and trying to continue to communicate with CPP to make sure, let's say, the bottleneck will be departed. And now it's a lot of internal, external factors, including the capacities from CPP have the impact on the efficiencies. We don't know, you know, what will be, let's say, the in the future, but I think after the learning curve, you know, in the last two or three months, we think it's going to be getting, you know, more and more smooth.\n\nUnknown (Analyst): Okay. Charlie, can you talk about how many gigawatts of supply has been impacted for you since the first detention at the end of June? between then and now, end of October, and then let's say it continues through the end of the year, what kind of number can you share? How many gigawatts? I know that the detained modules are smaller. I'm talking about the total impact to customers. Are we talking about two gigawatts or maybe even more? Thanks.\n\nLi Xiangde (Chairman and Chief Executive Officer): Yeah. You know, you're right, the detainment module is very small, but because of delayed deposits, right, it's going to have a lot of impact to the shipment to our U.S. customers. And we estimate this year, all year, and our shipments in the U.S. will be around 5%, which is the original, I think, the planning from the beginning of this year. It's a It's 10%, so it's roughly, I think, a significant impact.\n\nUnknown (Analyst): OK, 5% of the 44 or 40 plus gigawatts, roughly two gigawatts. Correct me if I'm wrong, of course. And then one last question for me. The growth for next year, I think, Jenner, you talked about a 50% growth that matches with your year-end module capacity, roughly. Can you talk about the geographic mix you expect? You know, how much, for example, are you expecting for the U.S. in 23? And then what do you think is the rest? How much will China be Europe emerging markets? Thanks.\n\nLi Xiangde (Chairman and Chief Executive Officer): So... General, would you like to take the question? Okay, I think General is on the trip. Let me answer a question. Increasingly, we're thinking of next year, and China will dominate, take maybe 40% or 50% from the incremental value, the volume. And the second one is the U.S. and the European markets. But U.S., we don't believe... it's a demand, you know, concerns. It's purely the supply, you know, issues, including the potential impact from the U.S. LPA. And we believe the U.S., you know, if everything is smooth and maybe 40, you know, module demands and over 30 gigawatts, you know, the installation. And, yes, so that is, you know, and... This year, because the polysilicon is very high, the module price is high, which delayed a lot of utility scale projects installations. And next year, with the Botanic, the polysilicon gone, and the production volume will significantly increase, which will have very good timing for the utility scale developers to to buy the modules and connect circuits.\n\nUnknown (Analyst): Right. Thanks, sir. So just to put numbers on it, so let's say China is 40% to 50%. Do you think US is 15% to 20% and similar with Europe?\n\nLi Xiangde (Chairman and Chief Executive Officer): Yes. And from the incremental perspective, we think I think you're talking about incremental, right? We believe the total market size will be 30, 40.\n\nUnknown (Analyst): I'm sorry, Charlie. Sorry to interrupt. Let's say it's 65 gigawatts next year of shipments. You said 40% to 50% of the 65 would be China. I'm just trying to figure out what percentage of that 65 might be Europe and US.\n\nLi Xiangde (Chairman and Chief Executive Officer): Oh, OK. You mean the incremental, right?\n\nUnknown (Analyst): you know not necessarily metal it's not the increment yeah just general of the 65 gigawatts how much would be us you know maybe fifteen percent or five percent I mean assuming you're you're able to flow the modules freely thanks okay okay let's say the total size you know this year may be 250 right the installation the solar and next year may be 320\n\nLi Xiangde (Chairman and Chief Executive Officer): or maybe some others think it's 350. We believe China will take around, I think, 35%, 40% in the market here, and the U.S. will take around, I think, 10%. European will be around, I think, 20%.\n\nUnknown (Analyst): Great. Appreciate the caller. Thanks for taking all the questions, Charlie. I'll pass it on.\n\nOperator (Conference Operator): Ladies and gentlemen, I would like to remind you that if you wish to ask a question, please press 01. The next question comes from Alan Lau from Jefferies. Sir, please go ahead.\n\nAlan Lau (Analyst, Jefferies): Thank you for taking my question and congratulations for the extremely good results. So we would like to know what is the outlook of the gross margin in the next quarter? And also, as the company has maintained 10 gigawatt of n-type shipment, so in Q4 can I expect there will be around 6 to 7 gigawatt of popcorn shipment?\n\nLi Xiangde (Chairman and Chief Executive Officer): Yeah, I think, you know, We have capacity, I think, by the end of this year, 35 gigawatts. So you're right, if you do the calculations quarter by quarter, our measurements, I think, you know, Q4 will be around 5 to 6 gigawatts, and Q1 next year will be a little bit higher, you know, next year, Q1. And the growth margin, you know, it's, you know, Because of the end time, we'll take more percentage in Q4. On top of that, China will take more market shares, more shipments in Q4, and as well as the RMB depreciation. We believe there's a potential to the growth margin will continue to expand.\n\nAlan Lau (Analyst, Jefferies): Thank you. And then another question is the company has realized around 3 gigawatt of TopCon cells in 3Q. And also the company has mentioned it has reached the expected premium. So is it around RMB 10 cents of premium for the 3 gigawatt that has been sold in Q3?\n\nLi Xiangde (Chairman and Chief Executive Officer): The price premium is around, you know, 7, 8 RMB cents. And given, after the consideration, the cost difference and the profitability, you know, per watt basis, the N-type is relatively higher than P-type by 4 RMB cents.\n\nAlan Lau (Analyst, Jefferies): Understood. That's quite a lot, actually. In terms of net profit, right, $0.04 higher.\n\nLi Xiangde (Chairman and Chief Executive Officer): Sorry, could you repeat your questions?\n\nAlan Lau (Analyst, Jefferies): So $0.04 in terms of net profit, right, for the popcorn product. Yes, right, right.\n\nLi Xiangde (Chairman and Chief Executive Officer): RMB, RMB for RMB. Okay.\n\nAlan Lau (Analyst, Jefferies): Yes. Thank you. And so I've noted that the company has raised the top coin shipment in 2023 from 50% to 60%. So what makes you raise the guidance, and should we expect a higher net profit for next year because of this increase?\n\nLi Xiangde (Chairman and Chief Executive Officer): Yeah. We, you know, we will continue to invest in type TopCon module capacity next year. So based on our initial, you know, evaluations, we think we are able to deliver around 60% in type, you know, TopCon module next year. And we stretch more the TopCon modules. We, you know, more mix to TopCon modules. We think, you know, the profitability will relatively, you know, with more percentage and more higher profitability from, you know, for the total results.\n\nAlan Lau (Analyst, Jefferies): Thank you. And I think my last question is regarding to the partnership with the equipment provider, Octowell. So are they selling... Let me put it this way. So has Jingosolar benefited from the partnership with them by having more competitively priced equipment?\n\nLi Xiangde (Chairman and Chief Executive Officer): I think you're talking about the module equipment producers, right?\n\nAlan Lau (Analyst, Jefferies): Yeah, but they are producing the autowheel, and they are selling... crystal growing equipment to Jinko and what I heard is the price is cheaper, right?\n\nLi Xiangde (Chairman and Chief Executive Officer): We also invested some minority interest for the business and I think the volume is not very big and it's major for the R&D purpose and we want to you know, have more development on the technology and align with our suppliers to make the equipment more advanced, and particularly for the N-type, you know, the N-type, you know, the vapor production.\n\nAlan Lau (Analyst, Jefferies): Understood. So thanks a lot, and once again, congratulations to the company, and I'll leave it at that. Thanks. Thank you.\n\nOperator (Conference Operator): The last question comes from Rajiv Salguri from Sour Capital. Please go ahead.\n\nRajiv Salguri (Analyst, Sour Capital): Hello. I have two questions. One is on shipping costs. And we know that shipping costs have come down very substantially in the last three, four months. And actually, they are close to the levels they were at before COVID started. And I'm wondering... When we will start to see that in your numbers, how soon will those be reflected? And when that gets reflected, can we expect that shipping costs can go from 6% of revenues to maybe 3% of revenues? So that's my first question. Thank you.\n\nLi Xiangde (Chairman and Chief Executive Officer): Yeah, you're right. The global economy is weak, right? And the shipment cost in the recent, I think, two months, the index has dropped a lot, you know, quarter by quarter, year over year. And it's going to be very positive starting from the next year. But for this year, starting Q4, I think the impact is not so, you know, the party impact is not so so significant because, you know, we have long-term arrangements with logistic companies, and the long-term contracts price is already, you know, below the market price. And with the market price dropped a lot, and the expectation of next year is continue to be back to our normal, you know, standards compared to a couple years ago. and we will renegotiate the long-term arrangements for next year. And that is going to be, you know, have the impact for next year.\n\nRajiv Salguri (Analyst, Sour Capital): Okay. And Charlie, the second question is about polysilicon cost. Can you give us your best guess or your best sense right now, judgment right now, on when you expect polysilicon costs to start to come down and what rate they will come down in 2023. For example, what do you think polysilicon costs might be by the end of 2023? And then related to that, what is your plan for sharing the benefit of this cost reduction with your customers? You had mentioned in the last call that that on the N-type, you are sharing the benefit of the N-type 50-50 with your customers. Are you planning to share the benefit of polysilicon cost reduction also 50-50 with your customers?\n\nLi Xiangde (Chairman and Chief Executive Officer): This is a very complicated question. But we strongly believe the trend is there. a lot of, you know, the polysilicon capacity has been, you know, jumping up in the last two or three months. And, you know, the polysilicon volume will increase month over month dramatically. And next year, there are sufficient poly, you know, capacity and the volume to to support the total demand for next year. And now the silicon price is flat, and we see some potential, the silicon price will be downward trend starting from December. We're not sure, but I think the trend is there. it's very difficult to estimate what is the exact timing for the term round of the poly. And from our perspective, we try to have more signed orders for the next year, and particularly with our strategic customers And some of customers, they may have, you know, intentions and to have the price adjustment mechanism. And we, you know, we're thinking it's a win-win situation. And we will, you know, based on case-by-case, we will negotiate with different customers.\n\nRajiv Salguri (Analyst, Sour Capital): So can you give us an overall sense, then, that if... price of polysilicon comes down by whatever, X number of cents, on an overall basis, how much of that you would pass on to the customers and how much you would keep to improve your own gross margin?\n\nLi Xiangde (Chairman and Chief Executive Officer): It's not a very simple case. Some customers, we have fixed price. Some customers, we have variable price. and with some index to the market price. It's different case by case.\n\nRajiv Salguri (Analyst, Sour Capital): OK, thank you.\n\nOperator (Conference Operator): Ladies and gentlemen, if you wish to ask a question, please press 01 on your telephone keypad. We have a new question from Robin Jiao from Y2 Capital. Sir, please go ahead.\n\nRobin Jiao (Analyst, Y2 Capital): Hello, management. I would like to know on what percentage you expect your fourth quarter shipment will be shipped to China because I can see that in the third quarter, it's around 40-something percent, maybe close to 50. So what do you expect in the fourth quarter?\n\nLi Xiangde (Chairman and Chief Executive Officer): China will take a very large market in the fourth quarter. By the end of the year, a lot of utility-scale developers, they have strong pressures and intentions to start and connect the grids. And we estimate in Q4, we will have China markets Around, I think, 50% to 55%.\n\nRobin Jiao (Analyst, Y2 Capital): OK. So do you think that the domestic increasing COVID control could be a challenge? Or you've already well prepared for those kind of domestic SOE developers for their project amount?\n\nLi Xiangde (Chairman and Chief Executive Officer): There are some challenges. Because of COVID situations, I think the challenge is the logistic perspective. But we are seeing some improvement in some regions. So we think there is sufficient time by the end of this year to deliver the modules as scheduled.\n\nRobin Jiao (Analyst, Y2 Capital): OK, thank you. For the next question is about on the top corn and top corn products. So in the third quarter where you ship those products Where is the major market for this product?\n\nLi Xiangde (Chairman and Chief Executive Officer): It's like in Europe a US or mainly in Chinese market You know the majority parts Europe and We also have humans in China in you know, Latin America and the United Asia Pacific. It's good, yeah.\n\nRobin Jiao (Analyst, Y2 Capital): So basically, maybe most parts south in China and then basically everywhere you have some like product demo for the global users?\n\nLi Xiangde (Chairman and Chief Executive Officer): No, it's not product demos and we have, you know, promoting the products starting from last year and the You know, it's a significant shipment to different markets. And the European market is very big. And following that, there are shipments to different countries and regions, including China, Latin America, Australia, etc.,\n\nRobin Jiao (Analyst, Y2 Capital): My final question is regarding about the upstream supply other than polycylcon. Do you think that the quad fan material could be a bottleneck going forward in 2023 for your internal wafer production?\n\nLi Xiangde (Chairman and Chief Executive Officer): So what kind of bottleneck materials you are talking about?\n\nRobin Jiao (Analyst, Y2 Capital): Quad-sand.\n\nLi Xiangde (Chairman and Chief Executive Officer): Okay. Thank you, thank you. This has been talking about a long time, and we think it's a little bit tight for this particular material, it still can support over, we believe, 500 megawatts. And on top of that, there are capacity expansions. I think there are over, next year, maybe 90,000 tons. And from a technological perspective, we think So it's feasible, you know, to use more percentage of domestic produced materials other than the imported materials. And, you know, it's more like, you know, the impact is, let's say, the efficiency is cost perspective other than the volume perspective.\n\nRobin Jiao (Analyst, Y2 Capital): Okay, thank you. Thank you. I'll pass on.\n\nOperator (Conference Operator): We have no further questions. There is no more questions. OK.\n\nStella Wang (Investor Relations): Thank you, everyone. So we now end the call. Thank you. Good night.\n\nOperator (Conference Operator): This concludes today's call. Thank you all for your participation.",
+  "n_turns": 87
+}

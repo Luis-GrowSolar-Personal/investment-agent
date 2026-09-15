@@ -1,0 +1,521 @@
+{
+  "ticker": "JPM",
+  "original_ticker": "JPM",
+  "call_date": "2020-01-14",
+  "year": 2019,
+  "quarter": 4,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "JPM",
+    "year": 2019,
+    "quarter": 4
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-15T01:59:45Z",
+  "raw_payload": {
+    "event": {
+      "year": 2019,
+      "quarter": 4,
+      "conference_date": "2020-01-14T08:30:00.000-05:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk02",
+        "text": "Please stand by. We are about to begin. Good morning, ladies and gentlemen. Welcome to JPMorgan Chase's fourth quarter 2019 earnings call. This call is being recorded. Your line will be muted for the duration of the call. We will now go live to the presentation. Please stand by. At this time, I would like to turn the call over to JPMorgan Chase's chairman and CEO, Jamie Dimon, and chief financial officer, Jennifer Piepsak. Piepsak, please go ahead."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Thank you, operator. Good morning, everyone. I'll take you through the presentation, which, as always, is available on our website, and we ask that you please refer to the disclaimer at the back. Starting on page one, the firm reported net income of $8.5 billion, EPS of $2.57, and revenue of $29.2 billion, with a return on tangible common equity of 17%. Underlying performance continues to be strong. Deposit growth accelerated in the fourth quarter across consumer and wholesale, with average balances up 7% year-on-year. We saw solid loan growth, with CARD and AWM being the bright spots, as average loans across the company were up 3% year-on-year, excluding the impact of home lending loan sales in prior quarters. Fine investment assets in consumer and business banking were up 27%, And Asset and Wealth Management, AUM, was up 19%, reflecting stronger market performance versus the prior year, as well as organic growth. We ranked number one for the full year in global IB fees with 9% wallet share. And gross IB revenue in the commercial bank was a record $2.7 billion. In CIV markets, we were up 56% year-on-year compared to a weak fourth quarter last year, However, it's important to note the quarter was very strong in absolute terms, in fact, a record fourth quarter. And credit performance continues to be strong across the company. On to page two and some more detail about our fourth quarter results. Revenue of $29.2 billion was up $2.4 billion, or 9% year-on-year, with net interest income down $220 million, or 2%, on lower rates, largely offset by balance sheet growth and mix, and higher CIV markets NII. Non-interest revenue was up $2.6 billion or 21% on higher revenue in CIV markets and AWM and continued strong performance in home lending and auto. Expenses of $16.3 billion were up 4% on volume and revenue related costs. Credit remains favorable with credit costs of $1.4 billion down $121 million or 8% year-on-year reflecting modest net reserve releases and net charge-offs in line with expectations. Turning to the full year results on page 3. The firm reported net income of $36.4 billion, EPS of $2.72, and revenue of $118.7 billion, all records, and delivered a return on tangible common equity of 19%. Revenue was up $7.2 billion, or 6% year-on-year, with net interest income up 2.1 billion, or 4%, on balance sheet growth and mix, as well as higher average short-term rates, partially offset by higher deposit pay rates. Non-interest revenue was up 5.1 billion, or 9%, driven by growth across consumer and higher CIV markets revenue. And expenses of $65.5 billion, or up 3% year-on-year, driven by continued investments as well as volume and revenue-related costs, partially offset by lower FDIC charges. Revenue growth and our continued expense discipline generated positive operating leverage for the full year. And on credit, performance remained strong throughout 2019. Credit costs were $5.6 billion. In consumer, credit costs were up $210 million, reflecting an increase in CAR due to balance growth, largely offset by lower credit costs and home lending. And in wholesale, we were up $504 million, largely due to reserve releases and higher recoveries, both in 2018. Moving to balance sheet and capital on page 4. We ended the fourth quarter with a CET1 ratio of 12.4% up slightly versus last quarter. The firm distributed $9.5 billion of capital to shareholders in the quarter, including $6.7 billion of net repurchases and a common dividend of $0.90 per share. And while on the topic of capital, it's worth noting, given the actions we have taken, we fully expect it will remain in the 3.5% GSIB bucket. Before we move into the business results, I'll spend a moment talking about CECL on page 5. As you know, the transition to CECL was effective on January 1st, and therefore there is no impact to our 2019 financials. On the page is the CECL adoption impact. an overall net increase to the allowance for credit losses of $4.3 billion, which is at the lower end of the range we've provided. This was driven by an increase in consumer of $5.7 billion, mostly coming from CARD, partially offset by a decrease in wholesale of $1.4 billion. In CARD, the increase is the result of moving to lifetime loss coverage versus a shorter loss emergence period under the incurred model, whereas in wholesale, Modeling changes, like using specific macroeconomic forecasts versus through-the-cycle loss rates under incurred, result in a decrease, especially given the forecasted credit environment. Recognition of the allowance increase has resulted in a $2.7 billion after-tax decrease to retained earnings, as you can see on the page. Also important to note, we have elected to use the transition approach to recognize the impact on capital. And now, turning to businesses, we'll start with consumer community banking on page 6. In the fourth quarter, CCB generated net income of $4.2 billion and an ROE of 31% with accelerating deposit growth of 5%, fine investment assets up 27%, and total loans down 6%. For the full year, results in CCB were strong with $16.6 billion of net income up 12% and an ROE of 31% on revenue of $55.9 billion up 7%. Fourth quarter revenue was $14 billion, up 3% year-on-year. In consumer and business banking, revenue was down 2%, driven by deposit margin compression, largely offset by strong deposit growth, and higher non-interest revenue on the increase in client investment assets, as well as account and transaction growth. Home lending revenue was down 5%, driven by lower NII on lower balances, which were down 17% reflecting prior loan sales, and lower net servicing revenue, predominantly offset by higher net production revenue, reflecting a 94% increase in origination. And in card, merchant services, and auto, revenue was up 9%, driven by higher card NII on loan growth, as well as the impact of higher auto lease volume. Card loan growth was 8%, with sales up 10%, reflecting a strong and confident consumer during the holiday season. Expenses of $7.2 billion were up 2%, driven by revenue-related costs from higher volumes, as well as continued investments in the business, including market expansion, largely offset by expense efficiencies. On credit, this quarter's CCB had a net reserve release of $150 million. This included a release in the home lending purchase credit impaired portfolio of $250 million, reflecting improvements in delinquencies and home prices, which was partially offset by a reserve building card of $100 million, driven by growth. Net charge-offs for $1.4 billion, largely driven by card and consistent with expectations. Now turning to the Corporate Investment Bank on page 7. For the fourth quarter, CIV reported net income of $2.9 billion and an ROE of 14% on revenue of $9.5 billion, a strong finish to the year. For the full year, CIV delivered record revenue of $38 billion and an ROE of 14%. In investment banking, IB fees reached an all-time record for the full year. We maintained our number one rank in global IB fees and grew share to its highest level in a decade. For the quarter, IB revenue of $1.8 billion was up 6% year-on-year, outperforming the market, which was flat. Advisory fees were down 3% following a record performance last year. On a sequential quarter basis, fees were up meaningfully as we benefited from the closing of some large transactions, and for the year, we ranked number two in gained share. Debt underwriting fees were up 11% year-on-year due to higher bond issuance activity as clients accelerated their funding to take advantage of attractive pricing conditions to strengthen their balance sheets. And for the year, we maintained our number one rank overall, and we were number one for needless positions in both high-yield bonds and leveraged loans. Equity underwriting fees were up 10% year-on-year, reflecting strong performance in the U.S. and Latin America. The new issuance market continued to be active, and for the year, we ranked number one in equity underwriting as well as IPOs. Our overall pipeline continues to be healthy as strategic dialogue with clients is constructive, equity markets remain receptive to new issuance, and the rate environment is favorable for debt issuance. Moving to markets... Total revenue was $5 billion, up 56% year-on-year, driven by record fourth quarter revenue in both fixed income and equity markets. Fixed income markets was up 86%, benefiting from a favorable comparison against the challenging fourth quarter last year, but also reflecting strength across businesses, notably in securitized products and rates, driven by strong client activity and monetizing flows. Equity markets was up 15%, driven by strength across cash and prime. Treasury services revenue was $1.2 billion, down 3% year-on-year, primarily due to deposit margin compression, which was largely offset by organic growth, while security services revenue was $1.1 billion, up 3%. Expenses of $5.2 billion were up 12% compared to the prior year, with higher legal, volume, and revenue-related expenses, as well as continued investments. Now moving on to commercial banking on page 8. Commercial banking reported net income of $938 million and an ROE of 16% for the fourth quarter. And for the year, $3.9 billion of net income and an ROE of 17%. Fourth quarter revenue of $2.2 billion was down 3% year-on-year, with lower deposit NII on lower margins largely offset by higher deposit fees and a gain on the strategic investment. Gross investment banking revenues were $634 million, up 5% year-on-year, driven by increased large deal activity. Full-year IB revenue was a record $2.7 billion, up 10%, on strong activity across segments, with record results for both middle market and corporate client banking. Expenses of $882 million were up 4% year-on-year, driven by continued investments in banker coverage and technology. The COVID balances were up 8% year-on-year as we continued to see strong client flows. Loan balances were up 1% year-on-year. D&I loans were up 2% driven by growth in specialized industries and expansion markets, partially offset by the runoff in our tax exempt portfolio. DRE loans were up 1% where we continued to see higher originations in commercial term lending driven by the low rate environment, offset by declines in real estate banking as we remained selective given where we are in the cycle. Finally, credit costs were $110 million with an NCO rate of 17 basis points, largely driven by its single name, which was reserved for in prior quarters. Underlying credit performance continues to be strong. Now on to asset and wealth management on page 9. Asset and wealth management reported net income of $785 million with pre-tax margin of 28% and ROE of 29% for the fourth quarter. And for the year, AWM generated net income of $2.8 billion with both pre-tax margin and ROE of 26%. Revenue of $3.7 billion for the quarter was up 8% year-on-year as the impact of higher investment valuations in average market levels, as well as deposit and loan growth, were partially offset by deposit margin compression. Expenses of $2.7 billion were up 1% year-on-year. And for the quarter, We saw net long-term inflows of $14 billion driven by fixed income and multi-assets, and we had net liquidity inflows of $37 billion. AUM of $2.4 trillion and overall client assets of $3.2 trillion, both records, were up 19% and 18% respectively, driven by higher market levels as well as continued net inflows into long-term and liquidity products. Deposits were up 8% year-on-year, driven by growth and interest-bearing products. And finally, we had record loan balances of 8%, with strength in both wholesale and mortgage lending. Now on to corporate on page 10. Corporate reported a net loss of $361 million. Revenue was a loss of $228 million for the current quarter, driven by approximately $190 million of net markdowns on certain legacy private equity investments. Sequentially, revenue was down $920 million due to lower rates the benefit recorded in the prior quarter related to loan sales, as well as the PE losses I just mentioned. Year-on-year revenue was down, also primarily driven by lower rates. Expenses of $343 million were down $165 million year-on-year due to the timing of our contributions to the foundation in the prior year. And turning to page 11 for the outlook. And Investor Day, as always, will give you more information on the full year outlook. However, for now, I'll provide some color and reminders about the first quarter. We expect NII to be approximately $14 billion market dependent, adjusted expenses to be about $17 billion, and as a reminder, the effective tax rate in the first quarter is typically impacted by stock compensation adjustments, and as a result, it's currently estimated to be approximately 17%, with the managed tax rate about 500 to 700 basis points higher. So to wrap up, 2019 was a year of record financial performance across revenue, net income, and EPS. Our outlook heading into 2020 is constructive, underpinned by the strength of the U.S. consumer, and despite expected slower global growth and the backdrop of geopolitical uncertainty, we remain well-positioned as we continue to build on our scale and benefit from the diversification of our business model."
+      },
+      {
+        "speaker": "spk14",
+        "text": "And with that, operator, please open the line for Q&A."
+      },
+      {
+        "speaker": "spk02",
+        "text": "If you would like to ask a question, please press star, then the number one on your telephone keypad. Kindly request that you ask one question and only one related follow-up. If you would like to ask additional questions, please press star one to be re-entered into the queue. Our first question comes from Ken Oosten of Jefferies. Hi, Ken."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Thanks. Good morning. Hi, Jen. How are you? Jen, I was wondering if on terms of the NII outlook, you talked about the $14 billion level obviously getting to a point of stability. Can you help us outside of day count? Can you help us understand just where we are in terms of repricing of the balance sheet? What happens if rates generally stay flat from here just in terms of the rate side of the equation if we hold volume aside?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. As we look at rates paid on the retail side, we didn't obviously have reprice on the way up, and so there's little to do on the way down. In fact, there, from a rates paid perspective, we continued in the fourth quarter to see rates paid pick up a little bit on migration from savings to CDs. And then on the wholesale side, we did see rates paid come down, as you would expect, and we did see betas accelerate after the second cut. So there we saw more of a decline in CIB than we did in CB or AWM, as you might expect. Importantly, though, as we always say on the wholesale side, we price client by client, and so we're not going to lose any valuable client relationships over a few ticks of beta. And then I would just say in terms of the outlook with the Fed on hold, the implieds do still have one cut later in 2020, and based on the latest implieds, We'll give you more detail at Investor Day, as we always do. But I would say NII for the full year of 2020, you know, flat is slightly down as headwinds from rates will be offset with balance growth."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yep, got it. And just one question on just the volume side of things. You know, X the mortgage loans sales last year, you were still in that like 3% core range. growth, and obviously you talk a lot about the environment and how there's been some settling out, but at a lower level. What's the status of just corporate and commercial customers now that we're closer to phase one getting finalized, UMCA is on the table? What's the backdrop of just economic activity as you guys see it?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So the fourth quarter definitely, I would say, stabilized. Things, trade, certainly stabilized. Things, broadly speaking, stopped getting worse. And so we saw sentiment improve a bit, which I think contributed to the overall success of the fourth quarter. And then certainly there are some puts and takes. I mean, the U.S. consumer remains in very strong shape, both from a credit perspective, sentiment, spending. Obviously, labor market is very strong. and the Fed and the ECB on hold, and then capital spending is still a bit soft, but sentiment is at least certainly better than it was six months ago. So we have a, broadly speaking, constructive outlook headed in as we're heading into 2020 here."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Our next question is from Saul Martinez of UBS."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Hi, good morning. I have a question on credit and CECL. And, you know, you guys have been pretty clear that your business decisions are based on economic outcomes and not accounting outcomes. But CECL does, you know, materially change the way in which timing \u2013 change the timing in which earnings accrete to book value and capital, obviously with a higher upfront hit. But you guys have also been shifting your loan book significantly. pretty materially towards cars, which have a much higher loss content than your total book. So I guess, you know, two-fold question. One is, how do we think about provisioning in this context? Should we think provisioning is going to be well above charge-offs as your reserve ratio moves up? Because I would think your A-triple-L ratio post-ceasal adoption, which I think is about 1.8, 1.9, It should move up as cards, which have a much higher loss content than that, continue to grow in the mix. So just how do we think about provisioning in the context of the mix shift and CECL's adoption? And then I guess secondly, if there is a change in the macro environment and the credit environment does get worse and CECL, that inflection goes through your reserves and your provisioning, is there a point where CECL actually does change the way you think about pricing and underwriting in that environment?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So I'll start with the provisioning. So, you know, look, I think it's fair to say under CECL you could have incremental volatility given that reserves are more dependent on specific macroeconomic forecasts. But there that would depend, of course, on our ability to have foresight into the timing and extent of those downturns. In cards specifically, as you say, in any one period of growth or a downturn, you could see an increase in reserve since that we're taking life alone versus the next nine or 12 months. So that's true. And then on the wholesale side, you could see some differences, of course, because there are modeling differences between specific macroeconomic forecasts and through the cycle. Having said that, that incremental volatility would be material for us. And, of course, net charge-offs are not changing. And then from a pricing perspective, we don't foresee in the near term any pricing changes. The cash flows with the customer have not changed. And so we don't see any, but it is true, as you rightly point out, that there is an increased cost of equity in the sense that we're taking reserves up front versus through time. So over time, you could see that, but we're not expecting it in the near term."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Got it. I guess on the provisioning side, my question is more just on an ongoing basis is, is the mix changes more towards higher loss content lending, which obviously has higher margins and higher profitability over the course of the loan theory. But in that context, is it fair to say your provisioning levels also could be materially above your charge-offs? Because I would think that your reserve ratios, your A-triple-L ratios do have to move up as that mix changes on your balance sheet."
+      },
+      {
+        "speaker": "spk15",
+        "text": "It could be. It could be, of course. So, you know, that's just timing, particularly on the card side. It's just timing. Yeah. But it's difficult to know, again, because it relies on our ability to have perfect foresight into the timing and extent of a downturn."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Got it. No, that's fair. Thanks a lot. Appreciate it."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Sure. Our next question comes from Erica Najarian of Bank of America."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Hi, good morning."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hi, Erica. Hi, Erica."
+      },
+      {
+        "speaker": "spk16",
+        "text": "So I was hoping to get a little bit more credit on what happened in the quarter to produce such stellar results. Understand that obviously the fourth quarter 18 comp was light, but $3.4 billion is still a pretty heavy number for a fourth quarter for J.P. Morgan. So any color you could provide would be very helpful, Jennifer."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So are you talking about markets, Erica?"
+      },
+      {
+        "speaker": "spk16",
+        "text": "Markets, thank you."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Yeah, okay, sure. So there, you know, at Goldman in early December, I did say we expected to be up meaningfully. I would say the performance was broad-based. In rates, we call out securitized products. I'm sorry, in fixed income, we call it securitized products and rates, which were bright spots. But broadly speaking, obviously, equities had a very strong quarter as well. So it's really across the franchise, and we saw very strong client flow, and we had success monetizing those flows. So just a very healthy environment for us and really strong performance."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Got it. My follow-up question is that a quarter ago or two quarters ago, the revenue backdrop for banks in general, the outlook was starting to deteriorate, and I think management gave us some color that you'll continue to invest your efficiencies and initiatives no matter what the changes are in the revenue environment. But you could cut back on certain expenses if revenue environment was changing. That being said, your revenue production seems to always outperform to the upside. So as you think about 2020, is the best way to think about expenses just that 55% overhead ratio?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "So look, on the efficiency ratio, I would say that we run the company with great discipline, whether it's relentlessly pursuing expense efficiencies. or investing with discipline through the cycle. But because the efficiency ratio is an outcome, not an input, and is about expenses and revenue, we're not going to give a target for any one year. We think about operating leverage over time. And as we always say, we're not going to change the way we run the company for what could be temporary revenue headwinds. And on expenses, you know, I would just say that at Investor Day last year, Marianne told you that we expected the cost curve to flatten post-2019. In 2019, adjusted expenses were up 3%. 2020, we expect them to be up less than that."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Our next question is from Mike Mayo of Wells Fargo Security."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hi. Is Jamie on the call?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yes."
+      },
+      {
+        "speaker": "spk03",
+        "text": "I'm sorry?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yes, please."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Okay, so just a question for Jamie, because in the first paragraph you mentioned easing trade issues helped market activity, and I know this is a very simple question, but can you talk about the connection between easing trade issues and better trading, and you said that was better toward the end of the year. Is this something that you expect to remain, or is this a one-off quarter?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "That's a really hard question to answer, Mike. Obviously, trade caused a lot of consternation that has eased off a little bit. I don't think it's going to completely go away because you still have potential ongoing trade issues with China and Europe and stuff like that. But I think because that sentiment got better, trading got better, how long that continues, we don't know."
+      },
+      {
+        "speaker": "spk17",
+        "text": "And then, Jennifer, you mentioned expense growth was 3%. It should be less than that. this year, you guys had also mentioned that your technology spending might be leveling off. So if that levels off, maybe you see paybacks from prior investments. Any sense of where tech spending will be this year versus the prior year and how you think about that? And I know we'll get more at Investor Day."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure, of course. So I think you can think about tech spending on a fully loaded basis being in line with what I described for the company. And we continue to realize efficiencies from investments in tech. But as you well know, we continuously invest in tech. And so there's a fair amount of velocity in the investment portfolio there as investments roll off. And we're investing in new technology and innovation. So you can think about tech spending as being broadly in line with how I describe the company in terms of trends."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Our next question is from Betsy Grasick of Morgan Stanley."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Hi, good morning."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hi, Betsy."
+      },
+      {
+        "speaker": "spk19",
+        "text": "Two questions, one on asset growth. In the last couple of years, fourth quarter, you have to go through this exercise of trying to squeeze down to hit the GSIB target. And then in addition this year, I think you sold some residential mortgage loans to investors, or at least the investors are taking the risk of it. and then you're requesting to have regulatory capital reflect that transfer of risk to an investor pool while you're keeping the customer relationship. When I see these things, I'm wondering how you're thinking about how much room you have for asset growth as we go into 2020, and is there an opportunity to potentially do more of this residential mortgage loan trade to free up space for growth? Maybe you could, you know, speak to that."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So, I mean, we're bound by standardized capital, and so, of course, you know, that is a consideration for us and one of the reasons that we're looking to structure loan sales, as you described, in the mortgage business. So we think that there's more we can do there. And then on GSIB, you know, we remain hopeful that we will see the refinements there and recalibration that the Fed has been talking about for some time because that will become increasingly difficult. So, you know, both are at the margins constraints for us, but broadly speaking, you know, I wouldn't say that we're constrained given where we are on our capital ratios."
+      },
+      {
+        "speaker": "spk19",
+        "text": "And as I think about Cecil, you know, appreciate the commentary you had earlier on the call. I'm just wondering a couple of things. One, why do you think you ended up towards the low end of your $4 to $6 billion increase in reserves that you outlined earlier? And what kind of estimates you have for the economic outlook? You've got the assumption for the economic outlook in the reasonable, supportable period, et cetera. And so I'm just trying to understand what kind of forecast you have in your model so that I understand what you know, what's embedded in your scenarios and in your ALLR ratio?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So, you know, I think we ended up at the low end as we, you know, through the year continue to get more certainty around what the macroeconomic forecast were going to look like. And so I think that's really what's driving it. Obviously, portfolio mix as well continued to be, you know, very strong in terms of performance of the portfolio. And then on the estimate for the economic outlook, as you rightly say, there is the reasonable and supportable period, which for us is two years. And so we do use multiple weighted scenarios there. So we weight multiple scenarios with the one most likely getting the greatest weight. And that's where you end up with what looks like a reasonably benign outlook for the reasonable and supportable period, which also obviously would contribute to us hitting the low end of the range."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Hey, Jen, are we going to disclose some of those variables over time?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "That's a great point, Jamie. I should have said that. Yes, I mean, there will be more disclosure about CECL in the queue."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Which means all the banks are going to be showing these ridiculous forecasting going forward and differences, and we'll spend time talking about that as opposed to the actual business."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Right."
+      },
+      {
+        "speaker": "spk04",
+        "text": "But we'll disclose. We need to know to make it clear what we're doing and why we're doing it."
+      },
+      {
+        "speaker": "spk02",
+        "text": "That's right. So you'll see more in the queues. Our next question is from Matt O'Connor of Deutsche Bank."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Good morning. Two quick follow-ups to some themes that have been talked about. I guess first on expenses, you know, the full-year outlook was pretty clear, less than 3% growth. But the first quarter seems a little bit higher than maybe I would have thought, up 4% year over year. And I don't know if that's just rounding and I'm getting too obsessed over $100 million here or there, or if you're upfunding some investment spend, and if so, what that's for."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So the first quarter tends to be a bit higher for us if you look through history. And so there you can think about it comparing it year over year. We have volume and revenue related expenses increasing a bit of an increase on investments, but both are being partially offset by expense efficiency."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Okay. And then the other follow-up question is just on capital allocation. Obviously, it's a good problem to have, but the ratios keep going up. The capital generation keeps going up. The stock keeps going up. You're obviously buying back a lot of stock. The goal is to get the dividend, I think, higher over time. But maybe just talk about how you think about buying back stock at these levels, if there's other creative uses of capital. I always think about all the money you spend on technology. Does it make sense to buy technology versus do it organic? So just maybe address some of those things. Thank you."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So on the ratio, I'll just remind you that, of course, we have our capital distribution plan approved once a year. And so since our last CCAR filing, we have realized some RWA efficiency and we've out-earned relative to the assumptions in the CCAR filing. And so that's part of the reason why we've seen the ratios load up there. On stock buybacks, As you rightly point out, our first priority is always going to be to invest for organic growth, and so we are always looking to do that first and foremost, and then to have a competitive and sustainable dividend, and only then to distribute excess capital to shareholders through buybacks. And we have said that it makes sense to continue to do that at or above two times tangible book, which is about where we are now. We will obviously, you know, when distributing excess capital, always be looking at the alternative. But at a 17% ROTCE and 2% or 3% dividend payout ratio, there's a high bar for the alternative."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Our next question."
+      },
+      {
+        "speaker": "spk04",
+        "text": "You're absolutely right about acquisitions. We did do Instamed this year, which, you know, hooks up an electronic system that hooks up providers and consumers of health care. Well, I think the number that 80% or 90% is still done by check. So if there are opportunities like that, we absolutely would be on hunt for them."
+      },
+      {
+        "speaker": "spk15",
+        "text": "That's right. We pay last year, yeah."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And we pay the year before. Yep."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Our next question is from Gerard Cassidy of RBC."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Hi, Jennifer."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Hi, Gerard."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Question on credit. You obviously put up some real good numbers once again on credit quality, and I noticed that you had a nice material decline in the wholesale non-performing assets quarter to quarter. Can you give us any color on what brought that down? And could you tie in also any concerns that you may have about the energy portfolio? I know it's not material, but there is some concerns out there about energy credits."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So on wholesale non-performing loans in the CIB, that was some name-specific upgrades that we had in the CIB. And then in the commercial bank, that was related to charge-offs taken in the quarters. And then on energy, you know, really nothing there thematically, I would say, like any sector. We have upgrades and downgrades, and this quarter was no exception. But I wouldn't say anything thematically in our portfolio that we're concerned about."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Very good. And then I don't know if I heard you correctly in the last answer to the stock repurchase program. I understand, of course, it's driven by your CCAR results. But if the price of the stock, and it's a good problem to have, gets to a level that you consider to be too high. I think you may have said two times tangible book value. What then happens if the price ever gets to a point where you guys think it's just too high to buy it back? What do you do with the excess capital at that point? Have you given that much? And, again, it's a good problem to have. I understand that. But have you given any thought to that?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. We give a lot of thought to it, and I agree it is a high-class problem. And so we've said that at or above two times tangible book makes sense. If it continues to go up, we're going to continue to look at alternatives. Most importantly, you know, within the company in terms of, you know, how we should really think about the returns on buying our stock back at a higher level versus perhaps thinking about the returns a bit differently in terms of organic growth. Damian, I don't know if there's anything you want to add."
+      },
+      {
+        "speaker": "spk05",
+        "text": "No, that is all."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Our next question is from Stephen Chuback of Wolf Research."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Hey, good morning. So Jennifer, I wanted to start with a question on capital. Quarles indicated in a recent interview that he plans to implement the bulk of the SEB in 2020 CCAR. Also alluded to the possibility of deploying a counter cyclical buffer as part of that. I'm just wondering if the counter cyclical buffer is actually deployed or incorporated within the test. Is that something that's underwritten as part of your 12% CT1 target? And are you anticipating changes to the G-SIB coefficient calculations that you alluded to earlier in the call as part of the coming cycle as well?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Thanks, Stephen. So, I mean, you touched on a number of things that are all important. And I think what's most important to us is that we end up with a cohesive framework across all of them. The comments from the vice chair have been constructive, you know, in the sense that he always reiterates that he thinks the level of capital in the system is about right. And so, you know, we'll have a firmer view when we see a final rule. As you say, we do expect to see something in 2020. based upon the comments that we have heard, just like you have. And we expect that our 12% target will not be impacted because we do constructively hear fee-by-share say over and over that the amount of capital in the system is about right. But we can't have a firm view until we see the final rule. And then on GSIB, you know, we remain hopeful that we're going to see the refinements that the Fed has been talking about, perhaps not full recalibration until by before, which is what the Vice Chair recently said, but certainly there are a number of refinements that we've been talking about and the Fed has been talking about for years, and we remain hopeful that we'll see them very soon."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thanks for that, Caller Jennifer. And just one final one from me. We saw really strong FIC results as well as really strong institutional deposit growth. And I was hoping you could speak to what impact the Fed balance sheet growth is actually having on all of your different businesses or how that's manifesting, because it seems to be providing a pretty nice tailwind, whether it's some increased activity as well as some benefit in terms of deposit growth that you're seeing across the overall franchise, but institutional in particular."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So you're absolutely right. On the wholesale side, the Fed balance sheet expansion was, you know, for sure a tailwind for us. although I would say the more meaningful portion of our deposit growth on the wholesale side in the quarter was from strong organic growth and client acquisition. And, you know, elsewhere, you know, I would say, obviously, it was the right thing to do and provide a stability in the retail market throughout the quarter."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Our next question is from Brian Klein-Hansel of KBW."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Hey, Monique. A quick question on the deposit cost. Could you just break down maybe by segment where the big drivers were that saw you have the big reduction in deposit costs in the quarter? Was that in security services? Was it wealth management?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. Sure, Brian. So I'll start with retail where we saw rates pay tick up a bit, and that's on migration from savings to CDs. We have seen CD pricing come off its peak, but continued migration from savings to CDs. And then on the wholesale side, you see bigger declines in rates paid in treasury services for sure, and then a little bit less so in the commercial bank and AWM. And again, as we always say, these are name-specific, client-by-client decisions. And while we feel good about where we are, these are decisions we make client-by-client, and we're certainly careful and have a lot of discipline, not going to lose valuable relationships over a few ticks of beta."
+      },
+      {
+        "speaker": "spk12",
+        "text": "And then a separate question. In a commercial bank, I mean, you're seeing loans come down quarter on quarter for end of period and generally modest growth year over year. I mean, what's the sentiment now in the middle market and the corporate client? Is it a sentiment issue? Is it just a timing issue there for seeing better loan growth?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So there are obviously some puts and takes which I'll run through. But broadly speaking, I would say what we're seeing is more a function of our own discipline than it is a function of demand. And in C&I, we feel good about the growth that we're seeing in the areas where we're focused in specialized industries and market expansion. But, of course, that's offset partially by the tax-exempt portfolio that's running off. And then in CRE, good growth in commercial term lending as we continue to have opportunities there given the rate environment. And then that is offset by real estate banking where we are very disciplined given where we are in the cycle."
+      },
+      {
+        "speaker": "spk04",
+        "text": "I would just add, when capital expenditures come down, all things being equal, if they're not, but all things being equal, you're going to see a reduction in some lending."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Because companies need less money to finance receivables and inventory and plant and equipment."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Our next question is from Glenn Shore of Evercore ISI."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Hi, Glenn. Hello there. Hi. A quick question on open APIs and what the big picture is here and how it impacts you and the rest of the banking industry, meaning there's concerns over data security and things like that, but JP Morgan has plenty of agreements with some of the bigger providers. I'm just curious to get your big picture thoughts on that. What level of concerns should we have? What's the good and the bad?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Yeah, I mean, you know, there I would say, Glenn, our customers' data privacy and security is of utmost importance to us. And we think over time the best way for us to do that as securely as we can is to have third-party apps only access data through our APIs. And so we are working name by name to get those agreements in place, and we hope through time that is exclusively the only way that third parties can access our customers' data. We think that's the most secure way to do it."
+      },
+      {
+        "speaker": "spk04",
+        "text": "But very importantly is that that data is the data the customer agrees to give them, On the basis they agree to give it to them, there's not unlimited access to customer data, and the customer will have the ability to turn it off. As opposed to today, if you gave your bank passcode to someone, they're taking the data every day, maybe even every minute, and you don't even know about it because you forgot."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Great point, and we're going to make it super easy for our customers to be able to do that."
+      },
+      {
+        "speaker": "spk13",
+        "text": "So you will give them the tools to control that?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Yes, you can imagine a dashboard where they will have the... That is the full intent."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah."
+      },
+      {
+        "speaker": "spk13",
+        "text": "And then just curious if you've seen any follow-on impacts, you know, that you've seen some repricing on parts of the illiquid markets, and for specifically some of the unprofitable parts of those companies, and... Is that just the repricing and everybody that owns them will take some hits, a little bit slower progress on banking front and that's it? Or is there anything bigger there to worry about with what's going on in the illiquid side?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Are you talking about the private companies?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "Yes, I am. Sorry."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Look, there are a lot of private companies. A lot of them do well. Some don't. Some will fail. Some have access to capital now. They won't have access to capital in the downturn. But it's not a systemic issue. It's just the capital market, there are a lot of private companies, and I don't think it's that big a deal."
+      },
+      {
+        "speaker": "spk05",
+        "text": "You just have an adjustment in access to capital, and that will happen periodically."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Our next question is from Marty Mosby of Vining Sparks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thank you. Jennifer, you were kind of foreshadowing lower tax rate as you kind of move into the first quarter, and then the tax rate here. and the fourth quarter was a little bit lower than what we expected. Is there anything that's permanent here, or are there some things that are just kind of rolling through these two quarters?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Yeah, I wouldn't say there's anything permanent there. The first quarter is typically lower for us, Marty. You can think about full year 20 as being 20%. plus or minus, and of course that would depend on any non-recurring items we might have or any change in regulation, but 20% plus or minus, and then of course the managed tax rate is typically 500 to 700 basis points higher than that."
+      },
+      {
+        "speaker": "spk07",
+        "text": "And then a bigger question, when we came into 2018, the net-ex margin was around 2.5%, and then now as we're coming out of 2019, The net original margin has fallen below 2.4%. So interest rates went up 100 basis points and then down 75, and we've netted down at negative 10 basis points. So I was just curious in that path, it's either the way the Fed kind of inflected very quickly that created a little bit more pressure in the net between deposit pricing and loan pricing, or do we think that this is probably just some of the competition that came in after the tax reform And maybe this is just the evidence of some of that competition with the increased profitability that we got from the benefit from the taxes."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Yeah, so there I would say, Marty, on that sort of the last several hikes, there was some catch-up there because we know we had some lags on reprice in the rising rate environment. So if you're just looking at the last few hikes, the betas would certainly be higher than what we're seeing in terms of the first three eases here. But broadly speaking on NIM, I mean, NIM is an outcome for us, not an input. And as we think about looking forward, certainly the environment is very competitive. It always has been. And, you know, NII, the outlook for 2020 is at this point based upon the implied flat to slightly down, and we do expect balance sheet growth."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Our next question is from Andrew Lim of Societe Generale."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Hi, morning. Thanks for taking my questions. Wondering if you could give a bit more color on your market's performance there. Obviously, it's done very well. Geographically though, is there much more weighting there on the U.S. versus Europe and APAC?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "I would say, Andrew, that it was broad-based. We can have Jason and team follow up specifically on a geographic breakdown, but it was largely broad-based."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Right. And would you say with confidence that you're getting market share in both territories there?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Again, I don't have the split on market share by region, but Jason and team can certainly follow up on that."
+      },
+      {
+        "speaker": "spk04",
+        "text": "I'm not sure we want to start disclosing that regularly. But I do believe that market share went up pretty much in most markets, but you can't say most markets in all products."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah. And our next question is from Allison Williams of Bloomberg Intelligence."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Good morning. So I had a similar question, just circling back to trading and the CIB more broadly. So obviously the bank has gained share, but can you speak to future opportunities and runway? And maybe this is more of a question for Investor Day, but specifically businesses like cash management, transaction banking, and corporate clients in general. You're a leader in the U.S. Anecdotally, we hear U.S. banks have been making gains in Europe. Can you speak at all to that opportunity?"
+      },
+      {
+        "speaker": "spk15",
+        "text": "Sure. So as you said, we'll give you more color at Investor Day. For the treasury services business, we feel really good about where we're positioned. I think going forward, there'll obviously be some great headwinds there, which we think can be offset by organic growth. But given the investments that we have made there, Jamie mentioned Instamed earlier, we feel really good about the capabilities that we're adding and what we're seeing in terms of organic growth there, but we can talk to you more about that at Investor Day."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Okay. Thank you."
+      },
+      {
+        "speaker": "spk02",
+        "text": "And we have no further questions at this time. Okay. Thanks, everyone."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Guys, we'll see you. Thank you. I'll see you guys tomorrow."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Okay. See you tomorrow. Thank you for participating in today's call. You may now disconnect."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk00": {
+        "name": "Andrew Lim",
+        "title": "Societe Generale"
+      },
+      "spk01": {
+        "name": "Gerard Cassidy",
+        "title": "RBC"
+      },
+      "spk02": {
+        "name": "Operator",
+        "title": "Investor Relations"
+      },
+      "spk03": {
+        "name": "Mike Mayo",
+        "title": "Wells Fargo Security"
+      },
+      "spk04": {
+        "name": "Jamie Dimon",
+        "title": "Chairman and CEO"
+      },
+      "spk05": {
+        "name": "Unknown",
+        "title": "JPMorgan Executive"
+      },
+      "spk07": {
+        "name": "Marty Mosby",
+        "title": "Vining Sparks"
+      },
+      "spk08": {
+        "name": "Stephen Chuback",
+        "title": "Wolf Research"
+      },
+      "spk09": {
+        "name": "Matt O'Connor",
+        "title": "Deutsche Bank"
+      },
+      "spk10": {
+        "name": "Saul Martinez",
+        "title": "UBS"
+      },
+      "spk11": {
+        "name": "Ken Oosten",
+        "title": "Jefferies"
+      },
+      "spk12": {
+        "name": "Brian Klein-Hansel",
+        "title": "KBW"
+      },
+      "spk13": {
+        "name": "Glenn Shore",
+        "title": "Evercore ISI"
+      },
+      "spk14": {
+        "name": "Operator",
+        "title": "Investor Relations"
+      },
+      "spk15": {
+        "name": "Jennifer Piepsak",
+        "title": "Chief Financial Officer"
+      },
+      "spk16": {
+        "name": "Erica Najarian",
+        "title": "Bank of America"
+      },
+      "spk17": {
+        "name": "Unknown",
+        "title": "Unknown"
+      },
+      "spk18": {
+        "name": "Allison Williams",
+        "title": "Bloomberg Intelligence"
+      },
+      "spk19": {
+        "name": "Betsy Grasick",
+        "title": "Morgan Stanley"
+      }
+    }
+  },
+  "text": "Operator (Investor Relations): Please stand by. We are about to begin. Good morning, ladies and gentlemen. Welcome to JPMorgan Chase's fourth quarter 2019 earnings call. This call is being recorded. Your line will be muted for the duration of the call. We will now go live to the presentation. Please stand by. At this time, I would like to turn the call over to JPMorgan Chase's chairman and CEO, Jamie Dimon, and chief financial officer, Jennifer Piepsak. Piepsak, please go ahead.\n\nJennifer Piepsak (Chief Financial Officer): Thank you, operator. Good morning, everyone. I'll take you through the presentation, which, as always, is available on our website, and we ask that you please refer to the disclaimer at the back. Starting on page one, the firm reported net income of $8.5 billion, EPS of $2.57, and revenue of $29.2 billion, with a return on tangible common equity of 17%. Underlying performance continues to be strong. Deposit growth accelerated in the fourth quarter across consumer and wholesale, with average balances up 7% year-on-year. We saw solid loan growth, with CARD and AWM being the bright spots, as average loans across the company were up 3% year-on-year, excluding the impact of home lending loan sales in prior quarters. Fine investment assets in consumer and business banking were up 27%, And Asset and Wealth Management, AUM, was up 19%, reflecting stronger market performance versus the prior year, as well as organic growth. We ranked number one for the full year in global IB fees with 9% wallet share. And gross IB revenue in the commercial bank was a record $2.7 billion. In CIV markets, we were up 56% year-on-year compared to a weak fourth quarter last year, However, it's important to note the quarter was very strong in absolute terms, in fact, a record fourth quarter. And credit performance continues to be strong across the company. On to page two and some more detail about our fourth quarter results. Revenue of $29.2 billion was up $2.4 billion, or 9% year-on-year, with net interest income down $220 million, or 2%, on lower rates, largely offset by balance sheet growth and mix, and higher CIV markets NII. Non-interest revenue was up $2.6 billion or 21% on higher revenue in CIV markets and AWM and continued strong performance in home lending and auto. Expenses of $16.3 billion were up 4% on volume and revenue related costs. Credit remains favorable with credit costs of $1.4 billion down $121 million or 8% year-on-year reflecting modest net reserve releases and net charge-offs in line with expectations. Turning to the full year results on page 3. The firm reported net income of $36.4 billion, EPS of $2.72, and revenue of $118.7 billion, all records, and delivered a return on tangible common equity of 19%. Revenue was up $7.2 billion, or 6% year-on-year, with net interest income up 2.1 billion, or 4%, on balance sheet growth and mix, as well as higher average short-term rates, partially offset by higher deposit pay rates. Non-interest revenue was up 5.1 billion, or 9%, driven by growth across consumer and higher CIV markets revenue. And expenses of $65.5 billion, or up 3% year-on-year, driven by continued investments as well as volume and revenue-related costs, partially offset by lower FDIC charges. Revenue growth and our continued expense discipline generated positive operating leverage for the full year. And on credit, performance remained strong throughout 2019. Credit costs were $5.6 billion. In consumer, credit costs were up $210 million, reflecting an increase in CAR due to balance growth, largely offset by lower credit costs and home lending. And in wholesale, we were up $504 million, largely due to reserve releases and higher recoveries, both in 2018. Moving to balance sheet and capital on page 4. We ended the fourth quarter with a CET1 ratio of 12.4% up slightly versus last quarter. The firm distributed $9.5 billion of capital to shareholders in the quarter, including $6.7 billion of net repurchases and a common dividend of $0.90 per share. And while on the topic of capital, it's worth noting, given the actions we have taken, we fully expect it will remain in the 3.5% GSIB bucket. Before we move into the business results, I'll spend a moment talking about CECL on page 5. As you know, the transition to CECL was effective on January 1st, and therefore there is no impact to our 2019 financials. On the page is the CECL adoption impact. an overall net increase to the allowance for credit losses of $4.3 billion, which is at the lower end of the range we've provided. This was driven by an increase in consumer of $5.7 billion, mostly coming from CARD, partially offset by a decrease in wholesale of $1.4 billion. In CARD, the increase is the result of moving to lifetime loss coverage versus a shorter loss emergence period under the incurred model, whereas in wholesale, Modeling changes, like using specific macroeconomic forecasts versus through-the-cycle loss rates under incurred, result in a decrease, especially given the forecasted credit environment. Recognition of the allowance increase has resulted in a $2.7 billion after-tax decrease to retained earnings, as you can see on the page. Also important to note, we have elected to use the transition approach to recognize the impact on capital. And now, turning to businesses, we'll start with consumer community banking on page 6. In the fourth quarter, CCB generated net income of $4.2 billion and an ROE of 31% with accelerating deposit growth of 5%, fine investment assets up 27%, and total loans down 6%. For the full year, results in CCB were strong with $16.6 billion of net income up 12% and an ROE of 31% on revenue of $55.9 billion up 7%. Fourth quarter revenue was $14 billion, up 3% year-on-year. In consumer and business banking, revenue was down 2%, driven by deposit margin compression, largely offset by strong deposit growth, and higher non-interest revenue on the increase in client investment assets, as well as account and transaction growth. Home lending revenue was down 5%, driven by lower NII on lower balances, which were down 17% reflecting prior loan sales, and lower net servicing revenue, predominantly offset by higher net production revenue, reflecting a 94% increase in origination. And in card, merchant services, and auto, revenue was up 9%, driven by higher card NII on loan growth, as well as the impact of higher auto lease volume. Card loan growth was 8%, with sales up 10%, reflecting a strong and confident consumer during the holiday season. Expenses of $7.2 billion were up 2%, driven by revenue-related costs from higher volumes, as well as continued investments in the business, including market expansion, largely offset by expense efficiencies. On credit, this quarter's CCB had a net reserve release of $150 million. This included a release in the home lending purchase credit impaired portfolio of $250 million, reflecting improvements in delinquencies and home prices, which was partially offset by a reserve building card of $100 million, driven by growth. Net charge-offs for $1.4 billion, largely driven by card and consistent with expectations. Now turning to the Corporate Investment Bank on page 7. For the fourth quarter, CIV reported net income of $2.9 billion and an ROE of 14% on revenue of $9.5 billion, a strong finish to the year. For the full year, CIV delivered record revenue of $38 billion and an ROE of 14%. In investment banking, IB fees reached an all-time record for the full year. We maintained our number one rank in global IB fees and grew share to its highest level in a decade. For the quarter, IB revenue of $1.8 billion was up 6% year-on-year, outperforming the market, which was flat. Advisory fees were down 3% following a record performance last year. On a sequential quarter basis, fees were up meaningfully as we benefited from the closing of some large transactions, and for the year, we ranked number two in gained share. Debt underwriting fees were up 11% year-on-year due to higher bond issuance activity as clients accelerated their funding to take advantage of attractive pricing conditions to strengthen their balance sheets. And for the year, we maintained our number one rank overall, and we were number one for needless positions in both high-yield bonds and leveraged loans. Equity underwriting fees were up 10% year-on-year, reflecting strong performance in the U.S. and Latin America. The new issuance market continued to be active, and for the year, we ranked number one in equity underwriting as well as IPOs. Our overall pipeline continues to be healthy as strategic dialogue with clients is constructive, equity markets remain receptive to new issuance, and the rate environment is favorable for debt issuance. Moving to markets... Total revenue was $5 billion, up 56% year-on-year, driven by record fourth quarter revenue in both fixed income and equity markets. Fixed income markets was up 86%, benefiting from a favorable comparison against the challenging fourth quarter last year, but also reflecting strength across businesses, notably in securitized products and rates, driven by strong client activity and monetizing flows. Equity markets was up 15%, driven by strength across cash and prime. Treasury services revenue was $1.2 billion, down 3% year-on-year, primarily due to deposit margin compression, which was largely offset by organic growth, while security services revenue was $1.1 billion, up 3%. Expenses of $5.2 billion were up 12% compared to the prior year, with higher legal, volume, and revenue-related expenses, as well as continued investments. Now moving on to commercial banking on page 8. Commercial banking reported net income of $938 million and an ROE of 16% for the fourth quarter. And for the year, $3.9 billion of net income and an ROE of 17%. Fourth quarter revenue of $2.2 billion was down 3% year-on-year, with lower deposit NII on lower margins largely offset by higher deposit fees and a gain on the strategic investment. Gross investment banking revenues were $634 million, up 5% year-on-year, driven by increased large deal activity. Full-year IB revenue was a record $2.7 billion, up 10%, on strong activity across segments, with record results for both middle market and corporate client banking. Expenses of $882 million were up 4% year-on-year, driven by continued investments in banker coverage and technology. The COVID balances were up 8% year-on-year as we continued to see strong client flows. Loan balances were up 1% year-on-year. D&I loans were up 2% driven by growth in specialized industries and expansion markets, partially offset by the runoff in our tax exempt portfolio. DRE loans were up 1% where we continued to see higher originations in commercial term lending driven by the low rate environment, offset by declines in real estate banking as we remained selective given where we are in the cycle. Finally, credit costs were $110 million with an NCO rate of 17 basis points, largely driven by its single name, which was reserved for in prior quarters. Underlying credit performance continues to be strong. Now on to asset and wealth management on page 9. Asset and wealth management reported net income of $785 million with pre-tax margin of 28% and ROE of 29% for the fourth quarter. And for the year, AWM generated net income of $2.8 billion with both pre-tax margin and ROE of 26%. Revenue of $3.7 billion for the quarter was up 8% year-on-year as the impact of higher investment valuations in average market levels, as well as deposit and loan growth, were partially offset by deposit margin compression. Expenses of $2.7 billion were up 1% year-on-year. And for the quarter, We saw net long-term inflows of $14 billion driven by fixed income and multi-assets, and we had net liquidity inflows of $37 billion. AUM of $2.4 trillion and overall client assets of $3.2 trillion, both records, were up 19% and 18% respectively, driven by higher market levels as well as continued net inflows into long-term and liquidity products. Deposits were up 8% year-on-year, driven by growth and interest-bearing products. And finally, we had record loan balances of 8%, with strength in both wholesale and mortgage lending. Now on to corporate on page 10. Corporate reported a net loss of $361 million. Revenue was a loss of $228 million for the current quarter, driven by approximately $190 million of net markdowns on certain legacy private equity investments. Sequentially, revenue was down $920 million due to lower rates the benefit recorded in the prior quarter related to loan sales, as well as the PE losses I just mentioned. Year-on-year revenue was down, also primarily driven by lower rates. Expenses of $343 million were down $165 million year-on-year due to the timing of our contributions to the foundation in the prior year. And turning to page 11 for the outlook. And Investor Day, as always, will give you more information on the full year outlook. However, for now, I'll provide some color and reminders about the first quarter. We expect NII to be approximately $14 billion market dependent, adjusted expenses to be about $17 billion, and as a reminder, the effective tax rate in the first quarter is typically impacted by stock compensation adjustments, and as a result, it's currently estimated to be approximately 17%, with the managed tax rate about 500 to 700 basis points higher. So to wrap up, 2019 was a year of record financial performance across revenue, net income, and EPS. Our outlook heading into 2020 is constructive, underpinned by the strength of the U.S. consumer, and despite expected slower global growth and the backdrop of geopolitical uncertainty, we remain well-positioned as we continue to build on our scale and benefit from the diversification of our business model.\n\nOperator (Investor Relations): And with that, operator, please open the line for Q&A.\n\nOperator (Investor Relations): If you would like to ask a question, please press star, then the number one on your telephone keypad. Kindly request that you ask one question and only one related follow-up. If you would like to ask additional questions, please press star one to be re-entered into the queue. Our first question comes from Ken Oosten of Jefferies. Hi, Ken.\n\nKen Oosten (Jefferies): Thanks. Good morning. Hi, Jen. How are you? Jen, I was wondering if on terms of the NII outlook, you talked about the $14 billion level obviously getting to a point of stability. Can you help us outside of day count? Can you help us understand just where we are in terms of repricing of the balance sheet? What happens if rates generally stay flat from here just in terms of the rate side of the equation if we hold volume aside?\n\nJennifer Piepsak (Chief Financial Officer): Sure. As we look at rates paid on the retail side, we didn't obviously have reprice on the way up, and so there's little to do on the way down. In fact, there, from a rates paid perspective, we continued in the fourth quarter to see rates paid pick up a little bit on migration from savings to CDs. And then on the wholesale side, we did see rates paid come down, as you would expect, and we did see betas accelerate after the second cut. So there we saw more of a decline in CIB than we did in CB or AWM, as you might expect. Importantly, though, as we always say on the wholesale side, we price client by client, and so we're not going to lose any valuable client relationships over a few ticks of beta. And then I would just say in terms of the outlook with the Fed on hold, the implieds do still have one cut later in 2020, and based on the latest implieds, We'll give you more detail at Investor Day, as we always do. But I would say NII for the full year of 2020, you know, flat is slightly down as headwinds from rates will be offset with balance growth.\n\nKen Oosten (Jefferies): Yep, got it. And just one question on just the volume side of things. You know, X the mortgage loans sales last year, you were still in that like 3% core range. growth, and obviously you talk a lot about the environment and how there's been some settling out, but at a lower level. What's the status of just corporate and commercial customers now that we're closer to phase one getting finalized, UMCA is on the table? What's the backdrop of just economic activity as you guys see it?\n\nJennifer Piepsak (Chief Financial Officer): Sure. So the fourth quarter definitely, I would say, stabilized. Things, trade, certainly stabilized. Things, broadly speaking, stopped getting worse. And so we saw sentiment improve a bit, which I think contributed to the overall success of the fourth quarter. And then certainly there are some puts and takes. I mean, the U.S. consumer remains in very strong shape, both from a credit perspective, sentiment, spending. Obviously, labor market is very strong. and the Fed and the ECB on hold, and then capital spending is still a bit soft, but sentiment is at least certainly better than it was six months ago. So we have a, broadly speaking, constructive outlook headed in as we're heading into 2020 here.\n\nOperator (Investor Relations): Our next question is from Saul Martinez of UBS.\n\nSaul Martinez (UBS): Hi, good morning. I have a question on credit and CECL. And, you know, you guys have been pretty clear that your business decisions are based on economic outcomes and not accounting outcomes. But CECL does, you know, materially change the way in which timing \u2013 change the timing in which earnings accrete to book value and capital, obviously with a higher upfront hit. But you guys have also been shifting your loan book significantly. pretty materially towards cars, which have a much higher loss content than your total book. So I guess, you know, two-fold question. One is, how do we think about provisioning in this context? Should we think provisioning is going to be well above charge-offs as your reserve ratio moves up? Because I would think your A-triple-L ratio post-ceasal adoption, which I think is about 1.8, 1.9, It should move up as cards, which have a much higher loss content than that, continue to grow in the mix. So just how do we think about provisioning in the context of the mix shift and CECL's adoption? And then I guess secondly, if there is a change in the macro environment and the credit environment does get worse and CECL, that inflection goes through your reserves and your provisioning, is there a point where CECL actually does change the way you think about pricing and underwriting in that environment?\n\nJennifer Piepsak (Chief Financial Officer): Sure. So I'll start with the provisioning. So, you know, look, I think it's fair to say under CECL you could have incremental volatility given that reserves are more dependent on specific macroeconomic forecasts. But there that would depend, of course, on our ability to have foresight into the timing and extent of those downturns. In cards specifically, as you say, in any one period of growth or a downturn, you could see an increase in reserve since that we're taking life alone versus the next nine or 12 months. So that's true. And then on the wholesale side, you could see some differences, of course, because there are modeling differences between specific macroeconomic forecasts and through the cycle. Having said that, that incremental volatility would be material for us. And, of course, net charge-offs are not changing. And then from a pricing perspective, we don't foresee in the near term any pricing changes. The cash flows with the customer have not changed. And so we don't see any, but it is true, as you rightly point out, that there is an increased cost of equity in the sense that we're taking reserves up front versus through time. So over time, you could see that, but we're not expecting it in the near term.\n\nSaul Martinez (UBS): Got it. I guess on the provisioning side, my question is more just on an ongoing basis is, is the mix changes more towards higher loss content lending, which obviously has higher margins and higher profitability over the course of the loan theory. But in that context, is it fair to say your provisioning levels also could be materially above your charge-offs? Because I would think that your reserve ratios, your A-triple-L ratios do have to move up as that mix changes on your balance sheet.\n\nJennifer Piepsak (Chief Financial Officer): It could be. It could be, of course. So, you know, that's just timing, particularly on the card side. It's just timing. Yeah. But it's difficult to know, again, because it relies on our ability to have perfect foresight into the timing and extent of a downturn.\n\nSaul Martinez (UBS): Got it. No, that's fair. Thanks a lot. Appreciate it.\n\nOperator (Investor Relations): Sure. Our next question comes from Erica Najarian of Bank of America.\n\nErica Najarian (Bank of America): Hi, good morning.\n\nOperator (Investor Relations): Hi, Erica. Hi, Erica.\n\nErica Najarian (Bank of America): So I was hoping to get a little bit more credit on what happened in the quarter to produce such stellar results. Understand that obviously the fourth quarter 18 comp was light, but $3.4 billion is still a pretty heavy number for a fourth quarter for J.P. Morgan. So any color you could provide would be very helpful, Jennifer.\n\nJennifer Piepsak (Chief Financial Officer): Sure. So are you talking about markets, Erica?\n\nErica Najarian (Bank of America): Markets, thank you.\n\nJennifer Piepsak (Chief Financial Officer): Yeah, okay, sure. So there, you know, at Goldman in early December, I did say we expected to be up meaningfully. I would say the performance was broad-based. In rates, we call out securitized products. I'm sorry, in fixed income, we call it securitized products and rates, which were bright spots. But broadly speaking, obviously, equities had a very strong quarter as well. So it's really across the franchise, and we saw very strong client flow, and we had success monetizing those flows. So just a very healthy environment for us and really strong performance.\n\nErica Najarian (Bank of America): Got it. My follow-up question is that a quarter ago or two quarters ago, the revenue backdrop for banks in general, the outlook was starting to deteriorate, and I think management gave us some color that you'll continue to invest your efficiencies and initiatives no matter what the changes are in the revenue environment. But you could cut back on certain expenses if revenue environment was changing. That being said, your revenue production seems to always outperform to the upside. So as you think about 2020, is the best way to think about expenses just that 55% overhead ratio?\n\nJennifer Piepsak (Chief Financial Officer): So look, on the efficiency ratio, I would say that we run the company with great discipline, whether it's relentlessly pursuing expense efficiencies. or investing with discipline through the cycle. But because the efficiency ratio is an outcome, not an input, and is about expenses and revenue, we're not going to give a target for any one year. We think about operating leverage over time. And as we always say, we're not going to change the way we run the company for what could be temporary revenue headwinds. And on expenses, you know, I would just say that at Investor Day last year, Marianne told you that we expected the cost curve to flatten post-2019. In 2019, adjusted expenses were up 3%. 2020, we expect them to be up less than that.\n\nOperator (Investor Relations): Our next question is from Mike Mayo of Wells Fargo Security.\n\nMike Mayo (Wells Fargo Security): Hi. Is Jamie on the call?\n\nOperator (Investor Relations): Yes.\n\nMike Mayo (Wells Fargo Security): I'm sorry?\n\nOperator (Investor Relations): Yes, please.\n\nUnknown (Unknown): Okay, so just a question for Jamie, because in the first paragraph you mentioned easing trade issues helped market activity, and I know this is a very simple question, but can you talk about the connection between easing trade issues and better trading, and you said that was better toward the end of the year. Is this something that you expect to remain, or is this a one-off quarter?\n\nJamie Dimon (Chairman and CEO): That's a really hard question to answer, Mike. Obviously, trade caused a lot of consternation that has eased off a little bit. I don't think it's going to completely go away because you still have potential ongoing trade issues with China and Europe and stuff like that. But I think because that sentiment got better, trading got better, how long that continues, we don't know.\n\nUnknown (Unknown): And then, Jennifer, you mentioned expense growth was 3%. It should be less than that. this year, you guys had also mentioned that your technology spending might be leveling off. So if that levels off, maybe you see paybacks from prior investments. Any sense of where tech spending will be this year versus the prior year and how you think about that? And I know we'll get more at Investor Day.\n\nJennifer Piepsak (Chief Financial Officer): Sure, of course. So I think you can think about tech spending on a fully loaded basis being in line with what I described for the company. And we continue to realize efficiencies from investments in tech. But as you well know, we continuously invest in tech. And so there's a fair amount of velocity in the investment portfolio there as investments roll off. And we're investing in new technology and innovation. So you can think about tech spending as being broadly in line with how I describe the company in terms of trends.\n\nOperator (Investor Relations): Our next question is from Betsy Grasick of Morgan Stanley.\n\nBetsy Grasick (Morgan Stanley): Hi, good morning.\n\nOperator (Investor Relations): Hi, Betsy.\n\nBetsy Grasick (Morgan Stanley): Two questions, one on asset growth. In the last couple of years, fourth quarter, you have to go through this exercise of trying to squeeze down to hit the GSIB target. And then in addition this year, I think you sold some residential mortgage loans to investors, or at least the investors are taking the risk of it. and then you're requesting to have regulatory capital reflect that transfer of risk to an investor pool while you're keeping the customer relationship. When I see these things, I'm wondering how you're thinking about how much room you have for asset growth as we go into 2020, and is there an opportunity to potentially do more of this residential mortgage loan trade to free up space for growth? Maybe you could, you know, speak to that.\n\nJennifer Piepsak (Chief Financial Officer): Sure. So, I mean, we're bound by standardized capital, and so, of course, you know, that is a consideration for us and one of the reasons that we're looking to structure loan sales, as you described, in the mortgage business. So we think that there's more we can do there. And then on GSIB, you know, we remain hopeful that we will see the refinements there and recalibration that the Fed has been talking about for some time because that will become increasingly difficult. So, you know, both are at the margins constraints for us, but broadly speaking, you know, I wouldn't say that we're constrained given where we are on our capital ratios.\n\nBetsy Grasick (Morgan Stanley): And as I think about Cecil, you know, appreciate the commentary you had earlier on the call. I'm just wondering a couple of things. One, why do you think you ended up towards the low end of your $4 to $6 billion increase in reserves that you outlined earlier? And what kind of estimates you have for the economic outlook? You've got the assumption for the economic outlook in the reasonable, supportable period, et cetera. And so I'm just trying to understand what kind of forecast you have in your model so that I understand what you know, what's embedded in your scenarios and in your ALLR ratio?\n\nJennifer Piepsak (Chief Financial Officer): Sure. So, you know, I think we ended up at the low end as we, you know, through the year continue to get more certainty around what the macroeconomic forecast were going to look like. And so I think that's really what's driving it. Obviously, portfolio mix as well continued to be, you know, very strong in terms of performance of the portfolio. And then on the estimate for the economic outlook, as you rightly say, there is the reasonable and supportable period, which for us is two years. And so we do use multiple weighted scenarios there. So we weight multiple scenarios with the one most likely getting the greatest weight. And that's where you end up with what looks like a reasonably benign outlook for the reasonable and supportable period, which also obviously would contribute to us hitting the low end of the range.\n\nJamie Dimon (Chairman and CEO): Hey, Jen, are we going to disclose some of those variables over time?\n\nJennifer Piepsak (Chief Financial Officer): That's a great point, Jamie. I should have said that. Yes, I mean, there will be more disclosure about CECL in the queue.\n\nJamie Dimon (Chairman and CEO): Which means all the banks are going to be showing these ridiculous forecasting going forward and differences, and we'll spend time talking about that as opposed to the actual business.\n\nJennifer Piepsak (Chief Financial Officer): Right.\n\nJamie Dimon (Chairman and CEO): But we'll disclose. We need to know to make it clear what we're doing and why we're doing it.\n\nOperator (Investor Relations): That's right. So you'll see more in the queues. Our next question is from Matt O'Connor of Deutsche Bank.\n\nMatt O'Connor (Deutsche Bank): Good morning. Two quick follow-ups to some themes that have been talked about. I guess first on expenses, you know, the full-year outlook was pretty clear, less than 3% growth. But the first quarter seems a little bit higher than maybe I would have thought, up 4% year over year. And I don't know if that's just rounding and I'm getting too obsessed over $100 million here or there, or if you're upfunding some investment spend, and if so, what that's for.\n\nJennifer Piepsak (Chief Financial Officer): Sure. So the first quarter tends to be a bit higher for us if you look through history. And so there you can think about it comparing it year over year. We have volume and revenue related expenses increasing a bit of an increase on investments, but both are being partially offset by expense efficiency.\n\nMatt O'Connor (Deutsche Bank): Okay. And then the other follow-up question is just on capital allocation. Obviously, it's a good problem to have, but the ratios keep going up. The capital generation keeps going up. The stock keeps going up. You're obviously buying back a lot of stock. The goal is to get the dividend, I think, higher over time. But maybe just talk about how you think about buying back stock at these levels, if there's other creative uses of capital. I always think about all the money you spend on technology. Does it make sense to buy technology versus do it organic? So just maybe address some of those things. Thank you.\n\nJennifer Piepsak (Chief Financial Officer): Sure. So on the ratio, I'll just remind you that, of course, we have our capital distribution plan approved once a year. And so since our last CCAR filing, we have realized some RWA efficiency and we've out-earned relative to the assumptions in the CCAR filing. And so that's part of the reason why we've seen the ratios load up there. On stock buybacks, As you rightly point out, our first priority is always going to be to invest for organic growth, and so we are always looking to do that first and foremost, and then to have a competitive and sustainable dividend, and only then to distribute excess capital to shareholders through buybacks. And we have said that it makes sense to continue to do that at or above two times tangible book, which is about where we are now. We will obviously, you know, when distributing excess capital, always be looking at the alternative. But at a 17% ROTCE and 2% or 3% dividend payout ratio, there's a high bar for the alternative.\n\nOperator (Investor Relations): Our next question.\n\nJamie Dimon (Chairman and CEO): You're absolutely right about acquisitions. We did do Instamed this year, which, you know, hooks up an electronic system that hooks up providers and consumers of health care. Well, I think the number that 80% or 90% is still done by check. So if there are opportunities like that, we absolutely would be on hunt for them.\n\nJennifer Piepsak (Chief Financial Officer): That's right. We pay last year, yeah.\n\nUnknown (JPMorgan Executive): And we pay the year before. Yep.\n\nOperator (Investor Relations): Our next question is from Gerard Cassidy of RBC.\n\nGerard Cassidy (RBC): Hi, Jennifer.\n\nOperator (Investor Relations): Hi, Gerard.\n\nGerard Cassidy (RBC): Question on credit. You obviously put up some real good numbers once again on credit quality, and I noticed that you had a nice material decline in the wholesale non-performing assets quarter to quarter. Can you give us any color on what brought that down? And could you tie in also any concerns that you may have about the energy portfolio? I know it's not material, but there is some concerns out there about energy credits.\n\nJennifer Piepsak (Chief Financial Officer): Sure. So on wholesale non-performing loans in the CIB, that was some name-specific upgrades that we had in the CIB. And then in the commercial bank, that was related to charge-offs taken in the quarters. And then on energy, you know, really nothing there thematically, I would say, like any sector. We have upgrades and downgrades, and this quarter was no exception. But I wouldn't say anything thematically in our portfolio that we're concerned about.\n\nGerard Cassidy (RBC): Very good. And then I don't know if I heard you correctly in the last answer to the stock repurchase program. I understand, of course, it's driven by your CCAR results. But if the price of the stock, and it's a good problem to have, gets to a level that you consider to be too high. I think you may have said two times tangible book value. What then happens if the price ever gets to a point where you guys think it's just too high to buy it back? What do you do with the excess capital at that point? Have you given that much? And, again, it's a good problem to have. I understand that. But have you given any thought to that?\n\nJennifer Piepsak (Chief Financial Officer): Sure. We give a lot of thought to it, and I agree it is a high-class problem. And so we've said that at or above two times tangible book makes sense. If it continues to go up, we're going to continue to look at alternatives. Most importantly, you know, within the company in terms of, you know, how we should really think about the returns on buying our stock back at a higher level versus perhaps thinking about the returns a bit differently in terms of organic growth. Damian, I don't know if there's anything you want to add.\n\nUnknown (JPMorgan Executive): No, that is all.\n\nOperator (Investor Relations): Our next question is from Stephen Chuback of Wolf Research.\n\nStephen Chuback (Wolf Research): Hey, good morning. So Jennifer, I wanted to start with a question on capital. Quarles indicated in a recent interview that he plans to implement the bulk of the SEB in 2020 CCAR. Also alluded to the possibility of deploying a counter cyclical buffer as part of that. I'm just wondering if the counter cyclical buffer is actually deployed or incorporated within the test. Is that something that's underwritten as part of your 12% CT1 target? And are you anticipating changes to the G-SIB coefficient calculations that you alluded to earlier in the call as part of the coming cycle as well?\n\nJennifer Piepsak (Chief Financial Officer): Thanks, Stephen. So, I mean, you touched on a number of things that are all important. And I think what's most important to us is that we end up with a cohesive framework across all of them. The comments from the vice chair have been constructive, you know, in the sense that he always reiterates that he thinks the level of capital in the system is about right. And so, you know, we'll have a firmer view when we see a final rule. As you say, we do expect to see something in 2020. based upon the comments that we have heard, just like you have. And we expect that our 12% target will not be impacted because we do constructively hear fee-by-share say over and over that the amount of capital in the system is about right. But we can't have a firm view until we see the final rule. And then on GSIB, you know, we remain hopeful that we're going to see the refinements that the Fed has been talking about, perhaps not full recalibration until by before, which is what the Vice Chair recently said, but certainly there are a number of refinements that we've been talking about and the Fed has been talking about for years, and we remain hopeful that we'll see them very soon.\n\nStephen Chuback (Wolf Research): Thanks for that, Caller Jennifer. And just one final one from me. We saw really strong FIC results as well as really strong institutional deposit growth. And I was hoping you could speak to what impact the Fed balance sheet growth is actually having on all of your different businesses or how that's manifesting, because it seems to be providing a pretty nice tailwind, whether it's some increased activity as well as some benefit in terms of deposit growth that you're seeing across the overall franchise, but institutional in particular.\n\nJennifer Piepsak (Chief Financial Officer): Sure. So you're absolutely right. On the wholesale side, the Fed balance sheet expansion was, you know, for sure a tailwind for us. although I would say the more meaningful portion of our deposit growth on the wholesale side in the quarter was from strong organic growth and client acquisition. And, you know, elsewhere, you know, I would say, obviously, it was the right thing to do and provide a stability in the retail market throughout the quarter.\n\nOperator (Investor Relations): Our next question is from Brian Klein-Hansel of KBW.\n\nBrian Klein-Hansel (KBW): Hey, Monique. A quick question on the deposit cost. Could you just break down maybe by segment where the big drivers were that saw you have the big reduction in deposit costs in the quarter? Was that in security services? Was it wealth management?\n\nJennifer Piepsak (Chief Financial Officer): Sure. Sure, Brian. So I'll start with retail where we saw rates pay tick up a bit, and that's on migration from savings to CDs. We have seen CD pricing come off its peak, but continued migration from savings to CDs. And then on the wholesale side, you see bigger declines in rates paid in treasury services for sure, and then a little bit less so in the commercial bank and AWM. And again, as we always say, these are name-specific, client-by-client decisions. And while we feel good about where we are, these are decisions we make client-by-client, and we're certainly careful and have a lot of discipline, not going to lose valuable relationships over a few ticks of beta.\n\nBrian Klein-Hansel (KBW): And then a separate question. In a commercial bank, I mean, you're seeing loans come down quarter on quarter for end of period and generally modest growth year over year. I mean, what's the sentiment now in the middle market and the corporate client? Is it a sentiment issue? Is it just a timing issue there for seeing better loan growth?\n\nJennifer Piepsak (Chief Financial Officer): Sure. So there are obviously some puts and takes which I'll run through. But broadly speaking, I would say what we're seeing is more a function of our own discipline than it is a function of demand. And in C&I, we feel good about the growth that we're seeing in the areas where we're focused in specialized industries and market expansion. But, of course, that's offset partially by the tax-exempt portfolio that's running off. And then in CRE, good growth in commercial term lending as we continue to have opportunities there given the rate environment. And then that is offset by real estate banking where we are very disciplined given where we are in the cycle.\n\nJamie Dimon (Chairman and CEO): I would just add, when capital expenditures come down, all things being equal, if they're not, but all things being equal, you're going to see a reduction in some lending.\n\nUnknown (JPMorgan Executive): Because companies need less money to finance receivables and inventory and plant and equipment.\n\nOperator (Investor Relations): Our next question is from Glenn Shore of Evercore ISI.\n\nGlenn Shore (Evercore ISI): Hi, Glenn. Hello there. Hi. A quick question on open APIs and what the big picture is here and how it impacts you and the rest of the banking industry, meaning there's concerns over data security and things like that, but JP Morgan has plenty of agreements with some of the bigger providers. I'm just curious to get your big picture thoughts on that. What level of concerns should we have? What's the good and the bad?\n\nJennifer Piepsak (Chief Financial Officer): Yeah, I mean, you know, there I would say, Glenn, our customers' data privacy and security is of utmost importance to us. And we think over time the best way for us to do that as securely as we can is to have third-party apps only access data through our APIs. And so we are working name by name to get those agreements in place, and we hope through time that is exclusively the only way that third parties can access our customers' data. We think that's the most secure way to do it.\n\nJamie Dimon (Chairman and CEO): But very importantly is that that data is the data the customer agrees to give them, On the basis they agree to give it to them, there's not unlimited access to customer data, and the customer will have the ability to turn it off. As opposed to today, if you gave your bank passcode to someone, they're taking the data every day, maybe even every minute, and you don't even know about it because you forgot.\n\nJennifer Piepsak (Chief Financial Officer): Great point, and we're going to make it super easy for our customers to be able to do that.\n\nGlenn Shore (Evercore ISI): So you will give them the tools to control that?\n\nJennifer Piepsak (Chief Financial Officer): Yes, you can imagine a dashboard where they will have the... That is the full intent.\n\nOperator (Investor Relations): Yeah.\n\nGlenn Shore (Evercore ISI): And then just curious if you've seen any follow-on impacts, you know, that you've seen some repricing on parts of the illiquid markets, and for specifically some of the unprofitable parts of those companies, and... Is that just the repricing and everybody that owns them will take some hits, a little bit slower progress on banking front and that's it? Or is there anything bigger there to worry about with what's going on in the illiquid side?\n\nJamie Dimon (Chairman and CEO): Are you talking about the private companies?\n\nGlenn Shore (Evercore ISI): Yes, I am. Sorry.\n\nJamie Dimon (Chairman and CEO): Look, there are a lot of private companies. A lot of them do well. Some don't. Some will fail. Some have access to capital now. They won't have access to capital in the downturn. But it's not a systemic issue. It's just the capital market, there are a lot of private companies, and I don't think it's that big a deal.\n\nUnknown (JPMorgan Executive): You just have an adjustment in access to capital, and that will happen periodically.\n\nOperator (Investor Relations): Our next question is from Marty Mosby of Vining Sparks.\n\nMarty Mosby (Vining Sparks): Thank you. Jennifer, you were kind of foreshadowing lower tax rate as you kind of move into the first quarter, and then the tax rate here. and the fourth quarter was a little bit lower than what we expected. Is there anything that's permanent here, or are there some things that are just kind of rolling through these two quarters?\n\nJennifer Piepsak (Chief Financial Officer): Yeah, I wouldn't say there's anything permanent there. The first quarter is typically lower for us, Marty. You can think about full year 20 as being 20%. plus or minus, and of course that would depend on any non-recurring items we might have or any change in regulation, but 20% plus or minus, and then of course the managed tax rate is typically 500 to 700 basis points higher than that.\n\nMarty Mosby (Vining Sparks): And then a bigger question, when we came into 2018, the net-ex margin was around 2.5%, and then now as we're coming out of 2019, The net original margin has fallen below 2.4%. So interest rates went up 100 basis points and then down 75, and we've netted down at negative 10 basis points. So I was just curious in that path, it's either the way the Fed kind of inflected very quickly that created a little bit more pressure in the net between deposit pricing and loan pricing, or do we think that this is probably just some of the competition that came in after the tax reform And maybe this is just the evidence of some of that competition with the increased profitability that we got from the benefit from the taxes.\n\nJennifer Piepsak (Chief Financial Officer): Yeah, so there I would say, Marty, on that sort of the last several hikes, there was some catch-up there because we know we had some lags on reprice in the rising rate environment. So if you're just looking at the last few hikes, the betas would certainly be higher than what we're seeing in terms of the first three eases here. But broadly speaking on NIM, I mean, NIM is an outcome for us, not an input. And as we think about looking forward, certainly the environment is very competitive. It always has been. And, you know, NII, the outlook for 2020 is at this point based upon the implied flat to slightly down, and we do expect balance sheet growth.\n\nOperator (Investor Relations): Our next question is from Andrew Lim of Societe Generale.\n\nAndrew Lim (Societe Generale): Hi, morning. Thanks for taking my questions. Wondering if you could give a bit more color on your market's performance there. Obviously, it's done very well. Geographically though, is there much more weighting there on the U.S. versus Europe and APAC?\n\nJennifer Piepsak (Chief Financial Officer): I would say, Andrew, that it was broad-based. We can have Jason and team follow up specifically on a geographic breakdown, but it was largely broad-based.\n\nAndrew Lim (Societe Generale): Right. And would you say with confidence that you're getting market share in both territories there?\n\nJennifer Piepsak (Chief Financial Officer): Again, I don't have the split on market share by region, but Jason and team can certainly follow up on that.\n\nJamie Dimon (Chairman and CEO): I'm not sure we want to start disclosing that regularly. But I do believe that market share went up pretty much in most markets, but you can't say most markets in all products.\n\nOperator (Investor Relations): Yeah. And our next question is from Allison Williams of Bloomberg Intelligence.\n\nAllison Williams (Bloomberg Intelligence): Good morning. So I had a similar question, just circling back to trading and the CIB more broadly. So obviously the bank has gained share, but can you speak to future opportunities and runway? And maybe this is more of a question for Investor Day, but specifically businesses like cash management, transaction banking, and corporate clients in general. You're a leader in the U.S. Anecdotally, we hear U.S. banks have been making gains in Europe. Can you speak at all to that opportunity?\n\nJennifer Piepsak (Chief Financial Officer): Sure. So as you said, we'll give you more color at Investor Day. For the treasury services business, we feel really good about where we're positioned. I think going forward, there'll obviously be some great headwinds there, which we think can be offset by organic growth. But given the investments that we have made there, Jamie mentioned Instamed earlier, we feel really good about the capabilities that we're adding and what we're seeing in terms of organic growth there, but we can talk to you more about that at Investor Day.\n\nAllison Williams (Bloomberg Intelligence): Okay. Thank you.\n\nOperator (Investor Relations): And we have no further questions at this time. Okay. Thanks, everyone.\n\nUnknown (JPMorgan Executive): Guys, we'll see you. Thank you. I'll see you guys tomorrow.\n\nOperator (Investor Relations): Okay. See you tomorrow. Thank you for participating in today's call. You may now disconnect.",
+  "n_turns": 104
+}

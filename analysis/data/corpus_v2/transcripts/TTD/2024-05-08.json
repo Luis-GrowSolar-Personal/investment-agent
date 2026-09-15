@@ -1,0 +1,117 @@
+{
+  "ticker": "TTD",
+  "original_ticker": "TTD",
+  "call_date": "2024-05-08",
+  "year": 2024,
+  "quarter": 1,
+  "vendor_params": {
+    "exchange": "NASDAQ",
+    "symbol": "TTD",
+    "year": 2024,
+    "quarter": 1
+  },
+  "source": "disk_cache",
+  "fetched_at": "2026-09-15T02:35:08Z",
+  "raw_payload": {
+    "event": {
+      "year": 2024,
+      "quarter": 1,
+      "conference_date": "2024-05-08T18:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk04",
+        "text": "an effect on what we describe as growth in CTV versus video or otherwise, when the content is almost the same. It's just a device. And so creating distinction between premium content and devices can sometimes muddy the waters in the numbers, which is not ever what we intend to do. We're simply just trying to show the value of premium content. We know that that trend overall is very good irrespective of what devices they're used on. And in fact, even if you look at it on a device basis, the trends are also very good. So the small changes that you're describing, I honestly don't spend that much time thinking about it."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah. And Mark, this is Laura. I would just add that video does continue to increase. We just don't break out the exact percentages."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Cool. Thanks, Mark. Next question, John."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Absolutely. The next question comes from Mark Mahaney with Evercore. Please proceed."
+      },
+      {
+        "speaker": "spk02",
+        "text": "The follow from analogy, there's been rising regulatory scrutiny of Google, I think, and I know and I met him for a couple of years, but it's really kind of come home this year. You mentioned some of the stuff that's been disclosed. You've got two trials that will probably have decisions between now and the end of the year. So is that actually causing a notable material acceleration or shift of ad budgets away from Google towards the trade desk? Have you actually seen that now that, you know, whatever the right now, geez, the chickens have come home to roost? Thank you."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yeah, thanks, Mark. I really appreciate the question. So, you know, when you get an incremental dollar, it's sometimes hard to figure out why you got it or where it came from. But so it's hard for us to attribute how much of that is coming from from people's fear of Google. I mean, I know that we win money from Google's DSP all the time. Sometimes we think that's because our product is better. Sometimes I think it's because our objectivity is better. Sometimes it's because we're not going to spend most of your money on YouTube. There's a whole bunch of reasons why that's the case. And regulatory scrutiny is one of those. But I will speak to the sentiment, which I think is just easier to speak to as I have more and more conversations with C-suites at some of the biggest companies in the world and talk about it in the context of either partnership or seeking their advertising dollars. The acknowledgment that Handing over your data and your money to Google and hoping for the best and especially when that is a critical part of your future is increasingly viewed as as a risky strategy. That people have to take their own fate in their own hands. And that's one of the things that I think is so compelling. about our offering right now is that we are not saying trust us instead of them and we will do the same thing they do just with more focus because we don't own YouTube. That is not what we do. We actually tell them we will give you the details of all of your performance. It's your data. You take it with you. You own it. And that way you learn and you always own your future. That part where advertisers want to own their own future, it feels like that is more important to them than it ever has been. And I do believe that the regulatory scrutiny and all that, you know, there are a lot of people that have read the Texas Attorney General's complaint and have thought about the effects that that has on the ecosystem. And it does make them want to be more deliberate about where they spend. And it does make them, in many cases, I think a better partner for us. And it helps us to see what kind of partner we want to be to them. But I do believe it has contributed to our growth, but it's really hard to quantify is the short answer. Thanks for the question, Mark."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thank you, Jeff."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thanks, Mark. And then one last question, John."
+      },
+      {
+        "speaker": "spk00",
+        "text": "And our last question comes from Matt Swanson with RBC Capital Markets. Please proceed, Matt."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, great. Thank you so much for squeezing me in. Jeff, I feel like we've spent a lot of time on the call kind of thinking through CTV publishers and why strategically it makes sense for them to open up more. But I guess thinking of it from the advertiser's side, as CTV continues to scale and just the complexity of buying gets larger, how important is it for them to get back to a single pane of glass? And you've used this term currency a bunch in terms of data consistency. And kind of how can that drive more programmatic versus direct as maybe advertisers start to pressure those publishers? when you say a single pane of glass can you elaborate what what do you mean just yeah i mean on ctv sorry yeah so in ctv as opposed to the idea of you know when your budgets are small direct might seem more feasible and as ctv budgets grow and the complexity grows and the number of suppliers grow how much more important it is to them to start to create more automated processes i see uh uh i love i love this question thank you uh um"
+      },
+      {
+        "speaker": "spk04",
+        "text": "So when you, you know, it wasn't that long ago that as consumers, we were just using one or two apps on a Roku where at least five, six, seven, maybe 10 years ago, I just used the Amazon and Netflix. And now there's a lot more options. And almost all of them have ads. It wasn't that long ago that it was one or two and then it was only a few others and then most of them had limited ads. And now there's a lot more and they all have ads. So if you're an advertiser, you can't just go to one company and say, I want to buy some ads and then have an understanding of the way frequency caps in particular will be used. You have to be thinking across all of these apps and you have to think about how many times am I showing the same user this ad irrespective of what show or what profile or what app they're using to watch it on. And so as the number of options goes up and the amount of ad inventory goes up, the need to automate and be data driven and have a persistent sense of anonymized identity is greater than it's ever been before. And that's partly because the ad prices haven't gone down. And in fact, for the premium stuff, for the things they really want, they've gone up. And that's not necessarily any longer because of scarcity. The scarcity has actually gone away. The amount of inventory has gone up. But there is scarcity when it relates to having all the metadata that you want in order to make an informed decision. And there will, to some extent, always be scarcity around the exact audience that people want to reach. And so by making that more available, that's how you get the premium. And so all of the streamers have figured this out. This is the way to get the premium. And I think they're all on a path that to me makes sense, like all of them are doing the right things. And that is one of the things that we have said about CTV really from the beginning, is that it's perfectly fragmented. It is fragmented enough that no one could be draconian and create a walled garden. People doubted us when we said that initially, and I think that's proven to be true. But it also is consolidated enough You have very smart people running those, and they're going to be hyper-rational. And as a result, we're seeing them all do, in my view, what is the right thing. Some of them are at different parts of the sort of adoption or innovation curve. They're on different parts of the journey, different places in the journey. But they're all on the right path. So I'm very excited about the state of CTV. I really do think it has huge implications on the entire open internet. I do think it's leading the open internet as it relates to the premium content. And I'm optimistic that digital audio is right behind it. There are lots of leaders in digital audio that are doing more than what CTV has done, but there's still a lot of catching up to do as well. And I'm super optimistic about what that means for things like journalism as they're really starting to think about it the right way. But very optimistic about the open internet led by CTV. Really appreciate the question."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thanks so much, Matt. You can close out the call now, John. Thank you."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you. This concludes today's conference, and you may disconnect your lines at this time. Thank you for your participation. Goodbye."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Led by CTV."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Really appreciate the question."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thanks so much, Matt."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk00": {
+        "name": "John",
+        "title": "Conference Operator"
+      },
+      "spk01": {
+        "name": "Laura",
+        "title": "CFO"
+      },
+      "spk02": {
+        "name": "Mark Mahaney",
+        "title": "Evercore Analyst"
+      },
+      "spk03": {
+        "name": "Matt Swanson",
+        "title": "RBC Capital Markets Analyst"
+      },
+      "spk04": {
+        "name": "Jeff Green",
+        "title": "CEO and Founder"
+      },
+      "spk05": {
+        "name": "Moderator",
+        "title": "Investor Relations"
+      }
+    }
+  },
+  "text": "Jeff Green (CEO and Founder): an effect on what we describe as growth in CTV versus video or otherwise, when the content is almost the same. It's just a device. And so creating distinction between premium content and devices can sometimes muddy the waters in the numbers, which is not ever what we intend to do. We're simply just trying to show the value of premium content. We know that that trend overall is very good irrespective of what devices they're used on. And in fact, even if you look at it on a device basis, the trends are also very good. So the small changes that you're describing, I honestly don't spend that much time thinking about it.\n\nLaura (CFO): Yeah. And Mark, this is Laura. I would just add that video does continue to increase. We just don't break out the exact percentages.\n\nModerator (Investor Relations): Cool. Thanks, Mark. Next question, John.\n\nJohn (Conference Operator): Absolutely. The next question comes from Mark Mahaney with Evercore. Please proceed.\n\nMark Mahaney (Evercore Analyst): The follow from analogy, there's been rising regulatory scrutiny of Google, I think, and I know and I met him for a couple of years, but it's really kind of come home this year. You mentioned some of the stuff that's been disclosed. You've got two trials that will probably have decisions between now and the end of the year. So is that actually causing a notable material acceleration or shift of ad budgets away from Google towards the trade desk? Have you actually seen that now that, you know, whatever the right now, geez, the chickens have come home to roost? Thank you.\n\nJeff Green (CEO and Founder): Yeah, thanks, Mark. I really appreciate the question. So, you know, when you get an incremental dollar, it's sometimes hard to figure out why you got it or where it came from. But so it's hard for us to attribute how much of that is coming from from people's fear of Google. I mean, I know that we win money from Google's DSP all the time. Sometimes we think that's because our product is better. Sometimes I think it's because our objectivity is better. Sometimes it's because we're not going to spend most of your money on YouTube. There's a whole bunch of reasons why that's the case. And regulatory scrutiny is one of those. But I will speak to the sentiment, which I think is just easier to speak to as I have more and more conversations with C-suites at some of the biggest companies in the world and talk about it in the context of either partnership or seeking their advertising dollars. The acknowledgment that Handing over your data and your money to Google and hoping for the best and especially when that is a critical part of your future is increasingly viewed as as a risky strategy. That people have to take their own fate in their own hands. And that's one of the things that I think is so compelling. about our offering right now is that we are not saying trust us instead of them and we will do the same thing they do just with more focus because we don't own YouTube. That is not what we do. We actually tell them we will give you the details of all of your performance. It's your data. You take it with you. You own it. And that way you learn and you always own your future. That part where advertisers want to own their own future, it feels like that is more important to them than it ever has been. And I do believe that the regulatory scrutiny and all that, you know, there are a lot of people that have read the Texas Attorney General's complaint and have thought about the effects that that has on the ecosystem. And it does make them want to be more deliberate about where they spend. And it does make them, in many cases, I think a better partner for us. And it helps us to see what kind of partner we want to be to them. But I do believe it has contributed to our growth, but it's really hard to quantify is the short answer. Thanks for the question, Mark.\n\nMark Mahaney (Evercore Analyst): Thank you, Jeff.\n\nModerator (Investor Relations): Thanks, Mark. And then one last question, John.\n\nJohn (Conference Operator): And our last question comes from Matt Swanson with RBC Capital Markets. Please proceed, Matt.\n\nMatt Swanson (RBC Capital Markets Analyst): Yeah, great. Thank you so much for squeezing me in. Jeff, I feel like we've spent a lot of time on the call kind of thinking through CTV publishers and why strategically it makes sense for them to open up more. But I guess thinking of it from the advertiser's side, as CTV continues to scale and just the complexity of buying gets larger, how important is it for them to get back to a single pane of glass? And you've used this term currency a bunch in terms of data consistency. And kind of how can that drive more programmatic versus direct as maybe advertisers start to pressure those publishers? when you say a single pane of glass can you elaborate what what do you mean just yeah i mean on ctv sorry yeah so in ctv as opposed to the idea of you know when your budgets are small direct might seem more feasible and as ctv budgets grow and the complexity grows and the number of suppliers grow how much more important it is to them to start to create more automated processes i see uh uh i love i love this question thank you uh um\n\nJeff Green (CEO and Founder): So when you, you know, it wasn't that long ago that as consumers, we were just using one or two apps on a Roku where at least five, six, seven, maybe 10 years ago, I just used the Amazon and Netflix. And now there's a lot more options. And almost all of them have ads. It wasn't that long ago that it was one or two and then it was only a few others and then most of them had limited ads. And now there's a lot more and they all have ads. So if you're an advertiser, you can't just go to one company and say, I want to buy some ads and then have an understanding of the way frequency caps in particular will be used. You have to be thinking across all of these apps and you have to think about how many times am I showing the same user this ad irrespective of what show or what profile or what app they're using to watch it on. And so as the number of options goes up and the amount of ad inventory goes up, the need to automate and be data driven and have a persistent sense of anonymized identity is greater than it's ever been before. And that's partly because the ad prices haven't gone down. And in fact, for the premium stuff, for the things they really want, they've gone up. And that's not necessarily any longer because of scarcity. The scarcity has actually gone away. The amount of inventory has gone up. But there is scarcity when it relates to having all the metadata that you want in order to make an informed decision. And there will, to some extent, always be scarcity around the exact audience that people want to reach. And so by making that more available, that's how you get the premium. And so all of the streamers have figured this out. This is the way to get the premium. And I think they're all on a path that to me makes sense, like all of them are doing the right things. And that is one of the things that we have said about CTV really from the beginning, is that it's perfectly fragmented. It is fragmented enough that no one could be draconian and create a walled garden. People doubted us when we said that initially, and I think that's proven to be true. But it also is consolidated enough You have very smart people running those, and they're going to be hyper-rational. And as a result, we're seeing them all do, in my view, what is the right thing. Some of them are at different parts of the sort of adoption or innovation curve. They're on different parts of the journey, different places in the journey. But they're all on the right path. So I'm very excited about the state of CTV. I really do think it has huge implications on the entire open internet. I do think it's leading the open internet as it relates to the premium content. And I'm optimistic that digital audio is right behind it. There are lots of leaders in digital audio that are doing more than what CTV has done, but there's still a lot of catching up to do as well. And I'm super optimistic about what that means for things like journalism as they're really starting to think about it the right way. But very optimistic about the open internet led by CTV. Really appreciate the question.\n\nModerator (Investor Relations): Thanks so much, Matt. You can close out the call now, John. Thank you.\n\nJohn (Conference Operator): Thank you. This concludes today's conference, and you may disconnect your lines at this time. Thank you for your participation. Goodbye.\n\nJeff Green (CEO and Founder): Led by CTV.\n\nJohn (Conference Operator): Really appreciate the question.\n\nModerator (Investor Relations): Thanks so much, Matt.",
+  "n_turns": 16
+}

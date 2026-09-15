@@ -16,8 +16,8 @@
   "batch_id": null,
   "next_action": "Run version guard, then register SCORING_PROTOCOL.json",
   "notes": [],
-  "calls_used_total": 114,
-  "spacing_last_call_at": 1789435311.8979719,
+  "calls_used_total": 1289,
+  "spacing_last_call_at": 1789440123.631639,
   "symbols": {},
   "events": {
     "ABBV": {
