@@ -228,7 +228,14 @@ Personal account — Luis. Separate from Windmar Energy entirely.
 - Backend: Node.js + Express
 - Database: PostgreSQL (Railway) via Prisma ORM
 - Auth: Clerk (email + password, no SMS)
-- AI: Anthropic API (claude-sonnet-4-20250514)
+- AI: Anthropic API (`claude-sonnet-4-6` — `docs/architecture/VERSION_REGISTRY.json`
+  → `artifacts.model.promoted_version`, corrected 2026-09-15. The line here
+  previously named `claude-sonnet-4-20250514`, retired 2026-06-15 and
+  unregenerable. **Not an endorsement**: the one formal gate run on this
+  substitution (`data/gate_ledger.json` entry 1, 2026-05-23) returned
+  **HOLD** — a 7.4pp regression against a 4.2pp noise floor, only 29% of
+  tickers improving against a 50% robustness threshold — and the champion
+  was retired 5 weeks later anyway, forcing the swap with no new gate run.)
 - Hosting: Railway (dev and prod services)
 - Transcript source: Manual copy-paste (EDGAR/Polygon.io planned)
 
