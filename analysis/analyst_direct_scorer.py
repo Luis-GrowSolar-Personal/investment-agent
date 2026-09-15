@@ -438,6 +438,13 @@ def main() -> None:
         "--csv", type=Path, default=None,
         help="Optional: write per-call results to this CSV file"
     )
+    ap.add_argument(
+        "--price-cache", type=Path, default=None,
+        help="Override the price cache path (default: data/price_cache.json). "
+             "Added scorer-price-cache-backfill: lets a run point at a "
+             "different cache (e.g. scorer_price_cache_v1.json) without "
+             "touching the frozen default, which legacy benchmarks replay off."
+    )
     args = ap.parse_args()
 
     eval_dir = args.eval_dir
@@ -446,10 +453,13 @@ def main() -> None:
     if not eval_dir.exists():
         ap.error(f"eval-dir not found: {eval_dir}")
 
-    if not PRICE_CACHE_PATH.exists():
-        ap.error(f"Price cache not found: {PRICE_CACHE_PATH}")
+    price_cache_path = args.price_cache if args.price_cache else PRICE_CACHE_PATH
+    if not price_cache_path.is_absolute():
+        price_cache_path = SCRIPT_DIR / price_cache_path
+    if not price_cache_path.exists():
+        ap.error(f"Price cache not found: {price_cache_path}")
 
-    prices = PriceCache(PRICE_CACHE_PATH)
+    prices = PriceCache(price_cache_path)
     records = score_eval_dir(
         eval_dir=eval_dir,
         prices=prices,
