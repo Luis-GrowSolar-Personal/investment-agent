@@ -139,6 +139,168 @@ class CallRecord:
 
 
 # ---------------------------------------------------------------------------
+# Loud-failure guard (added 2026-09-15)
+#
+# Three separate bugs -- the _STRUCTURED_RE fence/bold anchor and the
+# scorer_price_cache_v1.json alias-key mismatch (both scorer-price-cache-
+# backfill), plus the earlier unstamped-DB provenance issue -- each dropped
+# calls with no error surfaced anywhere. Two mechanisms hid them:
+#
+#   (a) `continue` on an unparseable file, which vanishes silently;
+#   (b) the "not yet scoreable" bucket, which is a legitimate category for
+#       genuinely recent calls and therefore absorbs cache-key misses too.
+#
+# Both dropped calls NON-RANDOMLY: (a) hit whichever calls the model
+# formatted differently, (b) hit every call for a renamed ticker. A biased
+# 10% deletion can move the luck-corrected gap by more than the effect the
+# scorer exists to detect.
+#
+# The guard below makes both loud. It does not change any score.
+# ---------------------------------------------------------------------------
+
+# Abort if more than this share of considered files fail to yield a prediction.
+MAX_SKIP_PCT = 1.0
+# Abort if more than this share of parsed calls lack forward price data.
+# Genuinely recent calls belong here, so the threshold is looser than for
+# parse failures.
+MAX_UNSCOREABLE_PCT = 5.0
+
+# Volume alone is not enough. The real 2026-09-15 alias bug (ELV/PARA keyed
+# under ANTM/VIAC) cost 46 of 1240 calls = 3.7%, which clears MAX_UNSCOREABLE_PCT
+# without tripping it. What distinguishes it from recency is SHAPE: recency
+# takes the newest call or two from many tickers, a key mismatch takes EVERY
+# call from a few. So also abort when any single ticker with a real history
+# loses most of its calls.
+TICKER_UNSCOREABLE_FRAC = 0.5
+TICKER_UNSCOREABLE_MIN_CALLS = 4
+
+
+@dataclass
+class SkipLog:
+    """Counts of files dropped before they could be scored, by reason."""
+    considered: int = 0
+    bad_filename: list = field(default_factory=list)
+    bad_date: list = field(default_factory=list)
+    unparseable: list = field(default_factory=list)
+    no_direction: list = field(default_factory=list)
+
+    @property
+    def total(self) -> int:
+        return (len(self.bad_filename) + len(self.bad_date)
+                + len(self.unparseable) + len(self.no_direction))
+
+    @property
+    def pct(self) -> float:
+        return (self.total / self.considered * 100.0) if self.considered else 0.0
+
+
+def _cluster_by_ticker(names: list[str], limit: int = 8) -> str:
+    """Group dropped items by ticker. Clustering is the tell: a handful of
+    tickers accounting for everything means a key/alias bug, not recency."""
+    groups: dict[str, int] = {}
+    for n in names:
+        t = n.rsplit("_", 1)[0]
+        groups[t] = groups.get(t, 0) + 1
+    ranked = sorted(groups.items(), key=lambda kv: -kv[1])
+    shown = ", ".join(f"{t} x{c}" for t, c in ranked[:limit])
+    if len(ranked) > limit:
+        shown += f", ... (+{len(ranked) - limit} more tickers)"
+    return shown
+
+
+def enforce_coverage(records: list["CallRecord"], skips: "SkipLog") -> None:
+    """Stop the run if too much of the corpus went missing. Raises SystemExit.
+
+    A run that silently discards part of its corpus produces a number that
+    looks fine and is wrong. Better to fail here than to publish it.
+    """
+    problems: list[str] = []
+
+    if skips.pct > MAX_SKIP_PCT:
+        detail: list[str] = []
+        if skips.unparseable:
+            detail.append(
+                f"    unparseable output ({len(skips.unparseable)}): "
+                f"{_cluster_by_ticker(skips.unparseable)}")
+        if skips.no_direction:
+            detail.append(
+                f"    no direction in parsed output ({len(skips.no_direction)}): "
+                f"{_cluster_by_ticker(skips.no_direction)}")
+        if skips.bad_filename:
+            detail.append(
+                f"    unrecognised filename ({len(skips.bad_filename)}): "
+                f"{', '.join(skips.bad_filename[:8])}")
+        if skips.bad_date:
+            detail.append(
+                f"    unparseable date in filename ({len(skips.bad_date)}): "
+                f"{', '.join(skips.bad_date[:8])}")
+        head = (f"  {skips.total} of {skips.considered} eval files "
+                f"({skips.pct:.1f}%) yielded no prediction; "
+                f"limit is {MAX_SKIP_PCT}%.")
+        problems.append("\n".join([head] + detail))
+
+    not_yet = [r for r in records if r.hit is None]
+    if records:
+        names = [f"{r.ticker}_{r.call_date.isoformat()}" for r in not_yet]
+
+        unscoreable_pct = len(not_yet) / len(records) * 100.0
+        if unscoreable_pct > MAX_UNSCOREABLE_PCT:
+            problems.append("\n".join([
+                f"  {len(not_yet)} of {len(records)} parsed calls "
+                f"({unscoreable_pct:.1f}%) have no forward price data; "
+                f"limit is {MAX_UNSCOREABLE_PCT}%.",
+                f"    by ticker: {_cluster_by_ticker(names)}",
+                "    If a few tickers account for most of these, suspect a",
+                "    price-cache key mismatch (manifest ticker vs working",
+                "    vendor symbol), not recency.",
+            ]))
+
+        # Shape check: a ticker that loses most of its calls is a key
+        # mismatch, however small a share of the corpus it is.
+        totals: dict[str, int] = {}
+        missing: dict[str, int] = {}
+        for r in records:
+            totals[r.ticker] = totals.get(r.ticker, 0) + 1
+            if r.hit is None:
+                missing[r.ticker] = missing.get(r.ticker, 0) + 1
+        gutted = sorted(
+            (t for t, m in missing.items()
+             if totals[t] >= TICKER_UNSCOREABLE_MIN_CALLS
+             and m / totals[t] > TICKER_UNSCOREABLE_FRAC),
+            key=lambda t: -missing[t],
+        )
+        if gutted:
+            listed = ", ".join(
+                f"{t} {missing[t]}/{totals[t]}" for t in gutted[:12])
+            if len(gutted) > 12:
+                listed += f", ... (+{len(gutted) - 12} more)"
+            problems.append("\n".join([
+                f"  {len(gutted)} ticker(s) lost more than "
+                f"{TICKER_UNSCOREABLE_FRAC:.0%} of their calls to missing "
+                f"price data:",
+                f"    {listed}",
+                "    Recency does not do this -- it takes the newest call from",
+                "    many tickers, not every call from a few. Check that the",
+                "    price cache is keyed by the same symbols the eval",
+                "    filenames use.",
+            ]))
+
+    if problems:
+        bar = "=" * 68
+        raise SystemExit("\n".join([
+            "",
+            bar,
+            "COVERAGE GUARD FAILED - refusing to report a score.",
+            bar,
+            "\n\n".join(problems),
+            "",
+            "Fix the cause, or pass --allow-partial-coverage if the loss is",
+            "understood and expected. Do not cite a number from a partial run.",
+            bar,
+        ]))
+
+
+# ---------------------------------------------------------------------------
 # Core scorer
 # ---------------------------------------------------------------------------
 
@@ -147,6 +309,7 @@ def score_eval_dir(
     prices: PriceCache,
     tickers: Optional[list[str]] = None,
     holdout_start: Optional[date] = None,
+    skips: Optional[SkipLog] = None,
 ) -> list[CallRecord]:
     """
     Score all eval files in eval_dir. Returns one CallRecord per scoreable call.
@@ -154,31 +317,43 @@ def score_eval_dir(
     """
     records: list[CallRecord] = []
     files = sorted(eval_dir.glob("*.txt"))
+    if skips is None:
+        skips = SkipLog()
 
     for f in files:
         # Filename format: {TICKER}_{YYYY-MM-DD}.txt
         stem = f.stem
         parts = stem.rsplit("_", 1)
         if len(parts) != 2:
+            skips.considered += 1
+            skips.bad_filename.append(stem)
             continue
         ticker, date_str = parts
         try:
             call_date = date.fromisoformat(date_str)
         except ValueError:
+            skips.considered += 1
+            skips.bad_date.append(stem)
             continue
 
+        # Deliberate filters, not losses -- these files were never in scope,
+        # so they are excluded from the skip denominator entirely.
         if tickers and ticker not in tickers:
             continue
         if holdout_start and call_date < holdout_start:
             continue
 
+        skips.considered += 1
+
         text = f.read_text(encoding="utf-8", errors="replace")
         score = parse_structured(text)
         if not score:
+            skips.unparseable.append(stem)
             continue
 
         predicted = direction_from_score(score)
         if predicted is None:
+            skips.no_direction.append(stem)
             continue
 
         # Fetch prices
@@ -286,7 +461,8 @@ def compute_luck_corrected_metrics(scoreable: list[CallRecord]) -> dict:
     }
 
 
-def print_report(records: list[CallRecord], eval_dir: Path) -> None:
+def print_report(records: list[CallRecord], eval_dir: Path,
+                 skips: Optional["SkipLog"] = None) -> None:
     scoreable = [r for r in records if r.hit is not None]
     not_yet    = [r for r in records if r.hit is None]
 
@@ -299,6 +475,18 @@ def print_report(records: list[CallRecord], eval_dir: Path) -> None:
     print(f"Total eval files processed:  {len(records)}")
     print(f"Scoreable (2Q data exists):  {len(scoreable)}")
     print(f"Not yet scoreable (too new): {len(not_yet)}")
+    if skips is not None:
+        print(f"Dropped before scoring:      {skips.total}"
+              f"  ({skips.pct:.1f}% of {skips.considered} in-scope files)")
+        if skips.total:
+            if skips.unparseable:
+                print(f"    unparseable output:      {len(skips.unparseable)}")
+            if skips.no_direction:
+                print(f"    no direction parsed:     {len(skips.no_direction)}")
+            if skips.bad_filename:
+                print(f"    unrecognised filename:   {len(skips.bad_filename)}")
+            if skips.bad_date:
+                print(f"    bad date in filename:    {len(skips.bad_date)}")
 
     if not scoreable:
         print("\nNo scoreable calls — nothing to report.")
@@ -451,6 +639,13 @@ def main() -> None:
              "different cache (e.g. scorer_price_cache_v1.json) without "
              "touching the frozen default, which legacy benchmarks replay off."
     )
+    ap.add_argument(
+        "--allow-partial-coverage", action="store_true",
+        help="Report a score even when the coverage guard fails. Use only "
+             "when the loss is understood and expected; the guard exists "
+             "because three separate bugs silently discarded part of the "
+             "corpus and produced plausible-looking wrong numbers."
+    )
     args = ap.parse_args()
 
     eval_dir = args.eval_dir
@@ -466,14 +661,25 @@ def main() -> None:
         ap.error(f"Price cache not found: {price_cache_path}")
 
     prices = PriceCache(price_cache_path)
+    skips = SkipLog()
     records = score_eval_dir(
         eval_dir=eval_dir,
         prices=prices,
         tickers=args.tickers,
         holdout_start=args.holdout_start,
+        skips=skips,
     )
 
-    print_report(records, eval_dir)
+    if args.allow_partial_coverage:
+        try:
+            enforce_coverage(records, skips)
+        except SystemExit as e:
+            print(str(e))
+            print("\n--allow-partial-coverage set: continuing anyway.\n")
+    else:
+        enforce_coverage(records, skips)
+
+    print_report(records, eval_dir, skips=skips)
 
     if args.csv:
         write_csv(records, args.csv)
