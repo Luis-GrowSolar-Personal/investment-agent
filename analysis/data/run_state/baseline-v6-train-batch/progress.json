@@ -1,0 +1,19 @@
+{
+  "run_id": "baseline-v6-train-batch",
+  "prompt_sha256": "5ad175d6374a5f095649c85eefbe0045ca4e13f95521b3169525aae993f709f1",
+  "driver_commit": null,
+  "created_at": "2026-09-15T01:11:54Z",
+  "steps": {
+    "step_neg1_resume_init": "done",
+    "step0_hygiene_guard_protocol": "pending",
+    "step1_fetch_transcripts": "pending",
+    "step2_five_call_pilot": "pending",
+    "step3_submit_batch": "pending",
+    "step4_write_scores": "pending",
+    "step5_grade_report": "pending",
+    "step6_report": "pending"
+  },
+  "batch_id": null,
+  "next_action": "Run version guard, then register SCORING_PROTOCOL.json",
+  "notes": []
+}
