@@ -125,9 +125,13 @@ def cmd_build():
     companies = a11["ticker_list"]
     amap = a11["alias_map_used"]
 
+    # Flat {ticker: {date: close}} -- exactly the shape PriceCache parses.
+    # as_of_date lives in PREREGISTRATION_FIX.json's A11 entry, not in this
+    # file, per the prompt's explicit "same shape ... PriceCache already
+    # parses" instruction.
     cache = {}
     if NEW_CACHE_PATH.exists():
-        cache = json.loads(NEW_CACHE_PATH.read_text()).get("prices", {})
+        cache = json.loads(NEW_CACHE_PATH.read_text())
 
     report_rows = []
     for orig in companies:
@@ -147,7 +151,7 @@ def cmd_build():
             continue
         series = {d.strftime("%Y-%m-%d"): round(float(c), 4) for d, c in hist["Close"].items()}
         cache[orig] = series
-        NEW_CACHE_PATH.write_text(json.dumps({"as_of_date": AS_OF_DATE, "prices": cache}, indent=2))
+        NEW_CACHE_PATH.write_text(json.dumps(cache, indent=2))
         dates = sorted(series.keys())
         report_rows.append({
             "ticker": orig, "symbol_used": symbol, "status": "ok",
