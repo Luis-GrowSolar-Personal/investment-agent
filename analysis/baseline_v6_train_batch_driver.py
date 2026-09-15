@@ -159,9 +159,130 @@ def cmd_events():
     print(f"\nTotal vendor calls used: {progress['calls_used_total']}")
 
 
+def _parse_conf_date(s):
+    if not s:
+        return None
+    try:
+        return datetime.datetime.fromisoformat(str(s).replace("Z", "+00:00")).date()
+    except ValueError:
+        return None
+
+
+def build_plan(progress):
+    """One row per (working_ticker, year, quarter) event in the corpus window.
+    Cross-references RAW_CACHE_DIR for free coverage."""
+    tickers = load_train_tickers()
+    plan = []
+    coverage_misses = []
+    for orig, working in tickers:
+        info = progress["events"].get(working)
+        if not info or info.get("error"):
+            coverage_misses.append({"original": orig, "working": working,
+                                     "reason": info.get("error") if info else "no_events_entry"})
+            continue
+        for e in info["events"]:
+            d = _parse_conf_date(e["conference_date"])
+            if not d or not (WINDOW_START <= d <= WINDOW_END):
+                continue
+            cached = None
+            candidate = RAW_CACHE_DIR / f"{working}_{e['year']}Q{e['quarter']}_id*.json"
+            matches = list(RAW_CACHE_DIR.glob(f"{working}_{e['year']}Q{e['quarter']}_id*.json"))
+            if matches:
+                cached = str(matches[0])
+            plan.append({
+                "original": orig, "working": working, "year": e["year"],
+                "quarter": e["quarter"], "conference_date": e["conference_date"],
+                "call_date": d.isoformat(), "exchange": info["exchange"],
+                "cached_raw_path": cached,
+            })
+    return plan, coverage_misses
+
+
+def cmd_plan():
+    progress = load_progress()
+    plan, misses = build_plan(progress)
+    plan_path = STATE_DIR / "fetch_plan.json"
+    plan_path.write_text(json.dumps({"plan": plan, "coverage_misses": misses}, indent=2))
+    n_cached = sum(1 for p in plan if p["cached_raw_path"])
+    print(f"Plan: {len(plan)} transcripts in window, {n_cached} already cached on disk, "
+          f"{len(plan) - n_cached} to fetch.")
+    print(f"Coverage misses (companies): {misses}")
+    print(f"Total (transcripts to score, incl. cached): {len(plan)} -- hard cap {HARD_REQUEST_CAP}")
+    if len(plan) > HARD_REQUEST_CAP:
+        print(f"*** EXCEEDS CAP by {len(plan) - HARD_REQUEST_CAP}. Must trim before proceeding. ***")
+
+
+def cmd_fetch():
+    progress = _vendor_progress()
+    plan_path = STATE_DIR / "fetch_plan.json"
+    plan_data = json.loads(plan_path.read_text())
+    plan = plan_data["plan"]
+    TRANSCRIPTS_DIR.mkdir(parents=True, exist_ok=True)
+    fetched = 0
+    reused = 0
+    failed = 0
+    for row in plan:
+        out_path = TRANSCRIPTS_DIR / row["working"] / f"{row['call_date']}.json"
+        if out_path.exists():
+            continue  # already fetched this run (resume)
+        payload = None
+        source = None
+        if row["cached_raw_path"]:
+            payload = json.loads(Path(row["cached_raw_path"]).read_text())
+            source = "disk_cache"
+            reused += 1
+        else:
+            level = progress.get("transcript_level", 2)
+            status, data = vendor_get_local(progress, "transcript", {
+                "exchange": row["exchange"], "symbol": row["working"],
+                "year": row["year"], "quarter": row["quarter"], "level": level,
+            })
+            if status in (402, 403) and progress.get("transcript_level", 2) == 2:
+                append_finding(f"Level 2 refused (HTTP {status}) for {row['working']} "
+                                f"{row['year']}Q{row['quarter']} -- falling back to level 1 for the whole run.")
+                progress["transcript_level"] = 1
+                save_progress(progress)
+                status, data = vendor_get_local(progress, "transcript", {
+                    "exchange": row["exchange"], "symbol": row["working"],
+                    "year": row["year"], "quarter": row["quarter"], "level": 1,
+                })
+            if status == 404 or (isinstance(data, dict) and not data.get("speakers") and not data.get("text")):
+                append_finding(f"Coverage miss (transcript): {row['working']} {row['year']}Q{row['quarter']} "
+                                f"call_date={row['call_date']} status={status}")
+                failed += 1
+                continue
+            if status != 200:
+                append_finding(f"Transcript fetch failed: {row['working']} {row['year']}Q{row['quarter']} "
+                                f"status={status} body={str(data)[:200]}")
+                failed += 1
+                continue
+            payload = data
+            source = "vendor_fetch"
+            fetched += 1
+        text, turns = ecf.vendor_payload_to_text_and_turns(payload)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps({
+            "ticker": row["working"], "original_ticker": row["original"],
+            "call_date": row["call_date"], "year": row["year"], "quarter": row["quarter"],
+            "vendor_params": {"exchange": row["exchange"], "symbol": row["working"],
+                               "year": row["year"], "quarter": row["quarter"]},
+            "source": source, "fetched_at": now_iso(),
+            "raw_payload": payload, "text": text, "n_turns": len(turns),
+        }, indent=2))
+        if (fetched + reused) % 25 == 0:
+            print(f"  progress: fetched={fetched} reused={reused} failed={failed} "
+                  f"vendor_calls={progress['calls_used_total']}")
+    print(f"\nDone. fetched_fresh={fetched} reused_from_cache={reused} failed={failed} "
+          f"total_vendor_calls_used={progress['calls_used_total']}")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else None
     if cmd == "events":
         cmd_events()
+    elif cmd == "plan":
+        cmd_plan()
+    elif cmd == "fetch":
+        cmd_fetch()
     else:
         print(__doc__)
