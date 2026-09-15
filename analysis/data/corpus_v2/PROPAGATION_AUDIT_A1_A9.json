@@ -74,5 +74,12 @@
       "note": "Registered in this run; propagated into CORPUS_MANIFEST_V4.json by Step E below."
     }
   ],
-  "s2_powi_check": "selection_working.json S2.selected includes POWI, absent from CORPUS_MANIFEST_V2.json S2.frozen -- checked against availability_fix_working.json: POWI has max_gap_days=273 (>240), correctly fails A1 and was legitimately dropped post-selection, pre-freeze. NOT a bug (unlike HON/UPS, which were never in S1.selected at all)."
+  "s2_powi_check": "selection_working.json S2.selected includes POWI, absent from CORPUS_MANIFEST_V2.json S2.frozen -- checked against availability_fix_working.json: POWI has max_gap_days=273 (>240), correctly fails A1 and was legitimately dropped post-selection, pre-freeze. NOT a bug (unlike HON/UPS, which were never in S1.selected at all).",
+  "standing_checks": [
+    {
+      "added_at": "2026-09-15T12:56:10Z",
+      "added_by": "scorer-price-cache-backfill",
+      "check": "A coverage rule must name the artifact its consumer actually reads, and be verified against that artifact. Fourth instance of this failure shape in this project (Alphabet alias absent from manifest; A8 verdicts left in a side file; versions.js disagreeing with the version registry; A9's price gate checking corpus_v2_price_cache.json while analyst_direct_scorer.py reads price_cache.json). This check should catch the fifth."
+    }
+  ]
 }
