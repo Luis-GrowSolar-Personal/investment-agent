@@ -76,5 +76,7 @@
   "grading_field_note": "The analyst own call, not final_action -- per CLAUDE.md/prompt rule to avoid trend-layer changes reading as prompt improvements.",
   "eval_cache_path": "analysis/data/evals/v6_claude-sonnet-4-6/",
   "request_cap": 1400,
-  "api_mode": "batch"
+  "api_mode": "batch",
+  "max_tokens": 4096,
+  "max_tokens_source": "server/routes/evaluate.js line 117 (production value)"
 }

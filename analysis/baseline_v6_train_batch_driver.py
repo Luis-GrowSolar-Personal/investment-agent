@@ -276,6 +276,207 @@ def cmd_fetch():
           f"total_vendor_calls_used={progress['calls_used_total']}")
 
 
+MAX_TOKENS = 4096
+
+
+def all_calls():
+    """Every (ticker, call_date, transcript_path) that made it to disk."""
+    out = []
+    for tdir in sorted(TRANSCRIPTS_DIR.iterdir()):
+        if not tdir.is_dir():
+            continue
+        for f in sorted(tdir.glob("*.json")):
+            out.append((tdir.name, f.stem, f))
+    return out
+
+
+def custom_id_for(ticker, call_date):
+    return f"{ticker}_{call_date}"
+
+
+def cmd_pilot5():
+    import anthropic
+    client = anthropic.Anthropic()
+    eval_prompt = EVAL_PROMPT_PATH.read_text()
+    calls = all_calls()
+    progress = load_progress()
+    pilot_done = progress.get("pilot5_done", [])
+    scores_path = STATE_DIR / "scores.jsonl"
+    existing_ids = set()
+    if scores_path.exists():
+        for line in scores_path.read_text().splitlines():
+            if line.strip():
+                existing_ids.add(json.loads(line)["custom_id"])
+    picked = []
+    for ticker, call_date, f in calls:
+        cid = custom_id_for(ticker, call_date)
+        if cid in existing_ids:
+            continue
+        picked.append((ticker, call_date, f))
+        if len(picked) == 5:
+            break
+    print(f"Pilot picks: {[custom_id_for(t,d) for t,d,_ in picked]}")
+    total_cost = 0.0
+    for ticker, call_date, f in picked:
+        data = json.loads(f.read_text())
+        text = data["text"]
+        msg = client.messages.create(
+            model=MODEL, max_tokens=MAX_TOKENS,
+            system=[{"type": "text", "text": eval_prompt,
+                     "cache_control": {"type": "ephemeral"}}],
+            messages=[{"role": "user", "content": text}],
+        )
+        content = "".join(b.text for b in msg.content if b.type == "text")
+        usage = msg.usage
+        # Sonnet-4.6 pricing (per project's own $0.093/call baseline; using
+        # published per-MTok rates: $3/MTok input, $15/MTok output,
+        # $0.30/MTok cache-read, $3.75/MTok cache-write -- Claude pricing as
+        # of this session's knowledge).
+        cost = (usage.input_tokens * 3 + usage.output_tokens * 15
+                + getattr(usage, "cache_read_input_tokens", 0) * 0.30
+                + getattr(usage, "cache_creation_input_tokens", 0) * 3.75) / 1_000_000
+        total_cost += cost
+        cid = custom_id_for(ticker, call_date)
+        rec = {
+            "custom_id": cid, "ticker": ticker, "call_date": call_date,
+            "content": content, "model": MODEL,
+            "usage": {"input_tokens": usage.input_tokens, "output_tokens": usage.output_tokens,
+                      "cache_read_input_tokens": getattr(usage, "cache_read_input_tokens", 0),
+                      "cache_creation_input_tokens": getattr(usage, "cache_creation_input_tokens", 0)},
+            "cost_usd": round(cost, 5), "source": "pilot5_synchronous",
+            "prompt_version": "v6", "fetched_at": now_iso(),
+        }
+        with scores_path.open("a") as sf:
+            sf.write(json.dumps(rec) + "\n")
+        struct = parse_structured_local(content)
+        print(f"  {cid}: cost=${cost:.4f} rec={struct.get('recommendation')} health={struct.get('thesisHealth')}")
+    print(f"\nPilot total cost: ${total_cost:.4f} for {len(picked)} calls "
+          f"(${total_cost/max(len(picked),1):.4f}/call vs $0.093 assumption)")
+    progress["pilot5_done"] = pilot_done + [custom_id_for(t, d) for t, d, _ in picked]
+    save_progress(progress)
+
+
+def parse_structured_local(text):
+    m = re.search(r"---STRUCTURED---\s*(\{[\s\S]*?\})\s*---END STRUCTURED---", text)
+    if not m:
+        return {}
+    try:
+        return json.loads(m.group(1))
+    except json.JSONDecodeError:
+        return {}
+
+
+def cmd_submit():
+    import anthropic
+    from anthropic.types.messages.batch_create_params import Request
+    from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+    client = anthropic.Anthropic()
+    eval_prompt = EVAL_PROMPT_PATH.read_text()
+    scores_path = STATE_DIR / "scores.jsonl"
+    existing_ids = set()
+    if scores_path.exists():
+        for line in scores_path.read_text().splitlines():
+            if line.strip():
+                existing_ids.add(json.loads(line)["custom_id"])
+    calls = all_calls()
+    requests = []
+    for ticker, call_date, f in calls:
+        cid = custom_id_for(ticker, call_date)
+        if cid in existing_ids:
+            continue
+        if not re.match(r"^[a-zA-Z0-9_-]{1,64}$", cid):
+            raise SystemExit(f"custom_id violates vendor pattern: {cid}")
+        data = json.loads(f.read_text())
+        requests.append(Request(
+            custom_id=cid,
+            params=MessageCreateParamsNonStreaming(
+                model=MODEL, max_tokens=MAX_TOKENS,
+                system=[{"type": "text", "text": eval_prompt,
+                         "cache_control": {"type": "ephemeral"}}],
+                messages=[{"role": "user", "content": data["text"]}],
+            ),
+        ))
+    print(f"Request list size: {len(requests)} (already-scored excluded: {len(existing_ids)})")
+    if len(requests) > HARD_REQUEST_CAP:
+        raise SystemExit(f"EXCEEDS CAP ({len(requests)} > {HARD_REQUEST_CAP}) -- stopping, submitting nothing.")
+    progress = load_progress()
+    if progress.get("batch_id"):
+        print(f"batch_id already recorded: {progress['batch_id']} -- not submitting again.")
+        return
+    batch = client.messages.batches.create(requests=requests)
+    progress["batch_id"] = batch.id
+    progress["batch_submitted_at"] = now_iso()
+    progress["batch_request_count"] = len(requests)
+    save_progress(progress)
+    print(f"SUBMITTED. batch_id={batch.id} requests={len(requests)}")
+    print("Commit progress.json NOW before polling.")
+
+
+def cmd_poll():
+    import anthropic
+    client = anthropic.Anthropic()
+    progress = load_progress()
+    bid = progress.get("batch_id")
+    if not bid:
+        print("No batch_id in progress.json -- run submit first.")
+        return
+    batch = client.messages.batches.retrieve(bid)
+    print(f"batch {bid}: status={batch.processing_status} counts={batch.request_counts}")
+    if batch.processing_status != "ended":
+        print("Not ended yet. Re-run poll later.")
+        return
+    scores_path = STATE_DIR / "scores.jsonl"
+    existing_ids = set()
+    if scores_path.exists():
+        for line in scores_path.read_text().splitlines():
+            if line.strip():
+                existing_ids.add(json.loads(line)["custom_id"])
+    n_new = n_errored = n_expired = 0
+    for entry in client.messages.batches.results(bid):
+        cid = entry.custom_id
+        if cid in existing_ids:
+            continue
+        if entry.result.type == "succeeded":
+            msg = entry.result.message
+            content = "".join(b.text for b in msg.content if b.type == "text")
+            usage = msg.usage
+            ticker, call_date = cid.rsplit("_", 1)
+            rec = {
+                "custom_id": cid, "ticker": ticker, "call_date": call_date,
+                "content": content, "model": MODEL,
+                "usage": {"input_tokens": usage.input_tokens, "output_tokens": usage.output_tokens,
+                          "cache_read_input_tokens": getattr(usage, "cache_read_input_tokens", 0),
+                          "cache_creation_input_tokens": getattr(usage, "cache_creation_input_tokens", 0)},
+                "source": "batch", "batch_id": bid, "prompt_version": "v6",
+                "fetched_at": now_iso(),
+            }
+            with scores_path.open("a") as sf:
+                sf.write(json.dumps(rec) + "\n")
+            n_new += 1
+        elif entry.result.type == "errored":
+            append_finding(f"Batch result errored: {cid}: {entry.result.error}")
+            n_errored += 1
+        elif entry.result.type == "expired":
+            append_finding(f"Batch result expired: {cid}")
+            n_expired += 1
+    print(f"Collected {n_new} new results. errored={n_errored} expired={n_expired}")
+
+
+def cmd_writescores():
+    scores_path = STATE_DIR / "scores.jsonl"
+    eval_dir = REPO_ROOT / "analysis" / "data" / "evals" / f"v6_{MODEL}"
+    eval_dir.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for line in scores_path.read_text().splitlines():
+        if not line.strip():
+            continue
+        rec = json.loads(line)
+        out_path = eval_dir / f"{rec['ticker']}_{rec['call_date']}.txt"
+        out_path.write_text(rec["content"])
+        n += 1
+    print(f"Wrote {n} eval files to {eval_dir}")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else None
     if cmd == "events":
@@ -284,5 +485,13 @@ if __name__ == "__main__":
         cmd_plan()
     elif cmd == "fetch":
         cmd_fetch()
+    elif cmd == "pilot5":
+        cmd_pilot5()
+    elif cmd == "submit":
+        cmd_submit()
+    elif cmd == "poll":
+        cmd_poll()
+    elif cmd == "writescores":
+        cmd_writescores()
     else:
         print(__doc__)
