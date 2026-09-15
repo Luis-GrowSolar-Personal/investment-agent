@@ -81,7 +81,13 @@ class PriceCache:
 # ---------------------------------------------------------------------------
 
 _STRUCTURED_RE = re.compile(
-    r"---STRUCTURED---\s*(\{[\s\S]*?\})\s*---END STRUCTURED---"
+    # Tolerates an optional ```json ... ``` fence and optional markdown bold
+    # (**) around either delimiter -- found via scorer-price-cache-backfill
+    # (2026-09-15): 80/1240 v6 responses in the baseline-v6-train-batch eval
+    # cache format the delimiters this way, which the original literal
+    # anchor didn't allow for, silently dropping those calls (score_eval_dir's
+    # `if not score: continue`) with no error surfaced anywhere.
+    r"\**---STRUCTURED---\**\s*(?:```(?:json)?\s*)?(\{[\s\S]*?\})\s*(?:```\s*)?\**---END STRUCTURED---\**"
 )
 
 def parse_structured(text: str) -> dict:
