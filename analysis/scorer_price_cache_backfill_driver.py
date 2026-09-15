@@ -151,6 +151,13 @@ def cmd_build():
             continue
         series = {d.strftime("%Y-%m-%d"): round(float(c), 4) for d, c in hist["Close"].items()}
         cache[orig] = series
+        # Alias BOTH keys: eval-cache filenames (and the scorer's lookups)
+        # use the WORKING/vendor symbol (e.g. ELV, PARA), not the original
+        # manifest ticker (ANTM, VIAC) this loop is keyed by. Found as a
+        # real bug in this run -- ELV/PARA calls silently read as "not yet
+        # scoreable" because the cache only had the ANTM/VIAC key.
+        if symbol != orig:
+            cache[symbol] = series
         NEW_CACHE_PATH.write_text(json.dumps(cache, indent=2))
         dates = sorted(series.keys())
         report_rows.append({
