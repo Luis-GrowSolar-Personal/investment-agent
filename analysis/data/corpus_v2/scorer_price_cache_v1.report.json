@@ -1,0 +1,1316 @@
+[
+  {
+    "ticker": "AAPL",
+    "symbol_used": "AAPL",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ABBV",
+    "symbol_used": "ABBV",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ABT",
+    "symbol_used": "ABT",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ACN",
+    "symbol_used": "ACN",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ADBE",
+    "symbol_used": "ADBE",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "AEP",
+    "symbol_used": "AEP",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "AIG",
+    "symbol_used": "AIG",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "AMAT",
+    "symbol_used": "AMAT",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "AMD",
+    "symbol_used": "AMD",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "AMGN",
+    "symbol_used": "AMGN",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "AMPX",
+    "symbol_used": "AMPX",
+    "status": "ok",
+    "first": "2022-09-15",
+    "last": "2026-09-14",
+    "n_rows": 1002
+  },
+  {
+    "ticker": "AMSC",
+    "symbol_used": "AMSC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "AMT",
+    "symbol_used": "AMT",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ANTM",
+    "symbol_used": "ELV",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ARRY",
+    "symbol_used": "ARRY",
+    "status": "ok",
+    "first": "2020-10-15",
+    "last": "2026-09-14",
+    "n_rows": 1484
+  },
+  {
+    "ticker": "AVGO",
+    "symbol_used": "AVGO",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "AXP",
+    "symbol_used": "AXP",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "BAC",
+    "symbol_used": "BAC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "BDX",
+    "symbol_used": "BDX",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "BK",
+    "symbol_used": "BNY",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "BLDP",
+    "symbol_used": "BLDP",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "BLK",
+    "symbol_used": "BLK",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "BMY",
+    "symbol_used": "BMY",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "BOX",
+    "symbol_used": "BOX",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "C",
+    "symbol_used": "C",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CAT",
+    "symbol_used": "CAT",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CHTR",
+    "symbol_used": "CHTR",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CI",
+    "symbol_used": "CI",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CL",
+    "symbol_used": "CL",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CMCSA",
+    "symbol_used": "CMCSA",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CMI",
+    "symbol_used": "CMI",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CNC",
+    "symbol_used": "CNC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "COF",
+    "symbol_used": "COF",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "COP",
+    "symbol_used": "COP",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "COST",
+    "symbol_used": "COST",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CRM",
+    "symbol_used": "CRM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CSCO",
+    "symbol_used": "CSCO",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CSIQ",
+    "symbol_used": "CSIQ",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CVS",
+    "symbol_used": "CVS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "CVX",
+    "symbol_used": "CVX",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "D",
+    "symbol_used": "D",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "DD",
+    "symbol_used": "DD",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "DE",
+    "symbol_used": "DE",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "DHR",
+    "symbol_used": "DHR",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "DIOD",
+    "symbol_used": "DIOD",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "DIS",
+    "symbol_used": "DIS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "DOW",
+    "symbol_used": "DOW",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "DUK",
+    "symbol_used": "DUK",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ECL",
+    "symbol_used": "ECL",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "EMR",
+    "symbol_used": "EMR",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ENTG",
+    "symbol_used": "ENTG",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ENVX",
+    "symbol_used": "ENVX",
+    "status": "ok",
+    "first": "2021-01-05",
+    "last": "2026-09-14",
+    "n_rows": 1429
+  },
+  {
+    "ticker": "EOG",
+    "symbol_used": "EOG",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "EOSE",
+    "symbol_used": "EOSE",
+    "status": "ok",
+    "first": "2020-11-02",
+    "last": "2026-09-14",
+    "n_rows": 1472
+  },
+  {
+    "ticker": "EQIX",
+    "symbol_used": "EQIX",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ETN",
+    "symbol_used": "ETN",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "EXC",
+    "symbol_used": "EXC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "FCX",
+    "symbol_used": "FCX",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "FORM",
+    "symbol_used": "FORM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "FOXA",
+    "symbol_used": "FOXA",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "FRC",
+    "symbol_used": "FRCB",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "FSLR",
+    "symbol_used": "FSLR",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "GE",
+    "symbol_used": "GE",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "GILD",
+    "symbol_used": "GILD",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "GIS",
+    "symbol_used": "GIS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "GOOGL",
+    "symbol_used": "GOOG",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "GS",
+    "symbol_used": "GS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "HCA",
+    "symbol_used": "HCA",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "HON",
+    "symbol_used": "HON",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "HRL",
+    "symbol_used": "HRL",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "HUM",
+    "symbol_used": "HUM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "IBM",
+    "symbol_used": "IBM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "INTC",
+    "symbol_used": "INTC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ITW",
+    "symbol_used": "ITW",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "JKS",
+    "symbol_used": "JKS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "JPM",
+    "symbol_used": "JPM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "KHC",
+    "symbol_used": "KHC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-11",
+    "n_rows": 1830
+  },
+  {
+    "ticker": "KMB",
+    "symbol_used": "KMB",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "KMI",
+    "symbol_used": "KMI",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "KO",
+    "symbol_used": "KO",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "LLY",
+    "symbol_used": "LLY",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "LMT",
+    "symbol_used": "LMT",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "LOW",
+    "symbol_used": "LOW",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "LRCX",
+    "symbol_used": "LRCX",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "LYV",
+    "symbol_used": "LYV",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "MAXN",
+    "symbol_used": "MAXNQ",
+    "status": "ok",
+    "first": "2020-08-26",
+    "last": "2026-09-14",
+    "n_rows": 1494
+  },
+  {
+    "ticker": "MCD",
+    "symbol_used": "MCD",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "MCHP",
+    "symbol_used": "MCHP",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "MDT",
+    "symbol_used": "MDT",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "MMM",
+    "symbol_used": "MMM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "MO",
+    "symbol_used": "MO",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "MPWR",
+    "symbol_used": "MPWR",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "MRK",
+    "symbol_used": "MRK",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "MS",
+    "symbol_used": "MS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "MSFT",
+    "symbol_used": "MSFT",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "MU",
+    "symbol_used": "MU",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "NEE",
+    "symbol_used": "NEE",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "NEM",
+    "symbol_used": "NEM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "NFLX",
+    "symbol_used": "NFLX",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "NKE",
+    "symbol_used": "NKE",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "NOVA",
+    "symbol_used": null,
+    "status": "known_unrecoverable"
+  },
+  {
+    "ticker": "NOW",
+    "symbol_used": "NOW",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "NVDA",
+    "symbol_used": "NVDA",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "NWSA",
+    "symbol_used": "NWS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "NXPI",
+    "symbol_used": "NXPI",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "O",
+    "symbol_used": "O",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "OMC",
+    "symbol_used": "OMC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ON",
+    "symbol_used": "ON",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ORCL",
+    "symbol_used": "ORCL",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "OXY",
+    "symbol_used": "OXY",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PEP",
+    "symbol_used": "PEP",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PFE",
+    "symbol_used": "PFE",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PG",
+    "symbol_used": "PG",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PH",
+    "symbol_used": "PH",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PLD",
+    "symbol_used": "PLD",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PM",
+    "symbol_used": "PM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PNC",
+    "symbol_used": "PNC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PPG",
+    "symbol_used": "PPG",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PSA",
+    "symbol_used": "PSA",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PSX",
+    "symbol_used": "PSX",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "PYPL",
+    "symbol_used": "PYPL",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "QCOM",
+    "symbol_used": "QCOM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "QS",
+    "symbol_used": "QS",
+    "status": "ok",
+    "first": "2020-08-17",
+    "last": "2026-09-14",
+    "n_rows": 1526
+  },
+  {
+    "ticker": "ROK",
+    "symbol_used": "ROK",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "RTX",
+    "symbol_used": "RTX",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "RUN",
+    "symbol_used": "RUN",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SBUX",
+    "symbol_used": "SBUX",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SEDG",
+    "symbol_used": "SEDG",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SHLS",
+    "symbol_used": "SHLS",
+    "status": "ok",
+    "first": "2021-01-28",
+    "last": "2026-09-14",
+    "n_rows": 1413
+  },
+  {
+    "ticker": "SIRI",
+    "symbol_used": "SIRI",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SLAB",
+    "symbol_used": "SLAB",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SLB",
+    "symbol_used": "SLB",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SNOW",
+    "symbol_used": "SNOW",
+    "status": "ok",
+    "first": "2020-09-16",
+    "last": "2026-09-14",
+    "n_rows": 1505
+  },
+  {
+    "ticker": "SO",
+    "symbol_used": "SO",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SPG",
+    "symbol_used": "SPG",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SPWR",
+    "symbol_used": "SPWR",
+    "status": "ok",
+    "first": "2023-01-03",
+    "last": "2026-09-14",
+    "n_rows": 927
+  },
+  {
+    "ticker": "SQ",
+    "symbol_used": "XYZ",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SRE",
+    "symbol_used": "SRE",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "STZ",
+    "symbol_used": "STZ",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SUNW",
+    "symbol_used": "SUNWQ",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SWKS",
+    "symbol_used": "SWKS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "T",
+    "symbol_used": "T",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "TEAM",
+    "symbol_used": "TEAM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "TFC",
+    "symbol_used": "TFC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "TMO",
+    "symbol_used": "TMO",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "TMUS",
+    "symbol_used": "TMUS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "TSLA",
+    "symbol_used": "TSLA",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "TTD",
+    "symbol_used": "TTD",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "TXN",
+    "symbol_used": "TXN",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "UNH",
+    "symbol_used": "UNH",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "UNP",
+    "symbol_used": "UNP",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "UPS",
+    "symbol_used": "UPS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "USB",
+    "symbol_used": "USB",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "VIAC",
+    "symbol_used": "PARA",
+    "status": "ok",
+    "first": "2021-02-12",
+    "last": "2026-09-14",
+    "n_rows": 1402
+  },
+  {
+    "ticker": "VLO",
+    "symbol_used": "VLO",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "VZ",
+    "symbol_used": "VZ",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "WDAY",
+    "symbol_used": "WDAY",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "WEC",
+    "symbol_used": "WEC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "WFC",
+    "symbol_used": "WFC",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "WMB",
+    "symbol_used": "WMB",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "WOLF",
+    "symbol_used": null,
+    "status": "known_unrecoverable"
+  },
+  {
+    "ticker": "XEL",
+    "symbol_used": "XEL",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "XOM",
+    "symbol_used": "XOM",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "ZTS",
+    "symbol_used": "ZTS",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  },
+  {
+    "ticker": "SPY",
+    "symbol_used": "SPY",
+    "status": "ok",
+    "first": "2019-06-03",
+    "last": "2026-09-14",
+    "n_rows": 1831
+  }
+]
