@@ -13,7 +13,7 @@
     "step5_grade_report": "pending",
     "step6_report": "pending"
   },
-  "batch_id": null,
+  "batch_id": "msgbatch_01CrFTtAKaAwDx1YDRy6ecNo",
   "next_action": "Run version guard, then register SCORING_PROTOCOL.json",
   "notes": [],
   "calls_used_total": 1289,
@@ -35807,5 +35807,7 @@
     "ABBV_2020-07-31",
     "ABBV_2020-10-30",
     "ABBV_2021-02-03"
-  ]
+  ],
+  "batch_submitted_at": "2026-09-15T02:49:24Z",
+  "batch_request_count": 1235
 }
