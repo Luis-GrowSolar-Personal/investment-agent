@@ -5,15 +5,15 @@
   "git_dirty_at_start": false,
   "steps": {
     "step_minus1_resume_protocol": "done",
-    "step0_hygiene_guard_protocol": "in_progress",
+    "step0_hygiene_guard_protocol": "done",
     "step1_prechecks": "done",
-    "step2_fetch_transcripts": "pending",
-    "step3_pilot_and_submit": "pending",
-    "step4_write_eval_cache": "pending",
-    "step5_grade": "pending",
-    "step6_report": "pending"
+    "step2_fetch_transcripts": "done",
+    "step3_pilot_and_submit": "done",
+    "step4_write_eval_cache": "done",
+    "step5_grade": "done (51/54 tickers -- WOLF, SPWR excluded, coverage guard fired, not overridden per prompt rule)",
+    "step6_report": "done"
   },
-  "next_action": "Commit driver script, then begin transcript fetch for 54 tune companies.",
+  "next_action": "None -- run complete. Design session decides: A6 wiring for WOLF/SPWR/NOVA, train+tune pooling, holdout timing.",
   "notes": [
     "version_guard.py assert_prompt_hash(EVALUATION_PROMPT.md content) passed: actual==promoted==357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b.",
     "Split disjointness asserted: train/tune/holdout pairwise intersections all empty (SPLIT_V7_RESERVE_REPLACEMENTS.json).",
