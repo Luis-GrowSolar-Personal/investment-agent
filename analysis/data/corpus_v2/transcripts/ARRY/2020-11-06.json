@@ -1,0 +1,401 @@
+{
+  "ticker": "ARRY",
+  "original_ticker": "ARRY",
+  "call_date": "2020-11-06",
+  "year": 2020,
+  "quarter": 3,
+  "vendor_params": {
+    "exchange": "NASDAQ",
+    "symbol": "ARRY",
+    "year": 2020,
+    "quarter": 3
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T00:48:44Z",
+  "raw_payload": {
+    "event": {
+      "year": 2020,
+      "quarter": 3,
+      "conference_date": "2020-11-06T08:00:00-05:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk07",
+        "text": "on our growth initiatives before turning it over to NIPL to talk about the quarter. Array Technologies is first and foremost a technology company. We are one of the world's largest manufacturing of ground mounting systems used in utility-scale solar energy projects. Our principal product is an integrated system of steel supports, electric motors, gearboxes, electronic controllers, and software, commonly referred to as a single-axis tracker. Trackers move solar panels throughout the day to maintain an optimum orientation to the sun, which significantly increase their energy production up to 25%. Our product is patent protected and has a compelling value proposition. In fact, we have approximately 10 years left on our core patent and more than 10 years left on other patents. Since Array's inception, we've shipped over 21 gigawatts of product. To put some context around the scale of our business, Over the last 12 months, we've shipped over 26,000 miles of trackers, which is enough to circle the globe. Finally, we are proud that more than one in every four solar modules in operation today in the U.S. is on our product. We established a track record that is evidenced by our strong financial results having delivered $692 million in revenue and $140 million in adjusted EBITDA during the nine months ending September of this year. which represents 64% growth in revenue and 96% growth in adjusted EBITDA compared to the first nine months in 2019. With that background, I'd like to pivot to our growth initiatives. As many of you know from meeting with us during our IPO Roadshow, there are three components to our growth strategy. Continued growth and market share gains in our core U.S. business, international expansion, and bolt-on acquisitions. I'm pleased to report that we have made progress on all three since our IPO price. First, U.S. demand for our products continues to grow. Our order book, which we define as signed contracts and awarded orders, was $703 million on September 30th, which represents an increase of 31 percent over the same time last year, but we are currently in advanced discussions on several large new projects some of which we hope to be announcing soon. We believe that the ease of installation, superior reliability, and lower LCOE of our products is increasingly becoming recognized by customers and that we will continue to grow our share of demand here in the U.S. Second, we are beginning to see early returns on our investment in international sales resources. Of the orders that we are currently in advanced discussions on, a number of them are projects outside the U.S. Further, as evidence of our commitment to international expansion, over the last nine months, we've increased the size of our international footprint by more than 50%, with resources now located in the UK, Spain, Brazil, Mexico, China, and Australia. And we remain committed to add strategic resources around the globe in the coming months as needed. Third, we are actively pursuing our bolt-on acquisition strategy. Outside of panels, inverters, and mounting systems, our customers purchase as much as 13 cents per watt in other products and components, many of which work directly with or are complementary to our tracker. Acquiring companies that make these products can be highly accretive to our margins because we can eliminate duplicate selling expenses since, in most cases, we'd be selling more product to the same customers we already have relationships with. While we cannot guarantee we'll be able to identify or execute any acquisitions, we are currently pursuing several targets. Now I will turn it over to Nipal for an update on the quarter."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thanks, Jim. I would like to begin by providing some context for comparing our 2019 versus 2020 results. As most of you know, 2020 was the first of three annual step-downs in the ITC, or Investment Tax Credit, for solar. As a reminder, the ITC was originally put in place to support the economics of solar and provide the runway for the industry to become increasingly competitive to other forms of generation through innovation and economies of scale. This has largely been accomplished as the marginal cost of utility-scale solar is now lower than that of natural gas without subsidies in many parts of the country. While there is a potential for the ITC to be extended at the original level, The current legislation gradually reduces the size of the credit over three years, eventually to 10%. The result of these step-downs is to incentivize customers to place orders in Q3 and Q4 and then take delivery in Q1 and Q2 of the following year. As previously disclosed in our S1 and Roadshow, the impact on us is to concentrate more of our revenues in the first half than the second half, and that is what we saw this year and expect to see again next year. As a result, comparing a single quarter in 2020 to the same quarter in 2019 is not necessarily indicative of the trajectory of our business since revenues in 2020 are skewed more to Q1 and Q2, while revenues in 2019 were more evenly distributed. It's also important to note that because of the large size of many of our orders, results in a single quarter are not necessarily indicative of what we may achieve over a full year. Given the ITC change, I will provide a brief summary of our third quarter results, including some commentary around how our results compared to our plans, since there are not yet any consensus estimates available for our company, and then provide comparatives for the nine-month periods. For the third quarter, we generated revenues of $139.5 million which was a decrease over the prior year period as a result of the changes in seasonal order patterns that I discussed earlier. Relative to our plan, third quarter revenues beat our expectations, primarily as a result of faster than anticipated conversion and delivery of projects, in addition to more sales to smaller size projects. We are seeing tractors being used in all size ranges of projects with growing demand from the sub-50 megawatt market. ASPs from third quarter were largely unchanged from the second quarter. Gross margins in the third quarter were lower than prior year period as a result of having less revenue to absorb fixed costs as well as higher logistics costs largely driven by the global shipping constraints due to COVID-19. Importantly, we view both of these dynamics as short-term in nature and not indicative of longer-term margin pressure. Operating expenses were roughly flat compared to prior period, excluding professional fees related to our IPO and change for contingent consideration, reflecting tight controls on expenses. We recorded an operating loss in the quarter of $5.1 million, primarily as a result of the $13.6 million charge we took for the fair value of contingent consideration as well as $1.8 million of professional fees and expenses related to our IPO and recapitalization. The charge for the contingent consideration relates primarily to an earn-out obligation we have with our founder in connection with his sale of the company to Oak Tree in 2016. Adjusted EBITDA, which excludes the impact of the earn-out obligation, the IPO expenses, and approximately $1 million of other non-recurring and non-cash costs, was $16.6 million for the third quarter, which exceeded our plan by a double-digit margin. Now, turning to our nine-month results. Revenues for the nine months ended September 30, 2020 increased 64% to $692.1 million, compared to $423.2 million for the prior year period, driven by increases in the volume of trackers delivered. Gross profit increased 86% to $167.3 million compared to $90.2 million in the prior year period, driven primarily by higher revenues. Gross margins increased 24.2% from 21.3% in the prior year period, driven by reductions in purchased materials resulting from improved supplier arrangements and shifting volumes for certain components to new, lower-cost suppliers, and greater leverage of fixed costs against higher sales volumes. Operating expenses increased to $69.9 million compared to $47.3 million during the same period in the prior year, primarily as a result of the $13.6 million charge for contingent consideration and $1.8 million of professional fees related to our recapitalization and initial public offering in the third quarter that I discussed earlier. Income from operations increased 127% to $97.5 million compared to $42.9 million during the same period in the prior year. Net income increased 431% to $68.8 million compared to $13 million during the same period in the prior year, and basic and diluted income per share was $0.57 compared to $0.11 during the same period in the prior year. Adjusted net income increased 116% to $93.4 million compared to $43.2 million during the same period in the prior year, and adjusted net income per share was 78 cents compared to 36 cents during the same period in the prior year. Adjusted EBITDA increased 96% to $140.5 million compared to $71.8 million for the prior year period. We decided to provide guidance for the full year 2020 to give our new public investors additional insight into our outlook for the remainder of the year. Going forward, we will be providing annual guidance as part of our fourth quarter and full year earnings announcements. We will not be providing quarterly guidance in future periods. For the full year 2020 ending December 31st, 2020, we expect revenues to be in the range of $845 million to $865 million. Adjusted EBITDA to be in the range of $156 million to $160 million. Adjusted net income per share to be in the range of 82 cents to 86 cents. This assumes diluted shares outstanding for the three months ending December 31st, 2020 of 126,123,723 shares. And diluted shares outstanding for the 12 months ending December 31st, 2020 of $121,535,154. Our guidance excludes the impact of any one-time charges, expenses related to the recapitalization and IPO, income or expense related to contingent consideration, as well as any related tax impacts. Now, I will turn it back over to Jim for some closing remarks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thanks, Meeple. I'd like to wrap up by saying we are incredibly optimistic about the future of this company. The drive to decarbonize energy is only accelerating and we are a direct beneficiary of that transition. Solar with single axis trackers has proven to be one of the cleanest and lowest cost forms of generation and we see demand for trackers growing faster than the overall market for solar as customers convert from fixed tilt. Customers are increasingly recognizing the superior reliability and durability of our tracking system, and that is leading to market share gains for our products. These factors, combined with our strong order book, give us confidence that we are very well positioned to have another year of substantial growth in 2021. Thank you. Operator, please open the line for questions."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thank you. We will now begin the question and answer session. To join the question queue, you may press star then 1 on your telephone keypad. You will hear a tone acknowledging your request. If you're using a speakerphone, please pick up your handset before pressing any keys. To withdraw your question, please press star then 2. We will pause for a moment as callers join the queue. Our first question is from Brian Lee with Goldman Sachs. Please go ahead."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Hey guys, thanks for taking the questions and congrats on, you know, first quarter out as a public company. I guess just a couple questions around the model to begin with maybe. Can you give us what the U.S. and rest of world mix was for the quarter on revenue and megawatts?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hey Brian, it's Nipal. How are you? Yeah, we're We're not going to be reporting megawatts. I can give you the mix of that revenue. For the quarter, it was 10% international, and the remainder, U.S."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Okay, that's helpful. And then you mentioned, Nupul, the ASPs were flat from 2Q to 3Q. I assume that's a comment on the overall mix of business. Would you say the trends ASP-wise were pretty similar across the two regions?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, we're not seeing any changes in the pricing environment."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Okay, great. And then maybe just kind of a bigger picture question. You know, you spent several minutes outlining the safe harbor situation and kind of how the mechanics of that work for your business model, so that was very helpful. Is there some quantification you can provide as to how much volume \u2013 you saw in megawatts and dollars in 2019 from a safe harbor perspective and then it sounds like you're anticipating more of that in the end of 2020 and early 21. We have heard from some other component vendors through 3Q earnings that they seem to be expecting a much more muted safe harbor volume impact this year versus what they saw last year. Just trying to maybe square up a little bit what the impact might be for you and why it could be different versus what we've heard from some of the other technology peers that are out there. Thank you."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, sure, thanks, Brian. So, yeah, I would say we're in line with that. Last year, fourth quarter, it was about $100 million of safe harbor orders, and we're seeing a slightly lower number here in our Q4 of this year in the guidance we provided."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Okay, thanks, guys. I'll pass it on."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Paul Koster with J.P. Morgan. Please go ahead."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, welcome to the public markets and thank you for taking my questions this morning. Jim, perhaps we can just focus on the international initiative a little bit. Can you talk to us a little bit about the approach you're taking here? Are you sort of building it and hoping they will come in terms of infrastructure or are you following your clients into that market? What's the timeline that investors should expect for material change? And can you talk a little bit about the pricing and margins in that market?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, thanks, Paul. It's really the latter, as you alluded to. We're going to continue to work with our customers with respect to their growth in the various regions and countries. Having said that, I just wanted to kind of give you a quick update. We continue to expand out our resources with respect to those regions. We've actually increased the number of personnel, whether it's technical, sales, business development in the countries such as the UK, Spain, Brazil, Mexico and China and Australia. So as our customers go into those regions, we will follow accordingly. And I would just reflect back with what Nipo said on ASPs. They remain somewhat stable. And as we consider the margin performance, we're going to continue to build out our infrastructure, namely our supply chain, for local content in order to cause that to be an accelerant for margin improvement going forward on the international side."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And what about timeline?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "I'm sorry, one more time, Paul?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yeah, what kind of timeline before we see material sort of impact of the International Expansion Program?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, we're going to be reporting that out on an annualized basis. So right now, you know, our sales internationally are roughly 10%, and that's going to materially change as we go forward into next year. But I don't want to provide too much guidance on the international mix for next year."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Okay, gotcha. Hey, Paul. People will also provide much more information during the annual call between international and U.S."
+      },
+      {
+        "speaker": "spk05",
+        "text": "All right. Thanks very much. I'll hop back on the queue."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Steven Bird with Morgan Stanley. Please go ahead."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hey, good morning. Grats on your first quarter as a public company. Thanks. I wanted to just pick up on the commentary you laid out in the release about increased customer activity, discussions around some potential sizable new orders. Are there any particular drivers you're seeing, any trends, or is this just specific to different customers? I'm just curious sort of of late if you're seeing something different than what you've seen in the past."
+      },
+      {
+        "speaker": "spk07",
+        "text": "No, Steven, it's really the same. Our thesis remains the same with respect to the growth of solar overall. Having said that, we will be announcing in very short order a large deal with a very strategic customer that includes not only domestic but international growth as well. So, our customers continue to see the value of our product, and those trends really haven't changed. If anything, they continue to strengthen on the basis of our value proposition."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Okay, understood. And then I wanted to step way back and talk about U.S. policy, and I know we're in a period of a lot of uncertainty, but to the extent that there is a U.S. stimulus package, and that includes the extension of the solar ITC, I just was curious, sort of big picture, when you talk to your customers and when you think about the growth profile longer term, you know, how important that ITC is versus just the core importance of how very cheap solar has become. I'm just kind of curious how you think about that relative shift that we might see from a stimulus package."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, Stephen, it's really the latter. Our thesis remains the same with respect to the growth in solar, and that is just based on its cost structure. That's really the driving force, and then coupled with the megatrends on decarbonization and corporate America, as well as corporations globally, that continues to be the fuel. I would let the individual... speculate on what U.S. policy would do. I'm not going to comment there, but just, you know, we see the cornerstone of growth being just the cost competitiveness of solar going forward and the other attributes I just spoke to."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Very fair. And then just last one for me, you've had a couple questions already on sort of the international growth, and I'm pleased to see the increase in infrastructure that you're talking to Is there a potential that you would see, you know, essentially enough growth there that you want to make an investment over the next, say, six to 12 months? That is, you know, your spending, your expenses could be maybe a little bit bigger than you had planned initially, but ultimately you conclude that's worth it because you just see an increased volume of ultimate revenue there. How are you kind of thinking about that cadence of spending and infrastructure you need? Again, I don't view it as a negative signal at all, but I'm just curious if you kind of feel like you need to make more of an investment than maybe you had initially planned, just to make sure you can execute on all the opportunities."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, Steven, that's great. Our saying here is how much for how much. Every opportunity we're going to look at is going to be on an ROI basis, and if we need to invest in a said region and put infrastructure in place to support the customer's growth in that said region, we'll absolutely do that. But we look at every opportunity on an ROI basis."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Very fair. That's all I have. Thank you. Thanks, Stephen."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Shar Puresa with Guggenheim Partners. Please go ahead."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hey, good morning, guys. Good morning. Good morning. And congrats, echoing Stephen's comments on your first outing as a public company. Jim, you mentioned you're in the process of sort of evaluating potential acquisition targets. I know there are like sort of multiple areas of the balance of system related solar products and utility products that you sort of target, but maybe if you could just provide some color on what type of acquisitions you're pursuing first, and then sort of obviously the source of funds for the acquisitions, assuming you're going to be tapping the revolver capacity."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, well, first of all, thanks, Char. I don't want to give too much detail surrounding any acquisition targets because that obviously is highly sensitive. I would say with respect to those bolt-on acquisitions, you know, we do see opportunity across the board as we are selling to the same customers those various components and services that complement our tracker. And we just maintain a very healthy pipeline of opportunities that we vet accordingly. And with respect to how we would transact, I'll defer to Nipal on that one."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, so hey, Shar. So this, obviously, these bolt-on acquisitions, we see we can handle with our free cash flow as well as our tapping the revolver if needed."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Got it, got it. And so we're a little over a month into the fourth quarter when you sort of expect to see a large increase in orders. Can you just share what you're seeing so far in terms of orders? Is the percentage of full year order volume in line with last year, or is it a little less because last year was the first year of the ITC step down? And then sort of how should we sort of think about this dynamic in 21 and 22?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hey, yeah, so I would, you know, I would go back to our filing when we talked about our backlog. Our backlog was $703 million at the end of the quarter, and that was an increase significantly. up over 30% from the same period of last year. So we continue to see higher activity in Q4, which we feel really good about."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Got it. And then last one for me, a question for you again, Nupil. Gross margins were up around 3% driven by sort of the supplier arrangements year to date versus last year. How should we maybe sort of think about the shape of the margins over time, especially as you start to increase your footprint internationally? and also look to renegotiate contracts with your suppliers. So there's a couple of counteracting items here."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah. And, you know, as we had, we believe our margins, that the way to look at our margins is really on a full year basis. And the way, you know, that we see our margins is kind of what we said in the high 20s for the full year, or low 20s, excuse me, for the full year."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Got it. Terrific. Thanks again and congrats, guys. Thank you. Thanks, Sarah."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Once again, if you have a question, please press star then 1 on your telephone. Our next question is from Michael Weinstein with Credit Suisse. Please go ahead."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Hi. Good morning, guys. Congratulations again. Just in terms of the targeted acquisitions and bolt-on acquisitions, Can you give us maybe at least an idea, are these in the U.S. or are these foreign acquisitions overseas? Where's the emphasis going to be?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Again, I don't like to give too much detail on that, Michael, but I would just kind of point back to the synergies that we see with respect to our tracker and how that would complement the customer base."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Are these in the... on specific types of technologies or, say, a technological ramp-up that you're trying to achieve? What's the goal of the bolt-on strategy?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "It's a complement of both. Yeah, it's a complement of technology as well as products and services. And the way to really look at it is the balance of systems that we obviously want to address today. for the customer base, you know, how we can continue to increase the value for them as well as our shareholders."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Gotcha. And just one more from me. What other additional disclosures can we expect in future quarters, you know, that go beyond what we were providing today?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "So, from a disclosure perspective, you know, for the annual call, we will obviously provide full year guidance for 2021, but we'll also include the split on a revenue perspective from an international and domestic perspective."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Great. How about on an EBITDA basis? Is that only going to be consolidated?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, we'll provide EBITDA, obviously EBITDA guidance. We'll give you some color around what that EBITDA is comprised of."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Great. Thank you very much. Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Colin Rush with Oppenheimer. Please go ahead."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thanks so much. With a fourth quarter guidance, how many megawatts are related to safe harboring and how much, you know, I guess how many megawatts related to safe harboring do you expect to recognize as revenue?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hey, Colin. This is Neeple. So, yeah, for that guidance, you know, as it's implied, I would say that, you know, There's a portion related to Safe Harbor, which we're not going to provide the exact amounts, but there's a portion that's smaller than what I mentioned in the $100 million for the Q4 last year."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay, and then with the backlog, the $703 million, how much is related to Safe Harbor, to past Safe Harbor orders, and what's the expected timeline for the delivery on that full book?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, that full book, like all of our backlog, you know, there's things coming in and out of it, but we'd expect that full book to deliver by the end of 2021."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay, great. And then just, you know, actually, I'll take the rest offline. Thanks so much, guys. Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Jeff Osborne with Cowan & Company. Please go ahead."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Good morning. Most of them have been asked. I just had two. One, will the 10Q be out today or no?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hey, Jeff. This is, as you know, going public just a couple weeks ago and doing our first 10Q, it's going to take a little bit longer. We expect it to be out probably sometime next week. It won't go out today."
+      },
+      {
+        "speaker": "spk09",
+        "text": "And just to follow up on Michael's question, the 10Q will not have megawatts or geographic split of revenue? That's only something you're going to publish or disclose annually?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Correct. The 10Q will have the change in megawatts in our MD&A section, not the exact megawatt shift."
+      },
+      {
+        "speaker": "spk09",
+        "text": "So just given you have three objectives as a company, I just want to focus on the first two, gaining share in the U.S. and then growing internationally. Okay. How would you encourage your new shareholders to track your progress on those two initiatives? Is it just once a year that you want to be measured on that?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "No, we will provide qualitative information throughout the quarter. So, you know, I apologize. We won't be providing exact dollar numbers or figures, but we will absolutely provide qualitative figures so the market and the new shareholders can follow."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Got it. And then maybe just for Jim, can you just touch on the decision to go after China? I think in the latest Wood Mackenzie report, the pricing in China is about 4 cents a lot less than the U.S. So certainly competitive, obviously a huge opportunity. But I would have thought your partners that you have in the U.S. are less focused on China's utility scale market and maybe more in Mexico, Brazil, Spain, some of the other markets that you reference. So can you just touch on China in particular and the decision to go after that market?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, Jeff, let me clarify. We're not going after the market in China. We have resources internationally. China is one where we have technical resources and supply chain resources. So as we discussed on the roadshow, that's kind of where we're focusing resources for Asia overall. So the resources that we have in China, you can think of actually handling supply chain as well as some of the technical interfaces for suppliers out there."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Got it. That makes more sense. Thank you. I appreciate it."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thanks, Jack. Our next question is from Paul Koster with JP Morgan. Please go ahead."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yeah, thanks for taking my follow-up question. I wonder if you'd be kind enough to just sort of give us a sense of where the debt will stand at year end and what the capital allocation strategy is with respect to the debt over the next couple of years."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Sure. Yeah, we, as far as the debt, you know, from the free cash flow that we're going to generate, we're going to, let me start with the second part of your question there, Paul, is from the free cash flow we're going to generate, you know, our key is to look at the high ROI projects and then look at potential bolt-on acquisitions and then delever to keep under that three times leverage, as I had mentioned previously. But from a perspective of debt, we think we're going to be $450 to $470 a year, and that's what we're forecasting at this point."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay. Thank you very much."
+      },
+      {
+        "speaker": "spk06",
+        "text": "You're welcome."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Philip Shen with Rose Capital Partners. Please go ahead."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Hi, everyone. Thank you for taking my questions. In terms of market share for next year, what are you expected to be in the U.S. for you guys, given the backlog that you see?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, hey, Philip, I'm not going to comment on next year's share of demand, whether it's here in the U.S. or internationally. I would just defer back to Nipa. We'll continue to report out on a quarterly basis of how we're doing."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Great. Thanks, Jim. And then, you know, in a bunch of the checks that we've done with customers, you know, it seems like the preferences for trackers are quite strong. You know, some really prioritize the O&M savings. Others prefer some of the other features that peers might offer. Just wondering, as you guys go and sell and try to gain that share, how do you work to change these very entrenched preferences?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, Philip, we just continue to drive the value proposition, namely, you know, where we stand with respect to levelized cost of electricity or energy, I should say, where we believe we have a distinct advantage, our O&M advantage, zero scheduled maintenance. You know, it's a very highly technical sale, and that continues to resonate with our customers. So, really, no change in how we're selling. It's just really driving that value across the board with the customers."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Great. Thanks, Jim. And you mentioned, I think, earlier, Jim, that you expect a nice order with a strategic customer to come up both domestically and internationally. Can you talk about the number of those orders that might be in the pipeline? Is it more than one? And from a timing standpoint, do you think we could hear about that customer or the other customers sometime this year, or do you think it might be earlier next year?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, so we're going to be announcing its tentatively planned for next week, and it's going to be north of one gigawatt, and it'll be projects domestic and international. And it'll talk about the enablement of the said decision by that customer. So we're actually very excited about this one."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Great. And what's the mix of international business in that order? I can't disclose that. That's, you know, the customer's decision. Can you share which country or region of the world that might be in? No, unfortunately, I can't do that. Okay, great. Thanks for taking my questions. Congrats on being a public company, and I'll pass it on."
+      },
+      {
+        "speaker": "spk01",
+        "text": "This concludes the question and answer session. I would like to turn the conference back over to management for any closing remarks."
+      },
+      {
+        "speaker": "spk08",
+        "text": "So thank you, operator."
+      },
+      {
+        "speaker": "spk07",
+        "text": "For those on the call, again, I want to thank you again and just reiterate how happy we are with the results of this quarter and our outlook going forward. We continue to execute on all fronts. Very excited and very pleased. And again, a heartfelt thank you to everyone."
+      },
+      {
+        "speaker": "spk01",
+        "text": "This concludes today's conference call. You may disconnect your lines. thank you for participating and have a pleasant day Thank you. you Music. Thank you. Thank you. Bye."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you. music music you"
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk07": {
+        "name": "Jim",
+        "title": "CEO"
+      },
+      "spk06": {
+        "name": "Nipal",
+        "title": "CFO"
+      },
+      "spk01": {
+        "name": "Operator",
+        "title": "Moderator"
+      },
+      "spk04": {
+        "name": "Brian Lee",
+        "title": "Analyst, Goldman Sachs"
+      },
+      "spk05": {
+        "name": "Paul Koster",
+        "title": "Analyst, J.P. Morgan"
+      },
+      "spk03": {
+        "name": "Steven Bird",
+        "title": "Analyst, Morgan Stanley"
+      },
+      "spk02": {
+        "name": "Shar Puresa",
+        "title": "Analyst, Guggenheim Partners"
+      },
+      "spk10": {
+        "name": "Michael Weinstein",
+        "title": "Analyst, Credit Suisse"
+      },
+      "spk08": {
+        "name": "Colin Rush",
+        "title": "Analyst, Oppenheimer"
+      },
+      "spk09": {
+        "name": "Jeff Osborne",
+        "title": "Analyst, Cowan & Company"
+      },
+      "spk11": {
+        "name": "Philip Shen",
+        "title": "Analyst, Rose Capital Partners"
+      },
+      "spk00": {
+        "name": "Music",
+        "title": "Background Music"
+      }
+    }
+  },
+  "text": "Jim (CEO): on our growth initiatives before turning it over to NIPL to talk about the quarter. Array Technologies is first and foremost a technology company. We are one of the world's largest manufacturing of ground mounting systems used in utility-scale solar energy projects. Our principal product is an integrated system of steel supports, electric motors, gearboxes, electronic controllers, and software, commonly referred to as a single-axis tracker. Trackers move solar panels throughout the day to maintain an optimum orientation to the sun, which significantly increase their energy production up to 25%. Our product is patent protected and has a compelling value proposition. In fact, we have approximately 10 years left on our core patent and more than 10 years left on other patents. Since Array's inception, we've shipped over 21 gigawatts of product. To put some context around the scale of our business, Over the last 12 months, we've shipped over 26,000 miles of trackers, which is enough to circle the globe. Finally, we are proud that more than one in every four solar modules in operation today in the U.S. is on our product. We established a track record that is evidenced by our strong financial results having delivered $692 million in revenue and $140 million in adjusted EBITDA during the nine months ending September of this year. which represents 64% growth in revenue and 96% growth in adjusted EBITDA compared to the first nine months in 2019. With that background, I'd like to pivot to our growth initiatives. As many of you know from meeting with us during our IPO Roadshow, there are three components to our growth strategy. Continued growth and market share gains in our core U.S. business, international expansion, and bolt-on acquisitions. I'm pleased to report that we have made progress on all three since our IPO price. First, U.S. demand for our products continues to grow. Our order book, which we define as signed contracts and awarded orders, was $703 million on September 30th, which represents an increase of 31 percent over the same time last year, but we are currently in advanced discussions on several large new projects some of which we hope to be announcing soon. We believe that the ease of installation, superior reliability, and lower LCOE of our products is increasingly becoming recognized by customers and that we will continue to grow our share of demand here in the U.S. Second, we are beginning to see early returns on our investment in international sales resources. Of the orders that we are currently in advanced discussions on, a number of them are projects outside the U.S. Further, as evidence of our commitment to international expansion, over the last nine months, we've increased the size of our international footprint by more than 50%, with resources now located in the UK, Spain, Brazil, Mexico, China, and Australia. And we remain committed to add strategic resources around the globe in the coming months as needed. Third, we are actively pursuing our bolt-on acquisition strategy. Outside of panels, inverters, and mounting systems, our customers purchase as much as 13 cents per watt in other products and components, many of which work directly with or are complementary to our tracker. Acquiring companies that make these products can be highly accretive to our margins because we can eliminate duplicate selling expenses since, in most cases, we'd be selling more product to the same customers we already have relationships with. While we cannot guarantee we'll be able to identify or execute any acquisitions, we are currently pursuing several targets. Now I will turn it over to Nipal for an update on the quarter.\n\nNipal (CFO): Thanks, Jim. I would like to begin by providing some context for comparing our 2019 versus 2020 results. As most of you know, 2020 was the first of three annual step-downs in the ITC, or Investment Tax Credit, for solar. As a reminder, the ITC was originally put in place to support the economics of solar and provide the runway for the industry to become increasingly competitive to other forms of generation through innovation and economies of scale. This has largely been accomplished as the marginal cost of utility-scale solar is now lower than that of natural gas without subsidies in many parts of the country. While there is a potential for the ITC to be extended at the original level, The current legislation gradually reduces the size of the credit over three years, eventually to 10%. The result of these step-downs is to incentivize customers to place orders in Q3 and Q4 and then take delivery in Q1 and Q2 of the following year. As previously disclosed in our S1 and Roadshow, the impact on us is to concentrate more of our revenues in the first half than the second half, and that is what we saw this year and expect to see again next year. As a result, comparing a single quarter in 2020 to the same quarter in 2019 is not necessarily indicative of the trajectory of our business since revenues in 2020 are skewed more to Q1 and Q2, while revenues in 2019 were more evenly distributed. It's also important to note that because of the large size of many of our orders, results in a single quarter are not necessarily indicative of what we may achieve over a full year. Given the ITC change, I will provide a brief summary of our third quarter results, including some commentary around how our results compared to our plans, since there are not yet any consensus estimates available for our company, and then provide comparatives for the nine-month periods. For the third quarter, we generated revenues of $139.5 million which was a decrease over the prior year period as a result of the changes in seasonal order patterns that I discussed earlier. Relative to our plan, third quarter revenues beat our expectations, primarily as a result of faster than anticipated conversion and delivery of projects, in addition to more sales to smaller size projects. We are seeing tractors being used in all size ranges of projects with growing demand from the sub-50 megawatt market. ASPs from third quarter were largely unchanged from the second quarter. Gross margins in the third quarter were lower than prior year period as a result of having less revenue to absorb fixed costs as well as higher logistics costs largely driven by the global shipping constraints due to COVID-19. Importantly, we view both of these dynamics as short-term in nature and not indicative of longer-term margin pressure. Operating expenses were roughly flat compared to prior period, excluding professional fees related to our IPO and change for contingent consideration, reflecting tight controls on expenses. We recorded an operating loss in the quarter of $5.1 million, primarily as a result of the $13.6 million charge we took for the fair value of contingent consideration as well as $1.8 million of professional fees and expenses related to our IPO and recapitalization. The charge for the contingent consideration relates primarily to an earn-out obligation we have with our founder in connection with his sale of the company to Oak Tree in 2016. Adjusted EBITDA, which excludes the impact of the earn-out obligation, the IPO expenses, and approximately $1 million of other non-recurring and non-cash costs, was $16.6 million for the third quarter, which exceeded our plan by a double-digit margin. Now, turning to our nine-month results. Revenues for the nine months ended September 30, 2020 increased 64% to $692.1 million, compared to $423.2 million for the prior year period, driven by increases in the volume of trackers delivered. Gross profit increased 86% to $167.3 million compared to $90.2 million in the prior year period, driven primarily by higher revenues. Gross margins increased 24.2% from 21.3% in the prior year period, driven by reductions in purchased materials resulting from improved supplier arrangements and shifting volumes for certain components to new, lower-cost suppliers, and greater leverage of fixed costs against higher sales volumes. Operating expenses increased to $69.9 million compared to $47.3 million during the same period in the prior year, primarily as a result of the $13.6 million charge for contingent consideration and $1.8 million of professional fees related to our recapitalization and initial public offering in the third quarter that I discussed earlier. Income from operations increased 127% to $97.5 million compared to $42.9 million during the same period in the prior year. Net income increased 431% to $68.8 million compared to $13 million during the same period in the prior year, and basic and diluted income per share was $0.57 compared to $0.11 during the same period in the prior year. Adjusted net income increased 116% to $93.4 million compared to $43.2 million during the same period in the prior year, and adjusted net income per share was 78 cents compared to 36 cents during the same period in the prior year. Adjusted EBITDA increased 96% to $140.5 million compared to $71.8 million for the prior year period. We decided to provide guidance for the full year 2020 to give our new public investors additional insight into our outlook for the remainder of the year. Going forward, we will be providing annual guidance as part of our fourth quarter and full year earnings announcements. We will not be providing quarterly guidance in future periods. For the full year 2020 ending December 31st, 2020, we expect revenues to be in the range of $845 million to $865 million. Adjusted EBITDA to be in the range of $156 million to $160 million. Adjusted net income per share to be in the range of 82 cents to 86 cents. This assumes diluted shares outstanding for the three months ending December 31st, 2020 of 126,123,723 shares. And diluted shares outstanding for the 12 months ending December 31st, 2020 of $121,535,154. Our guidance excludes the impact of any one-time charges, expenses related to the recapitalization and IPO, income or expense related to contingent consideration, as well as any related tax impacts. Now, I will turn it back over to Jim for some closing remarks.\n\nJim (CEO): Thanks, Meeple. I'd like to wrap up by saying we are incredibly optimistic about the future of this company. The drive to decarbonize energy is only accelerating and we are a direct beneficiary of that transition. Solar with single axis trackers has proven to be one of the cleanest and lowest cost forms of generation and we see demand for trackers growing faster than the overall market for solar as customers convert from fixed tilt. Customers are increasingly recognizing the superior reliability and durability of our tracking system, and that is leading to market share gains for our products. These factors, combined with our strong order book, give us confidence that we are very well positioned to have another year of substantial growth in 2021. Thank you. Operator, please open the line for questions.\n\nOperator (Moderator): Thank you. We will now begin the question and answer session. To join the question queue, you may press star then 1 on your telephone keypad. You will hear a tone acknowledging your request. If you're using a speakerphone, please pick up your handset before pressing any keys. To withdraw your question, please press star then 2. We will pause for a moment as callers join the queue. Our first question is from Brian Lee with Goldman Sachs. Please go ahead.\n\nBrian Lee (Analyst, Goldman Sachs): Hey guys, thanks for taking the questions and congrats on, you know, first quarter out as a public company. I guess just a couple questions around the model to begin with maybe. Can you give us what the U.S. and rest of world mix was for the quarter on revenue and megawatts?\n\nNipal (CFO): Hey Brian, it's Nipal. How are you? Yeah, we're We're not going to be reporting megawatts. I can give you the mix of that revenue. For the quarter, it was 10% international, and the remainder, U.S.\n\nBrian Lee (Analyst, Goldman Sachs): Okay, that's helpful. And then you mentioned, Nupul, the ASPs were flat from 2Q to 3Q. I assume that's a comment on the overall mix of business. Would you say the trends ASP-wise were pretty similar across the two regions?\n\nNipal (CFO): Yeah, we're not seeing any changes in the pricing environment.\n\nBrian Lee (Analyst, Goldman Sachs): Okay, great. And then maybe just kind of a bigger picture question. You know, you spent several minutes outlining the safe harbor situation and kind of how the mechanics of that work for your business model, so that was very helpful. Is there some quantification you can provide as to how much volume \u2013 you saw in megawatts and dollars in 2019 from a safe harbor perspective and then it sounds like you're anticipating more of that in the end of 2020 and early 21. We have heard from some other component vendors through 3Q earnings that they seem to be expecting a much more muted safe harbor volume impact this year versus what they saw last year. Just trying to maybe square up a little bit what the impact might be for you and why it could be different versus what we've heard from some of the other technology peers that are out there. Thank you.\n\nNipal (CFO): Yeah, sure, thanks, Brian. So, yeah, I would say we're in line with that. Last year, fourth quarter, it was about $100 million of safe harbor orders, and we're seeing a slightly lower number here in our Q4 of this year in the guidance we provided.\n\nBrian Lee (Analyst, Goldman Sachs): Okay, thanks, guys. I'll pass it on.\n\nOperator (Moderator): Our next question is from Paul Koster with J.P. Morgan. Please go ahead.\n\nPaul Koster (Analyst, J.P. Morgan): Yes, welcome to the public markets and thank you for taking my questions this morning. Jim, perhaps we can just focus on the international initiative a little bit. Can you talk to us a little bit about the approach you're taking here? Are you sort of building it and hoping they will come in terms of infrastructure or are you following your clients into that market? What's the timeline that investors should expect for material change? And can you talk a little bit about the pricing and margins in that market?\n\nJim (CEO): Yeah, thanks, Paul. It's really the latter, as you alluded to. We're going to continue to work with our customers with respect to their growth in the various regions and countries. Having said that, I just wanted to kind of give you a quick update. We continue to expand out our resources with respect to those regions. We've actually increased the number of personnel, whether it's technical, sales, business development in the countries such as the UK, Spain, Brazil, Mexico and China and Australia. So as our customers go into those regions, we will follow accordingly. And I would just reflect back with what Nipo said on ASPs. They remain somewhat stable. And as we consider the margin performance, we're going to continue to build out our infrastructure, namely our supply chain, for local content in order to cause that to be an accelerant for margin improvement going forward on the international side.\n\nPaul Koster (Analyst, J.P. Morgan): And what about timeline?\n\nJim (CEO): I'm sorry, one more time, Paul?\n\nPaul Koster (Analyst, J.P. Morgan): Yeah, what kind of timeline before we see material sort of impact of the International Expansion Program?\n\nJim (CEO): Yeah, we're going to be reporting that out on an annualized basis. So right now, you know, our sales internationally are roughly 10%, and that's going to materially change as we go forward into next year. But I don't want to provide too much guidance on the international mix for next year.\n\nNipal (CFO): Okay, gotcha. Hey, Paul. People will also provide much more information during the annual call between international and U.S.\n\nPaul Koster (Analyst, J.P. Morgan): All right. Thanks very much. I'll hop back on the queue.\n\nOperator (Moderator): Our next question is from Steven Bird with Morgan Stanley. Please go ahead.\n\nSteven Bird (Analyst, Morgan Stanley): Hey, good morning. Grats on your first quarter as a public company. Thanks. I wanted to just pick up on the commentary you laid out in the release about increased customer activity, discussions around some potential sizable new orders. Are there any particular drivers you're seeing, any trends, or is this just specific to different customers? I'm just curious sort of of late if you're seeing something different than what you've seen in the past.\n\nJim (CEO): No, Steven, it's really the same. Our thesis remains the same with respect to the growth of solar overall. Having said that, we will be announcing in very short order a large deal with a very strategic customer that includes not only domestic but international growth as well. So, our customers continue to see the value of our product, and those trends really haven't changed. If anything, they continue to strengthen on the basis of our value proposition.\n\nSteven Bird (Analyst, Morgan Stanley): Okay, understood. And then I wanted to step way back and talk about U.S. policy, and I know we're in a period of a lot of uncertainty, but to the extent that there is a U.S. stimulus package, and that includes the extension of the solar ITC, I just was curious, sort of big picture, when you talk to your customers and when you think about the growth profile longer term, you know, how important that ITC is versus just the core importance of how very cheap solar has become. I'm just kind of curious how you think about that relative shift that we might see from a stimulus package.\n\nJim (CEO): Yeah, Stephen, it's really the latter. Our thesis remains the same with respect to the growth in solar, and that is just based on its cost structure. That's really the driving force, and then coupled with the megatrends on decarbonization and corporate America, as well as corporations globally, that continues to be the fuel. I would let the individual... speculate on what U.S. policy would do. I'm not going to comment there, but just, you know, we see the cornerstone of growth being just the cost competitiveness of solar going forward and the other attributes I just spoke to.\n\nSteven Bird (Analyst, Morgan Stanley): Very fair. And then just last one for me, you've had a couple questions already on sort of the international growth, and I'm pleased to see the increase in infrastructure that you're talking to Is there a potential that you would see, you know, essentially enough growth there that you want to make an investment over the next, say, six to 12 months? That is, you know, your spending, your expenses could be maybe a little bit bigger than you had planned initially, but ultimately you conclude that's worth it because you just see an increased volume of ultimate revenue there. How are you kind of thinking about that cadence of spending and infrastructure you need? Again, I don't view it as a negative signal at all, but I'm just curious if you kind of feel like you need to make more of an investment than maybe you had initially planned, just to make sure you can execute on all the opportunities.\n\nJim (CEO): Yeah, Steven, that's great. Our saying here is how much for how much. Every opportunity we're going to look at is going to be on an ROI basis, and if we need to invest in a said region and put infrastructure in place to support the customer's growth in that said region, we'll absolutely do that. But we look at every opportunity on an ROI basis.\n\nSteven Bird (Analyst, Morgan Stanley): Very fair. That's all I have. Thank you. Thanks, Stephen.\n\nOperator (Moderator): Our next question is from Shar Puresa with Guggenheim Partners. Please go ahead.\n\nShar Puresa (Analyst, Guggenheim Partners): Hey, good morning, guys. Good morning. Good morning. And congrats, echoing Stephen's comments on your first outing as a public company. Jim, you mentioned you're in the process of sort of evaluating potential acquisition targets. I know there are like sort of multiple areas of the balance of system related solar products and utility products that you sort of target, but maybe if you could just provide some color on what type of acquisitions you're pursuing first, and then sort of obviously the source of funds for the acquisitions, assuming you're going to be tapping the revolver capacity.\n\nJim (CEO): Yeah, well, first of all, thanks, Char. I don't want to give too much detail surrounding any acquisition targets because that obviously is highly sensitive. I would say with respect to those bolt-on acquisitions, you know, we do see opportunity across the board as we are selling to the same customers those various components and services that complement our tracker. And we just maintain a very healthy pipeline of opportunities that we vet accordingly. And with respect to how we would transact, I'll defer to Nipal on that one.\n\nNipal (CFO): Yeah, so hey, Shar. So this, obviously, these bolt-on acquisitions, we see we can handle with our free cash flow as well as our tapping the revolver if needed.\n\nShar Puresa (Analyst, Guggenheim Partners): Got it, got it. And so we're a little over a month into the fourth quarter when you sort of expect to see a large increase in orders. Can you just share what you're seeing so far in terms of orders? Is the percentage of full year order volume in line with last year, or is it a little less because last year was the first year of the ITC step down? And then sort of how should we sort of think about this dynamic in 21 and 22?\n\nNipal (CFO): Hey, yeah, so I would, you know, I would go back to our filing when we talked about our backlog. Our backlog was $703 million at the end of the quarter, and that was an increase significantly. up over 30% from the same period of last year. So we continue to see higher activity in Q4, which we feel really good about.\n\nShar Puresa (Analyst, Guggenheim Partners): Got it. And then last one for me, a question for you again, Nupil. Gross margins were up around 3% driven by sort of the supplier arrangements year to date versus last year. How should we maybe sort of think about the shape of the margins over time, especially as you start to increase your footprint internationally? and also look to renegotiate contracts with your suppliers. So there's a couple of counteracting items here.\n\nNipal (CFO): Yeah. And, you know, as we had, we believe our margins, that the way to look at our margins is really on a full year basis. And the way, you know, that we see our margins is kind of what we said in the high 20s for the full year, or low 20s, excuse me, for the full year.\n\nShar Puresa (Analyst, Guggenheim Partners): Got it. Terrific. Thanks again and congrats, guys. Thank you. Thanks, Sarah.\n\nOperator (Moderator): Once again, if you have a question, please press star then 1 on your telephone. Our next question is from Michael Weinstein with Credit Suisse. Please go ahead.\n\nMichael Weinstein (Analyst, Credit Suisse): Hi. Good morning, guys. Congratulations again. Just in terms of the targeted acquisitions and bolt-on acquisitions, Can you give us maybe at least an idea, are these in the U.S. or are these foreign acquisitions overseas? Where's the emphasis going to be?\n\nJim (CEO): Again, I don't like to give too much detail on that, Michael, but I would just kind of point back to the synergies that we see with respect to our tracker and how that would complement the customer base.\n\nMichael Weinstein (Analyst, Credit Suisse): Are these in the... on specific types of technologies or, say, a technological ramp-up that you're trying to achieve? What's the goal of the bolt-on strategy?\n\nJim (CEO): It's a complement of both. Yeah, it's a complement of technology as well as products and services. And the way to really look at it is the balance of systems that we obviously want to address today. for the customer base, you know, how we can continue to increase the value for them as well as our shareholders.\n\nMichael Weinstein (Analyst, Credit Suisse): Gotcha. And just one more from me. What other additional disclosures can we expect in future quarters, you know, that go beyond what we were providing today?\n\nNipal (CFO): So, from a disclosure perspective, you know, for the annual call, we will obviously provide full year guidance for 2021, but we'll also include the split on a revenue perspective from an international and domestic perspective.\n\nMichael Weinstein (Analyst, Credit Suisse): Great. How about on an EBITDA basis? Is that only going to be consolidated?\n\nNipal (CFO): Yeah, we'll provide EBITDA, obviously EBITDA guidance. We'll give you some color around what that EBITDA is comprised of.\n\nColin Rush (Analyst, Oppenheimer): Great. Thank you very much. Thank you.\n\nOperator (Moderator): Our next question is from Colin Rush with Oppenheimer. Please go ahead.\n\nColin Rush (Analyst, Oppenheimer): Thanks so much. With a fourth quarter guidance, how many megawatts are related to safe harboring and how much, you know, I guess how many megawatts related to safe harboring do you expect to recognize as revenue?\n\nNipal (CFO): Hey, Colin. This is Neeple. So, yeah, for that guidance, you know, as it's implied, I would say that, you know, There's a portion related to Safe Harbor, which we're not going to provide the exact amounts, but there's a portion that's smaller than what I mentioned in the $100 million for the Q4 last year.\n\nColin Rush (Analyst, Oppenheimer): Okay, and then with the backlog, the $703 million, how much is related to Safe Harbor, to past Safe Harbor orders, and what's the expected timeline for the delivery on that full book?\n\nNipal (CFO): Yeah, that full book, like all of our backlog, you know, there's things coming in and out of it, but we'd expect that full book to deliver by the end of 2021.\n\nColin Rush (Analyst, Oppenheimer): Okay, great. And then just, you know, actually, I'll take the rest offline. Thanks so much, guys. Thank you.\n\nOperator (Moderator): Our next question is from Jeff Osborne with Cowan & Company. Please go ahead.\n\nJeff Osborne (Analyst, Cowan & Company): Good morning. Most of them have been asked. I just had two. One, will the 10Q be out today or no?\n\nNipal (CFO): Hey, Jeff. This is, as you know, going public just a couple weeks ago and doing our first 10Q, it's going to take a little bit longer. We expect it to be out probably sometime next week. It won't go out today.\n\nJeff Osborne (Analyst, Cowan & Company): And just to follow up on Michael's question, the 10Q will not have megawatts or geographic split of revenue? That's only something you're going to publish or disclose annually?\n\nNipal (CFO): Correct. The 10Q will have the change in megawatts in our MD&A section, not the exact megawatt shift.\n\nJeff Osborne (Analyst, Cowan & Company): So just given you have three objectives as a company, I just want to focus on the first two, gaining share in the U.S. and then growing internationally. Okay. How would you encourage your new shareholders to track your progress on those two initiatives? Is it just once a year that you want to be measured on that?\n\nNipal (CFO): No, we will provide qualitative information throughout the quarter. So, you know, I apologize. We won't be providing exact dollar numbers or figures, but we will absolutely provide qualitative figures so the market and the new shareholders can follow.\n\nJeff Osborne (Analyst, Cowan & Company): Got it. And then maybe just for Jim, can you just touch on the decision to go after China? I think in the latest Wood Mackenzie report, the pricing in China is about 4 cents a lot less than the U.S. So certainly competitive, obviously a huge opportunity. But I would have thought your partners that you have in the U.S. are less focused on China's utility scale market and maybe more in Mexico, Brazil, Spain, some of the other markets that you reference. So can you just touch on China in particular and the decision to go after that market?\n\nJim (CEO): Yeah, Jeff, let me clarify. We're not going after the market in China. We have resources internationally. China is one where we have technical resources and supply chain resources. So as we discussed on the roadshow, that's kind of where we're focusing resources for Asia overall. So the resources that we have in China, you can think of actually handling supply chain as well as some of the technical interfaces for suppliers out there.\n\nJeff Osborne (Analyst, Cowan & Company): Got it. That makes more sense. Thank you. I appreciate it.\n\nOperator (Moderator): Thanks, Jack. Our next question is from Paul Koster with JP Morgan. Please go ahead.\n\nPaul Koster (Analyst, J.P. Morgan): Yeah, thanks for taking my follow-up question. I wonder if you'd be kind enough to just sort of give us a sense of where the debt will stand at year end and what the capital allocation strategy is with respect to the debt over the next couple of years.\n\nNipal (CFO): Sure. Yeah, we, as far as the debt, you know, from the free cash flow that we're going to generate, we're going to, let me start with the second part of your question there, Paul, is from the free cash flow we're going to generate, you know, our key is to look at the high ROI projects and then look at potential bolt-on acquisitions and then delever to keep under that three times leverage, as I had mentioned previously. But from a perspective of debt, we think we're going to be $450 to $470 a year, and that's what we're forecasting at this point.\n\nPaul Koster (Analyst, J.P. Morgan): Okay. Thank you very much.\n\nNipal (CFO): You're welcome.\n\nOperator (Moderator): Our next question is from Philip Shen with Rose Capital Partners. Please go ahead.\n\nPhilip Shen (Analyst, Rose Capital Partners): Hi, everyone. Thank you for taking my questions. In terms of market share for next year, what are you expected to be in the U.S. for you guys, given the backlog that you see?\n\nJim (CEO): Yeah, hey, Philip, I'm not going to comment on next year's share of demand, whether it's here in the U.S. or internationally. I would just defer back to Nipa. We'll continue to report out on a quarterly basis of how we're doing.\n\nPhilip Shen (Analyst, Rose Capital Partners): Great. Thanks, Jim. And then, you know, in a bunch of the checks that we've done with customers, you know, it seems like the preferences for trackers are quite strong. You know, some really prioritize the O&M savings. Others prefer some of the other features that peers might offer. Just wondering, as you guys go and sell and try to gain that share, how do you work to change these very entrenched preferences?\n\nJim (CEO): Yeah, Philip, we just continue to drive the value proposition, namely, you know, where we stand with respect to levelized cost of electricity or energy, I should say, where we believe we have a distinct advantage, our O&M advantage, zero scheduled maintenance. You know, it's a very highly technical sale, and that continues to resonate with our customers. So, really, no change in how we're selling. It's just really driving that value across the board with the customers.\n\nPhilip Shen (Analyst, Rose Capital Partners): Great. Thanks, Jim. And you mentioned, I think, earlier, Jim, that you expect a nice order with a strategic customer to come up both domestically and internationally. Can you talk about the number of those orders that might be in the pipeline? Is it more than one? And from a timing standpoint, do you think we could hear about that customer or the other customers sometime this year, or do you think it might be earlier next year?\n\nJim (CEO): Yeah, so we're going to be announcing its tentatively planned for next week, and it's going to be north of one gigawatt, and it'll be projects domestic and international. And it'll talk about the enablement of the said decision by that customer. So we're actually very excited about this one.\n\nPhilip Shen (Analyst, Rose Capital Partners): Great. And what's the mix of international business in that order? I can't disclose that. That's, you know, the customer's decision. Can you share which country or region of the world that might be in? No, unfortunately, I can't do that. Okay, great. Thanks for taking my questions. Congrats on being a public company, and I'll pass it on.\n\nOperator (Moderator): This concludes the question and answer session. I would like to turn the conference back over to management for any closing remarks.\n\nColin Rush (Analyst, Oppenheimer): So thank you, operator.\n\nJim (CEO): For those on the call, again, I want to thank you again and just reiterate how happy we are with the results of this quarter and our outlook going forward. We continue to execute on all fronts. Very excited and very pleased. And again, a heartfelt thank you to everyone.\n\nOperator (Moderator): This concludes today's conference call. You may disconnect your lines. thank you for participating and have a pleasant day Thank you. you Music. Thank you. Thank you. Bye.\n\nMusic (Background Music): Thank you. music music you",
+  "n_turns": 81
+}

@@ -1,0 +1,409 @@
+{
+  "ticker": "MPWR",
+  "original_ticker": "MPWR",
+  "call_date": "2024-10-30",
+  "year": 2024,
+  "quarter": 3,
+  "vendor_params": {
+    "exchange": "NASDAQ",
+    "symbol": "MPWR",
+    "year": 2024,
+    "quarter": 3
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T01:22:05Z",
+  "raw_payload": {
+    "event": {
+      "year": 2024,
+      "quarter": 3,
+      "conference_date": "2024-10-30T17:00:00-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk00",
+        "text": "Welcome, everyone, to the MPS Third Quarter 2024 Earnings Webinar. My name is Genevieve Cunningham, and I will be the moderator for this webinar. Joining me today are Michael Singh, CEO and founder of MPS, Bernie Blagen, EVP and CFO, and Tony Ballo, Vice President of Finance. Earlier today, along with our earnings announcement, MPS released a written commentary on the results of our operations. Both of these documents can be found on our website. Before we begin, I would like to remind everyone that in the course of today's presentation, we may make forward-looking statements and projections within the meaning of the Private Securities Litigation Reform Act of 1995 that involve risk and uncertainty. Risks, uncertainties, and other factors that could cause actual results to differ from these forward-looking statements are identified in the Safe Harbor statements contained in the Q3 earnings release and in our SEC filings, including our Form 10-K, which can be found on our website. Our statements are made as of today, and we assume no obligation to update this information. Now, I'd like to turn the call over to Bernie Blagan."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thanks, Jen. Good afternoon, and welcome to our Q3 24 earnings call. NPS achieved record quarterly revenue of $620.1 million, 22% higher than revenue in the second quarter of 2024 and 30% higher than revenue in the third quarter of 2023. Our performance during the quarter reflected the strength of our diversified market strategy as we experienced improved ordering trends across most end markets and additionally benefited from initial revenue ramps associated with design wins secured in prior years. Let me call out a few highlights. Q3 2024 automotive revenue was up 28% sequentially, with improvements in infotainment, lighting, ADAS, and body controls. Communication revenue was up 65% from the prior quarter, reflecting new product ramps for Wi-Fi, optical, networking, and router solutions. Storage and compute revenue was up 25% sequentially on the strength of demand for DDR5 and SSD memory and notebooks. MPS continues to focus on innovation solving our customers' most challenging problems, and maintaining the highest level of quality. In addition, we continue to expand and diversify our global supply chain, which will allow us to capture future growth, maintain supply chain stability, and swiftly adapt to market changes as they occur. Our proven long-term growth strategy remains intact as we continue our transformation from being a chip-only semiconductor supplier to a full-service silicon-based solutions provider. I'll now open the webinar up for questions."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you, Bernie. Analysts, I would now like to begin our Q&A session. As a reminder, if you'd like to ask a question, please click on the Participants icon on the menu bar and then click the Raise Hand button. Our first question is from Rick Schaefer of Oppenheimer. Rick, your line is now open."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, and congrats, you guys. I guess I've got a two-part question, if I could. The first is on enterprise data. It looks like it was down about 15% sequentially. I don't know if you could give some color on that. Is that one time in nature, or does that reflect a more sustained shift in that segment as we look into 4Q and then into 25. And then my second part of my question, I mean, it looked like auto, and you listed a few of them, Bernie, you know, automotive, industrial, comms, consumer, all look like they were up pretty materially, sequentially. So, you know, how would you characterize those segments, which have sort of been lagging the last few quarters? You know, do you feel like those have made the turn? Sure, Rick, this is Bernie."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Let me start with the enterprise data. Sequentially, we were down about 1.5% from Q2. And that, you know, a couple of things that we've talked about. One is that we don't control our customers ordering patterns. So as it relates to the current quarter, we did see a different ordering trend than we'd observed in each of the past six quarters. And then as far as looking ahead, We've been very open about the fact that as far as supply chain security for our customers, that that's going to require a second or third competitor to be introduced on the share. And so there's a lot of issues here that we've been talking about and that we're managing. But one very important point is that MPS's strength is in the diversity, and we don't try to call out a particular end market's results. We try to deliver the company in total. And that's sort of a short-term view, but Michael may have a couple comments on a longer-term view."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, I mean\u2026 You probably, everybody knows that if you look at the transcript from the last year, we talk about the market is big and the market is growing. The AI requirements is growing. So the customers initially will always take the best solutions. And to fulfill their needs and the best solutions and also the speed of the development service, as Bernie said earlier, and that's why we occupied pretty large shares. Last year, we said that, okay, this market is too big, and NPS will always have the best solutions in these applications. And we will talk, we also talk about in the markets bigger, there will be a second or third and a fourth supply to join this segment. And when would that happen? And we don't know. It happened in the last couple of quarters. In the next years, what we see, again, the market is growing very fast. We have other ones like SOC side of market segments and it hasn't really ramped up yet or started ramping. And the other ones, like other hyperscales, like a company, cloud computing companies, and their own SOCs and their own TPUs, they call it the tensor processors. And those ones are still small. We're ramping in the next few quarters. And as a Bernie said that NPS, in the past, we always emphasized diversity. And we will not be known to be an AI power supply company."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And then Rick, I think you had a question as far as automotive and whether or not the step up that we observed from Q2 to Q3 was more of a broader trend line or if it was a one time event. And this, we believe, is a step up. where a lot of design wins have been waiting in the pipeline for the right opportunity. And so we do believe that specific to us, not a discussion about the broader market, but specific to us that the number of product ramps are expected to come into the stream in the next two or three quarters."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Well, again, okay. As we said many years ago, there's a lot of new design wins. And when the ramp will take off, we don't know. Will it be plus minus a year or so? Do we care? We don't. And now all these greenfield products start to germinate. And that's what you see in the revenue today."
+      },
+      {
+        "speaker": "spk07",
+        "text": "And maybe one more comment just for Rick is that traditionally, you know, we'd been talking about strength and ADAS, but what you heard Bernie talk about was we saw that strength in automotive across kind of all the segments, including infotainment, body controls, really a sign of those sockets that we had won previously now start generating revenue. So it was more broad-based with an automotive than maybe we talked about previously."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks for all that color, you guys. And maybe right on that point on auto specifically, You know, I realize that this is a broad-based pickup, and it's basically design-win-driven, as all things are with you guys. But I'm curious, specifically, I mean, NVIDIA did, I believe, did really well the last year or two with DriveOrin, and I know you guys do power there. So I didn't know if you could talk specifically about China Auto today. and what content trends look like for you guys there and maybe give a sense of how big China Auto is now as sort of a portion of your overall auto segment. Thanks a lot."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Well, China's, again, EV business is booming. And now the tapered off a little bit and looks like we're booming again. Okay. And we're going the right direction again. Okay. And there's a lot of requirements. And the... the infotainments and the new type of infotainments and also the ADAS, okay, it's widely adopted in in China. And so that's what we see a bigger portion of it is a ramping from China. And also, so we see it in the other than the ADAS, okay, we see a lot of other products and will grow in from Germany and in the US."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thank you, guys."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from Tori Svanberg of Stiefel. Tori, your line is now open."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yes, thank you. And congratulations on the record revenue. I wanted to follow up on enterprise data. Obviously had two very strong quarters, first half of the year. It took a breather this quarter. But how should we think about that business into the December quarter? And Michael, I know you talked about many new product ramps in 2025, but just sort of specifically for Q4, how should we expect that business to perform?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "As far as I know, Q4, we don't lose any shares. And probably it was the same as the forecast. Okay, we can't really tell. And this forecast was given to us a few quarters ago. And we just fulfilled that. fulfill that demand. So we'll have, that's what we built for me in the last couple quarters."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yeah, and I think as we look to the outlook and the guidance that we provided, really enterprise data was, you know, somewhere in the, you know, plus low single digits. So again, our customers' ordering patterns are really what drives the performance there."
+      },
+      {
+        "speaker": "spk06",
+        "text": "No, that's very fair. And the one big surprise to me this quarter was communications. I think it was your strongest growth segment this quarter. You highlighted Wi-Fi, optical networking. Could you maybe just give us a little bit more color what's going on there? I mean, it does sound like you have some new segments there that you are penetrating, especially on the optical side."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Well, the opticals, okay, is a data converter, data communications within the data centers, okay, within your reps, okay. And that's a portion of it. But that's not all of them, okay. Other ones are new Wi-Fi format, okay, and start to ramping up, okay. NPS have a lot of reference designs and that's what we see across the continent. All these projects turn into revenue now."
+      },
+      {
+        "speaker": "spk05",
+        "text": "So I think the outlook for, again, MPS specifically remains very solid. Generally, after you have a big initial stocking in a quarter with a new revenue ramp, it tends to, you know, tail off for a quarter. But we see sustainable growth in communications through, you know, the first half of 25. Great."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thank you for the call. I'll go back in line."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from Joshua Buchalter of Cohen. Joshua, your line is now open."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hey guys, thank you for taking my question. I think in response to Rick's question, you mentioned two factors that sort of drove the flattening out of enterprise data being order patterns and second sourcing. I guess, could you maybe rank order which one of those had the bigger impact near term and in particular, as we think about your customers diversifying their suppliers, Are you seeing this more on AI accelerator platforms that are already in the market, or is this tied to the newer platforms that are currently ramping? Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "So I think Michael offered that in Q3 and Q4, we're not expecting to see share position change. So that was really just trying to acknowledge that that is a function of being the market leader in AI. And then over time, as we see a layering of all these new AI opportunities, Michael referred to the TPUs, which will probably begin to ship late 2021."
+      },
+      {
+        "speaker": "spk03",
+        "text": "I don't know if the TPU is \u2013 what I remember is a TPU maybe is \u2013 maybe Google's names, okay, trademarked names. Okay, to me, it's a tensor processor. Yeah, it's all, that's all it means, okay? And it's all really, some of you call, refer this as SOC, okay? And we have many design programs We engaged with many of our customers many years ago, and those products is actually we see start to ramp in the last quarter. Yeah, okay."
+      },
+      {
+        "speaker": "spk09",
+        "text": "But thank you for the call there. And I realize you've got content in multiple different sockets on many of these accelerator cards. And so my question is going to try to oversimplify it. But how should we think about as we think about some of these new accelerator platforms, your content opportunity, maybe in relationship to power draw of the actual processors or any other helpful rules of thumbs you can give us as we try to fine tune our models into next year? Thank you."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Well, if you believe as we believe, our products, our solution is the best and the most power efficient. And the market is bigger. And that portion of our revenue will grow. The rest of the stuff, we don't care. Just let it happen. Let the numbers speak for themselves."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thanks, guys."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from Chris Caso of Wolf. Chris, your line is now open."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Yes, thank you. Good evening. I guess the first question, as we look at your guidance for the December quarter, you know, not a lot changing on a sequential basis. I think you mentioned that the enterprise data will be up low single digits sequentially in December. Anything else that you would call out as, you know, kind of growing or shrinking data? different from the average in December. And then following that, given that enterprise data has grown as a percentage of revenue, does that affect seasonality as you look into the March quarter? Is there anything we should be thinking about with respect to the different customer mix as we go into March?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Sure. If you're looking at Q4 by end market, it's interesting. You have some seasonality, but currently we don't believe that any of the end markets are going to change by more than plus or minus mid single digits. So it's a very, very, very narrow range that we're talking about there. And when we look out into, you know, the momentum carried into 25, obviously we don't guide beyond Q4, but it has been seasonally down quarter for a lot of companies. But I don't have a view on what that's going to look like currently."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay, thank you."
+      },
+      {
+        "speaker": "spk03",
+        "text": "We don't really care. As long as we have a design, we design everything. And we're in the project with our customers. And when those ramps start to happen, our customers, they don't have clear views. And let those products, let it take its own course. Let the numbers speak for itself."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay. As a follow-up, as you look into next year, the other part of your enterprise data business on traditional server, that's an area that you guys have been favorable on for a while, but I guess you've been waiting for the market to improve. You know, we heard a little better news from at least one of the CPU vendors this week. Can you give some view of, you know, kind of the share content, you know, what you're seeing in that part of the enterprise data business as you go into 2025?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yes, those are good questions. Okay, man. Yes, we do see it. Okay, and the volumes start to picking up. And as we said earlier, many, quote, many years ago. And this version, this rapid software or something, okay, and the VR4 teams, okay, we will pick up the shares. And the 13 and a half, okay, by serendipity of a shortage, okay, and we prove we're significant suppliers, okay, in that. And there are four teams in what would be a significant, one of the big supply in this rapid sulfide growth."
+      },
+      {
+        "speaker": "spk07",
+        "text": "And maybe just beyond just the enterprise data segment itself, As you see those ramp, right, they'll pull through other solutions like DDR5 memory and continue to be a tailwind in some of the other segments as well. Thank you."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from William Stein of Truist. William, your line is now open."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Great. Thanks for taking my question. Michael, I know you often are involved in some interesting sort of sometimes idiosyncratic growth drivers for the company. I know for some time you were famously tinkering in the automotive end market and sort of searching for more effective solutions. solutions than what was available in the market. And I understand your focus has been perhaps more in the home automation market more recently. And I wonder if you can talk to us about, you know, some things that might be on the come in the next couple of years from the company in that market."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yes. Okay. As you know, as an NPS, I have a have a few thousands of products. We are in lighting, we are in thermostat, and we are in shades controls, and we are in all these fan models, and security, the window actuators, and the window and door open actuators. We're also making MCU now. And those MCU can be a brain of everything or why we're just putting the one box. and we're putting one box with the software, so look at me, and we sell as a kit. Everything is including it. The key is the ease of use. I think this will change the market segment for building automations."
+      },
+      {
+        "speaker": "spk02",
+        "text": "That's helpful. Maybe as a follow-up, You mentioned your MCUs now. There's another category that you entered relatively recently. You're not really known for it as much, but data converters. I think you hired a team in that area and you had some very good results for initial product, maybe in the medical end market. Can you talk about traction in that category, please?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "We are growing in that segment. The revenue is still small. As you know, these design cycles are very long. And also the product life cycles, 10, 20 years in the last 20 years. And those segments win-win in some industrial side as well as the medical side. And we have more product rolling out. As a matter of fact, in the next couple of quarters, some family of standard product. We will gain more market shares in the future. in this segment."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Great, thank you."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Okay. Our next question is from Ross Seymour of Deutsche Bank. Ross, your line is now open."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Hi guys, thanks for letting me ask a question. I want to go back to the non-enterprise data side. I think by my math, it was up about 35, 36% sequentially. I know you guys have a ton of design wins and you're kind of just waiting for them to ramp, but the magnitude of that ramp, the diversity of it, and just the commentary that bookings are improving seems to be at odds with the very muted recovery that so many of the peers are seeing. So could you just explain, do you think cyclical conditions are getting better, or is this a very monolithic power-specific dynamic? Any sort of color on that?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "I think, Ross, we're experiencing a little bit of both."
+      },
+      {
+        "speaker": "spk03",
+        "text": "There you are."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Is somebody else?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Oh yeah, Hans, can you mute it? Yeah. Yeah. Okay, can mute it, yeah."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay. So Ross, you're asking the difference between growth specific to us and what we're seeing in the market. And in the current quarter, or let me go back, the previous quarter, we actually saw improvements in our ordering patterns. But they're not a consistent trend. But what we saw in the current quarter was a lot of new revenue opportunities that we received from design wins secured in previous years that were coming to market now, particularly in communications, particularly in automotive. And then also we saw an improvement in the overall profile of the memory market."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Well, as a matter of fact, we see all cross aboard."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yeah."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Other than AI. Other than AI powered. And all cross aboard."
+      },
+      {
+        "speaker": "spk01",
+        "text": "And how are you, I guess, as my follow up, whether it's in the AI side or otherwise, a lot of supply has been added to the market over the last couple of years to address shortages, et cetera. And so a fear people have is that pricing pressure is going to ensue, whether it's more competition and AI power that you mentioned earlier, or just a more aggregate, holistic increase in pricing pressure. Are you guys seeing any evidence of that?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Well, our competitors, also some of the Chinese suppliers, they always want to lower the price to get in the market, to get in the socket. That's not the game we played. So a lot of our customers, they don't change those sockets. They don't change the... our products can swap out, okay, and quickly. And those kind of things, and also, we emphasize diversity. It's not in one segment, and a lot of shipments and a lot of volumes go into one particular product. particular applications or examples like AI. And we will provide the values. Our value is the highest performance. And all the other products, let our customers choose. So the history telling us, history showed, And as long as we operate in the same principles, the revenue will keep growing and growing the same way. And we see in the next couple of years, especially next year, we see all these products will grow. And now we just see the first sign of it. And all these design wing turning into a revenue now."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Thank you. Our next question is from Quinn Bolton of Needham. Quinn, your line is now open."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Hey guys, thanks for taking my question. I guess first to start off, I think it was for the first time ever in your June 10 queue, you guys disclosed a 10% plus customer. And I'm wondering, I know you haven't filed the queue yet, but if that's going to be an ongoing disclosure, would you be able to provide us if you had any 10% customers in the June, sorry, September quarter? And if so, what percent of revenue was that customer? Yeah."
+      },
+      {
+        "speaker": "spk05",
+        "text": "So, Quinn, what you're referencing is basically revenue exposure by direct customer and indirect. And when the customer hits a certain threshold, according to the SEC guidelines, we need to put a reference to that."
+      },
+      {
+        "speaker": "spk03",
+        "text": "But we're never putting a name out there."
+      },
+      {
+        "speaker": "spk05",
+        "text": "No, no, we do not."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, this time we will still have one customer is bigger than 10%. Yeah. As a bonus, you can check the numbers and not get there. Is that about right? Only two? Yeah. Two customers and above 10%."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And we'll get percentages in the queue. It's one or two."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, I think it's one or two. I believe it's one. Bernie can check. No, it's only one. Two would be very big. I don't believe that. Yeah. Yeah."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay. The second question is, I know you don't want to guide to 2025 yet."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hold on a second. Tony, could you check that? Yeah, could you check that as a one or two? I think the second one is a less than 4%."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yes, I'll check it. Give me 10 seconds so I'll get back to you."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, yeah. So we are, okay, this had to be on our record. And then let's make it clear. Go ahead. Okay."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Yeah, maybe while we're waiting for Tony, my second question was, I know you're not going to sort of give a specific guidance out to 2025, but the street is looking for, you know, continued pretty strong growth in the enterprise data segment. I know you've talked about lots of prosperance in terms of expecting some additional competition to enter that market. some pricing pressure at existing customers, but you also have the ASIC designs that start to ramp next year. The street's kind of looking for that business to hit almost $1.1 billion in revenue. And just wondering, is that, given your crystal ball, is that sort of a reasonable expectation? Do you think that we should be tempering expectations for that segment, given some of the cross-currents you've mentioned, or do you want to just kind of keep it one quarter at a time?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yes, I can tell you very confidently. We will be, okay, let's say that. And when this market, when this AI market turn into like a regular server market, NPS will be a significant player in that. And now, this is not became a, what do you call it, reach to equilibrium. Not a run rate. Yeah, this is still ramping up. And when this segment is ramping, when it starts ramping, it's kind of lumpy. You don't see this thing. You can't keep going up. forever, like the first two, since last year and the first couple of this quarter, first couple of quarter in this year. So to answer your questions for next year, clearly, we have a lot more customers, I said earlier. We'll start to ramping those those design will turn into, those design will turn into revenues."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Michael, just to circle back, relative to DISTI, we'll call out two. For direct, we'll call out one."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay. That's a direct customer, not a DISTI?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "So we'll call it one direct. We'll call out multiple DISTIs as higher than 10%."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah. Yeah. Right. Well, This deal will never come in, okay, because all the reporting, that's in the reporting. All the design creation, all the exposures for the end customer is only one. The next one is, I believe, is less than, it's about, definitely is below 5%. Got it."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thank you, Michael. Thank you, Bernie. Okay."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from Tori Svanberg of Stiefel. Tori, your line is now open."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yes, thank you. I had a similar question to Quinn, but thinking more about vertical power. So enterprise data this year, more than 700 million, I assume the contribution from vertical power is still quite low. And if that's the case, as the market does transition to vertical power, could we see this market base basically even accelerate over the next few years?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Absolutely. Not in the next few years, next few quarters. Yes. As we said, we are playing the power module market segments since 2017. And all these technologies, all these manufacturing capabilities, that will really benefit for these vertical powers. And as I was speaking, now we are shipping those products in good volumes."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Sounds good. Thank you."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from Ross Seymour of Deutsche Bank. Ross, your line is now open."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Hey guys, thanks for letting me get a little follow-up snuck in here. Inventory, I know Michael, you and I have laughed about that many times in cycles in the past. That's my favorite question. There you go. In this instance, internal inventory came down by a lot, days-wise. What did external channel inventory do? How were you looking at that? Was some of that 35% sequential growth that I referred to in my initial question a little bit ago"
+      },
+      {
+        "speaker": "spk03",
+        "text": "inventory fill or is the channel stayed lean no the the channel staying lean in fact our total days uh went down in the court well we want to this is not good we want to build up and uh um as always we build the inventory in the um it's not synced with the with the market demand And you see, Ross, okay, you're the expert of NPS inventory. If you checked our inventory levels, it's the opposite of the market demand. And now the market demand for NPS now is very high. So the inventory is low. But we don't think that we're going to run into a shortage issue, but it's at the inventory level, it's at the uncomfortable level."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Gosh, I guess just to clarify, Bernie, when you said total inventory actually went down, you mean just total channel inventory days fell?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Channel inventory, yes. Channel inventory is also low, yeah."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Got it. Okay, that's it. Thanks, guys."
+      },
+      {
+        "speaker": "spk00",
+        "text": "This now concludes our Q&A session. I would now like to turn the webinar back over to Bernie."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank you. I'd like to thank you all for joining us for this conference call and look forward to talking to you again in our fourth quarter conference call, which is likely to be in early February. Thank you. Have a nice day."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk00": {
+        "name": "Genevieve Cunningham",
+        "title": "Moderator"
+      },
+      "spk01": {
+        "name": "Ross Seymour",
+        "title": "Analyst, Deutsche Bank"
+      },
+      "spk02": {
+        "name": "William Stein",
+        "title": "Analyst, Truist"
+      },
+      "spk03": {
+        "name": "Michael Singh",
+        "title": "CEO and Founder"
+      },
+      "spk04": {
+        "name": "Rick Schaefer",
+        "title": "Analyst, Oppenheimer"
+      },
+      "spk05": {
+        "name": "Bernie Blagen",
+        "title": "EVP and CFO"
+      },
+      "spk06": {
+        "name": "Tori Svanberg",
+        "title": "Analyst, Stiefel"
+      },
+      "spk07": {
+        "name": "Tony Ballo",
+        "title": "Vice President of Finance"
+      },
+      "spk08": {
+        "name": "Quinn Bolton",
+        "title": "Analyst, Needham"
+      },
+      "spk09": {
+        "name": "Joshua Buchalter",
+        "title": "Analyst, Cohen"
+      },
+      "spk10": {
+        "name": "Chris Caso",
+        "title": "Analyst, Wolfe Research"
+      }
+    }
+  },
+  "text": "Genevieve Cunningham (Moderator): Welcome, everyone, to the MPS Third Quarter 2024 Earnings Webinar. My name is Genevieve Cunningham, and I will be the moderator for this webinar. Joining me today are Michael Singh, CEO and founder of MPS, Bernie Blagen, EVP and CFO, and Tony Ballo, Vice President of Finance. Earlier today, along with our earnings announcement, MPS released a written commentary on the results of our operations. Both of these documents can be found on our website. Before we begin, I would like to remind everyone that in the course of today's presentation, we may make forward-looking statements and projections within the meaning of the Private Securities Litigation Reform Act of 1995 that involve risk and uncertainty. Risks, uncertainties, and other factors that could cause actual results to differ from these forward-looking statements are identified in the Safe Harbor statements contained in the Q3 earnings release and in our SEC filings, including our Form 10-K, which can be found on our website. Our statements are made as of today, and we assume no obligation to update this information. Now, I'd like to turn the call over to Bernie Blagan.\n\nBernie Blagen (EVP and CFO): Thanks, Jen. Good afternoon, and welcome to our Q3 24 earnings call. NPS achieved record quarterly revenue of $620.1 million, 22% higher than revenue in the second quarter of 2024 and 30% higher than revenue in the third quarter of 2023. Our performance during the quarter reflected the strength of our diversified market strategy as we experienced improved ordering trends across most end markets and additionally benefited from initial revenue ramps associated with design wins secured in prior years. Let me call out a few highlights. Q3 2024 automotive revenue was up 28% sequentially, with improvements in infotainment, lighting, ADAS, and body controls. Communication revenue was up 65% from the prior quarter, reflecting new product ramps for Wi-Fi, optical, networking, and router solutions. Storage and compute revenue was up 25% sequentially on the strength of demand for DDR5 and SSD memory and notebooks. MPS continues to focus on innovation solving our customers' most challenging problems, and maintaining the highest level of quality. In addition, we continue to expand and diversify our global supply chain, which will allow us to capture future growth, maintain supply chain stability, and swiftly adapt to market changes as they occur. Our proven long-term growth strategy remains intact as we continue our transformation from being a chip-only semiconductor supplier to a full-service silicon-based solutions provider. I'll now open the webinar up for questions.\n\nGenevieve Cunningham (Moderator): Thank you, Bernie. Analysts, I would now like to begin our Q&A session. As a reminder, if you'd like to ask a question, please click on the Participants icon on the menu bar and then click the Raise Hand button. Our first question is from Rick Schaefer of Oppenheimer. Rick, your line is now open.\n\nRick Schaefer (Analyst, Oppenheimer): Thanks, and congrats, you guys. I guess I've got a two-part question, if I could. The first is on enterprise data. It looks like it was down about 15% sequentially. I don't know if you could give some color on that. Is that one time in nature, or does that reflect a more sustained shift in that segment as we look into 4Q and then into 25. And then my second part of my question, I mean, it looked like auto, and you listed a few of them, Bernie, you know, automotive, industrial, comms, consumer, all look like they were up pretty materially, sequentially. So, you know, how would you characterize those segments, which have sort of been lagging the last few quarters? You know, do you feel like those have made the turn? Sure, Rick, this is Bernie.\n\nBernie Blagen (EVP and CFO): Let me start with the enterprise data. Sequentially, we were down about 1.5% from Q2. And that, you know, a couple of things that we've talked about. One is that we don't control our customers ordering patterns. So as it relates to the current quarter, we did see a different ordering trend than we'd observed in each of the past six quarters. And then as far as looking ahead, We've been very open about the fact that as far as supply chain security for our customers, that that's going to require a second or third competitor to be introduced on the share. And so there's a lot of issues here that we've been talking about and that we're managing. But one very important point is that MPS's strength is in the diversity, and we don't try to call out a particular end market's results. We try to deliver the company in total. And that's sort of a short-term view, but Michael may have a couple comments on a longer-term view.\n\nMichael Singh (CEO and Founder): Yeah, I mean\u2026 You probably, everybody knows that if you look at the transcript from the last year, we talk about the market is big and the market is growing. The AI requirements is growing. So the customers initially will always take the best solutions. And to fulfill their needs and the best solutions and also the speed of the development service, as Bernie said earlier, and that's why we occupied pretty large shares. Last year, we said that, okay, this market is too big, and NPS will always have the best solutions in these applications. And we will talk, we also talk about in the markets bigger, there will be a second or third and a fourth supply to join this segment. And when would that happen? And we don't know. It happened in the last couple of quarters. In the next years, what we see, again, the market is growing very fast. We have other ones like SOC side of market segments and it hasn't really ramped up yet or started ramping. And the other ones, like other hyperscales, like a company, cloud computing companies, and their own SOCs and their own TPUs, they call it the tensor processors. And those ones are still small. We're ramping in the next few quarters. And as a Bernie said that NPS, in the past, we always emphasized diversity. And we will not be known to be an AI power supply company.\n\nBernie Blagen (EVP and CFO): And then Rick, I think you had a question as far as automotive and whether or not the step up that we observed from Q2 to Q3 was more of a broader trend line or if it was a one time event. And this, we believe, is a step up. where a lot of design wins have been waiting in the pipeline for the right opportunity. And so we do believe that specific to us, not a discussion about the broader market, but specific to us that the number of product ramps are expected to come into the stream in the next two or three quarters.\n\nMichael Singh (CEO and Founder): Well, again, okay. As we said many years ago, there's a lot of new design wins. And when the ramp will take off, we don't know. Will it be plus minus a year or so? Do we care? We don't. And now all these greenfield products start to germinate. And that's what you see in the revenue today.\n\nTony Ballo (Vice President of Finance): And maybe one more comment just for Rick is that traditionally, you know, we'd been talking about strength and ADAS, but what you heard Bernie talk about was we saw that strength in automotive across kind of all the segments, including infotainment, body controls, really a sign of those sockets that we had won previously now start generating revenue. So it was more broad-based with an automotive than maybe we talked about previously.\n\nRick Schaefer (Analyst, Oppenheimer): Thanks for all that color, you guys. And maybe right on that point on auto specifically, You know, I realize that this is a broad-based pickup, and it's basically design-win-driven, as all things are with you guys. But I'm curious, specifically, I mean, NVIDIA did, I believe, did really well the last year or two with DriveOrin, and I know you guys do power there. So I didn't know if you could talk specifically about China Auto today. and what content trends look like for you guys there and maybe give a sense of how big China Auto is now as sort of a portion of your overall auto segment. Thanks a lot.\n\nMichael Singh (CEO and Founder): Well, China's, again, EV business is booming. And now the tapered off a little bit and looks like we're booming again. Okay. And we're going the right direction again. Okay. And there's a lot of requirements. And the... the infotainments and the new type of infotainments and also the ADAS, okay, it's widely adopted in in China. And so that's what we see a bigger portion of it is a ramping from China. And also, so we see it in the other than the ADAS, okay, we see a lot of other products and will grow in from Germany and in the US.\n\nRick Schaefer (Analyst, Oppenheimer): Thank you, guys.\n\nGenevieve Cunningham (Moderator): Our next question is from Tori Svanberg of Stiefel. Tori, your line is now open.\n\nTori Svanberg (Analyst, Stiefel): Yes, thank you. And congratulations on the record revenue. I wanted to follow up on enterprise data. Obviously had two very strong quarters, first half of the year. It took a breather this quarter. But how should we think about that business into the December quarter? And Michael, I know you talked about many new product ramps in 2025, but just sort of specifically for Q4, how should we expect that business to perform?\n\nMichael Singh (CEO and Founder): As far as I know, Q4, we don't lose any shares. And probably it was the same as the forecast. Okay, we can't really tell. And this forecast was given to us a few quarters ago. And we just fulfilled that. fulfill that demand. So we'll have, that's what we built for me in the last couple quarters.\n\nBernie Blagen (EVP and CFO): Yeah, and I think as we look to the outlook and the guidance that we provided, really enterprise data was, you know, somewhere in the, you know, plus low single digits. So again, our customers' ordering patterns are really what drives the performance there.\n\nTori Svanberg (Analyst, Stiefel): No, that's very fair. And the one big surprise to me this quarter was communications. I think it was your strongest growth segment this quarter. You highlighted Wi-Fi, optical networking. Could you maybe just give us a little bit more color what's going on there? I mean, it does sound like you have some new segments there that you are penetrating, especially on the optical side.\n\nMichael Singh (CEO and Founder): Well, the opticals, okay, is a data converter, data communications within the data centers, okay, within your reps, okay. And that's a portion of it. But that's not all of them, okay. Other ones are new Wi-Fi format, okay, and start to ramping up, okay. NPS have a lot of reference designs and that's what we see across the continent. All these projects turn into revenue now.\n\nBernie Blagen (EVP and CFO): So I think the outlook for, again, MPS specifically remains very solid. Generally, after you have a big initial stocking in a quarter with a new revenue ramp, it tends to, you know, tail off for a quarter. But we see sustainable growth in communications through, you know, the first half of 25. Great.\n\nTori Svanberg (Analyst, Stiefel): Thank you for the call. I'll go back in line.\n\nGenevieve Cunningham (Moderator): Our next question is from Joshua Buchalter of Cohen. Joshua, your line is now open.\n\nJoshua Buchalter (Analyst, Cohen): Hey guys, thank you for taking my question. I think in response to Rick's question, you mentioned two factors that sort of drove the flattening out of enterprise data being order patterns and second sourcing. I guess, could you maybe rank order which one of those had the bigger impact near term and in particular, as we think about your customers diversifying their suppliers, Are you seeing this more on AI accelerator platforms that are already in the market, or is this tied to the newer platforms that are currently ramping? Thank you.\n\nBernie Blagen (EVP and CFO): So I think Michael offered that in Q3 and Q4, we're not expecting to see share position change. So that was really just trying to acknowledge that that is a function of being the market leader in AI. And then over time, as we see a layering of all these new AI opportunities, Michael referred to the TPUs, which will probably begin to ship late 2021.\n\nMichael Singh (CEO and Founder): I don't know if the TPU is \u2013 what I remember is a TPU maybe is \u2013 maybe Google's names, okay, trademarked names. Okay, to me, it's a tensor processor. Yeah, it's all, that's all it means, okay? And it's all really, some of you call, refer this as SOC, okay? And we have many design programs We engaged with many of our customers many years ago, and those products is actually we see start to ramp in the last quarter. Yeah, okay.\n\nJoshua Buchalter (Analyst, Cohen): But thank you for the call there. And I realize you've got content in multiple different sockets on many of these accelerator cards. And so my question is going to try to oversimplify it. But how should we think about as we think about some of these new accelerator platforms, your content opportunity, maybe in relationship to power draw of the actual processors or any other helpful rules of thumbs you can give us as we try to fine tune our models into next year? Thank you.\n\nMichael Singh (CEO and Founder): Well, if you believe as we believe, our products, our solution is the best and the most power efficient. And the market is bigger. And that portion of our revenue will grow. The rest of the stuff, we don't care. Just let it happen. Let the numbers speak for themselves.\n\nJoshua Buchalter (Analyst, Cohen): Thanks, guys.\n\nGenevieve Cunningham (Moderator): Our next question is from Chris Caso of Wolf. Chris, your line is now open.\n\nChris Caso (Analyst, Wolfe Research): Yes, thank you. Good evening. I guess the first question, as we look at your guidance for the December quarter, you know, not a lot changing on a sequential basis. I think you mentioned that the enterprise data will be up low single digits sequentially in December. Anything else that you would call out as, you know, kind of growing or shrinking data? different from the average in December. And then following that, given that enterprise data has grown as a percentage of revenue, does that affect seasonality as you look into the March quarter? Is there anything we should be thinking about with respect to the different customer mix as we go into March?\n\nBernie Blagen (EVP and CFO): Sure. If you're looking at Q4 by end market, it's interesting. You have some seasonality, but currently we don't believe that any of the end markets are going to change by more than plus or minus mid single digits. So it's a very, very, very narrow range that we're talking about there. And when we look out into, you know, the momentum carried into 25, obviously we don't guide beyond Q4, but it has been seasonally down quarter for a lot of companies. But I don't have a view on what that's going to look like currently.\n\nChris Caso (Analyst, Wolfe Research): Okay, thank you.\n\nMichael Singh (CEO and Founder): We don't really care. As long as we have a design, we design everything. And we're in the project with our customers. And when those ramps start to happen, our customers, they don't have clear views. And let those products, let it take its own course. Let the numbers speak for itself.\n\nChris Caso (Analyst, Wolfe Research): Okay. As a follow-up, as you look into next year, the other part of your enterprise data business on traditional server, that's an area that you guys have been favorable on for a while, but I guess you've been waiting for the market to improve. You know, we heard a little better news from at least one of the CPU vendors this week. Can you give some view of, you know, kind of the share content, you know, what you're seeing in that part of the enterprise data business as you go into 2025?\n\nMichael Singh (CEO and Founder): Yes, those are good questions. Okay, man. Yes, we do see it. Okay, and the volumes start to picking up. And as we said earlier, many, quote, many years ago. And this version, this rapid software or something, okay, and the VR4 teams, okay, we will pick up the shares. And the 13 and a half, okay, by serendipity of a shortage, okay, and we prove we're significant suppliers, okay, in that. And there are four teams in what would be a significant, one of the big supply in this rapid sulfide growth.\n\nTony Ballo (Vice President of Finance): And maybe just beyond just the enterprise data segment itself, As you see those ramp, right, they'll pull through other solutions like DDR5 memory and continue to be a tailwind in some of the other segments as well. Thank you.\n\nGenevieve Cunningham (Moderator): Our next question is from William Stein of Truist. William, your line is now open.\n\nWilliam Stein (Analyst, Truist): Great. Thanks for taking my question. Michael, I know you often are involved in some interesting sort of sometimes idiosyncratic growth drivers for the company. I know for some time you were famously tinkering in the automotive end market and sort of searching for more effective solutions. solutions than what was available in the market. And I understand your focus has been perhaps more in the home automation market more recently. And I wonder if you can talk to us about, you know, some things that might be on the come in the next couple of years from the company in that market.\n\nMichael Singh (CEO and Founder): Yes. Okay. As you know, as an NPS, I have a have a few thousands of products. We are in lighting, we are in thermostat, and we are in shades controls, and we are in all these fan models, and security, the window actuators, and the window and door open actuators. We're also making MCU now. And those MCU can be a brain of everything or why we're just putting the one box. and we're putting one box with the software, so look at me, and we sell as a kit. Everything is including it. The key is the ease of use. I think this will change the market segment for building automations.\n\nWilliam Stein (Analyst, Truist): That's helpful. Maybe as a follow-up, You mentioned your MCUs now. There's another category that you entered relatively recently. You're not really known for it as much, but data converters. I think you hired a team in that area and you had some very good results for initial product, maybe in the medical end market. Can you talk about traction in that category, please?\n\nMichael Singh (CEO and Founder): We are growing in that segment. The revenue is still small. As you know, these design cycles are very long. And also the product life cycles, 10, 20 years in the last 20 years. And those segments win-win in some industrial side as well as the medical side. And we have more product rolling out. As a matter of fact, in the next couple of quarters, some family of standard product. We will gain more market shares in the future. in this segment.\n\nWilliam Stein (Analyst, Truist): Great, thank you.\n\nGenevieve Cunningham (Moderator): Okay. Our next question is from Ross Seymour of Deutsche Bank. Ross, your line is now open.\n\nRoss Seymour (Analyst, Deutsche Bank): Hi guys, thanks for letting me ask a question. I want to go back to the non-enterprise data side. I think by my math, it was up about 35, 36% sequentially. I know you guys have a ton of design wins and you're kind of just waiting for them to ramp, but the magnitude of that ramp, the diversity of it, and just the commentary that bookings are improving seems to be at odds with the very muted recovery that so many of the peers are seeing. So could you just explain, do you think cyclical conditions are getting better, or is this a very monolithic power-specific dynamic? Any sort of color on that?\n\nBernie Blagen (EVP and CFO): I think, Ross, we're experiencing a little bit of both.\n\nMichael Singh (CEO and Founder): There you are.\n\nBernie Blagen (EVP and CFO): Is somebody else?\n\nMichael Singh (CEO and Founder): Oh yeah, Hans, can you mute it? Yeah. Yeah. Okay, can mute it, yeah.\n\nBernie Blagen (EVP and CFO): Okay. So Ross, you're asking the difference between growth specific to us and what we're seeing in the market. And in the current quarter, or let me go back, the previous quarter, we actually saw improvements in our ordering patterns. But they're not a consistent trend. But what we saw in the current quarter was a lot of new revenue opportunities that we received from design wins secured in previous years that were coming to market now, particularly in communications, particularly in automotive. And then also we saw an improvement in the overall profile of the memory market.\n\nMichael Singh (CEO and Founder): Well, as a matter of fact, we see all cross aboard.\n\nBernie Blagen (EVP and CFO): Yeah.\n\nMichael Singh (CEO and Founder): Other than AI. Other than AI powered. And all cross aboard.\n\nRoss Seymour (Analyst, Deutsche Bank): And how are you, I guess, as my follow up, whether it's in the AI side or otherwise, a lot of supply has been added to the market over the last couple of years to address shortages, et cetera. And so a fear people have is that pricing pressure is going to ensue, whether it's more competition and AI power that you mentioned earlier, or just a more aggregate, holistic increase in pricing pressure. Are you guys seeing any evidence of that?\n\nMichael Singh (CEO and Founder): Well, our competitors, also some of the Chinese suppliers, they always want to lower the price to get in the market, to get in the socket. That's not the game we played. So a lot of our customers, they don't change those sockets. They don't change the... our products can swap out, okay, and quickly. And those kind of things, and also, we emphasize diversity. It's not in one segment, and a lot of shipments and a lot of volumes go into one particular product. particular applications or examples like AI. And we will provide the values. Our value is the highest performance. And all the other products, let our customers choose. So the history telling us, history showed, And as long as we operate in the same principles, the revenue will keep growing and growing the same way. And we see in the next couple of years, especially next year, we see all these products will grow. And now we just see the first sign of it. And all these design wing turning into a revenue now.\n\nGenevieve Cunningham (Moderator): Thank you. Our next question is from Quinn Bolton of Needham. Quinn, your line is now open.\n\nQuinn Bolton (Analyst, Needham): Hey guys, thanks for taking my question. I guess first to start off, I think it was for the first time ever in your June 10 queue, you guys disclosed a 10% plus customer. And I'm wondering, I know you haven't filed the queue yet, but if that's going to be an ongoing disclosure, would you be able to provide us if you had any 10% customers in the June, sorry, September quarter? And if so, what percent of revenue was that customer? Yeah.\n\nBernie Blagen (EVP and CFO): So, Quinn, what you're referencing is basically revenue exposure by direct customer and indirect. And when the customer hits a certain threshold, according to the SEC guidelines, we need to put a reference to that.\n\nMichael Singh (CEO and Founder): But we're never putting a name out there.\n\nBernie Blagen (EVP and CFO): No, no, we do not.\n\nMichael Singh (CEO and Founder): Yeah, this time we will still have one customer is bigger than 10%. Yeah. As a bonus, you can check the numbers and not get there. Is that about right? Only two? Yeah. Two customers and above 10%.\n\nBernie Blagen (EVP and CFO): And we'll get percentages in the queue. It's one or two.\n\nMichael Singh (CEO and Founder): Yeah, I think it's one or two. I believe it's one. Bernie can check. No, it's only one. Two would be very big. I don't believe that. Yeah. Yeah.\n\nQuinn Bolton (Analyst, Needham): Okay. The second question is, I know you don't want to guide to 2025 yet.\n\nMichael Singh (CEO and Founder): Hold on a second. Tony, could you check that? Yeah, could you check that as a one or two? I think the second one is a less than 4%.\n\nTony Ballo (Vice President of Finance): Yes, I'll check it. Give me 10 seconds so I'll get back to you.\n\nMichael Singh (CEO and Founder): Yeah, yeah. So we are, okay, this had to be on our record. And then let's make it clear. Go ahead. Okay.\n\nQuinn Bolton (Analyst, Needham): Yeah, maybe while we're waiting for Tony, my second question was, I know you're not going to sort of give a specific guidance out to 2025, but the street is looking for, you know, continued pretty strong growth in the enterprise data segment. I know you've talked about lots of prosperance in terms of expecting some additional competition to enter that market. some pricing pressure at existing customers, but you also have the ASIC designs that start to ramp next year. The street's kind of looking for that business to hit almost $1.1 billion in revenue. And just wondering, is that, given your crystal ball, is that sort of a reasonable expectation? Do you think that we should be tempering expectations for that segment, given some of the cross-currents you've mentioned, or do you want to just kind of keep it one quarter at a time?\n\nMichael Singh (CEO and Founder): Yes, I can tell you very confidently. We will be, okay, let's say that. And when this market, when this AI market turn into like a regular server market, NPS will be a significant player in that. And now, this is not became a, what do you call it, reach to equilibrium. Not a run rate. Yeah, this is still ramping up. And when this segment is ramping, when it starts ramping, it's kind of lumpy. You don't see this thing. You can't keep going up. forever, like the first two, since last year and the first couple of this quarter, first couple of quarter in this year. So to answer your questions for next year, clearly, we have a lot more customers, I said earlier. We'll start to ramping those those design will turn into, those design will turn into revenues.\n\nTony Ballo (Vice President of Finance): Michael, just to circle back, relative to DISTI, we'll call out two. For direct, we'll call out one.\n\nBernie Blagen (EVP and CFO): Okay. That's a direct customer, not a DISTI?\n\nTony Ballo (Vice President of Finance): So we'll call it one direct. We'll call out multiple DISTIs as higher than 10%.\n\nMichael Singh (CEO and Founder): Yeah. Yeah. Right. Well, This deal will never come in, okay, because all the reporting, that's in the reporting. All the design creation, all the exposures for the end customer is only one. The next one is, I believe, is less than, it's about, definitely is below 5%. Got it.\n\nQuinn Bolton (Analyst, Needham): Thank you, Michael. Thank you, Bernie. Okay.\n\nGenevieve Cunningham (Moderator): Our next question is from Tori Svanberg of Stiefel. Tori, your line is now open.\n\nTori Svanberg (Analyst, Stiefel): Yes, thank you. I had a similar question to Quinn, but thinking more about vertical power. So enterprise data this year, more than 700 million, I assume the contribution from vertical power is still quite low. And if that's the case, as the market does transition to vertical power, could we see this market base basically even accelerate over the next few years?\n\nMichael Singh (CEO and Founder): Absolutely. Not in the next few years, next few quarters. Yes. As we said, we are playing the power module market segments since 2017. And all these technologies, all these manufacturing capabilities, that will really benefit for these vertical powers. And as I was speaking, now we are shipping those products in good volumes.\n\nTori Svanberg (Analyst, Stiefel): Sounds good. Thank you.\n\nGenevieve Cunningham (Moderator): Our next question is from Ross Seymour of Deutsche Bank. Ross, your line is now open.\n\nRoss Seymour (Analyst, Deutsche Bank): Hey guys, thanks for letting me get a little follow-up snuck in here. Inventory, I know Michael, you and I have laughed about that many times in cycles in the past. That's my favorite question. There you go. In this instance, internal inventory came down by a lot, days-wise. What did external channel inventory do? How were you looking at that? Was some of that 35% sequential growth that I referred to in my initial question a little bit ago\n\nMichael Singh (CEO and Founder): inventory fill or is the channel stayed lean no the the channel staying lean in fact our total days uh went down in the court well we want to this is not good we want to build up and uh um as always we build the inventory in the um it's not synced with the with the market demand And you see, Ross, okay, you're the expert of NPS inventory. If you checked our inventory levels, it's the opposite of the market demand. And now the market demand for NPS now is very high. So the inventory is low. But we don't think that we're going to run into a shortage issue, but it's at the inventory level, it's at the uncomfortable level.\n\nRoss Seymour (Analyst, Deutsche Bank): Gosh, I guess just to clarify, Bernie, when you said total inventory actually went down, you mean just total channel inventory days fell?\n\nMichael Singh (CEO and Founder): Channel inventory, yes. Channel inventory is also low, yeah.\n\nRoss Seymour (Analyst, Deutsche Bank): Got it. Okay, that's it. Thanks, guys.\n\nGenevieve Cunningham (Moderator): This now concludes our Q&A session. I would now like to turn the webinar back over to Bernie.\n\nBernie Blagen (EVP and CFO): Thank you. I'd like to thank you all for joining us for this conference call and look forward to talking to you again in our fourth quarter conference call, which is likely to be in early February. Thank you. Have a nice day.",
+  "n_turns": 84
+}

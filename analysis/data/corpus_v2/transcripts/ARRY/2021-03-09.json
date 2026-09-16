@@ -1,0 +1,557 @@
+{
+  "ticker": "ARRY",
+  "original_ticker": "ARRY",
+  "call_date": "2021-03-09",
+  "year": 2020,
+  "quarter": 4,
+  "vendor_params": {
+    "exchange": "NASDAQ",
+    "symbol": "ARRY",
+    "year": 2020,
+    "quarter": 4
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T00:48:40Z",
+  "raw_payload": {
+    "event": {
+      "year": 2020,
+      "quarter": 4,
+      "conference_date": "2021-03-09T17:00:00-05:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk16",
+        "text": "Good evening, and welcome to Array Technologies' fourth quarter and full year 2020 earnings conference call. Today's call is being recorded, and we have allocated one hour for prepared remarks and Q&A. At this time, I'd like to turn the call over to Cody Mueller, Investor Relations of Array Technologies. Thank you. You may begin."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Good evening, and thank you for joining us on today's conference call to discuss Array Technologies' fourth quarter and full year 2020 results. During this conference call, management will make forward-looking statements, based on current expectations and assumptions, which are subject to risks and uncertainties. Actual results could differ materially from our forward-looking statements if any of our key assumptions are incorrect because of other factors discussed in today's earnings press release and the comments made during this conference call or in our latest reports and filings with the Securities and Exchange Commission, each of which can be found on our website, arraytechinc.com. We do not undertake any duty to update any forward-looking statements. Today's presentation also includes references to non-GAAP financial measures. You should refer to the information contained in the company's fourth quarter press release for definitional information and reconciliations of historical non-GAAP measures to the comparable GAAP financial measures. With that, let me turn the call over to Jim Fusaro, Array Technologies CEO."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thanks, Cody, and good evening, everyone. Thank you for joining our earnings call. In addition to Cody, I'm joined today by Nipal Patel, our Chief Financial Officer, and Jeff Krantz, our Chief Commercial Officer. I'm pleased to report that we generated revenues of 181 million in the fourth quarter and 873 million for the full year 2020, exceeding the high end of our full year guidance that we previously provided. Full year 2020 revenues increased 35% versus last year, reflecting continued strong growth in the US solar market, increasing penetration of trackers versus fixed tilt, and continued market share gains by our products."
+      },
+      {
+        "speaker": "spk07",
+        "text": "We anticipate continued strong growth in 2021."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Since our last earnings call, there have been several developments that have caused us to set our growth expectations higher. First, The recent two-year extension of the solar ITC has expanded the number of solar projects that are viable, and we believe it will result in a substantial increase in demand for our products. Second, corporate commitments to decarbonize continue to increase, and most companies plan to meet their sustainability goals by buying renewable energy. Meeting that demand requires a lot more generation, and we believe the lion's share of that will be met with solar. To put some context around that, since our last earnings call in the beginning of November, 323 global companies, including 59 in North America, have announced commitments to source the energy that they use from renewable sources or establish targets for emission reductions that rely on using energy from renewable sources. And that's in addition to the 922 global corporations that already have these types of commitments in place. Third, President Biden's election, in combination with Democratic control of Congress, increases the probability of major climate change related legislation that is likely to accelerate solar deployments. In just the past 10 days, there has been three new bills introduced in Congress that called for increased incentives for solar, a national clean energy standard, and a green bank to fund renewable energy projects, among other things. But we cannot predict what new incentives and regulations will be enacted, we are confident that there will be new policy that will further accelerate the growth in solar. And lastly, solar's competitiveness versus other forms of fossil and renewable generation continues to increase. The U.S. Energy Information Administration now projects that utility-scale solar projects entering service in 2023 will have an LCOE under $24 a megawatt hour. That's 17% lower than what their forecast for 2022 was only one year ago. To put some perspective on how meaningful these developments are for the market, we have noted that many independent consultants estimates for U.S. utility scale solar installations over the next three years have been increased by at least 20% from where they were only a few months ago. That's a huge change in expectations over a relatively short period of time. While the tailwinds behind our business continues to strengthen, our goal remains to grow faster than the market. To achieve that goal, we are focused on three core growth strategies that we outlined on our third quarter conference call. Continued market share gains in the U.S., international expansion, and acquisition of companies that provide complementary products, services, or technology."
+      },
+      {
+        "speaker": "spk07",
+        "text": "We are already making good progress. In the U.S."
+      },
+      {
+        "speaker": "spk08",
+        "text": "market, we are continuing to grow our wallet share with existing customers, as well as convert new customers to Array, as demonstrated by our strong order book. During 2020, we added 38 new customers, underscoring our ability to convert new accounts to Array products. Outside of the U.S., we are in the process of building the sales, supply chain, and fulfillment infrastructure we need to service international customers. COVID-19 has slowed some of our plans, but we expect to be able to accelerate our international strategy later this year as travel restrictions and other challenges created by the pandemic abate. We believe that by Q4 of 2021, we will be generating approximately 15% of our sales from markets outside of the U.S. Lastly, I'm happy to report that we completed our first strategic transaction in January. we took a stake in a company with the unique technology that we believe could revolutionize the way utility-scale solar is installed. Unfortunately, I will not be able to elaborate much on our investment on this call given confidential agreements that we have with the company, other than to say we are very excited about the prospects for the technology and we are well-positioned to acquire the remainder of the company if we choose to. Cutting across all three of our growth strategies, will be product innovation. We are making significant investments this year in new product development with the goal of addressing common pain points in utility-scale solar installation. Installation constitutes a growing proportion of the total cost of a solar energy project, and the availability of skilled labor can be a constraint on our customers' growth. We have several new products, product features, and installation methods in development this year that we believe could significantly reduce the cost and labor required to install our tracker system and further extend our technology lead over competitors. Our product development efforts are focused on four key areas. Trackers that can be installed on rugged terrain without requiring significant site grading, reducing foundation costs through new installation methods, tool-less module mounting systems that can cut installation times,"
+      },
+      {
+        "speaker": "spk07",
+        "text": "and improving tracking performance through software."
+      },
+      {
+        "speaker": "spk08",
+        "text": "To demonstrate these new technologies for customers, we recently opened the Array Technology Research Center in Phoenix, which will serve as a proving ground for us to showcase the new products and installation methods that we are developing. We plan to update you in the coming quarters as we establish launch dates for the new products we have underway. I'll conclude by saying we're excited about the future. The solar market is getting stronger. Our products are winning over more and more customers, and we are taking market share. And we still have some tricks up our sleeve in terms of technology innovation. There's more to come. Now I'll turn it over to Nipo for an update on the quarter and full year 2020."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Thanks, Jim. Before I talk about our fourth quarter results, it is important to keep in mind that our 2020 results were heavily first-half weighted as a result of our customers' attempt to capture incentives by the federal government related to the 2020 step-down in the ITC. This caused our customers to place the bulk of their orders in the back half of 2019 and then take deliveries in the fourth quarter of 2019 and the first two quarters in 2020. As a result, comparing a single quarter in 2020 to the same quarter in 2019 is not necessarily indicative of the trajectory of our business, The ITC stepdown skewed revenues in 2020 to Q1 and Q2, while revenues in 2019 were more evenly distributed. For the fourth quarter, we generated revenues of $180.6 million, which was a decrease over the prior year period as a result of these changes in seasonal order patterns. However, our revenues exceeded the high end of our guidance. as we had better than anticipated project delivery conversion at the end of the year. ASPs in the quarter were up approximately 2% year over year. Gross margins in the fourth quarter were 19.6%, lower than the prior year period, as a result of having less revenue to absorb fixed costs and project mix, but were in line with our expectations for the quarter. Operating expenses increased compared to the year-ago period, primarily due to a $10.4 million expense related to the revaluation of contingent consideration, mainly related to the earn out obligation we have with our founder, along with higher costs associated with being a public company and increase in headcount. We recorded a net loss in the quarter of $2.2 million, primarily as a result of the $10.4 million contingent consideration charge. It is important to note that we have now paid out the full amount owed under the earn-out obligation and will not have any further expenses or payments under that agreement. Going forward, any expenses recorded to contingent consideration will only be related to the revaluation of the tax receivable agreement. Adjusted EBITDA was $20 million for the fourth quarter, which was down from $49.9 million in the prior year, but also exceeded the high end of our guidance. Now, turning to our full year 2020 results. Revenues for the full year ended December 31, 2020 increased 35% to $872.7 million compared to $647.9 million in 2019, driven by the increases in the volume of trackers delivered anchored by the strength in the U.S. solar industry. ASPs for the year were approximately 2% higher than the prior year period. Gross profit increased 35% to $202.8 million compared to $150.8 million in 2019, driven primarily by higher volume. Gross margin remained flat at 23.2% as we had lower costs on purchased materials, which offset higher logistics costs. Operating expenses increased to $107.6 million compared to $67.4 million last year, primarily as a result of the $26.4 million expense for the contingent consideration discussed earlier, as well as a $4 million benefit we recorded in 2019 for a bad debt recovery for which we had no comparable benefit in 2020, as well as an increase in equity-based compensation and higher payroll costs as we invested in critical resources to enable our future growth. Net income increased 49%, to $59.1 million compared to $39.7 million in 2019, and basic and diluted income per share was 49 cents compared to 33 cents during the same period in the prior year. And finally, adjusted EBITDA increased 32% to $160.5 million compared to $121.8 million in 2019. Taken as a whole, we are very pleased with our financial performance in 2020, having delivered record revenues and adjusted EBITDA despite the unique operational challenges created by the pandemic. Turning now to our guidance. For the year ending December 31st, 2021, we expect revenues to be in the range of $1.025 to $1.125 billion, adjusted EBITDA to be in the range of $164 million to $180 million. Adjusted net income per share to be in the range of 82 to 92 cents. The midpoint of our revenue guidance represents a 23% year over year increase and reflects the strong demand we are seeing for our products. At December 31st, 2020, we had $654 million in executed contracts and awarded orders that are expected to ship in 2021. In years where there was no step down in ITC, our backlog entering the year typically represented the next six months of shipment. That's part of the reason we feel very confident about our revenue growth this year. We entered the year with backlog equivalent to 60% of the midpoint of our revenue guidance, and our order book has grown since then. Our adjusted EBITDA guidance reflects lower margins than we achieved last year. There are several reasons for that. First, as Jim discussed earlier, we have made product innovation a priority, and we are investing in it. In addition to the research center he discussed, we will be adding additional engineering resources and investing more in R&D. These investments have a near-term cost, as we will be making the investments ahead of the incremental revenues that we expect to generate from new products, but the long-term results should be higher revenues, greater market share, and increased margins. Second, we are investing in the sales, supply chain, and fulfillment infrastructure we need to service our international customers. Similar to our investments in new product development, we have a short-term mismatch between the cost of our investments and the revenues that they will yield. Third, our 2021 SG&A reflects additional public company costs, which will represent a year-over-year headwind for us. And finally, Commodity prices and freight costs have increased significantly over the past several months as a result of the reacceleration of the global economy, while certain transportation and raw material capacity remains offline as the result of the pandemic. While we expect prices to normalize and our contracts allow us to pass on these costs to our customers, we have taken a conservative approach to our guidance by baking these costs into the low end of our guidance, assuming a delayed return to more normalized pricing. I'd like to close by providing some key modeling assumptions for the full year 2021. As I mentioned earlier, the two year push out of the ITC step down has impacted how customers time their orders. As a result, we will see a different quarterly distribution of revenues and earnings in 2021 than we did in 2020. We currently expect to generate 20 to 25% of our annual revenues in Q1. 25% to 30% in Q2, 25% to 30% in Q3, and 20% to 25% in Q4. We expect interest expense to be between $26 to $28 million, diluted weighted average share count for 2021 to be 127.5 million shares, and our effective tax rate to be 25%. Now, I'll turn it back over to Jim for some closing remarks."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thanks, Meeple. I'll close by reiterating how proud I am of the Array team for all that we accomplished in 2020. From our hugely successful IPO to our strong financial performance to the work we have done to lay a foundation for continued growth in 2021, it was truly an incredible year. We appreciate the support of our shareholders as we continue to grow our company. And with that, Operator, please open the line for questions."
+      },
+      {
+        "speaker": "spk16",
+        "text": "At this time, we will be conducting a question and answer session. If you would like to ask a question, please press star 1 on your telephone keypad. A confirmation sign will indicate your line is in the question queue. You may press star 2 if you would like to remove your question from the queue. For participants using speaker equipment, it may be necessary to pick up your handset before pressing the star keys. Our first question comes from the line of Brian Lee with Goldman Sachs. Please, see with your question."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Hey, guys. Good afternoon. Thanks for taking the questions. Good job on the first quarter out here. Had a couple here, I guess, with respect to, you know, you mentioned, Nipul, the pricing dynamic for 2020. You were up 2% average ASP, I think. How should we be thinking about pricing in 2021? What's embedded in your outlook here? Just given some of the comments around cost inflation, are you capturing some of that in price and can you quantify it to any degree? And then are you able to go out to the market with more price increases if we continue to see inflation sort of pressure some of your input costs moving throughout the year and there's not a normalization?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, hey, Brian, it's Niple. Thanks for those questions. What I would say, you're right, as I mentioned, the 2% price increase year on year. We've held prices relatively flat, and we think they're stable. However, we do have the option, as mentioned, to go back into the market. We've built in that range in our guidance to allow us to evaluate case by case, Brian, but yes, we do have that option."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Okay, that's great. And then the second question on the contracts and awarded orders, I know you guys aren't going to make this a recurring update per se, but can you speak to, it sounded directionally like you've seen some growth in that even off the December 31, 2020 reported level. Can you give us a sense of where that's at now early on in 2021 and then kind of what the geographic mix is. You said 15% of sales by Q421 will be non-U.S. Is it 85-15 in that kind of contracts awarded order backlog, or is it different there? Thank you."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, sure. So, hey, so regarding the backlog in awarded orders, like you mentioned, we decided we're going to provide that once a year, the concrete number as part of our annual guidance process. But, yes, what we've seen is that it is growing since December 31st, and we'll give qualitative measures on that going forward. But we feel pretty good about that. The thing to really mention about this, Brian, too, is with the ordering pattern changes in 2020, with the ITC being extended, we feel really good that we have 60% coverage at year-end of our midpoint guidance. So we really feel good about that as well as the increase \u2013 from January."
+      },
+      {
+        "speaker": "spk01",
+        "text": "All right, and just in terms of the mix, any kind of geographic color you can provide, is it that 85-15, or are you seeing more skew even toward non-U.S. in that mix?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, so what we said, you know, Jim mentioned in his script is there's a little bit of a ramp in the international sales, and we feel by the end of the year, the fourth quarter, we'll be at a 15% mix. Right now, I think for the overall blended, I would say it's in the 90-10% for the full year."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Okay, fair enough. Thanks a lot, guys. Thanks, Brian."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Our next question comes from the line of Shar Parisa with Guggenheim Partners. Please, see what your question is."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Hey, good evening, guys. Sure, sure. So just a couple of quick questions here. You know, obviously you touch on what's driving, you know, the lower EBITDA margin in 21 and sort of that midpoint of the new guidance applies, you know, around 16%. And obviously you guys highlight, you know, several items like commodity costs, public company costs, sort of that international push is the driver of some of that compression. But as we sort of think about, you know, margins, maybe in the medium term, say post 21, should we assume some, incremental margin compression further from what we're seeing today as you're guiding, as let's say you expand internationally, or should we assume maybe that 16% is a pretty good floor for our modeling purposes as we think about post-21?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah. Hey, Sharves and Abel again. We've given that kind of range, the medium term being 16% to 18% EBITDA, and that's where we feel it still is. with the commodity pricing as it is right now. That's what any investments we're making consciously for the revenues that will be coming, we feel that that is kind of near the floor where we feel."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay, that's perfect. I just wanted to make sure that's reiterated. And then, you know, obviously, you recently increased the size of your revolver. Just maybe highlight, you know, why you saw that increase in capacity. Is it sort of organic or... in organic opportunities. I know in the past you've highlighted that you would utilize the Revolver for, say, let's say some bolt-on acquisitions, right? And then just maybe just a quick refresh, you know, thoughts on M&A in the near term. Are you sort of targeting sort of existing parts of the BOS, or is there other new innovations that you could look to acquire similar to the technology investment you made earlier this year?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Sure. Hey, Sharon, I'll take the first half of that, and I'll pass the eminent question to Jim. But as far as the revolver, yeah, we're always looking for flexibility in our capital structure. Obviously, the way we look at our capital structure is invest in high ROI projects, but also look at opportunities for bolt-on or inorganic growth. And so we provide ourselves, we believe, the flexibility to expand that revolver to accomplish both of those. Jim, you want to take on the M&A?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, sure. So, we're going to continue to keep that pipeline robust, and our thesis remains the same, you know, to the extent we can tap into additional wallet share, whether it's mechanical balance of system or electrical balance of system, and most importantly, technology. That remains really foundational to our strategy on M&A, and I think our investment in technology that we noted is really, you know, the first step towards that. So, We remain very optimistic about what we have in the M&A pipeline. We're going to continue to vet that going forward."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Got it. And then just lastly for me, I'm just wondering just from a sentiment, it could be positive, it could be negative, if you've seen any sort of shift from your customers following maybe some of the events we saw in ERCOT, MISO, and the SPP regions from the recent weather events, you know, has that swung any of your order books as we think about what we just went through a few weeks ago, a couple weeks ago?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "No, not at this moment, Shar, but I'm happy to report that we've got nearly 40 sites in the affected region, nearly 3 gigawatts, and we have not received any word of any issue on our site. So, you know, probably too early to tell, but really nothing notable."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Perfect. Congrats on the execution, guys."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Our next question comes online of Paul Custer from JP Morgan. Please, see you with your question."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah, thank you for taking my question. It wasn't clear to me as the impact of these investments and other expenses during the year as to how it's distributed across gross versus EBIT margins. It sounded like it was more below the line operating expense related than it was direct costs. Can you just sort of give us some sense there?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, Paul, this is Jim. It's roughly half and half, with half of it going towards the innovation piece. And, you know, it's really about the future here. So this is, you know, I'm not the one that really coined this, but certainly doing two things, seemingly conflicting at the same time, delivering on the short term while investing in long term. So half of it is on the innovation piece. And, you know, I'll let Anit, I'll comment."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, so on the other, on the margin side, You know, we built into our range the impact of higher freight and raw material costs, really not abating as quickly, and that's really the other half of that cost that we have in our guidance range, Paul."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah, maybe a little unfair to ask this, but If the pandemic had kind of cleared up more quickly, how much more EPS would \u2013 I mean, how much EPS has been sort of forfeit as a result of shifting things into the second half, the international growth in particular?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "I couldn't really give you a quantifiable answer on that. My only wish and desire was that it would clear up faster, but that's just not the reality."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, and it has delayed, as we mentioned, in the second half."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Okay, last question. You've talked of trying to sort of nail down most of the big EPC customers as your proxies for going into the end market, at least in the United States. What proportion of the largest, say 1020, do you think you've now got secured as sort of regular customers?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Paul, I would just lead off by saying we added 38 new customers, eight of which were international. I would have to get back to you with respect to the mix, which is, you know, the IPPs, developers versus EPC. Don't have that readily available. We can get back to you on that."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Okay. All right. Thanks very much. Appreciate it."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thanks, Paul."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Thanks, Paul. Our next question comes from the line of Steven Burke with Morgan Stanley. Please start with your question."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Hey, thanks so much for taking my questions. Hey, I wanted to just get your thoughts on the competitive playing field. Are you seeing either new entrants, changes in offerings? And just wondered also in that context if you could just speak to sort of the share that you described a little bit in your prepared remarks. Just wondered if you could give any more specifics on sort of your take on kind of market share position and just relative competitive positioning more broadly."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, Steve, I would first say that we respect all competitors. Haven't really seen any new entrants. And with respect to market share, I would really just point you to our year-on-year growth and then what we've outlined by way of the midpoint of our growth going forward into 2021 and then how that falls out with respect to share of demand. I'll let you do the math there."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Very good. Understood. And then just lastly, You talked to kind of the growth internationally, and it sounds like it's just a bit of a delay. It's not as if there's a shift upwards in your cost structure to be able to execute internationally, but more of a delay. Am I sort of reading that properly?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, that's exactly right. When you think of a delay, think of it in terms of certain countries had travel restrictions, so I couldn't get boots on the ground to really \u2013 qualify the supply chain fulfillment and things of that nature. So that was really a delay."
+      },
+      {
+        "speaker": "spk11",
+        "text": "That's perfect. That's all I have. Thank you. Thanks, Steve."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Our next question comes online of Michael Weinstein with Credit Suisse. Please, deal with your question."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hi, guys. I understand that 16% to 18% gross EBITDA margin guidance. As you increase the percentage coming from international, does that actually push things up towards the higher end of that range, or is it all the same? I'm just curious for the difference between U.S. and international."
+      },
+      {
+        "speaker": "spk14",
+        "text": "The way we look at that, we're still going to maintain the 16% to 18% range, and as the mix changes, there'll be less investments that we're making this year, so we still think we'll be in that range."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, but, I mean, just to follow up with Char's earlier question, is international expected to have higher gross margins just, you know, versus the U.S.?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "That hasn't changed from what we had said before, Michael. Initially, we know that they're going to be a little bit lower margins, but over the longer term, it's going to be at or higher than the domestics because of the input costs."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Gotcha. So if you expect to maintain the range, what's the offset to that?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Well, we're ramping up, if you recall, in international sales. So as the investments abate from this year and the international ramps up, that's where you get the offset."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Okay, I see, I see. In terms of new technologies, and you mentioned that you're invested in a new technology that's yet to be revealed, are we talking about something that is still going to be in the tracker field, or are you branching out into completely new things? the solar value creation, you know, something new in terms of creating efficiency."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, I would say the way to look at it, Michael, is it's going to be within the tracker itself in utility scale, but certainly we're not limiting ourselves there when we look at technology."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Are you still \u2013 are there other investments that you're working on currently also, additional bolt-on acquisitions or major acquisitions?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "I would just go back to what I said earlier, that our pipeline remains very robust. And, you know, as they mature, they'll become apparent."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Maybe you could comment a little bit more on the R&D capabilities that you think will be available in Phoenix, under the Phoenix facility."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, I would just refer you back to what we said earlier. You know, some of the pain points that our customers are seeing is the time to install. So labor is an area that we're focusing on. We're also looking at means and ways through which you can minimize grading, so have more flexibility. Foundation counts, another, how you can generate more output or energy, maximize that through software. So that's kind of the A to the Z that we're working on. But we're real excited about the tech center."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hey, just two last ones for me. One is, is the cost of steel becoming a problem for you, old steel? And also, where internationally, which continents are you planning on focusing on first, highest priority, and which will be the next ones after that?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "So, you know, we obviously manage and monitor all commodities accordingly, and then we build in productivity measures to address that, you know, to continue to drive our value in If your question was pertaining to our supply chain, sorry, Michael, could you clarify your question?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, I'm thinking supply chain. I mean, I'm thinking about the pressure on margins from cost inputs."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, I mean, there's always going to be pressure on cost. You know, that's pretty much market agnostic and product agnostic. But that said, you know, we've Actually built up, we continue to build out our supply chain. We added 15 new suppliers and four new countries. So that's just going to be an area that we remain focused on going forward as we grow both domestic here and internationally."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Right. And also in terms of your focus on sales, you know, where are you going to go next? What's the highest priority in terms of continents and countries? And, you know, what's the second after that?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, I would actually point you back to what we've always said, and that is really a strategy of following our customers. You know, we added 38 last year, eight of which were international at international reach. We like to follow them into the regions that make the most sense since they're the ones that are actually investing and connecting to the grid. So, you know, I think, you know, you could look at South America and certain countries within there and then Western Europe as well as Southeast Asia. Not necessarily in that order, but those are areas that our customers seem to be gravitating towards."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Okay. Thanks a lot, guys."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thanks, Michael. Thank you."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Our next question comes from the line of Philip Shen with Roth Capital Partners. Please start with your question."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hi, everyone. Thanks for taking my questions. First ones are around Safe Harbor. I was wondering if you might be able to share how many megawatts of Safe Harbor were in Q4, and then what you expect in Q1 and what you expect overall in the 21 guidance."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, hey, Phil, it's Naples. How are you? So we're going to not talk about megawatts, but I'll give it to you in revenue. So we had about $40 million in our Q4 numbers, and we expect to deliver, of course, ITC-related now that it's extended about $100 million in the first half of the year."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Okay, great. And then should we not expect any in the back half of 21?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Well, the ITC is extended now, so we would assume normal seasonal patterns where Q2 and Q3 are the high build months."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Great. And then you guys gave the backlog numbers, you know, 705 and 654 for the next 12 months. was wondering if you could give those same numbers for what at the end of 2019."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, you know, hey, so we didn't track backlog and awarded orders at the 2019, the same precision. We're doing it in 2020. But the numbers are roughly similar between the two periods. And as you know, it doesn't tell the full story because at the backlog at the end of 2019, it represented what most of the customers planned for the full year. And you saw that manifested by the concentration of our revenues and profits in the first half of 2020. So that's why we feel really good. You know, the backlog's about the same level, but the 654 that we have this year is really, you know, really represents about six months of deliveries. And so we feel that it's great that we have already covered about 60% of our full year midpoint guide."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Great. Yep. Thanks, Neeple. And then as it relates to... the margin outlook. I know you're not providing official guidance on this, but given the cadence of the safe harbor revenues being concentrated in the first half, can you talk through what is either the gross or EBITDA margin look like in first half versus back half?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, we're about the same throughout, so I would just take the revenue split that we had and about the same margin."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Okay, great. That's all really helpful. Thank you. I'll pass it on."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Thanks, Phil. Our next question comes from the line of Colin Rush with Oppenheimer. Please begin with your question."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Hey, guys. It's Joe on for Colin. Thanks for taking our questions. Given the growth in demand, we're expecting to come. Some of that's likely going to be from odd shaped lots or more difficult terrains. And so can you maybe speak to the dynamics around addressing those sorts of sites?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yeah, I'm sorry."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Colin or who's speaking? This is Joe on for Colin."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Oh, I didn't catch that. Hey, Joe. Yeah, you know, our strategy, our product addresses those quite nicely, you know, whether it's 1 to 20 megawatts and you know, that was part and parcel of the reason that, you know, we went forward with what we did with RPCS because that's exactly what they do well for us. So, you know, we don't see any challenges with respect to, you know, the terrain flexibility, the odd shaped sizes themselves. We've been servicing that market quite nicely and we plan to do so going forward."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Okay, great. And then a little bit, back to the the question around input costs and supply chain are you guys looking at any new materials that could potentially reduce your cost of goods sold yes now don't ask what they are um okay well yeah i mean any color you can give there would be good but"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, we're looking at alternative materials. That's just part and parcel of what the R&D team does. Sounds good."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Thanks very much."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Our next question comes in the line of Jeff Osborne with Cowen. Please, deal with your question."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Yeah, good afternoon. Most of the questions have been addressed, but just going back to the steel issue, can you remind us roughly what percentage of the bill of materials is galvanized steel?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah. Hey, Jeff, it's Nifl. We don't break out the bill of materials. Obviously, we know for competitive products, but obviously we have steel as a large component of a commodity that we use in our overall tracker."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Got it. So just so I'm clear, you're talking about the first half of the year fully booked based on the backlog, and when would you be buying that steel just as it's been moving quite a bit? So have you locked in the steel as you locked in that pricing so you have high visibility into the margins or not necessarily so?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, so we typically \u2013 I'll just give you our typical order pattern. So, you know, we typically order material between six and 12 weeks from the date of the shipment, so we keep very low inventory. So the impact, you know, obviously of the COGS, the recent runoff prices would impact second half more than it would first half."
+      },
+      {
+        "speaker": "spk18",
+        "text": "Got it. And then on the eight new customers internationally, can you talk about any particular geographies outside of Australia? Have you had any success? People have tried to ask about continents, but the eight new people, can you, without naming them, talk about what countries or regions they're from? Or is it all in Australia?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "No, it's not all in Australia. It's still Western Europe. It's South America as well as parts of Asia. So you can think of Brazil. You can think of Spain and some other regions as well in Western Europe."
+      },
+      {
+        "speaker": "spk18",
+        "text": "And then the last one I had is just can you remind us, you know, given your pricing of 10, 11 cents, whatever the number is, you're now talking about lowering labor costs with this investment that you made. Can you remind us what the labor cost is if a utility-scale solar project is roughly a dollar a watt? What would you think is the direct labor attributable to specifically the tracker that you're trying to lower?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, I couldn't give you an absolute number, Jeff, simply because every site, every project has its own DNA, depending on what the site construct looks like, you know, the number of modules per row and things of that nature. All I can say is just reinforce that, you know, the technology that we're looking at substantially reduces that. So we're quite excited about that."
+      },
+      {
+        "speaker": "spk18",
+        "text": "All right. Thank you."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Our next question comes from the line of Martin Malloy. with John Rice, with Johnson Rice. Please, with your question."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Good afternoon. Hey, Marty. Hi. Could you give us an update, maybe, on your strategy for monetizing the software?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, hi, Marty. So the strategy remains kind of threefold here, and that is, first and foremost, to the extent we can use that to create greater value at the point of sale with our tracker, that will always be included. And we're very pleased with the uptake that we currently have on our SmartTrack. The second one would be with respect to in the event the customer has already an array tracker out there and is interested in purchasing that by way of license and or annuity going forward. We're working with several customers on that front. And then thirdly would be You know, to the extent there's opportunity for us to deploy and then to deploy the software at a later date, depending on the customer's request at commissioning, we have that means as well. We're still very early in the throes of deployment of the software solution, but are certainly quite excited about the uptake that we've seen thus far and the performance gains that it's providing to customers where we have deployed. Great."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you very much. Thank you. Thanks, Mark."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Our final question comes from the line of Kashi Harrison with Simmons Energy. Please, you have the question."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Good evening, and thanks for taking my questions. So, in the guidance, you highlight your expectation that, you know, commodity prices and freight charges could normalize over time. Just curious what drives that normalization view. And then how long it would take how long the cost would need to remain elevated before you, you know, seriously decided or considered passing it on to customers and then how to think about any concerns surrounding implications to demand from customers from, you know, higher higher costs."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Hey, Cash, it's Napal. How are you? So as far as that first part of the question, as far as how long we think it is, you know, obviously it's unknown. We're in unprecedented times as far as the commodity prices increasing. And it's really just that it's a lot of the, you know, as the economy begins to reopen, there's a lot of, you know, precariousness. pandemic capacity that still remains idle. So, you know, we're thinking second half and late second half is when it's coming back online. And as far as your second half of the question, we're always evaluating all pricing on our projects. And we know that, you know, we have that ability and we'll look at it on a case by case basis."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Okay, fair enough. And then on the M&A front, I know there's not a lot you can talk about, but I was just wondering if you could at least give us a timeline on when you think you might be able to buy the technology company that you refer to, the remaining portion."
+      },
+      {
+        "speaker": "spk06",
+        "text": "I couldn't give you a definitive timeline other than we have certain milestones that need to be met by way of technology assessment. and things of that nature. As they pan themselves out, we'll check the box and then proceed accordingly. But I couldn't give you a definitive timeline because there's elements that need to be satisfied as we go through the process."
+      },
+      {
+        "speaker": "spk04",
+        "text": "I guess maybe asking a different way, do you think this is a 2021 event maybe, or is it probably longer term?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, I couldn't tell you. I couldn't commit to a date on that."
+      },
+      {
+        "speaker": "spk04",
+        "text": "All right, fair enough. And then the last one for me, you know, good to see you all investing in R&D for the future of the business. I was just wondering if you could talk about, you know, the four innovations that you highlight on that separate press release, how to think about the impact to ASPs over the medium term. And that's it for me. Thanks."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, medium term, you know, I don't think you'll see, you know, a large or an impact on medium term. This is a longer play as we deploy. You can think of it in the out years of 22, first half 22 and beyond."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Got it. That's it for me. Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thanks, Kashi."
+      },
+      {
+        "speaker": "spk16",
+        "text": "We have reached the end of our question and answer session. I would like to turn the call back over to the manager for any closing remarks."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, thank you. Again, I just want to reiterate how proud I am of the array team for all that we accomplished last year. We're certainly excited about our performance and, you know, plan to carry that forward into 2021 and where we are certainly excited about our growth going forward. So with that, I'd like to thank everyone."
+      },
+      {
+        "speaker": "spk16",
+        "text": "And with that, this concludes today's teleconference. You may now disconnect your lines at this time. Thank you for your participation and have a wonderful day."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk01": {
+        "name": "Brian Lee",
+        "title": "Analyst, Goldman Sachs"
+      },
+      "spk02": {
+        "name": "Michael Weinstein",
+        "title": "Analyst, Credit Suisse"
+      },
+      "spk03": {
+        "name": "Martin Malloy",
+        "title": "Analyst, Johnson Rice"
+      },
+      "spk04": {
+        "name": "Kashi Harrison",
+        "title": "Analyst, Simmons Energy"
+      },
+      "spk05": {
+        "name": "Unidentified Speaker",
+        "title": "No designation provided"
+      },
+      "spk06": {
+        "name": "Jim Fusaro",
+        "title": "CEO, Array Technologies"
+      },
+      "spk07": {
+        "name": "Jeff Krantz",
+        "title": "Chief Commercial Officer, Array Technologies"
+      },
+      "spk08": {
+        "name": "Jim Fusaro",
+        "title": "CEO, Array Technologies"
+      },
+      "spk09": {
+        "name": "Philip Shen",
+        "title": "Analyst, Roth Capital Partners"
+      },
+      "spk10": {
+        "name": "Shar Parisa",
+        "title": "Analyst, Guggenheim Partners"
+      },
+      "spk11": {
+        "name": "Steven Burke",
+        "title": "Analyst, Morgan Stanley"
+      },
+      "spk12": {
+        "name": "Paul Custer",
+        "title": "Analyst, JP Morgan"
+      },
+      "spk13": {
+        "name": "Nipal Patel",
+        "title": "Chief Financial Officer, Array Technologies"
+      },
+      "spk14": {
+        "name": "Nipal Patel",
+        "title": "Chief Financial Officer, Array Technologies"
+      },
+      "spk15": {
+        "name": "Colin Rush",
+        "title": "Analyst, Oppenheimer (represented on the call by Joe)"
+      },
+      "spk16": {
+        "name": "Operator",
+        "title": "Conference Call Operator"
+      },
+      "spk17": {
+        "name": "Cody Mueller",
+        "title": "Investor Relations, Array Technologies"
+      },
+      "spk18": {
+        "name": "Jeff Osborne",
+        "title": "Analyst, Cowen"
+      }
+    }
+  },
+  "text": "Operator (Conference Call Operator): Good evening, and welcome to Array Technologies' fourth quarter and full year 2020 earnings conference call. Today's call is being recorded, and we have allocated one hour for prepared remarks and Q&A. At this time, I'd like to turn the call over to Cody Mueller, Investor Relations of Array Technologies. Thank you. You may begin.\n\nCody Mueller (Investor Relations, Array Technologies): Good evening, and thank you for joining us on today's conference call to discuss Array Technologies' fourth quarter and full year 2020 results. During this conference call, management will make forward-looking statements, based on current expectations and assumptions, which are subject to risks and uncertainties. Actual results could differ materially from our forward-looking statements if any of our key assumptions are incorrect because of other factors discussed in today's earnings press release and the comments made during this conference call or in our latest reports and filings with the Securities and Exchange Commission, each of which can be found on our website, arraytechinc.com. We do not undertake any duty to update any forward-looking statements. Today's presentation also includes references to non-GAAP financial measures. You should refer to the information contained in the company's fourth quarter press release for definitional information and reconciliations of historical non-GAAP measures to the comparable GAAP financial measures. With that, let me turn the call over to Jim Fusaro, Array Technologies CEO.\n\nJim Fusaro (CEO, Array Technologies): Thanks, Cody, and good evening, everyone. Thank you for joining our earnings call. In addition to Cody, I'm joined today by Nipal Patel, our Chief Financial Officer, and Jeff Krantz, our Chief Commercial Officer. I'm pleased to report that we generated revenues of 181 million in the fourth quarter and 873 million for the full year 2020, exceeding the high end of our full year guidance that we previously provided. Full year 2020 revenues increased 35% versus last year, reflecting continued strong growth in the US solar market, increasing penetration of trackers versus fixed tilt, and continued market share gains by our products.\n\nJeff Krantz (Chief Commercial Officer, Array Technologies): We anticipate continued strong growth in 2021.\n\nJim Fusaro (CEO, Array Technologies): Since our last earnings call, there have been several developments that have caused us to set our growth expectations higher. First, The recent two-year extension of the solar ITC has expanded the number of solar projects that are viable, and we believe it will result in a substantial increase in demand for our products. Second, corporate commitments to decarbonize continue to increase, and most companies plan to meet their sustainability goals by buying renewable energy. Meeting that demand requires a lot more generation, and we believe the lion's share of that will be met with solar. To put some context around that, since our last earnings call in the beginning of November, 323 global companies, including 59 in North America, have announced commitments to source the energy that they use from renewable sources or establish targets for emission reductions that rely on using energy from renewable sources. And that's in addition to the 922 global corporations that already have these types of commitments in place. Third, President Biden's election, in combination with Democratic control of Congress, increases the probability of major climate change related legislation that is likely to accelerate solar deployments. In just the past 10 days, there has been three new bills introduced in Congress that called for increased incentives for solar, a national clean energy standard, and a green bank to fund renewable energy projects, among other things. But we cannot predict what new incentives and regulations will be enacted, we are confident that there will be new policy that will further accelerate the growth in solar. And lastly, solar's competitiveness versus other forms of fossil and renewable generation continues to increase. The U.S. Energy Information Administration now projects that utility-scale solar projects entering service in 2023 will have an LCOE under $24 a megawatt hour. That's 17% lower than what their forecast for 2022 was only one year ago. To put some perspective on how meaningful these developments are for the market, we have noted that many independent consultants estimates for U.S. utility scale solar installations over the next three years have been increased by at least 20% from where they were only a few months ago. That's a huge change in expectations over a relatively short period of time. While the tailwinds behind our business continues to strengthen, our goal remains to grow faster than the market. To achieve that goal, we are focused on three core growth strategies that we outlined on our third quarter conference call. Continued market share gains in the U.S., international expansion, and acquisition of companies that provide complementary products, services, or technology.\n\nJeff Krantz (Chief Commercial Officer, Array Technologies): We are already making good progress. In the U.S.\n\nJim Fusaro (CEO, Array Technologies): market, we are continuing to grow our wallet share with existing customers, as well as convert new customers to Array, as demonstrated by our strong order book. During 2020, we added 38 new customers, underscoring our ability to convert new accounts to Array products. Outside of the U.S., we are in the process of building the sales, supply chain, and fulfillment infrastructure we need to service international customers. COVID-19 has slowed some of our plans, but we expect to be able to accelerate our international strategy later this year as travel restrictions and other challenges created by the pandemic abate. We believe that by Q4 of 2021, we will be generating approximately 15% of our sales from markets outside of the U.S. Lastly, I'm happy to report that we completed our first strategic transaction in January. we took a stake in a company with the unique technology that we believe could revolutionize the way utility-scale solar is installed. Unfortunately, I will not be able to elaborate much on our investment on this call given confidential agreements that we have with the company, other than to say we are very excited about the prospects for the technology and we are well-positioned to acquire the remainder of the company if we choose to. Cutting across all three of our growth strategies, will be product innovation. We are making significant investments this year in new product development with the goal of addressing common pain points in utility-scale solar installation. Installation constitutes a growing proportion of the total cost of a solar energy project, and the availability of skilled labor can be a constraint on our customers' growth. We have several new products, product features, and installation methods in development this year that we believe could significantly reduce the cost and labor required to install our tracker system and further extend our technology lead over competitors. Our product development efforts are focused on four key areas. Trackers that can be installed on rugged terrain without requiring significant site grading, reducing foundation costs through new installation methods, tool-less module mounting systems that can cut installation times,\n\nJeff Krantz (Chief Commercial Officer, Array Technologies): and improving tracking performance through software.\n\nJim Fusaro (CEO, Array Technologies): To demonstrate these new technologies for customers, we recently opened the Array Technology Research Center in Phoenix, which will serve as a proving ground for us to showcase the new products and installation methods that we are developing. We plan to update you in the coming quarters as we establish launch dates for the new products we have underway. I'll conclude by saying we're excited about the future. The solar market is getting stronger. Our products are winning over more and more customers, and we are taking market share. And we still have some tricks up our sleeve in terms of technology innovation. There's more to come. Now I'll turn it over to Nipo for an update on the quarter and full year 2020.\n\nNipal Patel (Chief Financial Officer, Array Technologies): Thanks, Jim. Before I talk about our fourth quarter results, it is important to keep in mind that our 2020 results were heavily first-half weighted as a result of our customers' attempt to capture incentives by the federal government related to the 2020 step-down in the ITC. This caused our customers to place the bulk of their orders in the back half of 2019 and then take deliveries in the fourth quarter of 2019 and the first two quarters in 2020. As a result, comparing a single quarter in 2020 to the same quarter in 2019 is not necessarily indicative of the trajectory of our business, The ITC stepdown skewed revenues in 2020 to Q1 and Q2, while revenues in 2019 were more evenly distributed. For the fourth quarter, we generated revenues of $180.6 million, which was a decrease over the prior year period as a result of these changes in seasonal order patterns. However, our revenues exceeded the high end of our guidance. as we had better than anticipated project delivery conversion at the end of the year. ASPs in the quarter were up approximately 2% year over year. Gross margins in the fourth quarter were 19.6%, lower than the prior year period, as a result of having less revenue to absorb fixed costs and project mix, but were in line with our expectations for the quarter. Operating expenses increased compared to the year-ago period, primarily due to a $10.4 million expense related to the revaluation of contingent consideration, mainly related to the earn out obligation we have with our founder, along with higher costs associated with being a public company and increase in headcount. We recorded a net loss in the quarter of $2.2 million, primarily as a result of the $10.4 million contingent consideration charge. It is important to note that we have now paid out the full amount owed under the earn-out obligation and will not have any further expenses or payments under that agreement. Going forward, any expenses recorded to contingent consideration will only be related to the revaluation of the tax receivable agreement. Adjusted EBITDA was $20 million for the fourth quarter, which was down from $49.9 million in the prior year, but also exceeded the high end of our guidance. Now, turning to our full year 2020 results. Revenues for the full year ended December 31, 2020 increased 35% to $872.7 million compared to $647.9 million in 2019, driven by the increases in the volume of trackers delivered anchored by the strength in the U.S. solar industry. ASPs for the year were approximately 2% higher than the prior year period. Gross profit increased 35% to $202.8 million compared to $150.8 million in 2019, driven primarily by higher volume. Gross margin remained flat at 23.2% as we had lower costs on purchased materials, which offset higher logistics costs. Operating expenses increased to $107.6 million compared to $67.4 million last year, primarily as a result of the $26.4 million expense for the contingent consideration discussed earlier, as well as a $4 million benefit we recorded in 2019 for a bad debt recovery for which we had no comparable benefit in 2020, as well as an increase in equity-based compensation and higher payroll costs as we invested in critical resources to enable our future growth. Net income increased 49%, to $59.1 million compared to $39.7 million in 2019, and basic and diluted income per share was 49 cents compared to 33 cents during the same period in the prior year. And finally, adjusted EBITDA increased 32% to $160.5 million compared to $121.8 million in 2019. Taken as a whole, we are very pleased with our financial performance in 2020, having delivered record revenues and adjusted EBITDA despite the unique operational challenges created by the pandemic. Turning now to our guidance. For the year ending December 31st, 2021, we expect revenues to be in the range of $1.025 to $1.125 billion, adjusted EBITDA to be in the range of $164 million to $180 million. Adjusted net income per share to be in the range of 82 to 92 cents. The midpoint of our revenue guidance represents a 23% year over year increase and reflects the strong demand we are seeing for our products. At December 31st, 2020, we had $654 million in executed contracts and awarded orders that are expected to ship in 2021. In years where there was no step down in ITC, our backlog entering the year typically represented the next six months of shipment. That's part of the reason we feel very confident about our revenue growth this year. We entered the year with backlog equivalent to 60% of the midpoint of our revenue guidance, and our order book has grown since then. Our adjusted EBITDA guidance reflects lower margins than we achieved last year. There are several reasons for that. First, as Jim discussed earlier, we have made product innovation a priority, and we are investing in it. In addition to the research center he discussed, we will be adding additional engineering resources and investing more in R&D. These investments have a near-term cost, as we will be making the investments ahead of the incremental revenues that we expect to generate from new products, but the long-term results should be higher revenues, greater market share, and increased margins. Second, we are investing in the sales, supply chain, and fulfillment infrastructure we need to service our international customers. Similar to our investments in new product development, we have a short-term mismatch between the cost of our investments and the revenues that they will yield. Third, our 2021 SG&A reflects additional public company costs, which will represent a year-over-year headwind for us. And finally, Commodity prices and freight costs have increased significantly over the past several months as a result of the reacceleration of the global economy, while certain transportation and raw material capacity remains offline as the result of the pandemic. While we expect prices to normalize and our contracts allow us to pass on these costs to our customers, we have taken a conservative approach to our guidance by baking these costs into the low end of our guidance, assuming a delayed return to more normalized pricing. I'd like to close by providing some key modeling assumptions for the full year 2021. As I mentioned earlier, the two year push out of the ITC step down has impacted how customers time their orders. As a result, we will see a different quarterly distribution of revenues and earnings in 2021 than we did in 2020. We currently expect to generate 20 to 25% of our annual revenues in Q1. 25% to 30% in Q2, 25% to 30% in Q3, and 20% to 25% in Q4. We expect interest expense to be between $26 to $28 million, diluted weighted average share count for 2021 to be 127.5 million shares, and our effective tax rate to be 25%. Now, I'll turn it back over to Jim for some closing remarks.\n\nJim Fusaro (CEO, Array Technologies): Thanks, Meeple. I'll close by reiterating how proud I am of the Array team for all that we accomplished in 2020. From our hugely successful IPO to our strong financial performance to the work we have done to lay a foundation for continued growth in 2021, it was truly an incredible year. We appreciate the support of our shareholders as we continue to grow our company. And with that, Operator, please open the line for questions.\n\nOperator (Conference Call Operator): At this time, we will be conducting a question and answer session. If you would like to ask a question, please press star 1 on your telephone keypad. A confirmation sign will indicate your line is in the question queue. You may press star 2 if you would like to remove your question from the queue. For participants using speaker equipment, it may be necessary to pick up your handset before pressing the star keys. Our first question comes from the line of Brian Lee with Goldman Sachs. Please, see with your question.\n\nBrian Lee (Analyst, Goldman Sachs): Hey, guys. Good afternoon. Thanks for taking the questions. Good job on the first quarter out here. Had a couple here, I guess, with respect to, you know, you mentioned, Nipul, the pricing dynamic for 2020. You were up 2% average ASP, I think. How should we be thinking about pricing in 2021? What's embedded in your outlook here? Just given some of the comments around cost inflation, are you capturing some of that in price and can you quantify it to any degree? And then are you able to go out to the market with more price increases if we continue to see inflation sort of pressure some of your input costs moving throughout the year and there's not a normalization?\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah, hey, Brian, it's Niple. Thanks for those questions. What I would say, you're right, as I mentioned, the 2% price increase year on year. We've held prices relatively flat, and we think they're stable. However, we do have the option, as mentioned, to go back into the market. We've built in that range in our guidance to allow us to evaluate case by case, Brian, but yes, we do have that option.\n\nBrian Lee (Analyst, Goldman Sachs): Okay, that's great. And then the second question on the contracts and awarded orders, I know you guys aren't going to make this a recurring update per se, but can you speak to, it sounded directionally like you've seen some growth in that even off the December 31, 2020 reported level. Can you give us a sense of where that's at now early on in 2021 and then kind of what the geographic mix is. You said 15% of sales by Q421 will be non-U.S. Is it 85-15 in that kind of contracts awarded order backlog, or is it different there? Thank you.\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah, sure. So, hey, so regarding the backlog in awarded orders, like you mentioned, we decided we're going to provide that once a year, the concrete number as part of our annual guidance process. But, yes, what we've seen is that it is growing since December 31st, and we'll give qualitative measures on that going forward. But we feel pretty good about that. The thing to really mention about this, Brian, too, is with the ordering pattern changes in 2020, with the ITC being extended, we feel really good that we have 60% coverage at year-end of our midpoint guidance. So we really feel good about that as well as the increase \u2013 from January.\n\nBrian Lee (Analyst, Goldman Sachs): All right, and just in terms of the mix, any kind of geographic color you can provide, is it that 85-15, or are you seeing more skew even toward non-U.S. in that mix?\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah, so what we said, you know, Jim mentioned in his script is there's a little bit of a ramp in the international sales, and we feel by the end of the year, the fourth quarter, we'll be at a 15% mix. Right now, I think for the overall blended, I would say it's in the 90-10% for the full year.\n\nBrian Lee (Analyst, Goldman Sachs): Okay, fair enough. Thanks a lot, guys. Thanks, Brian.\n\nOperator (Conference Call Operator): Our next question comes from the line of Shar Parisa with Guggenheim Partners. Please, see what your question is.\n\nShar Parisa (Analyst, Guggenheim Partners): Hey, good evening, guys. Sure, sure. So just a couple of quick questions here. You know, obviously you touch on what's driving, you know, the lower EBITDA margin in 21 and sort of that midpoint of the new guidance applies, you know, around 16%. And obviously you guys highlight, you know, several items like commodity costs, public company costs, sort of that international push is the driver of some of that compression. But as we sort of think about, you know, margins, maybe in the medium term, say post 21, should we assume some, incremental margin compression further from what we're seeing today as you're guiding, as let's say you expand internationally, or should we assume maybe that 16% is a pretty good floor for our modeling purposes as we think about post-21?\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah. Hey, Sharves and Abel again. We've given that kind of range, the medium term being 16% to 18% EBITDA, and that's where we feel it still is. with the commodity pricing as it is right now. That's what any investments we're making consciously for the revenues that will be coming, we feel that that is kind of near the floor where we feel.\n\nShar Parisa (Analyst, Guggenheim Partners): Okay, that's perfect. I just wanted to make sure that's reiterated. And then, you know, obviously, you recently increased the size of your revolver. Just maybe highlight, you know, why you saw that increase in capacity. Is it sort of organic or... in organic opportunities. I know in the past you've highlighted that you would utilize the Revolver for, say, let's say some bolt-on acquisitions, right? And then just maybe just a quick refresh, you know, thoughts on M&A in the near term. Are you sort of targeting sort of existing parts of the BOS, or is there other new innovations that you could look to acquire similar to the technology investment you made earlier this year?\n\nNipal Patel (Chief Financial Officer, Array Technologies): Sure. Hey, Sharon, I'll take the first half of that, and I'll pass the eminent question to Jim. But as far as the revolver, yeah, we're always looking for flexibility in our capital structure. Obviously, the way we look at our capital structure is invest in high ROI projects, but also look at opportunities for bolt-on or inorganic growth. And so we provide ourselves, we believe, the flexibility to expand that revolver to accomplish both of those. Jim, you want to take on the M&A?\n\nJim Fusaro (CEO, Array Technologies): Yeah, sure. So, we're going to continue to keep that pipeline robust, and our thesis remains the same, you know, to the extent we can tap into additional wallet share, whether it's mechanical balance of system or electrical balance of system, and most importantly, technology. That remains really foundational to our strategy on M&A, and I think our investment in technology that we noted is really, you know, the first step towards that. So, We remain very optimistic about what we have in the M&A pipeline. We're going to continue to vet that going forward.\n\nShar Parisa (Analyst, Guggenheim Partners): Got it. And then just lastly for me, I'm just wondering just from a sentiment, it could be positive, it could be negative, if you've seen any sort of shift from your customers following maybe some of the events we saw in ERCOT, MISO, and the SPP regions from the recent weather events, you know, has that swung any of your order books as we think about what we just went through a few weeks ago, a couple weeks ago?\n\nJim Fusaro (CEO, Array Technologies): No, not at this moment, Shar, but I'm happy to report that we've got nearly 40 sites in the affected region, nearly 3 gigawatts, and we have not received any word of any issue on our site. So, you know, probably too early to tell, but really nothing notable.\n\nShar Parisa (Analyst, Guggenheim Partners): Perfect. Congrats on the execution, guys.\n\nJim Fusaro (CEO, Array Technologies): Thank you.\n\nOperator (Conference Call Operator): Our next question comes online of Paul Custer from JP Morgan. Please, see you with your question.\n\nPaul Custer (Analyst, JP Morgan): Yeah, thank you for taking my question. It wasn't clear to me as the impact of these investments and other expenses during the year as to how it's distributed across gross versus EBIT margins. It sounded like it was more below the line operating expense related than it was direct costs. Can you just sort of give us some sense there?\n\nJim Fusaro (CEO, Array Technologies): Yeah, Paul, this is Jim. It's roughly half and half, with half of it going towards the innovation piece. And, you know, it's really about the future here. So this is, you know, I'm not the one that really coined this, but certainly doing two things, seemingly conflicting at the same time, delivering on the short term while investing in long term. So half of it is on the innovation piece. And, you know, I'll let Anit, I'll comment.\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah, so on the other, on the margin side, You know, we built into our range the impact of higher freight and raw material costs, really not abating as quickly, and that's really the other half of that cost that we have in our guidance range, Paul.\n\nPaul Custer (Analyst, JP Morgan): Yeah, maybe a little unfair to ask this, but If the pandemic had kind of cleared up more quickly, how much more EPS would \u2013 I mean, how much EPS has been sort of forfeit as a result of shifting things into the second half, the international growth in particular?\n\nJim Fusaro (CEO, Array Technologies): I couldn't really give you a quantifiable answer on that. My only wish and desire was that it would clear up faster, but that's just not the reality.\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah, and it has delayed, as we mentioned, in the second half.\n\nPaul Custer (Analyst, JP Morgan): Okay, last question. You've talked of trying to sort of nail down most of the big EPC customers as your proxies for going into the end market, at least in the United States. What proportion of the largest, say 1020, do you think you've now got secured as sort of regular customers?\n\nJim Fusaro (CEO, Array Technologies): Paul, I would just lead off by saying we added 38 new customers, eight of which were international. I would have to get back to you with respect to the mix, which is, you know, the IPPs, developers versus EPC. Don't have that readily available. We can get back to you on that.\n\nPaul Custer (Analyst, JP Morgan): Okay. All right. Thanks very much. Appreciate it.\n\nUnidentified Speaker (No designation provided): Thanks, Paul.\n\nOperator (Conference Call Operator): Thanks, Paul. Our next question comes from the line of Steven Burke with Morgan Stanley. Please start with your question.\n\nSteven Burke (Analyst, Morgan Stanley): Hey, thanks so much for taking my questions. Hey, I wanted to just get your thoughts on the competitive playing field. Are you seeing either new entrants, changes in offerings? And just wondered also in that context if you could just speak to sort of the share that you described a little bit in your prepared remarks. Just wondered if you could give any more specifics on sort of your take on kind of market share position and just relative competitive positioning more broadly.\n\nJim Fusaro (CEO, Array Technologies): Yeah, Steve, I would first say that we respect all competitors. Haven't really seen any new entrants. And with respect to market share, I would really just point you to our year-on-year growth and then what we've outlined by way of the midpoint of our growth going forward into 2021 and then how that falls out with respect to share of demand. I'll let you do the math there.\n\nSteven Burke (Analyst, Morgan Stanley): Very good. Understood. And then just lastly, You talked to kind of the growth internationally, and it sounds like it's just a bit of a delay. It's not as if there's a shift upwards in your cost structure to be able to execute internationally, but more of a delay. Am I sort of reading that properly?\n\nJim Fusaro (CEO, Array Technologies): Yeah, that's exactly right. When you think of a delay, think of it in terms of certain countries had travel restrictions, so I couldn't get boots on the ground to really \u2013 qualify the supply chain fulfillment and things of that nature. So that was really a delay.\n\nSteven Burke (Analyst, Morgan Stanley): That's perfect. That's all I have. Thank you. Thanks, Steve.\n\nOperator (Conference Call Operator): Our next question comes online of Michael Weinstein with Credit Suisse. Please, deal with your question.\n\nMichael Weinstein (Analyst, Credit Suisse): Hi, guys. I understand that 16% to 18% gross EBITDA margin guidance. As you increase the percentage coming from international, does that actually push things up towards the higher end of that range, or is it all the same? I'm just curious for the difference between U.S. and international.\n\nNipal Patel (Chief Financial Officer, Array Technologies): The way we look at that, we're still going to maintain the 16% to 18% range, and as the mix changes, there'll be less investments that we're making this year, so we still think we'll be in that range.\n\nMichael Weinstein (Analyst, Credit Suisse): Yeah, but, I mean, just to follow up with Char's earlier question, is international expected to have higher gross margins just, you know, versus the U.S.?\n\nNipal Patel (Chief Financial Officer, Array Technologies): That hasn't changed from what we had said before, Michael. Initially, we know that they're going to be a little bit lower margins, but over the longer term, it's going to be at or higher than the domestics because of the input costs.\n\nMichael Weinstein (Analyst, Credit Suisse): Gotcha. So if you expect to maintain the range, what's the offset to that?\n\nNipal Patel (Chief Financial Officer, Array Technologies): Well, we're ramping up, if you recall, in international sales. So as the investments abate from this year and the international ramps up, that's where you get the offset.\n\nMichael Weinstein (Analyst, Credit Suisse): Okay, I see, I see. In terms of new technologies, and you mentioned that you're invested in a new technology that's yet to be revealed, are we talking about something that is still going to be in the tracker field, or are you branching out into completely new things? the solar value creation, you know, something new in terms of creating efficiency.\n\nJim Fusaro (CEO, Array Technologies): Yeah, I would say the way to look at it, Michael, is it's going to be within the tracker itself in utility scale, but certainly we're not limiting ourselves there when we look at technology.\n\nMichael Weinstein (Analyst, Credit Suisse): Are you still \u2013 are there other investments that you're working on currently also, additional bolt-on acquisitions or major acquisitions?\n\nJim Fusaro (CEO, Array Technologies): I would just go back to what I said earlier, that our pipeline remains very robust. And, you know, as they mature, they'll become apparent.\n\nMichael Weinstein (Analyst, Credit Suisse): Maybe you could comment a little bit more on the R&D capabilities that you think will be available in Phoenix, under the Phoenix facility.\n\nJim Fusaro (CEO, Array Technologies): Yeah, I would just refer you back to what we said earlier. You know, some of the pain points that our customers are seeing is the time to install. So labor is an area that we're focusing on. We're also looking at means and ways through which you can minimize grading, so have more flexibility. Foundation counts, another, how you can generate more output or energy, maximize that through software. So that's kind of the A to the Z that we're working on. But we're real excited about the tech center.\n\nMichael Weinstein (Analyst, Credit Suisse): Hey, just two last ones for me. One is, is the cost of steel becoming a problem for you, old steel? And also, where internationally, which continents are you planning on focusing on first, highest priority, and which will be the next ones after that?\n\nJim Fusaro (CEO, Array Technologies): So, you know, we obviously manage and monitor all commodities accordingly, and then we build in productivity measures to address that, you know, to continue to drive our value in If your question was pertaining to our supply chain, sorry, Michael, could you clarify your question?\n\nMichael Weinstein (Analyst, Credit Suisse): Yeah, I'm thinking supply chain. I mean, I'm thinking about the pressure on margins from cost inputs.\n\nJim Fusaro (CEO, Array Technologies): Yeah, I mean, there's always going to be pressure on cost. You know, that's pretty much market agnostic and product agnostic. But that said, you know, we've Actually built up, we continue to build out our supply chain. We added 15 new suppliers and four new countries. So that's just going to be an area that we remain focused on going forward as we grow both domestic here and internationally.\n\nMichael Weinstein (Analyst, Credit Suisse): Right. And also in terms of your focus on sales, you know, where are you going to go next? What's the highest priority in terms of continents and countries? And, you know, what's the second after that?\n\nJim Fusaro (CEO, Array Technologies): Yeah, I would actually point you back to what we've always said, and that is really a strategy of following our customers. You know, we added 38 last year, eight of which were international at international reach. We like to follow them into the regions that make the most sense since they're the ones that are actually investing and connecting to the grid. So, you know, I think, you know, you could look at South America and certain countries within there and then Western Europe as well as Southeast Asia. Not necessarily in that order, but those are areas that our customers seem to be gravitating towards.\n\nMichael Weinstein (Analyst, Credit Suisse): Okay. Thanks a lot, guys.\n\nJim Fusaro (CEO, Array Technologies): Thanks, Michael. Thank you.\n\nOperator (Conference Call Operator): Our next question comes from the line of Philip Shen with Roth Capital Partners. Please start with your question.\n\nPhilip Shen (Analyst, Roth Capital Partners): Hi, everyone. Thanks for taking my questions. First ones are around Safe Harbor. I was wondering if you might be able to share how many megawatts of Safe Harbor were in Q4, and then what you expect in Q1 and what you expect overall in the 21 guidance.\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah, hey, Phil, it's Naples. How are you? So we're going to not talk about megawatts, but I'll give it to you in revenue. So we had about $40 million in our Q4 numbers, and we expect to deliver, of course, ITC-related now that it's extended about $100 million in the first half of the year.\n\nPhilip Shen (Analyst, Roth Capital Partners): Okay, great. And then should we not expect any in the back half of 21?\n\nNipal Patel (Chief Financial Officer, Array Technologies): Well, the ITC is extended now, so we would assume normal seasonal patterns where Q2 and Q3 are the high build months.\n\nPhilip Shen (Analyst, Roth Capital Partners): Great. And then you guys gave the backlog numbers, you know, 705 and 654 for the next 12 months. was wondering if you could give those same numbers for what at the end of 2019.\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah, you know, hey, so we didn't track backlog and awarded orders at the 2019, the same precision. We're doing it in 2020. But the numbers are roughly similar between the two periods. And as you know, it doesn't tell the full story because at the backlog at the end of 2019, it represented what most of the customers planned for the full year. And you saw that manifested by the concentration of our revenues and profits in the first half of 2020. So that's why we feel really good. You know, the backlog's about the same level, but the 654 that we have this year is really, you know, really represents about six months of deliveries. And so we feel that it's great that we have already covered about 60% of our full year midpoint guide.\n\nPhilip Shen (Analyst, Roth Capital Partners): Great. Yep. Thanks, Neeple. And then as it relates to... the margin outlook. I know you're not providing official guidance on this, but given the cadence of the safe harbor revenues being concentrated in the first half, can you talk through what is either the gross or EBITDA margin look like in first half versus back half?\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah, we're about the same throughout, so I would just take the revenue split that we had and about the same margin.\n\nPhilip Shen (Analyst, Roth Capital Partners): Okay, great. That's all really helpful. Thank you. I'll pass it on.\n\nOperator (Conference Call Operator): Thanks, Phil. Our next question comes from the line of Colin Rush with Oppenheimer. Please begin with your question.\n\nColin Rush (Analyst, Oppenheimer (represented on the call by Joe)): Hey, guys. It's Joe on for Colin. Thanks for taking our questions. Given the growth in demand, we're expecting to come. Some of that's likely going to be from odd shaped lots or more difficult terrains. And so can you maybe speak to the dynamics around addressing those sorts of sites?\n\nUnidentified Speaker (No designation provided): Yeah, I'm sorry.\n\nColin Rush (Analyst, Oppenheimer (represented on the call by Joe)): Colin or who's speaking? This is Joe on for Colin.\n\nJim Fusaro (CEO, Array Technologies): Oh, I didn't catch that. Hey, Joe. Yeah, you know, our strategy, our product addresses those quite nicely, you know, whether it's 1 to 20 megawatts and you know, that was part and parcel of the reason that, you know, we went forward with what we did with RPCS because that's exactly what they do well for us. So, you know, we don't see any challenges with respect to, you know, the terrain flexibility, the odd shaped sizes themselves. We've been servicing that market quite nicely and we plan to do so going forward.\n\nColin Rush (Analyst, Oppenheimer (represented on the call by Joe)): Okay, great. And then a little bit, back to the the question around input costs and supply chain are you guys looking at any new materials that could potentially reduce your cost of goods sold yes now don't ask what they are um okay well yeah i mean any color you can give there would be good but\n\nUnidentified Speaker (No designation provided): Yes, we're looking at alternative materials. That's just part and parcel of what the R&D team does. Sounds good.\n\nColin Rush (Analyst, Oppenheimer (represented on the call by Joe)): Thanks very much.\n\nUnidentified Speaker (No designation provided): Thank you.\n\nOperator (Conference Call Operator): Our next question comes in the line of Jeff Osborne with Cowen. Please, deal with your question.\n\nJeff Osborne (Analyst, Cowen): Yeah, good afternoon. Most of the questions have been addressed, but just going back to the steel issue, can you remind us roughly what percentage of the bill of materials is galvanized steel?\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah. Hey, Jeff, it's Nifl. We don't break out the bill of materials. Obviously, we know for competitive products, but obviously we have steel as a large component of a commodity that we use in our overall tracker.\n\nJeff Osborne (Analyst, Cowen): Got it. So just so I'm clear, you're talking about the first half of the year fully booked based on the backlog, and when would you be buying that steel just as it's been moving quite a bit? So have you locked in the steel as you locked in that pricing so you have high visibility into the margins or not necessarily so?\n\nNipal Patel (Chief Financial Officer, Array Technologies): Yeah, so we typically \u2013 I'll just give you our typical order pattern. So, you know, we typically order material between six and 12 weeks from the date of the shipment, so we keep very low inventory. So the impact, you know, obviously of the COGS, the recent runoff prices would impact second half more than it would first half.\n\nJeff Osborne (Analyst, Cowen): Got it. And then on the eight new customers internationally, can you talk about any particular geographies outside of Australia? Have you had any success? People have tried to ask about continents, but the eight new people, can you, without naming them, talk about what countries or regions they're from? Or is it all in Australia?\n\nJim Fusaro (CEO, Array Technologies): No, it's not all in Australia. It's still Western Europe. It's South America as well as parts of Asia. So you can think of Brazil. You can think of Spain and some other regions as well in Western Europe.\n\nJeff Osborne (Analyst, Cowen): And then the last one I had is just can you remind us, you know, given your pricing of 10, 11 cents, whatever the number is, you're now talking about lowering labor costs with this investment that you made. Can you remind us what the labor cost is if a utility-scale solar project is roughly a dollar a watt? What would you think is the direct labor attributable to specifically the tracker that you're trying to lower?\n\nJim Fusaro (CEO, Array Technologies): Yeah, I couldn't give you an absolute number, Jeff, simply because every site, every project has its own DNA, depending on what the site construct looks like, you know, the number of modules per row and things of that nature. All I can say is just reinforce that, you know, the technology that we're looking at substantially reduces that. So we're quite excited about that.\n\nJeff Osborne (Analyst, Cowen): All right. Thank you.\n\nOperator (Conference Call Operator): Our next question comes from the line of Martin Malloy. with John Rice, with Johnson Rice. Please, with your question.\n\nMartin Malloy (Analyst, Johnson Rice): Good afternoon. Hey, Marty. Hi. Could you give us an update, maybe, on your strategy for monetizing the software?\n\nJim Fusaro (CEO, Array Technologies): Yeah, hi, Marty. So the strategy remains kind of threefold here, and that is, first and foremost, to the extent we can use that to create greater value at the point of sale with our tracker, that will always be included. And we're very pleased with the uptake that we currently have on our SmartTrack. The second one would be with respect to in the event the customer has already an array tracker out there and is interested in purchasing that by way of license and or annuity going forward. We're working with several customers on that front. And then thirdly would be You know, to the extent there's opportunity for us to deploy and then to deploy the software at a later date, depending on the customer's request at commissioning, we have that means as well. We're still very early in the throes of deployment of the software solution, but are certainly quite excited about the uptake that we've seen thus far and the performance gains that it's providing to customers where we have deployed. Great.\n\nMartin Malloy (Analyst, Johnson Rice): Thank you very much. Thank you. Thanks, Mark.\n\nOperator (Conference Call Operator): Our final question comes from the line of Kashi Harrison with Simmons Energy. Please, you have the question.\n\nKashi Harrison (Analyst, Simmons Energy): Good evening, and thanks for taking my questions. So, in the guidance, you highlight your expectation that, you know, commodity prices and freight charges could normalize over time. Just curious what drives that normalization view. And then how long it would take how long the cost would need to remain elevated before you, you know, seriously decided or considered passing it on to customers and then how to think about any concerns surrounding implications to demand from customers from, you know, higher higher costs.\n\nNipal Patel (Chief Financial Officer, Array Technologies): Hey, Cash, it's Napal. How are you? So as far as that first part of the question, as far as how long we think it is, you know, obviously it's unknown. We're in unprecedented times as far as the commodity prices increasing. And it's really just that it's a lot of the, you know, as the economy begins to reopen, there's a lot of, you know, precariousness. pandemic capacity that still remains idle. So, you know, we're thinking second half and late second half is when it's coming back online. And as far as your second half of the question, we're always evaluating all pricing on our projects. And we know that, you know, we have that ability and we'll look at it on a case by case basis.\n\nKashi Harrison (Analyst, Simmons Energy): Okay, fair enough. And then on the M&A front, I know there's not a lot you can talk about, but I was just wondering if you could at least give us a timeline on when you think you might be able to buy the technology company that you refer to, the remaining portion.\n\nJim Fusaro (CEO, Array Technologies): I couldn't give you a definitive timeline other than we have certain milestones that need to be met by way of technology assessment. and things of that nature. As they pan themselves out, we'll check the box and then proceed accordingly. But I couldn't give you a definitive timeline because there's elements that need to be satisfied as we go through the process.\n\nKashi Harrison (Analyst, Simmons Energy): I guess maybe asking a different way, do you think this is a 2021 event maybe, or is it probably longer term?\n\nJim Fusaro (CEO, Array Technologies): Yeah, I couldn't tell you. I couldn't commit to a date on that.\n\nKashi Harrison (Analyst, Simmons Energy): All right, fair enough. And then the last one for me, you know, good to see you all investing in R&D for the future of the business. I was just wondering if you could talk about, you know, the four innovations that you highlight on that separate press release, how to think about the impact to ASPs over the medium term. And that's it for me. Thanks.\n\nJim Fusaro (CEO, Array Technologies): Yeah, medium term, you know, I don't think you'll see, you know, a large or an impact on medium term. This is a longer play as we deploy. You can think of it in the out years of 22, first half 22 and beyond.\n\nKashi Harrison (Analyst, Simmons Energy): Got it. That's it for me. Thank you.\n\nUnidentified Speaker (No designation provided): Thanks, Kashi.\n\nOperator (Conference Call Operator): We have reached the end of our question and answer session. I would like to turn the call back over to the manager for any closing remarks.\n\nJim Fusaro (CEO, Array Technologies): Yeah, thank you. Again, I just want to reiterate how proud I am of the array team for all that we accomplished last year. We're certainly excited about our performance and, you know, plan to carry that forward into 2021 and where we are certainly excited about our growth going forward. So with that, I'd like to thank everyone.\n\nOperator (Conference Call Operator): And with that, this concludes today's teleconference. You may now disconnect your lines at this time. Thank you for your participation and have a wonderful day.",
+  "n_turns": 114
+}

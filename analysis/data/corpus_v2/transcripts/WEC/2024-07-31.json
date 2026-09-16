@@ -1,0 +1,433 @@
+{
+  "ticker": "WEC",
+  "original_ticker": "WEC",
+  "call_date": "2024-07-31",
+  "year": 2024,
+  "quarter": 2,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "WEC",
+    "year": 2024,
+    "quarter": 2
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T01:54:40Z",
+  "raw_payload": {
+    "event": {
+      "year": 2024,
+      "quarter": 2,
+      "conference_date": "2024-07-31T14:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk07",
+        "text": "A replay will be available approximately two hours after the conclusion of this call. Before the conference call begins, please note that all statements in the presentation, other than historical facts, are forward-looking statements that involve risks and uncertainties that are subject to change at any time. Such statements are based on management's expectations at the time they are made. In addition to the assumptions and other factors referred to in connection with the statements, factors described in WCEC Energy Group's latest form K and subsequent reports filed with Securities and Exchange Commission could cause actual results to differ materially from those contemplated. During the discussions, referenced earnings per share will be based on diluted earnings per share unless otherwise noted. And it's now my pleasure to introduce Scott Lauber, President and Chief Executive Officer of WEC Energy Group."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Good afternoon, everyone, and thank you for joining us today as we review our results for the second quarter of 2024. Here with me today is Shaw Liu, our Chief Financial Officer, and Beth Schrocka, Senior Vice President of Corporate Communications and Investor Relations. As you saw from our news release this morning, we reported second quarter 2024 earnings of 67 cents per share. We're firmly on track to meet the full year 2024 guidance of $4.80 to $4.90 a share. This, of course, assumes normal weather for the balance of the year. We continue to see strong foundational growth in our regional economy. The unemployment rate in Wisconsin stands at 2.9%, continuing a long running trend below the national average. The pipeline of economic activity is particularly strong in what we call the I-94 corridor between Milwaukee and Chicago. For example, just last month, West Rock broke ground on a new facility at the former site of our retired power plants. West Rock is a leading company in paper and packaging solutions with 50,000 employees and 300 plants worldwide. The company called the cutting edge facility a super plant, stating it will be one of their largest and most advanced plants. And Microsoft is making good progress on the construction of a large data center complex in Southeast Wisconsin. In May, Microsoft announced a broad investment package to strengthen our region as a hub for AI economic activity innovation, and job creation. These investments include a planned $3.3 billion to be spent in cloud computing and AI infrastructure between now and the end of 2026. Microsoft has stated that it expects to bring 2,300 construction jobs to the area by 2025 and 2,000 permanent jobs over time. These developments highlight the strength and the potential of our local economy and underscores the need for the investments in our capital plan. During the second quarter, we continue to move forward on major projects in our capital plan. It's the largest five-year investment plan in our history, totaling $23.7 billion for efficiency, sustainability, and growth. As we've discussed, the plan is based on projects that are low risk and highly executable. At the end of May, we closed on our second option at West Riverside Energy Center for $100 million. This adds 100 megawatts of efficient combined cycle natural gas generation to our portfolio. You'll recall that last year we discussed several filings, or last quarter we discussed several filings for major projects to support economic growth and reliability in Wisconsin. This includes approximately 1,200 megawatts of efficient natural gas generation at our Paris and Oak Creek sites, as well as 2 billion cubic foot liquefied natural gas storage facility and a 33-mile gas lateral to serve the Oak Creek site. In total, these projects combined represent $2.1 billion of investment. Our proposals were submitted to the Wisconsin Commission in April, and we expect the decision in approximately a year. Also under review, we filed an application in February to purchase a 90% ownership interest in High Noon Solar Energy Center in southern Wisconsin. With an expected investment of approximately $580 million, the facility is expected to provide 300 megawatts of solar generation. We have asked the Commission to make a decision before the end of the year. As a reminder, we expect these investments to earn AFUDC during the construction period after Commission approval. And in our WEC infrastructure segment, the Delilah 1 solar project is now expected to go into service at the end of the year, delayed from June due to a weather event. We plan to invest approximately $460 million for a 90% ownership interest in this project in northeast Texas. And we still expect our maple flag solar project to be in service by the end of the year. As you recall, we're investing an additional $560 million this year in our infrastructure segment. We reallocated away from our operations in Illinois a total of $800 million in our five-year capital plan. Overall our plan fully supports our long-term earning growth rate which we project to be in the six and a half to seven percent range on a compound average annual basis. We're also on schedule with the development of our next five-year plan and as usual we expect to share the details with you in the fall. Now I have a few updates on the regulatory front. In Wisconsin we filed new rate reviews for test year 2025 and 2026 on April 12. Our request focused on addressing three major areas of need. First, improving reliability and reducing outages from increased storm activity. Second, supporting Wisconsin's economic growth and job creation through investments in new generation and distribution projects. And lastly, continue the transition from coal generation to renewables and natural gas. Commission staff and intervener testimony is scheduled for August 21st. We expect a decision by the end of the year with new rates effective January 1st, 2025. We have smaller rate reviews in progress at Michigan Gas Utilities and Upper Michigan Energy Resources. We also expect decisions on these reviews by the end of the year. And in Illinois, we've been engaged in three dockets. The Illinois Commerce Commission issued its decision on the first of these, a limited rehearing on the commission's rate order for people's gas at the end of May. The commission had agreed to reconsider our request to restore $145 million for safety modernization program in 2024. This mostly related to emergency work. unfinished projects, and work driven by public entities like the City of Chicago. The Commission granted $28.5 billion concentrating on what they deemed emergency work. We have appealed this decision to the Illinois Appellate Court along with other items in the rate order, including the Commission's previous disallowance of investments in new service centers. We are also actively involved in two remaining dockets, One is the review of the safety modernization program. Staff and intervener rebuttal testimony are expected by August 21st with a commission decision expected in the first quarter of 2025. The other docket is the evaluation of the future of natural gas in Illinois, which is expected to conclude in about a year. Of course, we'll keep you updated on any further developments. Across our business, we continue to make good progress towards our goals of reducing greenhouse gas emissions. In May, we retired units five and six at our Oak Creek Power Plant. Together, those made up over 500 megawatts of coal-fired generation. Including these units, since 2018, we've retired nearly 2,500 megawatts of older fossil fuel generation. Finally, a quick reminder about the dividend. We continue to target a payout ratio of 65 to 70% of earnings. We're tracking in that range now and expect the dividend growth will continue to be in line with the growth of our earnings per share. Now I'll turn it to Shaw to provide you more details on our financial results and our guidance for the third quarter."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thank you, Scott. We earned 67 cents a share for the second quarter. While this was a decrease of 25 cents quarter over quarter, we exceeded our Q2 guidance range of 60 to 64 cents a share, driven by favorable O&M and financing compared to guidance. As Scott indicated, we're on track to meet our 2024 earnings guidance. As I reminded you on the last couple of calls, With the redesign changes at People's Gas, base revenues are now more concentrated in the first and fourth quarters when natural gas usage is the highest. This earnings shift has impacted our second quarter and will impact our Q3 guidance, which I will discuss in a few minutes. Now, let's look at our quarter over quarter variances. Our earnings packet includes a comparison of second quarter results on page 15. I'll walk through the significant drivers. Starting with our utility operations, earnings were 19 cents lower compared to the second quarter of 2023 as a result of higher O&M, fuel, depreciation and amortization, interest, and other expenses. A couple of drivers for the day-to-day O&M variants are worth noting. One, we experienced higher storm costs in the current quarter compared to Q2 last year. And two, we benefited in Q2 last year from a land sale at a retired plant site in Wisconsin. Looking ahead, I now expect overall day-to-day O&M in 2024 to be 2% to 3% higher compared to 2023. This is a 4% improvement compared to our initial expectation due to our continued O&M savings initiatives that we expect to realize late this year. The impact of weather was flat for the quarter. Compared to normal conditions, we estimate that weather had a two cent negative impact for the second quarter in both 2023 and 2024. Our weather normal electric sales in Wisconsin are relatively flat quarter over quarter and are overall in line with our forecast. Looking at ATC, continued capital investment contributed an incremental penny to Q2 earnings compared to 2023. And in our energy infrastructure segment, earnings improved 2 cents in the second quarter of 24 compared to the second quarter of 23, driven partially by higher production tax credit at WEC infrastructure. Finally, you'll see that earnings at our corporate and other segments decreased 9 cents. as a result of the impact of tax timing and higher interest expense. Now, turning to guidance, for the third quarter, we're expecting a range of 68 to 70 cents per share. This accounts for July weather and assumes normal weather for the rest of the quarter. As I mentioned earlier, it also accounts for the shift in Illinois revenue recognition pattern. Our third quarter 2023 earnings were $1 a share. Once again, we're reaffirming our 2024 earnings guidance of $4.80 to $4.90 per share, assuming normal weather for the rest of the year. Before I turn back to Scott, let me quickly remind you that we continue to utilize dividend reinvestment and employee benefit plans to issue common equity. Also, as we said before, we plan to set up an ATM program. Overall, we still project that our common equity issuance will be up to $200 million for 2024. Post 2024, our equity issuances will be tied to our capital spending, relatively with approximately $500 million expected per year in the current plan. We look forward to updating you in the fall as we refresh our capital and financing plan. With that, I'll turn it back to Scott."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Thank you, Shaw. Overall, we're on track and focused on providing value for our customers and our stockholders. Operator, we're ready now for the question and answer portion of the call."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thank you. Now we will take your questions. The question and answer session will be conducted electronically. To ask a question, please press the star key, followed by the digital one on your phone. If you are using a speakerphone, turn off your mute function to allow your signal to reach our equipment. We will take as many questions as time permits. Once again, please press star and then one on your phone to ask a question. Our first question comes from Char Perez with Guggenheim Partners. Your line is open."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Hey guys, good afternoon."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah, good afternoon, sir."
+      },
+      {
+        "speaker": "spk02",
+        "text": "He's got just starting off just on the sort of the perennial Microsoft opportunity that always seems to be asked. It's obviously becoming even more kind of topical now. Just remind us on what portion of Microsoft land acquisition and build is kind of layered in your current plan. And the reason why I ask is that it's obviously now kind of public that they bought a bit more land. And I guess, when do you see this hit your plan more materially? Thanks."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Sure. Sure. So just as everyone, you know, update everyone, you know, they announced spending $3.3 billion through 2024 through 2026, which is on that first about 315 acres that they purchased. And then last fall they purchased another 1,030 acres and You know, of course, we pulled our capital plans together before that 1,000 acres were purchased. And then just this morning, there's been a couple announcements in the paper where they purchased another 173 acres in southeastern Wisconsin. So we are currently in the process of working with Microsoft and developing our plans for our next five-year plan that we'll roll out this fall in the development. Currently, we really only have the energy and the capacity needs for that first 315 acres."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Got it. Okay, that's perfect. So more to come there. And then just lastly, on the Delilah 1 solar project delay, it's roughly six months. I guess, can you just maybe question for Shaw's how to think about the offsets around the potential headwind there versus your kind of prior assumption? Thanks. Sure."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah, we took that into consideration as we reaffirmed the annual guidance of 480 to 490. So as I mentioned, we continue to focus on O&M management and financing costs and tax and others. So we're confident that we can offset the downside from the delay."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Okay. That's perfect. Thanks, guys. Appreciate it. And hopefully Gail is somewhere tropical listening to this earnings call. Thanks. Appreciate it."
+      },
+      {
+        "speaker": "spk12",
+        "text": "He probably is."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Our next question comes from the line of Julian DeMolen-Smith with Jeffries. Your line is open."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Hey, good afternoon, team. Can you guys hear me okay?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah, we can hear you fine. Welcome back, Julian."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Awesome. Thank you. I appreciate the time, guys. It's a pleasure to chat here. So perhaps just to kick things off here, Look, nicely done all around. In fact, I wanted to just focus on the infrastructure segment. Obviously, you guys are planning well against those targets. I'm curious, as you think about the totality of the data center opportunities, what does that mean as you think about the opportunities that you're seeing on that side of the business? And how do you think about the scope of that business in turn? You guys are obviously focusing on contracted opportunities. By contrast, a lot of these potential customers would be in a similar manner focused on these kinds of counterparties. Curious if you think about that opportunity set on that front first."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Sure, and we've been working with Microsoft on the needs for the area, and Wisconsin's got a lot of development opportunities, and we want to make sure we hit the capacity requirements we need for the area to support the growth, not just Microsoft, but all the other growth that we're seeing in the region. So that's why we've added the, you know, and you'll see more filings shortly on renewable projects in the next month or so that we're proposing to help meet the capacity and the energy needs in the region. So we think there's a lot of opportunity, not only from generation of renewables, some capacity needs, some distribution needs also, but also American Transmission Company and investment in the transmission in the region. So we're factoring all that in as we pull together our five-year plan here."
+      },
+      {
+        "speaker": "spk01",
+        "text": "And Julian, all those filings will be in the regulated area, as you know, in Wisconsin."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yep, absolutely. Indeed. I know you're pursuing this on multiple fronts. Absolutely. And then team, just maybe to tackle on the regulatory front, a couple of questions here. How do you think about this, the PSC's denial in the AFEDC? Is there anything to read into that here on the pre-construction costs and just I know it's a little bit nitpicky, but I'm just curious if there's anything to tease out of that in terms of direction, strategically or financial."
+      },
+      {
+        "speaker": "spk12",
+        "text": "No, I don't think there's anything to read into that. We, of course, thought we'd get approval on that. We'll wait and see what the final written order is. But when you look at the value we're providing our customers getting these orders in early, both from a cost-saving standpoint \u2013 and a time of delivery standpoint, there's really a lot of value for our customers. So we're going to most likely ask for reconsideration and refile that information with the additional information they were looking for. So, you know, stay tuned on that. But we think there's a lot of value. And I know the cost of the projects, as the longer you wait, would continue to go up as everyone across the country is looking at, you know, adding generation."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, that seems pretty transparent, as you say. And lastly, I'll just offer this. I traded in the dog, the equity, traded him in, and I got a little boy now. So I appreciate you guys for it all along."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Congratulations. Thank you. Excellent to hear. Absolutely. All right, guys, I'll see you soon, all right? Appreciate it. Sounds good."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Our next question comes from the line of Michael Sullivan with Wolf Research. Your line is open."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Hey, good afternoon."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Good afternoon, Michael."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Hey, Scott. Just as we look forward to your kind of usual plan refresh with Q3 and, you know, CapEx has usually been biased higher, how should we think about incremental equity needs associated with that? Should it just be any incremental CapEx's finance, you know, consistent with your utility capital structures or any different way to think about it?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "No, I think you got it right in line. I mean, of course, we'll put everything together and look at it, refresh it again. But similar to what Shaw has been talking about, we'll just look at the equity needs in line with the capital spend and be very excited about the long-term growth that we have available in the capital and the insights we have looking forward on additional capital."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay, that makes sense. And then shifting over to Illinois, I was just maybe hoping you could, you know, frame some bookends for potential outcomes of the still pending docket, namely the PIPE program review. What's the range of outcomes there? And then also, is there anything, any loose ends still tied to like the QIP rider reconciliations from prior years that could move numbers around at all?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "Sure. So let's look at both of them. So the QIP riders from other years, right now, 2016 rider has been queued up, I think, for a decision. Hopefully, I would expect by the end of the year, decision will be made in that. As you know, it's 2016 rider, so it's been a while. And then, of course, we have those other years under the QIP still to look at. So You know, remember the requirements there is prudency, and, you know, we think we've been very prudent specifically after the integrous acquisition where we really took a look at the program and factored in a lot of information that we received from the audits of the Liberty audit and staff recommendations from that audit. So those are still more to come on there. And then under the current S&P, remember the S&P in our last rate case was no one requested a pause in the program at all during the rape case. And now in looking at the testimony for the first set of testimony that came through, there's no one also recommending a pause in the case. The range that our people are talking about that was in the testimony is from including emergency work to working with the city of Chicago in emergency work, There, the city of Chicago, I think, said he should lift the pause for at least two years with a cap of about $245 million, all the way to the other extreme where I think staff recommending that you accelerate the program and actually get it done faster by 2030. So there's quite a range in the middle there, but once again, none of the interveners in the initial testimony, they all said they should lift the pause and get some work done specifically related to emergency work. and working with the city of Chicago as they do their capital work."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay. Yeah, just on that, I mean, I think as we've seen with some of the recent orders there, the ICC has come out worse than every single other intervener. So how do we just think about that risk in these dockets that, you know, you could get more of the same when it actually comes down to the final order?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah, and we're going to have to wait and see and see what they say. I think when you look at it from every intervener group, though, they are saying we need to work with the city of Chicago, including the city of Chicago, to help them with their capital programs. And everyone, even on the rehearing, talked about the emergency work. So on that low end, you're talking between $60 and $100 million a year. I don't think anyone's disputing that. And, you know, I understand what the commission is, but they're taking some time. And I think when you look at that last S&P case or the rehearing we asked for, they were concentrating on purely emergency and wanted to wait for this order to look at the entire program. So I wish I knew the answer, but that's where we're going to the case."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay. Yeah, no, that's super helpful context. Thank you."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Our next question comes from the line of Durgesh Chopra with Evercore ISI. Your line is open."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hey, good afternoon, Scott and Shah. Thanks for giving me time. Hey, just on the safety modernization program review in Illinois. So obviously you got a decision on the 145. You got 28 million. Can you just remind us what is baked into the plan 25 and forward on the safety program."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Sure, and I'll let Shaw go through the details. But in general, we took about $800 million out, and as we look at our plan, we'll reevaluate it based on the testimony we're seeing here as we look at the next five-year plan. But, Shaw, can you tell us what's in the current?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah, it's between $100 million to $120 million a year, Yogesh, and as Scott mentioned, We are in the process of refreshing the capital plan. So we're working with the team in Illinois to reflect the latest development from the commission's decision on the approval of the $28.5 million. So likely that number could potentially come down over the next five years, but we're still working through the details right now."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Got it. Thank you. That's very helpful. And just to be clear, first quarter of next year, we're going to get a decision on, you know, the spending relative to what you have in the plan, right? And I'm assuming you've asked for anywhere between 100 to 120. And then the commission is going to come back with a recommendation. Is that fair?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah. We expect to hear a recommendation in the first quarter of 2025 from the commission."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yes. Okay. Thank you. And then just can I quickly follow up? on Delilah 1, any color you can share? I know you mentioned weather event. I'm just wondering if it could be more than six months, just what caused it? Was it just equipment or something else? Any color you can share there? Thank you."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Sure. There was, and remember, we haven't purchased it yet. We have a commitment to, but it was during construction, and there was a hail event there. So there was some hail damage there, We want to work with the developer as they are repairing it to make sure the field's in full shape before we purchase it. We anticipate, based on all the latest discussions, that it'll be in by the end of the year. And we get weekly updates on the progress going there. And right now, that is still the plan to be in by the end of the year, assuming no other events happen."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thank you. I appreciate it. Thanks, Scott. Thanks, y'all. Thank you."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Our next question comes from the line of Carly Davenport with Goldman Sachs. Your line is opened."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Hey, good afternoon. Thanks for taking the questions. Hey, Carly."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Absolutely."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Just wanted to ask a quick one on transmission and ATC. We've obviously seen the sizing of mysotronch2 moving higher here. So just curious how you're thinking about the opportunities around transmission there, both from a size and a timing perspective."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Sure. I think tranche two from everything I've seen and heard is going to be larger than tranche one. And you've talked about that. And I think it'll be probably about proportionally larger for ATC. So a lot of good opportunities there, but that spending probably won't actually occur to like 2030 plus, right? Cause they're still working through tranche one. I think the other big driver for American transmission company is going to be the economic development in the region and and putting in renewables in the system. So last year, tranche one had an effect on our capital plan, but the bigger strivers were economic development and continuing renewables in Wisconsin. So I consider both of those to be additional drivers. And remember that tranche one was in 2022 dollars. So as they go through and reprice all that, When you think about inflation the last several years, it's going to most likely be bigger than the original amount."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Great. I appreciate that, caller. I'll leave it there. Thank you."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thank you. Our next caller comes from the line of Andrew Wiesel with Scotiabank. Your line is open. Hey, Andrew. Hey, everybody. Hi."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Hi. First question on Illinois, just a question of timing. So you mentioned the uncertainty will last for about a year. At what point might you start to consider reallocating capital into this state? Could we see some capex go back into Illinois with the update in three months, or would it be unlikely to show up until the update in the fall of 2025 when all of those dockets are wrapped up?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "Well, and we'll look at it. When you think about Illinois, we'll know more on the S&P program in the first quarter of next year. There's also, you know, there's the future of natural gas that's being looked at, and there's also an IRP process where we get stakeholders involved, and our first filing will be in 2025. So, as you know, as we pull our capital plans together in the fall of this year, we're going to be pretty conservative as we look at that until we have a little more clarity. And when we think about it, there's just a lot of opportunities outside of Illinois for the additional capital and growth."
+      },
+      {
+        "speaker": "spk04",
+        "text": "That makes sense. Next question for Shaw. If I heard you right on the O&M, you're now projecting it to be up 2% to 3%. Last quarter, you said up 3% to 5%. Originally, it was up 6% to 7%. So this is really good progress. Can you just give us a little bit of detail on those moving parts? How is it that the outlook is getting better and better? What are some examples?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Every manager in the business unit understands that we had a very mild first quarter, so we made it very clear that we need to be highly focused on O&M to offset the weather headwind in the first quarter. benefits are lower, expected to be lower. We're also looking at all the angles about using contractors versus internal labor, and, you know, it's across the board, I would say. Okay."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Relative to the original budgets, would you call most of these savings one-time, then, or is some of it going to be sustainable?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "I think it's a combination of one-time initiatives, but also continue to focus on driving efficiency across the board, which is also sustainable. It's a combination of both."
+      },
+      {
+        "speaker": "spk12",
+        "text": "And also, when you think about it, having a warm first quarter, you don't have the number of leaks as you would in the gas system. So some things are naturally less. No, so we've got a little bit less O&M on the gas system, and we've had some significant storms. So between the storms and the warmer weather, we've asked everyone across the business unit to really control costs and really kind of do some one-time things here. On the other hand, we are making sure You know, we are actively responding to storms because the storms have had bigger and actually continuing to work on our forestry program because of some of the damage some of the storms have had to the system. So we want to really balance customer reliability along with our savings."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Got it. That's very helpful. Then just one very nitpicky one. Corporate and other minus six cents for taxes this quarter. I think it was plus nine cents in the first quarter. Will you just remind us, what's the expectation for the full year? Should that net out to zero or something else?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "It would be slightly positive if you think about the reason why we had a large tax timing in the first quarter and the opposite in the second quarter. Part of that is driven by the earnings pattern shift in Illinois. So tax dollars follow the earnings pattern. And two, we had a deferral, I'm sorry, the delay of the Delilah. Part of that is reflected in the second quarter. But as we put Delilah online end of the year, we expect the tax dollars to follow."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Okay. Very helpful. Thank you so much."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Our next question comes from the line of Neal Kalten with Wells Fargo Securities. Your line is open."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Yeah. Hi, guys. Thanks for taking my call. Good question. Just on the Microsoft opportunity, a lot of acreage here. As we think about the CapEx refreshes going forward, at what point in time do you think you'll have clarity to start flowing some of that potential spend related to incremental opportunities into the plan? Is that like potentially 24 we could see some, or is this more like 25 or 26?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "Sure. And actually, thanks, Neil. Thanks for the question. So we're actually, between us and American Transmission Company, we're actually spending some money now on some of the substations. And we have those orders in for some of the generation. And it's to support the economic development across the board. So it's going to be 24, 25, and then even more in 26 as we get those orders released at the commission and approval for that generation. We're also, in the next month or so, you'll see some filing on addition renewables that support the generation needs as we continue to add renewables to our portfolio. So that spending, you know, will be probably in that 26, 27 timeframe."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay. So it's kind of like broadly overall, it's not just tied to the Microsoft thing. It's sort of overall you have this need and kind of anticipate things happening. So we start to kind of flow it in over time. And as we get more clarity, more comes in. Is that right?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "Exactly, exactly. And remember, the growth that they provided us is really only through their capital plans through 26. And I imagine once they get it in, they'll continue to ramp up. But we'll continue to work through it. And I think our plan is extremely long as we start adding 2029 to our five-year plan."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay, perfect. Thank you."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Our next question comes from the line of Jeremy Tonette with JP Morgan. Your line is open."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hi, good afternoon."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Hey Jeremy."
+      },
+      {
+        "speaker": "spk06",
+        "text": "I just want to come back up to, to Wisconsin if I could with, with the recent commission vote here, just wondering with the split vote, what you take from that, I guess, any thoughts on the direction of the commission at this point?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "No, I think it's, I think it's kind of early to tell. Um, I think they were just looking for some additional information and I don't think they had the full information on any mentioned on the economics and the benefits of this. Um, so. You know, this is, uh, you know, maybe a communication between our staff and their staff and, and we just got to understand it. So we'll get the order. We'll review it. We'll pull the information together and ask for reconsideration. I'm not overly concerned on this. And in the end, when you listen to their comments, if they didn't have all the information, you know, they have to make the right decision for what they think is right, too. So I appreciate them, you know, really evaluating each case. So I wouldn't read into this over too much."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Got it. That's helpful. I'll leave it there. Thanks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "As a reminder, if you'd like to ask a question, please press star, follow the number one on your telephone keypad. Our next question comes from the line of Shar Perez with Guggenheim Partners. Your line is open."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hey, guys. Thanks for taking my follow up. Scott, I know we're getting closer to the back half of the year. Just on Point Beach PPA, I know you've talked about sort of this coming potentially too ahead as we're getting to the year end. I guess how are sort of conversations going with NextEra and a new PPA or sort of another path forward there? Any updates?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "You know, it's really, we've had really good productive conversations with Nexera, but really nothing to report at this time. So still in discussions, but stay tuned to this, you know, and we're working on it."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Okay. Appreciate it. Thanks so much, guys, for taking my follow-up. Appreciate it."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Absolutely."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Our last question comes from the line of Paul Patterson with Glenrock Associates. Your line is open."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Hey, Paul."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Good afternoon. How are you doing? So just one question at this point, and that is the Illinois gas appeal at the appellate court in Illinois. Just any frame of timing when you think you might get a resolution to that?"
+      },
+      {
+        "speaker": "spk12",
+        "text": "I apologize. It didn't come through clear on the future of gas?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "No, no. So you guys appealed the order of"
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Illinois field court. And I was just wondering when you think a decision from that might be happening."
+      },
+      {
+        "speaker": "spk12",
+        "text": "I anticipate it's going to take a year or two. Okay."
+      },
+      {
+        "speaker": "spk11",
+        "text": "A long time. Okay. Thank you. That's it for me."
+      },
+      {
+        "speaker": "spk12",
+        "text": "All right. Thank you. Well, that concludes our conference call for today. Thank you for participating. If you have any questions, feel free, as always, to call Best Rock at 414-221-4639. Thank you. 414-639."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk07": {
+        "name": "Operator",
+        "title": "Operator"
+      },
+      "spk12": {
+        "name": "Scott Lauber",
+        "title": "President and Chief Executive Officer"
+      },
+      "spk01": {
+        "name": "Shaw Liu",
+        "title": "Chief Financial Officer"
+      },
+      "spk13": {
+        "name": "Char Perez",
+        "title": "Guggenheim Partners"
+      },
+      "spk02": {
+        "name": "Shar Perez",
+        "title": "Guggenheim Partners"
+      },
+      "spk03": {
+        "name": "Julian DeMolen-Smith",
+        "title": "Jeffries"
+      },
+      "spk05": {
+        "name": "Michael Sullivan",
+        "title": "Wolf Research"
+      },
+      "spk09": {
+        "name": "Durgesh Chopra",
+        "title": "Evercore ISI"
+      },
+      "spk00": {
+        "name": "Carly Davenport",
+        "title": "Goldman Sachs"
+      },
+      "spk04": {
+        "name": "Andrew Wiesel",
+        "title": "Scotiabank"
+      },
+      "spk10": {
+        "name": "Neal Kalten",
+        "title": "Wells Fargo Securities"
+      },
+      "spk06": {
+        "name": "Jeremy Tonette",
+        "title": "JP Morgan"
+      },
+      "spk11": {
+        "name": "Paul Patterson",
+        "title": "Glenrock Associates"
+      }
+    }
+  },
+  "text": "Operator (Operator): A replay will be available approximately two hours after the conclusion of this call. Before the conference call begins, please note that all statements in the presentation, other than historical facts, are forward-looking statements that involve risks and uncertainties that are subject to change at any time. Such statements are based on management's expectations at the time they are made. In addition to the assumptions and other factors referred to in connection with the statements, factors described in WCEC Energy Group's latest form K and subsequent reports filed with Securities and Exchange Commission could cause actual results to differ materially from those contemplated. During the discussions, referenced earnings per share will be based on diluted earnings per share unless otherwise noted. And it's now my pleasure to introduce Scott Lauber, President and Chief Executive Officer of WEC Energy Group.\n\nScott Lauber (President and Chief Executive Officer): Good afternoon, everyone, and thank you for joining us today as we review our results for the second quarter of 2024. Here with me today is Shaw Liu, our Chief Financial Officer, and Beth Schrocka, Senior Vice President of Corporate Communications and Investor Relations. As you saw from our news release this morning, we reported second quarter 2024 earnings of 67 cents per share. We're firmly on track to meet the full year 2024 guidance of $4.80 to $4.90 a share. This, of course, assumes normal weather for the balance of the year. We continue to see strong foundational growth in our regional economy. The unemployment rate in Wisconsin stands at 2.9%, continuing a long running trend below the national average. The pipeline of economic activity is particularly strong in what we call the I-94 corridor between Milwaukee and Chicago. For example, just last month, West Rock broke ground on a new facility at the former site of our retired power plants. West Rock is a leading company in paper and packaging solutions with 50,000 employees and 300 plants worldwide. The company called the cutting edge facility a super plant, stating it will be one of their largest and most advanced plants. And Microsoft is making good progress on the construction of a large data center complex in Southeast Wisconsin. In May, Microsoft announced a broad investment package to strengthen our region as a hub for AI economic activity innovation, and job creation. These investments include a planned $3.3 billion to be spent in cloud computing and AI infrastructure between now and the end of 2026. Microsoft has stated that it expects to bring 2,300 construction jobs to the area by 2025 and 2,000 permanent jobs over time. These developments highlight the strength and the potential of our local economy and underscores the need for the investments in our capital plan. During the second quarter, we continue to move forward on major projects in our capital plan. It's the largest five-year investment plan in our history, totaling $23.7 billion for efficiency, sustainability, and growth. As we've discussed, the plan is based on projects that are low risk and highly executable. At the end of May, we closed on our second option at West Riverside Energy Center for $100 million. This adds 100 megawatts of efficient combined cycle natural gas generation to our portfolio. You'll recall that last year we discussed several filings, or last quarter we discussed several filings for major projects to support economic growth and reliability in Wisconsin. This includes approximately 1,200 megawatts of efficient natural gas generation at our Paris and Oak Creek sites, as well as 2 billion cubic foot liquefied natural gas storage facility and a 33-mile gas lateral to serve the Oak Creek site. In total, these projects combined represent $2.1 billion of investment. Our proposals were submitted to the Wisconsin Commission in April, and we expect the decision in approximately a year. Also under review, we filed an application in February to purchase a 90% ownership interest in High Noon Solar Energy Center in southern Wisconsin. With an expected investment of approximately $580 million, the facility is expected to provide 300 megawatts of solar generation. We have asked the Commission to make a decision before the end of the year. As a reminder, we expect these investments to earn AFUDC during the construction period after Commission approval. And in our WEC infrastructure segment, the Delilah 1 solar project is now expected to go into service at the end of the year, delayed from June due to a weather event. We plan to invest approximately $460 million for a 90% ownership interest in this project in northeast Texas. And we still expect our maple flag solar project to be in service by the end of the year. As you recall, we're investing an additional $560 million this year in our infrastructure segment. We reallocated away from our operations in Illinois a total of $800 million in our five-year capital plan. Overall our plan fully supports our long-term earning growth rate which we project to be in the six and a half to seven percent range on a compound average annual basis. We're also on schedule with the development of our next five-year plan and as usual we expect to share the details with you in the fall. Now I have a few updates on the regulatory front. In Wisconsin we filed new rate reviews for test year 2025 and 2026 on April 12. Our request focused on addressing three major areas of need. First, improving reliability and reducing outages from increased storm activity. Second, supporting Wisconsin's economic growth and job creation through investments in new generation and distribution projects. And lastly, continue the transition from coal generation to renewables and natural gas. Commission staff and intervener testimony is scheduled for August 21st. We expect a decision by the end of the year with new rates effective January 1st, 2025. We have smaller rate reviews in progress at Michigan Gas Utilities and Upper Michigan Energy Resources. We also expect decisions on these reviews by the end of the year. And in Illinois, we've been engaged in three dockets. The Illinois Commerce Commission issued its decision on the first of these, a limited rehearing on the commission's rate order for people's gas at the end of May. The commission had agreed to reconsider our request to restore $145 million for safety modernization program in 2024. This mostly related to emergency work. unfinished projects, and work driven by public entities like the City of Chicago. The Commission granted $28.5 billion concentrating on what they deemed emergency work. We have appealed this decision to the Illinois Appellate Court along with other items in the rate order, including the Commission's previous disallowance of investments in new service centers. We are also actively involved in two remaining dockets, One is the review of the safety modernization program. Staff and intervener rebuttal testimony are expected by August 21st with a commission decision expected in the first quarter of 2025. The other docket is the evaluation of the future of natural gas in Illinois, which is expected to conclude in about a year. Of course, we'll keep you updated on any further developments. Across our business, we continue to make good progress towards our goals of reducing greenhouse gas emissions. In May, we retired units five and six at our Oak Creek Power Plant. Together, those made up over 500 megawatts of coal-fired generation. Including these units, since 2018, we've retired nearly 2,500 megawatts of older fossil fuel generation. Finally, a quick reminder about the dividend. We continue to target a payout ratio of 65 to 70% of earnings. We're tracking in that range now and expect the dividend growth will continue to be in line with the growth of our earnings per share. Now I'll turn it to Shaw to provide you more details on our financial results and our guidance for the third quarter.\n\nShaw Liu (Chief Financial Officer): Thank you, Scott. We earned 67 cents a share for the second quarter. While this was a decrease of 25 cents quarter over quarter, we exceeded our Q2 guidance range of 60 to 64 cents a share, driven by favorable O&M and financing compared to guidance. As Scott indicated, we're on track to meet our 2024 earnings guidance. As I reminded you on the last couple of calls, With the redesign changes at People's Gas, base revenues are now more concentrated in the first and fourth quarters when natural gas usage is the highest. This earnings shift has impacted our second quarter and will impact our Q3 guidance, which I will discuss in a few minutes. Now, let's look at our quarter over quarter variances. Our earnings packet includes a comparison of second quarter results on page 15. I'll walk through the significant drivers. Starting with our utility operations, earnings were 19 cents lower compared to the second quarter of 2023 as a result of higher O&M, fuel, depreciation and amortization, interest, and other expenses. A couple of drivers for the day-to-day O&M variants are worth noting. One, we experienced higher storm costs in the current quarter compared to Q2 last year. And two, we benefited in Q2 last year from a land sale at a retired plant site in Wisconsin. Looking ahead, I now expect overall day-to-day O&M in 2024 to be 2% to 3% higher compared to 2023. This is a 4% improvement compared to our initial expectation due to our continued O&M savings initiatives that we expect to realize late this year. The impact of weather was flat for the quarter. Compared to normal conditions, we estimate that weather had a two cent negative impact for the second quarter in both 2023 and 2024. Our weather normal electric sales in Wisconsin are relatively flat quarter over quarter and are overall in line with our forecast. Looking at ATC, continued capital investment contributed an incremental penny to Q2 earnings compared to 2023. And in our energy infrastructure segment, earnings improved 2 cents in the second quarter of 24 compared to the second quarter of 23, driven partially by higher production tax credit at WEC infrastructure. Finally, you'll see that earnings at our corporate and other segments decreased 9 cents. as a result of the impact of tax timing and higher interest expense. Now, turning to guidance, for the third quarter, we're expecting a range of 68 to 70 cents per share. This accounts for July weather and assumes normal weather for the rest of the quarter. As I mentioned earlier, it also accounts for the shift in Illinois revenue recognition pattern. Our third quarter 2023 earnings were $1 a share. Once again, we're reaffirming our 2024 earnings guidance of $4.80 to $4.90 per share, assuming normal weather for the rest of the year. Before I turn back to Scott, let me quickly remind you that we continue to utilize dividend reinvestment and employee benefit plans to issue common equity. Also, as we said before, we plan to set up an ATM program. Overall, we still project that our common equity issuance will be up to $200 million for 2024. Post 2024, our equity issuances will be tied to our capital spending, relatively with approximately $500 million expected per year in the current plan. We look forward to updating you in the fall as we refresh our capital and financing plan. With that, I'll turn it back to Scott.\n\nScott Lauber (President and Chief Executive Officer): Thank you, Shaw. Overall, we're on track and focused on providing value for our customers and our stockholders. Operator, we're ready now for the question and answer portion of the call.\n\nOperator (Operator): Thank you. Now we will take your questions. The question and answer session will be conducted electronically. To ask a question, please press the star key, followed by the digital one on your phone. If you are using a speakerphone, turn off your mute function to allow your signal to reach our equipment. We will take as many questions as time permits. Once again, please press star and then one on your phone to ask a question. Our first question comes from Char Perez with Guggenheim Partners. Your line is open.\n\nChar Perez (Guggenheim Partners): Hey guys, good afternoon.\n\nScott Lauber (President and Chief Executive Officer): Yeah, good afternoon, sir.\n\nShar Perez (Guggenheim Partners): He's got just starting off just on the sort of the perennial Microsoft opportunity that always seems to be asked. It's obviously becoming even more kind of topical now. Just remind us on what portion of Microsoft land acquisition and build is kind of layered in your current plan. And the reason why I ask is that it's obviously now kind of public that they bought a bit more land. And I guess, when do you see this hit your plan more materially? Thanks.\n\nScott Lauber (President and Chief Executive Officer): Sure. Sure. So just as everyone, you know, update everyone, you know, they announced spending $3.3 billion through 2024 through 2026, which is on that first about 315 acres that they purchased. And then last fall they purchased another 1,030 acres and You know, of course, we pulled our capital plans together before that 1,000 acres were purchased. And then just this morning, there's been a couple announcements in the paper where they purchased another 173 acres in southeastern Wisconsin. So we are currently in the process of working with Microsoft and developing our plans for our next five-year plan that we'll roll out this fall in the development. Currently, we really only have the energy and the capacity needs for that first 315 acres.\n\nShar Perez (Guggenheim Partners): Got it. Okay, that's perfect. So more to come there. And then just lastly, on the Delilah 1 solar project delay, it's roughly six months. I guess, can you just maybe question for Shaw's how to think about the offsets around the potential headwind there versus your kind of prior assumption? Thanks. Sure.\n\nShaw Liu (Chief Financial Officer): Yeah, we took that into consideration as we reaffirmed the annual guidance of 480 to 490. So as I mentioned, we continue to focus on O&M management and financing costs and tax and others. So we're confident that we can offset the downside from the delay.\n\nShar Perez (Guggenheim Partners): Okay. That's perfect. Thanks, guys. Appreciate it. And hopefully Gail is somewhere tropical listening to this earnings call. Thanks. Appreciate it.\n\nScott Lauber (President and Chief Executive Officer): He probably is.\n\nOperator (Operator): Our next question comes from the line of Julian DeMolen-Smith with Jeffries. Your line is open.\n\nChar Perez (Guggenheim Partners): Hey, good afternoon, team. Can you guys hear me okay?\n\nScott Lauber (President and Chief Executive Officer): Yeah, we can hear you fine. Welcome back, Julian.\n\nJulian DeMolen-Smith (Jeffries): Awesome. Thank you. I appreciate the time, guys. It's a pleasure to chat here. So perhaps just to kick things off here, Look, nicely done all around. In fact, I wanted to just focus on the infrastructure segment. Obviously, you guys are planning well against those targets. I'm curious, as you think about the totality of the data center opportunities, what does that mean as you think about the opportunities that you're seeing on that side of the business? And how do you think about the scope of that business in turn? You guys are obviously focusing on contracted opportunities. By contrast, a lot of these potential customers would be in a similar manner focused on these kinds of counterparties. Curious if you think about that opportunity set on that front first.\n\nScott Lauber (President and Chief Executive Officer): Sure, and we've been working with Microsoft on the needs for the area, and Wisconsin's got a lot of development opportunities, and we want to make sure we hit the capacity requirements we need for the area to support the growth, not just Microsoft, but all the other growth that we're seeing in the region. So that's why we've added the, you know, and you'll see more filings shortly on renewable projects in the next month or so that we're proposing to help meet the capacity and the energy needs in the region. So we think there's a lot of opportunity, not only from generation of renewables, some capacity needs, some distribution needs also, but also American Transmission Company and investment in the transmission in the region. So we're factoring all that in as we pull together our five-year plan here.\n\nShaw Liu (Chief Financial Officer): And Julian, all those filings will be in the regulated area, as you know, in Wisconsin.\n\nJulian DeMolen-Smith (Jeffries): Yep, absolutely. Indeed. I know you're pursuing this on multiple fronts. Absolutely. And then team, just maybe to tackle on the regulatory front, a couple of questions here. How do you think about this, the PSC's denial in the AFEDC? Is there anything to read into that here on the pre-construction costs and just I know it's a little bit nitpicky, but I'm just curious if there's anything to tease out of that in terms of direction, strategically or financial.\n\nScott Lauber (President and Chief Executive Officer): No, I don't think there's anything to read into that. We, of course, thought we'd get approval on that. We'll wait and see what the final written order is. But when you look at the value we're providing our customers getting these orders in early, both from a cost-saving standpoint \u2013 and a time of delivery standpoint, there's really a lot of value for our customers. So we're going to most likely ask for reconsideration and refile that information with the additional information they were looking for. So, you know, stay tuned on that. But we think there's a lot of value. And I know the cost of the projects, as the longer you wait, would continue to go up as everyone across the country is looking at, you know, adding generation.\n\nJulian DeMolen-Smith (Jeffries): Yeah, that seems pretty transparent, as you say. And lastly, I'll just offer this. I traded in the dog, the equity, traded him in, and I got a little boy now. So I appreciate you guys for it all along.\n\nChar Perez (Guggenheim Partners): Congratulations. Thank you. Excellent to hear. Absolutely. All right, guys, I'll see you soon, all right? Appreciate it. Sounds good.\n\nOperator (Operator): Our next question comes from the line of Michael Sullivan with Wolf Research. Your line is open.\n\nMichael Sullivan (Wolf Research): Hey, good afternoon.\n\nScott Lauber (President and Chief Executive Officer): Good afternoon, Michael.\n\nMichael Sullivan (Wolf Research): Hey, Scott. Just as we look forward to your kind of usual plan refresh with Q3 and, you know, CapEx has usually been biased higher, how should we think about incremental equity needs associated with that? Should it just be any incremental CapEx's finance, you know, consistent with your utility capital structures or any different way to think about it?\n\nScott Lauber (President and Chief Executive Officer): No, I think you got it right in line. I mean, of course, we'll put everything together and look at it, refresh it again. But similar to what Shaw has been talking about, we'll just look at the equity needs in line with the capital spend and be very excited about the long-term growth that we have available in the capital and the insights we have looking forward on additional capital.\n\nMichael Sullivan (Wolf Research): Okay, that makes sense. And then shifting over to Illinois, I was just maybe hoping you could, you know, frame some bookends for potential outcomes of the still pending docket, namely the PIPE program review. What's the range of outcomes there? And then also, is there anything, any loose ends still tied to like the QIP rider reconciliations from prior years that could move numbers around at all?\n\nScott Lauber (President and Chief Executive Officer): Sure. So let's look at both of them. So the QIP riders from other years, right now, 2016 rider has been queued up, I think, for a decision. Hopefully, I would expect by the end of the year, decision will be made in that. As you know, it's 2016 rider, so it's been a while. And then, of course, we have those other years under the QIP still to look at. So You know, remember the requirements there is prudency, and, you know, we think we've been very prudent specifically after the integrous acquisition where we really took a look at the program and factored in a lot of information that we received from the audits of the Liberty audit and staff recommendations from that audit. So those are still more to come on there. And then under the current S&P, remember the S&P in our last rate case was no one requested a pause in the program at all during the rape case. And now in looking at the testimony for the first set of testimony that came through, there's no one also recommending a pause in the case. The range that our people are talking about that was in the testimony is from including emergency work to working with the city of Chicago in emergency work, There, the city of Chicago, I think, said he should lift the pause for at least two years with a cap of about $245 million, all the way to the other extreme where I think staff recommending that you accelerate the program and actually get it done faster by 2030. So there's quite a range in the middle there, but once again, none of the interveners in the initial testimony, they all said they should lift the pause and get some work done specifically related to emergency work. and working with the city of Chicago as they do their capital work.\n\nMichael Sullivan (Wolf Research): Okay. Yeah, just on that, I mean, I think as we've seen with some of the recent orders there, the ICC has come out worse than every single other intervener. So how do we just think about that risk in these dockets that, you know, you could get more of the same when it actually comes down to the final order?\n\nScott Lauber (President and Chief Executive Officer): Yeah, and we're going to have to wait and see and see what they say. I think when you look at it from every intervener group, though, they are saying we need to work with the city of Chicago, including the city of Chicago, to help them with their capital programs. And everyone, even on the rehearing, talked about the emergency work. So on that low end, you're talking between $60 and $100 million a year. I don't think anyone's disputing that. And, you know, I understand what the commission is, but they're taking some time. And I think when you look at that last S&P case or the rehearing we asked for, they were concentrating on purely emergency and wanted to wait for this order to look at the entire program. So I wish I knew the answer, but that's where we're going to the case.\n\nMichael Sullivan (Wolf Research): Okay. Yeah, no, that's super helpful context. Thank you.\n\nScott Lauber (President and Chief Executive Officer): Thank you.\n\nOperator (Operator): Our next question comes from the line of Durgesh Chopra with Evercore ISI. Your line is open.\n\nDurgesh Chopra (Evercore ISI): Hey, good afternoon, Scott and Shah. Thanks for giving me time. Hey, just on the safety modernization program review in Illinois. So obviously you got a decision on the 145. You got 28 million. Can you just remind us what is baked into the plan 25 and forward on the safety program.\n\nScott Lauber (President and Chief Executive Officer): Sure, and I'll let Shaw go through the details. But in general, we took about $800 million out, and as we look at our plan, we'll reevaluate it based on the testimony we're seeing here as we look at the next five-year plan. But, Shaw, can you tell us what's in the current?\n\nShaw Liu (Chief Financial Officer): Yeah, it's between $100 million to $120 million a year, Yogesh, and as Scott mentioned, We are in the process of refreshing the capital plan. So we're working with the team in Illinois to reflect the latest development from the commission's decision on the approval of the $28.5 million. So likely that number could potentially come down over the next five years, but we're still working through the details right now.\n\nDurgesh Chopra (Evercore ISI): Got it. Thank you. That's very helpful. And just to be clear, first quarter of next year, we're going to get a decision on, you know, the spending relative to what you have in the plan, right? And I'm assuming you've asked for anywhere between 100 to 120. And then the commission is going to come back with a recommendation. Is that fair?\n\nScott Lauber (President and Chief Executive Officer): Yeah. We expect to hear a recommendation in the first quarter of 2025 from the commission.\n\nDurgesh Chopra (Evercore ISI): Yes. Okay. Thank you. And then just can I quickly follow up? on Delilah 1, any color you can share? I know you mentioned weather event. I'm just wondering if it could be more than six months, just what caused it? Was it just equipment or something else? Any color you can share there? Thank you.\n\nScott Lauber (President and Chief Executive Officer): Sure. There was, and remember, we haven't purchased it yet. We have a commitment to, but it was during construction, and there was a hail event there. So there was some hail damage there, We want to work with the developer as they are repairing it to make sure the field's in full shape before we purchase it. We anticipate, based on all the latest discussions, that it'll be in by the end of the year. And we get weekly updates on the progress going there. And right now, that is still the plan to be in by the end of the year, assuming no other events happen.\n\nDurgesh Chopra (Evercore ISI): Thank you. I appreciate it. Thanks, Scott. Thanks, y'all. Thank you.\n\nOperator (Operator): Our next question comes from the line of Carly Davenport with Goldman Sachs. Your line is opened.\n\nCarly Davenport (Goldman Sachs): Hey, good afternoon. Thanks for taking the questions. Hey, Carly.\n\nChar Perez (Guggenheim Partners): Absolutely.\n\nCarly Davenport (Goldman Sachs): Just wanted to ask a quick one on transmission and ATC. We've obviously seen the sizing of mysotronch2 moving higher here. So just curious how you're thinking about the opportunities around transmission there, both from a size and a timing perspective.\n\nScott Lauber (President and Chief Executive Officer): Sure. I think tranche two from everything I've seen and heard is going to be larger than tranche one. And you've talked about that. And I think it'll be probably about proportionally larger for ATC. So a lot of good opportunities there, but that spending probably won't actually occur to like 2030 plus, right? Cause they're still working through tranche one. I think the other big driver for American transmission company is going to be the economic development in the region and and putting in renewables in the system. So last year, tranche one had an effect on our capital plan, but the bigger strivers were economic development and continuing renewables in Wisconsin. So I consider both of those to be additional drivers. And remember that tranche one was in 2022 dollars. So as they go through and reprice all that, When you think about inflation the last several years, it's going to most likely be bigger than the original amount.\n\nCarly Davenport (Goldman Sachs): Great. I appreciate that, caller. I'll leave it there. Thank you.\n\nspk08 (): Thank you. Our next caller comes from the line of Andrew Wiesel with Scotiabank. Your line is open. Hey, Andrew. Hey, everybody. Hi.\n\nAndrew Wiesel (Scotiabank): Hi. First question on Illinois, just a question of timing. So you mentioned the uncertainty will last for about a year. At what point might you start to consider reallocating capital into this state? Could we see some capex go back into Illinois with the update in three months, or would it be unlikely to show up until the update in the fall of 2025 when all of those dockets are wrapped up?\n\nScott Lauber (President and Chief Executive Officer): Well, and we'll look at it. When you think about Illinois, we'll know more on the S&P program in the first quarter of next year. There's also, you know, there's the future of natural gas that's being looked at, and there's also an IRP process where we get stakeholders involved, and our first filing will be in 2025. So, as you know, as we pull our capital plans together in the fall of this year, we're going to be pretty conservative as we look at that until we have a little more clarity. And when we think about it, there's just a lot of opportunities outside of Illinois for the additional capital and growth.\n\nAndrew Wiesel (Scotiabank): That makes sense. Next question for Shaw. If I heard you right on the O&M, you're now projecting it to be up 2% to 3%. Last quarter, you said up 3% to 5%. Originally, it was up 6% to 7%. So this is really good progress. Can you just give us a little bit of detail on those moving parts? How is it that the outlook is getting better and better? What are some examples?\n\nShaw Liu (Chief Financial Officer): Every manager in the business unit understands that we had a very mild first quarter, so we made it very clear that we need to be highly focused on O&M to offset the weather headwind in the first quarter. benefits are lower, expected to be lower. We're also looking at all the angles about using contractors versus internal labor, and, you know, it's across the board, I would say. Okay.\n\nAndrew Wiesel (Scotiabank): Relative to the original budgets, would you call most of these savings one-time, then, or is some of it going to be sustainable?\n\nShaw Liu (Chief Financial Officer): I think it's a combination of one-time initiatives, but also continue to focus on driving efficiency across the board, which is also sustainable. It's a combination of both.\n\nScott Lauber (President and Chief Executive Officer): And also, when you think about it, having a warm first quarter, you don't have the number of leaks as you would in the gas system. So some things are naturally less. No, so we've got a little bit less O&M on the gas system, and we've had some significant storms. So between the storms and the warmer weather, we've asked everyone across the business unit to really control costs and really kind of do some one-time things here. On the other hand, we are making sure You know, we are actively responding to storms because the storms have had bigger and actually continuing to work on our forestry program because of some of the damage some of the storms have had to the system. So we want to really balance customer reliability along with our savings.\n\nAndrew Wiesel (Scotiabank): Got it. That's very helpful. Then just one very nitpicky one. Corporate and other minus six cents for taxes this quarter. I think it was plus nine cents in the first quarter. Will you just remind us, what's the expectation for the full year? Should that net out to zero or something else?\n\nShaw Liu (Chief Financial Officer): It would be slightly positive if you think about the reason why we had a large tax timing in the first quarter and the opposite in the second quarter. Part of that is driven by the earnings pattern shift in Illinois. So tax dollars follow the earnings pattern. And two, we had a deferral, I'm sorry, the delay of the Delilah. Part of that is reflected in the second quarter. But as we put Delilah online end of the year, we expect the tax dollars to follow.\n\nAndrew Wiesel (Scotiabank): Okay. Very helpful. Thank you so much.\n\nOperator (Operator): Our next question comes from the line of Neal Kalten with Wells Fargo Securities. Your line is open.\n\nNeal Kalten (Wells Fargo Securities): Yeah. Hi, guys. Thanks for taking my call. Good question. Just on the Microsoft opportunity, a lot of acreage here. As we think about the CapEx refreshes going forward, at what point in time do you think you'll have clarity to start flowing some of that potential spend related to incremental opportunities into the plan? Is that like potentially 24 we could see some, or is this more like 25 or 26?\n\nScott Lauber (President and Chief Executive Officer): Sure. And actually, thanks, Neil. Thanks for the question. So we're actually, between us and American Transmission Company, we're actually spending some money now on some of the substations. And we have those orders in for some of the generation. And it's to support the economic development across the board. So it's going to be 24, 25, and then even more in 26 as we get those orders released at the commission and approval for that generation. We're also, in the next month or so, you'll see some filing on addition renewables that support the generation needs as we continue to add renewables to our portfolio. So that spending, you know, will be probably in that 26, 27 timeframe.\n\nNeal Kalten (Wells Fargo Securities): Okay. So it's kind of like broadly overall, it's not just tied to the Microsoft thing. It's sort of overall you have this need and kind of anticipate things happening. So we start to kind of flow it in over time. And as we get more clarity, more comes in. Is that right?\n\nScott Lauber (President and Chief Executive Officer): Exactly, exactly. And remember, the growth that they provided us is really only through their capital plans through 26. And I imagine once they get it in, they'll continue to ramp up. But we'll continue to work through it. And I think our plan is extremely long as we start adding 2029 to our five-year plan.\n\nNeal Kalten (Wells Fargo Securities): Okay, perfect. Thank you.\n\nScott Lauber (President and Chief Executive Officer): Thank you.\n\nOperator (Operator): Our next question comes from the line of Jeremy Tonette with JP Morgan. Your line is open.\n\nJeremy Tonette (JP Morgan): Hi, good afternoon.\n\nNeal Kalten (Wells Fargo Securities): Hey Jeremy.\n\nJeremy Tonette (JP Morgan): I just want to come back up to, to Wisconsin if I could with, with the recent commission vote here, just wondering with the split vote, what you take from that, I guess, any thoughts on the direction of the commission at this point?\n\nScott Lauber (President and Chief Executive Officer): No, I think it's, I think it's kind of early to tell. Um, I think they were just looking for some additional information and I don't think they had the full information on any mentioned on the economics and the benefits of this. Um, so. You know, this is, uh, you know, maybe a communication between our staff and their staff and, and we just got to understand it. So we'll get the order. We'll review it. We'll pull the information together and ask for reconsideration. I'm not overly concerned on this. And in the end, when you listen to their comments, if they didn't have all the information, you know, they have to make the right decision for what they think is right, too. So I appreciate them, you know, really evaluating each case. So I wouldn't read into this over too much.\n\nJeremy Tonette (JP Morgan): Got it. That's helpful. I'll leave it there. Thanks.\n\nOperator (Operator): As a reminder, if you'd like to ask a question, please press star, follow the number one on your telephone keypad. Our next question comes from the line of Shar Perez with Guggenheim Partners. Your line is open.\n\nShar Perez (Guggenheim Partners): Hey, guys. Thanks for taking my follow up. Scott, I know we're getting closer to the back half of the year. Just on Point Beach PPA, I know you've talked about sort of this coming potentially too ahead as we're getting to the year end. I guess how are sort of conversations going with NextEra and a new PPA or sort of another path forward there? Any updates?\n\nScott Lauber (President and Chief Executive Officer): You know, it's really, we've had really good productive conversations with Nexera, but really nothing to report at this time. So still in discussions, but stay tuned to this, you know, and we're working on it.\n\nShar Perez (Guggenheim Partners): Okay. Appreciate it. Thanks so much, guys, for taking my follow-up. Appreciate it.\n\nScott Lauber (President and Chief Executive Officer): Absolutely.\n\nOperator (Operator): Our last question comes from the line of Paul Patterson with Glenrock Associates. Your line is open.\n\nScott Lauber (President and Chief Executive Officer): Hey, Paul.\n\nPaul Patterson (Glenrock Associates): Good afternoon. How are you doing? So just one question at this point, and that is the Illinois gas appeal at the appellate court in Illinois. Just any frame of timing when you think you might get a resolution to that?\n\nScott Lauber (President and Chief Executive Officer): I apologize. It didn't come through clear on the future of gas?\n\nPaul Patterson (Glenrock Associates): No, no. So you guys appealed the order of\n\nScott Lauber (President and Chief Executive Officer): Yeah.\n\nPaul Patterson (Glenrock Associates): Illinois field court. And I was just wondering when you think a decision from that might be happening.\n\nScott Lauber (President and Chief Executive Officer): I anticipate it's going to take a year or two. Okay.\n\nPaul Patterson (Glenrock Associates): A long time. Okay. Thank you. That's it for me.\n\nScott Lauber (President and Chief Executive Officer): All right. Thank you. Well, that concludes our conference call for today. Thank you for participating. If you have any questions, feel free, as always, to call Best Rock at 414-221-4639. Thank you. 414-639.",
+  "n_turns": 88
+}

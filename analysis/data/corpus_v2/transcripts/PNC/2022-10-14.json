@@ -1,0 +1,437 @@
+{
+  "ticker": "PNC",
+  "original_ticker": "PNC",
+  "call_date": "2022-10-14",
+  "year": 2022,
+  "quarter": 3,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "PNC",
+    "year": 2022,
+    "quarter": 3
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T01:32:05Z",
+  "raw_payload": {
+    "event": {
+      "year": 2022,
+      "quarter": 3,
+      "conference_date": "2022-10-14T11:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk06",
+        "text": "Well, good morning, and welcome to today's conference call for the P&C Financial Services Group. Participating on this call are P&C's Chairman, President, and CEO, Bill Demchek, and Rob Riley, Executive Vice President and CFO. Today's presentation contains forward-looking information, cautionary statements about this information, as well as reconciliations of non-GAAP measures are included in today's earnings release materials, as well as our SEC filings and other investor materials. These are all available on our corporate website, pnc.com, under Investor Relations. These statements speak only as of October 14, 2022, and P&C undertakes no obligation to update them. Now I'd like to turn the call over to Bill."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, Brian, and good morning, everybody. As you've seen, we delivered another strong quarter, generating $1.6 billion of net income, or $3.78 per share. A combination of continued growth in our commercial and consumer loan books and higher rates drove net interest income 14% higher. and our net interest margin increased 32 basis points. By the way, that's the largest sequential increase in NIM in more than a decade. Non-interest income was also up modestly, reflecting strong private equity performance and a record quarter in loan syndications, partially offset by weaker M&A activity. We remained disciplined on the expense front, resulting in seven percentage points of positive operating leverage. Our credit quality was largely unchanged in a quarter. While we have not seen a meaningful deterioration in credit quality taking place, our provision of $241 million reflects our slightly weaker economic expectations. Our capital levels remain solid, and we returned $1.7 billion of capital to shareholders during the quarter through share repurchases and dividends. We continue to make good progress on our strategic priorities. Our new and acquired markets perform particularly well across all lines of business, and we see significant untapped opportunities across these markets. We also continue to invest in our payments capabilities to provide differentiated value. We recently acquired Linga, enhancing our capabilities to better serve restaurant and retail clients, particularly in the small business space. And during the quarter, we made enhancements across our retail platform to drive customer convenience and retention. For example, we recently announced a partnership with Allpoint to give our customers surcharge-free access to 41,000 additional ATMs from coast to coast. With this partnership, PNC now offers customers surcharge-free access to more than 60,000 PNC and partner ATMs across the country. In AMG, we saw positive quarterly flows of $4 billion driven by both the private bank and institutional asset management. We are recruiting top talent and remain focused on taking share in all of our markets. In summary, in the third quarter, we executed well as a national Main Street bank, and we are in a position of strength as we look to the future. As always, I want to thank our employees for their hard work in the third quarter and for everything they do to deliver for our customers, communities, and our shareholders. And with that, I'll turn it over to Rob to provide more detail about our financial results."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thanks, Bill, and good morning, everyone. Our balance sheet is on slide three and is presented on an average basis. During the quarter, loan balances were $313 billion, an increase of $8 billion, or 3%. Investment securities grew approximately $2 billion, or 2%. Cash balances at the Federal Reserve decreased $8 billion. And our deposit balances averaged $439 billion, a decline of $7 billion, or 2%. However, spot deposits were down $2.6 billion, or less than 1%. as lower consumer deposits were partially offset by growth in commercial deposits. At the end of the third quarter, our loan-to-deposit ratio was 72% and remains well below our pre-pandemic levels. Average borrowed funds increased $8.6 billion as we bolstered our liquidity through federal home loan bank borrowings. During the quarter, we increased our borrowings with the home loan bank by $20 billion on a spot basis. We continue to be well positioned with significant capital flexibility During the quarter, we returned $1.7 billion of capital to shareholders through approximately $600 million of common dividends and $1.1 billion of share repurchases, or 6.7 million shares. And as of September 30, 2022, our CET1 ratio was estimated to be 9.3%. Slide 4 shows our loans in more detail. During the third quarter, we delivered solid loan growth across our expanded franchise. Loan balances averaged $313 billion, an increase of $8 billion, or 3%, compared to the second quarter, reflecting growth in both commercial and consumer loans. On a spot basis, loans grew $4.6 billion, or 1%. Commercial loans grew $3.1 billion, as strong new production more than offset the syndication of the $5 billion of high-quality short-term loans that were expected to mature in the second half of the year. Consumer loans increased $1.5 billion, driven by higher residential mortgage and home equity balances, partially offset by lower auto loans. And loan yields increased 69 basis points compared to the second quarter, driven by higher interest rates. Slide five covers our deposits in more detail. Although average deposits declined $7 billion or 2% compared to the second quarter, bought deposits were $438 billion and declined less than 1% compared to June 30th. Commercial deposits grew $1.7 billion, or 1%, on a spot basis, and consumer deposits declined $4.3 billion, or 2%, reflecting inflationary pressures and seasonally higher spending. Given the rising interest rate environment, we've begun to see a mixed shift from non-interest bearing into interest bearing, particularly within our commercial deposits, and expect this to continue over time. However, to date, our consolidated deposit portfolio mix has remained relatively stable with two-thirds interest-bearing and one-third non-interest-bearing. Overall, our rate paid on interest-bearing deposits increased 33 basis points linked quarter to 45 basis points. As of September 30th, our cumulative data was 22%, and we estimate it will increase to approximately 30% by year-end. Slide 6 details our securities portfolio. On an average basis, our securities grew $2 billion or 2% during the quarter as we replaced maturities with higher yielding securities. The yield on our securities portfolio increased 21 basis points to 2.1%, driven by higher reinvestment yields as well as lower premium amortization. And during the quarter, new purchase yields exceeded 4%. Throughout the course of the year, We've repositioned our securities portfolio, and as of September 30th, we had 66% of our securities classified as held to maturity. While interest rates have continued to increase, this repositioning has reduced the rate of change in our AOCI. At the end of the third quarter, our accumulated other comprehensive loss was $10.5 billion, and as you know, is not included in our regulatory capital. And importantly, we expect this amount to fully accrete back over the remaining lives of the securities and swaps. As of September 30th, we estimate that approximately 5% of AOCI will accrete back per quarter going forward. Turning to the income statement on slide seven, as you can see, third quarter 2022 reported net income was $1.6 billion, or $3.78 per share. Revenue was up $433 million, or 8%, compared with the second quarter. Expenses increased $36 million, or 1%, resulting in 7% positive operating leverage linked quarter. Provision was $241 million in the third quarter, reflecting a slightly weaker economic outlook, which impacted our macroeconomic scenarios and weightings. And our effective tax rate was 19.1%. Turning to slide eight, we highlight our revenue trends. As you can see, total revenue for the third quarter was $5.5 billion, an increase of 8%, or $433 million linked quarter. Net interest income of $3.5 billion was up $424 million, or 14%. The benefit of higher yields on interest-earning assets and increased loan balances was partially offset by higher funding costs. And as a result, net interest margin increased 32 basis points to 2.82%. Third quarter non-interest income of $2.1 billion increased $9 million, as lower fee income was offset by an increase in other non-interest income. The decline in fee revenue was driven by lower activity in our capital markets, mortgage, and asset management businesses, which was somewhat offset by continued strong performance in our lending and deposit services, as well as our card and cash management fees. Growth and other non-interest income reflected higher private equity revenue, as well as a $13 million positive visa derivative fair value adjustment in the third quarter, compared to a negative adjustment of $16 million in the second quarter. Turning to slide nine, our third quarter expenses continued to be well-managed and were up 1% linked quarter. The growth reflected increased personnel expense to support business growth, as well as one additional day in the quarter. As we previously stated, we have a goal to reduce costs by $300 million in 2022 through our continuous improvement program. We're now nine months into the year, and we've completed actions related to capturing more than 80% of our annual goal. And as a result, we remain confident we will achieve our full-year objectives. As you know, this program funds a significant portion of our ongoing business and technology investments. Our credit metrics are presented on slide 10. Non-performing loans of $2.1 billion increased $22 million, or 1%, compared to June 30th, and continue to represent less than 1% of total loans. Total delinquencies were $1.6 billion on September 30th, at $115 million, or 8% increase, linked quarter. The increase was driven by elevated levels of administrative delinquencies, the majority of which have already been or are in the process of being resolved. Net charge-offs for loans and leases were $119 million, an increase of $36 million linked quarter, primarily driven by higher commercial loan net charge-offs. Our annualized net charge-offs to average loans continues to be historically low at 15 basis points. Provision for the third quarter was $241 million compared to $36 million in the second quarter. The increase reflected slightly weaker economic expectations, which impacted our macroeconomic scenarios and weightings. And during the third quarter, our allowance for credit losses remained essentially stable. Our reserves now total $5.3 billion and continue to be 1.7% of total loans. In summary, PNC reported a strong third quarter. In regard to our view of the overall economy, we expect moderate growth in the fourth quarter, resulting in 1.8% GDP growth for the full year 2022. We also expect the Fed to raise rates by an additional 125 basis points in the fourth quarter, with a 75 basis point increase in November and a 50 basis point increase in December. Looking at the fourth quarter of 2022 compared to the third quarter of 2022, we expect average loan balances to increase approximately 1%, net interest income to be up 6% to 8%, fee income to be stable to down 1%, other non-interest income to be between $200 and $250 million, excluding net securities and visa activity. Taking our guidance for all components of revenue into consideration, we expect total revenue to increase approximately 2%. We expect total non-interest expense to be stable to up 1%. Fourth quarter net charge-offs to be between $125 and $175 million. And we expect our effective tax rate to be approximately 18.5%. And with that, Bill and I are ready to take your questions."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thank you. If you would like to register a question, please press the 1 followed by the 4 on your telephone. you will hear a three-tone prompt technology request. If your question has been answered and you would like to withdraw your registration, please press 13. And our first question comes from the line of John Pancari with Evercore. Please go ahead."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Good morning. Hey, John. On the funding side, I know you saw your deposit balances pull back again. on a linked quarter basis in both average and EOP. I wonder if you can give us a little bit of color on your thoughts there on deposit growth in coming quarters as rates continue to rise and you see some mix in your funding. Thanks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Hey, John. Good morning. It's Rob. Yeah, so on deposits, we saw a decline in the quarter, less so on a spot basis. Actually, commercial deposits grew there at the end of the quarter, but down quarter over quarter. When we look forward to the next quarter, we sort of see stable to down. On the consumer side, we do expect some downward trends, just reflecting what we've seen lately, which is largely spend-related. somewhat seasonal, but also the inflationary pressures. And then on the commercial side, we're calling it stable. Typically, seasonally, we see commercial increase. And so far in the quarter, we have seen increases. But there's a lot of forces working against that with quantitative tightening and everything that's going on. So we're calling for stable, large overall, down maybe a little bit."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay, that's helpful. And related to that, Rob, can you just maybe update us on how you're thinking about deposit betas in terms of your net income expectations and how you're thinking about the margin? Thanks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, sure, sure. So, as I mentioned in my prepared remarks, you know, our betas are running right now at around 22. We expect it to go to 30 by year end."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Right."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Okay."
+      },
+      {
+        "speaker": "spk08",
+        "text": "And then in terms of the margin trajectory, just see if you can help us with that. We should think about that as well."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Well, you know, I think in terms of the margin, we saw a nice increase, obviously, in the third quarter. We won't see that equivalent jump necessarily in the fourth quarter. But as the Fed continues to raise rates, we would continue to see some margin expansion."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay, and then if I could just ask one more. On the buybacks, $1.1 billion for the quarter came in above your $750 million guidance. Maybe if you could just talk about expectations, the likelihood of it being $750 for next quarter, or could you surpass that again if you have the opportunity given the share price? Thanks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, so we have been active repurchasers of our shares. We've been operating... under the stress capital buffer framework, which allows us a lot of flexibility. We've pointed to $700 or $750 as sort of our average purchase rate, which is roughly about what we've done since we reinstated our share repurchases following the acquisition of BBVA. So that's just a rule of thumb. We can do more. We can do less, as conditions warrant. we'll see. We will be purchasers of our shares in the fourth quarter, the amount of which will be determined based on conditions."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Got it. All right. Thanks, Rob."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Sure. Once again, please press 1-4 to queue up for a question. Our next question from the line of Scott Cyphers, Piper Sandler. Please go ahead."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Morning, guys. Thank you for taking the question. Maybe Rob would Hey, I was just curious if you could talk sort of broadly or at a top level about your ability to sustain positive NII momentum once the Fed stops raising rates. I think some of the factors or puts and takes would be sort of self-evident, but I would just be curious to hear in your words what you think the big movers are each way."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Well, I mean, I think you said it. I think it's somewhat self-evident. You know, as the Fed continues to raise rates, we will see increases. And I obviously will see some higher expenses on the funding part, which gets to the margin. But, you know, it'll continue to go up as the Fed continues to raise rates, at which point they stop doing that, then, you know, things will slow down. But that's probably into 23 as we... you know, take a look at our forecast."
+      },
+      {
+        "speaker": "spk04",
+        "text": "It's going to be a bit of a mechanical exercise. So if you assume the Fed's done, if you look at past cycles, you'll see banks continue to increase rates as deposits get scarce. So there's a little bit of beta creeping when the Fed's done. Offsetting that, more than offsetting that in our case, because the short-dated nature of our securities book is a roll-down of the securities that mature and then get redeployed at the then higher yields. So it'll be that fight against, you know, where do deposit prices go once the Fed stops versus the roll-down of the book and the reprice of the yields on the book."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Which is self-evident."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah. Okay. Perfect. Thank you. And if I can go back to, Rob, your comments from the last question on repurchase. So I guess I'm just sort of curious, when you think of sort of the conditions and and why you wouldn't keep up the third quarter's more elevated level. It looks like you guys are among the very few that still has very good capacity to repurchase. What are you thinking? Was it just like the stock price in the third quarter, or are you sort of just there's enough uncertainty in the macro, or does TCE begin to enter into the equation in addition to regulatory capital levels? What are those conditions that you guys are weighing? Yeah, sure."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yes. I'd say all of the above, other than maybe the TCE. That's not as much of a driver because it's not part of our regulatory capital."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Okay."
+      },
+      {
+        "speaker": "spk07",
+        "text": "All right."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Perfect. Thank you guys very much. Appreciate it."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Next question, please. Our next question is from the line of Gerard Cassidy with RBC. Please go ahead."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Good morning, guys. How are you?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Hey, Gerard. Gerard."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Can you guys share with us, we're hearing some commentary in the commercial real estate markets that loan availability is becoming tighter, particularly to equity REITs, and you guys obviously are players in the commercial real estate market. Can you tell us what you're seeing and the risks you're assessing and what the outlook is for your commercial real estate loan book?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Just a general comment. Our exposure to REITs has grown as some of the capital markets opportunities for them have declined. But some REITs are risky and some aren't, depending on what their underlying property types are. And we price for risk and decline risk when it's the right thing to do."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Very good. Recognizing credit is still very strong in your non-performing asset ratios are strong. I was curious, I saw in your detail that you give, which is some of the best out there, about the increases in C&I non-performing loans and then also I think there was an increase in the 30 to 89 day category. I know in your press release you talked about some processing issues. Can you expand upon that and talk a little bit about those line items?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, sure. Yeah, on the delinquencies, Gerard, and I mentioned it in my comments, the increase was entirely driven by administrative delinquencies, which have largely been resolved. So delinquencies adjusted for that are essentially flat, maybe even down a little bit. On the nonperformers, they are up a little bit. But, you know, as you know, we're coming up off of such, such low, low levels that, you some increase is inevitable and doesn't necessarily reflect a broader move."
+      },
+      {
+        "speaker": "spk04",
+        "text": "It also jumps around."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, that's right."
+      },
+      {
+        "speaker": "spk04",
+        "text": "There's no trend in there. You know, one shows up, one goes away, and it's off such a small number, it's hard to look at, you know. Percentage increases. Percentage changes quarter to quarter."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Very good. I missed your opening comments, Rob, but thank you. Yeah, sure, sure."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question comes from the line of Ken Ozen with Jefferies. Please go ahead."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hey, guys. Good morning. One follow-up on the NII side. I know last quarter, Bill, you had said that you continued to see the rates trajectory continue to move up. We know you had an existing, pre-existing book of swaps that you had put on. You said you were going to hold off for now. And I'm just wondering if you can help us understand just the philosophy from here as we get potentially towards the high end of the rate cycle. and how the existing book will, you know, works against the natural asset sensitivity to the earlier point about, can you still continue to move NII growth sequentially after, you know, the fourth quarter as we get into next year? Thanks."
+      },
+      {
+        "speaker": "spk04",
+        "text": "You have a lot embedded in that question. So, start with the swaps. You will have seen, what's the number, four or five billion we dropped swaps?"
+      },
+      {
+        "speaker": "spk00",
+        "text": "Yeah, that's right. That's right, yeah."
+      },
+      {
+        "speaker": "spk04",
+        "text": "this quarter. If you look at our overall exposure to rates, we're basically flat to even more asset sensitive to where we were six months ago. Purposefully not wanting to invest into this market, so we've let stuff roll down and kind of replaced what's rolled off but not added. Our book today, I guess our bond book has a duration of 4.6 years, swap books 2.5 or 6, 2.3. So it all rolls down really fast, and it's rolling down off of yields that have one handles on them that get replaced today at 4.5 plus, assuming everything stops right here. So there's a big opportunity set in the repricing of that book, and then there's an opportunity set in simply adding duration when it's the right time to do that, I don't think it's the right time to do that yet."
+      },
+      {
+        "speaker": "spk02",
+        "text": "So then you mentioned the swap, the roll down. Can you kind of just help us understand how quickly that current portfolio rolls down? And so as we go forward, should we see a lesser burden than, you know, from the 10Q and given where rates are from that roll down going forward? Is that what you're alluding to?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yeah, I mean, the duration on the swap books, 2.3 years, Rob's saying, so it's all bullet maturity, so I'm guessing you're going to see a third a year."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Okay, got it. And at this point, you're at the point where you're out to protect further out down the road. Your point, Bill, is just that you'll see how that develops at that point, which time you decide, okay, we now have to think about the downside risk?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "So we are today... much more exposed to down rates than we are to up rates. We make lots of money when rates go up or even if they stay just where they are here. We're underinvested. We're asset sensitive. The pieces of that you shouldn't get too hung up on. The exposure we have has fairly short maturities both on the swap side and on the bond side. And so simply staying where we are gives us the opportunity to reinvest what matures at higher yields, whether that's swaps rolling off or bonds rolling off. And we're going to do that. We will also at some point add to get rid of some of the asset sensitivity. We're just not doing that yet."
+      },
+      {
+        "speaker": "spk02",
+        "text": "I understand. Thanks. Okay. I'll leave it there. Thanks, guys."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question from the line of Mike Mayo with Wells Fargo Securities. Please go ahead."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Hi. Hey, Mike. Does Rob get a raise because you became more asset-sensitive in the last six months?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "We'll take that as an offline item."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Okay. I guess no good deed goes unpunished. I mean, your rate of growth for NII is slower in the fourth quarter than in the third quarter, quarter over quarter. So just to follow up on that last question, do you think your fourth quarter NII is will be a peak or do you think it should go higher from there? Because it could go lower because, you know, the catch up, the lag of deposit pricing, maybe QT deposits runoff, whether, you know, other factors, but other, but mitigated by some of those things that reinvesting swaps and, and security. So does it go higher after the fourth quarter or you just don't know which the likelihood does go higher. Okay. And why did you go more asset sensitive six months ago? I mean, that's,"
+      },
+      {
+        "speaker": "spk04",
+        "text": "different than some of your peers. I've been in a camp for a while in arguments with our economics team that it was going to take a lot higher rates and inflation was going to be exactly what played out. So assuming that what's playing out is what we thought six months ago, you don't buy anything. It wasn't any harder than that."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Okay. And then why are deposit betas for you, and really the industry, outperforming? What have people gotten wrong in their modeling? When you look at your model, what hasn't taken place, or is it just yet to take place?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yeah, I don't know the answer to that, Mike. I mean, the consumer money's stickier than everybody... That's the answer. Yeah, that's the answer."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Relative to our expectations, consumers moved more slowly than we would have thought."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yeah. You know, the Corporates are kind of doing what you would otherwise expect depending on their size. Money market yields are doing what you'd otherwise expect. So you have, you know, a set of boundaries on competition from money funds, and you have a set of boundaries on competition from high-rate deposit accounts, you know, the online deposit accounts. So it's really just the repricing of the core consumer. It just occurs slower than I think the industry assumed."
+      },
+      {
+        "speaker": "spk11",
+        "text": "All right. Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question comes from the line of Bill Karachi with Wolof Research. Please go ahead."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank you. Good morning, Bill and Rob. Bill, you said that you don't think it's time to add duration yet. Can you give some color on the trigger you're looking for?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "I would tell you that we're probably getting close, but I continue to think, and we've seen a lot of this play out, that the back end of the curve is going to sell off here. I mean, my base expectation is that it's going to be tough to get inflation down, to even have a two-handle on it. But I do think the Fed's going to pause at some point. When they do that, inflation is still sticky. I think you're going to see the curve flatten. So it's tough to want to lock in term rates at the moment and essentially eat negative carry three months from now."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Or longer."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yeah. Well, no, you'd go negative in three months based on four. So it's, you know, we need to see some semblance of when and how the Fed's going to stop and whether or not inflation has really moved towards two or just kind of gotten down to the low threes and sticks there, which is what I'm afraid might happen."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Understood. That's really helpful. Separately, many banks talked about deposit growth that they were generating under QE as their expectation that it would be sticky. Some others were less certain. Can you speak to that dynamic broadly at the industry level, and then maybe specifically whether you expect P&C's interest-bearing versus non-interest-bearing deposits to ultimately remix back to pre-COVID levels?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, I mean, well, for the industry, you know, it's all pretty straightforward. You see it there. I would say, you know, following at the altitude you're asking the question, following the flood of liquidity and deposits in the system, we're going to see those recede. And then in regard to the mix between net interest bearing and \u2013 or non-interest bearing and interest bearing, you know, we'll see that shift. We're already starting to see it on the corporate side. But, you know, the bulk of our \u2013 Our deposits, in terms of the core deposits, it's the same ratio, 33%, non-interest bearing, two-thirds interest bearing."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Got it. And on your debt, as a percentage of your overall funding, that ticked up a little bit this quarter, but it's still below 4Q19. Is it reasonable to expect that's going to remix back to pre-COVID levels?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "You'd have to, I mean, at some point in time, you would expect that to occur. That's a function of where you think liquidity is going to go from the deposit side. But I don't know what timeline that would otherwise follow."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay, that helps. And finally, when the tailoring rules were coming together, you guys did a good job of articulating why Main Street banks like yourselves don't pose systemic risk to the financial system. Can you speak to that? some of what's happening now and how you're positioned for the risk that regulatory scrutiny could intensify somewhat for the super regionals."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Oh, so on the TLAC and SPOE issue? Yeah. Yeah. Well, Bill, you want to open up and I get to add color? Well, just a couple of thoughts. I mean, one is obviously there's a lot of conversation about it, but at this point there's no formal proposals or anything to look at. So from our view, it's just observations and speculation. If we observe what's in place with the GSIBs, our conclusion is it's not necessary for large regional banks, to your point. We thought that came through in the tailoring. Ninety-five percent plus of what we do is within the bank. Ninety-nine percent. Ninety-nine percent. Well, 95. That's 95 plus. Yeah. So again, a simple structure, and it's unclear to us why an SPOE would need to be on top of what's already in place with the FDIC and the Deposit Insurance Fund. So that has us a bit perplexed."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Very helpful. Thank you for taking my questions."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question from the line of Michael Rose with Raymond James. Please go ahead."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hey, good morning. I was hoping to get some color on the health of your borrowers at this point, and maybe if there's any unwillingness to lend to certain asset classes at this point. I'm hearing more and more on the construction side that banks are pulling back. We'd just love any updates that you have on the commercial and the consumer side. Thanks."
+      },
+      {
+        "speaker": "spk04",
+        "text": "I'm not sure what you're referring to about construction, but broadly, we haven't seen any change in our credit book. I mean, you know, we're seeing balances increase in credit card, which is a good thing. So people are finally drawing down on credit. But we really haven't seen deterioration in the performance of the book across anything. In terms of what we lend to, you know, we just don't change our credit box. We have a set of criteria that we lend to. We'll change price. And in certain asset classes, prices are going up. Or in certain classes, you know, auto is an example where spreads are just too tight. relative to where we want to lend. I can't think of any other examples where... No, no."
+      },
+      {
+        "speaker": "spk07",
+        "text": "And we operate, as you know, mostly in the higher point of the spectrum in terms of credit quality. So investment grade and prime space and consumer, our approach is the same."
+      },
+      {
+        "speaker": "spk04",
+        "text": "You know, if it's real estate construction, you know, we've been active in the multifamily side. You know, if you're looking at sort of smaller..."
+      },
+      {
+        "speaker": "spk09",
+        "text": "um you know real estate higher risk yeah we were never there in that business to begin with yeah that's kind of a smaller bank activity all right um maybe just one follow-up uh appreciate the fourth quarter guide i think as it relates to ppnr um for the full year it seems like even with the fourth quarter guide maybe being a little bit softer than working census was you guys are squarely within the ranges for full year revenue and non-interest expenses that the the way we should be reading it. Thanks. Yeah."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Yeah."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Perfect. Thanks for taking my questions."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Once again, to queue up for a question, please press 1-4 on your telephone keypad. And our next question comes from the line of Matt O'Connor, Deutsche Bank. Please go ahead."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Hey, everyone. This is Nathan Stein on behalf of Matt O'Connor. So 3Q capital markets fees came down versus the really strong 2Q levels, but I think that makes sense just given the macro backdrop. Can you talk about the capital markets outlook from here? Thanks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Sure. Well, the decline in the third quarter was more than just the macroeconomic backdrop. It was off of elevated levels of our Harris-Williams unit in the second quarter, which were, in effect, We did most of our activity in the first half in the second quarter with Harris-Williams. So we knew that, we called that, and we put that into our guidance. And then just going forward in terms of our capital markets view, Harris-Williams is the biggest component. Their pipeline is very big. The degree to which they do more or less deals remains to be seen. You know, our view for the broader category is, you know, flattish to down and recognizing there could be some upside or downside depending on the macroeconomic factors you talk about."
+      },
+      {
+        "speaker": "spk04",
+        "text": "You know, inside of that space, we actually had a record quarter in loan syndications and we had a record quarter in middle market loan originations, which, you know, is related to that. So there's actually a lot of activity, particularly as the bond markets are drying up, that benefits us. Harris-Williams just was a big number in the second quarter. So when you're going off of that base, it's not as if the core underlying business ex-Harris-Williams is struggling. It's actually doing quite well. Yeah, that's right. You know, the M&A market at the moment is tough."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "You appear to have a followup from John Pancari with Evercore. Please go ahead."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Hi, thanks for taking my followup. Just real quick on the capital markets, um, revenue on the Harris Williams. Um, can you just remind us what the comp ratio is in that business? And then separately, I just want to see if you can maybe walk through a bit of the outlook for the other larger line items in a non-interest income, including the asset management and, uh, cash management and others. Thanks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yeah, so I mean, your question's just around in terms of the fees. In the Harris-Williams line item, the efficiency ratios is probably in the mid-70s, just roughly plus or minus. In regard to the outlook in terms of the fees, you know, we'll see. I'll just go through the categories. Asset management is probably going to see some headwinds. You can see what's going on in the equity markets, although any given day, who knows? But we'll be under some pressure. Mortgage, obviously, included in that. You know, card and cash management will continue to be strong. We have solid fundamentals there, and that's a steady eddy, which will continue to expand. And then capital markets I just spoke about, you know, we sort of see it stable. We could outperform if, you know, people want to do deals. The pipeline's there, but it's just, you know, it's a question of whether the next 90 days it occurs. Got it."
+      },
+      {
+        "speaker": "spk08",
+        "text": "All right. Thanks, Rob. Sure."
+      },
+      {
+        "speaker": "spk01",
+        "text": "And we appear to have no further questions on the phone line."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Okay. Well, thank you for joining the call today. And if you have any further follow-up questions, please feel free to reach out to the IR team. Thank you and have a good day."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thank you."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk06": {
+        "name": "Brian",
+        "title": "Call Moderator"
+      },
+      "spk04": {
+        "name": "Bill Demchek",
+        "title": "Chairman, President and CEO, P&C Financial Services Group"
+      },
+      "spk07": {
+        "name": "Rob Riley",
+        "title": "Executive Vice President and CFO, P&C Financial Services Group"
+      },
+      "spk01": {
+        "name": "Operator",
+        "title": "Conference Call Operator"
+      },
+      "spk08": {
+        "name": "John Pancari",
+        "title": "Evercore"
+      },
+      "spk12": {
+        "name": "Scott Cyphers",
+        "title": "Piper Sandler"
+      },
+      "spk03": {
+        "name": "Gerard Cassidy",
+        "title": "RBC"
+      },
+      "spk02": {
+        "name": "Ken Ozen",
+        "title": "Jefferies"
+      },
+      "spk11": {
+        "name": "Mike Mayo",
+        "title": "Wells Fargo Securities"
+      },
+      "spk05": {
+        "name": "Bill Karachi",
+        "title": "Wolof Research"
+      },
+      "spk09": {
+        "name": "Michael Rose",
+        "title": "Raymond James"
+      },
+      "spk10": {
+        "name": "Nathan Stein (on behalf of Matt O\u2019Connor)",
+        "title": "Deutsche Bank"
+      },
+      "spk00": {
+        "name": "Unidentified Speaker",
+        "title": "Unidentified"
+      }
+    }
+  },
+  "text": "Brian (Call Moderator): Well, good morning, and welcome to today's conference call for the P&C Financial Services Group. Participating on this call are P&C's Chairman, President, and CEO, Bill Demchek, and Rob Riley, Executive Vice President and CFO. Today's presentation contains forward-looking information, cautionary statements about this information, as well as reconciliations of non-GAAP measures are included in today's earnings release materials, as well as our SEC filings and other investor materials. These are all available on our corporate website, pnc.com, under Investor Relations. These statements speak only as of October 14, 2022, and P&C undertakes no obligation to update them. Now I'd like to turn the call over to Bill.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): Thanks, Brian, and good morning, everybody. As you've seen, we delivered another strong quarter, generating $1.6 billion of net income, or $3.78 per share. A combination of continued growth in our commercial and consumer loan books and higher rates drove net interest income 14% higher. and our net interest margin increased 32 basis points. By the way, that's the largest sequential increase in NIM in more than a decade. Non-interest income was also up modestly, reflecting strong private equity performance and a record quarter in loan syndications, partially offset by weaker M&A activity. We remained disciplined on the expense front, resulting in seven percentage points of positive operating leverage. Our credit quality was largely unchanged in a quarter. While we have not seen a meaningful deterioration in credit quality taking place, our provision of $241 million reflects our slightly weaker economic expectations. Our capital levels remain solid, and we returned $1.7 billion of capital to shareholders during the quarter through share repurchases and dividends. We continue to make good progress on our strategic priorities. Our new and acquired markets perform particularly well across all lines of business, and we see significant untapped opportunities across these markets. We also continue to invest in our payments capabilities to provide differentiated value. We recently acquired Linga, enhancing our capabilities to better serve restaurant and retail clients, particularly in the small business space. And during the quarter, we made enhancements across our retail platform to drive customer convenience and retention. For example, we recently announced a partnership with Allpoint to give our customers surcharge-free access to 41,000 additional ATMs from coast to coast. With this partnership, PNC now offers customers surcharge-free access to more than 60,000 PNC and partner ATMs across the country. In AMG, we saw positive quarterly flows of $4 billion driven by both the private bank and institutional asset management. We are recruiting top talent and remain focused on taking share in all of our markets. In summary, in the third quarter, we executed well as a national Main Street bank, and we are in a position of strength as we look to the future. As always, I want to thank our employees for their hard work in the third quarter and for everything they do to deliver for our customers, communities, and our shareholders. And with that, I'll turn it over to Rob to provide more detail about our financial results.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Thanks, Bill, and good morning, everyone. Our balance sheet is on slide three and is presented on an average basis. During the quarter, loan balances were $313 billion, an increase of $8 billion, or 3%. Investment securities grew approximately $2 billion, or 2%. Cash balances at the Federal Reserve decreased $8 billion. And our deposit balances averaged $439 billion, a decline of $7 billion, or 2%. However, spot deposits were down $2.6 billion, or less than 1%. as lower consumer deposits were partially offset by growth in commercial deposits. At the end of the third quarter, our loan-to-deposit ratio was 72% and remains well below our pre-pandemic levels. Average borrowed funds increased $8.6 billion as we bolstered our liquidity through federal home loan bank borrowings. During the quarter, we increased our borrowings with the home loan bank by $20 billion on a spot basis. We continue to be well positioned with significant capital flexibility During the quarter, we returned $1.7 billion of capital to shareholders through approximately $600 million of common dividends and $1.1 billion of share repurchases, or 6.7 million shares. And as of September 30, 2022, our CET1 ratio was estimated to be 9.3%. Slide 4 shows our loans in more detail. During the third quarter, we delivered solid loan growth across our expanded franchise. Loan balances averaged $313 billion, an increase of $8 billion, or 3%, compared to the second quarter, reflecting growth in both commercial and consumer loans. On a spot basis, loans grew $4.6 billion, or 1%. Commercial loans grew $3.1 billion, as strong new production more than offset the syndication of the $5 billion of high-quality short-term loans that were expected to mature in the second half of the year. Consumer loans increased $1.5 billion, driven by higher residential mortgage and home equity balances, partially offset by lower auto loans. And loan yields increased 69 basis points compared to the second quarter, driven by higher interest rates. Slide five covers our deposits in more detail. Although average deposits declined $7 billion or 2% compared to the second quarter, bought deposits were $438 billion and declined less than 1% compared to June 30th. Commercial deposits grew $1.7 billion, or 1%, on a spot basis, and consumer deposits declined $4.3 billion, or 2%, reflecting inflationary pressures and seasonally higher spending. Given the rising interest rate environment, we've begun to see a mixed shift from non-interest bearing into interest bearing, particularly within our commercial deposits, and expect this to continue over time. However, to date, our consolidated deposit portfolio mix has remained relatively stable with two-thirds interest-bearing and one-third non-interest-bearing. Overall, our rate paid on interest-bearing deposits increased 33 basis points linked quarter to 45 basis points. As of September 30th, our cumulative data was 22%, and we estimate it will increase to approximately 30% by year-end. Slide 6 details our securities portfolio. On an average basis, our securities grew $2 billion or 2% during the quarter as we replaced maturities with higher yielding securities. The yield on our securities portfolio increased 21 basis points to 2.1%, driven by higher reinvestment yields as well as lower premium amortization. And during the quarter, new purchase yields exceeded 4%. Throughout the course of the year, We've repositioned our securities portfolio, and as of September 30th, we had 66% of our securities classified as held to maturity. While interest rates have continued to increase, this repositioning has reduced the rate of change in our AOCI. At the end of the third quarter, our accumulated other comprehensive loss was $10.5 billion, and as you know, is not included in our regulatory capital. And importantly, we expect this amount to fully accrete back over the remaining lives of the securities and swaps. As of September 30th, we estimate that approximately 5% of AOCI will accrete back per quarter going forward. Turning to the income statement on slide seven, as you can see, third quarter 2022 reported net income was $1.6 billion, or $3.78 per share. Revenue was up $433 million, or 8%, compared with the second quarter. Expenses increased $36 million, or 1%, resulting in 7% positive operating leverage linked quarter. Provision was $241 million in the third quarter, reflecting a slightly weaker economic outlook, which impacted our macroeconomic scenarios and weightings. And our effective tax rate was 19.1%. Turning to slide eight, we highlight our revenue trends. As you can see, total revenue for the third quarter was $5.5 billion, an increase of 8%, or $433 million linked quarter. Net interest income of $3.5 billion was up $424 million, or 14%. The benefit of higher yields on interest-earning assets and increased loan balances was partially offset by higher funding costs. And as a result, net interest margin increased 32 basis points to 2.82%. Third quarter non-interest income of $2.1 billion increased $9 million, as lower fee income was offset by an increase in other non-interest income. The decline in fee revenue was driven by lower activity in our capital markets, mortgage, and asset management businesses, which was somewhat offset by continued strong performance in our lending and deposit services, as well as our card and cash management fees. Growth and other non-interest income reflected higher private equity revenue, as well as a $13 million positive visa derivative fair value adjustment in the third quarter, compared to a negative adjustment of $16 million in the second quarter. Turning to slide nine, our third quarter expenses continued to be well-managed and were up 1% linked quarter. The growth reflected increased personnel expense to support business growth, as well as one additional day in the quarter. As we previously stated, we have a goal to reduce costs by $300 million in 2022 through our continuous improvement program. We're now nine months into the year, and we've completed actions related to capturing more than 80% of our annual goal. And as a result, we remain confident we will achieve our full-year objectives. As you know, this program funds a significant portion of our ongoing business and technology investments. Our credit metrics are presented on slide 10. Non-performing loans of $2.1 billion increased $22 million, or 1%, compared to June 30th, and continue to represent less than 1% of total loans. Total delinquencies were $1.6 billion on September 30th, at $115 million, or 8% increase, linked quarter. The increase was driven by elevated levels of administrative delinquencies, the majority of which have already been or are in the process of being resolved. Net charge-offs for loans and leases were $119 million, an increase of $36 million linked quarter, primarily driven by higher commercial loan net charge-offs. Our annualized net charge-offs to average loans continues to be historically low at 15 basis points. Provision for the third quarter was $241 million compared to $36 million in the second quarter. The increase reflected slightly weaker economic expectations, which impacted our macroeconomic scenarios and weightings. And during the third quarter, our allowance for credit losses remained essentially stable. Our reserves now total $5.3 billion and continue to be 1.7% of total loans. In summary, PNC reported a strong third quarter. In regard to our view of the overall economy, we expect moderate growth in the fourth quarter, resulting in 1.8% GDP growth for the full year 2022. We also expect the Fed to raise rates by an additional 125 basis points in the fourth quarter, with a 75 basis point increase in November and a 50 basis point increase in December. Looking at the fourth quarter of 2022 compared to the third quarter of 2022, we expect average loan balances to increase approximately 1%, net interest income to be up 6% to 8%, fee income to be stable to down 1%, other non-interest income to be between $200 and $250 million, excluding net securities and visa activity. Taking our guidance for all components of revenue into consideration, we expect total revenue to increase approximately 2%. We expect total non-interest expense to be stable to up 1%. Fourth quarter net charge-offs to be between $125 and $175 million. And we expect our effective tax rate to be approximately 18.5%. And with that, Bill and I are ready to take your questions.\n\nOperator (Conference Call Operator): Thank you. If you would like to register a question, please press the 1 followed by the 4 on your telephone. you will hear a three-tone prompt technology request. If your question has been answered and you would like to withdraw your registration, please press 13. And our first question comes from the line of John Pancari with Evercore. Please go ahead.\n\nJohn Pancari (Evercore): Good morning. Hey, John. On the funding side, I know you saw your deposit balances pull back again. on a linked quarter basis in both average and EOP. I wonder if you can give us a little bit of color on your thoughts there on deposit growth in coming quarters as rates continue to rise and you see some mix in your funding. Thanks.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Hey, John. Good morning. It's Rob. Yeah, so on deposits, we saw a decline in the quarter, less so on a spot basis. Actually, commercial deposits grew there at the end of the quarter, but down quarter over quarter. When we look forward to the next quarter, we sort of see stable to down. On the consumer side, we do expect some downward trends, just reflecting what we've seen lately, which is largely spend-related. somewhat seasonal, but also the inflationary pressures. And then on the commercial side, we're calling it stable. Typically, seasonally, we see commercial increase. And so far in the quarter, we have seen increases. But there's a lot of forces working against that with quantitative tightening and everything that's going on. So we're calling for stable, large overall, down maybe a little bit.\n\nJohn Pancari (Evercore): Okay, that's helpful. And related to that, Rob, can you just maybe update us on how you're thinking about deposit betas in terms of your net income expectations and how you're thinking about the margin? Thanks.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Yeah, sure, sure. So, as I mentioned in my prepared remarks, you know, our betas are running right now at around 22. We expect it to go to 30 by year end.\n\nJohn Pancari (Evercore): Right.\n\nUnidentified Speaker (Unidentified): Okay.\n\nJohn Pancari (Evercore): And then in terms of the margin trajectory, just see if you can help us with that. We should think about that as well.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Well, you know, I think in terms of the margin, we saw a nice increase, obviously, in the third quarter. We won't see that equivalent jump necessarily in the fourth quarter. But as the Fed continues to raise rates, we would continue to see some margin expansion.\n\nJohn Pancari (Evercore): Okay, and then if I could just ask one more. On the buybacks, $1.1 billion for the quarter came in above your $750 million guidance. Maybe if you could just talk about expectations, the likelihood of it being $750 for next quarter, or could you surpass that again if you have the opportunity given the share price? Thanks.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Yeah, so we have been active repurchasers of our shares. We've been operating... under the stress capital buffer framework, which allows us a lot of flexibility. We've pointed to $700 or $750 as sort of our average purchase rate, which is roughly about what we've done since we reinstated our share repurchases following the acquisition of BBVA. So that's just a rule of thumb. We can do more. We can do less, as conditions warrant. we'll see. We will be purchasers of our shares in the fourth quarter, the amount of which will be determined based on conditions.\n\nJohn Pancari (Evercore): Got it. All right. Thanks, Rob.\n\nOperator (Conference Call Operator): Sure. Once again, please press 1-4 to queue up for a question. Our next question from the line of Scott Cyphers, Piper Sandler. Please go ahead.\n\nScott Cyphers (Piper Sandler): Morning, guys. Thank you for taking the question. Maybe Rob would Hey, I was just curious if you could talk sort of broadly or at a top level about your ability to sustain positive NII momentum once the Fed stops raising rates. I think some of the factors or puts and takes would be sort of self-evident, but I would just be curious to hear in your words what you think the big movers are each way.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Well, I mean, I think you said it. I think it's somewhat self-evident. You know, as the Fed continues to raise rates, we will see increases. And I obviously will see some higher expenses on the funding part, which gets to the margin. But, you know, it'll continue to go up as the Fed continues to raise rates, at which point they stop doing that, then, you know, things will slow down. But that's probably into 23 as we... you know, take a look at our forecast.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): It's going to be a bit of a mechanical exercise. So if you assume the Fed's done, if you look at past cycles, you'll see banks continue to increase rates as deposits get scarce. So there's a little bit of beta creeping when the Fed's done. Offsetting that, more than offsetting that in our case, because the short-dated nature of our securities book is a roll-down of the securities that mature and then get redeployed at the then higher yields. So it'll be that fight against, you know, where do deposit prices go once the Fed stops versus the roll-down of the book and the reprice of the yields on the book.\n\nScott Cyphers (Piper Sandler): Yeah.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): Which is self-evident.\n\nScott Cyphers (Piper Sandler): Yeah. Okay. Perfect. Thank you. And if I can go back to, Rob, your comments from the last question on repurchase. So I guess I'm just sort of curious, when you think of sort of the conditions and and why you wouldn't keep up the third quarter's more elevated level. It looks like you guys are among the very few that still has very good capacity to repurchase. What are you thinking? Was it just like the stock price in the third quarter, or are you sort of just there's enough uncertainty in the macro, or does TCE begin to enter into the equation in addition to regulatory capital levels? What are those conditions that you guys are weighing? Yeah, sure.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Yes. I'd say all of the above, other than maybe the TCE. That's not as much of a driver because it's not part of our regulatory capital.\n\nUnidentified Speaker (Unidentified): Okay.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): All right.\n\nScott Cyphers (Piper Sandler): Perfect. Thank you guys very much. Appreciate it.\n\nOperator (Conference Call Operator): Next question, please. Our next question is from the line of Gerard Cassidy with RBC. Please go ahead.\n\nGerard Cassidy (RBC): Good morning, guys. How are you?\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Hey, Gerard. Gerard.\n\nGerard Cassidy (RBC): Can you guys share with us, we're hearing some commentary in the commercial real estate markets that loan availability is becoming tighter, particularly to equity REITs, and you guys obviously are players in the commercial real estate market. Can you tell us what you're seeing and the risks you're assessing and what the outlook is for your commercial real estate loan book?\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): Just a general comment. Our exposure to REITs has grown as some of the capital markets opportunities for them have declined. But some REITs are risky and some aren't, depending on what their underlying property types are. And we price for risk and decline risk when it's the right thing to do.\n\nGerard Cassidy (RBC): Very good. Recognizing credit is still very strong in your non-performing asset ratios are strong. I was curious, I saw in your detail that you give, which is some of the best out there, about the increases in C&I non-performing loans and then also I think there was an increase in the 30 to 89 day category. I know in your press release you talked about some processing issues. Can you expand upon that and talk a little bit about those line items?\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Yeah, sure. Yeah, on the delinquencies, Gerard, and I mentioned it in my comments, the increase was entirely driven by administrative delinquencies, which have largely been resolved. So delinquencies adjusted for that are essentially flat, maybe even down a little bit. On the nonperformers, they are up a little bit. But, you know, as you know, we're coming up off of such, such low, low levels that, you some increase is inevitable and doesn't necessarily reflect a broader move.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): It also jumps around.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Yeah, that's right.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): There's no trend in there. You know, one shows up, one goes away, and it's off such a small number, it's hard to look at, you know. Percentage increases. Percentage changes quarter to quarter.\n\nGerard Cassidy (RBC): Very good. I missed your opening comments, Rob, but thank you. Yeah, sure, sure.\n\nOperator (Conference Call Operator): Our next question comes from the line of Ken Ozen with Jefferies. Please go ahead.\n\nKen Ozen (Jefferies): Hey, guys. Good morning. One follow-up on the NII side. I know last quarter, Bill, you had said that you continued to see the rates trajectory continue to move up. We know you had an existing, pre-existing book of swaps that you had put on. You said you were going to hold off for now. And I'm just wondering if you can help us understand just the philosophy from here as we get potentially towards the high end of the rate cycle. and how the existing book will, you know, works against the natural asset sensitivity to the earlier point about, can you still continue to move NII growth sequentially after, you know, the fourth quarter as we get into next year? Thanks.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): You have a lot embedded in that question. So, start with the swaps. You will have seen, what's the number, four or five billion we dropped swaps?\n\nUnidentified Speaker (Unidentified): Yeah, that's right. That's right, yeah.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): this quarter. If you look at our overall exposure to rates, we're basically flat to even more asset sensitive to where we were six months ago. Purposefully not wanting to invest into this market, so we've let stuff roll down and kind of replaced what's rolled off but not added. Our book today, I guess our bond book has a duration of 4.6 years, swap books 2.5 or 6, 2.3. So it all rolls down really fast, and it's rolling down off of yields that have one handles on them that get replaced today at 4.5 plus, assuming everything stops right here. So there's a big opportunity set in the repricing of that book, and then there's an opportunity set in simply adding duration when it's the right time to do that, I don't think it's the right time to do that yet.\n\nKen Ozen (Jefferies): So then you mentioned the swap, the roll down. Can you kind of just help us understand how quickly that current portfolio rolls down? And so as we go forward, should we see a lesser burden than, you know, from the 10Q and given where rates are from that roll down going forward? Is that what you're alluding to?\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): Yeah, I mean, the duration on the swap books, 2.3 years, Rob's saying, so it's all bullet maturity, so I'm guessing you're going to see a third a year.\n\nKen Ozen (Jefferies): Okay, got it. And at this point, you're at the point where you're out to protect further out down the road. Your point, Bill, is just that you'll see how that develops at that point, which time you decide, okay, we now have to think about the downside risk?\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): So we are today... much more exposed to down rates than we are to up rates. We make lots of money when rates go up or even if they stay just where they are here. We're underinvested. We're asset sensitive. The pieces of that you shouldn't get too hung up on. The exposure we have has fairly short maturities both on the swap side and on the bond side. And so simply staying where we are gives us the opportunity to reinvest what matures at higher yields, whether that's swaps rolling off or bonds rolling off. And we're going to do that. We will also at some point add to get rid of some of the asset sensitivity. We're just not doing that yet.\n\nKen Ozen (Jefferies): I understand. Thanks. Okay. I'll leave it there. Thanks, guys.\n\nOperator (Conference Call Operator): Our next question from the line of Mike Mayo with Wells Fargo Securities. Please go ahead.\n\nMike Mayo (Wells Fargo Securities): Hi. Hey, Mike. Does Rob get a raise because you became more asset-sensitive in the last six months?\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): We'll take that as an offline item.\n\nMike Mayo (Wells Fargo Securities): Okay. I guess no good deed goes unpunished. I mean, your rate of growth for NII is slower in the fourth quarter than in the third quarter, quarter over quarter. So just to follow up on that last question, do you think your fourth quarter NII is will be a peak or do you think it should go higher from there? Because it could go lower because, you know, the catch up, the lag of deposit pricing, maybe QT deposits runoff, whether, you know, other factors, but other, but mitigated by some of those things that reinvesting swaps and, and security. So does it go higher after the fourth quarter or you just don't know which the likelihood does go higher. Okay. And why did you go more asset sensitive six months ago? I mean, that's,\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): different than some of your peers. I've been in a camp for a while in arguments with our economics team that it was going to take a lot higher rates and inflation was going to be exactly what played out. So assuming that what's playing out is what we thought six months ago, you don't buy anything. It wasn't any harder than that.\n\nMike Mayo (Wells Fargo Securities): Okay. And then why are deposit betas for you, and really the industry, outperforming? What have people gotten wrong in their modeling? When you look at your model, what hasn't taken place, or is it just yet to take place?\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): Yeah, I don't know the answer to that, Mike. I mean, the consumer money's stickier than everybody... That's the answer. Yeah, that's the answer.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Relative to our expectations, consumers moved more slowly than we would have thought.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): Yeah. You know, the Corporates are kind of doing what you would otherwise expect depending on their size. Money market yields are doing what you'd otherwise expect. So you have, you know, a set of boundaries on competition from money funds, and you have a set of boundaries on competition from high-rate deposit accounts, you know, the online deposit accounts. So it's really just the repricing of the core consumer. It just occurs slower than I think the industry assumed.\n\nMike Mayo (Wells Fargo Securities): All right. Thank you.\n\nOperator (Conference Call Operator): Our next question comes from the line of Bill Karachi with Wolof Research. Please go ahead.\n\nBill Karachi (Wolof Research): Thank you. Good morning, Bill and Rob. Bill, you said that you don't think it's time to add duration yet. Can you give some color on the trigger you're looking for?\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): I would tell you that we're probably getting close, but I continue to think, and we've seen a lot of this play out, that the back end of the curve is going to sell off here. I mean, my base expectation is that it's going to be tough to get inflation down, to even have a two-handle on it. But I do think the Fed's going to pause at some point. When they do that, inflation is still sticky. I think you're going to see the curve flatten. So it's tough to want to lock in term rates at the moment and essentially eat negative carry three months from now.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Or longer.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): Yeah. Well, no, you'd go negative in three months based on four. So it's, you know, we need to see some semblance of when and how the Fed's going to stop and whether or not inflation has really moved towards two or just kind of gotten down to the low threes and sticks there, which is what I'm afraid might happen.\n\nBill Karachi (Wolof Research): Understood. That's really helpful. Separately, many banks talked about deposit growth that they were generating under QE as their expectation that it would be sticky. Some others were less certain. Can you speak to that dynamic broadly at the industry level, and then maybe specifically whether you expect P&C's interest-bearing versus non-interest-bearing deposits to ultimately remix back to pre-COVID levels?\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Yeah, I mean, well, for the industry, you know, it's all pretty straightforward. You see it there. I would say, you know, following at the altitude you're asking the question, following the flood of liquidity and deposits in the system, we're going to see those recede. And then in regard to the mix between net interest bearing and \u2013 or non-interest bearing and interest bearing, you know, we'll see that shift. We're already starting to see it on the corporate side. But, you know, the bulk of our \u2013 Our deposits, in terms of the core deposits, it's the same ratio, 33%, non-interest bearing, two-thirds interest bearing.\n\nBill Karachi (Wolof Research): Got it. And on your debt, as a percentage of your overall funding, that ticked up a little bit this quarter, but it's still below 4Q19. Is it reasonable to expect that's going to remix back to pre-COVID levels?\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): You'd have to, I mean, at some point in time, you would expect that to occur. That's a function of where you think liquidity is going to go from the deposit side. But I don't know what timeline that would otherwise follow.\n\nBill Karachi (Wolof Research): Okay, that helps. And finally, when the tailoring rules were coming together, you guys did a good job of articulating why Main Street banks like yourselves don't pose systemic risk to the financial system. Can you speak to that? some of what's happening now and how you're positioned for the risk that regulatory scrutiny could intensify somewhat for the super regionals.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Oh, so on the TLAC and SPOE issue? Yeah. Yeah. Well, Bill, you want to open up and I get to add color? Well, just a couple of thoughts. I mean, one is obviously there's a lot of conversation about it, but at this point there's no formal proposals or anything to look at. So from our view, it's just observations and speculation. If we observe what's in place with the GSIBs, our conclusion is it's not necessary for large regional banks, to your point. We thought that came through in the tailoring. Ninety-five percent plus of what we do is within the bank. Ninety-nine percent. Ninety-nine percent. Well, 95. That's 95 plus. Yeah. So again, a simple structure, and it's unclear to us why an SPOE would need to be on top of what's already in place with the FDIC and the Deposit Insurance Fund. So that has us a bit perplexed.\n\nBill Karachi (Wolof Research): Very helpful. Thank you for taking my questions.\n\nOperator (Conference Call Operator): Our next question from the line of Michael Rose with Raymond James. Please go ahead.\n\nMichael Rose (Raymond James): Hey, good morning. I was hoping to get some color on the health of your borrowers at this point, and maybe if there's any unwillingness to lend to certain asset classes at this point. I'm hearing more and more on the construction side that banks are pulling back. We'd just love any updates that you have on the commercial and the consumer side. Thanks.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): I'm not sure what you're referring to about construction, but broadly, we haven't seen any change in our credit book. I mean, you know, we're seeing balances increase in credit card, which is a good thing. So people are finally drawing down on credit. But we really haven't seen deterioration in the performance of the book across anything. In terms of what we lend to, you know, we just don't change our credit box. We have a set of criteria that we lend to. We'll change price. And in certain asset classes, prices are going up. Or in certain classes, you know, auto is an example where spreads are just too tight. relative to where we want to lend. I can't think of any other examples where... No, no.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): And we operate, as you know, mostly in the higher point of the spectrum in terms of credit quality. So investment grade and prime space and consumer, our approach is the same.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): You know, if it's real estate construction, you know, we've been active in the multifamily side. You know, if you're looking at sort of smaller...\n\nMichael Rose (Raymond James): um you know real estate higher risk yeah we were never there in that business to begin with yeah that's kind of a smaller bank activity all right um maybe just one follow-up uh appreciate the fourth quarter guide i think as it relates to ppnr um for the full year it seems like even with the fourth quarter guide maybe being a little bit softer than working census was you guys are squarely within the ranges for full year revenue and non-interest expenses that the the way we should be reading it. Thanks. Yeah.\n\nUnidentified Speaker (Unidentified): Yeah.\n\nMichael Rose (Raymond James): Perfect. Thanks for taking my questions.\n\nOperator (Conference Call Operator): Once again, to queue up for a question, please press 1-4 on your telephone keypad. And our next question comes from the line of Matt O'Connor, Deutsche Bank. Please go ahead.\n\nNathan Stein (on behalf of Matt O\u2019Connor) (Deutsche Bank): Hey, everyone. This is Nathan Stein on behalf of Matt O'Connor. So 3Q capital markets fees came down versus the really strong 2Q levels, but I think that makes sense just given the macro backdrop. Can you talk about the capital markets outlook from here? Thanks.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Sure. Well, the decline in the third quarter was more than just the macroeconomic backdrop. It was off of elevated levels of our Harris-Williams unit in the second quarter, which were, in effect, We did most of our activity in the first half in the second quarter with Harris-Williams. So we knew that, we called that, and we put that into our guidance. And then just going forward in terms of our capital markets view, Harris-Williams is the biggest component. Their pipeline is very big. The degree to which they do more or less deals remains to be seen. You know, our view for the broader category is, you know, flattish to down and recognizing there could be some upside or downside depending on the macroeconomic factors you talk about.\n\nBill Demchek (Chairman, President and CEO, P&C Financial Services Group): You know, inside of that space, we actually had a record quarter in loan syndications and we had a record quarter in middle market loan originations, which, you know, is related to that. So there's actually a lot of activity, particularly as the bond markets are drying up, that benefits us. Harris-Williams just was a big number in the second quarter. So when you're going off of that base, it's not as if the core underlying business ex-Harris-Williams is struggling. It's actually doing quite well. Yeah, that's right. You know, the M&A market at the moment is tough.\n\nNathan Stein (on behalf of Matt O\u2019Connor) (Deutsche Bank): Thank you.\n\nOperator (Conference Call Operator): You appear to have a followup from John Pancari with Evercore. Please go ahead.\n\nJohn Pancari (Evercore): Hi, thanks for taking my followup. Just real quick on the capital markets, um, revenue on the Harris Williams. Um, can you just remind us what the comp ratio is in that business? And then separately, I just want to see if you can maybe walk through a bit of the outlook for the other larger line items in a non-interest income, including the asset management and, uh, cash management and others. Thanks.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Yeah, so I mean, your question's just around in terms of the fees. In the Harris-Williams line item, the efficiency ratios is probably in the mid-70s, just roughly plus or minus. In regard to the outlook in terms of the fees, you know, we'll see. I'll just go through the categories. Asset management is probably going to see some headwinds. You can see what's going on in the equity markets, although any given day, who knows? But we'll be under some pressure. Mortgage, obviously, included in that. You know, card and cash management will continue to be strong. We have solid fundamentals there, and that's a steady eddy, which will continue to expand. And then capital markets I just spoke about, you know, we sort of see it stable. We could outperform if, you know, people want to do deals. The pipeline's there, but it's just, you know, it's a question of whether the next 90 days it occurs. Got it.\n\nJohn Pancari (Evercore): All right. Thanks, Rob. Sure.\n\nOperator (Conference Call Operator): And we appear to have no further questions on the phone line.\n\nBrian (Call Moderator): Okay. Well, thank you for joining the call today. And if you have any further follow-up questions, please feel free to reach out to the IR team. Thank you and have a good day.\n\nRob Riley (Executive Vice President and CFO, P&C Financial Services Group): Thank you.",
+  "n_turns": 89
+}

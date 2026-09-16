@@ -1,0 +1,369 @@
+{
+  "ticker": "ARRY",
+  "original_ticker": "ARRY",
+  "call_date": "2023-05-09",
+  "year": 2023,
+  "quarter": 1,
+  "vendor_params": {
+    "exchange": "NASDAQ",
+    "symbol": "ARRY",
+    "year": 2023,
+    "quarter": 1
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T00:48:06Z",
+  "raw_payload": {
+    "event": {
+      "year": 2023,
+      "quarter": 1,
+      "conference_date": "2023-05-09T17:00:00-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk13",
+        "text": "So we're no worse off, but in one, we're dramatically better. So those customers have to understand what that looks like because, again, there will be some \u2013 if the domestic content goes an extreme way, there's likely going to be some additional cost to maximize from 76% up to over 90% domestic content. And whether or not they need that, how much they need to pay for that, we have to have those definitions before those orders get set in stone. Not unexpected. This is where we said we'd be. We'd hoped for clarity by now, but it simply hasn't happened yet."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thanks, Kevin."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Our next question comes from the line of Cashie Harrison with Piper Sandler. Please proceed with your question."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Good afternoon, everybody, and thanks for taking the question. So, Kevin, I just want to make sure we're all 100% on the same page. Is it just the domestic content that your customers are waiting for? Are there perhaps other definitions from Treasury maybe around, you know, prevailing wages or apprenticeship hours or, you know, something else that your customers are waiting for?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "It's all of the above that adds up to that ability to get to the 40% domestic content, right? They're looking for clarity in every one of those buckets, final clarity. And, for example, there had been some discussion earlier about whether or not There's a sliding scale under the prevailing wages over a couple of year period under the apprenticeship program, for example. You know, in year one, you demonstrate you're on the way to do it. Year two, you have it. Those are the kind of definitions that they need to figure out, so they stack up each of those elements to see how they get to the 40% and how important that tracker is going to be to get there."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Got it. That's helpful. Thank you. And then as my follow-up, can you just speak to the broader demand trends you're seeing in Brazil, Spain for the STI business? Elections are behind us in Brazil. Spain's supposed to be quite strong this year. So just what are you seeing on the demand side? Maybe talk about market dynamics, market share, et cetera."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Yeah, we feel really good about Brazil, and the demand we're seeing there is very strong. We feel good about our market share in Brazil, the backdrop, our ability to deliver. I think Brazil is going to be a great success story for us this year. In Spain, we're still waiting for additional incentives to come through Europe. I mean, it's a good business. It's doing well. But the acceleration in Spain will nearly be as much as Brazil in the near term. So it's really more about waiting for additional incentives throughout Europe. But to be clear, the MTI business... The FTI business in Spain is really focused outside Spain. We're focusing all throughout Eastern Europe, other regions where we know we've got a great play for that product line right now that are still very healthy."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thanks for that color there. If I could just sneak one more quick one in. Is there any way to quantify the magnitude of the one-time logistics benefit that you had this quarter?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yeah, hey, so that's about a couple of hundred basis points. That was an impact of the logistics and freight costs."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Our next question comes from the line of Maheep Mandeloy with Credit Suisse."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Please proceed with your question."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hey, good evening. Thanks for taking the question. Just to clarify one of the previous comments, are you expecting a resolution or clarification from IRA end of Q2, early Q3, but that's not in the guidance, right? Does that seem right?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yeah. Yes, what Kevin said is that's our current expectations, end of Q2, sometime in Q3. And you're correct. We have not updated the guidance for any impact of IRAs."
+      },
+      {
+        "speaker": "spk09",
+        "text": "And then once you get that clarification, how much more capacity do you have to meet any incremental customer demands in Q4?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "We feel really good on an annual capacity and a quarterly capacity basis. We've been building out our capacity for a good 18 months now and adding many more suppliers throughout the U.S., qualifying them. getting them up to speed. So I think we feel really good about our domestic capacity to handle whatever volumes coming our way. And keep in mind that when that volume comes our way, they're not all going to rush for Q4 delivery, to be clear. These larger programs are getting larger and larger. The number of them are getting more and more. And they'll be phased out throughout 2024. There may be some opportunistic programs that you get yet for delivery in Q4, but I think the vast majority of what we would expect to come in from IRA is going to be a 2024 phenomenon. Okay, thanks."
+      },
+      {
+        "speaker": "spk09",
+        "text": "And then just maybe this last one from me. So you talked about customers pushing out projects because of IRA clarification, but are they ordering products or they do not need any domestic content?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "I'm sorry, we didn't hear that. Can you repeat that again?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "Sorry. Yeah, no, are the customers ordering products for which they don't need any clarification on domestic content? Or are they going ahead with the rest of the projects and the modules and trackers and fewer things?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "No, to be clear, we've had customers say they're not worried about that 40%. They're just going to continue to go and build. So some are doing that, and that's some of the orders that UDC is getting in and are executing on. So not everybody's waiting to maximize all elements under the IRA. Other customers and developers are saying, we get it. We have a good enough return. As I said, one of the best quotes from one of the CEOs of a large customer, we'll let the lawyers and accountants worry about going after those credits later. We're in build mode, right?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "So, but there's different behaviors, obviously, on different customers."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Our next question comes from the line of Colin Rushwood Oppenheimer."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Please proceed with your question."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Thanks so much, guys. Can you just give us an update on the work that you've been able to do with any incremental EPCs in terms of qualification?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "design-ins, particularly outside the U.S.? Can you repeat that again? Sorry, Colin."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Yeah, can you give us an update on qualification and design-ins with EPCs outside the U.S.? I'm just curious about the number of folks you're working with in Europe, how that's growing and trending, and in Australia."
+      },
+      {
+        "speaker": "spk13",
+        "text": "I think Australia is a unique animal under the VRET program where we're We're certainly getting qualified as domestic content, leading to additional new volume for us there. I think the rest is, look, it's hard to find an EPC around the world that we haven't done something with in our existing markets. So it's not like we're needing to qualify ourselves with a lot of new EPCs. In the markets that we're currently participating in, we've done work before, and we have a steady, strong relationship with existing EPCs."
+      },
+      {
+        "speaker": "spk11",
+        "text": "And also, you know, with our strategy of just getting close with developers, they take us into various regions and markets that we form the relationship with the EPC. So that continues as well as we expand into different regions."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay, that's super helpful. And then just from a competitive standpoint, can you talk a little bit about how much price sensitivity there is right now with folks and if there's any sort of meaningful change in the price competition and and how that's working for you as you go through and fit our projects."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah."
+      },
+      {
+        "speaker": "spk11",
+        "text": "You know, as far as that, you know, we're seeing the normal competitive behaviors in the market. Obviously, we talk about our ASPs of health. One in a quarter, we feel good about that. But nothing unusual that we're seeing, Colin, in that regards."
+      },
+      {
+        "speaker": "spk13",
+        "text": "I'll tell you that most of the impact on an ASP on a sequential basis is just frankly, related to the steel input costs that are changing. And we're mindful of that as we go throughout the year. And we're still being predicted to decline here in Q3 and Q4. That's also part of why you bring your revenue down, because you could expect that ASPs may decline slightly going into Q3 and Q4 for the same volume of business, right? So we're mindful of that, but out setting that aside, We haven't seen any demonstrated changing in pricing behavior of our top competitors."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Perfect. Thanks so much, guys."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Our next question comes from the line of Joseph Osha with Guggenheim."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Please proceed with your question."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Hey there. One thing we haven't talked about as much as we get into next year, a new thing to worry about, the tariff moratorium goes away. In June, panels have to be put in service by the end of next year to qualify. So I've been talking to some folks who are talking about a real rush to kind of get all that done. I'm curious as to whether you're beginning to hear about what it's going to be like managing that process and how it might impact your business as you get into the latter part of this year and the first part of 2024."
+      },
+      {
+        "speaker": "spk13",
+        "text": "We really haven't had any of our large customers come and talk to us about that being a big issue yet. We're reading the same things you are. We understand that there is a potential for that to occur, but we haven't had our customers rush to us and kind of, for lack of a better word, lock down capacity in that near term. They're more focused on the IRA overall benefits than they are the tariffs under ACDP."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Right, but to clarify, it is true, right, that any panel that comes in under the tariff moratorium by June has got to be placed in service by the end of 24. That's correct, yes?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "Yeah, that's our understanding of it, yes."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Okay, but interesting. So your customers aren't talking about that. They've got other stuff to worry about. Okay, thank you. Thank you very much."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Our next question comes from the line of Donovan Schaffer with Northland Capital. Please proceed with your question."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hey, guys. Thanks for taking the questions. I want to start off and just ask, you know, for the bookings being down quarter over quarter, when you report bookings, do you make an adjustment for changes to the cost that you're able to pass through to customers? I mean, with steel prices, logistics, all that stuff, you know, was there a reduce sort of ASP impact, you know, where sometimes you have the same megawatts, but now you say, well, when we do ship this, what we're going to have to pass through that ends up as revenue is going to be lower at this point. Is that a factor?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "No, because, again, if you remember our contracting process, we're locking that in at that point in time, right?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Okay, so none of it sort of stays floating, like locking certain portions in and then a certain portion stays floating until like the shipment date. It doesn't work like that. No, we're doing the full price of the program. Okay, great. And then in terms of the one-off impact on gross margins, you may have said this and perhaps I just missed it, but was that primarily on the legacy array side or was that also a factor with the STI gross margins?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "It was primarily on the legacy array side. The majority of that was on that. And as mentioned in my prepared remarks, it was the freight and logistics cost, a couple hundred basis points, and it was also project mix."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Our next question comes from the line of Tristan Richardson with Scotiabank."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Please proceed with your question."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Hey, appreciate it, guys. Just maybe following on the STI question, the gross margin improvement there sounds like Nothing necessarily one time there, but did that benefit necessarily from mix as well, or should we really think about the margins in Q1 as representative of the process improvements that you guys highlighted in your prepared comments?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "Yeah, that was primarily due to the mix of the product and locations on where that was sold, Tristan."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Okay, appreciate it. To be clear, though, the project mix, again, if you remember, When we talked about some of the lower margin U.S. projects that had some difficulties with their margin throughout last year, we didn't do a lot of that work, that closeout work in Q1. So we benefited from a lack of that in Q1. We will have a portion of that in Q2 and Q3 that finishes. And then I think we're back fully to our historical margins in the STI business. So we feel pretty good about what we've been able to do. Again, a lot of it's been about leveraging the supply chain provided by the array team into STI, a lot of product rationalization, a lot of engineering work. There's just been a tremendous amount of work done on that business through the integration, and we feel pretty good about where we're headed with it."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Makes sense, Kevin. And then maybe just to your earlier comment on SG&A, sort of, hey, temporary increase in dollars, but over time operational leverage takes the percentage down significantly. Just thinking about temporary, is that sort of a 23 phenomenon or even just isolated to a couple of quarters?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "This is a 23 phenomenon where we've agreed to invest literally millions of dollars in additional IT infrastructure that allow us to scale. And if you think about it, it's in terms of having the ability to very quickly, rapidly design sites at the scale up that we expect under the IRA. You can't just keep throwing bodies at the volume of business that's coming down, right? So we had to invest in some of the IT infrastructure that would allow us to take that volume and scale very effectively. But that's the investment you see this year, getting ready for that scale next year."
+      },
+      {
+        "speaker": "spk06",
+        "text": "So we feel pretty good about it coming down next year."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Our next question comes from the line of Jordan Levy with Truist."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Please proceed with your question."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Hey, this is Mo on for Jordan. Thanks for taking my question. It's great to hear that Brazil and Spain are still holding up nicely. So just one quick one piggybacking on Brazil. I'm just wondering in terms of the mix utility scale versus distributed generation products, what have you seen so far the mix change in Brazil market and how are you positioned competitively in Brazil? Thanks."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Yeah, so I would say a lot of what we're seeing in the first six months of the year here is really utility scale. That really goes on through Q3. I think we're starting to see a lot of inbound activity on the distributed generation as well. And, you know, we're hopeful that that'll, you know, come in and that's quicker turn and has an ability as it comes in to help us out here in Q3, Q4."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Okay, great. Thanks."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Our next question comes from the line of Alex Kenia with Wolf Research."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Please proceed with your question."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Great. Thanks. Good afternoon. Just I'm curious about how you're seeing the evolution of kind of product mix from the discussions you're having. Has there just been any trend towards, you know, if there's price sensitivity for H-250, or is there a lot of adoption and embracement of Omnitrack? I'm just kind of curious about how you're looking at that, you know, over the next, you know, 12 to 18 months."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Yeah, I can tell you that both are really exciting for us. We've had a tremendous amount of inbound interest in Omnitrack. And, you know, if I were to guess as we go forward, it'll be a real large piece of the portfolio, meaning it's very, very helpful and our customers are very appreciative of it. I think since February alone, we've got over three gigawatts of Omnitrack projects in various stages of the quotation process. So we feel really good about that. We begin really launching the OmniTrack into what we call our alpha sites here in Q3. And then we just begin scaling them up in Q4 and into Q1 in terms of the size and complexity of the sites. So we're just taking a very measured approach to launching that product. We feel really good about the traction it's getting and the demonstrated savings to our end customers. So that feels really good. And again, probably the biggest part of that Slow scale is really about some of the newer component pieces that it's taken some time to get the supply chain up and ready to do that at scale, right? So we feel good about that. And as it relates to the SDIH, go ahead, sorry."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Oh, no, no, go ahead, sorry."
+      },
+      {
+        "speaker": "spk13",
+        "text": "And as it relates to the SDIH 250 in the U.S., I'll remind you that, look, today we still can sell the Spanish version in the U.S., although we prefer not to yet just to chase an order for price point. What we've really done is had our engineering teams from Array work very closely with the Spanish team, and we'll have a much better version of that product to launch in the U.S. There's just a great story of the integration between STI and Array and product management, engineering, field engineering, global sourcing, working at changing that product. The first part was to ensure we could be at a price point that's very, very competitive with others in the market at that price point and that we could win handily. We feel really good about that. We've simplified the product, made it easier to install, simplified the driveline, reduced the FKUs in terms of the torque tube. We've resourced the torque tube in a size that's more available readily from U.S. steel suppliers to ensure we can get U.S. content up. So we've done a tremendous amount of work on that product. And as we've Launch it in, quote, early Q3. We'll expect to begin shipping it in Q4. And I think we're going to have a really compelling product line to compete at a different price point."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Great. Thanks. And then I guess just a question just on cash flows. I think, Nupil, you mentioned that there was thinking about capital allocation, maybe debt reduction, obviously decent momentum on the cash flow front. I'm just kind of curious about when you feel like you'd be in a position to give a little bit more detail on that capital allocation plan."
+      },
+      {
+        "speaker": "spk11",
+        "text": "It'll be coming in the coming quarters as we, you know, continue to print the good free cash flow numbers. As we, you know, get through our high delivery quarters upcoming here in Q2 and Q3, I think we'll be in a good position kind of near the end of the year to really lay that out."
+      },
+      {
+        "speaker": "spk05",
+        "text": "We have time for one last question."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Our last question comes from the line of Derek Soderberg with Cantor Fitzgerald. Please proceed with your question."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Yeah, hey guys, just one for me. I'm curious if you're seeing anything changing from a competitive standpoint. Sounds like demand is there, I would imagine. Others are ramping up capacity to get ready to scale. Are you seeing a growing number of competitors bidding on contracts, more competitive price bidding? Any change to what you've seen in the past, any change this year on the competitive landscape? If you could provide some color on that, that'd be great."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Look, we really haven't seen a substantial amount of changes from our top competitors this year yet. There's been some dialogue about, you know, competitors getting more strict on the terms of business they'll accept. Obviously, when you're publicly traded, you'll have to do that, so we expect that to occur. Other than that, that's been the commentary from when I'm talking to our key customers."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Got it. Thanks, guys."
+      },
+      {
+        "speaker": "spk04",
+        "text": "That concludes our question and answer session. This does conclude our teleconference. Thank you for your participation. You may disconnect your lines at this time, and have a wonderful day."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk13": {
+        "name": "Kevin",
+        "title": "CEO"
+      },
+      "spk06": {
+        "name": "Undisclosed Executive",
+        "title": "COO"
+      },
+      "spk11": {
+        "name": "Undisclosed Executive",
+        "title": "CFO"
+      },
+      "spk04": {
+        "name": "Conference Operator",
+        "title": "Teleconference Moderator"
+      },
+      "spk05": {
+        "name": "Conference Host",
+        "title": "Teleconference Host"
+      },
+      "spk02": {
+        "name": "Cashie Harrison",
+        "title": "Analyst, Piper Sandler"
+      },
+      "spk09": {
+        "name": "Maheep Mandeloy",
+        "title": "Analyst, Credit Suisse"
+      },
+      "spk10": {
+        "name": "Colin Rushwood",
+        "title": "Analyst, Oppenheimer"
+      },
+      "spk12": {
+        "name": "Joseph Osha",
+        "title": "Analyst, Guggenheim"
+      },
+      "spk03": {
+        "name": "Donovan Schaffer",
+        "title": "Analyst, Northland Capital"
+      },
+      "spk01": {
+        "name": "Tristan Richardson",
+        "title": "Analyst, Scotiabank"
+      },
+      "spk08": {
+        "name": "Mo (on behalf of Jordan Levy)",
+        "title": "Analyst, Truist"
+      },
+      "spk07": {
+        "name": "Alex Kenia",
+        "title": "Analyst, Wolf Research"
+      },
+      "spk14": {
+        "name": "Derek Soderberg",
+        "title": "Analyst, Cantor Fitzgerald"
+      }
+    }
+  },
+  "text": "Kevin (CEO): So we're no worse off, but in one, we're dramatically better. So those customers have to understand what that looks like because, again, there will be some \u2013 if the domestic content goes an extreme way, there's likely going to be some additional cost to maximize from 76% up to over 90% domestic content. And whether or not they need that, how much they need to pay for that, we have to have those definitions before those orders get set in stone. Not unexpected. This is where we said we'd be. We'd hoped for clarity by now, but it simply hasn't happened yet.\n\nUndisclosed Executive (COO): Thanks, Kevin.\n\nConference Operator (Teleconference Moderator): Our next question comes from the line of Cashie Harrison with Piper Sandler. Please proceed with your question.\n\nCashie Harrison (Analyst, Piper Sandler): Good afternoon, everybody, and thanks for taking the question. So, Kevin, I just want to make sure we're all 100% on the same page. Is it just the domestic content that your customers are waiting for? Are there perhaps other definitions from Treasury maybe around, you know, prevailing wages or apprenticeship hours or, you know, something else that your customers are waiting for?\n\nKevin (CEO): It's all of the above that adds up to that ability to get to the 40% domestic content, right? They're looking for clarity in every one of those buckets, final clarity. And, for example, there had been some discussion earlier about whether or not There's a sliding scale under the prevailing wages over a couple of year period under the apprenticeship program, for example. You know, in year one, you demonstrate you're on the way to do it. Year two, you have it. Those are the kind of definitions that they need to figure out, so they stack up each of those elements to see how they get to the 40% and how important that tracker is going to be to get there.\n\nCashie Harrison (Analyst, Piper Sandler): Got it. That's helpful. Thank you. And then as my follow-up, can you just speak to the broader demand trends you're seeing in Brazil, Spain for the STI business? Elections are behind us in Brazil. Spain's supposed to be quite strong this year. So just what are you seeing on the demand side? Maybe talk about market dynamics, market share, et cetera.\n\nKevin (CEO): Yeah, we feel really good about Brazil, and the demand we're seeing there is very strong. We feel good about our market share in Brazil, the backdrop, our ability to deliver. I think Brazil is going to be a great success story for us this year. In Spain, we're still waiting for additional incentives to come through Europe. I mean, it's a good business. It's doing well. But the acceleration in Spain will nearly be as much as Brazil in the near term. So it's really more about waiting for additional incentives throughout Europe. But to be clear, the MTI business... The FTI business in Spain is really focused outside Spain. We're focusing all throughout Eastern Europe, other regions where we know we've got a great play for that product line right now that are still very healthy.\n\nCashie Harrison (Analyst, Piper Sandler): Thanks for that color there. If I could just sneak one more quick one in. Is there any way to quantify the magnitude of the one-time logistics benefit that you had this quarter?\n\nUndisclosed Executive (CFO): Yeah, hey, so that's about a couple of hundred basis points. That was an impact of the logistics and freight costs.\n\nConference Host (Teleconference Host): Our next question comes from the line of Maheep Mandeloy with Credit Suisse.\n\nConference Operator (Teleconference Moderator): Please proceed with your question.\n\nMaheep Mandeloy (Analyst, Credit Suisse): Hey, good evening. Thanks for taking the question. Just to clarify one of the previous comments, are you expecting a resolution or clarification from IRA end of Q2, early Q3, but that's not in the guidance, right? Does that seem right?\n\nUndisclosed Executive (CFO): Yeah. Yes, what Kevin said is that's our current expectations, end of Q2, sometime in Q3. And you're correct. We have not updated the guidance for any impact of IRAs.\n\nMaheep Mandeloy (Analyst, Credit Suisse): And then once you get that clarification, how much more capacity do you have to meet any incremental customer demands in Q4?\n\nKevin (CEO): We feel really good on an annual capacity and a quarterly capacity basis. We've been building out our capacity for a good 18 months now and adding many more suppliers throughout the U.S., qualifying them. getting them up to speed. So I think we feel really good about our domestic capacity to handle whatever volumes coming our way. And keep in mind that when that volume comes our way, they're not all going to rush for Q4 delivery, to be clear. These larger programs are getting larger and larger. The number of them are getting more and more. And they'll be phased out throughout 2024. There may be some opportunistic programs that you get yet for delivery in Q4, but I think the vast majority of what we would expect to come in from IRA is going to be a 2024 phenomenon. Okay, thanks.\n\nMaheep Mandeloy (Analyst, Credit Suisse): And then just maybe this last one from me. So you talked about customers pushing out projects because of IRA clarification, but are they ordering products or they do not need any domestic content?\n\nUndisclosed Executive (COO): I'm sorry, we didn't hear that. Can you repeat that again?\n\nMaheep Mandeloy (Analyst, Credit Suisse): Sorry. Yeah, no, are the customers ordering products for which they don't need any clarification on domestic content? Or are they going ahead with the rest of the projects and the modules and trackers and fewer things?\n\nKevin (CEO): No, to be clear, we've had customers say they're not worried about that 40%. They're just going to continue to go and build. So some are doing that, and that's some of the orders that UDC is getting in and are executing on. So not everybody's waiting to maximize all elements under the IRA. Other customers and developers are saying, we get it. We have a good enough return. As I said, one of the best quotes from one of the CEOs of a large customer, we'll let the lawyers and accountants worry about going after those credits later. We're in build mode, right?\n\nUndisclosed Executive (COO): So, but there's different behaviors, obviously, on different customers.\n\nConference Host (Teleconference Host): Our next question comes from the line of Colin Rushwood Oppenheimer.\n\nConference Operator (Teleconference Moderator): Please proceed with your question.\n\nColin Rushwood (Analyst, Oppenheimer): Thanks so much, guys. Can you just give us an update on the work that you've been able to do with any incremental EPCs in terms of qualification?\n\nUndisclosed Executive (COO): design-ins, particularly outside the U.S.? Can you repeat that again? Sorry, Colin.\n\nColin Rushwood (Analyst, Oppenheimer): Yeah, can you give us an update on qualification and design-ins with EPCs outside the U.S.? I'm just curious about the number of folks you're working with in Europe, how that's growing and trending, and in Australia.\n\nKevin (CEO): I think Australia is a unique animal under the VRET program where we're We're certainly getting qualified as domestic content, leading to additional new volume for us there. I think the rest is, look, it's hard to find an EPC around the world that we haven't done something with in our existing markets. So it's not like we're needing to qualify ourselves with a lot of new EPCs. In the markets that we're currently participating in, we've done work before, and we have a steady, strong relationship with existing EPCs.\n\nUndisclosed Executive (CFO): And also, you know, with our strategy of just getting close with developers, they take us into various regions and markets that we form the relationship with the EPC. So that continues as well as we expand into different regions.\n\nColin Rushwood (Analyst, Oppenheimer): Okay, that's super helpful. And then just from a competitive standpoint, can you talk a little bit about how much price sensitivity there is right now with folks and if there's any sort of meaningful change in the price competition and and how that's working for you as you go through and fit our projects.\n\nUndisclosed Executive (COO): Yeah.\n\nUndisclosed Executive (CFO): You know, as far as that, you know, we're seeing the normal competitive behaviors in the market. Obviously, we talk about our ASPs of health. One in a quarter, we feel good about that. But nothing unusual that we're seeing, Colin, in that regards.\n\nKevin (CEO): I'll tell you that most of the impact on an ASP on a sequential basis is just frankly, related to the steel input costs that are changing. And we're mindful of that as we go throughout the year. And we're still being predicted to decline here in Q3 and Q4. That's also part of why you bring your revenue down, because you could expect that ASPs may decline slightly going into Q3 and Q4 for the same volume of business, right? So we're mindful of that, but out setting that aside, We haven't seen any demonstrated changing in pricing behavior of our top competitors.\n\nUndisclosed Executive (COO): Perfect. Thanks so much, guys.\n\nConference Host (Teleconference Host): Our next question comes from the line of Joseph Osha with Guggenheim.\n\nConference Operator (Teleconference Moderator): Please proceed with your question.\n\nJoseph Osha (Analyst, Guggenheim): Hey there. One thing we haven't talked about as much as we get into next year, a new thing to worry about, the tariff moratorium goes away. In June, panels have to be put in service by the end of next year to qualify. So I've been talking to some folks who are talking about a real rush to kind of get all that done. I'm curious as to whether you're beginning to hear about what it's going to be like managing that process and how it might impact your business as you get into the latter part of this year and the first part of 2024.\n\nKevin (CEO): We really haven't had any of our large customers come and talk to us about that being a big issue yet. We're reading the same things you are. We understand that there is a potential for that to occur, but we haven't had our customers rush to us and kind of, for lack of a better word, lock down capacity in that near term. They're more focused on the IRA overall benefits than they are the tariffs under ACDP.\n\nJoseph Osha (Analyst, Guggenheim): Right, but to clarify, it is true, right, that any panel that comes in under the tariff moratorium by June has got to be placed in service by the end of 24. That's correct, yes?\n\nKevin (CEO): Yeah, that's our understanding of it, yes.\n\nJoseph Osha (Analyst, Guggenheim): Okay, but interesting. So your customers aren't talking about that. They've got other stuff to worry about. Okay, thank you. Thank you very much.\n\nConference Operator (Teleconference Moderator): Our next question comes from the line of Donovan Schaffer with Northland Capital. Please proceed with your question.\n\nDonovan Schaffer (Analyst, Northland Capital): Hey, guys. Thanks for taking the questions. I want to start off and just ask, you know, for the bookings being down quarter over quarter, when you report bookings, do you make an adjustment for changes to the cost that you're able to pass through to customers? I mean, with steel prices, logistics, all that stuff, you know, was there a reduce sort of ASP impact, you know, where sometimes you have the same megawatts, but now you say, well, when we do ship this, what we're going to have to pass through that ends up as revenue is going to be lower at this point. Is that a factor?\n\nKevin (CEO): No, because, again, if you remember our contracting process, we're locking that in at that point in time, right?\n\nDonovan Schaffer (Analyst, Northland Capital): Okay, so none of it sort of stays floating, like locking certain portions in and then a certain portion stays floating until like the shipment date. It doesn't work like that. No, we're doing the full price of the program. Okay, great. And then in terms of the one-off impact on gross margins, you may have said this and perhaps I just missed it, but was that primarily on the legacy array side or was that also a factor with the STI gross margins?\n\nUndisclosed Executive (CFO): It was primarily on the legacy array side. The majority of that was on that. And as mentioned in my prepared remarks, it was the freight and logistics cost, a couple hundred basis points, and it was also project mix.\n\nConference Host (Teleconference Host): Our next question comes from the line of Tristan Richardson with Scotiabank.\n\nConference Operator (Teleconference Moderator): Please proceed with your question.\n\nTristan Richardson (Analyst, Scotiabank): Hey, appreciate it, guys. Just maybe following on the STI question, the gross margin improvement there sounds like Nothing necessarily one time there, but did that benefit necessarily from mix as well, or should we really think about the margins in Q1 as representative of the process improvements that you guys highlighted in your prepared comments?\n\nUndisclosed Executive (CFO): Yeah, that was primarily due to the mix of the product and locations on where that was sold, Tristan.\n\nKevin (CEO): Okay, appreciate it. To be clear, though, the project mix, again, if you remember, When we talked about some of the lower margin U.S. projects that had some difficulties with their margin throughout last year, we didn't do a lot of that work, that closeout work in Q1. So we benefited from a lack of that in Q1. We will have a portion of that in Q2 and Q3 that finishes. And then I think we're back fully to our historical margins in the STI business. So we feel pretty good about what we've been able to do. Again, a lot of it's been about leveraging the supply chain provided by the array team into STI, a lot of product rationalization, a lot of engineering work. There's just been a tremendous amount of work done on that business through the integration, and we feel pretty good about where we're headed with it.\n\nTristan Richardson (Analyst, Scotiabank): Makes sense, Kevin. And then maybe just to your earlier comment on SG&A, sort of, hey, temporary increase in dollars, but over time operational leverage takes the percentage down significantly. Just thinking about temporary, is that sort of a 23 phenomenon or even just isolated to a couple of quarters?\n\nKevin (CEO): This is a 23 phenomenon where we've agreed to invest literally millions of dollars in additional IT infrastructure that allow us to scale. And if you think about it, it's in terms of having the ability to very quickly, rapidly design sites at the scale up that we expect under the IRA. You can't just keep throwing bodies at the volume of business that's coming down, right? So we had to invest in some of the IT infrastructure that would allow us to take that volume and scale very effectively. But that's the investment you see this year, getting ready for that scale next year.\n\nUndisclosed Executive (COO): So we feel pretty good about it coming down next year.\n\nConference Host (Teleconference Host): Our next question comes from the line of Jordan Levy with Truist.\n\nConference Operator (Teleconference Moderator): Please proceed with your question.\n\nMo (on behalf of Jordan Levy) (Analyst, Truist): Hey, this is Mo on for Jordan. Thanks for taking my question. It's great to hear that Brazil and Spain are still holding up nicely. So just one quick one piggybacking on Brazil. I'm just wondering in terms of the mix utility scale versus distributed generation products, what have you seen so far the mix change in Brazil market and how are you positioned competitively in Brazil? Thanks.\n\nKevin (CEO): Yeah, so I would say a lot of what we're seeing in the first six months of the year here is really utility scale. That really goes on through Q3. I think we're starting to see a lot of inbound activity on the distributed generation as well. And, you know, we're hopeful that that'll, you know, come in and that's quicker turn and has an ability as it comes in to help us out here in Q3, Q4.\n\nUndisclosed Executive (COO): Okay, great. Thanks.\n\nConference Host (Teleconference Host): Our next question comes from the line of Alex Kenia with Wolf Research.\n\nConference Operator (Teleconference Moderator): Please proceed with your question.\n\nAlex Kenia (Analyst, Wolf Research): Great. Thanks. Good afternoon. Just I'm curious about how you're seeing the evolution of kind of product mix from the discussions you're having. Has there just been any trend towards, you know, if there's price sensitivity for H-250, or is there a lot of adoption and embracement of Omnitrack? I'm just kind of curious about how you're looking at that, you know, over the next, you know, 12 to 18 months.\n\nKevin (CEO): Yeah, I can tell you that both are really exciting for us. We've had a tremendous amount of inbound interest in Omnitrack. And, you know, if I were to guess as we go forward, it'll be a real large piece of the portfolio, meaning it's very, very helpful and our customers are very appreciative of it. I think since February alone, we've got over three gigawatts of Omnitrack projects in various stages of the quotation process. So we feel really good about that. We begin really launching the OmniTrack into what we call our alpha sites here in Q3. And then we just begin scaling them up in Q4 and into Q1 in terms of the size and complexity of the sites. So we're just taking a very measured approach to launching that product. We feel really good about the traction it's getting and the demonstrated savings to our end customers. So that feels really good. And again, probably the biggest part of that Slow scale is really about some of the newer component pieces that it's taken some time to get the supply chain up and ready to do that at scale, right? So we feel good about that. And as it relates to the SDIH, go ahead, sorry.\n\nAlex Kenia (Analyst, Wolf Research): Oh, no, no, go ahead, sorry.\n\nKevin (CEO): And as it relates to the SDIH 250 in the U.S., I'll remind you that, look, today we still can sell the Spanish version in the U.S., although we prefer not to yet just to chase an order for price point. What we've really done is had our engineering teams from Array work very closely with the Spanish team, and we'll have a much better version of that product to launch in the U.S. There's just a great story of the integration between STI and Array and product management, engineering, field engineering, global sourcing, working at changing that product. The first part was to ensure we could be at a price point that's very, very competitive with others in the market at that price point and that we could win handily. We feel really good about that. We've simplified the product, made it easier to install, simplified the driveline, reduced the FKUs in terms of the torque tube. We've resourced the torque tube in a size that's more available readily from U.S. steel suppliers to ensure we can get U.S. content up. So we've done a tremendous amount of work on that product. And as we've Launch it in, quote, early Q3. We'll expect to begin shipping it in Q4. And I think we're going to have a really compelling product line to compete at a different price point.\n\nAlex Kenia (Analyst, Wolf Research): Great. Thanks. And then I guess just a question just on cash flows. I think, Nupil, you mentioned that there was thinking about capital allocation, maybe debt reduction, obviously decent momentum on the cash flow front. I'm just kind of curious about when you feel like you'd be in a position to give a little bit more detail on that capital allocation plan.\n\nUndisclosed Executive (CFO): It'll be coming in the coming quarters as we, you know, continue to print the good free cash flow numbers. As we, you know, get through our high delivery quarters upcoming here in Q2 and Q3, I think we'll be in a good position kind of near the end of the year to really lay that out.\n\nConference Host (Teleconference Host): We have time for one last question.\n\nConference Operator (Teleconference Moderator): Our last question comes from the line of Derek Soderberg with Cantor Fitzgerald. Please proceed with your question.\n\nDerek Soderberg (Analyst, Cantor Fitzgerald): Yeah, hey guys, just one for me. I'm curious if you're seeing anything changing from a competitive standpoint. Sounds like demand is there, I would imagine. Others are ramping up capacity to get ready to scale. Are you seeing a growing number of competitors bidding on contracts, more competitive price bidding? Any change to what you've seen in the past, any change this year on the competitive landscape? If you could provide some color on that, that'd be great.\n\nKevin (CEO): Look, we really haven't seen a substantial amount of changes from our top competitors this year yet. There's been some dialogue about, you know, competitors getting more strict on the terms of business they'll accept. Obviously, when you're publicly traded, you'll have to do that, so we expect that to occur. Other than that, that's been the commentary from when I'm talking to our key customers.\n\nUndisclosed Executive (COO): Got it. Thanks, guys.\n\nConference Operator (Teleconference Moderator): That concludes our question and answer session. This does conclude our teleconference. Thank you for your participation. You may disconnect your lines at this time, and have a wonderful day.",
+  "n_turns": 71
+}

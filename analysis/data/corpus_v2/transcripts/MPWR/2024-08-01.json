@@ -1,0 +1,365 @@
+{
+  "ticker": "MPWR",
+  "original_ticker": "MPWR",
+  "call_date": "2024-08-01",
+  "year": 2024,
+  "quarter": 2,
+  "vendor_params": {
+    "exchange": "NASDAQ",
+    "symbol": "MPWR",
+    "year": 2024,
+    "quarter": 2
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T01:22:08Z",
+  "raw_payload": {
+    "event": {
+      "year": 2024,
+      "quarter": 2,
+      "conference_date": "2024-08-01T17:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk00",
+        "text": "Welcome, everyone, to the MPS second quarter 2024 earnings webinar. My name is Genevieve Cunningham, and I will be the moderator for this webinar. Joining me today are Michael Singh, CEO and founder of MPS, Bernie Blagan, EVP and CFO, and Tony Ballo, Vice President of Finance. Earlier today, along with our earnings announcement, MPS released a written commentary on the results of our operations. Both of these documents can be found on our website. Before we begin, I would like to remind everyone that in the course of today's presentation, we may make forward-looking statements and projections within the meaning of the Private Securities Litigation Reform Act of 1995 that involve risk and uncertainty. Risks, uncertainties, and other factors that could cause actual results to differ from these forward-looking statements are identified in the Safe Harbor statements contained in the Q2 earnings release and in our SEC filings, including our Form 10-K, which can be found on our website. Our statements are made as of today, and we assume no obligation to update this information. Now, I'd like to turn the call over to Bernie Blagan."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thanks, Jen. Good afternoon, and a big welcome to all of you. Let me open by saying MPS reported yet another record quarter with Q2 2024 revenue of $507.4 million, exceeding the high end of our guidance. Our strong revenue growth was attributed to three factors, increased demand for AI power solutions, improving order trends in several of our end markets, and lastly, initial revenue ramps associated with design wins secured in past years. Separately, we continue to expand and diversify our global supply chain to ensure supply stability and capture future growth. As we have emphasized for many years, our results reflect continued success of our proven long-term growth strategy and our transformation from being only a chip supplier to a full solutions provider. I will now open the webinar up for questions."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Jen, could you please ask the first caller?"
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our first question is from Matt Ramsey of Cohen. Matt, your line is now open."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you very much, everybody. Good afternoon. Michael Burney, congratulations on I'll just say it's nice to have a calm part in the storm relative to what's been what all of us have been dealing with over the last two weeks. So congrats. I wanted to ask. A couple of questions, and I imagine the enterprise data segment is going to be a huge focus on this call. So maybe I'll just start with the first question. Bernie, if you could maybe give us some directional color by end market in your guidance for September, I'd appreciate it. And secondly... Michael, if you could talk a little bit about what you're seeing in some of the non-enterprise data segments, like things like consumer, comms, auto, there's The model's been driven by this big growth in enterprise data, but from what I can tell, your company's had a lot of design win success in some of these other areas where the macro has really been challenging. And I'm wondering if you're starting to see any green shoots there yet for recovery in some of those other segments. Thanks, guys. Okay."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Sure, I'll keep my comments fairly short as far as the Q3 outlook by end market. Essentially, the bookings trend that we carried into Q3 has improved quite a bit over the last few quarters and has been fairly broad as far as the end market participation. If you look specifically at enterprise data, you'll see that we took a fairly large step up in each of the last two quarters. And then in the third quarter outlook, we see continued growth in communications, storage, and computing with incremental improvements also in our other groups."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah. Your second one of the questions is, as a buddy said it, um, we do see, um, somehow, um, uh, other business would not relate to AI. And now it is difficult to, uh, to separate the AI, non, non AI. Um, um, Other business we design, let's say that, okay, we ship these products half a year ago, a year before, we see the market start to waken up. But that's whatever it is, whatever it is, okay? we do see a lot of new design, new requirement, which is much higher power, especially for communications. And, well, as a matter of fact, it's across the board. And these designs are... much higher power than the previous versions. And these are all related to the new design, related to AI and AI requirements. And these design wings will probably trigger downs in the game of two or three years in terms of revenues."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you very much, guys. I appreciate it. I asked two questions at once, so I'll get back in the queue. Thanks."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from Dustin Fowler of Oppenheimer. Dustin, your line is now open."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Hey, guys. I have just a couple of quick questions. So for power isolation, I believe you ran player this year in auto followed by data center next year. I think both markets could be greenfield opportunities in the hundreds of millions each. Could you just give us a sense of the ramp in both markets, the competitive landscape, and maybe any market sizing, if you can?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Dustin, I apologize. This is Bernie. I didn't hear which two markets."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Oh, sorry. That was auto and data center for power isolation. Okay."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah. We do, we start to ship and the product for the higher powers and for data centers. And this is only the beginning. And that's, would you say that that's very true? Although it's been known, and we, when ADAS became more, you know, more and more the cars convert into the ADAS, okay? And which we believe in being two or three years, all the cars will have that features. And we, so far, we provide all the, we have design wing in all these car makers, especially in the EVs."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Okay. And I guess as we think about kind of auto this year, I think street has auto model flat. I guess how realistic is that given the 70% content gains you have with your largest auto customer before power isolation plus the wins with Chinese OEMs? I guess maybe for Bernie, are you modeling auto flat this year? And how should we kind of think about share gains?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Well, we cannot pick the, our, you want to pick the models, and you want to pick, I can't give you a model. My accuracy is a plus minus 12 months. And going forward, we are very confident."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yeah, I think the near-term outlook for automotive remains a little bit fuzzy. And, for example, in Q2, we were expecting a nice uplift, which did not occur. And so Michael's correct is that positioning within the next two, three quarters is hard to predict for auto more broadly and EV specifically. But our long-term positioning is only getting better with additional design wins."
+      },
+      {
+        "speaker": "spk01",
+        "text": "All right. Thanks, guys."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from William Stein of Truist. William, your line is now open."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Great. Thanks for taking my question. Michael, I'm hoping you can linger on that comment you made about solution selling, I think might've been the term used. I think in the past, we've been conditioned to hear about modules versus semis. Can you linger as to what your, maybe spend a minute explaining what sorts of products and what in markets and what growth you see coming from that activity?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "I like that question. Yeah. Yes. Okay. But as we said, we started that journey a long time ago. Okay. And at the beginning, maybe I didn't know, we didn't know what the hell we were talking about. Okay. But that's the directions. And that's including a part of e-commerce. Okay. And we sell plug-and-play solutions. So the... the effort is that the journey will be, we are known to be a semiconductor company. And yes, we do. We do all that we provide. And when we sell a silicon, we're selling, actually, we're selling solutions. We know all the technical details in terms of how we implement the solutions. So my effort is we want to monetize all our knowledges. NPS in the end doesn't make any things. And we are making the money from our knowledge while we just capitalized all the entire our capabilities. And so, The journey we started now, we're selling the solutions. It's probably 20, 25% of a total NPS total revenue. Every piece of a silicon used to be sell somewhere between a dollar and a 50 cents to a, to a dollar, some of them, a lot of them even lower for the mass market, and which we kind of very little now, especially in consumer business. Now, turning to a solution company is still a semiconductor-based solutions. We sell those solutions. Now, particularly, as you call it, it's a module, so I don't know what the appropriate word for that, okay? And so today is 20 to 25% of our total revenues. NPS is a module business, excluding AI. We're running close to $200 million. And we're growing every year by 20%. more than company's percentage growth. And if you look at it this way, every chip we sell, all the solution is more than a chip price, okay? And you generate four, five, six, 10, $10 of a chip of a content that we can sell. So that's the result of today, and we will commit on the journeys. And again, we transforming our company to a silicon-only, to silicon-based solution providers."
+      },
+      {
+        "speaker": "spk04",
+        "text": "And Will, if I could just add two comments quickly. The first is, and this is specific to your question, that it's across all of our markets. It primarily focuses on those that have longer design cycles where we can add expertise in designing the solution. And the second point is, again, while we are driving a higher percentage of our business to the modules or to the more complete solutions, we have the ability, like no other company, to be able to deliver the type of solution our customer wants, whether it's a die, a chip, or some package in between."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah. And many, many traditional companies Semiconductor companies, they are hard to distinguish whether they are solution providers or selling modules, selling solutions or selling semiconductor only. And that's especially the case, okay, and apply for AI powers. And there's very few companies using a silicon-based module solution to power up this AI solution or data centers."
+      },
+      {
+        "speaker": "spk09",
+        "text": "If I can add a follow-up, please. Can you talk about what you're doing in vertical power delivery? I know there's a lot of companies that are claiming to have it or be ramping it. And I know you guys are one of those companies that are, I think, more clearly delivering. But maybe you can talk about what your efforts are yielding in that area. Thank you."
+      },
+      {
+        "speaker": "spk02",
+        "text": "We are in the leading positions. Okay, I said it. Okay. And there's maybe one, I will say the one or two company, maybe one company have the capability, have similar to NPS. The market is huge. And it's growing. And NPS is a, with the leading position is because not by one day. When AI happened, we developed that. We developed it years ago for that. And there's not many semiconductor companies that are based at a semiconductor company that have that kind of a capability."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thanks, guys. Good job on the quarter."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from Quinn Bolton of Needham. Quinn, your line is now open."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Hey, guys. Let me offer my congratulations. Maybe just first, Bernie, a quick follow-up on Matt Ramsey's question on the drivers of sequential growth in the third quarter. I think you mentioned comms and storage and computing, but I didn't hear you specifically say enterprise data. I just wanted to confirm enterprise data is still one of the big growth drivers in the third quarter, and then I'll get to the two questions."
+      },
+      {
+        "speaker": "spk04",
+        "text": "On the enterprise data, the way I tried to tee that up, first off, yes, it is expected to grow. But we have grown significantly in each of the four prior quarters to this. So the rate of growth is slowing down. And the biggest for this quarter only. And I offer that because there's a lot of opportunities that have yet to begin to ramp with a number of the different companies that we're currently working on designs with. But I was calling out in particular that both storage and computing and communications will be good drivers in Q3."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Quick, you know, the VR 13.5, and we start to have significant revenues, okay? And that was the beginning. You know that. And VR14, which hasn't really ramped up yet. And we have a lot of design. We increase it. VR13 and a half, it's like an NPS. NPS is a test case. And so when they're doing the shortages, okay, a lot of... revenues, a lot of volumes shifted to NPS. And our competitor couldn't deliver, so we delivered. And we delivered. And now the benefit is for VR14, we will be a significant players in the market segment."
+      },
+      {
+        "speaker": "spk04",
+        "text": "And particularly in the second half of this year, it looks like that segment is starting to take off."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yeah. Great. That was going to be sort of, I guess, my first question was just, could you talk within the enterprise data about some of the opportunities, whether it's on the CPU power side or just broadening out of your AI portfolio? And then I'll have another question on vertical power if I could squeeze in that second question. Go ahead. Okay. So the question on vertical power, I guess different competitors may mean different things when they're talking about vertical power. And I just wanted to kind of get your guys' view on the market. When you guys talk about vertical power, is that true vertical power where the voltage regulator is sitting underneath the processor substrate and supplying current vertically into the processor? Or do you guys consider sort of stacked packages where you've got one or more components voltage regulators or phases in a module with the power inductors and capacitors and other things that might be stacked vertically, but still delivering current laterally into the processor. What's your definition of vertical? Because I think there's some confusion in the market, what may be vertical and what might look vertical, but actually still supply current laterally."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, you're right. One is some customers are using a top surface lateral power supply, which is very similar to server CPU. power supplied. And other ones turning into the backside, still lateral powers. And more advanced one is directly under the CPU. And so to answer that question, there's an NPS supply. Currently, we're running all three solutions. Chip, all modules, we have everything there."
+      },
+      {
+        "speaker": "spk04",
+        "text": "And Quinn, if I could also add to this, that the necessity for the different deliveries of power is as you get into increasingly higher current. And in addition to either lateral or vertical power, we also have liquid cool that we believe that we have a position on."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah. Quinn, to answer your question is that the most efficient And difficult to do is you're making a module directly under the CPU. And that's the highest efficiency power deliberate. There's a lot of problem, a lot of technical issues associated with that type of approach. So many company take a a conservative approach. Some companies just do only servers and top surface lateral power delivery. For those very high powers, well over 1,000 watts, all these powers, the power modules directly under the CPUs. and that these are the highest state fishing seed."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Got it. Thank you, Michael. Thank you, Bernie."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from Chris Caso of Wolf. Chris, your line is now open."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Chris, can you hear us?"
+      },
+      {
+        "speaker": "spk07",
+        "text": "Sorry, I wasn't muted. Can you hear me now?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah."
+      },
+      {
+        "speaker": "spk07",
+        "text": "All right. Sorry. Thank you. The first question is on seasonality and how that may be changing for you. In the past, the December quarter typically was a seasonally down quarter, but your business mix has changed quite a bit since those days and the revenue is now coming from segments that are not as seasonally, not a seasonal December quarter. You know, with that, you know, how should we look at December seasonality going forward? Is the old model no longer appropriate as we look forward? And if there's anything you want to comment on with respect to December?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, well, we're seeking advice from you. What's our seasonality? Right. with a new business with all these inventory oscillation from our customers and okay and we don't know okay and you have a huge shortage then it comes up the huge oversupplies and okay now and okay demands and I assume and our customers consumes all these excessive inventory now the market is waking up and Is this another shortage? I don't know. It's difficult to forecast and the lead time is still very short."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay. So we'll do our best. We're not very good at this."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, yeah. You can tell us. Okay."
+      },
+      {
+        "speaker": "spk08",
+        "text": "All right. That's fair enough."
+      },
+      {
+        "speaker": "spk07",
+        "text": "As my follow-up question, I wanted to follow up with vertical power as well. And, you know, what we know, particularly within the enterprise segment AI, we've got some, you know, higher wattage processors coming. Can you talk about what you expect for content on that and what in particular you expect for vertical power next year? Because I know there's some debate, certainly doesn't seem to be debate over whether you're ready for vertical power, whether the ecosystem is ready for vertical power. And does that make a difference with regard to your content as you go into the next generation of processors because the wattage is certainly going higher?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yes, I can tell you this. Our customers will not be appreciated talking about how many dollars per their product. unit or GPU unit. Okay. And so they don't want us to talk about it. And second, I don't know. I don't want to know about it. Okay."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Right. I understand. But I mean, just in terms of the opportunity, maybe you could speak in more general terms about the opportunity that's available to you."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Oh, sure. Yeah. And now you look at our revenues, right? Okay. for a couple of companies, okay, and from last year, was like a, what, it's a one or two percent, or maybe last year's, okay, a couple of percentage of our total revenue. Well, today, so, okay, we're running like a, what, 20 percent? And 20 percent. So, that's a full $500 million, okay? And the We were told this is at the beginning. And there's a lot of other companies that we have our opportunities and then our design wing hasn't really ramped up in company like Google's and AWS and Meta. And those coming later. So I see the huge opportunities. And I do see, okay, this is not MPS only. The market is way too big. We don't want to turn into an AR company only."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, I think the only thing I'd probably add on top of that, besides for the direct AI opportunity, I think you've heard us talk about the AI trickle-down effect, whether that could be memory, it can be optical, it could be pull-through of networking. I think there's a lot of opportunity for MPS beyond even the direct AI business."
+      },
+      {
+        "speaker": "spk02",
+        "text": "That's a good comment. Yeah."
+      },
+      {
+        "speaker": "spk08",
+        "text": "All right. Appreciate those comments. Thank you."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from Tori Svanberg of Stiefel. Tori, your line is now open."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Yes, thank you, Michael, Bernie, and congrats again on another stellar quarter. I wanted to follow up on enterprise data, but I'm going to move away from the processor power management and ask you more about opportunities elsewhere in the data center, especially power supply. I know historically you haven't talked a whole lot about GaN, silicon carbide, but I'm pretty sure you have some activities there. So can you elaborate a little bit on what you're doing on the power supply side of data centers?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, I like that one. But I can't tell you the revenue yet, but it's small. Since 2016, we started to develop our own silicon carbides. We're not selling as fast. It would be... a part of our solutions. I said very, very early, we're not intending to sell FET as a power device only. So now, we designed those three kilowatt, six kilowatt, 12 kilowatt power supply. And you guess what? It's a data center It's an debt evaluating, so we have a very little revenues, but the biggest is the NPS only, owned. All our test floor, we're using a huge amount of power supply, and NPS is our own customers. All these testing equipment that we have to design, we have to invent it, how to test these modules particularly, and also as well as burning. And NPS supplied these power modules to our vendors and our vendors implemented into these systems and it became our test equipment. And so that's the revenues we started generating. But for 4Gs and for data centers, and these are still in the Well, we engaged them a year ago or so, a couple years ago. And so the revenue is small, but we're looking for the big revenues from that segment because NPS provides the highest efficiency and the smaller size."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Yeah, that's great perspective. As my follow-up, I recall, because we've gone through a few cycles together, I recall usually you use downturns to gain a lot of share. I know everyone's excited about AI data centers today, but what are some of the areas where you're starting to see more meaningful share gains from a designer perspective now that we're sort of navigating here at the bottom of the cycle?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Sure, so I think that we've been very clear about the positioning that we have in automotive and how that's continuing to grow across a multitude of different platforms with a multitude of different tier one suppliers and OEMs. I think the most recent area for improvement where some of these greenfield opportunities are becoming more visible in the market would be in particular with communications. We're seeing that in the wireless and 5G. And I think that we've seen some early indications of continuing investment in that segment. So I'd say that's probably the area that will be most visible. But obviously, I don't want to forget industrial, which even though right now is a relatively modest part of our business and it's not shown a lot of momentum towards growth. probably is the next area where we have a lot of greenfield opportunities that will materialize in the next four quarters."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Go ahead. I was just going to ask, and the RV market, is that going to be under auto or industrial?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "RV?"
+      },
+      {
+        "speaker": "spk10",
+        "text": "The RV market, the camping car market?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "I know you've talked about that. Oh, yeah. Yes, okay. That's one of my favorite ones. I think it would be in the industrial market. Because all these products share the same signatures as we do for data centers for our own test product. and for test equipment, okay, will be shared, very much share the same, same characteristic. And for, and also for robotics. And for, especially for those moving, not stationary robot, and these robot move around, and that they all need that type of a power supply. and the charging and the battery management. And these share very much the same characteristics as RVs, okay? RVs."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah, those could be industrial or, you know, consumer or, you know, even the humanoid stuff too. So I don't think I want to just put those."
+      },
+      {
+        "speaker": "spk02",
+        "text": "I think we're probably in the industrial side. Okay, yeah."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Sounds good. Thank you, and congrats again. Okay, thanks, Troy."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Our next question is from Quinn Bolton of Needham. Quinn, your line is now open."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Hey, I just wanted a quick follow-up question. There have been a few semiconductor companies this earnings season that have sort of mentioned having licenses to Huawei being revoked in the quarter. And it's raised some questions from investors. I'm just wondering if you guys could address Do you have a license to ship to Huawei? If you did, has it been revoked? Is there any real exposure at MPS to that customer? It's obviously not impacting your near-term outlook, but I figured I'd just ask because we've gotten a number of questions on potential Huawei exposure across the semi-coverage. Thank you."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Quinn, I can make this pretty simple. We don't have any licensing or contractual arrangements with Huawei at all, so they can't be canceled. Any business we have with them has always just done on a PO basis, and we have no indication of a change in their relationship."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yeah. Yeah. So, Bernie, I guess there was more the export license question. Do you need an export license to ship to them? Because I think that's what it's sort of called."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Oh, the export license. Yeah. Our product, it's not like below 24 nanometers or whatever. It's not like that. We are not, as far as I know."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yeah, you're right."
+      },
+      {
+        "speaker": "spk02",
+        "text": "And as far as I know, we're not subject to the export limit, have any limitations. But we will talk to our, to answer your question precisely, I will consult our legal counsel."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yeah. Okay. Okay. Thank you."
+      },
+      {
+        "speaker": "spk00",
+        "text": "If there are any follow-up questions, please click the raise hand button. As there are no further questions, I would now like to turn the webinar back over to Bernie."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Great. I'd like to thank you all for joining us for this conference call and look forward to talking to you again during our third quarter conference call, which will likely be in late October. Thank you. Have a nice day."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk00": {
+        "name": "Genevieve Cunningham",
+        "title": "Moderator"
+      },
+      "spk02": {
+        "name": "Tony Ballo",
+        "title": "Vice President of Finance"
+      },
+      "spk04": {
+        "name": "Bernie Blagan",
+        "title": "EVP and CFO"
+      },
+      "spk01": {
+        "name": "Dustin Fowler",
+        "title": "Analyst at Oppenheimer"
+      },
+      "spk03": {
+        "name": "Matt Ramsey",
+        "title": "Analyst at Cohen"
+      },
+      "spk05": {
+        "name": "Quinn Bolton",
+        "title": "Analyst at Needham"
+      },
+      "spk07": {
+        "name": "Chris Caso",
+        "title": "Analyst at Wolf"
+      },
+      "spk08": {
+        "name": "Genevieve Cunningham",
+        "title": "Moderator"
+      },
+      "spk09": {
+        "name": "William Stein",
+        "title": "Analyst at Truist"
+      },
+      "spk10": {
+        "name": "Tori Svanberg",
+        "title": "Analyst at Stifel"
+      },
+      "spk06": {
+        "name": "Genevieve Cunningham",
+        "title": "Moderator"
+      }
+    }
+  },
+  "text": "Genevieve Cunningham (Moderator): Welcome, everyone, to the MPS second quarter 2024 earnings webinar. My name is Genevieve Cunningham, and I will be the moderator for this webinar. Joining me today are Michael Singh, CEO and founder of MPS, Bernie Blagan, EVP and CFO, and Tony Ballo, Vice President of Finance. Earlier today, along with our earnings announcement, MPS released a written commentary on the results of our operations. Both of these documents can be found on our website. Before we begin, I would like to remind everyone that in the course of today's presentation, we may make forward-looking statements and projections within the meaning of the Private Securities Litigation Reform Act of 1995 that involve risk and uncertainty. Risks, uncertainties, and other factors that could cause actual results to differ from these forward-looking statements are identified in the Safe Harbor statements contained in the Q2 earnings release and in our SEC filings, including our Form 10-K, which can be found on our website. Our statements are made as of today, and we assume no obligation to update this information. Now, I'd like to turn the call over to Bernie Blagan.\n\nBernie Blagan (EVP and CFO): Thanks, Jen. Good afternoon, and a big welcome to all of you. Let me open by saying MPS reported yet another record quarter with Q2 2024 revenue of $507.4 million, exceeding the high end of our guidance. Our strong revenue growth was attributed to three factors, increased demand for AI power solutions, improving order trends in several of our end markets, and lastly, initial revenue ramps associated with design wins secured in past years. Separately, we continue to expand and diversify our global supply chain to ensure supply stability and capture future growth. As we have emphasized for many years, our results reflect continued success of our proven long-term growth strategy and our transformation from being only a chip supplier to a full solutions provider. I will now open the webinar up for questions.\n\nGenevieve Cunningham (Moderator): Jen, could you please ask the first caller?\n\nGenevieve Cunningham (Moderator): Our first question is from Matt Ramsey of Cohen. Matt, your line is now open.\n\nMatt Ramsey (Analyst at Cohen): Thank you very much, everybody. Good afternoon. Michael Burney, congratulations on I'll just say it's nice to have a calm part in the storm relative to what's been what all of us have been dealing with over the last two weeks. So congrats. I wanted to ask. A couple of questions, and I imagine the enterprise data segment is going to be a huge focus on this call. So maybe I'll just start with the first question. Bernie, if you could maybe give us some directional color by end market in your guidance for September, I'd appreciate it. And secondly... Michael, if you could talk a little bit about what you're seeing in some of the non-enterprise data segments, like things like consumer, comms, auto, there's The model's been driven by this big growth in enterprise data, but from what I can tell, your company's had a lot of design win success in some of these other areas where the macro has really been challenging. And I'm wondering if you're starting to see any green shoots there yet for recovery in some of those other segments. Thanks, guys. Okay.\n\nBernie Blagan (EVP and CFO): Sure, I'll keep my comments fairly short as far as the Q3 outlook by end market. Essentially, the bookings trend that we carried into Q3 has improved quite a bit over the last few quarters and has been fairly broad as far as the end market participation. If you look specifically at enterprise data, you'll see that we took a fairly large step up in each of the last two quarters. And then in the third quarter outlook, we see continued growth in communications, storage, and computing with incremental improvements also in our other groups.\n\nTony Ballo (Vice President of Finance): Yeah. Your second one of the questions is, as a buddy said it, um, we do see, um, somehow, um, uh, other business would not relate to AI. And now it is difficult to, uh, to separate the AI, non, non AI. Um, um, Other business we design, let's say that, okay, we ship these products half a year ago, a year before, we see the market start to waken up. But that's whatever it is, whatever it is, okay? we do see a lot of new design, new requirement, which is much higher power, especially for communications. And, well, as a matter of fact, it's across the board. And these designs are... much higher power than the previous versions. And these are all related to the new design, related to AI and AI requirements. And these design wings will probably trigger downs in the game of two or three years in terms of revenues.\n\nMatt Ramsey (Analyst at Cohen): Thank you very much, guys. I appreciate it. I asked two questions at once, so I'll get back in the queue. Thanks.\n\nGenevieve Cunningham (Moderator): Our next question is from Dustin Fowler of Oppenheimer. Dustin, your line is now open.\n\nDustin Fowler (Analyst at Oppenheimer): Hey, guys. I have just a couple of quick questions. So for power isolation, I believe you ran player this year in auto followed by data center next year. I think both markets could be greenfield opportunities in the hundreds of millions each. Could you just give us a sense of the ramp in both markets, the competitive landscape, and maybe any market sizing, if you can?\n\nBernie Blagan (EVP and CFO): Dustin, I apologize. This is Bernie. I didn't hear which two markets.\n\nDustin Fowler (Analyst at Oppenheimer): Oh, sorry. That was auto and data center for power isolation. Okay.\n\nTony Ballo (Vice President of Finance): Yeah. We do, we start to ship and the product for the higher powers and for data centers. And this is only the beginning. And that's, would you say that that's very true? Although it's been known, and we, when ADAS became more, you know, more and more the cars convert into the ADAS, okay? And which we believe in being two or three years, all the cars will have that features. And we, so far, we provide all the, we have design wing in all these car makers, especially in the EVs.\n\nDustin Fowler (Analyst at Oppenheimer): Okay. And I guess as we think about kind of auto this year, I think street has auto model flat. I guess how realistic is that given the 70% content gains you have with your largest auto customer before power isolation plus the wins with Chinese OEMs? I guess maybe for Bernie, are you modeling auto flat this year? And how should we kind of think about share gains?\n\nTony Ballo (Vice President of Finance): Well, we cannot pick the, our, you want to pick the models, and you want to pick, I can't give you a model. My accuracy is a plus minus 12 months. And going forward, we are very confident.\n\nBernie Blagan (EVP and CFO): Yeah, I think the near-term outlook for automotive remains a little bit fuzzy. And, for example, in Q2, we were expecting a nice uplift, which did not occur. And so Michael's correct is that positioning within the next two, three quarters is hard to predict for auto more broadly and EV specifically. But our long-term positioning is only getting better with additional design wins.\n\nDustin Fowler (Analyst at Oppenheimer): All right. Thanks, guys.\n\nGenevieve Cunningham (Moderator): Our next question is from William Stein of Truist. William, your line is now open.\n\nWilliam Stein (Analyst at Truist): Great. Thanks for taking my question. Michael, I'm hoping you can linger on that comment you made about solution selling, I think might've been the term used. I think in the past, we've been conditioned to hear about modules versus semis. Can you linger as to what your, maybe spend a minute explaining what sorts of products and what in markets and what growth you see coming from that activity?\n\nTony Ballo (Vice President of Finance): I like that question. Yeah. Yes. Okay. But as we said, we started that journey a long time ago. Okay. And at the beginning, maybe I didn't know, we didn't know what the hell we were talking about. Okay. But that's the directions. And that's including a part of e-commerce. Okay. And we sell plug-and-play solutions. So the... the effort is that the journey will be, we are known to be a semiconductor company. And yes, we do. We do all that we provide. And when we sell a silicon, we're selling, actually, we're selling solutions. We know all the technical details in terms of how we implement the solutions. So my effort is we want to monetize all our knowledges. NPS in the end doesn't make any things. And we are making the money from our knowledge while we just capitalized all the entire our capabilities. And so, The journey we started now, we're selling the solutions. It's probably 20, 25% of a total NPS total revenue. Every piece of a silicon used to be sell somewhere between a dollar and a 50 cents to a, to a dollar, some of them, a lot of them even lower for the mass market, and which we kind of very little now, especially in consumer business. Now, turning to a solution company is still a semiconductor-based solutions. We sell those solutions. Now, particularly, as you call it, it's a module, so I don't know what the appropriate word for that, okay? And so today is 20 to 25% of our total revenues. NPS is a module business, excluding AI. We're running close to $200 million. And we're growing every year by 20%. more than company's percentage growth. And if you look at it this way, every chip we sell, all the solution is more than a chip price, okay? And you generate four, five, six, 10, $10 of a chip of a content that we can sell. So that's the result of today, and we will commit on the journeys. And again, we transforming our company to a silicon-only, to silicon-based solution providers.\n\nBernie Blagan (EVP and CFO): And Will, if I could just add two comments quickly. The first is, and this is specific to your question, that it's across all of our markets. It primarily focuses on those that have longer design cycles where we can add expertise in designing the solution. And the second point is, again, while we are driving a higher percentage of our business to the modules or to the more complete solutions, we have the ability, like no other company, to be able to deliver the type of solution our customer wants, whether it's a die, a chip, or some package in between.\n\nTony Ballo (Vice President of Finance): Yeah. And many, many traditional companies Semiconductor companies, they are hard to distinguish whether they are solution providers or selling modules, selling solutions or selling semiconductor only. And that's especially the case, okay, and apply for AI powers. And there's very few companies using a silicon-based module solution to power up this AI solution or data centers.\n\nWilliam Stein (Analyst at Truist): If I can add a follow-up, please. Can you talk about what you're doing in vertical power delivery? I know there's a lot of companies that are claiming to have it or be ramping it. And I know you guys are one of those companies that are, I think, more clearly delivering. But maybe you can talk about what your efforts are yielding in that area. Thank you.\n\nTony Ballo (Vice President of Finance): We are in the leading positions. Okay, I said it. Okay. And there's maybe one, I will say the one or two company, maybe one company have the capability, have similar to NPS. The market is huge. And it's growing. And NPS is a, with the leading position is because not by one day. When AI happened, we developed that. We developed it years ago for that. And there's not many semiconductor companies that are based at a semiconductor company that have that kind of a capability.\n\nWilliam Stein (Analyst at Truist): Thanks, guys. Good job on the quarter.\n\nGenevieve Cunningham (Moderator): Our next question is from Quinn Bolton of Needham. Quinn, your line is now open.\n\nQuinn Bolton (Analyst at Needham): Hey, guys. Let me offer my congratulations. Maybe just first, Bernie, a quick follow-up on Matt Ramsey's question on the drivers of sequential growth in the third quarter. I think you mentioned comms and storage and computing, but I didn't hear you specifically say enterprise data. I just wanted to confirm enterprise data is still one of the big growth drivers in the third quarter, and then I'll get to the two questions.\n\nBernie Blagan (EVP and CFO): On the enterprise data, the way I tried to tee that up, first off, yes, it is expected to grow. But we have grown significantly in each of the four prior quarters to this. So the rate of growth is slowing down. And the biggest for this quarter only. And I offer that because there's a lot of opportunities that have yet to begin to ramp with a number of the different companies that we're currently working on designs with. But I was calling out in particular that both storage and computing and communications will be good drivers in Q3.\n\nTony Ballo (Vice President of Finance): Quick, you know, the VR 13.5, and we start to have significant revenues, okay? And that was the beginning. You know that. And VR14, which hasn't really ramped up yet. And we have a lot of design. We increase it. VR13 and a half, it's like an NPS. NPS is a test case. And so when they're doing the shortages, okay, a lot of... revenues, a lot of volumes shifted to NPS. And our competitor couldn't deliver, so we delivered. And we delivered. And now the benefit is for VR14, we will be a significant players in the market segment.\n\nBernie Blagan (EVP and CFO): And particularly in the second half of this year, it looks like that segment is starting to take off.\n\nQuinn Bolton (Analyst at Needham): Yeah. Great. That was going to be sort of, I guess, my first question was just, could you talk within the enterprise data about some of the opportunities, whether it's on the CPU power side or just broadening out of your AI portfolio? And then I'll have another question on vertical power if I could squeeze in that second question. Go ahead. Okay. So the question on vertical power, I guess different competitors may mean different things when they're talking about vertical power. And I just wanted to kind of get your guys' view on the market. When you guys talk about vertical power, is that true vertical power where the voltage regulator is sitting underneath the processor substrate and supplying current vertically into the processor? Or do you guys consider sort of stacked packages where you've got one or more components voltage regulators or phases in a module with the power inductors and capacitors and other things that might be stacked vertically, but still delivering current laterally into the processor. What's your definition of vertical? Because I think there's some confusion in the market, what may be vertical and what might look vertical, but actually still supply current laterally.\n\nTony Ballo (Vice President of Finance): Yeah, you're right. One is some customers are using a top surface lateral power supply, which is very similar to server CPU. power supplied. And other ones turning into the backside, still lateral powers. And more advanced one is directly under the CPU. And so to answer that question, there's an NPS supply. Currently, we're running all three solutions. Chip, all modules, we have everything there.\n\nBernie Blagan (EVP and CFO): And Quinn, if I could also add to this, that the necessity for the different deliveries of power is as you get into increasingly higher current. And in addition to either lateral or vertical power, we also have liquid cool that we believe that we have a position on.\n\nTony Ballo (Vice President of Finance): Yeah. Quinn, to answer your question is that the most efficient And difficult to do is you're making a module directly under the CPU. And that's the highest efficiency power deliberate. There's a lot of problem, a lot of technical issues associated with that type of approach. So many company take a a conservative approach. Some companies just do only servers and top surface lateral power delivery. For those very high powers, well over 1,000 watts, all these powers, the power modules directly under the CPUs. and that these are the highest state fishing seed.\n\nQuinn Bolton (Analyst at Needham): Got it. Thank you, Michael. Thank you, Bernie.\n\nGenevieve Cunningham (Moderator): Our next question is from Chris Caso of Wolf. Chris, your line is now open.\n\nGenevieve Cunningham (Moderator): Chris, can you hear us?\n\nChris Caso (Analyst at Wolf): Sorry, I wasn't muted. Can you hear me now?\n\nTony Ballo (Vice President of Finance): Yeah.\n\nChris Caso (Analyst at Wolf): All right. Sorry. Thank you. The first question is on seasonality and how that may be changing for you. In the past, the December quarter typically was a seasonally down quarter, but your business mix has changed quite a bit since those days and the revenue is now coming from segments that are not as seasonally, not a seasonal December quarter. You know, with that, you know, how should we look at December seasonality going forward? Is the old model no longer appropriate as we look forward? And if there's anything you want to comment on with respect to December?\n\nTony Ballo (Vice President of Finance): Yeah, well, we're seeking advice from you. What's our seasonality? Right. with a new business with all these inventory oscillation from our customers and okay and we don't know okay and you have a huge shortage then it comes up the huge oversupplies and okay now and okay demands and I assume and our customers consumes all these excessive inventory now the market is waking up and Is this another shortage? I don't know. It's difficult to forecast and the lead time is still very short.\n\nGenevieve Cunningham (Moderator): Okay. So we'll do our best. We're not very good at this.\n\nTony Ballo (Vice President of Finance): Yeah, yeah. You can tell us. Okay.\n\nGenevieve Cunningham (Moderator): All right. That's fair enough.\n\nChris Caso (Analyst at Wolf): As my follow-up question, I wanted to follow up with vertical power as well. And, you know, what we know, particularly within the enterprise segment AI, we've got some, you know, higher wattage processors coming. Can you talk about what you expect for content on that and what in particular you expect for vertical power next year? Because I know there's some debate, certainly doesn't seem to be debate over whether you're ready for vertical power, whether the ecosystem is ready for vertical power. And does that make a difference with regard to your content as you go into the next generation of processors because the wattage is certainly going higher?\n\nTony Ballo (Vice President of Finance): Yes, I can tell you this. Our customers will not be appreciated talking about how many dollars per their product. unit or GPU unit. Okay. And so they don't want us to talk about it. And second, I don't know. I don't want to know about it. Okay.\n\nChris Caso (Analyst at Wolf): Right. I understand. But I mean, just in terms of the opportunity, maybe you could speak in more general terms about the opportunity that's available to you.\n\nTony Ballo (Vice President of Finance): Oh, sure. Yeah. And now you look at our revenues, right? Okay. for a couple of companies, okay, and from last year, was like a, what, it's a one or two percent, or maybe last year's, okay, a couple of percentage of our total revenue. Well, today, so, okay, we're running like a, what, 20 percent? And 20 percent. So, that's a full $500 million, okay? And the We were told this is at the beginning. And there's a lot of other companies that we have our opportunities and then our design wing hasn't really ramped up in company like Google's and AWS and Meta. And those coming later. So I see the huge opportunities. And I do see, okay, this is not MPS only. The market is way too big. We don't want to turn into an AR company only.\n\nGenevieve Cunningham (Moderator): Yeah, I think the only thing I'd probably add on top of that, besides for the direct AI opportunity, I think you've heard us talk about the AI trickle-down effect, whether that could be memory, it can be optical, it could be pull-through of networking. I think there's a lot of opportunity for MPS beyond even the direct AI business.\n\nTony Ballo (Vice President of Finance): That's a good comment. Yeah.\n\nGenevieve Cunningham (Moderator): All right. Appreciate those comments. Thank you.\n\nGenevieve Cunningham (Moderator): Our next question is from Tori Svanberg of Stiefel. Tori, your line is now open.\n\nTori Svanberg (Analyst at Stifel): Yes, thank you, Michael, Bernie, and congrats again on another stellar quarter. I wanted to follow up on enterprise data, but I'm going to move away from the processor power management and ask you more about opportunities elsewhere in the data center, especially power supply. I know historically you haven't talked a whole lot about GaN, silicon carbide, but I'm pretty sure you have some activities there. So can you elaborate a little bit on what you're doing on the power supply side of data centers?\n\nTony Ballo (Vice President of Finance): Yeah, I like that one. But I can't tell you the revenue yet, but it's small. Since 2016, we started to develop our own silicon carbides. We're not selling as fast. It would be... a part of our solutions. I said very, very early, we're not intending to sell FET as a power device only. So now, we designed those three kilowatt, six kilowatt, 12 kilowatt power supply. And you guess what? It's a data center It's an debt evaluating, so we have a very little revenues, but the biggest is the NPS only, owned. All our test floor, we're using a huge amount of power supply, and NPS is our own customers. All these testing equipment that we have to design, we have to invent it, how to test these modules particularly, and also as well as burning. And NPS supplied these power modules to our vendors and our vendors implemented into these systems and it became our test equipment. And so that's the revenues we started generating. But for 4Gs and for data centers, and these are still in the Well, we engaged them a year ago or so, a couple years ago. And so the revenue is small, but we're looking for the big revenues from that segment because NPS provides the highest efficiency and the smaller size.\n\nTori Svanberg (Analyst at Stifel): Yeah, that's great perspective. As my follow-up, I recall, because we've gone through a few cycles together, I recall usually you use downturns to gain a lot of share. I know everyone's excited about AI data centers today, but what are some of the areas where you're starting to see more meaningful share gains from a designer perspective now that we're sort of navigating here at the bottom of the cycle?\n\nBernie Blagan (EVP and CFO): Sure, so I think that we've been very clear about the positioning that we have in automotive and how that's continuing to grow across a multitude of different platforms with a multitude of different tier one suppliers and OEMs. I think the most recent area for improvement where some of these greenfield opportunities are becoming more visible in the market would be in particular with communications. We're seeing that in the wireless and 5G. And I think that we've seen some early indications of continuing investment in that segment. So I'd say that's probably the area that will be most visible. But obviously, I don't want to forget industrial, which even though right now is a relatively modest part of our business and it's not shown a lot of momentum towards growth. probably is the next area where we have a lot of greenfield opportunities that will materialize in the next four quarters.\n\nTori Svanberg (Analyst at Stifel): Go ahead. I was just going to ask, and the RV market, is that going to be under auto or industrial?\n\nTony Ballo (Vice President of Finance): RV?\n\nTori Svanberg (Analyst at Stifel): The RV market, the camping car market?\n\nTony Ballo (Vice President of Finance): I know you've talked about that. Oh, yeah. Yes, okay. That's one of my favorite ones. I think it would be in the industrial market. Because all these products share the same signatures as we do for data centers for our own test product. and for test equipment, okay, will be shared, very much share the same, same characteristic. And for, and also for robotics. And for, especially for those moving, not stationary robot, and these robot move around, and that they all need that type of a power supply. and the charging and the battery management. And these share very much the same characteristics as RVs, okay? RVs.\n\nGenevieve Cunningham (Moderator): Yeah, those could be industrial or, you know, consumer or, you know, even the humanoid stuff too. So I don't think I want to just put those.\n\nTony Ballo (Vice President of Finance): I think we're probably in the industrial side. Okay, yeah.\n\nTori Svanberg (Analyst at Stifel): Sounds good. Thank you, and congrats again. Okay, thanks, Troy.\n\nGenevieve Cunningham (Moderator): Our next question is from Quinn Bolton of Needham. Quinn, your line is now open.\n\nQuinn Bolton (Analyst at Needham): Hey, I just wanted a quick follow-up question. There have been a few semiconductor companies this earnings season that have sort of mentioned having licenses to Huawei being revoked in the quarter. And it's raised some questions from investors. I'm just wondering if you guys could address Do you have a license to ship to Huawei? If you did, has it been revoked? Is there any real exposure at MPS to that customer? It's obviously not impacting your near-term outlook, but I figured I'd just ask because we've gotten a number of questions on potential Huawei exposure across the semi-coverage. Thank you.\n\nBernie Blagan (EVP and CFO): Quinn, I can make this pretty simple. We don't have any licensing or contractual arrangements with Huawei at all, so they can't be canceled. Any business we have with them has always just done on a PO basis, and we have no indication of a change in their relationship.\n\nQuinn Bolton (Analyst at Needham): Yeah. Yeah. So, Bernie, I guess there was more the export license question. Do you need an export license to ship to them? Because I think that's what it's sort of called.\n\nTony Ballo (Vice President of Finance): Oh, the export license. Yeah. Our product, it's not like below 24 nanometers or whatever. It's not like that. We are not, as far as I know.\n\nBernie Blagan (EVP and CFO): Yeah, you're right.\n\nTony Ballo (Vice President of Finance): And as far as I know, we're not subject to the export limit, have any limitations. But we will talk to our, to answer your question precisely, I will consult our legal counsel.\n\nQuinn Bolton (Analyst at Needham): Yeah. Okay. Okay. Thank you.\n\nGenevieve Cunningham (Moderator): If there are any follow-up questions, please click the raise hand button. As there are no further questions, I would now like to turn the webinar back over to Bernie.\n\nBernie Blagan (EVP and CFO): Great. I'd like to thank you all for joining us for this conference call and look forward to talking to you again during our third quarter conference call, which will likely be in late October. Thank you. Have a nice day.",
+  "n_turns": 73
+}

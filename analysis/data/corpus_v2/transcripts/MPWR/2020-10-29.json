@@ -1,0 +1,477 @@
+{
+  "ticker": "MPWR",
+  "original_ticker": "MPWR",
+  "call_date": "2020-10-29",
+  "year": 2020,
+  "quarter": 3,
+  "vendor_params": {
+    "exchange": "NASDAQ",
+    "symbol": "MPWR",
+    "year": 2020,
+    "quarter": 3
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T01:23:01Z",
+  "raw_payload": {
+    "event": {
+      "year": 2020,
+      "quarter": 3,
+      "conference_date": "2020-10-29T17:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk10",
+        "text": "Welcome, everyone, to the MPS third quarter 2020 earnings webinar. Please note that this webinar is being recorded and will be archived for one year on our investor relations page at monolithicpower.com. My name is Genevieve Cunningham, and I will be the moderator for this webinar. Joining me today are Michael Singh, CEO and founder of MPS, and Bernie Blagan, BP and CFO. During this webinar, we will discuss our Q3 2020 financial results and guidance for Q4 2020, followed by a Q&A session. Analysts, you are currently muted. If you wish to ask a question during the Q&A session, please click on the Participants icon on the menu bar and then click the Raise Hand button. In the course of today's webinar, we will be making forward-looking statements and projections that involve risk and uncertainty. which could cause results to differ materially from management's current views and expectations. Please refer to the safe harbor statement contained in the earnings release published today. Risks, uncertainties, and other factors that could cause actual results to differ are identified in the safe harbor statements contained in the Q3 2020 earnings release and in our SEC filings, including our Form 10-K, filed on February 28, 2020, and our Form 10-Q, filed on August 3, 2020, which are accessible through our website, monolithicpower.com. MPS assumes no obligation to update the information provided on today's call. We will be discussing gross margin, operating expense, R&D and SG&A expense, operating income, interest and other income, net income, and earnings on both a GAAP and a non-GAAP basis. These non-GAAP financial measures are not prepared in accordance with GAAP and should not be considered as a substitute for or superior to measures of financial performance prepared in accordance with GAAP. A table that outlines the reconciliation between the non-GAAP financial measures to GAAP financial measures is included in our earnings release, which we have filed with the SEC. I would refer investors to the Q3 2019, Q2 2020, and Q3 2020 releases, as well as to the reconciling tables that are posted on our website. Now, I'd like to turn the call over to Bernie Blagan."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thanks, Jen. MPS achieved record third quarter revenue of $259.4 million. 39.3% higher than revenue in the second quarter of 2020 and 53.7% higher than the comparable quarter in 2019. As noted in our September 14th, 2020 update to our Q3 financial guidance, our revenue increased beyond expectations for two key reasons. First, we were able to fulfill our customer's demand that had been delinquent due to past capacity constraints. Second, certain China-based customers requested previously scheduled shipment dates be pulled into the third quarter of 2020. We believe this request was related to trade and regulatory policy changes that occurred during the quarter. These two factors contributed significantly to this quarter's performance relative to the prior quarter of 2020 and to Q3 of 2019. Looking at our revenue by market, third quarter 2020 communications revenue of $54.7 million was up 81.8% from the second quarter of 2020, primarily due to a pull-in of customers' requested ship dates. Communication sales represented 21.1% of our total third quarter 2020 revenue. In our consumer markets, third quarter 2020 revenue of $70.2 million increased 47.4% from revenue reported for the prior quarter of 2020. This extraordinary growth in consumer reflects a combination of market share gains in gaming, wearables, and IoT applications, along with normal seasonality. Consumer revenue represented 27.1% of our third quarter 2020 revenue. In our computing and storage market, third quarter revenue of $75.3 million increased $11.2 million or 17.5% from the second quarter of 2020. The sequential quarterly revenue growth was broad-based with sales gains recorded in high-end notebooks, servers, and storage. Computing and storage revenue represented 29.0% of MPS's third quarter 2020 revenue. Third quarter automotive revenue of $28.5 million grew $10.7 million or 60.4% over the second quarter of 2020. This improvement reflects a more normal ordering level following the Q2 2020 industry-wide slowdown resulting from the pandemic. We believe MPS's market share will continue to expand in the coming years as we have been awarded multiple design wins in infotainment, smart lighting, ADAS, and autonomous driving. Automotive revenue was 11.0% of MPS's total third quarter 2020 revenue. Third quarter 2020 industrial revenue of $30.7 million increased 15.3% from the second quarter of 2020 due primarily to increased revenue for power sources and industrial meters. Industrial revenue represented 11.8% of our total third quarter 2020 revenue. Gap gross margin was 55.1%, matching the second quarter of 2020 and 10 basis points lower than the third quarter of 2019. Our gap Operating income was $60.0 million compared to $28.0 million reported in the second quarter of 2020 and $30.0 million reported in the third quarter of 2019. Non-GAAP gross margin for the second quarter of 2020 was 55.5%. 20 basis points below the gross margin reported for the second quarter of 2020 and 10 basis points lower than the third quarter from a year ago. Our non-GAAP operating income was $84.9 million compared to $53.0 million reported in the prior quarter and $51.4 million reported in the third quarter of 2019. Let's review our operating expenses. Our GAAP operating expenses were $83.1 million in the third quarter of 2020. compared with $74.6 million in the second quarter of 2020 and $63.1 million in the third quarter of 2019. Our non-GAAP third quarter 2020 operating expenses were $59.1 million, up from the $50.7 million we spent in the second quarter of 2020 and up from the $42.5 million reported in the third quarter of 2019. The sequential increase in Q3 non-GAAP operating expenses primarily reflected higher variable costs associated with the increase in revenue and an increased level of investment in securing foundry capacity. The differences between non-GAAP operating expenses and GAAP operating expenses for the quarters discussed here are stock compensation expense, an income or a loss, on an unfunded deferred compensation plan. For the third quarter of 2020, total stock compensation expense, including approximately $707,000 charged to cost of goods sold, was $23.0 million, compared with $21.0 million recorded in the second quarter of 2020. Switching to the bottom line, third quarter 2020 gap Net income was $55.6 million or $1.18 per fully diluted share compared with $30.2 million or $0.64 per share in the second quarter of 2020 and $29.5 million or $0.64 per share in the third quarter of 2019. Q3 non-GAAP net income was $79.4 million or or $1.69 per fully diluted share, compared with $50.6 million, or $1.08 per share in the second quarter of 2020, and $49.5 million, or $1.08 per share in the third quarter of 2019. Fully diluted shares at the end of Q3 2020 were $47.0 million. Now let's look at the balance sheet. Cash-cash equivalents and investments were $554.5 million at the end of the third quarter of 2020 compared to $515.4 million at the end of the second quarter of 2020. For the quarter, MPS generated operating cash flow of about $77.4 million compared with Q2 2020 operating cash flow of $59.3 million. Third quarter 2020 capital spending totaled $19.6 million. Accounts receivable ended the third quarter of 2020 at $93.5 million, representing 33 days of sales outstanding, which was six days higher than the 27 days reported at the end of the second quarter of 2020 and two days higher than the 31 days at the end of the third quarter of Our internal inventories at the end of the third quarter of 2020 were $148.1 million, down from the $152.1 million at the end of the second quarter of 2020. Days of inventory of 116 days at the end of the third quarter of 2020 were 50 days lower than at the end of the second quarter of 2020. The sequential drop in days inventory on hand represented an anomaly due to a decrease in the dollar value of inventory and a 39% increase in quarterly revenue. Currently, our inventory levels are lean. We are working very hard to return inventory to the 180 to 200 day level necessary to support our future growth. I would now like to turn to the outlook for the fourth quarter of 2020. We are forecasting Q4 revenue in the range of $218 to $230 million. We also expect the following. Gap gross margin in the range of 55.1 to 55.7%. Non-gap gross margin in the range of 55.4 to 56.0%. Total stock-based compensation expense of $21.8 million to $23.8 million, including approximately $700,000 that would be charged to cost of goods sold. Gap R&D and SG&A expenses between $81.3 million and $85.3 million. Non-gap R&D and SG&A expenses to be in the range of $60.2 million to $62.2 million. Litigation expense should range between $1.8 million to $2.2 million. Interest income is expected to range from $1.0 million to $1.4 million. Fully diluted shares to be in the range of 47.1 to 48.1 million shares. In conclusion, We will monitor market conditions closely and continue to execute. I'll now open the webinar up for questions."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Thank you, Bernie. Analysts, I would now like to begin our Q&A session. As a reminder, if you would like to ask a question, please click on the Participants icon on the menu bar and then click the Raise Hand button. Our first question comes from Tori Svanberg from Stiefel. Tori, your line is now open."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yes, thank you, and congratulations on the billion-dollar run rate. First question is Q4 guidance. Could you talk a little about which are some of the end markets that's going to be performing in Q4? Obviously, I know communications is going to be down, but what about some of the other markets for the December quarter?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Hi, Tori. Thanks for commenting on the billion-dollar run rate. Yeah, if you compare ourselves against Q3, obviously that was a high watermark. So probably a more relevant comparison is against Q4 of 2019. And on that basis, we're expecting all of our major markets to be up significantly from the prior year. And then when you do the comparison against Q3, you'll see that there will probably be declines in communications and computing and also in consumer. The consumer is seasonally adjusted. But we'll still expect to see improvements in industrial automotive."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Very good. And as my follow-up, you mentioned inventories are pretty lean. So can you just elaborate a little bit on what you're doing to try and get the inventories back up? You said you had some OPEX to maybe secure some foundry capacity, but anything else you can add on sort of how you're going to get back to that 180 days of inventory?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Sure. I think as we acknowledged in Q3 that we were able to catch up as far as having adequate capacity in order to service near-term demand. And in giving guidance for Q4, that expectation follows along. When we look ahead over the course of the next 24 months, we previously mentioned that we're entering into new relationships with other fabs and expect to grow our overall capacity. So this will be an ongoing investment that we would project for at least about the next six quarters."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Great. Thank you and congratulations again."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thanks, Tori."
+      },
+      {
+        "speaker": "spk10",
+        "text": "The next question comes from David Williams from Loop Capital. David, your line is now open."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Hi, can you hear me?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, David, I can."
+      },
+      {
+        "speaker": "spk07",
+        "text": "I think there's a mistake. It's Will Stein from Truist. How are you? I guess I'll just go. Bernie, first a clarification. The inventory target that you called out in your script, I think you said 180 to 200. I think that's 20 days higher than what you said on the last conference call. Is that correct? And if so, can you help us understand what's changed?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "The previous metrics that we had been using we're about 20 days lower, but we really made this change as far as what we've been trying to explain to the analysts and to investors over the course of about the last two to three quarters. But nonetheless, what I do want to address your question, which is in order for us to sustain the level of growth that we have in excess of our market, the industry, that we have to have a higher level of inventory. So in other words, there's a mismatch. In other words, we are building the inventory today, but we're not going to, for the sales that will occur one or two quarters out. And so it's not a perfect reflection for other companies where they're not growing as fast. They can maintain lower levels in terms of days. But here again, we have to make an incremental investment in order to support our growth."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Let me add it. As you remember, end of the last years, and we're at around 200 days of inventory. If you use that model and to meet the this year growth, that probably, that's about the right numbers. That's the basis. That's what we... That's where this 20 more days have come from. And so if you go to a little more details, and NPS is a fabulous company. And yet we have our own technologies. This is very unique. I can't think of any of our competitors, they're in the same way of manufacturing to fulfill their manufacturing. Most of them, they have their own fab. And so given the volatilities, and also given the growth that we have, and also number of the product, and address all these greenfield market segment, we need probably more than 200 days inventory."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Okay, that helps a lot. If I can have one quick follow-up, the guidance, while great overall on revenue and EPS, the margins are a little bit different from what maybe some would have expected. And Bernie, I'm just wondering if you can tell us if the model we should be thinking about, which historically was that gross would grow at 10 to 20 pips a quarter and op margin, you know, there, there was a, I guess a change in that view that perhaps we wouldn't get any operating margin leverage for the next year or two. Maybe you could just update us on that, on that model for, for both those lines."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Sure. And I think that you captured it very well is that the, Obviously, our model has been to improve gross margin 10 to 20 basis points sequentially. Now, a lot of factors weigh into being able to deliver against those results, including both our mix of business as well as what the market looks like. So, again, you have to use these as guidelines, not as an absolute guarantee of what our performance will look like. And then on the operating expenses right now, we are going to be continuing to invest in capacity, as I said, in each of the next six quarters. So that'll be an additional layer of investment from what we've seen. And so as a result, we're not projecting our operating margins to improve significantly over the course of the next two years."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Or OPX, I think. Is that right? In other words, OP margin would just expand with gross, which is 10 to 20 pips a quarter? Yeah. Okay. Great. Thanks, Bernie. I'll get back in the queue. Thank you. Thanks."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Our next question comes from David Williams from Loop Capital. David, your line is now open. Our next question comes from Quinn Bolton from Needham. Quinn, your line is now open."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hey, guys. Let me offer my congratulations on a very strong September and good December outlook. Bernie and Michael, you know, these are sort of unprecedented times in the business, and I know you don't typically look out more than a quarter, but I guess one of the questions I'm hearing from investors is whether there's any sort of inflated demand still impacting the business in the December quarter, and wondering, you know, to the extent you can give us any sort of thoughts on March, would March show a typical seasonal decline from the December quarter of, say, you know, three to five percent, what you would see in a typical year, or do you think it could show, you know, a greater seasonal factor? I know you don't typically go out two quarters, but Again, this is really strong results here in the near term."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Let me answer that question. If you're talking about normal seasonality, then the outlook is great. And we have so many design activities and we send so many award projects. But And as well as you know, as well as I know, this is where in unprecedented error. Pandemics and geopolitical issues, and I can't predict. And frankly, I care less."
+      },
+      {
+        "speaker": "spk05",
+        "text": "If I can just add to that, is that I really think that there are certain aspects of our business that we have in good control, as Michael hit on, as far as the design wind activity. But right now, we do not have control over what the end customer demand is ultimately going to be about. So I think that as far as executing against our strategy and seeing it show up in our results, I think we're going to continue along that path. But there are just too many factors for us to be pure speculation at this point."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Okay, maybe I could ask, in past calls, you've oftentimes given us some idea of your sort of starting backlog coverage, and I know that typically runs a very high percentage of the revenue guidance. My guess is, you know, with some of the delinquencies you had in the past quarter, you know, you had very strong backlog, but as you head into the December quarter, is the backlog sort of back to more normal levels that it would have, you know, typically run in the last couple of years? Is it you know, still elevated. Can you give us any thoughts on kind of the backlog coverage?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Well, as of December quarters, and I'll go into December quarters, we're still facing delinquencies. So the capacity is still limited."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And I think what we're seeing here is that, as I said, in the guidance that we offered, is it anticipates both the demand, including the backlog that we had coming into the quarter, and it's matched with, you know, what our supply chain and capacity limits are. So I guess that I would probably offer that we have some ability for upside, but it's going to be a little bit limited by, you know, supply chain."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Okay, great. Thank you."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Our next question comes from Alex Becky from William Blair. Alex, your line is now open."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hi, Michael and Bernie. Congratulations again in a very volatile environment. If we can just touch base a little more on the automotive segment, this appears to be the highest revenue quarter you guys have posted since really starting to gain traction in this segment. I realize the environment's just starting now to get a little bit better, but can you maybe update us on how we should think about the long term growth targets there? In the past, you've said, you know, 40 to 60 percent growth. Obviously, that may be a little premature at this point, but but perhaps update us on how you're feeling on that segment."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yeah, I would probably say that automotive is one of the more exciting end markets for us for the next several years. Now, if you look at our track record in 2019 and 2020, 2019 was affected by the recession, 2020 by factory closings related to the COVID-19 pandemic. So, again, those are circumstances that were largely outside of our control. But what we're seeing is that we're expanding now from our traditional infotainment base into some of these more exciting technologies, including the lighting systems, the ADOS, and the autonomous driving. So we think that this is a sustainable revenue growth. should be well ahead of what our corporate average is going to be. At one time, we were promoting the concept of being able to grow consistently at 20% to 60% per year, but I would probably back off of that down to a more reasonable, you know, between 30% and 40%, but still a very exciting end market for us."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah, that's a bonus of being kind of talking. Okay, I... Frankly, we don't have it. I don't have it. It's in the clear pictures. And what's the growth? Frankly, I never put an NPS as a, oh, we have to grow a certain percentage, okay? And what I'm looking at is what kind of product, which project, and how well we're positioned, and which \u2013 which customers, which projects we want designing, and more importantly, okay, what kind of products in the pipeline. That really drives the pipeline. And so how do we predict what's the next, what's the growth percentage? I can't tell you tonight."
+      },
+      {
+        "speaker": "spk02",
+        "text": "No, no, that's fair, but it's good to hear that the trajectory seems to be sort of back on track. And then similarly, I don't think in the prepared comments you guys commented on the extent of the pull-ins into Q3. Is it fair to say that the vast majority of the sequential decline in Q4 is related to the pull-in activities, or is there also a little bit of normalization of demand in there as well?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Well, we had a lot of pulling from Q3 and partially in Q4. And we're still, as I said earlier, we're still facing delinquencies. And so I think that's a combination of the growth and also in a capacity shortage. Okay. From that past. Okay."
+      },
+      {
+        "speaker": "spk02",
+        "text": "From that past. Okay. Um, and then lastly, if I can on just on the days inventory, the 180 to 200 days, it, how long will it take you to get back to that level? Is that something you can achieve? Are we really looking to more of the first half of, of 2021?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Well, if the market slows down, we're going to get there quickly. Uh, uh, I think that, okay, we, again, and this is, we're at the uncomfortable levels. And so we want to increase as much as we can. And now our engineers and working the fabs, okay, working in the different fabs and to get the, to qualify the process and the technologies. And so we hope in the next six months we can catch up."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Okay. Great. I'll go back into queue. Thank you so much. Okay."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Our next question comes from Joshua Buchalter from Cohen. Joshua, your line is now open."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hey, guys. Thanks for taking my questions and let me echo my congrats. It's for my first question. Earlier this year, you'd mentioned bringing in additional 12-inch fab online in the second half. I guess I was wondering, was this the primary driver of the additional capacity you were able to secure in the third quarter? And then looking ahead, how much more capacity do you feel you need to both serve your customers and get the inventory levels up to that new raise, 180 to 200 days?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "yes okay uh the first question is yes absolutely okay we we said it in the earlier uh earlier this years we expanded another 12-inch fab we had the wasn't in our plant but we hurried and we hurried up and get that thing going and okay and we start shipping product in q3 okay that's a that's a very very uh that's an an unprecedented and thanks to our our peoples, and they really worked day and night to manage that, to manage and qualify these products. Going forward, we just want to expand the capacity to reach the 180 to 200 days inventory. Going in the future, if you have a very linear world, then it's very easy to calculate. I think we're living in a very nonlinear environment. And 200 days inventories, that's what we want to do."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Got it. Thank you. That's very helpful. And then for my follow-up. A bit of a bigger picture question. I mean, you guys are now a billion dollar or you reached a billion dollar run rate this quarter. Are you seeing any increased or changes in the competitive responses from your peers as you move higher on both a unit basis and as well in the socket value? Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our ASP is increasing and as long as when we move it to a higher market segments and So our competitions are always pretty similar. Our customer doesn't even know NPS is a billion dollars. They all know NPS is very small potatoes against all these giant."
+      },
+      {
+        "speaker": "spk05",
+        "text": "But I think you go back to what our competitive basis is, and it really is that we're winning with superior technology and a higher level of customer service. And I think that's what our customers are recognizing us for."
+      },
+      {
+        "speaker": "spk01",
+        "text": "That's right. Yeah."
+      },
+      {
+        "speaker": "spk03",
+        "text": "All right. Thanks, guys. Congrats again. Thank you."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Our next question comes from Rick Schaefer from Oppenheimer. Rick, your line is now open."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hi, thanks to you guys. And I'll add my congratulations as well. Um, maybe just a quick follow on, follow on if I can on that production question. I know you guys have been pulling in new production and foundry partners pretty aggressively. Um, I mean, I know you've spoken, I think in the past about sort of once it's done, the goal is to kind of be at that 1.2 billion or so in kind of annual revenues. And that's not a lot of headroom for you guys at your current run rate, uh, at your current growth rate. So I'm curious, you know, is that 1.2 still the right number we should be thinking of in terms of your capacity when all is said and done? And maybe what does the timeline look like for that now since you're pulling stuff in?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah, okay. Obviously the 1.2 million is not enough. And if you want to building a fast and on a 200 days inventory, it's always more than double it. Okay, now it's in there. That's what we try to do. And it's not easy. And that's what we're aiming for, just double it."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And I think that in the past, you know, securing fab capacity and being able to introduce new products at the rate that we are is really nothing new to MPS. But the scale has been getting bigger. And so that's why the investments and the time that we have to plan ahead makes a difference. And so all we're doing is preparing both for the capacity, but also recognizing, acknowledging the investment that goes with it."
+      },
+      {
+        "speaker": "spk06",
+        "text": "So if we fast forward 18 months, 24 months, I mean, is there a bogey for what you think your capacity will be? I mean, if it's not one, two, is it, I assume, higher than that? But I just was curious if there was a number you could share or if you know at this point."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Oh, we're doing, I'm sorry I wasn't so clear. We're shooting for $2 billion."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Oh, $2 billion. I'm sorry. I misunderstood that. Sorry. Thanks, Michael. And then just maybe a question, if I could, on 5G and platforms. You know, maybe I was hoping you could talk a little bit about your exposure to the tier one, you know, 5G RAN OEMs, the ones you're allowed to sell to, of course, you know, where you are in terms of revenue ramp or design win activity. I mean, are any of these guys buying QS mod yet? Are you sort of initially seeing more, you know, POL, eFuse, kind of, you know, similar to what you saw in the early stages of your cloud server ramp?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "I think it's a 5G that the overall at the early stage and all I can say now is that we engage with all the 5G station makers and we do have a designing activities and we do have award projects but it's not significant revenue yet."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thanks, Michael."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Our next question comes from Ross Seymour from Deutsche Bank. Ross, your line is now open."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Hey, guys. I want to give the same congrats that everybody else did, the stupendous work here. A couple quick questions. First, when do you expect the delinquencies to be gone?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "If the market slows down, so we're going to do the next quarters. If the demand is still that strong, we continue to face that. And we see some that are not as bad as the last two quarters."
+      },
+      {
+        "speaker": "spk08",
+        "text": "And then on the supply side of the equation somewhat, but maybe even more of a regulatory issue, what's the exposure and how are you dealing with the Huawei ban? And does the SMIC ban have any impact on you, whether it's on the supply side or otherwise?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Huawei is not our supplier. But SMICS, it is our supplier. So far, it's not affecting us. We don't know. We can't speculate what does all these policy means. But on the other hand, we diversified our... our foundry sources. Okay. We're starting from a beginning of, of, of this year. Okay. We speed it up."
+      },
+      {
+        "speaker": "spk08",
+        "text": "So on the Huawei side, just to be clear, you had them as a customer, I believe in the first half of the year, one way or the other. And I assume you're no longer shipping to them. And I just wondered if that's part of your fourth quarter guidance is them going to zero."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Well, we can say zero or, or, or, or, or, non-zeros, okay, and it's so far, okay, and we cannot ship, but there's other rules and regulations coming out, and all the other permits, okay, and we cannot, okay, speculating on what kind of things we can do, okay, and it all depends on the government now."
+      },
+      {
+        "speaker": "spk08",
+        "text": "I guess the last question then away from government type questions is Bernie and you and Michael have had a framework in for many, many years about the percentage superior growth versus the analog market that you guys have delivered. I think it's been kind of a 10 to 15% positive Delta in your favor. Is that rule just thrown out the window now this year is, you know, 25, 30 points above the, that peer group. And I know one year doesn't make a trend, but, As you look at it, is there something that's creating some semblance of escape velocity where that delta expands meaningfully just due to the breadth of your design wins, the market you're targeting, or do we expect a little bit of reversion to the mean in 2021 after such a great 2020?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Well, you know, I can't, as I said, the word is not linear, so I can't mean, and I remember when, And I was facing a lot of questions about when our model will be, our model is like a 20 to 25% growth rate, okay, in 2016, 17, 2015, 16. And we will criticize that you would never get that. And like, although we're somewhere around the 17, You asked so many times, you forced me to say it, and at the time, I think around 2016, I said, okay, by 2018, 19, we're going to get it over 20%. That comment is pulling up from my for my ears, okay? And I don't have a, this is not science, okay? I mean, in a nonlinear world, okay, it's very difficult to predict. And so I said earlier, okay, we only can, anticipating us, okay? And by staffing inventories, okay? And by stocked inventories. And just get ready, okay? And... Of course, and the world crashes, okay, of course we're not, we're going to start to depreding inventories, and okay, we're not building as many, okay, as much, okay? And so we can modulate the insight a little bit, okay? But for the growth rate, I see all these designing activities and all these projects, I would say last couple years is better than two, three years before. And we awarded a lot more high-value products, high-value sockets."
+      },
+      {
+        "speaker": "spk08",
+        "text": "That's great. Thank you very much, Michael."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thank you. Yeah, thank you."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Our next question comes from Tori Svanberg from Stiefel. Tori, your line is now open."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yes, thank you. I just had a follow-up question. Michael, on e-commerce. That's obviously a business model that could help you manage capacity, inventory, and so on and so forth. Have you been able to keep up with the investments there in this environment? Maybe you could just update us on where the e-commerce business stands today."
+      },
+      {
+        "speaker": "spk01",
+        "text": "We didn't prepare the numbers. I think that we're doing really good. We're doing really good. And I thought that there was nobody gonna ask the question."
+      },
+      {
+        "speaker": "spk05",
+        "text": "We have too much other news."
+      },
+      {
+        "speaker": "spk01",
+        "text": "It is, okay, I think that we, I feel, I can say it, we've figured out the way to do it. Until we prove ourselves wrong again. The new websites, I think you see it. It's very different. And we increase a whole lot more clicks. And the customers stay on the pages for a lot longer. And also, we're creating a virtual lab. And that part of it also helps the e-commerce. So we don't have to put up FAEs and have them pounding the pavement to generate opportunities. And we're using the website. And the numbers increase weekly. And I'm very pleased. So I want to talk about a few hundred percentage."
+      },
+      {
+        "speaker": "spk05",
+        "text": "increase okay from a small number doesn't mean a lot but for us and uh we learned that's the trade that's the area we're going to do okay and we're going to enhance that i'd even go that there's a an even higher arching strategy here uh where e-commerce is a significant part of and it's really how do you uh go after underserved customers And what was surprising to me is we did a look at the last three years as far as how many customers did we have that were under $100,000 and how is that base growing? Because if you can use the linear model where what they used to do is get in there early."
+      },
+      {
+        "speaker": "spk01",
+        "text": "The linear technology. Technology."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Technology. Get in there early and then develop these long-term relationships, and then you grow with their growth. And so as a part of that strategy, I think the numbers I looked at were doing a very good job. They're starting to bear dividends."
+      },
+      {
+        "speaker": "spk01",
+        "text": "We increased the Visa number about three or four times from a small base. Okay. And that is significant, and it's happening in the last few years. And now, clearly, we can put a matrix. And so OSAID is what you measure, what you get, okay? And we know how to start to know how to want to measure it. And that, to me, is very important. But looking at the revenue-wise, okay, it's became meaningful, but I don't have a clear detail. So I don't want to have a pull out my hair numbers."
+      },
+      {
+        "speaker": "spk04",
+        "text": "That's great. Thank you very much, Michael and Bertie."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Our next question comes from Rick Schaefer from Oppenheimer. Rick, your line is now open."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yeah. Thanks, Michael and Bernie. Um, and speaking of things that haven't been talked about as much, maybe the last couple of quarters, I'm curious if you could give us a, an update on the design when pipeline or revenue color for, for your converter business, um, you know, has, I'm just curious as ADI Maxim, you know, opened any doors for you guys and have you seen the level of engagement with customers increase, you know, maybe as a side note, are you, are you seeing more, more, uh, analog, you know, uh, design engineer resumes or, uh, you know, is it, is it easier to find guys? So I'm just curious if you give us any update there. Thanks."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Um, it, uh, finding a good people is always hard. All these are good companies that keep the good people. Yeah. And, uh, there's always, that's always a challenge. Okay. And, uh, um, so we know that we need to diversify. And that gave me, and, uh, um, a lot of times, okay. In, uh, uh, The last 10, 15 years, or more likely, the last 20 years, we have a lot of people from China. Now, four or five years ago, we migrated to Europe and Taiwan, outside of mainly China. Now, in the last couple of years, we'll come back to the U.S. We do... see, okay, not necessarily in the Bay Area, but other parts of the countries, and, okay, we do find some tolerance there."
+      },
+      {
+        "speaker": "spk06",
+        "text": "And, Michael, any update on what's happening with converters for you guys?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "The converters, which \u2013 The signal chain stuff, the team you brought in?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "It's been a couple quarters since we talked about it."
+      },
+      {
+        "speaker": "spk05",
+        "text": "I think it's been eight hours. High performance analog, yeah."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Oh, yeah, the data converters. Okay, yeah, yeah, yeah, okay. I think we received the first chip, okay?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "This is prototyping."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah, and I think we're building solutions, and most of the time, the the first shepherd will have some bucks, but we, uh, is a wiggly and, uh, and we're, we're, uh, building a prototype. Okay. We still came, uh, putting a system yet now."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Got it. Thanks guys."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Our next question comes from William Stein of Truist. William, your line is now open."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Uh, thanks. Um, follow up from before, um, We're just \u2013 someone else asked about e-commerce, but I'm hoping you might give us an update on the eMotion and module business and maybe the programmable traction generally. I think about these as sort of separate from e-commerce. Maybe they're not as separate, but an update on this part of it would be really helpful. Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Okay. Yeah, I think we use e-commerce platform to promote those products. And that e-motion side, I think the revenues, I have to say some numbers now. Otherwise, I don't know what you guys think. I do have numbers. I want to have a bonus. Somehow, it's increased almost double it. the models, the motion side. Yeah."
+      },
+      {
+        "speaker": "spk05",
+        "text": "The emotion is right in that sort of transition phase because we have a lot of design wins that are going in. So last year, the revenue run rate was somewhere in the, you know, 10 to 12 million. Yeah. But now the doubling is going to start, particularly as we go into both automotive and industrial applications."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah. So, so I was, I was, I'm correct. So it was about double return. Okay. And, uh,"
+      },
+      {
+        "speaker": "spk05",
+        "text": "I think also when we look at the modules business, that is taking on very nicely."
+      },
+      {
+        "speaker": "spk01",
+        "text": "I think the modules started with a smaller base, like a few hundred percent increase. Okay. Now it's a 40, 30, 40 million dollars. Okay."
+      },
+      {
+        "speaker": "spk07",
+        "text": "And was the, is the strength that you're seeing there at all related to the pull-ins and, you know, delivering against delinquencies that you had previously, or is this, part of the rest of the business, what I want to think of as core that might not have shown much upside."
+      },
+      {
+        "speaker": "spk01",
+        "text": "No, it's a small part of it due to delinquencies, and this is a new market segment, and people order from online, and we never see those. if it's not our own internet, our own website from our distributors. These are very small customers. They never ordered those parts before. Although the number is small, the revenue is still small, but a large number of customers. These are plug-in play modules. And so what we, and they can just plug in and they don't have to do any design. And since you mentioned that programming pushing, that's part of what we learned, that our customer doesn't even want to do programs. They want us to do it. And so, we created a virtual labs and we customer tell us what, what they want. And okay. And we show, okay, we, in our labs, okay, we, we program everything and then we ship. Okay. It's a, so now you can talking about it's a, it's a really a custom design for each customer. And, and that is taking off. And I'm very glad to see it."
+      },
+      {
+        "speaker": "spk05",
+        "text": "And just a final comment there is on the modules. Uh, they're not necessarily tied to anyone in market. They're, they're actually very broad based. And initially we thought that they would be plug and play solutions, particularly for, uh, prototyping or small volumes, but it turns out that they're actually going to mainstream mainstream production."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yes. Yes. And, uh, So that's something we learned, and I'm a former engineering, I'm a school engineer, and our people, and we create these great products that we see, and we're putting like 30 parameters, 70 parameters on a website. They can program it, and they can see what the result from the simulations. And it turned out to be, it's like a, And we put it on there and nobody looking at it and we're wondering why. And so we reduced to half and then when you cut another half, the reduced to five, six, seven, they still don't want to see it. And they want to pick the numbers and talk to you, you do that for me, okay? And that's great. We can do the works and okay, they pay for it. That's fine. Okay."
+      },
+      {
+        "speaker": "spk07",
+        "text": "That's great detail and progress. Thanks very much."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Our next question comes from Quinn Bolton from Needham. Quinn, your line is now open."
+      },
+      {
+        "speaker": "spk09",
+        "text": "You guys just wanted to see if you might be able to give us an update on your efforts in the GPU space for either desktop or data center GPUs. You know, just looking at the power consumption of those devices, I think, You're seeing desktop GPUs now consuming up to 300 watts. I think data center, maybe up to 400 watts. You guys, I think it talks about that back in analyst days as a potential opportunity. Just wondering if you're starting to see, you know, any real traction or if you're starting to need a curve on either the sort of the gaming or the data center side of GPUs."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Yes, we're seeing substantial movement on both. We probably started out earlier on the desktop. where we started generating revenues with this about 18 months to two years ago. And now we're moving into the data center where we actually are starting to ramp, and in particular, 48-volt for artificial intelligence. So the opportunities are significant, but we're still at the very early stages of this market. So fundamentally, we're very well positioned, but it's still gonna be another year or two before we still move the dial with the revenue ramp."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Those AR, Bernie's talking about, these are over 1,000 watts. Yeah. And it's not two or three or 400 watt levels. If you get to that high level, you're only talking about only a few companies that can supply those type of a product. Yeah. I think we are in good positions, but always can be better. Great. Thank you."
+      },
+      {
+        "speaker": "spk10",
+        "text": "If there are any follow-up questions, please click the raise hand button. There appear to be no further questions. I would now like to turn the webinar back over to Bernie."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Great. Thanks, Jen. I'd like to thank you all for joining us for this conference and look forward to talking to you again about our fourth quarter results, which will likely be in early February. Thank you and have a nice day."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk10": {
+        "name": "Genevieve Cunningham",
+        "title": "Moderator"
+      },
+      "spk05": {
+        "name": "Bernie Blagan",
+        "title": "CFO"
+      },
+      "spk01": {
+        "name": "Michael Singh",
+        "title": "CEO and Founder"
+      },
+      "spk04": {
+        "name": "Tori Svanberg",
+        "title": "Analyst at Stiefel"
+      },
+      "spk07": {
+        "name": "Will Stein",
+        "title": "Analyst at Truist"
+      },
+      "spk02": {
+        "name": "Alex Becky",
+        "title": "Analyst at William Blair"
+      },
+      "spk03": {
+        "name": "Joshua Buchalter",
+        "title": "Analyst at Cohen"
+      },
+      "spk06": {
+        "name": "Rick Schaefer",
+        "title": "Analyst at Oppenheimer"
+      },
+      "spk08": {
+        "name": "Ross Seymour",
+        "title": "Analyst at Deutsche Bank"
+      },
+      "spk09": {
+        "name": "Quinn Bolton",
+        "title": "Analyst at Needham"
+      }
+    }
+  },
+  "text": "Genevieve Cunningham (Moderator): Welcome, everyone, to the MPS third quarter 2020 earnings webinar. Please note that this webinar is being recorded and will be archived for one year on our investor relations page at monolithicpower.com. My name is Genevieve Cunningham, and I will be the moderator for this webinar. Joining me today are Michael Singh, CEO and founder of MPS, and Bernie Blagan, BP and CFO. During this webinar, we will discuss our Q3 2020 financial results and guidance for Q4 2020, followed by a Q&A session. Analysts, you are currently muted. If you wish to ask a question during the Q&A session, please click on the Participants icon on the menu bar and then click the Raise Hand button. In the course of today's webinar, we will be making forward-looking statements and projections that involve risk and uncertainty. which could cause results to differ materially from management's current views and expectations. Please refer to the safe harbor statement contained in the earnings release published today. Risks, uncertainties, and other factors that could cause actual results to differ are identified in the safe harbor statements contained in the Q3 2020 earnings release and in our SEC filings, including our Form 10-K, filed on February 28, 2020, and our Form 10-Q, filed on August 3, 2020, which are accessible through our website, monolithicpower.com. MPS assumes no obligation to update the information provided on today's call. We will be discussing gross margin, operating expense, R&D and SG&A expense, operating income, interest and other income, net income, and earnings on both a GAAP and a non-GAAP basis. These non-GAAP financial measures are not prepared in accordance with GAAP and should not be considered as a substitute for or superior to measures of financial performance prepared in accordance with GAAP. A table that outlines the reconciliation between the non-GAAP financial measures to GAAP financial measures is included in our earnings release, which we have filed with the SEC. I would refer investors to the Q3 2019, Q2 2020, and Q3 2020 releases, as well as to the reconciling tables that are posted on our website. Now, I'd like to turn the call over to Bernie Blagan.\n\nBernie Blagan (CFO): Thanks, Jen. MPS achieved record third quarter revenue of $259.4 million. 39.3% higher than revenue in the second quarter of 2020 and 53.7% higher than the comparable quarter in 2019. As noted in our September 14th, 2020 update to our Q3 financial guidance, our revenue increased beyond expectations for two key reasons. First, we were able to fulfill our customer's demand that had been delinquent due to past capacity constraints. Second, certain China-based customers requested previously scheduled shipment dates be pulled into the third quarter of 2020. We believe this request was related to trade and regulatory policy changes that occurred during the quarter. These two factors contributed significantly to this quarter's performance relative to the prior quarter of 2020 and to Q3 of 2019. Looking at our revenue by market, third quarter 2020 communications revenue of $54.7 million was up 81.8% from the second quarter of 2020, primarily due to a pull-in of customers' requested ship dates. Communication sales represented 21.1% of our total third quarter 2020 revenue. In our consumer markets, third quarter 2020 revenue of $70.2 million increased 47.4% from revenue reported for the prior quarter of 2020. This extraordinary growth in consumer reflects a combination of market share gains in gaming, wearables, and IoT applications, along with normal seasonality. Consumer revenue represented 27.1% of our third quarter 2020 revenue. In our computing and storage market, third quarter revenue of $75.3 million increased $11.2 million or 17.5% from the second quarter of 2020. The sequential quarterly revenue growth was broad-based with sales gains recorded in high-end notebooks, servers, and storage. Computing and storage revenue represented 29.0% of MPS's third quarter 2020 revenue. Third quarter automotive revenue of $28.5 million grew $10.7 million or 60.4% over the second quarter of 2020. This improvement reflects a more normal ordering level following the Q2 2020 industry-wide slowdown resulting from the pandemic. We believe MPS's market share will continue to expand in the coming years as we have been awarded multiple design wins in infotainment, smart lighting, ADAS, and autonomous driving. Automotive revenue was 11.0% of MPS's total third quarter 2020 revenue. Third quarter 2020 industrial revenue of $30.7 million increased 15.3% from the second quarter of 2020 due primarily to increased revenue for power sources and industrial meters. Industrial revenue represented 11.8% of our total third quarter 2020 revenue. Gap gross margin was 55.1%, matching the second quarter of 2020 and 10 basis points lower than the third quarter of 2019. Our gap Operating income was $60.0 million compared to $28.0 million reported in the second quarter of 2020 and $30.0 million reported in the third quarter of 2019. Non-GAAP gross margin for the second quarter of 2020 was 55.5%. 20 basis points below the gross margin reported for the second quarter of 2020 and 10 basis points lower than the third quarter from a year ago. Our non-GAAP operating income was $84.9 million compared to $53.0 million reported in the prior quarter and $51.4 million reported in the third quarter of 2019. Let's review our operating expenses. Our GAAP operating expenses were $83.1 million in the third quarter of 2020. compared with $74.6 million in the second quarter of 2020 and $63.1 million in the third quarter of 2019. Our non-GAAP third quarter 2020 operating expenses were $59.1 million, up from the $50.7 million we spent in the second quarter of 2020 and up from the $42.5 million reported in the third quarter of 2019. The sequential increase in Q3 non-GAAP operating expenses primarily reflected higher variable costs associated with the increase in revenue and an increased level of investment in securing foundry capacity. The differences between non-GAAP operating expenses and GAAP operating expenses for the quarters discussed here are stock compensation expense, an income or a loss, on an unfunded deferred compensation plan. For the third quarter of 2020, total stock compensation expense, including approximately $707,000 charged to cost of goods sold, was $23.0 million, compared with $21.0 million recorded in the second quarter of 2020. Switching to the bottom line, third quarter 2020 gap Net income was $55.6 million or $1.18 per fully diluted share compared with $30.2 million or $0.64 per share in the second quarter of 2020 and $29.5 million or $0.64 per share in the third quarter of 2019. Q3 non-GAAP net income was $79.4 million or or $1.69 per fully diluted share, compared with $50.6 million, or $1.08 per share in the second quarter of 2020, and $49.5 million, or $1.08 per share in the third quarter of 2019. Fully diluted shares at the end of Q3 2020 were $47.0 million. Now let's look at the balance sheet. Cash-cash equivalents and investments were $554.5 million at the end of the third quarter of 2020 compared to $515.4 million at the end of the second quarter of 2020. For the quarter, MPS generated operating cash flow of about $77.4 million compared with Q2 2020 operating cash flow of $59.3 million. Third quarter 2020 capital spending totaled $19.6 million. Accounts receivable ended the third quarter of 2020 at $93.5 million, representing 33 days of sales outstanding, which was six days higher than the 27 days reported at the end of the second quarter of 2020 and two days higher than the 31 days at the end of the third quarter of Our internal inventories at the end of the third quarter of 2020 were $148.1 million, down from the $152.1 million at the end of the second quarter of 2020. Days of inventory of 116 days at the end of the third quarter of 2020 were 50 days lower than at the end of the second quarter of 2020. The sequential drop in days inventory on hand represented an anomaly due to a decrease in the dollar value of inventory and a 39% increase in quarterly revenue. Currently, our inventory levels are lean. We are working very hard to return inventory to the 180 to 200 day level necessary to support our future growth. I would now like to turn to the outlook for the fourth quarter of 2020. We are forecasting Q4 revenue in the range of $218 to $230 million. We also expect the following. Gap gross margin in the range of 55.1 to 55.7%. Non-gap gross margin in the range of 55.4 to 56.0%. Total stock-based compensation expense of $21.8 million to $23.8 million, including approximately $700,000 that would be charged to cost of goods sold. Gap R&D and SG&A expenses between $81.3 million and $85.3 million. Non-gap R&D and SG&A expenses to be in the range of $60.2 million to $62.2 million. Litigation expense should range between $1.8 million to $2.2 million. Interest income is expected to range from $1.0 million to $1.4 million. Fully diluted shares to be in the range of 47.1 to 48.1 million shares. In conclusion, We will monitor market conditions closely and continue to execute. I'll now open the webinar up for questions.\n\nGenevieve Cunningham (Moderator): Thank you, Bernie. Analysts, I would now like to begin our Q&A session. As a reminder, if you would like to ask a question, please click on the Participants icon on the menu bar and then click the Raise Hand button. Our first question comes from Tori Svanberg from Stiefel. Tori, your line is now open.\n\nTori Svanberg (Analyst at Stiefel): Yes, thank you, and congratulations on the billion-dollar run rate. First question is Q4 guidance. Could you talk a little about which are some of the end markets that's going to be performing in Q4? Obviously, I know communications is going to be down, but what about some of the other markets for the December quarter?\n\nBernie Blagan (CFO): Hi, Tori. Thanks for commenting on the billion-dollar run rate. Yeah, if you compare ourselves against Q3, obviously that was a high watermark. So probably a more relevant comparison is against Q4 of 2019. And on that basis, we're expecting all of our major markets to be up significantly from the prior year. And then when you do the comparison against Q3, you'll see that there will probably be declines in communications and computing and also in consumer. The consumer is seasonally adjusted. But we'll still expect to see improvements in industrial automotive.\n\nTori Svanberg (Analyst at Stiefel): Very good. And as my follow-up, you mentioned inventories are pretty lean. So can you just elaborate a little bit on what you're doing to try and get the inventories back up? You said you had some OPEX to maybe secure some foundry capacity, but anything else you can add on sort of how you're going to get back to that 180 days of inventory?\n\nBernie Blagan (CFO): Sure. I think as we acknowledged in Q3 that we were able to catch up as far as having adequate capacity in order to service near-term demand. And in giving guidance for Q4, that expectation follows along. When we look ahead over the course of the next 24 months, we previously mentioned that we're entering into new relationships with other fabs and expect to grow our overall capacity. So this will be an ongoing investment that we would project for at least about the next six quarters.\n\nTori Svanberg (Analyst at Stiefel): Great. Thank you and congratulations again.\n\nBernie Blagan (CFO): Thanks, Tori.\n\nGenevieve Cunningham (Moderator): The next question comes from David Williams from Loop Capital. David, your line is now open.\n\nWill Stein (Analyst at Truist): Hi, can you hear me?\n\nBernie Blagan (CFO): Yes, David, I can.\n\nWill Stein (Analyst at Truist): I think there's a mistake. It's Will Stein from Truist. How are you? I guess I'll just go. Bernie, first a clarification. The inventory target that you called out in your script, I think you said 180 to 200. I think that's 20 days higher than what you said on the last conference call. Is that correct? And if so, can you help us understand what's changed?\n\nBernie Blagan (CFO): The previous metrics that we had been using we're about 20 days lower, but we really made this change as far as what we've been trying to explain to the analysts and to investors over the course of about the last two to three quarters. But nonetheless, what I do want to address your question, which is in order for us to sustain the level of growth that we have in excess of our market, the industry, that we have to have a higher level of inventory. So in other words, there's a mismatch. In other words, we are building the inventory today, but we're not going to, for the sales that will occur one or two quarters out. And so it's not a perfect reflection for other companies where they're not growing as fast. They can maintain lower levels in terms of days. But here again, we have to make an incremental investment in order to support our growth.\n\nMichael Singh (CEO and Founder): Let me add it. As you remember, end of the last years, and we're at around 200 days of inventory. If you use that model and to meet the this year growth, that probably, that's about the right numbers. That's the basis. That's what we... That's where this 20 more days have come from. And so if you go to a little more details, and NPS is a fabulous company. And yet we have our own technologies. This is very unique. I can't think of any of our competitors, they're in the same way of manufacturing to fulfill their manufacturing. Most of them, they have their own fab. And so given the volatilities, and also given the growth that we have, and also number of the product, and address all these greenfield market segment, we need probably more than 200 days inventory.\n\nWill Stein (Analyst at Truist): Okay, that helps a lot. If I can have one quick follow-up, the guidance, while great overall on revenue and EPS, the margins are a little bit different from what maybe some would have expected. And Bernie, I'm just wondering if you can tell us if the model we should be thinking about, which historically was that gross would grow at 10 to 20 pips a quarter and op margin, you know, there, there was a, I guess a change in that view that perhaps we wouldn't get any operating margin leverage for the next year or two. Maybe you could just update us on that, on that model for, for both those lines.\n\nBernie Blagan (CFO): Sure. And I think that you captured it very well is that the, Obviously, our model has been to improve gross margin 10 to 20 basis points sequentially. Now, a lot of factors weigh into being able to deliver against those results, including both our mix of business as well as what the market looks like. So, again, you have to use these as guidelines, not as an absolute guarantee of what our performance will look like. And then on the operating expenses right now, we are going to be continuing to invest in capacity, as I said, in each of the next six quarters. So that'll be an additional layer of investment from what we've seen. And so as a result, we're not projecting our operating margins to improve significantly over the course of the next two years.\n\nWill Stein (Analyst at Truist): Or OPX, I think. Is that right? In other words, OP margin would just expand with gross, which is 10 to 20 pips a quarter? Yeah. Okay. Great. Thanks, Bernie. I'll get back in the queue. Thank you. Thanks.\n\nGenevieve Cunningham (Moderator): Our next question comes from David Williams from Loop Capital. David, your line is now open. Our next question comes from Quinn Bolton from Needham. Quinn, your line is now open.\n\nQuinn Bolton (Analyst at Needham): Hey, guys. Let me offer my congratulations on a very strong September and good December outlook. Bernie and Michael, you know, these are sort of unprecedented times in the business, and I know you don't typically look out more than a quarter, but I guess one of the questions I'm hearing from investors is whether there's any sort of inflated demand still impacting the business in the December quarter, and wondering, you know, to the extent you can give us any sort of thoughts on March, would March show a typical seasonal decline from the December quarter of, say, you know, three to five percent, what you would see in a typical year, or do you think it could show, you know, a greater seasonal factor? I know you don't typically go out two quarters, but Again, this is really strong results here in the near term.\n\nMichael Singh (CEO and Founder): Let me answer that question. If you're talking about normal seasonality, then the outlook is great. And we have so many design activities and we send so many award projects. But And as well as you know, as well as I know, this is where in unprecedented error. Pandemics and geopolitical issues, and I can't predict. And frankly, I care less.\n\nBernie Blagan (CFO): If I can just add to that, is that I really think that there are certain aspects of our business that we have in good control, as Michael hit on, as far as the design wind activity. But right now, we do not have control over what the end customer demand is ultimately going to be about. So I think that as far as executing against our strategy and seeing it show up in our results, I think we're going to continue along that path. But there are just too many factors for us to be pure speculation at this point.\n\nQuinn Bolton (Analyst at Needham): Okay, maybe I could ask, in past calls, you've oftentimes given us some idea of your sort of starting backlog coverage, and I know that typically runs a very high percentage of the revenue guidance. My guess is, you know, with some of the delinquencies you had in the past quarter, you know, you had very strong backlog, but as you head into the December quarter, is the backlog sort of back to more normal levels that it would have, you know, typically run in the last couple of years? Is it you know, still elevated. Can you give us any thoughts on kind of the backlog coverage?\n\nMichael Singh (CEO and Founder): Well, as of December quarters, and I'll go into December quarters, we're still facing delinquencies. So the capacity is still limited.\n\nBernie Blagan (CFO): And I think what we're seeing here is that, as I said, in the guidance that we offered, is it anticipates both the demand, including the backlog that we had coming into the quarter, and it's matched with, you know, what our supply chain and capacity limits are. So I guess that I would probably offer that we have some ability for upside, but it's going to be a little bit limited by, you know, supply chain.\n\nQuinn Bolton (Analyst at Needham): Okay, great. Thank you.\n\nGenevieve Cunningham (Moderator): Our next question comes from Alex Becky from William Blair. Alex, your line is now open.\n\nAlex Becky (Analyst at William Blair): Hi, Michael and Bernie. Congratulations again in a very volatile environment. If we can just touch base a little more on the automotive segment, this appears to be the highest revenue quarter you guys have posted since really starting to gain traction in this segment. I realize the environment's just starting now to get a little bit better, but can you maybe update us on how we should think about the long term growth targets there? In the past, you've said, you know, 40 to 60 percent growth. Obviously, that may be a little premature at this point, but but perhaps update us on how you're feeling on that segment.\n\nBernie Blagan (CFO): Yeah, I would probably say that automotive is one of the more exciting end markets for us for the next several years. Now, if you look at our track record in 2019 and 2020, 2019 was affected by the recession, 2020 by factory closings related to the COVID-19 pandemic. So, again, those are circumstances that were largely outside of our control. But what we're seeing is that we're expanding now from our traditional infotainment base into some of these more exciting technologies, including the lighting systems, the ADOS, and the autonomous driving. So we think that this is a sustainable revenue growth. should be well ahead of what our corporate average is going to be. At one time, we were promoting the concept of being able to grow consistently at 20% to 60% per year, but I would probably back off of that down to a more reasonable, you know, between 30% and 40%, but still a very exciting end market for us.\n\nMichael Singh (CEO and Founder): Yeah, that's a bonus of being kind of talking. Okay, I... Frankly, we don't have it. I don't have it. It's in the clear pictures. And what's the growth? Frankly, I never put an NPS as a, oh, we have to grow a certain percentage, okay? And what I'm looking at is what kind of product, which project, and how well we're positioned, and which \u2013 which customers, which projects we want designing, and more importantly, okay, what kind of products in the pipeline. That really drives the pipeline. And so how do we predict what's the next, what's the growth percentage? I can't tell you tonight.\n\nAlex Becky (Analyst at William Blair): No, no, that's fair, but it's good to hear that the trajectory seems to be sort of back on track. And then similarly, I don't think in the prepared comments you guys commented on the extent of the pull-ins into Q3. Is it fair to say that the vast majority of the sequential decline in Q4 is related to the pull-in activities, or is there also a little bit of normalization of demand in there as well?\n\nMichael Singh (CEO and Founder): Well, we had a lot of pulling from Q3 and partially in Q4. And we're still, as I said earlier, we're still facing delinquencies. And so I think that's a combination of the growth and also in a capacity shortage. Okay. From that past. Okay.\n\nAlex Becky (Analyst at William Blair): From that past. Okay. Um, and then lastly, if I can on just on the days inventory, the 180 to 200 days, it, how long will it take you to get back to that level? Is that something you can achieve? Are we really looking to more of the first half of, of 2021?\n\nMichael Singh (CEO and Founder): Well, if the market slows down, we're going to get there quickly. Uh, uh, I think that, okay, we, again, and this is, we're at the uncomfortable levels. And so we want to increase as much as we can. And now our engineers and working the fabs, okay, working in the different fabs and to get the, to qualify the process and the technologies. And so we hope in the next six months we can catch up.\n\nAlex Becky (Analyst at William Blair): Okay. Great. I'll go back into queue. Thank you so much. Okay.\n\nGenevieve Cunningham (Moderator): Our next question comes from Joshua Buchalter from Cohen. Joshua, your line is now open.\n\nJoshua Buchalter (Analyst at Cohen): Hey, guys. Thanks for taking my questions and let me echo my congrats. It's for my first question. Earlier this year, you'd mentioned bringing in additional 12-inch fab online in the second half. I guess I was wondering, was this the primary driver of the additional capacity you were able to secure in the third quarter? And then looking ahead, how much more capacity do you feel you need to both serve your customers and get the inventory levels up to that new raise, 180 to 200 days?\n\nMichael Singh (CEO and Founder): yes okay uh the first question is yes absolutely okay we we said it in the earlier uh earlier this years we expanded another 12-inch fab we had the wasn't in our plant but we hurried and we hurried up and get that thing going and okay and we start shipping product in q3 okay that's a that's a very very uh that's an an unprecedented and thanks to our our peoples, and they really worked day and night to manage that, to manage and qualify these products. Going forward, we just want to expand the capacity to reach the 180 to 200 days inventory. Going in the future, if you have a very linear world, then it's very easy to calculate. I think we're living in a very nonlinear environment. And 200 days inventories, that's what we want to do.\n\nJoshua Buchalter (Analyst at Cohen): Got it. Thank you. That's very helpful. And then for my follow-up. A bit of a bigger picture question. I mean, you guys are now a billion dollar or you reached a billion dollar run rate this quarter. Are you seeing any increased or changes in the competitive responses from your peers as you move higher on both a unit basis and as well in the socket value? Thank you.\n\nMichael Singh (CEO and Founder): Our ASP is increasing and as long as when we move it to a higher market segments and So our competitions are always pretty similar. Our customer doesn't even know NPS is a billion dollars. They all know NPS is very small potatoes against all these giant.\n\nBernie Blagan (CFO): But I think you go back to what our competitive basis is, and it really is that we're winning with superior technology and a higher level of customer service. And I think that's what our customers are recognizing us for.\n\nMichael Singh (CEO and Founder): That's right. Yeah.\n\nJoshua Buchalter (Analyst at Cohen): All right. Thanks, guys. Congrats again. Thank you.\n\nGenevieve Cunningham (Moderator): Our next question comes from Rick Schaefer from Oppenheimer. Rick, your line is now open.\n\nRick Schaefer (Analyst at Oppenheimer): Hi, thanks to you guys. And I'll add my congratulations as well. Um, maybe just a quick follow on, follow on if I can on that production question. I know you guys have been pulling in new production and foundry partners pretty aggressively. Um, I mean, I know you've spoken, I think in the past about sort of once it's done, the goal is to kind of be at that 1.2 billion or so in kind of annual revenues. And that's not a lot of headroom for you guys at your current run rate, uh, at your current growth rate. So I'm curious, you know, is that 1.2 still the right number we should be thinking of in terms of your capacity when all is said and done? And maybe what does the timeline look like for that now since you're pulling stuff in?\n\nMichael Singh (CEO and Founder): Yeah, okay. Obviously the 1.2 million is not enough. And if you want to building a fast and on a 200 days inventory, it's always more than double it. Okay, now it's in there. That's what we try to do. And it's not easy. And that's what we're aiming for, just double it.\n\nBernie Blagan (CFO): And I think that in the past, you know, securing fab capacity and being able to introduce new products at the rate that we are is really nothing new to MPS. But the scale has been getting bigger. And so that's why the investments and the time that we have to plan ahead makes a difference. And so all we're doing is preparing both for the capacity, but also recognizing, acknowledging the investment that goes with it.\n\nRick Schaefer (Analyst at Oppenheimer): So if we fast forward 18 months, 24 months, I mean, is there a bogey for what you think your capacity will be? I mean, if it's not one, two, is it, I assume, higher than that? But I just was curious if there was a number you could share or if you know at this point.\n\nMichael Singh (CEO and Founder): Oh, we're doing, I'm sorry I wasn't so clear. We're shooting for $2 billion.\n\nRick Schaefer (Analyst at Oppenheimer): Oh, $2 billion. I'm sorry. I misunderstood that. Sorry. Thanks, Michael. And then just maybe a question, if I could, on 5G and platforms. You know, maybe I was hoping you could talk a little bit about your exposure to the tier one, you know, 5G RAN OEMs, the ones you're allowed to sell to, of course, you know, where you are in terms of revenue ramp or design win activity. I mean, are any of these guys buying QS mod yet? Are you sort of initially seeing more, you know, POL, eFuse, kind of, you know, similar to what you saw in the early stages of your cloud server ramp?\n\nMichael Singh (CEO and Founder): I think it's a 5G that the overall at the early stage and all I can say now is that we engage with all the 5G station makers and we do have a designing activities and we do have award projects but it's not significant revenue yet.\n\nRick Schaefer (Analyst at Oppenheimer): Thanks, Michael.\n\nGenevieve Cunningham (Moderator): Our next question comes from Ross Seymour from Deutsche Bank. Ross, your line is now open.\n\nRoss Seymour (Analyst at Deutsche Bank): Hey, guys. I want to give the same congrats that everybody else did, the stupendous work here. A couple quick questions. First, when do you expect the delinquencies to be gone?\n\nMichael Singh (CEO and Founder): If the market slows down, so we're going to do the next quarters. If the demand is still that strong, we continue to face that. And we see some that are not as bad as the last two quarters.\n\nRoss Seymour (Analyst at Deutsche Bank): And then on the supply side of the equation somewhat, but maybe even more of a regulatory issue, what's the exposure and how are you dealing with the Huawei ban? And does the SMIC ban have any impact on you, whether it's on the supply side or otherwise?\n\nMichael Singh (CEO and Founder): Huawei is not our supplier. But SMICS, it is our supplier. So far, it's not affecting us. We don't know. We can't speculate what does all these policy means. But on the other hand, we diversified our... our foundry sources. Okay. We're starting from a beginning of, of, of this year. Okay. We speed it up.\n\nRoss Seymour (Analyst at Deutsche Bank): So on the Huawei side, just to be clear, you had them as a customer, I believe in the first half of the year, one way or the other. And I assume you're no longer shipping to them. And I just wondered if that's part of your fourth quarter guidance is them going to zero.\n\nMichael Singh (CEO and Founder): Well, we can say zero or, or, or, or, or, non-zeros, okay, and it's so far, okay, and we cannot ship, but there's other rules and regulations coming out, and all the other permits, okay, and we cannot, okay, speculating on what kind of things we can do, okay, and it all depends on the government now.\n\nRoss Seymour (Analyst at Deutsche Bank): I guess the last question then away from government type questions is Bernie and you and Michael have had a framework in for many, many years about the percentage superior growth versus the analog market that you guys have delivered. I think it's been kind of a 10 to 15% positive Delta in your favor. Is that rule just thrown out the window now this year is, you know, 25, 30 points above the, that peer group. And I know one year doesn't make a trend, but, As you look at it, is there something that's creating some semblance of escape velocity where that delta expands meaningfully just due to the breadth of your design wins, the market you're targeting, or do we expect a little bit of reversion to the mean in 2021 after such a great 2020?\n\nMichael Singh (CEO and Founder): Well, you know, I can't, as I said, the word is not linear, so I can't mean, and I remember when, And I was facing a lot of questions about when our model will be, our model is like a 20 to 25% growth rate, okay, in 2016, 17, 2015, 16. And we will criticize that you would never get that. And like, although we're somewhere around the 17, You asked so many times, you forced me to say it, and at the time, I think around 2016, I said, okay, by 2018, 19, we're going to get it over 20%. That comment is pulling up from my for my ears, okay? And I don't have a, this is not science, okay? I mean, in a nonlinear world, okay, it's very difficult to predict. And so I said earlier, okay, we only can, anticipating us, okay? And by staffing inventories, okay? And by stocked inventories. And just get ready, okay? And... Of course, and the world crashes, okay, of course we're not, we're going to start to depreding inventories, and okay, we're not building as many, okay, as much, okay? And so we can modulate the insight a little bit, okay? But for the growth rate, I see all these designing activities and all these projects, I would say last couple years is better than two, three years before. And we awarded a lot more high-value products, high-value sockets.\n\nRoss Seymour (Analyst at Deutsche Bank): That's great. Thank you very much, Michael.\n\nMichael Singh (CEO and Founder): Thank you. Yeah, thank you.\n\nGenevieve Cunningham (Moderator): Our next question comes from Tori Svanberg from Stiefel. Tori, your line is now open.\n\nTori Svanberg (Analyst at Stiefel): Yes, thank you. I just had a follow-up question. Michael, on e-commerce. That's obviously a business model that could help you manage capacity, inventory, and so on and so forth. Have you been able to keep up with the investments there in this environment? Maybe you could just update us on where the e-commerce business stands today.\n\nMichael Singh (CEO and Founder): We didn't prepare the numbers. I think that we're doing really good. We're doing really good. And I thought that there was nobody gonna ask the question.\n\nBernie Blagan (CFO): We have too much other news.\n\nMichael Singh (CEO and Founder): It is, okay, I think that we, I feel, I can say it, we've figured out the way to do it. Until we prove ourselves wrong again. The new websites, I think you see it. It's very different. And we increase a whole lot more clicks. And the customers stay on the pages for a lot longer. And also, we're creating a virtual lab. And that part of it also helps the e-commerce. So we don't have to put up FAEs and have them pounding the pavement to generate opportunities. And we're using the website. And the numbers increase weekly. And I'm very pleased. So I want to talk about a few hundred percentage.\n\nBernie Blagan (CFO): increase okay from a small number doesn't mean a lot but for us and uh we learned that's the trade that's the area we're going to do okay and we're going to enhance that i'd even go that there's a an even higher arching strategy here uh where e-commerce is a significant part of and it's really how do you uh go after underserved customers And what was surprising to me is we did a look at the last three years as far as how many customers did we have that were under $100,000 and how is that base growing? Because if you can use the linear model where what they used to do is get in there early.\n\nMichael Singh (CEO and Founder): The linear technology. Technology.\n\nBernie Blagan (CFO): Technology. Get in there early and then develop these long-term relationships, and then you grow with their growth. And so as a part of that strategy, I think the numbers I looked at were doing a very good job. They're starting to bear dividends.\n\nMichael Singh (CEO and Founder): We increased the Visa number about three or four times from a small base. Okay. And that is significant, and it's happening in the last few years. And now, clearly, we can put a matrix. And so OSAID is what you measure, what you get, okay? And we know how to start to know how to want to measure it. And that, to me, is very important. But looking at the revenue-wise, okay, it's became meaningful, but I don't have a clear detail. So I don't want to have a pull out my hair numbers.\n\nTori Svanberg (Analyst at Stiefel): That's great. Thank you very much, Michael and Bertie.\n\nGenevieve Cunningham (Moderator): Our next question comes from Rick Schaefer from Oppenheimer. Rick, your line is now open.\n\nRick Schaefer (Analyst at Oppenheimer): Yeah. Thanks, Michael and Bernie. Um, and speaking of things that haven't been talked about as much, maybe the last couple of quarters, I'm curious if you could give us a, an update on the design when pipeline or revenue color for, for your converter business, um, you know, has, I'm just curious as ADI Maxim, you know, opened any doors for you guys and have you seen the level of engagement with customers increase, you know, maybe as a side note, are you, are you seeing more, more, uh, analog, you know, uh, design engineer resumes or, uh, you know, is it, is it easier to find guys? So I'm just curious if you give us any update there. Thanks.\n\nMichael Singh (CEO and Founder): Um, it, uh, finding a good people is always hard. All these are good companies that keep the good people. Yeah. And, uh, there's always, that's always a challenge. Okay. And, uh, um, so we know that we need to diversify. And that gave me, and, uh, um, a lot of times, okay. In, uh, uh, The last 10, 15 years, or more likely, the last 20 years, we have a lot of people from China. Now, four or five years ago, we migrated to Europe and Taiwan, outside of mainly China. Now, in the last couple of years, we'll come back to the U.S. We do... see, okay, not necessarily in the Bay Area, but other parts of the countries, and, okay, we do find some tolerance there.\n\nRick Schaefer (Analyst at Oppenheimer): And, Michael, any update on what's happening with converters for you guys?\n\nMichael Singh (CEO and Founder): The converters, which \u2013 The signal chain stuff, the team you brought in?\n\nRick Schaefer (Analyst at Oppenheimer): It's been a couple quarters since we talked about it.\n\nBernie Blagan (CFO): I think it's been eight hours. High performance analog, yeah.\n\nMichael Singh (CEO and Founder): Oh, yeah, the data converters. Okay, yeah, yeah, yeah, okay. I think we received the first chip, okay?\n\nBernie Blagan (CFO): This is prototyping.\n\nMichael Singh (CEO and Founder): Yeah, and I think we're building solutions, and most of the time, the the first shepherd will have some bucks, but we, uh, is a wiggly and, uh, and we're, we're, uh, building a prototype. Okay. We still came, uh, putting a system yet now.\n\nRick Schaefer (Analyst at Oppenheimer): Got it. Thanks guys.\n\nGenevieve Cunningham (Moderator): Our next question comes from William Stein of Truist. William, your line is now open.\n\nWill Stein (Analyst at Truist): Uh, thanks. Um, follow up from before, um, We're just \u2013 someone else asked about e-commerce, but I'm hoping you might give us an update on the eMotion and module business and maybe the programmable traction generally. I think about these as sort of separate from e-commerce. Maybe they're not as separate, but an update on this part of it would be really helpful. Thank you.\n\nMichael Singh (CEO and Founder): Okay. Yeah, I think we use e-commerce platform to promote those products. And that e-motion side, I think the revenues, I have to say some numbers now. Otherwise, I don't know what you guys think. I do have numbers. I want to have a bonus. Somehow, it's increased almost double it. the models, the motion side. Yeah.\n\nBernie Blagan (CFO): The emotion is right in that sort of transition phase because we have a lot of design wins that are going in. So last year, the revenue run rate was somewhere in the, you know, 10 to 12 million. Yeah. But now the doubling is going to start, particularly as we go into both automotive and industrial applications.\n\nMichael Singh (CEO and Founder): Yeah. So, so I was, I was, I'm correct. So it was about double return. Okay. And, uh,\n\nBernie Blagan (CFO): I think also when we look at the modules business, that is taking on very nicely.\n\nMichael Singh (CEO and Founder): I think the modules started with a smaller base, like a few hundred percent increase. Okay. Now it's a 40, 30, 40 million dollars. Okay.\n\nWill Stein (Analyst at Truist): And was the, is the strength that you're seeing there at all related to the pull-ins and, you know, delivering against delinquencies that you had previously, or is this, part of the rest of the business, what I want to think of as core that might not have shown much upside.\n\nMichael Singh (CEO and Founder): No, it's a small part of it due to delinquencies, and this is a new market segment, and people order from online, and we never see those. if it's not our own internet, our own website from our distributors. These are very small customers. They never ordered those parts before. Although the number is small, the revenue is still small, but a large number of customers. These are plug-in play modules. And so what we, and they can just plug in and they don't have to do any design. And since you mentioned that programming pushing, that's part of what we learned, that our customer doesn't even want to do programs. They want us to do it. And so, we created a virtual labs and we customer tell us what, what they want. And okay. And we show, okay, we, in our labs, okay, we, we program everything and then we ship. Okay. It's a, so now you can talking about it's a, it's a really a custom design for each customer. And, and that is taking off. And I'm very glad to see it.\n\nBernie Blagan (CFO): And just a final comment there is on the modules. Uh, they're not necessarily tied to anyone in market. They're, they're actually very broad based. And initially we thought that they would be plug and play solutions, particularly for, uh, prototyping or small volumes, but it turns out that they're actually going to mainstream mainstream production.\n\nMichael Singh (CEO and Founder): Yes. Yes. And, uh, So that's something we learned, and I'm a former engineering, I'm a school engineer, and our people, and we create these great products that we see, and we're putting like 30 parameters, 70 parameters on a website. They can program it, and they can see what the result from the simulations. And it turned out to be, it's like a, And we put it on there and nobody looking at it and we're wondering why. And so we reduced to half and then when you cut another half, the reduced to five, six, seven, they still don't want to see it. And they want to pick the numbers and talk to you, you do that for me, okay? And that's great. We can do the works and okay, they pay for it. That's fine. Okay.\n\nWill Stein (Analyst at Truist): That's great detail and progress. Thanks very much.\n\nGenevieve Cunningham (Moderator): Our next question comes from Quinn Bolton from Needham. Quinn, your line is now open.\n\nQuinn Bolton (Analyst at Needham): You guys just wanted to see if you might be able to give us an update on your efforts in the GPU space for either desktop or data center GPUs. You know, just looking at the power consumption of those devices, I think, You're seeing desktop GPUs now consuming up to 300 watts. I think data center, maybe up to 400 watts. You guys, I think it talks about that back in analyst days as a potential opportunity. Just wondering if you're starting to see, you know, any real traction or if you're starting to need a curve on either the sort of the gaming or the data center side of GPUs.\n\nBernie Blagan (CFO): Yes, we're seeing substantial movement on both. We probably started out earlier on the desktop. where we started generating revenues with this about 18 months to two years ago. And now we're moving into the data center where we actually are starting to ramp, and in particular, 48-volt for artificial intelligence. So the opportunities are significant, but we're still at the very early stages of this market. So fundamentally, we're very well positioned, but it's still gonna be another year or two before we still move the dial with the revenue ramp.\n\nMichael Singh (CEO and Founder): Those AR, Bernie's talking about, these are over 1,000 watts. Yeah. And it's not two or three or 400 watt levels. If you get to that high level, you're only talking about only a few companies that can supply those type of a product. Yeah. I think we are in good positions, but always can be better. Great. Thank you.\n\nGenevieve Cunningham (Moderator): If there are any follow-up questions, please click the raise hand button. There appear to be no further questions. I would now like to turn the webinar back over to Bernie.\n\nBernie Blagan (CFO): Great. Thanks, Jen. I'd like to thank you all for joining us for this conference and look forward to talking to you again about our fourth quarter results, which will likely be in early February. Thank you and have a nice day.",
+  "n_turns": 102
+}

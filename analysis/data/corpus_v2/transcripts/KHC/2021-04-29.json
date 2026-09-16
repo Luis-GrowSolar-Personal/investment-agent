@@ -1,0 +1,297 @@
+{
+  "ticker": "KHC",
+  "original_ticker": "KHC",
+  "call_date": "2021-04-29",
+  "year": 2021,
+  "quarter": 1,
+  "vendor_params": {
+    "exchange": "NASDAQ",
+    "symbol": "KHC",
+    "year": 2021,
+    "quarter": 1
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T01:12:45Z",
+  "raw_payload": {
+    "event": {
+      "year": 2021,
+      "quarter": 1,
+      "conference_date": "2021-04-29T09:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk07",
+        "text": "Ladies and gentlemen, thank you for standing by and welcome to the Kraft Heinz Company first quarter results conference call. At this time, all participants are in a listen-only mode. Later, we will conduct a question and answer session. Instructions will follow at that time. If anyone should require assistance during the conference, please press star zero. I would now like to turn the conference over to your host, Mr. Chris Jakubik, Head of Global Investor Relations for the Kraft Heinz Company. Please go ahead, sir."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Thank you, and hello, everyone. This is Chris Jakubik, Head of Global Investor Relations at Kraft Heinz Company, and welcome to our Q&A session for our first quarter 2021 business update. As you know, during our remarks today, we will make some forward-looking statements that are based on how we see things today. Actual results may differ due to risks and uncertainties, and these are discussed in our press release and our filings with the SEC. We will also discuss some non-GAAP financial measures today during the call, and these non-GAAP financial measures should not be considered a replacement for and should be read together with GAAP results. And you can find the GAAP to non-GAAP reconciliations within our earnings release. Before we begin, I'm going to hand it over to our CEO, Miguel Patricio, for a few quick opening remarks. Miguel?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Well, thank you, Chris. I just wanted to start our session today with a few overall thoughts. First, that we have had a very, very encouraging start of the year, both top line and bottom line, with our strongest growth in priority platforms and markets, especially in underdeveloped countries with a very strong result. We were able to hold household penetration gains even as markets begin to open, and effectively managing inflation and supply constraints. We are also very encouraged by our progress with initiatives to accelerate our advantage in different areas, like in marketing, being more agile and more creative, in retail and food service joint business plans, in unlocking capacity, in grow and energize platforms and also on bringing efficiencies, gross efficiency gains that we continue tracking to be about $400 million in the year. That said, we feel that it's still too early to change our outlook for the full year. We still expect 2021 financials to be ahead of our strategic plan. and we are expecting mid-single-digit growth in Q2 2021 versus the same period in 2019. At the same time, we should see stronger but manageable inflation beginning in Q2. Finally, we are pleased with additional financial flexibility that we are building. We continue to aggressively reduce debt, on track to further increase flexibility. I will now hand it back to the operator, and we can start the Q&A."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thank you. At this time, if you would like to ask a question, please press star, then the number 1 on your telephone keypad. Again, that is star 1. Your first question comes from the line of Andrew Lazar with Barclays."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Miguel, I know that organic sales growth guidance for 2Q is a bit better than what consensus was expecting. But it does represent a notable sequential deceleration versus 2019. And I'm trying to get a sense of is this \u2013 I assume this is primarily just \u2013 A1Q was quite a bit stronger than you probably thought. And maybe you're also trying to be thinking through and being prudent about what further, you know, sort of reopening and mobility means for sales trends going forward. And then I was hoping maybe Rafa could comment even briefly on just how he sees the durability of the emerging market strength that we saw in the quarter. Thank you."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Hi, Andrew. Thank you for the question. Now, keep in mind that in the second quarter, we are going to have a different mix. Food service will be stronger. And for sure, with opening of the market because of COVID fading, the mix will change. And so that is one of the reasons. The second reason, also, let's remember McAfee. that it was in the numbers of 19 and that it's not in the numbers of 21 and that has a strong impact. I don't know if Paulo you want to complement that question before passing to Rafael."
+      },
+      {
+        "speaker": "spk03",
+        "text": "I think you highlight the right point and we are calling down Viasa's prior year low single digit growth and the impact of MECA phase is always 1.1 percentage points. It's not that dramatic of a deceleration, although, as you're saying, that we are seeing the reopening of the developed markets and there is some mixed impacts that we're going to feel in the quarter."
+      },
+      {
+        "speaker": "spk14",
+        "text": "But that said, yes, first quarter was a very strong quarter, as you mentioned, in terms of net sales when compared with 2019. Rafael, please. Yes."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hi, Andrew. Thanks for the question. I mean, for us, emerging markets consumption has held up relatively well during the pandemic. And I would say two key reasons. One is availability. I mean, our customer service across international has been quite consistent during the whole pandemic. But also, like, the focus, right? The second is the focus. We remain very focused on our emerging markets strategy. I mean, center around taste elevation platform, right? and combined with localizer, the proven go-to-market expansion model. And this has been performing quite well. There are two factors that helped us during the pandemic, right? And you can see on the results, it added a point of share. We've been gaining share also during the last three quarters in a row. So we do expect this momentum to continue as we move throughout the year. And this was based on the strong initiatives that we discussed during tagging. Great. Thanks very much."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from the line of Robert Mascow with Credit Suisse."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hi. Thanks for the question. I was wondering if you look at your U.S. retail mix as maybe more exposed than some of your peers to kids going back to school. You know, you have mac and cheese there. You have Kraft Singles, Oscar Mayer Lunch Meats, and that's a lot of, I guess, parents making lunches for their kids when they're at home. When they're going back to full-time schooling, do you think that these brands will face more than normal headwinds, or does it somehow kind of make up for itself somewhere along the way? Thanks."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Well, first of all, thank you for the question. Listen, we feel good about controlling the controllables. I mean, and if you think about the gains we have made in household penetration, you know, those are coming from younger, more diverse families. And we've seen that those families are actually increasing their consumption across different days parts. And that's happening, whether it's Mac and cheese, whether that's Oscar Meyer hot dogs, very consistent. Plus, Even if you think about brands that typically, you know, kids use at school, like Launchables, we're actually also seeing gains on those, even over the last six months. So what I will say is our focus on continuing to retain those new households, regardless of the circumstances, is working, and it will be the things that we'll continue to do to move forward. Thanks. Okay, thanks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from the line of Brian Spillane with Bank of America."
+      },
+      {
+        "speaker": "spk08",
+        "text": "I've got two questions related to inflation. The first one, I think the guidance is for mid-single-digit cost inflation. And I just wanted to get an understanding there of is that gross inflation or is that net of cost savings? And if not, just if you can give us a breakdown between the gross inflation versus net inflation."
+      },
+      {
+        "speaker": "spk03",
+        "text": "brian thanks for the question so the guidance that we we provided in mid single digit is in growth so it's a percentage of our total cogs as growth and that's gross inflation okay actually we are seeing uh that we would be you know in our current view more in the low end of the mid single district range uh and that's our view and what when we see this happening today uh as we mentioned before we also saw as many peers, the escalation of this inflation since our last call. But when we add, as you mentioned, our cost efficiencies that we highlighted around, that we're still seeing like $400 million in efficiencies in the dollar supply chain, and all the levers that we have for revenue management, we believe that the final number will be manageable for the company."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Okay, thank you. And then if I could follow up, Rafa, just for you, just in terms of inflation, could you just give us a little bit of perspective on, you know, what tools you have available, especially in developing markets, but also in Europe in terms of managing inflation? So is it different, I guess, in terms of the way that you'll work through inflation in your markets than what we'll see in North America?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yes. Hi, Brian. Yes, look, so let me break down the two. In emerging markets, I mean, in general, acceptance of pricing is better, right, because inflation is more normal on the local economies. In developed markets, I mean, what I can tell you is we've already successfully closed negotiations with all our key retail partners, and especially in key countries like France, Germany, and we managed to achieve the pricing and premiumization behind the brands that we needed. So we feel quite confident about that. I mean, in terms of comparison, you said comparing to the U.S., I mean, there are similar differences, right? Like similar to North America, the costs have moved against us in ingredients, in packaging. But different than North America, overall, logistics is not a major contribution to inflation internationally. So in terms of numbers, it's in line with what Paulo said, comparable to mid-single-digit range for the total. Okay. Thank you."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from the line of Rob Dickerson with Jefferies."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Great. Thank you so much. Miguel, what is it \u2013 general question around your innovation plans, marketing plans, kind of vis-a-vis skew rationalization. So as we've heard for over a year, there's been a lot of optimization for the retailers to kind of focus on those core skews to just essentially maximize the benefits of velocity and scale, which you also speak to all the time. So I'm just curious, as you kind of you know, look forward, you know, kind of around that creative development of the innovation, are there sizable pieces of the portfolio that you kind of foresee rationalizing, you know, such that, you know, those tails come off, new innovation comes in, but still focused on the core, on those high velocity items?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Thanks. Let me answer a question, and I ask Carlos to complement my thoughts. Now, we see this as a great, we have seen, and this is a great opportunity for us to exactly to focus on UNESC use with higher rotation and also from a supply standpoint to improve efficiencies in our factories and also on cost. So we see this move as a very positive opportunity. Carlos, do you want to comment more precisely in terms of numbers of what's going on in the U.S.?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Sure, Miguel. What I would say is a lot of it we have done already. So as we go into this year, we have reduced probably 20% of our SKUs versus what we had in 2019. And I think this has been done to collaboration with our retail partners. So we're building together a kind of level of trust and transparency to make sure that we impact customers focus on our core that drives better velocity and actually allows us to have better service with our customers. So overall, I feel good about where we are and the progress we have made in this area."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Thanks."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from the line of Alexia Howard with Bernstein."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Good morning, everyone. Can you hear me okay?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Yes."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Perfect. So I wanted to ask about the promotional path from here. You talked, I think, in the prepared remarks about pulling back on promotions in January and February during Q1. Does that mean that we're likely to see a more elevated level of promotion year on year, given the pullback that happened last year? And what does that mean for net pricing over the next couple of quarters? Thank you, and I'll pass it on."
+      },
+      {
+        "speaker": "spk04",
+        "text": "I can start. Let me at least give you a perspective, too, first of all, about the overall view of how we're thinking about our pricing and how that fits in terms of our promotions. You know, all I can tell you is I feel good about our ability to pass through our cost inflation as we see it and what we need to do."
+      },
+      {
+        "speaker": "spk14",
+        "text": "We lost Carlos."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Yeah, yeah. So let me just pick up on that. I think Carlos froze out a little bit, Alexia, so we're going to come back. But I think where Carlos was going is in terms of what we're seeing going on, in the marketplace, and what we see unfolding is in Q1, we were able to sort of build further on 20. Sorry, Carlos, why don't you go ahead."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Sorry, my apologies. Hopefully you can hear me okay now. Sounds great. Okay. Listen, this is the new world that we're still working through, so I appreciate the people's patience. When I was getting at it, within the context of our pricing that we're looking at, do know that if you think about our quarters, seven of the last eight quarters, we actually were able to actually drive pricing as a positive contribution to our net sales. So we are seeing that our iconic brands are actually showing their pricing power. Now, when you look at going forward, we will return to supporting key promotional windows. And if you think about coming up Memorial Day, we're also going to be making sure that we show up in those moments. At the same time, we will implement the revenue management initiative to drive share growth and improve their returns. And if I step back and I try to summarize kind of how we're thinking through this, the way I think of it is a three-pronged approach. One, making sure we continue to renovate our portfolio to drive better value for our consumers. that we improve the creative content of our marketing, and that we strengthen the diversifying our media impressions. So all said, I feel good about our ability to deal with the inflation that we have and making sure we do this in a way that it's positive for the company. Great."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thank you very much. I'll toss it on. Your next question comes from the line of Jason English with Goldman Sachs."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Hey, good morning, folks. Thank you for sliding me in. To put a finer point on Alexia's question, do you expect pricing net of everything to be positive in the U.S. in the back half of the year?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hi. Jason, listen, as a matter of practice, we do not forecast pricing. But as we, and again, we are seeing that we're going to be up in the second half against some unusual comparisons in the back half. But as Carlos mentioned, we see a lot of levels for us to manage inflation through revenue management, through savings. So we're feeling very good about how to manage our profitability that's coming from this inflation impact."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Maybe to help us get a little more comfortable on that, let's flip to the cost side. I know you said sort of low-end and mid-singles plus $400 million of cost saves, sort of net to like a 2% sort of net inflation, I think. You can tell me if I'm wrong on that. But what does the cadence look like as we go through the year? Because I'm guessing given the move of some of these costs, your exit rate in the back half of this year is going to be substantially above that. And if I'm off base on that, please correct me."
+      },
+      {
+        "speaker": "spk03",
+        "text": "We have a run-up of gross inflation as the year progresses, but we also have a run-up of our saves initiatives going on as the year progresses. And on top of that, we have also our revenue management initiatives. So, again, I'm not going to give exactly quarterly number levels here, but that's how you should think about the progression of our base, our cost base. Okay, thank you. Welcome."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from the line of Ken Goldman with J.P. Morgan."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Hi, thank you. I'm going to start beating on the debt inflation horse here. I know we're talking about it a lot, but I just wanted to get a sense of how locked in you are on your raw materials for the rest of the year. I guess putting it another way, is it fair to assume that you know, unless there's some big spikes in items that are harder to buy ahead, you know, mid-single-digit inflation is fairly safe to build in. I'm just trying to think, you know, if items like cheese and meat and coffee rise a bit higher, you know, these are items that historically Kraft has, you know, locked in many months in advance at times. So I just wanted to get a sense of the risk, either up or down, to the guidance of mid-single-digit inflation."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hi, Ken. This varies, and again, we have specifically in our big four, our key big four commodities, for the full year, we are seeing just a slight inflation. We are going to have our heaviest comp in Q2, that we're going to be lapping a very low price in cheese last year and a high price of pork bellies this year. But overall, in terms of the big four, we're seeing a slight inflation. In terms of how we manage and hedge this, it varies by type of area. So there are some commodities that we go longer, beyond six months, nine months. There are others that are shorter, but this varies a lot. But what I can tell is overall, when we see the scenarios, of course, there is a lot of volatility in this market. But overall, when we see where the commodities are today, you know, the range of meat single digit is what we're seeing. And again, as I said, we are seeing as overall as a percent of cogs in the low end of this range."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Very quick follow-up. What are your experts telling you about how valid some of these prices we're seeing for corn and soybeans and meat are given supply and demand? I guess I'm asking, is there a little bit of froth created by traders in the market right now?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "I wouldn't like to enter in this type of forecast. We are more focused on being sure that we manage our costs for different levels of price and if we provide to our business the specific hedging profile that allows the business to plan itself."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from the line of Laurent Grandet with Guggenheim."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah, thank you. Good morning, everyone. Thanks for squeezing in. So two questions, one on Canada. So Canada is definitely improving. So could you please give us a bit more color about what's going on there and how sustainable and the growth and the rebound it is for the next few months and quarters?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Let me answer that question. I think you're absolutely right. Canada is definitely improving. We had a very good quarter. I think that we did a much better job in terms of promotional calendar for Canada. Last year, we started with big promotions and the ROI was not exactly great. We are being much more disciplined on our promotions and that's what it reflects. So there was a big increase in margin from 16% last year to about 22% this year. But it's not only on margin that Canada is improving. I'm very satisfied with the way that we are evolving on innovation pipeline with marketing and creativity and digital marketing. I think we are having a a very different Canada than we had just a year and a half ago."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Thanks. Maybe a broader question on your strategy plan. So compared to your strategy plan you laid down last year and now we are six, eight months within the implementation of that plan. So could you maybe tell us what you think You have been very successful in implementing and you are ahead of what you expected. Maybe some space or some strategic initiative where you think you are staying behind and why?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "I would say that overall we are very excited with our transformation plan. And it's deep and it's in all areas. We are all evolving. And after one year, I would say that we are going a much more accelerated rate than we could imagine, especially in a year that we are doing all this through Zoom meetings, working from home. So it surprised us, the velocity, the agility that we are having. in all areas, from supply to marketing to finance to all areas of the company. But this is a journey. Using an analogy of baseball, I would say that we finished the first inning. We are now going to the second inning, but there's still a big game ahead of us to play. But we are excited about the possibility and the evolution."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Thank you very much. Good work. Thanks. Thank you."
+      },
+      {
+        "speaker": "spk07",
+        "text": "The next question comes from the line of Steve Powers with Deutsche Bank."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Hey, thanks. Maybe to build on that last question a bit, I think it's been a little while since we spoke in detail about employee engagement and morale at Kraft Heinz and to some extent also about Retailer engagement. Although, Miguel, you did speak to healthy and improved customer satisfaction in the prepared remarks. I guess as you step back and think about the journey over the past year and the progress made since 2019, can you update us on how you perceive your current standing against those themes today and how that feeds into your outlook as you go forward into 21 and beyond?"
+      },
+      {
+        "speaker": "spk14",
+        "text": "Sure. I will comment on our employee engagement. I will ask Carlos to talk about customer satisfaction engagement, specifically in the U.S. We have great progress on that part as well. I would say that among all things that we have been doing, the employee engagement is where we have the biggest shift, particularly with our people much more engaged. And when I say this, this is, of course, through quantitative research, but also qualitatively. So our team is much more engaged, working in a much more cooperative way. We've been eliminating silos that we had in the company, and this year of pandemic, we were already organized in a different way, and we had to be much faster in that way. I would say that the morale is much higher. We have a much more engaged team. They understand the strategy we have ahead, and they are excited about the journey that they are living. That being said, again, we still have room for improvement, and we'll continue working in that sense. Carlos, maybe you can comment on the customer side."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Sure, Miguel. Thank you. And I can testify to what Miguel is saying, that we are seeing that across the entire company, you know, the level of engagement, the way that the teams are working with an agile mindset in all that we do. Related to our customers, what I can tell you is we are now in a much different place than we were a year ago. We have now been able to build trust with our key retailers. We are working in a partnership that includes a level of transparency that we hadn't seen in the past. And, in fact, our retailers are also and partners are recognizing that. So I think that now when we hear from them directly that it feels like a new Kraft Heinz, you know, we take that with pride because of the work that we have now and the collaborations we now are doing with them in a way that we haven't done in the past. So something for us to continue to build on. But thanks for the question. Thank you."
+      },
+      {
+        "speaker": "spk07",
+        "text": "And at this time, I would currently like to turn the call back over to Mr. Chris Jakubik."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Thank you, and thanks, everybody, for joining us today. For analysts that have follow-up questions, Andy Larkin and myself will be available to take them. And for the media, Michael Mullen will be available for your calls. So, again, thanks, everybody, for joining us today, and have a great day."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Ladies and gentlemen, thank you for participating. This concludes today's conference call. You may now disconnect."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk07": {
+        "name": "Operator",
+        "title": "Conference Call Operator"
+      },
+      "spk13": {
+        "name": "Chris Jakubik",
+        "title": "Head of Global Investor Relations"
+      },
+      "spk14": {
+        "name": "Miguel Patricio",
+        "title": "CEO"
+      },
+      "spk00": {
+        "name": "Andrew Lazar",
+        "title": "Investment Analyst (Barclays)"
+      },
+      "spk03": {
+        "name": "Paulo",
+        "title": "Chief Financial Officer (CFO)"
+      },
+      "spk02": {
+        "name": "Rafael",
+        "title": "Executive \u2013 Emerging Markets"
+      },
+      "spk09": {
+        "name": "Robert Mascow",
+        "title": "Analyst (Credit Suisse)"
+      },
+      "spk04": {
+        "name": "Carlos",
+        "title": "Senior Executive (Commercial/Marketing)"
+      },
+      "spk11": {
+        "name": "Steve Powers",
+        "title": "Analyst (Deutsche Bank)"
+      },
+      "spk08": {
+        "name": "Brian Spillane",
+        "title": "Analyst (Bank of America)"
+      },
+      "spk01": {
+        "name": "Alexia Howard",
+        "title": "Analyst (Bernstein)"
+      },
+      "spk06": {
+        "name": "Jason English",
+        "title": "Analyst (Goldman Sachs)"
+      },
+      "spk05": {
+        "name": "Ken Goldman",
+        "title": "Analyst (J.P. Morgan)"
+      },
+      "spk12": {
+        "name": "Laurent Grandet",
+        "title": "Analyst (Guggenheim)"
+      }
+    }
+  },
+  "text": "Operator (Conference Call Operator): Ladies and gentlemen, thank you for standing by and welcome to the Kraft Heinz Company first quarter results conference call. At this time, all participants are in a listen-only mode. Later, we will conduct a question and answer session. Instructions will follow at that time. If anyone should require assistance during the conference, please press star zero. I would now like to turn the conference over to your host, Mr. Chris Jakubik, Head of Global Investor Relations for the Kraft Heinz Company. Please go ahead, sir.\n\nChris Jakubik (Head of Global Investor Relations): Thank you, and hello, everyone. This is Chris Jakubik, Head of Global Investor Relations at Kraft Heinz Company, and welcome to our Q&A session for our first quarter 2021 business update. As you know, during our remarks today, we will make some forward-looking statements that are based on how we see things today. Actual results may differ due to risks and uncertainties, and these are discussed in our press release and our filings with the SEC. We will also discuss some non-GAAP financial measures today during the call, and these non-GAAP financial measures should not be considered a replacement for and should be read together with GAAP results. And you can find the GAAP to non-GAAP reconciliations within our earnings release. Before we begin, I'm going to hand it over to our CEO, Miguel Patricio, for a few quick opening remarks. Miguel?\n\nMiguel Patricio (CEO): Well, thank you, Chris. I just wanted to start our session today with a few overall thoughts. First, that we have had a very, very encouraging start of the year, both top line and bottom line, with our strongest growth in priority platforms and markets, especially in underdeveloped countries with a very strong result. We were able to hold household penetration gains even as markets begin to open, and effectively managing inflation and supply constraints. We are also very encouraged by our progress with initiatives to accelerate our advantage in different areas, like in marketing, being more agile and more creative, in retail and food service joint business plans, in unlocking capacity, in grow and energize platforms and also on bringing efficiencies, gross efficiency gains that we continue tracking to be about $400 million in the year. That said, we feel that it's still too early to change our outlook for the full year. We still expect 2021 financials to be ahead of our strategic plan. and we are expecting mid-single-digit growth in Q2 2021 versus the same period in 2019. At the same time, we should see stronger but manageable inflation beginning in Q2. Finally, we are pleased with additional financial flexibility that we are building. We continue to aggressively reduce debt, on track to further increase flexibility. I will now hand it back to the operator, and we can start the Q&A.\n\nOperator (Conference Call Operator): Thank you. At this time, if you would like to ask a question, please press star, then the number 1 on your telephone keypad. Again, that is star 1. Your first question comes from the line of Andrew Lazar with Barclays.\n\nAndrew Lazar (Investment Analyst (Barclays)): Miguel, I know that organic sales growth guidance for 2Q is a bit better than what consensus was expecting. But it does represent a notable sequential deceleration versus 2019. And I'm trying to get a sense of is this \u2013 I assume this is primarily just \u2013 A1Q was quite a bit stronger than you probably thought. And maybe you're also trying to be thinking through and being prudent about what further, you know, sort of reopening and mobility means for sales trends going forward. And then I was hoping maybe Rafa could comment even briefly on just how he sees the durability of the emerging market strength that we saw in the quarter. Thank you.\n\nMiguel Patricio (CEO): Hi, Andrew. Thank you for the question. Now, keep in mind that in the second quarter, we are going to have a different mix. Food service will be stronger. And for sure, with opening of the market because of COVID fading, the mix will change. And so that is one of the reasons. The second reason, also, let's remember McAfee. that it was in the numbers of 19 and that it's not in the numbers of 21 and that has a strong impact. I don't know if Paulo you want to complement that question before passing to Rafael.\n\nPaulo (Chief Financial Officer (CFO)): I think you highlight the right point and we are calling down Viasa's prior year low single digit growth and the impact of MECA phase is always 1.1 percentage points. It's not that dramatic of a deceleration, although, as you're saying, that we are seeing the reopening of the developed markets and there is some mixed impacts that we're going to feel in the quarter.\n\nMiguel Patricio (CEO): But that said, yes, first quarter was a very strong quarter, as you mentioned, in terms of net sales when compared with 2019. Rafael, please. Yes.\n\nRafael (Executive \u2013 Emerging Markets): Hi, Andrew. Thanks for the question. I mean, for us, emerging markets consumption has held up relatively well during the pandemic. And I would say two key reasons. One is availability. I mean, our customer service across international has been quite consistent during the whole pandemic. But also, like, the focus, right? The second is the focus. We remain very focused on our emerging markets strategy. I mean, center around taste elevation platform, right? and combined with localizer, the proven go-to-market expansion model. And this has been performing quite well. There are two factors that helped us during the pandemic, right? And you can see on the results, it added a point of share. We've been gaining share also during the last three quarters in a row. So we do expect this momentum to continue as we move throughout the year. And this was based on the strong initiatives that we discussed during tagging. Great. Thanks very much.\n\nOperator (Conference Call Operator): Your next question comes from the line of Robert Mascow with Credit Suisse.\n\nRobert Mascow (Analyst (Credit Suisse)): Hi. Thanks for the question. I was wondering if you look at your U.S. retail mix as maybe more exposed than some of your peers to kids going back to school. You know, you have mac and cheese there. You have Kraft Singles, Oscar Mayer Lunch Meats, and that's a lot of, I guess, parents making lunches for their kids when they're at home. When they're going back to full-time schooling, do you think that these brands will face more than normal headwinds, or does it somehow kind of make up for itself somewhere along the way? Thanks.\n\nCarlos (Senior Executive (Commercial/Marketing)): Well, first of all, thank you for the question. Listen, we feel good about controlling the controllables. I mean, and if you think about the gains we have made in household penetration, you know, those are coming from younger, more diverse families. And we've seen that those families are actually increasing their consumption across different days parts. And that's happening, whether it's Mac and cheese, whether that's Oscar Meyer hot dogs, very consistent. Plus, Even if you think about brands that typically, you know, kids use at school, like Launchables, we're actually also seeing gains on those, even over the last six months. So what I will say is our focus on continuing to retain those new households, regardless of the circumstances, is working, and it will be the things that we'll continue to do to move forward. Thanks. Okay, thanks.\n\nOperator (Conference Call Operator): Your next question comes from the line of Brian Spillane with Bank of America.\n\nBrian Spillane (Analyst (Bank of America)): I've got two questions related to inflation. The first one, I think the guidance is for mid-single-digit cost inflation. And I just wanted to get an understanding there of is that gross inflation or is that net of cost savings? And if not, just if you can give us a breakdown between the gross inflation versus net inflation.\n\nPaulo (Chief Financial Officer (CFO)): brian thanks for the question so the guidance that we we provided in mid single digit is in growth so it's a percentage of our total cogs as growth and that's gross inflation okay actually we are seeing uh that we would be you know in our current view more in the low end of the mid single district range uh and that's our view and what when we see this happening today uh as we mentioned before we also saw as many peers, the escalation of this inflation since our last call. But when we add, as you mentioned, our cost efficiencies that we highlighted around, that we're still seeing like $400 million in efficiencies in the dollar supply chain, and all the levers that we have for revenue management, we believe that the final number will be manageable for the company.\n\nBrian Spillane (Analyst (Bank of America)): Okay, thank you. And then if I could follow up, Rafa, just for you, just in terms of inflation, could you just give us a little bit of perspective on, you know, what tools you have available, especially in developing markets, but also in Europe in terms of managing inflation? So is it different, I guess, in terms of the way that you'll work through inflation in your markets than what we'll see in North America?\n\nRafael (Executive \u2013 Emerging Markets): Yes. Hi, Brian. Yes, look, so let me break down the two. In emerging markets, I mean, in general, acceptance of pricing is better, right, because inflation is more normal on the local economies. In developed markets, I mean, what I can tell you is we've already successfully closed negotiations with all our key retail partners, and especially in key countries like France, Germany, and we managed to achieve the pricing and premiumization behind the brands that we needed. So we feel quite confident about that. I mean, in terms of comparison, you said comparing to the U.S., I mean, there are similar differences, right? Like similar to North America, the costs have moved against us in ingredients, in packaging. But different than North America, overall, logistics is not a major contribution to inflation internationally. So in terms of numbers, it's in line with what Paulo said, comparable to mid-single-digit range for the total. Okay. Thank you.\n\nOperator (Conference Call Operator): Your next question comes from the line of Rob Dickerson with Jefferies.\n\nspk10 (): Great. Thank you so much. Miguel, what is it \u2013 general question around your innovation plans, marketing plans, kind of vis-a-vis skew rationalization. So as we've heard for over a year, there's been a lot of optimization for the retailers to kind of focus on those core skews to just essentially maximize the benefits of velocity and scale, which you also speak to all the time. So I'm just curious, as you kind of you know, look forward, you know, kind of around that creative development of the innovation, are there sizable pieces of the portfolio that you kind of foresee rationalizing, you know, such that, you know, those tails come off, new innovation comes in, but still focused on the core, on those high velocity items?\n\nMiguel Patricio (CEO): Thanks. Let me answer a question, and I ask Carlos to complement my thoughts. Now, we see this as a great, we have seen, and this is a great opportunity for us to exactly to focus on UNESC use with higher rotation and also from a supply standpoint to improve efficiencies in our factories and also on cost. So we see this move as a very positive opportunity. Carlos, do you want to comment more precisely in terms of numbers of what's going on in the U.S.?\n\nCarlos (Senior Executive (Commercial/Marketing)): Sure, Miguel. What I would say is a lot of it we have done already. So as we go into this year, we have reduced probably 20% of our SKUs versus what we had in 2019. And I think this has been done to collaboration with our retail partners. So we're building together a kind of level of trust and transparency to make sure that we impact customers focus on our core that drives better velocity and actually allows us to have better service with our customers. So overall, I feel good about where we are and the progress we have made in this area.\n\nSteve Powers (Analyst (Deutsche Bank)): Thanks.\n\nOperator (Conference Call Operator): Your next question comes from the line of Alexia Howard with Bernstein.\n\nAlexia Howard (Analyst (Bernstein)): Good morning, everyone. Can you hear me okay?\n\nJason English (Analyst (Goldman Sachs)): Yes.\n\nAlexia Howard (Analyst (Bernstein)): Perfect. So I wanted to ask about the promotional path from here. You talked, I think, in the prepared remarks about pulling back on promotions in January and February during Q1. Does that mean that we're likely to see a more elevated level of promotion year on year, given the pullback that happened last year? And what does that mean for net pricing over the next couple of quarters? Thank you, and I'll pass it on.\n\nCarlos (Senior Executive (Commercial/Marketing)): I can start. Let me at least give you a perspective, too, first of all, about the overall view of how we're thinking about our pricing and how that fits in terms of our promotions. You know, all I can tell you is I feel good about our ability to pass through our cost inflation as we see it and what we need to do.\n\nMiguel Patricio (CEO): We lost Carlos.\n\nChris Jakubik (Head of Global Investor Relations): Yeah, yeah. So let me just pick up on that. I think Carlos froze out a little bit, Alexia, so we're going to come back. But I think where Carlos was going is in terms of what we're seeing going on, in the marketplace, and what we see unfolding is in Q1, we were able to sort of build further on 20. Sorry, Carlos, why don't you go ahead.\n\nCarlos (Senior Executive (Commercial/Marketing)): Sorry, my apologies. Hopefully you can hear me okay now. Sounds great. Okay. Listen, this is the new world that we're still working through, so I appreciate the people's patience. When I was getting at it, within the context of our pricing that we're looking at, do know that if you think about our quarters, seven of the last eight quarters, we actually were able to actually drive pricing as a positive contribution to our net sales. So we are seeing that our iconic brands are actually showing their pricing power. Now, when you look at going forward, we will return to supporting key promotional windows. And if you think about coming up Memorial Day, we're also going to be making sure that we show up in those moments. At the same time, we will implement the revenue management initiative to drive share growth and improve their returns. And if I step back and I try to summarize kind of how we're thinking through this, the way I think of it is a three-pronged approach. One, making sure we continue to renovate our portfolio to drive better value for our consumers. that we improve the creative content of our marketing, and that we strengthen the diversifying our media impressions. So all said, I feel good about our ability to deal with the inflation that we have and making sure we do this in a way that it's positive for the company. Great.\n\nOperator (Conference Call Operator): Thank you very much. I'll toss it on. Your next question comes from the line of Jason English with Goldman Sachs.\n\nJason English (Analyst (Goldman Sachs)): Hey, good morning, folks. Thank you for sliding me in. To put a finer point on Alexia's question, do you expect pricing net of everything to be positive in the U.S. in the back half of the year?\n\nPaulo (Chief Financial Officer (CFO)): Hi. Jason, listen, as a matter of practice, we do not forecast pricing. But as we, and again, we are seeing that we're going to be up in the second half against some unusual comparisons in the back half. But as Carlos mentioned, we see a lot of levels for us to manage inflation through revenue management, through savings. So we're feeling very good about how to manage our profitability that's coming from this inflation impact.\n\nJason English (Analyst (Goldman Sachs)): Maybe to help us get a little more comfortable on that, let's flip to the cost side. I know you said sort of low-end and mid-singles plus $400 million of cost saves, sort of net to like a 2% sort of net inflation, I think. You can tell me if I'm wrong on that. But what does the cadence look like as we go through the year? Because I'm guessing given the move of some of these costs, your exit rate in the back half of this year is going to be substantially above that. And if I'm off base on that, please correct me.\n\nPaulo (Chief Financial Officer (CFO)): We have a run-up of gross inflation as the year progresses, but we also have a run-up of our saves initiatives going on as the year progresses. And on top of that, we have also our revenue management initiatives. So, again, I'm not going to give exactly quarterly number levels here, but that's how you should think about the progression of our base, our cost base. Okay, thank you. Welcome.\n\nOperator (Conference Call Operator): Your next question comes from the line of Ken Goldman with J.P. Morgan.\n\nKen Goldman (Analyst (J.P. Morgan)): Hi, thank you. I'm going to start beating on the debt inflation horse here. I know we're talking about it a lot, but I just wanted to get a sense of how locked in you are on your raw materials for the rest of the year. I guess putting it another way, is it fair to assume that you know, unless there's some big spikes in items that are harder to buy ahead, you know, mid-single-digit inflation is fairly safe to build in. I'm just trying to think, you know, if items like cheese and meat and coffee rise a bit higher, you know, these are items that historically Kraft has, you know, locked in many months in advance at times. So I just wanted to get a sense of the risk, either up or down, to the guidance of mid-single-digit inflation.\n\nPaulo (Chief Financial Officer (CFO)): Hi, Ken. This varies, and again, we have specifically in our big four, our key big four commodities, for the full year, we are seeing just a slight inflation. We are going to have our heaviest comp in Q2, that we're going to be lapping a very low price in cheese last year and a high price of pork bellies this year. But overall, in terms of the big four, we're seeing a slight inflation. In terms of how we manage and hedge this, it varies by type of area. So there are some commodities that we go longer, beyond six months, nine months. There are others that are shorter, but this varies a lot. But what I can tell is overall, when we see the scenarios, of course, there is a lot of volatility in this market. But overall, when we see where the commodities are today, you know, the range of meat single digit is what we're seeing. And again, as I said, we are seeing as overall as a percent of cogs in the low end of this range.\n\nKen Goldman (Analyst (J.P. Morgan)): Very quick follow-up. What are your experts telling you about how valid some of these prices we're seeing for corn and soybeans and meat are given supply and demand? I guess I'm asking, is there a little bit of froth created by traders in the market right now?\n\nPaulo (Chief Financial Officer (CFO)): I wouldn't like to enter in this type of forecast. We are more focused on being sure that we manage our costs for different levels of price and if we provide to our business the specific hedging profile that allows the business to plan itself.\n\nOperator (Conference Call Operator): Your next question comes from the line of Laurent Grandet with Guggenheim.\n\nLaurent Grandet (Analyst (Guggenheim)): Yeah, thank you. Good morning, everyone. Thanks for squeezing in. So two questions, one on Canada. So Canada is definitely improving. So could you please give us a bit more color about what's going on there and how sustainable and the growth and the rebound it is for the next few months and quarters?\n\nMiguel Patricio (CEO): Let me answer that question. I think you're absolutely right. Canada is definitely improving. We had a very good quarter. I think that we did a much better job in terms of promotional calendar for Canada. Last year, we started with big promotions and the ROI was not exactly great. We are being much more disciplined on our promotions and that's what it reflects. So there was a big increase in margin from 16% last year to about 22% this year. But it's not only on margin that Canada is improving. I'm very satisfied with the way that we are evolving on innovation pipeline with marketing and creativity and digital marketing. I think we are having a a very different Canada than we had just a year and a half ago.\n\nLaurent Grandet (Analyst (Guggenheim)): Thanks. Maybe a broader question on your strategy plan. So compared to your strategy plan you laid down last year and now we are six, eight months within the implementation of that plan. So could you maybe tell us what you think You have been very successful in implementing and you are ahead of what you expected. Maybe some space or some strategic initiative where you think you are staying behind and why?\n\nMiguel Patricio (CEO): I would say that overall we are very excited with our transformation plan. And it's deep and it's in all areas. We are all evolving. And after one year, I would say that we are going a much more accelerated rate than we could imagine, especially in a year that we are doing all this through Zoom meetings, working from home. So it surprised us, the velocity, the agility that we are having. in all areas, from supply to marketing to finance to all areas of the company. But this is a journey. Using an analogy of baseball, I would say that we finished the first inning. We are now going to the second inning, but there's still a big game ahead of us to play. But we are excited about the possibility and the evolution.\n\nLaurent Grandet (Analyst (Guggenheim)): Thank you very much. Good work. Thanks. Thank you.\n\nOperator (Conference Call Operator): The next question comes from the line of Steve Powers with Deutsche Bank.\n\nSteve Powers (Analyst (Deutsche Bank)): Hey, thanks. Maybe to build on that last question a bit, I think it's been a little while since we spoke in detail about employee engagement and morale at Kraft Heinz and to some extent also about Retailer engagement. Although, Miguel, you did speak to healthy and improved customer satisfaction in the prepared remarks. I guess as you step back and think about the journey over the past year and the progress made since 2019, can you update us on how you perceive your current standing against those themes today and how that feeds into your outlook as you go forward into 21 and beyond?\n\nMiguel Patricio (CEO): Sure. I will comment on our employee engagement. I will ask Carlos to talk about customer satisfaction engagement, specifically in the U.S. We have great progress on that part as well. I would say that among all things that we have been doing, the employee engagement is where we have the biggest shift, particularly with our people much more engaged. And when I say this, this is, of course, through quantitative research, but also qualitatively. So our team is much more engaged, working in a much more cooperative way. We've been eliminating silos that we had in the company, and this year of pandemic, we were already organized in a different way, and we had to be much faster in that way. I would say that the morale is much higher. We have a much more engaged team. They understand the strategy we have ahead, and they are excited about the journey that they are living. That being said, again, we still have room for improvement, and we'll continue working in that sense. Carlos, maybe you can comment on the customer side.\n\nCarlos (Senior Executive (Commercial/Marketing)): Sure, Miguel. Thank you. And I can testify to what Miguel is saying, that we are seeing that across the entire company, you know, the level of engagement, the way that the teams are working with an agile mindset in all that we do. Related to our customers, what I can tell you is we are now in a much different place than we were a year ago. We have now been able to build trust with our key retailers. We are working in a partnership that includes a level of transparency that we hadn't seen in the past. And, in fact, our retailers are also and partners are recognizing that. So I think that now when we hear from them directly that it feels like a new Kraft Heinz, you know, we take that with pride because of the work that we have now and the collaborations we now are doing with them in a way that we haven't done in the past. So something for us to continue to build on. But thanks for the question. Thank you.\n\nOperator (Conference Call Operator): And at this time, I would currently like to turn the call back over to Mr. Chris Jakubik.\n\nChris Jakubik (Head of Global Investor Relations): Thank you, and thanks, everybody, for joining us today. For analysts that have follow-up questions, Andy Larkin and myself will be available to take them. And for the media, Michael Mullen will be available for your calls. So, again, thanks, everybody, for joining us today, and have a great day.\n\nOperator (Conference Call Operator): Ladies and gentlemen, thank you for participating. This concludes today's conference call. You may now disconnect.",
+  "n_turns": 53
+}

@@ -1,0 +1,501 @@
+{
+  "ticker": "WEC",
+  "original_ticker": "WEC",
+  "call_date": "2021-11-02",
+  "year": 2021,
+  "quarter": 3,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "WEC",
+    "year": 2021,
+    "quarter": 3
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T01:55:21Z",
+  "raw_payload": {
+    "event": {
+      "year": 2021,
+      "quarter": 3,
+      "conference_date": "2021-11-02T13:00:00.000-05:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk07",
+        "text": "Good afternoon and welcome to WEC Energy Group's conference call for third quarter 2021 results. This call is being recorded for rebroadcast and all participants are in a listen-only mode at this time. Before the conference begins, I remind you that all statements in the presentation, other than historical facts, are forward-looking statements that involve risks and uncertainties that are subject to change at any time. Statements are based on management's expectation at the time they are made. In addition to the assumptions and other factors referred to in connection with the statements, factors described in WEC Energy Group's latest form 10-K and subsequent reports filed with the Securities and Exchange Commission could cause actual results to differ materially from those contemplated. During the discussions, Referenced earnings per share will be based on diluted earnings per share unless otherwise noted. After the presentation, the conference will be open to analysts for questions and answers. In conjunction with this call, a package of detailed financial information is posted at wecenergygroup.com. A replay will be made available approximately two afters after the conclusion of this call. And now it is my pleasure to introduce Gail Kloppa, Executive Chairman of WEC Energy Group."
+      },
+      {
+        "speaker": "spk08",
+        "text": "From America's Heartland, good afternoon everyone. Thank you for joining us today as we review our results for the third quarter of 2021. First, I'd like to introduce the members of our management team who are here with me today. We have Kevin Fletcher, our President and CEO, Scott Lauber, our Chief Operating Officer, Sha Lu, our Chief Financial Officer, and Beth Straka, Senior Vice President of Corporate Communications and Investor Relations. I'm sure you saw the announcement last week that our Board of Directors has taken the next step in our long-term succession planning. Kevin has decided to devote more time to his grandchildren and to water skiing barefoot on his favorite lakes. He'll be retiring in 2022. We're delighted that Scott, will assume the role of president and chief executive on February 1. And finally, I've agreed to continue serving as executive chairman until our annual stockholders meeting in 2024. Kevin and Scott, of course, have been instrumental in shaping our progress over many years. We wish Kevin all the best, and I look forward to working hand in hand with Scott as he takes on his new role. Now, as you saw from our news release this morning, we reported Third quarter 2021 earnings of 92 cents a share our results were significantly better than expected driven by warmer than normal weather. continued economic recovery in our region and our focus on operating efficiency, our balance sheet our cash flows remain strong and as we've discussed this allows us to fund a highly executable capital plan without issuing equity. In just a moment, we'll update you on the details of our new five-year ESG progress plan, a plan that will cover our investments in reliability and decarbonization over the period 2022 through 2026. As we've reported to you, we're well on our way to achieving some of the most aggressive goals in our industry for reducing carbon emissions. Across our generation fleet, we're targeting a 60% reduction by 2025, and an 80% reduction by 2030, both from a 2005 baseline. Importantly, we have a roadmap to reach these goals without any major advances in technology. So today, we're announcing that our use of coal will continue to decline to a level that we expect will be immaterial by the end of 2030. By the end of 2030, we expect our use of coal will account for less than 5% of the power we supply to customers. A number of you have also been asking when can we exit coal completely? Here's the answer. We believe we will be in a position to eliminate coal as an energy source by the year 2035. The next logical question is what does this mean for the modern coal fired units at our Oak Creek site? As you recall, these units were part of our Power of the Future plan and were completed only about a decade ago. Well, our modern units at Oak Creek will remain a key part of our fleet for many, many years to come. These Power the Future units rank as some of the most efficient in the country, among the top 5% of all coal-fired plants in heat rate performance over the past decade. And they're strategically, as we've discussed, they are strategically located to support reliability on the Midwestern transmission grid. Fortunately, we can plan for the future of the new units at Oak Creek with fuel flexibility in mind. we've tested coal firing on natural gas at the site. So subject to the receipt of an environmental permit, we plan to make operating refinements over the next two years that will allow a fuel blend of up to 30% on natural gas. And then over time, we will be able to transition completely away from coal by making incremental investments in plant equipment. This would include, for example, new burners. And of course, we will need additional pipeline capacity reaching into the site. So we see a very bright and long future for the newer units at Oak Creek. And now let's take a look at the capital plan that will continue to shape a decarbonizing economy. For the period 2022 through 2026, we expect to invest $17.7 billion. Our focus remains on efficiency, sustainability and growth. The CSG progress plan is the largest capital plan in our history. an increase of $1.6 billion, or nearly 10% above our previous five-year plan. We expect this plan to support compound earnings growth of 6% to 7% a year over the next five years without any need to issue new equity. We'll be increasing our investment in renewables for our regulated utilities from 1,800 megawatts of capacity in our previous plan to nearly 2,400 megawatts in this brand-new plan. These carbon-free assets include solar, wind, and battery storage. We're also dedicating more capital to hardening our electric distribution networks so that we can maintain a superior level of reliability for our customers. And investments in our gas delivery systems and the development of renewable natural gas will support our goals for the gas distribution business as well. As a reminder, we're targeting net zero methane emissions by 2030. So I had it all up and we have what I really believe is a premium growth plan. The projects that are driving our growth are low risk and highly executable, and they're accelerating the transition to a clean energy future. With that, I'll turn the call over to Scott for more details on our sales results for the quarter, as well as an update on our infrastructure segment. Scott, all yours."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Thank you, Gail. We continue to see customer growth across our system. At the end of September, our utilities were serving approximately 8,000 more electric customers and 15,000 more natural gas customers compared to a year ago. Retail electric and natural gas sales volumes are shown on a comparative basis beginning on page 13 of the earnings packet. Overall, retail deliveries of electricity, excluding the iron ore mine, were up 2.4% from the third quarter of 2020, and on a weather-normal basis, were up 2.5%. we continue to see economic rebound in our service territory. For example, small commercial and industrial electric sales were up 3.5% from last year's third quarter, and on a weather-normal basis, they were up 4.2%. Meanwhile, large commercial and industrial sales, excluding the iron ore mine, were up 3.8% from the third quarter of 2020, and on a weather-normal basis, were up 3.5%. Natural gas deliveries in Wisconsin were up 1%. This excludes gas used for power generation. And on a weather normal basis, natural gas deliveries in Wisconsin grew by 2.5%. Overall, our growth continues to track ahead of our forecast as the economy continues to open up. Turning now to our infrastructure segment, Our new capital plan calls for the investment of $1.9 billion between 2022 and 2026. Considering the three projects that are currently under development, we expect to invest an additional $1.1 billion at that time frame. As a quick reminder, we have eight wind projects, all with long-term off-takers, announced or in operation in our infrastructure segment. This represents approximately $2.3 billion of investments. As previously discussed, our Jayhawk wind farm is projected to go in service by early next year, and our Thunderhead wind investment is projected to go in service in the first half of 2022. These timelines have been factored into our updated capital plan. With that, I'll turn it over to Kevin for an update on our utility operations."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Thank you, Scott. First, I'll cover some developments here in Wisconsin. I'm pleased to report that our Badger Hollow 1 solar project is just weeks away from completion. You'll recall that we own 100 megawatts of this project in southwest Wisconsin. For the next phase of the project, Badger Hollow 2, we now are performing civil work and grading. Our target for completing that project is the end of 2022. That date will depend on module supply, which is uncertain as we await clarity on matters before the Department of Commerce. Now for a few regulatory updates. We expect a decision from the Wisconsin Commission shortly on our plans to build two liquefied natural gas storage facilities in the southeastern part of the state. This proposed investment would greatly enhance customer savings and reliability during Wisconsin's cold winters. Pending approval, we expect the facilities to enter service in late 2023. They are projected to save our WeEnergy's customers approximately $200 million over time. We also have updates on the rate reviews at two of our smaller utilities. The Illinois Commerce Commission unanimously approved the final order for our rate case at North Shore Gas. The order authorizes a rate increase of 4.5%, including an ROE of 9.67%, and an equity ratio of 51.58%. New rates went into effect on September the 15th. And the Michigan Public Service Commission unanimously approved a settlement in our rate case for Michigan gas utilities. The settlement authorizes a rate increase of 6.35%, including an ROE of 9.85% and an equity ratio of 51.5%. New rates will be effective January the 1st. We have no other rate cases pending at this time. And as we look forward to the winter heating season ahead, I'm pleased to report that we're ready. We have our gas contracts in place and our gas inventories are at our targeted levels. And with that, I'll turn it over to Shaw."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thanks, Kevin. We continue to deliver quality and consistent earnings. Our 2021 third quarter earnings of 92 cents per share increased 8 cents per share compared to the third quarter of 2020. Our favorable results were largely driven by higher earnings from our utility operations. Our regulated utilities benefited from the strong economic recovery in our region, continued execution of our capital plan, and our focus on operating efficiency. The earnings packet placed on our website this morning includes a comparison of third quarter results on page 17. I'll walk through the significant drivers. Starting with our utility operations, we grew our earnings by 5 cents compared to the third quarter of 2020. First, continued economic recovery from the pandemic and stronger weather normalized sales drove a 3 cent increase in earnings. Also, rate relief and additional capital investment added 4 cents compared to the third quarter of 2020, and lower day-to-day O&M contributed 4 cents. These favorable factors were partially offset by 4 cents of higher depreciation and amortization expense and 2 cents of increased fuel costs related to higher natural gas prices. It's worth noting that we estimate weather was 5 cents favorable compared to normal in the third quarters of both 2021 and 2020. Overall, we added 5 cents quarter over quarter from utility operations. Moving on to our investment in American Transmission Company, earnings increased one cent compared to the third quarter of 2020, driven by continued capital investment. Earnings at our energy infrastructure segment improved one penny in the third quarter of 2021 compared to the third quarter of 2020. This was driven by production tax credits related to wind farm acquisitions. Finally, we saw a one cent improvement in the corporate and other segment. This increase was primarily driven by lower interest expense. In summary, we improved on our third quarter 2020 performance by eight cents a share. Now I'd like to update you on some other financial items. For the full year, we expect our effective income tax rate to be between 13 and 14%. Excluding the benefit of unprotected taxes flowing to customers, we project our 2021 effective tax rate will be between 19 and 20%. As in past years, we expect to be a modest taxpayer in 2021. Our projections show that we will be able to efficiently utilize our tax position with our current capital plan. Looking now at the cash flow statement on page six of the earnings package, net cash provided by operating activities increased $57 million. Our increase in cash earnings in the first nine months of 2021 more than offset the higher working capital requirements. As expected, with normal collection practices underway in all of our service territories, we made great strides in improving our working capital position in the third quarter. Total capital expenditures and asset acquisition were $1.7 billion for the first nine months of 2021, a $129 million increase as compared with the first nine months of 2020. This reflects our investment focus in our regulated utilities and energy infrastructure business. Looking forward, as Gail outlined earlier, we're excited about our plans to invest $17.7 billion over the next five years in key infrastructure. This ESG progress plan supports 7% annual growth in our asset base. Pages 18 and 19 of the earnings package provide more details of the breakdown of the plan, which I will highlight here. As we continue to make our energy transition, nearly 70% of our capital plan is dedicated to sustainability, including $5.4 billion in renewable investment and $6.8 billion in grid and fleet reliability. Additionally, we dedicated $2.8 billion to support our strong customer growth. We also plan to invest $2.7 billion in technology and a modernization of our infrastructure to further generate long-term operating efficiency. With our strong economic development backdrop and our continued focus on efficiency, sustainability, and growth, we see a long runway of investment ahead, even beyond the next five years. In closing, before I turn it back to Gail, I'd like to provide our guidance. We're raising our earnings guidance again for 2021 to a range of $4.05 to $4.07 per share with an expectation of reaching the top end of the range. This assumes normal weather for the remainder of the year. This is the second time we're raising our guidance. If you'll recall, Our original guidance was $3.99 to $4.03 per share. With that, I'll turn it back to Gail."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Shal, thank you very much. We're on track for a solid year. Again, in light of our strong performance, our guidance range now stands at $4.05 to $4.07 a share. We're also tightening our projection of long-term earnings growth to a range of 6% to 7% a year. And finally, a quick reminder about our dividends. As usual, I expect our board will assess our dividend plans for next year at our scheduled meeting in early December. We continue to target a payout ratio of 65 to 70% of earnings. We're right in the middle of that range now, so I expect our dividend growth will continue to be in line with the growth in our earnings per share. Overall, we're on track to focus on delivering and providing value for our customers and our stockholders. And operator, we're now ready to open it up for the Q&A portion of the call."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thank you. Now we will take your questions. The question and answer session will be conducted electronically. To ask a question, please press the star key followed by the digit one on your phone. If you are using a speakerphone, turn off your mute function to allow your signal to reach our equipment. We will take as many questions as time permits. Once again, press star, then the number one on your phone to ask a question. Your first question comes from the line of Shar Perez with Guggenheim Partners."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Hey, guys."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Rock and roll, Shar."
+      },
+      {
+        "speaker": "spk11",
+        "text": "How are you doing? Not too bad. Not too bad, Gail. Appreciate it. So just a couple of questions. And Gail, I want to unpack sort of your comments around the Oak Creek Power of the Future units, because I think that's sort of somewhat pretty material. Any estimate around capital costs to fully convert? from coal to gas and what the heat rate of those units would be. I know the contracts are obviously tech agnostic, but would shifting also base load units to essentially higher heat rate peakers have any kind of ramifications under the terms of the contracts? Would the units serve as capacity or do you expect to run them all the time?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thanks. Great question, Char. And I'm going to ask Scott to give you some details as well. Let me say one thing, though, I would not expect as we move through the transition at the New Oak Creek units between now and 2035, I would not expect them to run simply as peakers. They're probably going to run much more like our Port Washington units, which are highly efficient combined cycle units. So I wouldn't make the conclusion that they'll run as peakers. They're very much going to be needed for reliability, no question about that. In terms of capital, I mentioned that it would be incremental capital investments in the plant. And I'm going to have Scott give you the details. I can tell you, though, that after a lot of work and a lot of analysis, we still have more to do for the long run. But after a lot of work and a lot of analysis, we are convinced that this is an economic thing to do for customers. Scott?"
+      },
+      {
+        "speaker": "spk10",
+        "text": "Sure, Gail. And as we look at the plant in this first step here to get to that 30%, we're looking at a very modest investment, approximately $30 million today. get it to be able to run at that blend coal blending with some gas and a little coal and as you look farther out you know in that 2030 time frame 2035 time frame as we look at converting completely that would be approximately 150 million dollars but this is really early in that analysis and more to come as we continue to to flush that out perfect um thank you for that and then"
+      },
+      {
+        "speaker": "spk11",
+        "text": "Just, Gail, just the $1.6 billion increase in the capital plan is, obviously, as you highlighted, it's really material. You know, it's driven by electric, maybe at the expense of energy infrastructure and gas spend, right? So as you're kind of looking on the roll forward, electric spend is up about $2 billion and the infrastructure and gas are down around $4.50. Is this kind of a broader and more sustainable strategic shift in growth focus going forward or just kind of a timing factor? especially as we're thinking about your plans beyond 25?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Yeah, again, a great question, Char. Let me just say this. We always start with need. And our preference, obviously, is to invest in regulated assets where there is clearly a customer benefit or a customer need. So as we look at this plan, and you're right, the increase is material, but as we look at this plan compared to the prior five-year plan, And again, largest five-year capital plan in our history at $17.7 billion. The two things you mentioned are correct. First of all, we'll be adding a significant amount of renewables to maintain reliability as we retire older, less efficient coal-fired plants in this timeframe. So the first is we have got to replace some of that capacity with carbon-free energy. So there's an increase in renewable investment, regulated renewable investment in the plan compared to the previous five-year plan. And then, and this is something that we've all talked about internally and Kevin continues to point out, and he's absolutely right, we have aging distribution infrastructure. And that aging distribution infrastructure, which we've invested in in the past, we're coming up to a period now where there is a much greater need to replace that aging distribution infrastructure. So those are the two drivers, if you will, of kind of the incremental change in this five-year capital plan versus the prior five-year capital plan. Does that respond to your question?"
+      },
+      {
+        "speaker": "spk11",
+        "text": "It does. It does. And that's super helpful, Gail. And then just lastly, is just on the infrastructure segment, you know, on that roll forward, does the contracting spending profile, is it indicating anything, something about, for instance, project returns you're seeing or pressure from input cost or is it just really a function of limited capital flowing to, you know, to new or regulated opportunities instead? So like, are you seeing any of these pressures in the, in the, in the business that others are saying?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "No. Uh, and, and again, we've been asked this question, as you know, before, uh, the last, the last one we just announced a few months ago, Sapphire sky, actually our projections show up having the best returns of any of the eight projects. So, we are not seeing a diminution at all in terms of potential returns or in terms of the robust nature of the pipeline. And remember, we've got two coming that have been announced but are not yet in service, Jayhawk and Upstream, not Upstream, I'm sorry, Thunderhead. Yeah, my James Bond project, Thunderhead. And then in addition to that, there's still more than a billion dollars to be invested in this five-year capital plan. we're still very active and seeing the kind of positive returns that we would expect to see. Fantastic."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Thank you for that. And congrats, Scott and Kevin, on Phase 2. And, Gail, don't go anywhere. You're still too young. See you guys."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Appreciate it. Thanks, Scott. Thank you very much."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from a line of Steve Fleischman with Wolf Research."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Greetings, Steve. How are you doing?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "Hey, Gail. Good afternoon. Hi, everyone. So first of all, just on the new growth rate, the 6% to 7%, should we assume that that is based off of kind of the initial 2021 guidance?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Yes. Yep."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Okay. I just wanted to."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Yep. No, I'm glad you asked. And the short answer is yes. And then just to kind of put some numbers around it, you know, historically what we've done is looked at the midpoint of our original guidance and and then gave you guidance, in this case, the six to seven off of that. So the midpoint of our original guidance for 2021 is like $4.01 a share. Okay, great."
+      },
+      {
+        "speaker": "spk02",
+        "text": "And then on the \u2013 I know the spending to convert the newer Oak Creek units is relatively modest, but would that spending be \u2013 kind of like recoverable under the lease structure of that law, or would it be done more normal rate-based? How would that work?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Now, the short answer, Steve, is that we obviously have to get commission approval for any investment of that kind, but it would be under the way the lease works, it would be under the power of the future terms."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Okay. And is that Is there any chance that that could get extended if you do things to extend the period or those just have, under the law, set end dates?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Well, there's a current 30-year end date from the date of operation of the new Oak Creek units for the lease. So the commission initially set a 30-year lease period. But in the terms of the agreement with the commission, the commission has the right to extend the lease. So all of that will be dealt with. probably around 2039, 2040. Okay. And I know that you're still going to be doing your daily."
+      },
+      {
+        "speaker": "spk02",
+        "text": "You're not going to be exact chairman. And you'll still be chairman. Last question. And this is kind of a broad one. I'd be curious your take on the, I guess it's the build back better infrastructure bill and potential implications, opportunities for, for WEC from that. and chances you think of passing?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Yeah, you know, it's such a sausage-making machine in Washington, as you know, but, you know, if I were a betting man, I think something will pass. And it appears, as you've seen, Steve, that there's strong support for the renewable tax credit portion of that Build Back Better plan. And that seems to have stuck in every single version or every single iteration of the plan. So, again, if I were a betting man, I would say that that that extensions of renewable tax credits will happen and it looks like there's a strong possibility that what they call direct pay will occur. Now, if direct pay is a part of the renewable package, if you will, in that plan. then that clearly enhances our opportunities. It's good for customers. It's good for cash flows. It's good for the growth of our regulated business. It's good for the growth of our infrastructure segment. So I think a key to watch is not only the 10-year extension that they're talking about of production tax credits, also the flexibility on tax credits for solar, but also a big key would be the direct pay. And that would be a strong positive and would also have a step back and and look again at what is doable and what's needed here. Great."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thanks so much."
+      },
+      {
+        "speaker": "spk08",
+        "text": "You're welcome, Steve. Thank you."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from the line of Julian DeMolin-Smith with Bank of America."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Hey, good afternoon, team. Thanks for the time."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Congratulations. You on the road again, Julian?"
+      },
+      {
+        "speaker": "spk13",
+        "text": "Trying to be."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Trying to stay on the road. Call it what it is. I appreciate it. And congratulations again to Kevin and Scott here. If I can pick it up where perhaps you are lifted off on the coal side, just what about Weston here? You made the broader comment not just about PTF, but about the wider nature of coal within your portfolio. Can you comment on that asset? And I have a follow-up."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Sure. Sure. I'm going to give you an answer, and then I'm going to let Shaw and Scott give you a little bit more detail. But the Westin units, which for those of you who may not be familiar, the Westin units are relatively new coal-fired units that are an integral part of Wisconsin Public Service Generation Fleet, the company that we acquired based in Green Bay. Westin is a real workhorse. And again, we may have some flexibility there. that we're looking at now in terms of optionality for the Weston units. Scott?"
+      },
+      {
+        "speaker": "spk10",
+        "text": "Yes, Gail. At the Weston, and particularly the newer unit, Weston 4, we have actually done some coal firing on that with some natural gas also. So we'll be evaluating that as an option as we go through the next several years here. So But we do realize that it's a very critical part of the state and we want to make sure we have the reliability at that location. So we're going to continue to evaluate it."
+      },
+      {
+        "speaker": "spk08",
+        "text": "And Julian, to your question, which is a good one, and everyone should know, we have a path here to have a really significant change in our portfolio to support decarbonization and to get to aggressive environmental goals. We can do that, and we can do that without sacrificing reliability. We will not sacrifice reliability. We don't have to do that as we work through our plan."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Excellent. Thank you for clarifying that. If I can ask, just on the infrastructure side, just to elaborate on this. You said a moment ago your Sapphire project, for instance, amongst the best returns you've had thus far in your efforts, and obviously you're kind of relatively scaling this down. Is this more about keeping the infrastructure segment within, call it a 10% bucket of total earnings, and having effectively achieved that with this five-year outlook, and that's what's driving a little bit of the scaling back? Or conversely, is this just about being conservative and arguably, whether it's direct pay or whether it's just simply finding opportunities that exceed that allocation, that you could actually be, again, sort of exceeding these budgets?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Well, let me just say this. We're usually conservative, and that won't surprise you. And I would look at what we've just laid out here for that segment of our capital spending over the next five years as a really strong placeholder, which we will then, once we see what's in that Build Back Better plan, we'll step back and see what opportunities it might give us. So I think the short answer to your question, and Shaw's smiling and nodding her head, I think the short answer to your question is, we're being appropriately conservative today."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Excellent. Sorry, just clarifying, the earlier comment on Build Back Better, what's the FFO to debt improvement from Direct Pay, if you can quantify that at all?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "I'm sorry, you broke up, Julian. Can you ask that one more time?"
+      },
+      {
+        "speaker": "spk05",
+        "text": "Sorry, the balance sheet, under the plan today, how much better would your credit metrics get, if you have any sense on that? Obviously, there's a lot of assumptions. Michelle?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah, Julian, we're looking at the details. As you know, the language just came out, so we wanted to really study the specific implications. But I think in general we could look at between 50 to 100 basis point improvement, just looking at the first glance of the language."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Excellent. Thank you, guys. Wow, impressive. Thank you."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Our next question comes from the line of Dergish Choproff with Evercore ISI."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Hello, Dergish. How are you doing today?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Hey, Gail. Good afternoon. And congratulations to Kevin and Scott as well from my side. Two questions for me. First, I think I'm jumping the gun here, but still okay to assume no equity in the plan through 2026 now?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Yes, yes, and yes."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Okay. Okay. Just wanted to clarify that. That's great. And then maybe just really quickly, some of your peers have talked about, you know, giving us some sort of sensitivity on natural gas price increases and customer will impact. So to the extent that you can help us with that, that would be greatly appreciated."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Sure. Let me give you a dollar amount, and Scott can fill in some additional details. Depending upon, and you know, we have natural gas, we're the natural gas provider in most of Wisconsin, Chicago, the northern suburbs of Chicago, portions of western Michigan, and in places all over Minnesota. Depending upon where you are in our service area, it looks like the average bill increase for a residential customer, given what we've been able to do to mitigate higher gas prices with our hedging and storage opportunities. So the typical residential customer will see about a 25 to a $40 monthly increase for each month of the heating season based on what we're seeing today and what we've got locked in. And I can tell you that we have been very aggressive as always with our hedging strategies, with gas storage, with option contracts, and we're pleased with how we've been able to mitigate the very sizable increase in the natural gas market for pricing. Scott?"
+      },
+      {
+        "speaker": "spk10",
+        "text": "That's exactly correct, Gail. So we've got about a third of our gas in storage that we filled throughout the year, and as Kevin mentioned, those storage levels are where we wanted to be at this time. And then we also have about a third of the hedging program. So that $25 to $40 difference looking at the current prices. And we don't expect that to move too much with our hedging program and our storage inventory."
+      },
+      {
+        "speaker": "spk03",
+        "text": "And is there a percentage of total bill? What's that, like 25%, 30%? Am I thinking about that the right way?"
+      },
+      {
+        "speaker": "spk10",
+        "text": "Yeah, it's about 30% to 40% depending upon the area."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thank you. Thank you, Dragesh."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from the line of Jeremy Tenet with JP Morgan."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Good afternoon, Jeremy."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Hi, good afternoon. Thanks for having me here. It's been nice being ahead, Jeremy. Just a last one on Oak Creek here, if I could. Just want to see with regards to the timeline of 2035, how that date was established as the right timeline as opposed to something earlier or later."
+      },
+      {
+        "speaker": "spk08",
+        "text": "It's a great question. It all comes back as we've talked this through with our operating people, with our technicians, with our outside experts, it all comes back to the proper transition to continue aggressive CO2 reduction but maintaining reliability. And we're quite confident that by 2035, at the latest, that we can adjust our fuel source at Oak Creek such that coal will be a backup source. I mentioned to you that our view is that our use of coal for power supply for our customers will be almost immaterial in our planning by 2030, less than 5% of our total power supply. So we're going to walk our way forward with continuing to increase the fuel blending at Oak Creek making sure that we maintain that high standard of reliability, which we've got to have. But it really is a thought about how quickly can we go and maintain reliability in step increments. And that's our current view. So we'll see how it goes, but we're very confident about the trajectory between now and 2030. And if the trajectory is even better, then we'll see where we go. But it's really our best estimate of how to make continued progress on aggressive environmental goals and maintaining reliability."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Got it. That's very helpful. Thanks. And just one last one for me. On the new 6% to 7% growth target, what's different now versus prior to the change? Just given your directional guidance and since growth is already generally trended at the high end of the range, just wondering what prompted, I guess, today's change in messaging?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Well, one simple thing, the refreshing of our five-year capital plan. I mean, we went from a $16.1 billion five-year capital plan that we unveiled to you the same time last year to a 10% increase in the capital needs to $17.7 billion. And when you look at that and you say, okay, no need for equity, run it through the model, what do we get? And it gives us confidence in the 6% to 7% growth rate."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Got it. Makes sense. I suppose WECC operational execution might feed into it a little bit as well, but appreciate the CapEx uplift there."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Well, let me just say this. The operational execution doesn't hurt."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Thanks for taking my questions. Have a good one."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Jeremy, thank you."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from the line of Andrew Weisel with Scotiabank. Afternoon, Andrew."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Hi, everybody. First question on O&Ms. I see the income statement is flattish on a year-to-date basis. Can you give us a figure on what you call the manageable or day-to-day O&Ms? And I know you've been targeting a 2% to 3% year-over-year reduction on that metric. Is that still a good number, or should we expect some spending to be pulled from 2022, given the strong year-to-date earnings results?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Shaw has the answer for you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yeah, so we're looking at the projection for the year, taking into consideration what has happened over the past three quarters and what we expect to see, the 3% range is still a very good number, the day-to-day reduction compared to the annual 2020."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Okay, great. And the next question is on rate cases. Congrats on having such a clear near-term outlook. Can you talk about expectations for the next filings? I think you previously talked about May 2022 for Wisconsin. Is that still a good placeholder, or then which of the smaller subs might see activity over the coming months?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Well, yes, for our Wisconsin utilities, late spring 2022, or certainly by no later than May 1 of 2022, that's the plan for filing our next rate reviews for the Wisconsin utilities. And recall that we're, I believe, the only state in the U.S. that has a two-year forward-looking test period for those rate reviews. So we're looking forward to having the rate reviews done next year in Wisconsin. And Kevin and Scott, I don't know of any other plan. I mean, we just, as Kevin described, we just finished rate reviews for North Shore Gas in Illinois, for Michigan Gas Utilities, and nothing else seems to be on the docket."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Gail, just as I said in my remarks, we have no other plans at this particular time. Thanks for the question. It's a great position to be in. Thank you, team. Thank you."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Your next question comes from the line of Michael Lapettis with Goldman Sachs."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Rock and roll, Michael. Hey, guys. Thank you for taking my question. Just curious, in the five-year plan, can you walk us through a little bit of the cadence of the change, meaning is the change mostly in 22 and 2023, or is it more in kind of the back end of the plan?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Scott, do you want to take that one?"
+      },
+      {
+        "speaker": "spk10",
+        "text": "sure sure gail and when we look at the plan it's actually throughout the plan yeah um in fact you know when you look at it compared to this year's plan you know the prior capital plan in years four and five it kind of tapered off and in this particular year you know especially as we laid out more and more as our energy transition and these projects get staged in over time it's actually a flatter outlook as you look through it so it really blended in well And when you think about us putting in the generation and being very measured, you've got to make sure you get the generation in and go to the next project. So it's very deliberate in how we laid it out. Shaw, anything you'd like to add?"
+      },
+      {
+        "speaker": "spk01",
+        "text": "I agree. I think the two areas would be the renewable investment and the grid and fleet reliability investment. So we are adding investment in all five years in those categories. Okay."
+      },
+      {
+        "speaker": "spk08",
+        "text": "And, Michael, as we look even beyond the five-year plan that we just rolled out this morning, the new five-year plan, one of the things that Shad just mentioned is very clear to us. The additional and upwardly trajectory investments in grid modernization and in reliability, those kind of investment dollars are going to continue well beyond. The need is going to be there well beyond this five-year period."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Right. Oh, no. And we've got a massive opportunity in Wisconsin and elsewhere on the system. Just curious, though, I want to make sure I follow. Can you give any cadence for like what years within just the Wisconsin regulated business, what amount of potential new megawatts of renewable is in this plan that hasn't already been announced?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "That hasn't been announced?"
+      },
+      {
+        "speaker": "spk10",
+        "text": "yes okay okay yeah so we have a number of them already pending at the wisconsin commission uh but go ahead scott so there is approximately on the solar side that hasn't been announced approximately um 700 megawatts on the solar and then another about 500 in the batteries so as you know we have several of the largest wind farms already and nothing additional just that one that we've already"
+      },
+      {
+        "speaker": "spk08",
+        "text": "filed for in the wind. And much of the batteries really can be deployed at existing sites."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Got it. And so when you think about this, that 700 megs of solar, 500 megawatts of battery, that's kind of spread throughout the five years of the plan."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Correct. Yep. Correct. Yep. Yeah. You're going to see a consistent growth as we look at our renewables over the next five years."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Got it. And then the one thing, and it's smaller, but I noticed that there's an uptick in expected capex at ATC, and we haven't really seen an uptick in expected capex in ATC for a while. Can you talk a little bit about what's driving that and whether this is a beginning of a cycle of kind of continual increase in spend at ATC, or is this a little bit more of a one-off?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "No. And Kevin, of course, is the chairman at ATC. I'm going to ask him to comment on this, but One of the things that is notable here that I think, Kevin, will continue is ATC has a lot of maintenance capital that is just really going to be required to maintain the reliability of the existing transmission network. And I think that uptick in maintenance capital, Kevin, is a significant driver here."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yeah, it is, just like it is on our retail side. That's exactly right. As you know, there's a lot of renewable projects that are planning on board, so that'll help drive some of that CapEx investment over the next five years and even into the future from that perspective. So, maintenance as well as new needs from renewables as the drivers. Got it. Thank you, guys. Much appreciated. You're welcome, Michael."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Hang in there."
+      },
+      {
+        "speaker": "spk07",
+        "text": "And our last question comes from the line of Vidula Marte with Hudson Bay Capital."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Greetings, Vidula. Hello, Gil. How are you? We're good."
+      },
+      {
+        "speaker": "spk04",
+        "text": "How are you doing?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "I'm okay. How's your friend Mad Dog doing?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Mad Dog?"
+      },
+      {
+        "speaker": "spk08",
+        "text": "Never mind. I'm slow today. Is it WFAN in New York?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Oh, yes. My kid brother works there, yes. Anyway, he's doing very well. Very well. Thank you. Very good. Yeah. A topic I want to ask about is, you know, electric vehicles and associated infrastructure. I mean, we saw the other day a large announcement by Hertz in terms of wanting to convert over their fleet and choosing, you know, Tesla as their preferred provider, et cetera. Can you give us a sense as to right now, like, how large of a fleet that you have that's addressable to be converted to electric and kind of how you're thinking about that over a period of time and kind of based on how the fleet runs, type of characteristics and features, et cetera, that you'll be looking for as you do the transition."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Are you thinking about our own fleet that you're asking about?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yes, yes. All right."
+      },
+      {
+        "speaker": "spk08",
+        "text": "All right. Well, we've got we've got we've made a commitment. Actually, I'm going to ask Kevin to give you the details. We've made a commitment to part of a national plan to, you know, in a very reasonable timeframe to continue to add materially to our to our operating fleet on the ground, to our bucket trucks, to our, you know, to our other vehicles. to continue to transition them to EVs. And then, so I'll ask Kevin to give you the details on that, and then I'll come back, and I want to talk very briefly about a pilot program that is beyond our own fleet, but a pilot program for our customers that we just got approved a couple of months ago. Kevin?"
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hey, Gail, for our cars and SUVs, specifically for our fleet, as you're asking about, we have a goal of 35% to be purchased of EVs between now and 2025. And then for the larger trucks, for our Class III trucks, our goal is that 25% of those would be EVs by that point in time. We're also looking at some of the fleets in the storeroom, looking at our forklifts and the equipment that we use for moving our products around, looking at those and have targets for those as well."
+      },
+      {
+        "speaker": "spk08",
+        "text": "And Kevin wanted to buy some new electric motorcycles from Harley, but we'll talk about that later. Always pushing, Gail. Thanks. And then, Vidula, we just got approved a pilot program from the Wisconsin Commission. We're in the very early stages. We'll talk more about it as we roll out some of these options for our customers. But essentially, the pilot program is to help with the affordability for particularly large commercial customers, hotels, et cetera, the affordability of installing charging stations. So that program is, again, just now in the earliest stages. We'll talk more about that as we get some customers to sign up. But early on, as our key account folks talk to our large customers, there's some significant interest in moving forward with putting EV charging stations in offices, hotels, parking lots, et cetera. Hope that responds to your question, Vidula. I'll add just one real quick."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Yes. Our fleet is one, but we're also working with our large customers, and the biggest opportunity is our large customers are looking at their fleets, not just our internal fleet. But that goes hand-in-hand with what Gail shared with the pilot that we're working on. Thank you for your question."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thank you very much."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Terrific. Thank you, Vidula. Well, ladies and gentlemen, that concludes our conference call for today. Thanks so much for participating and for all your good questions. If you have any other questions, feel free to contact Bestraka. She can be reached at 414-221-4639. Thanks, everybody. So long."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk07": {
+        "name": "Conference Operator",
+        "title": "Call Moderator"
+      },
+      "spk08": {
+        "name": "Gail Kloppa",
+        "title": "Executive Chairman"
+      },
+      "spk10": {
+        "name": "Scott Lauber",
+        "title": "Chief Operating Officer"
+      },
+      "spk09": {
+        "name": "Kevin Fletcher",
+        "title": "President and CEO"
+      },
+      "spk01": {
+        "name": "Sha Lu",
+        "title": "Chief Financial Officer"
+      },
+      "spk11": {
+        "name": "Shar Perez",
+        "title": "Analyst, Guggenheim Partners"
+      },
+      "spk02": {
+        "name": "Steve Fleischman",
+        "title": "Analyst, Wolf Research"
+      },
+      "spk13": {
+        "name": "Julian DeMolin-Smith",
+        "title": "Analyst, Bank of America"
+      },
+      "spk05": {
+        "name": "Julian DeMolin-Smith (Follow-Up)",
+        "title": "Analyst, Bank of America"
+      },
+      "spk03": {
+        "name": "Dergish Choproff",
+        "title": "Analyst, Evercore ISI"
+      },
+      "spk00": {
+        "name": "Michael Lapettis",
+        "title": "Analyst, Goldman Sachs"
+      },
+      "spk12": {
+        "name": "Andrew Weisel",
+        "title": "Analyst, Scotiabank"
+      },
+      "spk04": {
+        "name": "Vidula Marte",
+        "title": "Analyst, Hudson Bay Capital"
+      }
+    }
+  },
+  "text": "Conference Operator (Call Moderator): Good afternoon and welcome to WEC Energy Group's conference call for third quarter 2021 results. This call is being recorded for rebroadcast and all participants are in a listen-only mode at this time. Before the conference begins, I remind you that all statements in the presentation, other than historical facts, are forward-looking statements that involve risks and uncertainties that are subject to change at any time. Statements are based on management's expectation at the time they are made. In addition to the assumptions and other factors referred to in connection with the statements, factors described in WEC Energy Group's latest form 10-K and subsequent reports filed with the Securities and Exchange Commission could cause actual results to differ materially from those contemplated. During the discussions, Referenced earnings per share will be based on diluted earnings per share unless otherwise noted. After the presentation, the conference will be open to analysts for questions and answers. In conjunction with this call, a package of detailed financial information is posted at wecenergygroup.com. A replay will be made available approximately two afters after the conclusion of this call. And now it is my pleasure to introduce Gail Kloppa, Executive Chairman of WEC Energy Group.\n\nGail Kloppa (Executive Chairman): From America's Heartland, good afternoon everyone. Thank you for joining us today as we review our results for the third quarter of 2021. First, I'd like to introduce the members of our management team who are here with me today. We have Kevin Fletcher, our President and CEO, Scott Lauber, our Chief Operating Officer, Sha Lu, our Chief Financial Officer, and Beth Straka, Senior Vice President of Corporate Communications and Investor Relations. I'm sure you saw the announcement last week that our Board of Directors has taken the next step in our long-term succession planning. Kevin has decided to devote more time to his grandchildren and to water skiing barefoot on his favorite lakes. He'll be retiring in 2022. We're delighted that Scott, will assume the role of president and chief executive on February 1. And finally, I've agreed to continue serving as executive chairman until our annual stockholders meeting in 2024. Kevin and Scott, of course, have been instrumental in shaping our progress over many years. We wish Kevin all the best, and I look forward to working hand in hand with Scott as he takes on his new role. Now, as you saw from our news release this morning, we reported Third quarter 2021 earnings of 92 cents a share our results were significantly better than expected driven by warmer than normal weather. continued economic recovery in our region and our focus on operating efficiency, our balance sheet our cash flows remain strong and as we've discussed this allows us to fund a highly executable capital plan without issuing equity. In just a moment, we'll update you on the details of our new five-year ESG progress plan, a plan that will cover our investments in reliability and decarbonization over the period 2022 through 2026. As we've reported to you, we're well on our way to achieving some of the most aggressive goals in our industry for reducing carbon emissions. Across our generation fleet, we're targeting a 60% reduction by 2025, and an 80% reduction by 2030, both from a 2005 baseline. Importantly, we have a roadmap to reach these goals without any major advances in technology. So today, we're announcing that our use of coal will continue to decline to a level that we expect will be immaterial by the end of 2030. By the end of 2030, we expect our use of coal will account for less than 5% of the power we supply to customers. A number of you have also been asking when can we exit coal completely? Here's the answer. We believe we will be in a position to eliminate coal as an energy source by the year 2035. The next logical question is what does this mean for the modern coal fired units at our Oak Creek site? As you recall, these units were part of our Power of the Future plan and were completed only about a decade ago. Well, our modern units at Oak Creek will remain a key part of our fleet for many, many years to come. These Power the Future units rank as some of the most efficient in the country, among the top 5% of all coal-fired plants in heat rate performance over the past decade. And they're strategically, as we've discussed, they are strategically located to support reliability on the Midwestern transmission grid. Fortunately, we can plan for the future of the new units at Oak Creek with fuel flexibility in mind. we've tested coal firing on natural gas at the site. So subject to the receipt of an environmental permit, we plan to make operating refinements over the next two years that will allow a fuel blend of up to 30% on natural gas. And then over time, we will be able to transition completely away from coal by making incremental investments in plant equipment. This would include, for example, new burners. And of course, we will need additional pipeline capacity reaching into the site. So we see a very bright and long future for the newer units at Oak Creek. And now let's take a look at the capital plan that will continue to shape a decarbonizing economy. For the period 2022 through 2026, we expect to invest $17.7 billion. Our focus remains on efficiency, sustainability and growth. The CSG progress plan is the largest capital plan in our history. an increase of $1.6 billion, or nearly 10% above our previous five-year plan. We expect this plan to support compound earnings growth of 6% to 7% a year over the next five years without any need to issue new equity. We'll be increasing our investment in renewables for our regulated utilities from 1,800 megawatts of capacity in our previous plan to nearly 2,400 megawatts in this brand-new plan. These carbon-free assets include solar, wind, and battery storage. We're also dedicating more capital to hardening our electric distribution networks so that we can maintain a superior level of reliability for our customers. And investments in our gas delivery systems and the development of renewable natural gas will support our goals for the gas distribution business as well. As a reminder, we're targeting net zero methane emissions by 2030. So I had it all up and we have what I really believe is a premium growth plan. The projects that are driving our growth are low risk and highly executable, and they're accelerating the transition to a clean energy future. With that, I'll turn the call over to Scott for more details on our sales results for the quarter, as well as an update on our infrastructure segment. Scott, all yours.\n\nScott Lauber (Chief Operating Officer): Thank you, Gail. We continue to see customer growth across our system. At the end of September, our utilities were serving approximately 8,000 more electric customers and 15,000 more natural gas customers compared to a year ago. Retail electric and natural gas sales volumes are shown on a comparative basis beginning on page 13 of the earnings packet. Overall, retail deliveries of electricity, excluding the iron ore mine, were up 2.4% from the third quarter of 2020, and on a weather-normal basis, were up 2.5%. we continue to see economic rebound in our service territory. For example, small commercial and industrial electric sales were up 3.5% from last year's third quarter, and on a weather-normal basis, they were up 4.2%. Meanwhile, large commercial and industrial sales, excluding the iron ore mine, were up 3.8% from the third quarter of 2020, and on a weather-normal basis, were up 3.5%. Natural gas deliveries in Wisconsin were up 1%. This excludes gas used for power generation. And on a weather normal basis, natural gas deliveries in Wisconsin grew by 2.5%. Overall, our growth continues to track ahead of our forecast as the economy continues to open up. Turning now to our infrastructure segment, Our new capital plan calls for the investment of $1.9 billion between 2022 and 2026. Considering the three projects that are currently under development, we expect to invest an additional $1.1 billion at that time frame. As a quick reminder, we have eight wind projects, all with long-term off-takers, announced or in operation in our infrastructure segment. This represents approximately $2.3 billion of investments. As previously discussed, our Jayhawk wind farm is projected to go in service by early next year, and our Thunderhead wind investment is projected to go in service in the first half of 2022. These timelines have been factored into our updated capital plan. With that, I'll turn it over to Kevin for an update on our utility operations.\n\nKevin Fletcher (President and CEO): Thank you, Scott. First, I'll cover some developments here in Wisconsin. I'm pleased to report that our Badger Hollow 1 solar project is just weeks away from completion. You'll recall that we own 100 megawatts of this project in southwest Wisconsin. For the next phase of the project, Badger Hollow 2, we now are performing civil work and grading. Our target for completing that project is the end of 2022. That date will depend on module supply, which is uncertain as we await clarity on matters before the Department of Commerce. Now for a few regulatory updates. We expect a decision from the Wisconsin Commission shortly on our plans to build two liquefied natural gas storage facilities in the southeastern part of the state. This proposed investment would greatly enhance customer savings and reliability during Wisconsin's cold winters. Pending approval, we expect the facilities to enter service in late 2023. They are projected to save our WeEnergy's customers approximately $200 million over time. We also have updates on the rate reviews at two of our smaller utilities. The Illinois Commerce Commission unanimously approved the final order for our rate case at North Shore Gas. The order authorizes a rate increase of 4.5%, including an ROE of 9.67%, and an equity ratio of 51.58%. New rates went into effect on September the 15th. And the Michigan Public Service Commission unanimously approved a settlement in our rate case for Michigan gas utilities. The settlement authorizes a rate increase of 6.35%, including an ROE of 9.85% and an equity ratio of 51.5%. New rates will be effective January the 1st. We have no other rate cases pending at this time. And as we look forward to the winter heating season ahead, I'm pleased to report that we're ready. We have our gas contracts in place and our gas inventories are at our targeted levels. And with that, I'll turn it over to Shaw.\n\nSha Lu (Chief Financial Officer): Thanks, Kevin. We continue to deliver quality and consistent earnings. Our 2021 third quarter earnings of 92 cents per share increased 8 cents per share compared to the third quarter of 2020. Our favorable results were largely driven by higher earnings from our utility operations. Our regulated utilities benefited from the strong economic recovery in our region, continued execution of our capital plan, and our focus on operating efficiency. The earnings packet placed on our website this morning includes a comparison of third quarter results on page 17. I'll walk through the significant drivers. Starting with our utility operations, we grew our earnings by 5 cents compared to the third quarter of 2020. First, continued economic recovery from the pandemic and stronger weather normalized sales drove a 3 cent increase in earnings. Also, rate relief and additional capital investment added 4 cents compared to the third quarter of 2020, and lower day-to-day O&M contributed 4 cents. These favorable factors were partially offset by 4 cents of higher depreciation and amortization expense and 2 cents of increased fuel costs related to higher natural gas prices. It's worth noting that we estimate weather was 5 cents favorable compared to normal in the third quarters of both 2021 and 2020. Overall, we added 5 cents quarter over quarter from utility operations. Moving on to our investment in American Transmission Company, earnings increased one cent compared to the third quarter of 2020, driven by continued capital investment. Earnings at our energy infrastructure segment improved one penny in the third quarter of 2021 compared to the third quarter of 2020. This was driven by production tax credits related to wind farm acquisitions. Finally, we saw a one cent improvement in the corporate and other segment. This increase was primarily driven by lower interest expense. In summary, we improved on our third quarter 2020 performance by eight cents a share. Now I'd like to update you on some other financial items. For the full year, we expect our effective income tax rate to be between 13 and 14%. Excluding the benefit of unprotected taxes flowing to customers, we project our 2021 effective tax rate will be between 19 and 20%. As in past years, we expect to be a modest taxpayer in 2021. Our projections show that we will be able to efficiently utilize our tax position with our current capital plan. Looking now at the cash flow statement on page six of the earnings package, net cash provided by operating activities increased $57 million. Our increase in cash earnings in the first nine months of 2021 more than offset the higher working capital requirements. As expected, with normal collection practices underway in all of our service territories, we made great strides in improving our working capital position in the third quarter. Total capital expenditures and asset acquisition were $1.7 billion for the first nine months of 2021, a $129 million increase as compared with the first nine months of 2020. This reflects our investment focus in our regulated utilities and energy infrastructure business. Looking forward, as Gail outlined earlier, we're excited about our plans to invest $17.7 billion over the next five years in key infrastructure. This ESG progress plan supports 7% annual growth in our asset base. Pages 18 and 19 of the earnings package provide more details of the breakdown of the plan, which I will highlight here. As we continue to make our energy transition, nearly 70% of our capital plan is dedicated to sustainability, including $5.4 billion in renewable investment and $6.8 billion in grid and fleet reliability. Additionally, we dedicated $2.8 billion to support our strong customer growth. We also plan to invest $2.7 billion in technology and a modernization of our infrastructure to further generate long-term operating efficiency. With our strong economic development backdrop and our continued focus on efficiency, sustainability, and growth, we see a long runway of investment ahead, even beyond the next five years. In closing, before I turn it back to Gail, I'd like to provide our guidance. We're raising our earnings guidance again for 2021 to a range of $4.05 to $4.07 per share with an expectation of reaching the top end of the range. This assumes normal weather for the remainder of the year. This is the second time we're raising our guidance. If you'll recall, Our original guidance was $3.99 to $4.03 per share. With that, I'll turn it back to Gail.\n\nGail Kloppa (Executive Chairman): Shal, thank you very much. We're on track for a solid year. Again, in light of our strong performance, our guidance range now stands at $4.05 to $4.07 a share. We're also tightening our projection of long-term earnings growth to a range of 6% to 7% a year. And finally, a quick reminder about our dividends. As usual, I expect our board will assess our dividend plans for next year at our scheduled meeting in early December. We continue to target a payout ratio of 65 to 70% of earnings. We're right in the middle of that range now, so I expect our dividend growth will continue to be in line with the growth in our earnings per share. Overall, we're on track to focus on delivering and providing value for our customers and our stockholders. And operator, we're now ready to open it up for the Q&A portion of the call.\n\nConference Operator (Call Moderator): Thank you. Now we will take your questions. The question and answer session will be conducted electronically. To ask a question, please press the star key followed by the digit one on your phone. If you are using a speakerphone, turn off your mute function to allow your signal to reach our equipment. We will take as many questions as time permits. Once again, press star, then the number one on your phone to ask a question. Your first question comes from the line of Shar Perez with Guggenheim Partners.\n\nShar Perez (Analyst, Guggenheim Partners): Hey, guys.\n\nGail Kloppa (Executive Chairman): Rock and roll, Shar.\n\nShar Perez (Analyst, Guggenheim Partners): How are you doing? Not too bad. Not too bad, Gail. Appreciate it. So just a couple of questions. And Gail, I want to unpack sort of your comments around the Oak Creek Power of the Future units, because I think that's sort of somewhat pretty material. Any estimate around capital costs to fully convert? from coal to gas and what the heat rate of those units would be. I know the contracts are obviously tech agnostic, but would shifting also base load units to essentially higher heat rate peakers have any kind of ramifications under the terms of the contracts? Would the units serve as capacity or do you expect to run them all the time?\n\nGail Kloppa (Executive Chairman): Thanks. Great question, Char. And I'm going to ask Scott to give you some details as well. Let me say one thing, though, I would not expect as we move through the transition at the New Oak Creek units between now and 2035, I would not expect them to run simply as peakers. They're probably going to run much more like our Port Washington units, which are highly efficient combined cycle units. So I wouldn't make the conclusion that they'll run as peakers. They're very much going to be needed for reliability, no question about that. In terms of capital, I mentioned that it would be incremental capital investments in the plant. And I'm going to have Scott give you the details. I can tell you, though, that after a lot of work and a lot of analysis, we still have more to do for the long run. But after a lot of work and a lot of analysis, we are convinced that this is an economic thing to do for customers. Scott?\n\nScott Lauber (Chief Operating Officer): Sure, Gail. And as we look at the plant in this first step here to get to that 30%, we're looking at a very modest investment, approximately $30 million today. get it to be able to run at that blend coal blending with some gas and a little coal and as you look farther out you know in that 2030 time frame 2035 time frame as we look at converting completely that would be approximately 150 million dollars but this is really early in that analysis and more to come as we continue to to flush that out perfect um thank you for that and then\n\nShar Perez (Analyst, Guggenheim Partners): Just, Gail, just the $1.6 billion increase in the capital plan is, obviously, as you highlighted, it's really material. You know, it's driven by electric, maybe at the expense of energy infrastructure and gas spend, right? So as you're kind of looking on the roll forward, electric spend is up about $2 billion and the infrastructure and gas are down around $4.50. Is this kind of a broader and more sustainable strategic shift in growth focus going forward or just kind of a timing factor? especially as we're thinking about your plans beyond 25?\n\nGail Kloppa (Executive Chairman): Yeah, again, a great question, Char. Let me just say this. We always start with need. And our preference, obviously, is to invest in regulated assets where there is clearly a customer benefit or a customer need. So as we look at this plan, and you're right, the increase is material, but as we look at this plan compared to the prior five-year plan, And again, largest five-year capital plan in our history at $17.7 billion. The two things you mentioned are correct. First of all, we'll be adding a significant amount of renewables to maintain reliability as we retire older, less efficient coal-fired plants in this timeframe. So the first is we have got to replace some of that capacity with carbon-free energy. So there's an increase in renewable investment, regulated renewable investment in the plan compared to the previous five-year plan. And then, and this is something that we've all talked about internally and Kevin continues to point out, and he's absolutely right, we have aging distribution infrastructure. And that aging distribution infrastructure, which we've invested in in the past, we're coming up to a period now where there is a much greater need to replace that aging distribution infrastructure. So those are the two drivers, if you will, of kind of the incremental change in this five-year capital plan versus the prior five-year capital plan. Does that respond to your question?\n\nShar Perez (Analyst, Guggenheim Partners): It does. It does. And that's super helpful, Gail. And then just lastly, is just on the infrastructure segment, you know, on that roll forward, does the contracting spending profile, is it indicating anything, something about, for instance, project returns you're seeing or pressure from input cost or is it just really a function of limited capital flowing to, you know, to new or regulated opportunities instead? So like, are you seeing any of these pressures in the, in the, in the business that others are saying?\n\nGail Kloppa (Executive Chairman): No. Uh, and, and again, we've been asked this question, as you know, before, uh, the last, the last one we just announced a few months ago, Sapphire sky, actually our projections show up having the best returns of any of the eight projects. So, we are not seeing a diminution at all in terms of potential returns or in terms of the robust nature of the pipeline. And remember, we've got two coming that have been announced but are not yet in service, Jayhawk and Upstream, not Upstream, I'm sorry, Thunderhead. Yeah, my James Bond project, Thunderhead. And then in addition to that, there's still more than a billion dollars to be invested in this five-year capital plan. we're still very active and seeing the kind of positive returns that we would expect to see. Fantastic.\n\nShar Perez (Analyst, Guggenheim Partners): Thank you for that. And congrats, Scott and Kevin, on Phase 2. And, Gail, don't go anywhere. You're still too young. See you guys.\n\nspk06 (): Appreciate it. Thanks, Scott. Thank you very much.\n\nConference Operator (Call Moderator): Your next question comes from a line of Steve Fleischman with Wolf Research.\n\nGail Kloppa (Executive Chairman): Greetings, Steve. How are you doing?\n\nSteve Fleischman (Analyst, Wolf Research): Hey, Gail. Good afternoon. Hi, everyone. So first of all, just on the new growth rate, the 6% to 7%, should we assume that that is based off of kind of the initial 2021 guidance?\n\nGail Kloppa (Executive Chairman): Yes. Yep.\n\nSteve Fleischman (Analyst, Wolf Research): Okay. I just wanted to.\n\nGail Kloppa (Executive Chairman): Yep. No, I'm glad you asked. And the short answer is yes. And then just to kind of put some numbers around it, you know, historically what we've done is looked at the midpoint of our original guidance and and then gave you guidance, in this case, the six to seven off of that. So the midpoint of our original guidance for 2021 is like $4.01 a share. Okay, great.\n\nSteve Fleischman (Analyst, Wolf Research): And then on the \u2013 I know the spending to convert the newer Oak Creek units is relatively modest, but would that spending be \u2013 kind of like recoverable under the lease structure of that law, or would it be done more normal rate-based? How would that work?\n\nGail Kloppa (Executive Chairman): Now, the short answer, Steve, is that we obviously have to get commission approval for any investment of that kind, but it would be under the way the lease works, it would be under the power of the future terms.\n\nSteve Fleischman (Analyst, Wolf Research): Okay. And is that Is there any chance that that could get extended if you do things to extend the period or those just have, under the law, set end dates?\n\nGail Kloppa (Executive Chairman): Well, there's a current 30-year end date from the date of operation of the new Oak Creek units for the lease. So the commission initially set a 30-year lease period. But in the terms of the agreement with the commission, the commission has the right to extend the lease. So all of that will be dealt with. probably around 2039, 2040. Okay. And I know that you're still going to be doing your daily.\n\nSteve Fleischman (Analyst, Wolf Research): You're not going to be exact chairman. And you'll still be chairman. Last question. And this is kind of a broad one. I'd be curious your take on the, I guess it's the build back better infrastructure bill and potential implications, opportunities for, for WEC from that. and chances you think of passing?\n\nGail Kloppa (Executive Chairman): Yeah, you know, it's such a sausage-making machine in Washington, as you know, but, you know, if I were a betting man, I think something will pass. And it appears, as you've seen, Steve, that there's strong support for the renewable tax credit portion of that Build Back Better plan. And that seems to have stuck in every single version or every single iteration of the plan. So, again, if I were a betting man, I would say that that that extensions of renewable tax credits will happen and it looks like there's a strong possibility that what they call direct pay will occur. Now, if direct pay is a part of the renewable package, if you will, in that plan. then that clearly enhances our opportunities. It's good for customers. It's good for cash flows. It's good for the growth of our regulated business. It's good for the growth of our infrastructure segment. So I think a key to watch is not only the 10-year extension that they're talking about of production tax credits, also the flexibility on tax credits for solar, but also a big key would be the direct pay. And that would be a strong positive and would also have a step back and and look again at what is doable and what's needed here. Great.\n\nSteve Fleischman (Analyst, Wolf Research): Thanks so much.\n\nGail Kloppa (Executive Chairman): You're welcome, Steve. Thank you.\n\nConference Operator (Call Moderator): Your next question comes from the line of Julian DeMolin-Smith with Bank of America.\n\nJulian DeMolin-Smith (Analyst, Bank of America): Hey, good afternoon, team. Thanks for the time.\n\nGail Kloppa (Executive Chairman): Congratulations. You on the road again, Julian?\n\nJulian DeMolin-Smith (Analyst, Bank of America): Trying to be.\n\nJulian DeMolin-Smith (Follow-Up) (Analyst, Bank of America): Trying to stay on the road. Call it what it is. I appreciate it. And congratulations again to Kevin and Scott here. If I can pick it up where perhaps you are lifted off on the coal side, just what about Weston here? You made the broader comment not just about PTF, but about the wider nature of coal within your portfolio. Can you comment on that asset? And I have a follow-up.\n\nGail Kloppa (Executive Chairman): Sure. Sure. I'm going to give you an answer, and then I'm going to let Shaw and Scott give you a little bit more detail. But the Westin units, which for those of you who may not be familiar, the Westin units are relatively new coal-fired units that are an integral part of Wisconsin Public Service Generation Fleet, the company that we acquired based in Green Bay. Westin is a real workhorse. And again, we may have some flexibility there. that we're looking at now in terms of optionality for the Weston units. Scott?\n\nScott Lauber (Chief Operating Officer): Yes, Gail. At the Weston, and particularly the newer unit, Weston 4, we have actually done some coal firing on that with some natural gas also. So we'll be evaluating that as an option as we go through the next several years here. So But we do realize that it's a very critical part of the state and we want to make sure we have the reliability at that location. So we're going to continue to evaluate it.\n\nGail Kloppa (Executive Chairman): And Julian, to your question, which is a good one, and everyone should know, we have a path here to have a really significant change in our portfolio to support decarbonization and to get to aggressive environmental goals. We can do that, and we can do that without sacrificing reliability. We will not sacrifice reliability. We don't have to do that as we work through our plan.\n\nJulian DeMolin-Smith (Follow-Up) (Analyst, Bank of America): Excellent. Thank you for clarifying that. If I can ask, just on the infrastructure side, just to elaborate on this. You said a moment ago your Sapphire project, for instance, amongst the best returns you've had thus far in your efforts, and obviously you're kind of relatively scaling this down. Is this more about keeping the infrastructure segment within, call it a 10% bucket of total earnings, and having effectively achieved that with this five-year outlook, and that's what's driving a little bit of the scaling back? Or conversely, is this just about being conservative and arguably, whether it's direct pay or whether it's just simply finding opportunities that exceed that allocation, that you could actually be, again, sort of exceeding these budgets?\n\nGail Kloppa (Executive Chairman): Well, let me just say this. We're usually conservative, and that won't surprise you. And I would look at what we've just laid out here for that segment of our capital spending over the next five years as a really strong placeholder, which we will then, once we see what's in that Build Back Better plan, we'll step back and see what opportunities it might give us. So I think the short answer to your question, and Shaw's smiling and nodding her head, I think the short answer to your question is, we're being appropriately conservative today.\n\nJulian DeMolin-Smith (Follow-Up) (Analyst, Bank of America): Excellent. Sorry, just clarifying, the earlier comment on Build Back Better, what's the FFO to debt improvement from Direct Pay, if you can quantify that at all?\n\nGail Kloppa (Executive Chairman): I'm sorry, you broke up, Julian. Can you ask that one more time?\n\nJulian DeMolin-Smith (Follow-Up) (Analyst, Bank of America): Sorry, the balance sheet, under the plan today, how much better would your credit metrics get, if you have any sense on that? Obviously, there's a lot of assumptions. Michelle?\n\nSha Lu (Chief Financial Officer): Yeah, Julian, we're looking at the details. As you know, the language just came out, so we wanted to really study the specific implications. But I think in general we could look at between 50 to 100 basis point improvement, just looking at the first glance of the language.\n\nJulian DeMolin-Smith (Analyst, Bank of America): Excellent. Thank you, guys. Wow, impressive. Thank you.\n\nConference Operator (Call Moderator): Our next question comes from the line of Dergish Choproff with Evercore ISI.\n\nGail Kloppa (Executive Chairman): Hello, Dergish. How are you doing today?\n\nDergish Choproff (Analyst, Evercore ISI): Hey, Gail. Good afternoon. And congratulations to Kevin and Scott as well from my side. Two questions for me. First, I think I'm jumping the gun here, but still okay to assume no equity in the plan through 2026 now?\n\nGail Kloppa (Executive Chairman): Yes, yes, and yes.\n\nDergish Choproff (Analyst, Evercore ISI): Okay. Okay. Just wanted to clarify that. That's great. And then maybe just really quickly, some of your peers have talked about, you know, giving us some sort of sensitivity on natural gas price increases and customer will impact. So to the extent that you can help us with that, that would be greatly appreciated.\n\nGail Kloppa (Executive Chairman): Sure. Let me give you a dollar amount, and Scott can fill in some additional details. Depending upon, and you know, we have natural gas, we're the natural gas provider in most of Wisconsin, Chicago, the northern suburbs of Chicago, portions of western Michigan, and in places all over Minnesota. Depending upon where you are in our service area, it looks like the average bill increase for a residential customer, given what we've been able to do to mitigate higher gas prices with our hedging and storage opportunities. So the typical residential customer will see about a 25 to a $40 monthly increase for each month of the heating season based on what we're seeing today and what we've got locked in. And I can tell you that we have been very aggressive as always with our hedging strategies, with gas storage, with option contracts, and we're pleased with how we've been able to mitigate the very sizable increase in the natural gas market for pricing. Scott?\n\nScott Lauber (Chief Operating Officer): That's exactly correct, Gail. So we've got about a third of our gas in storage that we filled throughout the year, and as Kevin mentioned, those storage levels are where we wanted to be at this time. And then we also have about a third of the hedging program. So that $25 to $40 difference looking at the current prices. And we don't expect that to move too much with our hedging program and our storage inventory.\n\nDergish Choproff (Analyst, Evercore ISI): And is there a percentage of total bill? What's that, like 25%, 30%? Am I thinking about that the right way?\n\nScott Lauber (Chief Operating Officer): Yeah, it's about 30% to 40% depending upon the area.\n\nGail Kloppa (Executive Chairman): Thank you. Thank you, Dragesh.\n\nConference Operator (Call Moderator): Your next question comes from the line of Jeremy Tenet with JP Morgan.\n\nGail Kloppa (Executive Chairman): Good afternoon, Jeremy.\n\nspk14 (): Hi, good afternoon. Thanks for having me here. It's been nice being ahead, Jeremy. Just a last one on Oak Creek here, if I could. Just want to see with regards to the timeline of 2035, how that date was established as the right timeline as opposed to something earlier or later.\n\nGail Kloppa (Executive Chairman): It's a great question. It all comes back as we've talked this through with our operating people, with our technicians, with our outside experts, it all comes back to the proper transition to continue aggressive CO2 reduction but maintaining reliability. And we're quite confident that by 2035, at the latest, that we can adjust our fuel source at Oak Creek such that coal will be a backup source. I mentioned to you that our view is that our use of coal for power supply for our customers will be almost immaterial in our planning by 2030, less than 5% of our total power supply. So we're going to walk our way forward with continuing to increase the fuel blending at Oak Creek making sure that we maintain that high standard of reliability, which we've got to have. But it really is a thought about how quickly can we go and maintain reliability in step increments. And that's our current view. So we'll see how it goes, but we're very confident about the trajectory between now and 2030. And if the trajectory is even better, then we'll see where we go. But it's really our best estimate of how to make continued progress on aggressive environmental goals and maintaining reliability.\n\nspk14 (): Got it. That's very helpful. Thanks. And just one last one for me. On the new 6% to 7% growth target, what's different now versus prior to the change? Just given your directional guidance and since growth is already generally trended at the high end of the range, just wondering what prompted, I guess, today's change in messaging?\n\nGail Kloppa (Executive Chairman): Well, one simple thing, the refreshing of our five-year capital plan. I mean, we went from a $16.1 billion five-year capital plan that we unveiled to you the same time last year to a 10% increase in the capital needs to $17.7 billion. And when you look at that and you say, okay, no need for equity, run it through the model, what do we get? And it gives us confidence in the 6% to 7% growth rate.\n\nspk14 (): Got it. Makes sense. I suppose WECC operational execution might feed into it a little bit as well, but appreciate the CapEx uplift there.\n\nGail Kloppa (Executive Chairman): Well, let me just say this. The operational execution doesn't hurt.\n\nspk14 (): Thanks for taking my questions. Have a good one.\n\nGail Kloppa (Executive Chairman): Jeremy, thank you.\n\nConference Operator (Call Moderator): Your next question comes from the line of Andrew Weisel with Scotiabank. Afternoon, Andrew.\n\nAndrew Weisel (Analyst, Scotiabank): Hi, everybody. First question on O&Ms. I see the income statement is flattish on a year-to-date basis. Can you give us a figure on what you call the manageable or day-to-day O&Ms? And I know you've been targeting a 2% to 3% year-over-year reduction on that metric. Is that still a good number, or should we expect some spending to be pulled from 2022, given the strong year-to-date earnings results?\n\nGail Kloppa (Executive Chairman): Shaw has the answer for you.\n\nSha Lu (Chief Financial Officer): Yeah, so we're looking at the projection for the year, taking into consideration what has happened over the past three quarters and what we expect to see, the 3% range is still a very good number, the day-to-day reduction compared to the annual 2020.\n\nAndrew Weisel (Analyst, Scotiabank): Okay, great. And the next question is on rate cases. Congrats on having such a clear near-term outlook. Can you talk about expectations for the next filings? I think you previously talked about May 2022 for Wisconsin. Is that still a good placeholder, or then which of the smaller subs might see activity over the coming months?\n\nGail Kloppa (Executive Chairman): Well, yes, for our Wisconsin utilities, late spring 2022, or certainly by no later than May 1 of 2022, that's the plan for filing our next rate reviews for the Wisconsin utilities. And recall that we're, I believe, the only state in the U.S. that has a two-year forward-looking test period for those rate reviews. So we're looking forward to having the rate reviews done next year in Wisconsin. And Kevin and Scott, I don't know of any other plan. I mean, we just, as Kevin described, we just finished rate reviews for North Shore Gas in Illinois, for Michigan Gas Utilities, and nothing else seems to be on the docket.\n\nKevin Fletcher (President and CEO): Gail, just as I said in my remarks, we have no other plans at this particular time. Thanks for the question. It's a great position to be in. Thank you, team. Thank you.\n\nConference Operator (Call Moderator): Your next question comes from the line of Michael Lapettis with Goldman Sachs.\n\nMichael Lapettis (Analyst, Goldman Sachs): Rock and roll, Michael. Hey, guys. Thank you for taking my question. Just curious, in the five-year plan, can you walk us through a little bit of the cadence of the change, meaning is the change mostly in 22 and 2023, or is it more in kind of the back end of the plan?\n\nGail Kloppa (Executive Chairman): Scott, do you want to take that one?\n\nScott Lauber (Chief Operating Officer): sure sure gail and when we look at the plan it's actually throughout the plan yeah um in fact you know when you look at it compared to this year's plan you know the prior capital plan in years four and five it kind of tapered off and in this particular year you know especially as we laid out more and more as our energy transition and these projects get staged in over time it's actually a flatter outlook as you look through it so it really blended in well And when you think about us putting in the generation and being very measured, you've got to make sure you get the generation in and go to the next project. So it's very deliberate in how we laid it out. Shaw, anything you'd like to add?\n\nSha Lu (Chief Financial Officer): I agree. I think the two areas would be the renewable investment and the grid and fleet reliability investment. So we are adding investment in all five years in those categories. Okay.\n\nGail Kloppa (Executive Chairman): And, Michael, as we look even beyond the five-year plan that we just rolled out this morning, the new five-year plan, one of the things that Shad just mentioned is very clear to us. The additional and upwardly trajectory investments in grid modernization and in reliability, those kind of investment dollars are going to continue well beyond. The need is going to be there well beyond this five-year period.\n\nMichael Lapettis (Analyst, Goldman Sachs): Right. Oh, no. And we've got a massive opportunity in Wisconsin and elsewhere on the system. Just curious, though, I want to make sure I follow. Can you give any cadence for like what years within just the Wisconsin regulated business, what amount of potential new megawatts of renewable is in this plan that hasn't already been announced?\n\nGail Kloppa (Executive Chairman): That hasn't been announced?\n\nScott Lauber (Chief Operating Officer): yes okay okay yeah so we have a number of them already pending at the wisconsin commission uh but go ahead scott so there is approximately on the solar side that hasn't been announced approximately um 700 megawatts on the solar and then another about 500 in the batteries so as you know we have several of the largest wind farms already and nothing additional just that one that we've already\n\nGail Kloppa (Executive Chairman): filed for in the wind. And much of the batteries really can be deployed at existing sites.\n\nMichael Lapettis (Analyst, Goldman Sachs): Got it. And so when you think about this, that 700 megs of solar, 500 megawatts of battery, that's kind of spread throughout the five years of the plan.\n\nScott Lauber (Chief Operating Officer): Correct. Yep. Correct. Yep. Yeah. You're going to see a consistent growth as we look at our renewables over the next five years.\n\nMichael Lapettis (Analyst, Goldman Sachs): Got it. And then the one thing, and it's smaller, but I noticed that there's an uptick in expected capex at ATC, and we haven't really seen an uptick in expected capex in ATC for a while. Can you talk a little bit about what's driving that and whether this is a beginning of a cycle of kind of continual increase in spend at ATC, or is this a little bit more of a one-off?\n\nGail Kloppa (Executive Chairman): No. And Kevin, of course, is the chairman at ATC. I'm going to ask him to comment on this, but One of the things that is notable here that I think, Kevin, will continue is ATC has a lot of maintenance capital that is just really going to be required to maintain the reliability of the existing transmission network. And I think that uptick in maintenance capital, Kevin, is a significant driver here.\n\nKevin Fletcher (President and CEO): Yeah, it is, just like it is on our retail side. That's exactly right. As you know, there's a lot of renewable projects that are planning on board, so that'll help drive some of that CapEx investment over the next five years and even into the future from that perspective. So, maintenance as well as new needs from renewables as the drivers. Got it. Thank you, guys. Much appreciated. You're welcome, Michael.\n\nGail Kloppa (Executive Chairman): Hang in there.\n\nConference Operator (Call Moderator): And our last question comes from the line of Vidula Marte with Hudson Bay Capital.\n\nGail Kloppa (Executive Chairman): Greetings, Vidula. Hello, Gil. How are you? We're good.\n\nVidula Marte (Analyst, Hudson Bay Capital): How are you doing?\n\nGail Kloppa (Executive Chairman): I'm okay. How's your friend Mad Dog doing?\n\nVidula Marte (Analyst, Hudson Bay Capital): Mad Dog?\n\nGail Kloppa (Executive Chairman): Never mind. I'm slow today. Is it WFAN in New York?\n\nVidula Marte (Analyst, Hudson Bay Capital): Oh, yes. My kid brother works there, yes. Anyway, he's doing very well. Very well. Thank you. Very good. Yeah. A topic I want to ask about is, you know, electric vehicles and associated infrastructure. I mean, we saw the other day a large announcement by Hertz in terms of wanting to convert over their fleet and choosing, you know, Tesla as their preferred provider, et cetera. Can you give us a sense as to right now, like, how large of a fleet that you have that's addressable to be converted to electric and kind of how you're thinking about that over a period of time and kind of based on how the fleet runs, type of characteristics and features, et cetera, that you'll be looking for as you do the transition.\n\nGail Kloppa (Executive Chairman): Are you thinking about our own fleet that you're asking about?\n\nVidula Marte (Analyst, Hudson Bay Capital): Yes, yes. All right.\n\nGail Kloppa (Executive Chairman): All right. Well, we've got we've got we've made a commitment. Actually, I'm going to ask Kevin to give you the details. We've made a commitment to part of a national plan to, you know, in a very reasonable timeframe to continue to add materially to our to our operating fleet on the ground, to our bucket trucks, to our, you know, to our other vehicles. to continue to transition them to EVs. And then, so I'll ask Kevin to give you the details on that, and then I'll come back, and I want to talk very briefly about a pilot program that is beyond our own fleet, but a pilot program for our customers that we just got approved a couple of months ago. Kevin?\n\nKevin Fletcher (President and CEO): Hey, Gail, for our cars and SUVs, specifically for our fleet, as you're asking about, we have a goal of 35% to be purchased of EVs between now and 2025. And then for the larger trucks, for our Class III trucks, our goal is that 25% of those would be EVs by that point in time. We're also looking at some of the fleets in the storeroom, looking at our forklifts and the equipment that we use for moving our products around, looking at those and have targets for those as well.\n\nGail Kloppa (Executive Chairman): And Kevin wanted to buy some new electric motorcycles from Harley, but we'll talk about that later. Always pushing, Gail. Thanks. And then, Vidula, we just got approved a pilot program from the Wisconsin Commission. We're in the very early stages. We'll talk more about it as we roll out some of these options for our customers. But essentially, the pilot program is to help with the affordability for particularly large commercial customers, hotels, et cetera, the affordability of installing charging stations. So that program is, again, just now in the earliest stages. We'll talk more about that as we get some customers to sign up. But early on, as our key account folks talk to our large customers, there's some significant interest in moving forward with putting EV charging stations in offices, hotels, parking lots, et cetera. Hope that responds to your question, Vidula. I'll add just one real quick.\n\nKevin Fletcher (President and CEO): Yes. Our fleet is one, but we're also working with our large customers, and the biggest opportunity is our large customers are looking at their fleets, not just our internal fleet. But that goes hand-in-hand with what Gail shared with the pilot that we're working on. Thank you for your question.\n\nVidula Marte (Analyst, Hudson Bay Capital): Thank you very much.\n\nGail Kloppa (Executive Chairman): Terrific. Thank you, Vidula. Well, ladies and gentlemen, that concludes our conference call for today. Thanks so much for participating and for all your good questions. If you have any other questions, feel free to contact Bestraka. She can be reached at 414-221-4639. Thanks, everybody. So long.",
+  "n_turns": 105
+}

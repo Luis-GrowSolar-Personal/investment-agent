@@ -1,0 +1,365 @@
+{
+  "ticker": "KHC",
+  "original_ticker": "KHC",
+  "call_date": "2025-07-30",
+  "year": 2025,
+  "quarter": 2,
+  "vendor_params": {
+    "exchange": "NASDAQ",
+    "symbol": "KHC",
+    "year": 2025,
+    "quarter": 2
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T01:11:41Z",
+  "raw_payload": {
+    "event": {
+      "year": 2025,
+      "quarter": 2,
+      "conference_date": "2025-07-30T09:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk05",
+        "text": "Greetings and welcome to the Kraft Heinz Company second quarter 2025 earnings call. At this time, all participants are in a listen only mode. A question and answer session will follow the formal presentation. If anyone should require operator assistance, please press star zero on your telephone keep path. As a reminder, this conference is being recorded. It is now my pleasure to introduce Anne-Marie McGillah, Global Head of IR."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Thank you and hello everyone. Welcome to the Q and a session"
+      },
+      {
+        "speaker": "spk10",
+        "text": "for our second quarter 2025 business update. During today's call, we may make forward looking statements regarding our expectations for the future, including items related to our business plans and expectations strategy efforts and investments and related timing and expected impacts. These statements are based on how we see things today and actual results may differ materially due to risk and uncertainties. Please see the cautionary statements and risk factors contained in today's earnings release, which accompanies this call as well as our most recent 10 K and Q and a K filings for more information regarding these risks and uncertainties. Additionally, we may refer to non gap financial measures which excludes certain items from our financial results reported in accordance with gap. Please refer to the earnings release and the non gap information available on our website at .KraftHeinzCompany.com Under news and events for discussion of our non gap financial measures and reconciliation to the comparable gap financial measures. I will now hand it over to our Chief Executive Officer Carlos Abrams Rivera for opening comments."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Well, thank you, Marie. And thank you everyone for joining us today. Listen, I'm pleased to report that our second quarter results came in line with our expectations with an improvement in year over year top line performance. Our investments in product superiority, manufacturing capabilities and key areas of our business are starting to pay off. It's driving momentum and giving us confidence to reiterate our 2025 full year outlook. And while we don't have any new news to report today in our consideration of the data transactions. I do want to assure you that we are actively progressing on our evaluation with a focus on unlocking long term shareholder value."
+      },
+      {
+        "speaker": "spk03",
+        "text": "With"
+      },
+      {
+        "speaker": "spk04",
+        "text": "that,"
+      },
+      {
+        "speaker": "spk03",
+        "text": "I have answered joining me. So let's open the call for the Q&A."
+      },
+      {
+        "speaker": "spk05",
+        "text": "We'll now be conducting a question and answer session. If you'd like to ask a question, please press star one on your telephone keypad. The confirmation tone will indicate your line is in the question queue. You may press star two to remove your question from the queue. For participants using speaker equipment, it may be necessary to pick up the hand step before pressing the star keys. One moment please while we poll for"
+      },
+      {
+        "speaker": "spk06",
+        "text": "questions. Our first question is from Andrew Lazar with Barclays."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Great, thanks so much. Good morning. Carlos, during the quarter. Kraft Heinz put out a release that the company was considering various strategic transactions to create value. As there's nothing specific from the company yet, perhaps maybe we can talk a little bit more in generalities. There was obviously a report from the Wall Street Journal about potential business separation. I know you can't comment on specifics, but I guess how would you respond to investors that would say such actions oftentimes can be nothing more than financial engineering moves that come with higher costs and synergies rather than sort of unlocking value. I'm really just trying to provide maybe a forum where you can talk a little bit about these sorts of things, maybe more in general as Kraft looks at a lot of different possibilities to try and unlock value."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Well, thank you, Andrew. Always great to hear from you. As I said,"
+      },
+      {
+        "speaker": "spk04",
+        "text": "our board is working with urgency on evaluation of those strategic options to unlock, as you said, long term strategic value creation. And what I would say also is, and I'll remind our investors, is that we will operate with the same financial discipline you have come to expect from us. So any actions, if any, will be consistent with that goal of unlocking that long term shareholder value. And that's essentially all I can say at this time. Thank you for your question."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Yep, gave it a shot. Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Our next question is from Peter Galbo with Bank of America."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Hey guys, good morning. Thanks. Thanks for taking the question. Andre, maybe a bit more of a technical one. But there was a pretty sizable impairment that was taken in the quarter and was just hoping to get a little bit more detail. It seemed like it was maybe more at the enterprise level, but I didn't know if that flowed down to any of the brands in particular, or if it's at all tied to, you know, as you contemplate kind of strategic transactions and you think about, you know, moving different pieces like that the reporting change triggered the impairment. And again, it's relatively sizable. So just hoping to get some more detail there. Thanks very much."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thanks for the question. So look, we recorded a $9.3 billion non-cash impairment charge. And the trigger for that was only the fact that we have a sustained decline in the stock price and that has reduced the carrying value of our intangible assets. We have been monitoring this for some time. We disclosed in our previously filed 10Q the risk that this could happen. So it's not really nothing new and nothing beyond that. This does not change the view that the basic value of the company, including the confidence and direction we have in the strategy."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Okay, thanks very much. Our next question is from David Palmer with Evercore ISI."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Thanks. I'm just wondering how you're thinking about your pricing and promotion levels currently, you know, where do you see perhaps an opportunity to or challenge to ramp up promotions or narrow price gaps? And where do you feel like, you know, you've taken the steps already that you're comfortable where you are versus you're near in competition, even if that's private label and I have a follow up."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you, David. Let me"
+      },
+      {
+        "speaker": "spk04",
+        "text": "start and then I'll hand it off to Andre. You want to give additional commentary. But I guess I would just say as context, you know, we are a consumer centric brand, first of all. Which means that we are making sure that our brands are our brands are going to continue to build for the long term. And what you see from us is that we continue to invest, make investments across the board. And that some of that investment is actually in pricing, including about 100 bips in pricing year over year. And we also are on top of that investing in over 30 bips in marketing so that we can reach about .8% of marketing as a percent of net sales by 2025. But the end of 2025, which will be the highest level in the earlier decade. So, and in terms of pricing, it's one thoughtification that I would make is that if you look at pricing in North America, when you exclude the coffee inflation is actually negative. So that gives you a sense that we're also being thoughtful about how to think about pricing and anything else you would add."
+      },
+      {
+        "speaker": "spk02",
+        "text": "As we said before, we have built into the into the initial plan about 300 million dollars of investments. We have added a little more towards the second half. We have been concentrating the investments mainly on the key windows. You see more activity now in the third quarter. As we are now at the peak of the summer, there is some investments that you have saved for this moment as we have a lot of product renovations hitting the market and some core innovations hitting right now. So we concentrated efforts on that so we can have the new product, the extra marketing and those investments all hitting at the same time to improve the chance of success. So, I mean, there's nothing to say. Carlos Adonis."
+      },
+      {
+        "speaker": "spk04",
+        "text": "The only thing I would add, David, here is that it's important to know that we are pricing well below inflation. In fact, we expect inflation to be about five to seven percent this year, and we're only passing about around one percent of the pricing. So we are, in fact, keeping the consumer in mind as we take this action on pricing. Sounds like you had another question,"
+      },
+      {
+        "speaker": "spk08",
+        "text": "David. Yeah, no, thank you for that. Just one thing I'm thinking about with regard to Kraft Heinz, particularly as you think about strategic actions and presumably there's parts of the business that might garner a higher multiple than the others, is this problem that we see across food right now where legacy parts of businesses that might be growthier are not doing as well as they might have done over the long term. And I'm wondering how you're thinking about that with regard to, you know, whether it's accelerated, protect or balance, we're seeing, you know, on average declines continuing in those in those businesses. You know, what is your prospects, I guess, to make your growth parts growthy, you know, in the near term, particularly if you want to shine a good light on those parts of the business as you think about strategic actions. Thanks."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Thank you. Let me go back to the our strategy that we have been consistent following for the last 18 months or so, which is, we are making investments to make sure that we're growing across an emerging markets, North America retail and away from home. And in fact, we are continue to make investment to drive that growth and return capital to our shareholder. And when you look at our pillars, in fact, you know, in emerging markets, you saw we grew up top line by around 8% to both price and volume at the same time expanding margins substantially. In fact, we now in emerging market have our highest margin ever. If you look at North America retail and accelerate platforms, we actually investing also to power by our by the brand growth system. And we are executing through agile ways of working. And let me just say that if you look at the, at the, the also data, I write data over the last four weeks. In fact, when you exclude cold cuts and bacon that drove about 40% of the decline, the rest of the portfolio in total North America retail actually is improving substantially in fact, in the latest for week X cold cuts and bacon we are down .7% year today was down 4%. So you are seeing that the actions were taken North America retail are also helping us drive the kind of improvements that we wanted to see in the business. And finally, in away from home, we're also expanding into footprints with distribution and driving new innovation into the marketplace. The last thing I will say is that we're not done. You're going to continue to invest in the business because we are confident in the strategy. We're making sure we spend continue to invest in marketing. Like I said earlier, we continue to step our investment in e commerce, which is helping us also drive our improvements in North America. And frankly, we also have a solid balance sheet that allows to any stroke cash flow that allows us to continue to make the investments. So we feel very good that when you look deeply into our growth pillars, all those actions are invested with making our in fact taking shape in order for us to be able to continue to drive the company towards long term success."
+      },
+      {
+        "speaker": "spk02",
+        "text": "I think beyond that we have, as I said before, I have a lot of product renovation hit in the market right now. I'm actually is learn to post mail, just to name those three. We have 20% marketing crazy over here expected to the second half. So the vast majority of all the media increases are all happening now in the second semester. We have, as I said, step up some investments on price. Awards the key windows that are still to come. So there is a lot more happening that we should and you should continue to see accelerate part of the portfolio of America improving gradually throughout the remaining quarters."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thank you. Thank you. Our next question is from Leah Jordan with Goldman Sachs."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Thank"
+      },
+      {
+        "speaker": "spk12",
+        "text": "you. Good morning. Just seeing if you could provide more detail on your sales trends across emerging markets. I know there's a big opportunity for distribution gains away from home in the region, so it's just curious how those gains have tracked versus your expectations so far this year. And how should we think about the pace of those gains in the back half versus the front half? And really, what's giving you the confidence in that double digit exit rate for this year?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Great question. Thank you, Leah."
+      },
+      {
+        "speaker": "spk04",
+        "text": "I mean, I mentioned that we, in fact, were very pleased to see that the top line now grew by 8%. I think what behind those numbers, though, is the fact that the growth coming from both volume and price. And the fact that we are doing that while actually increasing our margins at the same time, give us quite a bit of confidence that as we look at the end of this year, we should be able to be hitting a long term algorithm of double digit growth. And for us, we continue to see, you know, investment in our business and it's not going to stop. You know, today already, it represents about two and a half billion dollar business of our business overall. And I think what I think that it gives me confidence is the fact that when you look at step backs and you look at emerging markets, it's really a more simple portfolio. It is focused on taste elevation, in particular in our Heinz brand, and we have a strong -to-market model. So when you look at the double click of Heinz in emerging markets, you know, it actually grew about 18% year over year. So it is building on the strengths of our key brand in a simple, in a business that we know how to operate with a model that we now have been able to replicate across markets. So it's something that now we have been building on the success that we have in the past, historically, and now we're expanding to make sure that we're growing in Latam, we're growing in our Middle East, Asia, and Middle East, Africa, and Asia. And I think for us, we continue to believe that this is a place where we have tremendous opportunity for now and for the long term."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thank you, Leah."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Thank you. And I"
+      },
+      {
+        "speaker": "spk12",
+        "text": "can't. All"
+      },
+      {
+        "speaker": "spk11",
+        "text": "inflation"
+      },
+      {
+        "speaker": "spk12",
+        "text": "and promotions that were pushed into the third quarter, you know, any color on the magnitude of that impact and how what drove the timing shift and how you view kind of those cost pressures around inflation today?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "Sorry, Leah, you got caught off at the beginning of the question. If you can repeat"
+      },
+      {
+        "speaker": "spk03",
+        "text": "it."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Oh, sure. You had called out incremental inflation and promotions that were pushed from 2Q into 3Q. Just any color on the magnitude of that impact we should think about on a quarterly cadence basis. And then what was the driver of that timing shift for those two items and how are you thinking about inflationary cost pressures today?"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Look, magnitude is"
+      },
+      {
+        "speaker": "spk02",
+        "text": "in the range of 30, 40 bips. 30, 40 bips. It's nothing special. It's mostly the recognition like that on the basis of the inventory positions and the throughput. That's how these inventories got recognized in the P&L. So that's why shift Q2 Q3. So, but nothing really"
+      },
+      {
+        "speaker": "spk06",
+        "text": "beyond that."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Great. Thank you, Leah."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Our"
+      },
+      {
+        "speaker": "spk06",
+        "text": "next question is from Megan Clatt"
+      },
+      {
+        "speaker": "spk05",
+        "text": "with Morgan Stanley."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Hi, good morning. Thanks so much. I wanted maybe a follow up just on the organic sales growth in North America retail. You know, there was a comment in the prepared remarks that you expect gradual long term improvement in top line trends. And clearly it seems like just based on your comment around exit rate on emerging markets and food service that the gating factor here continues to be North America retail. So maybe you can just update us on how you're thinking about timing of getting back to just maybe stabilization first and foremost in North America retail. Thank you."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you. You know, for me,"
+      },
+      {
+        "speaker": "spk04",
+        "text": "what I would say is, and if you go back to kind of the strategy was fueling our growth and the improvements in North America performance. It is all the fact that we have now invested in through our brand growth system back in our products. So we're investing in our products superiority. We're investing in better marketing. Praying investing in better tool with e-commerce investment that we have made over the last six months. And that is giving us the company that we continue to see that now play into the marketplace. We end the last year with brand growth system impacting about 10 percent of our business. By the end of this year, we'll be about 40 percent of our business is proportionally focused in North America accelerated platforms. And you can see how when we are applying them that methodology that actually is driving our improvement in performance. In fact, let me give an example of Capri Sun, which is a business that we renovated. We invested back in the business. We improve the marketing. We improve the products. We make sure that we highlighted the benefits that it have with kids, parents and kids that have no artificial flavors that we have to pure taste. We have better qualities in terms of things that kids love to have that we have better promotions partnering with places like Nintendo that we bring in new ideas into marketplace like Capri Sun under with new promotional, promotional limited edition products, whether that is we bring in new into new channels, whether it's club, whether it's convenient. So you see how when we apply the brand growth system at a brand like Capri Sun that is comprehensive, the investments we make, the improvement that yields in our business. So that along with the fact that we continue to step up our marketing, as I mentioned earlier, about 30 beeps to get us about four point eight percent by the end of the year, you know, that that combination of the way we are investing, the fact that we invest in more and that we're using agile ways of working to then take that learnings and apply it to the portfolio is a combination that we believe is the right the right tools in order to drive complete continue improvements in our North American retail business."
+      },
+      {
+        "speaker": "spk09",
+        "text": "OK, thanks. Thank you for the question. Thank you. And then maybe just a quick follow up for Andre on the gross margin outlook. Inflation, I think, overall looks to be unchanged for the year at that five to seven percent, obviously a wide range. But would you be able to just update us on on what base input cost inflation is relative versus tariffs if that's changed at all? And then how should we be thinking about what what carries into 2026? Just what looks to be given a kind of lower exit rate on gross margin in the back half relative to the first half? Thank you."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Yeah, so in terms of inflation before that, we have the peak. Of the commodities hitting in Q2, but some of that was a piano recognition was pushing to Q3, and we should expect some sort of relief starting in Q4. So we should start to reach the inflection point. We still have pockets of high commodity inflation, particularly on coffee. Regarding the tariffs, the current expectation is on the latest is an impact of approximately 100 bips this year linked to the tariffs. And if the tariffs remain as they are right now, it will create a full year analyze impact of approximately 180 bips. So there will be some carryover into that effect in 2026. As I said before, there are a lot of actions in place for procurement teams and also for commercial teams to mitigate as much as we can be mindful about their current consumer situation. But, but some pricing is required and that's what we are doing."
+      },
+      {
+        "speaker": "spk09",
+        "text": "Okay, great. Thank you."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thank you. Our next question is from Max Gumport with"
+      },
+      {
+        "speaker": "spk05",
+        "text": "BNP Paribas."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Thanks for the question. Center store peers that have recently established their off calendar FY26 outlooks have embedded. Some pretty meaningful margin pressure over the coming quarters from substantial reinvestment. I recognize, you know, with your marketing going to at least .8% of sales and media spending going up at least 20% year over year. You are also reinvesting, but it still feels a bit less sizable than what we are seeing from some of these peers. So particularly in light of the continued volume declines. I want to get a better sense for what's giving you the confidence that your investment plans for this year are appropriate."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Thanks. Thanks for the question. Look,"
+      },
+      {
+        "speaker": "spk02",
+        "text": "we, as everything we do, we are always very disciplined in our investments and we like to test investments before scaling them up. So we feel good about the actions that we are doing for this year. I think those are the right ones and the magnitude are appropriate as well. And as we said in the last earnings, if we see the results expect from them, we will not hesitate to step up. Keep in mind as well that we are actively expanding the brand growth system to more brands as we speak. So this is part of the reason as well, we decided to step up investments a little more beyond what we initially said last quarter. And as opportunities show up as part of this assessment, we will continue to step up investments. You know, at this point, we're really trying to grow the business in a way that we think is the healthy, like not through price, but through really stronger products and stronger attributes, stronger marketing, which takes more time, but that's the right thing to do. But we are going to step up investments if it is deemed appropriate. That's for sure."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Okay, I'll leave it there. Thanks very much."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Operator, we have time for one more question."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Our last question is from Alexia Howard with Bernstein research."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Good morning, everyone."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Can"
+      },
+      {
+        "speaker": "spk06",
+        "text": "I"
+      },
+      {
+        "speaker": "spk07",
+        "text": "ask about the pace of innovation? If I remember correctly, you were pretty low on the innovation front for much of the pandemic and the global supply chain disruptions, but it sounds as though you exited 2024 at a somewhat higher rate, but probably still quite a lot lower than peers. Can you talk about where you're at today as a percentage of sales, where you'd like to get to over time and how quickly you could get there, just so we can get a sense for how quickly that might be ramping up? Thank you and I'll pass it on."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you, Alexia for your question. I guess let"
+      },
+      {
+        "speaker": "spk04",
+        "text": "me just give you a little bit of context, which is, for us, it's important that when we define innovation, we're also thinking through what are the places that we can, in fact, renovate many of our key products. So when we talk about our brand growth system and the fact that allows us to focus on us making sure we bring the attributes to consumers that care about in our core business, that is actually a key part of also thinking through how we can make sure that we're not only thinking about the product, but also thinking about the product. How do we maintain innovation within our business? And I have to say, as you pointed out, I think that if we go back to 2022, I think that number on innovation was around .6% of our sales. By the end of the last year, it was about 3% of our sales. So we're going to continue to drive from that investment of innovation to contribute a larger part of our business we go forward. But I would say it also is already paying off. So if you think about the innovation that we have brought in, like the experience of bringing the Taco Bell restaurant experience to home, it is now the second year in which we're growing the business double digit, and now we're expanding to Canada. I mentioned earlier Capri Sun bottle that we are now bringing into club. We're bringing into single serve and now it's achieving high levels of velocities to whatever we have taken that product outside of the pouch. And we're also making sure that we continue to drive innovation in our highest business. I mean, whether that is looking at how do we take it into pasta sauce, which is happening across many of our business across both Europe and Latin America. But it's also making sure that we continue to expand on the importance of our highest major business across international portfolio and continue to expand into new countries as we go into 2026. So while you're right that we continue to see opportunities for innovation, our focus continues to be making sure we have the right core products with the right renovation in those businesses. And at the same time, being thoughtful about how do we are actually bringing innovation to market that has the long term opportunity to be here for many, many years. And I'm pleased to what I'm seeing. I also think that there's more for us to do. The last thing I will say is, it's important to recognize and we will talk about the brand growth system. It also creates and highlights opportunity for us to go after new innovation. So you're going to continue to see us go to marketplace, whether that is with the kind of focus on not only line extension and new exciting flavors, but ways in which we can actually continue to make sure brands are relevant for now and for the future. More to come. Thank you,"
+      },
+      {
+        "speaker": "spk06",
+        "text": "Alexia."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank"
+      },
+      {
+        "speaker": "spk06",
+        "text": "you. This concludes"
+      },
+      {
+        "speaker": "spk05",
+        "text": "today's conference call. We thank you for your participation. You may now disconnect your lines."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk01": {
+        "name": "Andrew Lazar",
+        "title": "Analyst, Barclays"
+      },
+      "spk02": {
+        "name": "Andr\u00e9 Maciel",
+        "title": "Chief Financial Officer"
+      },
+      "spk03": {
+        "name": "Anne-Marie McGillah",
+        "title": "Global Head of Investor Relations"
+      },
+      "spk04": {
+        "name": "Carlos Abrams Rivera",
+        "title": "Chief Executive Officer"
+      },
+      "spk05": {
+        "name": "Conference Operator",
+        "title": "Operator"
+      },
+      "spk06": {
+        "name": "Conference Operator",
+        "title": "Operator"
+      },
+      "spk07": {
+        "name": "Alexia Howard",
+        "title": "Analyst, Bernstein Research"
+      },
+      "spk08": {
+        "name": "David Palmer",
+        "title": "Analyst, Evercore ISI"
+      },
+      "spk09": {
+        "name": "Megan Clatt",
+        "title": "Analyst, Morgan Stanley"
+      },
+      "spk10": {
+        "name": "Anne-Marie McGillah",
+        "title": "Global Head of Investor Relations"
+      },
+      "spk11": {
+        "name": "Anne-Marie McGillah",
+        "title": "Global Head of Investor Relations"
+      },
+      "spk12": {
+        "name": "Leah Jordan",
+        "title": "Analyst, Goldman Sachs"
+      },
+      "spk13": {
+        "name": "Peter Galbo",
+        "title": "Analyst, Bank of America"
+      },
+      "spk14": {
+        "name": "Max Gumport",
+        "title": "Analyst, BNP Paribas"
+      }
+    }
+  },
+  "text": "Conference Operator (Operator): Greetings and welcome to the Kraft Heinz Company second quarter 2025 earnings call. At this time, all participants are in a listen only mode. A question and answer session will follow the formal presentation. If anyone should require operator assistance, please press star zero on your telephone keep path. As a reminder, this conference is being recorded. It is now my pleasure to introduce Anne-Marie McGillah, Global Head of IR.\n\nAnne-Marie McGillah (Global Head of Investor Relations): Thank you and hello everyone. Welcome to the Q and a session\n\nAnne-Marie McGillah (Global Head of Investor Relations): for our second quarter 2025 business update. During today's call, we may make forward looking statements regarding our expectations for the future, including items related to our business plans and expectations strategy efforts and investments and related timing and expected impacts. These statements are based on how we see things today and actual results may differ materially due to risk and uncertainties. Please see the cautionary statements and risk factors contained in today's earnings release, which accompanies this call as well as our most recent 10 K and Q and a K filings for more information regarding these risks and uncertainties. Additionally, we may refer to non gap financial measures which excludes certain items from our financial results reported in accordance with gap. Please refer to the earnings release and the non gap information available on our website at .KraftHeinzCompany.com Under news and events for discussion of our non gap financial measures and reconciliation to the comparable gap financial measures. I will now hand it over to our Chief Executive Officer Carlos Abrams Rivera for opening comments.\n\nCarlos Abrams Rivera (Chief Executive Officer): Well, thank you, Marie. And thank you everyone for joining us today. Listen, I'm pleased to report that our second quarter results came in line with our expectations with an improvement in year over year top line performance. Our investments in product superiority, manufacturing capabilities and key areas of our business are starting to pay off. It's driving momentum and giving us confidence to reiterate our 2025 full year outlook. And while we don't have any new news to report today in our consideration of the data transactions. I do want to assure you that we are actively progressing on our evaluation with a focus on unlocking long term shareholder value.\n\nAnne-Marie McGillah (Global Head of Investor Relations): With\n\nCarlos Abrams Rivera (Chief Executive Officer): that,\n\nAnne-Marie McGillah (Global Head of Investor Relations): I have answered joining me. So let's open the call for the Q&A.\n\nConference Operator (Operator): We'll now be conducting a question and answer session. If you'd like to ask a question, please press star one on your telephone keypad. The confirmation tone will indicate your line is in the question queue. You may press star two to remove your question from the queue. For participants using speaker equipment, it may be necessary to pick up the hand step before pressing the star keys. One moment please while we poll for\n\nConference Operator (Operator): questions. Our first question is from Andrew Lazar with Barclays.\n\nAndrew Lazar (Analyst, Barclays): Great, thanks so much. Good morning. Carlos, during the quarter. Kraft Heinz put out a release that the company was considering various strategic transactions to create value. As there's nothing specific from the company yet, perhaps maybe we can talk a little bit more in generalities. There was obviously a report from the Wall Street Journal about potential business separation. I know you can't comment on specifics, but I guess how would you respond to investors that would say such actions oftentimes can be nothing more than financial engineering moves that come with higher costs and synergies rather than sort of unlocking value. I'm really just trying to provide maybe a forum where you can talk a little bit about these sorts of things, maybe more in general as Kraft looks at a lot of different possibilities to try and unlock value.\n\nAnne-Marie McGillah (Global Head of Investor Relations): Well, thank you, Andrew. Always great to hear from you. As I said,\n\nCarlos Abrams Rivera (Chief Executive Officer): our board is working with urgency on evaluation of those strategic options to unlock, as you said, long term strategic value creation. And what I would say also is, and I'll remind our investors, is that we will operate with the same financial discipline you have come to expect from us. So any actions, if any, will be consistent with that goal of unlocking that long term shareholder value. And that's essentially all I can say at this time. Thank you for your question.\n\nAndrew Lazar (Analyst, Barclays): Yep, gave it a shot. Thank you.\n\nConference Operator (Operator): Our next question is from Peter Galbo with Bank of America.\n\nPeter Galbo (Analyst, Bank of America): Hey guys, good morning. Thanks. Thanks for taking the question. Andre, maybe a bit more of a technical one. But there was a pretty sizable impairment that was taken in the quarter and was just hoping to get a little bit more detail. It seemed like it was maybe more at the enterprise level, but I didn't know if that flowed down to any of the brands in particular, or if it's at all tied to, you know, as you contemplate kind of strategic transactions and you think about, you know, moving different pieces like that the reporting change triggered the impairment. And again, it's relatively sizable. So just hoping to get some more detail there. Thanks very much.\n\nAndr\u00e9 Maciel (Chief Financial Officer): Thanks for the question. So look, we recorded a $9.3 billion non-cash impairment charge. And the trigger for that was only the fact that we have a sustained decline in the stock price and that has reduced the carrying value of our intangible assets. We have been monitoring this for some time. We disclosed in our previously filed 10Q the risk that this could happen. So it's not really nothing new and nothing beyond that. This does not change the view that the basic value of the company, including the confidence and direction we have in the strategy.\n\nConference Operator (Operator): Okay, thanks very much. Our next question is from David Palmer with Evercore ISI.\n\nDavid Palmer (Analyst, Evercore ISI): Thanks. I'm just wondering how you're thinking about your pricing and promotion levels currently, you know, where do you see perhaps an opportunity to or challenge to ramp up promotions or narrow price gaps? And where do you feel like, you know, you've taken the steps already that you're comfortable where you are versus you're near in competition, even if that's private label and I have a follow up.\n\nAnne-Marie McGillah (Global Head of Investor Relations): Thank you, David. Let me\n\nCarlos Abrams Rivera (Chief Executive Officer): start and then I'll hand it off to Andre. You want to give additional commentary. But I guess I would just say as context, you know, we are a consumer centric brand, first of all. Which means that we are making sure that our brands are our brands are going to continue to build for the long term. And what you see from us is that we continue to invest, make investments across the board. And that some of that investment is actually in pricing, including about 100 bips in pricing year over year. And we also are on top of that investing in over 30 bips in marketing so that we can reach about .8% of marketing as a percent of net sales by 2025. But the end of 2025, which will be the highest level in the earlier decade. So, and in terms of pricing, it's one thoughtification that I would make is that if you look at pricing in North America, when you exclude the coffee inflation is actually negative. So that gives you a sense that we're also being thoughtful about how to think about pricing and anything else you would add.\n\nAndr\u00e9 Maciel (Chief Financial Officer): As we said before, we have built into the into the initial plan about 300 million dollars of investments. We have added a little more towards the second half. We have been concentrating the investments mainly on the key windows. You see more activity now in the third quarter. As we are now at the peak of the summer, there is some investments that you have saved for this moment as we have a lot of product renovations hitting the market and some core innovations hitting right now. So we concentrated efforts on that so we can have the new product, the extra marketing and those investments all hitting at the same time to improve the chance of success. So, I mean, there's nothing to say. Carlos Adonis.\n\nCarlos Abrams Rivera (Chief Executive Officer): The only thing I would add, David, here is that it's important to know that we are pricing well below inflation. In fact, we expect inflation to be about five to seven percent this year, and we're only passing about around one percent of the pricing. So we are, in fact, keeping the consumer in mind as we take this action on pricing. Sounds like you had another question,\n\nDavid Palmer (Analyst, Evercore ISI): David. Yeah, no, thank you for that. Just one thing I'm thinking about with regard to Kraft Heinz, particularly as you think about strategic actions and presumably there's parts of the business that might garner a higher multiple than the others, is this problem that we see across food right now where legacy parts of businesses that might be growthier are not doing as well as they might have done over the long term. And I'm wondering how you're thinking about that with regard to, you know, whether it's accelerated, protect or balance, we're seeing, you know, on average declines continuing in those in those businesses. You know, what is your prospects, I guess, to make your growth parts growthy, you know, in the near term, particularly if you want to shine a good light on those parts of the business as you think about strategic actions. Thanks.\n\nCarlos Abrams Rivera (Chief Executive Officer): Thank you. Let me go back to the our strategy that we have been consistent following for the last 18 months or so, which is, we are making investments to make sure that we're growing across an emerging markets, North America retail and away from home. And in fact, we are continue to make investment to drive that growth and return capital to our shareholder. And when you look at our pillars, in fact, you know, in emerging markets, you saw we grew up top line by around 8% to both price and volume at the same time expanding margins substantially. In fact, we now in emerging market have our highest margin ever. If you look at North America retail and accelerate platforms, we actually investing also to power by our by the brand growth system. And we are executing through agile ways of working. And let me just say that if you look at the, at the, the also data, I write data over the last four weeks. In fact, when you exclude cold cuts and bacon that drove about 40% of the decline, the rest of the portfolio in total North America retail actually is improving substantially in fact, in the latest for week X cold cuts and bacon we are down .7% year today was down 4%. So you are seeing that the actions were taken North America retail are also helping us drive the kind of improvements that we wanted to see in the business. And finally, in away from home, we're also expanding into footprints with distribution and driving new innovation into the marketplace. The last thing I will say is that we're not done. You're going to continue to invest in the business because we are confident in the strategy. We're making sure we spend continue to invest in marketing. Like I said earlier, we continue to step our investment in e commerce, which is helping us also drive our improvements in North America. And frankly, we also have a solid balance sheet that allows to any stroke cash flow that allows us to continue to make the investments. So we feel very good that when you look deeply into our growth pillars, all those actions are invested with making our in fact taking shape in order for us to be able to continue to drive the company towards long term success.\n\nAndr\u00e9 Maciel (Chief Financial Officer): I think beyond that we have, as I said before, I have a lot of product renovation hit in the market right now. I'm actually is learn to post mail, just to name those three. We have 20% marketing crazy over here expected to the second half. So the vast majority of all the media increases are all happening now in the second semester. We have, as I said, step up some investments on price. Awards the key windows that are still to come. So there is a lot more happening that we should and you should continue to see accelerate part of the portfolio of America improving gradually throughout the remaining quarters.\n\nConference Operator (Operator): Thank you. Thank you. Our next question is from Leah Jordan with Goldman Sachs.\n\nAnne-Marie McGillah (Global Head of Investor Relations): Thank\n\nLeah Jordan (Analyst, Goldman Sachs): you. Good morning. Just seeing if you could provide more detail on your sales trends across emerging markets. I know there's a big opportunity for distribution gains away from home in the region, so it's just curious how those gains have tracked versus your expectations so far this year. And how should we think about the pace of those gains in the back half versus the front half? And really, what's giving you the confidence in that double digit exit rate for this year?\n\nAnne-Marie McGillah (Global Head of Investor Relations): Great question. Thank you, Leah.\n\nCarlos Abrams Rivera (Chief Executive Officer): I mean, I mentioned that we, in fact, were very pleased to see that the top line now grew by 8%. I think what behind those numbers, though, is the fact that the growth coming from both volume and price. And the fact that we are doing that while actually increasing our margins at the same time, give us quite a bit of confidence that as we look at the end of this year, we should be able to be hitting a long term algorithm of double digit growth. And for us, we continue to see, you know, investment in our business and it's not going to stop. You know, today already, it represents about two and a half billion dollar business of our business overall. And I think what I think that it gives me confidence is the fact that when you look at step backs and you look at emerging markets, it's really a more simple portfolio. It is focused on taste elevation, in particular in our Heinz brand, and we have a strong -to-market model. So when you look at the double click of Heinz in emerging markets, you know, it actually grew about 18% year over year. So it is building on the strengths of our key brand in a simple, in a business that we know how to operate with a model that we now have been able to replicate across markets. So it's something that now we have been building on the success that we have in the past, historically, and now we're expanding to make sure that we're growing in Latam, we're growing in our Middle East, Asia, and Middle East, Africa, and Asia. And I think for us, we continue to believe that this is a place where we have tremendous opportunity for now and for the long term.\n\nConference Operator (Operator): Thank you, Leah.\n\nAnne-Marie McGillah (Global Head of Investor Relations): Thank you. And I\n\nLeah Jordan (Analyst, Goldman Sachs): can't. All\n\nAnne-Marie McGillah (Global Head of Investor Relations): inflation\n\nLeah Jordan (Analyst, Goldman Sachs): and promotions that were pushed into the third quarter, you know, any color on the magnitude of that impact and how what drove the timing shift and how you view kind of those cost pressures around inflation today?\n\nCarlos Abrams Rivera (Chief Executive Officer): Sorry, Leah, you got caught off at the beginning of the question. If you can repeat\n\nAnne-Marie McGillah (Global Head of Investor Relations): it.\n\nLeah Jordan (Analyst, Goldman Sachs): Oh, sure. You had called out incremental inflation and promotions that were pushed from 2Q into 3Q. Just any color on the magnitude of that impact we should think about on a quarterly cadence basis. And then what was the driver of that timing shift for those two items and how are you thinking about inflationary cost pressures today?\n\nConference Operator (Operator): Look, magnitude is\n\nAndr\u00e9 Maciel (Chief Financial Officer): in the range of 30, 40 bips. 30, 40 bips. It's nothing special. It's mostly the recognition like that on the basis of the inventory positions and the throughput. That's how these inventories got recognized in the P&L. So that's why shift Q2 Q3. So, but nothing really\n\nConference Operator (Operator): beyond that.\n\nAnne-Marie McGillah (Global Head of Investor Relations): Great. Thank you, Leah.\n\nConference Operator (Operator): Our\n\nConference Operator (Operator): next question is from Megan Clatt\n\nConference Operator (Operator): with Morgan Stanley.\n\nMegan Clatt (Analyst, Morgan Stanley): Hi, good morning. Thanks so much. I wanted maybe a follow up just on the organic sales growth in North America retail. You know, there was a comment in the prepared remarks that you expect gradual long term improvement in top line trends. And clearly it seems like just based on your comment around exit rate on emerging markets and food service that the gating factor here continues to be North America retail. So maybe you can just update us on how you're thinking about timing of getting back to just maybe stabilization first and foremost in North America retail. Thank you.\n\nAnne-Marie McGillah (Global Head of Investor Relations): Thank you. You know, for me,\n\nCarlos Abrams Rivera (Chief Executive Officer): what I would say is, and if you go back to kind of the strategy was fueling our growth and the improvements in North America performance. It is all the fact that we have now invested in through our brand growth system back in our products. So we're investing in our products superiority. We're investing in better marketing. Praying investing in better tool with e-commerce investment that we have made over the last six months. And that is giving us the company that we continue to see that now play into the marketplace. We end the last year with brand growth system impacting about 10 percent of our business. By the end of this year, we'll be about 40 percent of our business is proportionally focused in North America accelerated platforms. And you can see how when we are applying them that methodology that actually is driving our improvement in performance. In fact, let me give an example of Capri Sun, which is a business that we renovated. We invested back in the business. We improve the marketing. We improve the products. We make sure that we highlighted the benefits that it have with kids, parents and kids that have no artificial flavors that we have to pure taste. We have better qualities in terms of things that kids love to have that we have better promotions partnering with places like Nintendo that we bring in new ideas into marketplace like Capri Sun under with new promotional, promotional limited edition products, whether that is we bring in new into new channels, whether it's club, whether it's convenient. So you see how when we apply the brand growth system at a brand like Capri Sun that is comprehensive, the investments we make, the improvement that yields in our business. So that along with the fact that we continue to step up our marketing, as I mentioned earlier, about 30 beeps to get us about four point eight percent by the end of the year, you know, that that combination of the way we are investing, the fact that we invest in more and that we're using agile ways of working to then take that learnings and apply it to the portfolio is a combination that we believe is the right the right tools in order to drive complete continue improvements in our North American retail business.\n\nMegan Clatt (Analyst, Morgan Stanley): OK, thanks. Thank you for the question. Thank you. And then maybe just a quick follow up for Andre on the gross margin outlook. Inflation, I think, overall looks to be unchanged for the year at that five to seven percent, obviously a wide range. But would you be able to just update us on on what base input cost inflation is relative versus tariffs if that's changed at all? And then how should we be thinking about what what carries into 2026? Just what looks to be given a kind of lower exit rate on gross margin in the back half relative to the first half? Thank you.\n\nAndr\u00e9 Maciel (Chief Financial Officer): Yeah, so in terms of inflation before that, we have the peak. Of the commodities hitting in Q2, but some of that was a piano recognition was pushing to Q3, and we should expect some sort of relief starting in Q4. So we should start to reach the inflection point. We still have pockets of high commodity inflation, particularly on coffee. Regarding the tariffs, the current expectation is on the latest is an impact of approximately 100 bips this year linked to the tariffs. And if the tariffs remain as they are right now, it will create a full year analyze impact of approximately 180 bips. So there will be some carryover into that effect in 2026. As I said before, there are a lot of actions in place for procurement teams and also for commercial teams to mitigate as much as we can be mindful about their current consumer situation. But, but some pricing is required and that's what we are doing.\n\nMegan Clatt (Analyst, Morgan Stanley): Okay, great. Thank you.\n\nConference Operator (Operator): Thank you. Our next question is from Max Gumport with\n\nConference Operator (Operator): BNP Paribas.\n\nMax Gumport (Analyst, BNP Paribas): Thanks for the question. Center store peers that have recently established their off calendar FY26 outlooks have embedded. Some pretty meaningful margin pressure over the coming quarters from substantial reinvestment. I recognize, you know, with your marketing going to at least .8% of sales and media spending going up at least 20% year over year. You are also reinvesting, but it still feels a bit less sizable than what we are seeing from some of these peers. So particularly in light of the continued volume declines. I want to get a better sense for what's giving you the confidence that your investment plans for this year are appropriate.\n\nConference Operator (Operator): Thanks. Thanks for the question. Look,\n\nAndr\u00e9 Maciel (Chief Financial Officer): we, as everything we do, we are always very disciplined in our investments and we like to test investments before scaling them up. So we feel good about the actions that we are doing for this year. I think those are the right ones and the magnitude are appropriate as well. And as we said in the last earnings, if we see the results expect from them, we will not hesitate to step up. Keep in mind as well that we are actively expanding the brand growth system to more brands as we speak. So this is part of the reason as well, we decided to step up investments a little more beyond what we initially said last quarter. And as opportunities show up as part of this assessment, we will continue to step up investments. You know, at this point, we're really trying to grow the business in a way that we think is the healthy, like not through price, but through really stronger products and stronger attributes, stronger marketing, which takes more time, but that's the right thing to do. But we are going to step up investments if it is deemed appropriate. That's for sure.\n\nConference Operator (Operator): Okay, I'll leave it there. Thanks very much.\n\nAnne-Marie McGillah (Global Head of Investor Relations): Operator, we have time for one more question.\n\nConference Operator (Operator): Our last question is from Alexia Howard with Bernstein research.\n\nAnne-Marie McGillah (Global Head of Investor Relations): Good morning, everyone.\n\nAndr\u00e9 Maciel (Chief Financial Officer): Can\n\nConference Operator (Operator): I\n\nAlexia Howard (Analyst, Bernstein Research): ask about the pace of innovation? If I remember correctly, you were pretty low on the innovation front for much of the pandemic and the global supply chain disruptions, but it sounds as though you exited 2024 at a somewhat higher rate, but probably still quite a lot lower than peers. Can you talk about where you're at today as a percentage of sales, where you'd like to get to over time and how quickly you could get there, just so we can get a sense for how quickly that might be ramping up? Thank you and I'll pass it on.\n\nAnne-Marie McGillah (Global Head of Investor Relations): Thank you, Alexia for your question. I guess let\n\nCarlos Abrams Rivera (Chief Executive Officer): me just give you a little bit of context, which is, for us, it's important that when we define innovation, we're also thinking through what are the places that we can, in fact, renovate many of our key products. So when we talk about our brand growth system and the fact that allows us to focus on us making sure we bring the attributes to consumers that care about in our core business, that is actually a key part of also thinking through how we can make sure that we're not only thinking about the product, but also thinking about the product. How do we maintain innovation within our business? And I have to say, as you pointed out, I think that if we go back to 2022, I think that number on innovation was around .6% of our sales. By the end of the last year, it was about 3% of our sales. So we're going to continue to drive from that investment of innovation to contribute a larger part of our business we go forward. But I would say it also is already paying off. So if you think about the innovation that we have brought in, like the experience of bringing the Taco Bell restaurant experience to home, it is now the second year in which we're growing the business double digit, and now we're expanding to Canada. I mentioned earlier Capri Sun bottle that we are now bringing into club. We're bringing into single serve and now it's achieving high levels of velocities to whatever we have taken that product outside of the pouch. And we're also making sure that we continue to drive innovation in our highest business. I mean, whether that is looking at how do we take it into pasta sauce, which is happening across many of our business across both Europe and Latin America. But it's also making sure that we continue to expand on the importance of our highest major business across international portfolio and continue to expand into new countries as we go into 2026. So while you're right that we continue to see opportunities for innovation, our focus continues to be making sure we have the right core products with the right renovation in those businesses. And at the same time, being thoughtful about how do we are actually bringing innovation to market that has the long term opportunity to be here for many, many years. And I'm pleased to what I'm seeing. I also think that there's more for us to do. The last thing I will say is, it's important to recognize and we will talk about the brand growth system. It also creates and highlights opportunity for us to go after new innovation. So you're going to continue to see us go to marketplace, whether that is with the kind of focus on not only line extension and new exciting flavors, but ways in which we can actually continue to make sure brands are relevant for now and for the future. More to come. Thank you,\n\nConference Operator (Operator): Alexia.\n\nAlexia Howard (Analyst, Bernstein Research): Thank you.\n\nConference Operator (Operator): Thank\n\nConference Operator (Operator): you. This concludes\n\nConference Operator (Operator): today's conference call. We thank you for your participation. You may now disconnect your lines.",
+  "n_turns": 70
+}

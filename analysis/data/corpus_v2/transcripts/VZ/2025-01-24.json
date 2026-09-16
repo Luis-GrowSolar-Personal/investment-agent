@@ -1,0 +1,129 @@
+{
+  "ticker": "VZ",
+  "original_ticker": "VZ",
+  "call_date": "2025-01-24",
+  "year": 2024,
+  "quarter": 4,
+  "vendor_params": {
+    "exchange": "NYSE",
+    "symbol": "VZ",
+    "year": 2024,
+    "quarter": 4
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T01:51:44Z",
+  "raw_payload": {
+    "event": {
+      "year": 2024,
+      "quarter": 4,
+      "conference_date": "2025-01-24T08:30:00.000-05:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk06",
+        "text": "how attractive is the bead opportunity for you guys? Any updates you can share with us on how you're feeling about that would be great. Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "So on the Fios, we have been on the Fios more than 20 years. The product is resonating with our customers. As we outlined our broadband strategy at the end of last year or October or whatever, we said that we're now going to increase basically 50% in open sales, going to 650,000 in this year. That's a scaling that is pretty easy for us. And so we continue to scale. We see more opportunities. For two reasons. First of all, the economical situation in the country is better today. I mean, purchasing power. And number two, broadband is a necessity. And we also find out that we can deploy fiber cheaper. We outlined all of these in our broadband strategy. So all that is playing in that we can keep our return on investment on this increase of fires. So we feel good about the fires. On the BID, we will participate where it makes sense for us. We think that we will have a good opportunity to get a subsidy for building out in maybe rural areas, et cetera. So we're going to participate. It's so far fairly little that has been out there because the states are sort of about doing it. But we will participate wherever we think it makes sense from a return on investment."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yeah, great. Thanks, Rob. Brad, ready for the next question? Okay."
+      },
+      {
+        "speaker": "spk06",
+        "text": "The next question comes from Sam McHugh of BNP Paribas. Your line is open."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Thanks, guys. Just two questions. On the wireless service revenue, you obviously have a few puts and takes with the pro amort and the price ups. How should we think about the phasing of these headwinds and tailwinds through the course of 2025, number one? And then secondly, on the business EBITDA, you mentioned some of the AI-related sales. Maybe you could elaborate on how material they are? I know we're at a place now where we should be confident on this inflection point in business EBITDA, and can that be enough to support this? Thanks very much."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Yeah, good morning, Sav. So, on the service revenue, we feel very good about the shape. You know, it's based on $82 billion, as I said earlier. And the midpoint of the guide implies, and Sampath mentioned this earlier, about $2 billion of additional growth. You know, we executed a number of pricing initiatives, as Sampath mentioned, that carry into 2025. We also talked about an improving volume profile in consumer, and Sanpath talked about that, along with stable business volumes. We continue to see great volumes on the B2B side. And then fixed wireless access continues to grow. We have a $2 billion base of revenue in FWA, and that continues to scale, and you saw the results in the fourth quarter there. The other thing that will inflect here is prepaid. And, you know, the positive volumes and the turnaround that Sampath talked about will result in improving revenue profile towards the back half of 2025. So that headwind will become a tailwind on prepaid. And then offsetting that, obviously, as Hans mentioned, is the pro-mortemization. And that, you know, we said would peak in 2025. But as Hans mentioned, the customer economics are very healthy. And we said we expect the headwinds to ease towards the end of the year and into 2026. But as Sanpath mentioned, you know, we're seeking a better balance of P&Q. And I think you see that across both mobility and broadband. And we expect it to continue in 2025. And the actions, you know, that Sanpath outlined in terms of execution are positioning us for sustainable revenue growth."
+      },
+      {
+        "speaker": "spk05",
+        "text": "On the Verizon business group, I'm going to ask Kyle to comment on it. But of course, the AI Connect is one contributor. I think that the whole Verizon Business Group team has done a great job with many things. I mean, the wireless growth I've had the last couple of years, just keeping grinding between 125,000 to 150,000 new net ads every quarter. The fixed wireless access that we were, I would say, a little bit surprised at how successful fixed wireless access is in the business group. but then all the cost takeouts are doing, and if you saw the fourth quarter turning to a positive year-over-year improvement, I think we are onto something, even though with the pressure of the secular. So I wanted to say that, so Kyle doesn't need to say it, but the guys have done a terrific job, and I'm cautiously optimistic that we can continue that work."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thank you, Hans, and thanks for the question, Sam. I won't belabor that. I think... The revenue we booked that helped with EBITDA as far as AI Connect is small. That was our first quarter that we booked revenue there, so that did have a little impact. But it's mainly due to the factors that Hans spoke about. It's relentless focus on our cost and the driving efficiencies as well as finding new opportunities in the revenue line. And the team's done a good job at that. And if you can see, we've had sequential growth since first quarter. So we've had three quarters in a row of sequential growth of EBITDA. And for the first time in a long time, we've had growth year over year in the fourth quarter of EBITDA. And I expect those trends to continue in 2025, given the groundwork that we've laid. And what I would say that Hans talked about FWA, that's turned into a really good news story for us because We had certain expectations of the product, and now that we see customers are getting much more comfortable, business customers, with using this as a primary option for them for connectivity, we continue to see great growth and great interest in the product. As a matter of fact, a lot of large customers who at first we weren't sure they would use this as a primary use case are. We have big banks, we have big retailers, et cetera, going and doing this. And then you just saw an announcement we made with Brightspeed. And I think this is a new area of the market that we can tap, and we call this really Copper Catch. So it's using our fixed wireless access network to help people who have, you know, old kind of copper lines out there, low bandwidth lines, replace it and modernize it with FWA. And we see this as a great place that we can sell into too. And as, you know, we talked about private wireless and AI Connect. So we have a lot of great things on board here, and I feel good about our trajectory into 2025. Great."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Awesome, Carl. Thank you."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yes, thanks, Sam."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Brad, we have time for one more question."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Your final question will come from of Barclays. Your line is open."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thank you. , maybe on the consumer side, you mentioned a couple of drivers of growth, market for instance, the Latino segment and so on. And, you know, your lines have obviously grown on the post-paid side, but the account growth is still negative. So is there an opportunity to turn account growth positive with some of these newer segments that you're targeting? And is that something that we start to see over the course of the year? And then secondly, on immigration, I may have missed this as a response to the prior question, but is there a way for us to \u2013 understand how you guys are thinking about the impact on overall volumes for the industry as a whole over the course of this year or beyond. Thank you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank you, Kanan. I will ask Sampath to answer those questions, but I think we're in a really good position with our offerings to continue regardless of."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Sampath? Thank you. Hey, Kannan, good morning to you. On the question on the overall market growth, we think postpaid is expected to grow between 8 and 8.5 million lines in 2025, all in for business and consumer. It's a robust market. It's a very resilient market. And similar to 2024, you know, pre- to post-migration makes up almost half of that. It's not a segment we play in on the retail side, but we leverage our wholesale channel to go after that segment aggressively. Despite there has been lower immigration in the last few quarters, yet we are seeing really strong performance in our value business. You know, I think our refreshed value brands, our value proposition, our relationship with Walmart, as well as our expanded total wireless distribution is working very well. So we can continue to grow phone net ads in this environment and feel very comfortable with that. Now to answer your first question on account growth, you know, we saw account growth in Q4. You see that. But I think at the end of the day, what we are focused on is building deep relationships with our customers. If you look at the way our offering framework works is, you know, we start with connectivity. We want to offer the best connectivity product, both home and on the go and mobility and, of course, on the value side. And then on that foundation of that relationship, we start selling more to those customers. whether it's some of our entertainment products with perks. It gives you savings that others can't give. It's our TMP, our protection products, our cloud products. So we want to deepen our relationship with customers, and I think that's the way we see long-term growth in our business. You saw very strong ARPA growth in an author 4%, and underlying growth is, of course, much higher than that when you take care of promo amortization. So account growth is important to us, but what is important to us is Profitable customers who value quality of the network and our offering framework, we want to grow in those. Thank you. Yeah, thanks, Colin."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Brad, that's all the time we have today."
+      },
+      {
+        "speaker": "spk06",
+        "text": "This concludes the conference call for today. Thank you for your participation and for using Verizon Conference Services. You may now disconnect."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk00": {
+        "name": "Rob",
+        "title": "President"
+      },
+      "spk01": {
+        "name": "Sampath Nair",
+        "title": "Chief Financial Officer"
+      },
+      "spk02": {
+        "name": "Kanan",
+        "title": "Analyst at Barclays"
+      },
+      "spk03": {
+        "name": "Carl",
+        "title": "Executive"
+      },
+      "spk04": {
+        "name": "Brad",
+        "title": "Chief Operating Officer"
+      },
+      "spk05": {
+        "name": "Hans Vestberg",
+        "title": "Chief Executive Officer"
+      },
+      "spk06": {
+        "name": "Moderator",
+        "title": "Conference Host"
+      },
+      "spk07": {
+        "name": "Sam McHugh",
+        "title": "Analyst at BNP Paribas"
+      }
+    }
+  },
+  "text": "Moderator (Conference Host): how attractive is the bead opportunity for you guys? Any updates you can share with us on how you're feeling about that would be great. Thank you.\n\nHans Vestberg (Chief Executive Officer): So on the Fios, we have been on the Fios more than 20 years. The product is resonating with our customers. As we outlined our broadband strategy at the end of last year or October or whatever, we said that we're now going to increase basically 50% in open sales, going to 650,000 in this year. That's a scaling that is pretty easy for us. And so we continue to scale. We see more opportunities. For two reasons. First of all, the economical situation in the country is better today. I mean, purchasing power. And number two, broadband is a necessity. And we also find out that we can deploy fiber cheaper. We outlined all of these in our broadband strategy. So all that is playing in that we can keep our return on investment on this increase of fires. So we feel good about the fires. On the BID, we will participate where it makes sense for us. We think that we will have a good opportunity to get a subsidy for building out in maybe rural areas, et cetera. So we're going to participate. It's so far fairly little that has been out there because the states are sort of about doing it. But we will participate wherever we think it makes sense from a return on investment.\n\nBrad (Chief Operating Officer): Yeah, great. Thanks, Rob. Brad, ready for the next question? Okay.\n\nModerator (Conference Host): The next question comes from Sam McHugh of BNP Paribas. Your line is open.\n\nSam McHugh (Analyst at BNP Paribas): Thanks, guys. Just two questions. On the wireless service revenue, you obviously have a few puts and takes with the pro amort and the price ups. How should we think about the phasing of these headwinds and tailwinds through the course of 2025, number one? And then secondly, on the business EBITDA, you mentioned some of the AI-related sales. Maybe you could elaborate on how material they are? I know we're at a place now where we should be confident on this inflection point in business EBITDA, and can that be enough to support this? Thanks very much.\n\nRob (President): Yeah, good morning, Sav. So, on the service revenue, we feel very good about the shape. You know, it's based on $82 billion, as I said earlier. And the midpoint of the guide implies, and Sampath mentioned this earlier, about $2 billion of additional growth. You know, we executed a number of pricing initiatives, as Sampath mentioned, that carry into 2025. We also talked about an improving volume profile in consumer, and Sanpath talked about that, along with stable business volumes. We continue to see great volumes on the B2B side. And then fixed wireless access continues to grow. We have a $2 billion base of revenue in FWA, and that continues to scale, and you saw the results in the fourth quarter there. The other thing that will inflect here is prepaid. And, you know, the positive volumes and the turnaround that Sampath talked about will result in improving revenue profile towards the back half of 2025. So that headwind will become a tailwind on prepaid. And then offsetting that, obviously, as Hans mentioned, is the pro-mortemization. And that, you know, we said would peak in 2025. But as Hans mentioned, the customer economics are very healthy. And we said we expect the headwinds to ease towards the end of the year and into 2026. But as Sanpath mentioned, you know, we're seeking a better balance of P&Q. And I think you see that across both mobility and broadband. And we expect it to continue in 2025. And the actions, you know, that Sanpath outlined in terms of execution are positioning us for sustainable revenue growth.\n\nHans Vestberg (Chief Executive Officer): On the Verizon business group, I'm going to ask Kyle to comment on it. But of course, the AI Connect is one contributor. I think that the whole Verizon Business Group team has done a great job with many things. I mean, the wireless growth I've had the last couple of years, just keeping grinding between 125,000 to 150,000 new net ads every quarter. The fixed wireless access that we were, I would say, a little bit surprised at how successful fixed wireless access is in the business group. but then all the cost takeouts are doing, and if you saw the fourth quarter turning to a positive year-over-year improvement, I think we are onto something, even though with the pressure of the secular. So I wanted to say that, so Kyle doesn't need to say it, but the guys have done a terrific job, and I'm cautiously optimistic that we can continue that work.\n\nCarl (Executive): Thank you, Hans, and thanks for the question, Sam. I won't belabor that. I think... The revenue we booked that helped with EBITDA as far as AI Connect is small. That was our first quarter that we booked revenue there, so that did have a little impact. But it's mainly due to the factors that Hans spoke about. It's relentless focus on our cost and the driving efficiencies as well as finding new opportunities in the revenue line. And the team's done a good job at that. And if you can see, we've had sequential growth since first quarter. So we've had three quarters in a row of sequential growth of EBITDA. And for the first time in a long time, we've had growth year over year in the fourth quarter of EBITDA. And I expect those trends to continue in 2025, given the groundwork that we've laid. And what I would say that Hans talked about FWA, that's turned into a really good news story for us because We had certain expectations of the product, and now that we see customers are getting much more comfortable, business customers, with using this as a primary option for them for connectivity, we continue to see great growth and great interest in the product. As a matter of fact, a lot of large customers who at first we weren't sure they would use this as a primary use case are. We have big banks, we have big retailers, et cetera, going and doing this. And then you just saw an announcement we made with Brightspeed. And I think this is a new area of the market that we can tap, and we call this really Copper Catch. So it's using our fixed wireless access network to help people who have, you know, old kind of copper lines out there, low bandwidth lines, replace it and modernize it with FWA. And we see this as a great place that we can sell into too. And as, you know, we talked about private wireless and AI Connect. So we have a lot of great things on board here, and I feel good about our trajectory into 2025. Great.\n\nSam McHugh (Analyst at BNP Paribas): Awesome, Carl. Thank you.\n\nCarl (Executive): Yes, thanks, Sam.\n\nBrad (Chief Operating Officer): Brad, we have time for one more question.\n\nModerator (Conference Host): Your final question will come from of Barclays. Your line is open.\n\nKanan (Analyst at Barclays): Thank you. , maybe on the consumer side, you mentioned a couple of drivers of growth, market for instance, the Latino segment and so on. And, you know, your lines have obviously grown on the post-paid side, but the account growth is still negative. So is there an opportunity to turn account growth positive with some of these newer segments that you're targeting? And is that something that we start to see over the course of the year? And then secondly, on immigration, I may have missed this as a response to the prior question, but is there a way for us to \u2013 understand how you guys are thinking about the impact on overall volumes for the industry as a whole over the course of this year or beyond. Thank you.\n\nHans Vestberg (Chief Executive Officer): Thank you, Kanan. I will ask Sampath to answer those questions, but I think we're in a really good position with our offerings to continue regardless of.\n\nSampath Nair (Chief Financial Officer): Sampath? Thank you. Hey, Kannan, good morning to you. On the question on the overall market growth, we think postpaid is expected to grow between 8 and 8.5 million lines in 2025, all in for business and consumer. It's a robust market. It's a very resilient market. And similar to 2024, you know, pre- to post-migration makes up almost half of that. It's not a segment we play in on the retail side, but we leverage our wholesale channel to go after that segment aggressively. Despite there has been lower immigration in the last few quarters, yet we are seeing really strong performance in our value business. You know, I think our refreshed value brands, our value proposition, our relationship with Walmart, as well as our expanded total wireless distribution is working very well. So we can continue to grow phone net ads in this environment and feel very comfortable with that. Now to answer your first question on account growth, you know, we saw account growth in Q4. You see that. But I think at the end of the day, what we are focused on is building deep relationships with our customers. If you look at the way our offering framework works is, you know, we start with connectivity. We want to offer the best connectivity product, both home and on the go and mobility and, of course, on the value side. And then on that foundation of that relationship, we start selling more to those customers. whether it's some of our entertainment products with perks. It gives you savings that others can't give. It's our TMP, our protection products, our cloud products. So we want to deepen our relationship with customers, and I think that's the way we see long-term growth in our business. You saw very strong ARPA growth in an author 4%, and underlying growth is, of course, much higher than that when you take care of promo amortization. So account growth is important to us, but what is important to us is Profitable customers who value quality of the network and our offering framework, we want to grow in those. Thank you. Yeah, thanks, Colin.\n\nBrad (Chief Operating Officer): Brad, that's all the time we have today.\n\nModerator (Conference Host): This concludes the conference call for today. Thank you for your participation and for using Verizon Conference Services. You may now disconnect.",
+  "n_turns": 17
+}

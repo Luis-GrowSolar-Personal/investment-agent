@@ -1,0 +1,521 @@
+{
+  "ticker": "MPWR",
+  "original_ticker": "MPWR",
+  "call_date": "2025-05-01",
+  "year": 2025,
+  "quarter": 1,
+  "vendor_params": {
+    "exchange": "NASDAQ",
+    "symbol": "MPWR",
+    "year": 2025,
+    "quarter": 1
+  },
+  "source": "vendor_fetch",
+  "fetched_at": "2026-09-16T01:21:57Z",
+  "raw_payload": {
+    "event": {
+      "year": 2025,
+      "quarter": 1,
+      "conference_date": "2025-05-01T17:00:00.000-04:00",
+      "is_published": null
+    },
+    "speakers": [
+      {
+        "speaker": "spk01",
+        "text": "Welcome everyone to the MPS First Quarter 2025 Earnings Webinar. My name is Genevieve Cunningham and I will be the moderator for this webinar. Joining me today are Michael Singh, CEO and Founder of MPS, Bernie Blagan, EVP and CFO, and Tony Ballo, Vice President of Finance. Earlier today, along with our earnings announcement, MPS released a written commentary on the results of our operations. both documents can be found on our website before we begin i would like to remind everyone that in the course of today's presentation we may make forward-looking statements and projections within the meaning of the private securities litigation reform act of nineteen ninety five that involve risk and uncertainty Risks, uncertainties, and other factors that could cause actual results to differ from these forward-looking statements are identified in the Safe Harbor statements contained in the Q1 2025 earnings release and in our SEC filings, including our Form 10-K, which can be found on our website. Our statements are made as of today, and we assume no obligation to update this information. Now, I'd like to turn the call over to Bernie Blagan."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Thanks, Jen. Good afternoon and welcome to our Q1 2025 earnings call. In Q1, NPS achieved record quarterly revenue of $637.6 million, slightly higher than the fourth quarter of 2024 and 39.2% higher than Q1, 2024. This performance reflected the ongoing strength of our diversified market strategy, consistent execution, continued innovation and strong customer focus. Let me call out a few highlights from the first quarter. In our March 20th Investor Day, we showcased MPS innovation across a range of areas, including new opportunities in robotics, automotive, data center, building automation, medical, and audio. In Q1, storage and computing segment revenue increased 38% quarter over quarter on strong demand for both memory and notebook solutions. We continue to win designs across all major enterprise data customers with revenue ramps expected in the second half of this year. Finally, Q1 25 automotive revenue increased 13% from Q4 24, the third consecutive quarter of sequential double-digit growth. MPS continues to focus on innovation, solving our customers' most challenging problems and maintaining the highest level of quality. We continue to invest in new technology, expand into new markets and to diversify our end market applications and global supply chain. This will allow us to capture future growth opportunities, maintain supply stability and swiftly adapt to market changes as they occur. Our proven long-term growth strategy remains intact as we continue our transformation from being a chip-only semiconductor supplier to a full-service silicon-based solutions provider. I will now open the webinar up for questions."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Thank you, Bernie. Analysts, I would now like to begin our Q&A session. As a reminder, if you would like to ask a question, please click on the participants icon on the menu bar and then click the raise hand button. Our first question is from Tori Svanberg of Stiefel. Tori, your line is now open."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yes. Thank you, Jen. And congratulations on a strong quarter, especially during this environment and especially the cash flows. First question is on enterprise data. So it did come in line with expectations, but you talked about some second half design wins ramping. Should we infer by that that this is sort of the low point for enterprise data this year?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "Well, yeah, at this time, we feel, of course, when close to the second half of the year, we feel a lot better. And the overall numbers can be better. But at this time, we're not forecasting how good is good. So we have a lot more confidence at the beginning of the year."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Great. Yeah, go ahead, Bernie."
+      },
+      {
+        "speaker": "spk03",
+        "text": "I think it's important to say that we're engaged with many different programs, either that we have the design wins or the qualification. So it's very broad based. It is, you know, Michael says, while our visibility is improving, clearly the improvement is second half weighted."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, that's a good comment. We do have many design wings, and customers design it in, and we're just waiting for the ramp."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Great. Can I ask a follow-up? Yeah, go ahead. Yeah, so as my follow-up, Michael, I know over the last decade or so, you know, you've been working really hard to diversify globally, whether it's R&D centers, manufacturing partners, and so on and so forth. I was hoping you could talk a little bit about those efforts, you know, especially given the current tariff environment and, you know, how are those efforts really impacting, you know, your position right now?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, that's a good question. Started 10 years ago, we start to emphasize, you have a local manufacturing for local customers. And the US was out of China, particularly started the last couple of years. And right after pandemics, the volumes, we almost more than doubled our volumes. And we need to expand the fab capacities and the serendipities. And we all expanded in the outside of China. And at that time, the inside of China was full. So now they give us a very good positions, okay, for outside of China, for supplying the US side, and as well as the inside China. So now we're in a much better positions now."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Great. Thank you for that. Congrats again."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Sorry, the only thing I've got to add, right, from addition to the supply chain, right, the diversification approach has really been on the front end as well around R&D. So as we've been looking both the design and the supply, that's really been a hallmark of the strategy over the long haul here."
+      },
+      {
+        "speaker": "spk12",
+        "text": "Yeah. Great. Thank you. Yeah."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Quinn Bolton of Needham. Quinn, you're lining up next."
+      },
+      {
+        "speaker": "spk15",
+        "text": "Thank you, and I'll offer my congratulations as well and strong results and outlook. I guess, Bernie, Michael, maybe a follow-up on Tori's question just on enterprise data. I think you came into the year thinking enterprise data could be anywhere from flat plus or minus 20%. Sounds like you feel a little better about the business now, wondering if you might be able to sort of tighten up that range on enterprise data. And then specifically, one of your large customers, sounds like there may have been a platform change. And I think some investors are concerned that that platform change on their next generation GPU could have an impact on your share and I'm wondering if you might be able to address just your thoughts about how you're positioned in shares as you come into the second half of the year."
+      },
+      {
+        "speaker": "spk17",
+        "text": "We were told by many customers we offer a breadth of a product that meets our customer needs. We don't comment on specific customers. And we don't come, and also the matter of fact that there's a, we don't know, okay, which our customers, okay, projects are gonna rent, okay, all of the changing, as you said, okay, and changing the schedules, and okay, these are out of our concern, and we don't know, and it's their decision, but we have enough product, we can meet that demand and we're winning, we feel better is because our customers recently qualified many of our product from the IC levels or to module levels. They passed many rigorous testings and they feel good about it. And now we see some, so we feel good about it. We expected to have a ramp. So at this time, we're not gonna forecast what's the half years. In the past, we said, or the last year, we said that this year could be a flattish in our numbers. We can, let's see. Let's deliver the numbers. Hopefully it's better than we expected."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, and I think that Michael is right that we have increased visibility because the design went in the qualification processes down, you know, down the road another month. But still, as far as when the actual product ramps occur is outside of our control. So while I think that we feel more confident overall, the timing as far as the plus minus against the range, let's leave it wide open for right now."
+      },
+      {
+        "speaker": "spk15",
+        "text": "And then maybe a follow-up question just, Bernie, on the second quarter guidance. Looks like gross margin ticks down by about 20 basis points at the midpoint. Wondered if you could just sort of address that. Is that just sort of mixed shift within the product groups? Are you starting to see either tariff costs and or pricing pressure? What accounts for the slight drop in gross margin in the second quarter? Thank you."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Sure. There's not a specific event that we're pointing to. We're just saying that there's a mix of different things that may or may not be inside of our control. And so we're just being basically 20 basis points more conservative."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah. Overall... All the new product we release will have higher margins. The higher volumes, the margins is lowered. But we not gonna intend to operate much below our corporate average. That's our goal."
+      },
+      {
+        "speaker": "spk03",
+        "text": "We stay within the range. Yeah, we stay with our model. Perfect. Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Ross Seymour of Deutsche Bank. Ross, your line is up."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Hi, guys. Congrats on the resulting guide. Thanks for the question. Bernie, in the first quarter, you had a very wide and divergent performance by segment to get you still to upside overall. Just wonder if there's any large segment moves in your second quarter guide, any kind of big divergent moves that you'd like to highlight?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "No, actually, the range of variance for all of the groups is, you know, plus minus five percentage points. So actually, we're seeing very narrow change sequentially. And it's worth commenting there that, you know, I believe that if we were heavily influenced by Pullens, for example, that we might have seen a more dramatic fall off in a particular market segment. But when we look against particularly year over year, our strength is fairly broad based with enterprise data, as we've talked about, you know, still looking for the ramp in the second half of the year."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Got it. And I guess that leads to my second question, which was going to be something you kind of just touched on, which is the tariff side of things. I know you talked earlier about diversifying your manufacturing and Tony mentioned about diversifying the R&D side of things. But as far as the pull in, push out, any sort of different behavior from your customers, I've been surprised how little of that has been admitted to or has actually occurred by some of the other analog companies. And so I just wondered what you guys are saying."
+      },
+      {
+        "speaker": "spk17",
+        "text": "If it happens that some pushing a pull out, pulling a pull out, a push out, and those are small numbers, small enough that we don't clearly understand it. And the overall number is very consistent. As you see it. Well, Bernie mentioned the Q1s and the computing segments and the growth, the revenue growth. And that gave me an idea. So that's also as expected from the previous quarters. We have a lot of design waiting in those areas and we are turning to our revenues."
+      },
+      {
+        "speaker": "spk04",
+        "text": "And, Boston, like in that area, for sure, right, there's a lot of other, you know, business factors beyond, you know, just tariff, potential tariff-related pull-ins because there's AIPC, there's the end of Win10 support, there's gaming. There's a lot of things that are driving the good business there as well."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, the key is the diversifications. And the best things I can \u2013 I can look at the numbers, and I can't have any target number that I want to analyze. Okay, everything looks very smooth."
+      },
+      {
+        "speaker": "spk14",
+        "text": "Got it. Well, let's hope it stays that way. Thanks, guys. Yeah, you guys."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Rick Schaefer of Oppenheimer. Rick, your line is up."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thanks, Jen. And congrats, guys, on the solid quarter. I guess my first question, if I could, is really on data center or server power, rack power, to be specific. You talked about your 400-volt rack power solution at Analyst Day. I think you highlighted like 600 kilowatts within a couple of years. I mean, we're seeing more in the press about even megawatt racks within the next handful of years. So, you know, I was just curious if you could elaborate on the expected market opportunity or TAM there and sort of when rack power sales are expected to become material for MPS. Yeah."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, our customer asked us to put in, I think, I believe with this month, we start, if it's not this month, next month, we deliver samples. I think it's this much circuit. We deliver modules, each module levels like 120 kilowatt levels. And for each modules, you add up together is somewhere is about 600,000 kilowatt to a million watt powers. And so we do have a product for that, okay? And well, we do have initial developments and now we have samples, okay?"
+      },
+      {
+        "speaker": "spk02",
+        "text": "But Michael, not to press you on it too hard, but would we see revenues like material revenues this year or is this more of a sample year, qualification year and it's more of a 2026 revenue driver?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "I believe it's the 2026, okay? And if you... we expected to have a higher good revenue come from that type of a modules. And so the same times that we prepare our production ramps, okay, production qualifications, and there's a lot of work in the second half of the years, but we fully expected it and we anticipated that part of a growth."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thanks for all that, Michael. And then my second question is really on auto and To me, I think you have several material content drivers ramping this year. You look at 48-volt transition beginning, 800-volt battery transition. You've talked about power isolation modules. I know you talked about that at Analyst Day also. I guess I'm curious, kind of a similar question in terms of how much do you expect BMS to contribute to that segment, to auto segment revenues this year? And I guess I'm curious if there are any regions favored within that."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah. Of course, China's model changes much faster than any other regions. But we do see in the US and Europe, even Korea, we're changing it. And changing not only from 400 volts to 800 volts, and also from 12 volts to 48 volts. And those segments start very early. These are still early, at the very early stage. And we do ship those products now to those segments. And I believe all the early changes, we are all in it, in every model."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, and I think in automotive in particular here, because we've heard some concerns about unit volumes from North American and Chinese EVs in particular, but when we look at our second half, a lot of the momentum will be design wins that we secured in previous years that are coming to market, particularly in North America and in Europe. So we have really, it's a content-driven second half story for automotive. Yeah."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Well, what you mentioned about 800 volts, okay, 48 volts, and those are probably we'll see a lot more in the 2026 and the 27th. Great."
+      },
+      {
+        "speaker": "spk02",
+        "text": "Thanks, you guys. Okay."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Joe Quattrocchi from Wells Fargo. Joe, your line is now open."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Yeah, thanks for taking the questions. I wanted to follow up on your comments on the storage and computing segment. I can appreciate you guys are seeing some design wins ramp. I guess as we look forward here, just given like the abnormal seasonality, you know, strength that you saw in 1Q, how do we think about that business kind of, you know, throughout the rest of this year?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "Are you talking about seasonality? I don't know. Nowadays, MPS has been a public company for 21 years. And in recent years, I don't know what the seasonality is. But we talk about the design wings in the memory side, in the memory part of the power management. And we're talking about it for the last year or two or so. And I gave in that, um, I think at one time I even said that, okay, we're going to ramp up this year. But we don't know. These are kind of things that are plus and minus quarters. And the way you get it close to us, you get orders, but end of the quarter they don't push out. Now here's the numbers. And we're not very good at forecasting the numbers, but we're pretty good at that. delivering the members."
+      },
+      {
+        "speaker": "spk03",
+        "text": "But I think a really important point here as well is how broad-based this is. So we're looking at DDR5, SSD, even HDD on the memory side. And then, as Tony pointed out previously, that within the notebook, that there are a variety of factors that are driving that end market as well."
+      },
+      {
+        "speaker": "spk17",
+        "text": "CPU side, in the notebook side. CPU side, desktops, and notebook side. I'm not getting me in the... And when Bernie mentioned all these segments, these are pretty evenly growth. And maybe memory side, the DDR5 is a little bit more than the other ones. But they're pretty much consistent and evenly growth in all each segments."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yeah, and Joe, just relative to what Bernie said before, going into Q2, everything's plus or minus a couple of points kind of thing. So you would infer from that that that segment would not see a sharp fall off necessarily in Q2. Yeah."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Yeah, that's helpful. I appreciate it. Maybe as a quick follow-up, looking at the enterprise data side, maybe on the non-AI segment of that market, how are you thinking about traditional server CPU demand this year?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "They're doing good. And as you probably know it, and okay, all these, a lot of servers have the refresh, okay, and adopting whatever that entails the latest models. And we expected that, like, as we said it, beginning of the last year or year before, we will increase our market shares. And now, okay, we're pretty much, okay, and as we see as we said it years ago, okay, last year, okay."
+      },
+      {
+        "speaker": "spk03",
+        "text": "And I think just to stay on that point for a little bit longer is that, again, much like the other areas of our business, we're seeing consistent, steady growth. It's not like a spike or a hockey stick."
+      },
+      {
+        "speaker": "spk17",
+        "text": "We will gain shares, and the next year, I think we'll even gain a higher percentage in a silver market."
+      },
+      {
+        "speaker": "spk13",
+        "text": "Perfect. Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Okay. Our next question is from Gary Mobley of Loop Capital. Gary, your line is now open."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Hey, guys. Thanks for taking my question and congrats on the solid first half performance. On the topic of China, can you give us a sense of how big your business now is in China relative to, you know, local indigenous consumption? And, you know, given your China for China manufacturing supply chain, you know, How has that and how will that position you versus your larger U.S. competitor?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "If you know our stories, a lot of design and a lot of design activities and a lot of manufacturing happened in China 10, 15 years ago. And started 2016, we diversified not only from the U.S. Before it was the U.S. and the China. And started 2016, 17, we established placing in Europe, multiple places since then. And as I mentioned before, mostly our manufacturing partners that's in China, after the pandemic, so we migrated out by serendipity, I said earlier. And as a result, there was the capacity within China. So we announced it. And so I don't know how we engage with our competitors. If there's any concentration, like concentrated in the US for productions, or concentrated in China, in the current environment, the need of a good, you need a really balanced. And in China, you're manufacturing, particularly manufacturing for China. So in the U.S., it's outside China. And the same as Europe."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Okay. As my follow-up, I wanted to ask about capacity and customer order lead times. It appears as though you have almost a half a year's worth of inventory on your balance sheet. And you probably have infinite manufacturing availability, at least in the intermediate term."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Not quite infinite. So we have a lot. Yeah. Okay, go ahead. Sorry."
+      },
+      {
+        "speaker": "spk11",
+        "text": "Okay. So my question is, have you seen any sort of uptick in customer order lead times and related? Has that improved your visibility or your backlog or any of those forward-looking metrics?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "So as far as the inventory, let's take that on first off, is that we're a little bit, our model is to hold about 180 to 200 days on our books, and we're well below that level right now. When we look at inventory in the channel, we also see that that is very lean against what we typically experience or what our model is. As far as the lead times, they're actually holding pretty well as far as what we're seeing in the supply chain. And as I've commented in prior comments, that in certain of our end markets, they do demand short lead times. And so we have to build ahead of their demand. I think, though, right now we have a lot of flexibility. We're very well positioned, regardless which way the market goes."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, if you know our... What we tried to... We targeted 180 days to 200 days, okay, for many, many years, okay? And because of all the new product ramps, okay? And in Q1... I don't know if you remember, as I said, the inventory levels are very low, both from our density levels and as well as within the NPS at the very low levels. I may even say that it was unhealthy levels. Too low. Overall, our strategy is we always hold more inventory than in Disney. And we have a better management. Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Joshua Buchalter of Cohen. Joshua, your line is now open."
+      },
+      {
+        "speaker": "spk02",
+        "text": "I wanted to follow up on Joe's question from earlier. Joshua there? You can't hear."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Oh, I cannot hear you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Uh-oh."
+      },
+      {
+        "speaker": "spk16",
+        "text": "Now it's better. Yeah, now. No, now it's cutting out."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Oh, now. Last try. Good?"
+      },
+      {
+        "speaker": "spk04",
+        "text": "There you go. We can hear you."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Okay. I'm sorry about that, guys. My first time on Zoom. I wanted to follow up on Joe's question from earlier on storage and compute. I totally appreciate the share gains that you mentioned, but the 38% sequential growth in what's usually a sub-seasonal quarter for for pcs is is certainly eye-popping are there any more metrics you can give us as to maybe content or or share shifts that are going on um and you know to give us comfort that there's not inventory build happening here thank you well in a in the past we have a few eye-popping numbers right okay so we didn't we don't we didn't surprise it like i mean uh um"
+      },
+      {
+        "speaker": "spk17",
+        "text": "As we said, it's a pretty evenly growth in the segment, particularly a little bit more in the DDR5s, as we said a few quarters ago. Bernie, you want to?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah. Josh, you might recall from my comments from year end when we were looking at the Q1 outlook, and I said that there was an atypical seasonal uplift anticipated in storage and compute. And against our internal expectations, we came in within, you know, low single digit performance to the upside. So while it may be counter to whatever seasonality we've experienced in the past, everything rolled out pretty much as anticipated."
+      },
+      {
+        "speaker": "spk04",
+        "text": "Yeah, we have it. Okay, go ahead. As I said, and Josh just remembered that storage compute, you heard Michael say it before, it's growth from both the memory side as well as the notebook side. So it's not all notebook-driven. That might apply to your seasonality question."
+      },
+      {
+        "speaker": "spk17",
+        "text": "I'm on desktop. Okay. And here is we have always, particularly in the last decade, couple of years and the mark is a very dynamic second. And you see one segment popping up the other one segments, not so much. And, and In the last couple of years, you see more. This quarter is storage in the compute. Last quarter, I don't know, the auto model. Before, it was the enterprise. And we keep running like a circle."
+      },
+      {
+        "speaker": "spk05",
+        "text": "Thank you for the color. And then I wanted to follow up on enterprise data also. You mentioned the increased confidence versus three months ago. Is that coming from your biggest customer in that segment or is that more confidence in some of the newer platform wins that you expected to ramp in the second half? And within that, are lead times still measured in weeks? And when would you expect to, I guess, have more visibility onto the share in enterprise data?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "Do it implies, and okay, we circle back. No, so okay, we feel, as a time, as a closer to the second half, okay, we feel better, so okay. As always, and we have a more, more Clear visibility."
+      },
+      {
+        "speaker": "spk03",
+        "text": "That's exactly right. We've talked about this in the past. It's not just the main customer, but some of our other customers are operating with shorter lead times. And as a result, we feel very good about the design wins, the qualifications. And as I mentioned earlier, it's really the timing of when they expect to ramp. But even within that, we're getting increasingly more confident."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Oh, yeah, you're talking about large customers, small customers. When we're looking at all these, they all can be very big. They can all be big. They all can be big, yeah."
+      },
+      {
+        "speaker": "spk06",
+        "text": "Well, congratulations on the results and apologize for my technical difficulties again."
+      },
+      {
+        "speaker": "spk03",
+        "text": "No, thanks, Josh."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from William Stein of Truist. William, your line is now open."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Great. Thanks for taking my questions, guys. Two topics. I wanted to hit on tariffs and then I wanted to hit on some growth opportunities on the tariff side. You know, people have asked a bunch of different questions, but I wonder if you'd help us understand if there are any direct as in unit costs and unit pricing impact issues. that's influencing your Q2 guidance? And is there any indirect or unit demand impact influencing your Q2 guidance?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "No to both questions."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Yeah. And then, you know, at the analyst day, you showed some pretty unique products for a semiconductor company. These sort of finished full up products. As I recall, there was a sonogram. I think you threatened to list that on Amazon, if I recall. But also, you know, building automation, you had audio amplifiers. I can't imagine that these are contributing meaningfully to revenue. But I wonder what your customer, either, you know, established customer or emerging customer reaction was to this. Did you see anything worth noting that could drive future demand that we'd want to think about?"
+      },
+      {
+        "speaker": "spk17",
+        "text": "All I try to do is, as Bernie said earlier, we want to have a silicon-based solution company. I want to monetize our know-how. And for example, in building automations, that box, we did it. And you add a lot of chicken shit stuff in the box. We sell a lot of sub-50 cents, a lot of products. We add it together and we put some softwares on most of our products. It's the programmables and now we're making MCUs and we'll put it all together. It can be a very good viable solution sell for a lot higher dollars. and the same as the ultrasound areas. And these are, to me, very interesting. We can leverage our know-how, so instead of selling $1, $2 parts, now you start to sell $1,000, $10,000 stuff. Our customers, sometimes, they relate to our customers. Our customers, they buy, we're talking to a different level of people. We're not talking to engineer anymore. We want to have cooperating with the large companies. We have those solutions. And you can sell, you can buy the entire solution. You can have it as like a white box. You label it. Or another way is you borrow modules rather than a chip. It just take much of an effort from their hand And we do things because we do silicon. We do silicons and then we know that we can know the module levels and then we stretch it out a little bit with adding more software. It's the entire blue systems. And depending on the level of our customer's interest, we can engage with them in the chip levels, in the module levels, on the system levels. And we just want to provide more. And that's our know-how. We leverage our know-how, leverage on the silicon. I contacted several very, very large companies. They're the leader in the area. There's much, much welcomes to these kind of solutions. They want to work with us. And they want to work with us. And this is at the very beginning. That's kind of things that we're transforming a company from a silicon only to a solution company. These are the ones. That's how we, from a silicon to module, we grow out of the silicon company. Then from a modules, we probably stay in the module level. We are never going to sell blinds in the shades of blinds. and the air conditioning where I know these are still in the module levels."
+      },
+      {
+        "speaker": "spk08",
+        "text": "Great, thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Chris Caso of Wolf. Chris, your line is now open."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Yes, thank you. My first question is with regard to the power for some of the custom AI projects this year. Could you detail how significant that is for the enterprise data segment this year and maybe some idea of what the content is on that as compared to the largest customer in that segment?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "So when I look at the opportunities, particularly with AI, the products are only getting higher power and they're getting smaller footprints. And it's that area of innovation where we can help lead our customers to their end solutions in a way that our competitors aren't. So right now, the market has been dominated with really one main customer. And now, as we see the second half of the year in particular, there's going to be a number of new market entrants. And they're all with the same format."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Including a big and small. Yeah. And the small looks like it's going to be a big. And the dollar content is a It's in half years, a few hundred million dollars came in. It's 500, 600 million dollars. It's not unthinkable for half years."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Got it. As a follow up question, maybe I'll dig into some of you talked about on the confidence on on the enterprise data as you go through the year. And I guess maybe a little more detail of the why you feel a little more comfortable now as compared to where you were at the beginning of the year. Is it simply a matter of qualifications where you're not qualified on platforms that you may not have been qualified on at the beginning of the year? Is it more confidence with regard to market share on those? Just a little bit of what is driving the confidence for the year as compared to where it was 90 days ago."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Well, the year is a half year then, okay, and now it's a half year, almost a half year later, and you'll feel bad or feel good, and okay, it's all going to happen as we're getting closer, okay, and so we see the result, okay, as we expected it, okay."
+      },
+      {
+        "speaker": "spk03",
+        "text": "Yeah, and say that we've got more positive data points that we can look at, but still how that converts in the year, you know, that's why I mentioned earlier that we're operating within a range of outcomes."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, and just we always, one thing we're good at in the look in the past, we're also pretty good at it, do as we said. Yeah."
+      },
+      {
+        "speaker": "spk07",
+        "text": "Got it. Thank you."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Our next question is from Jack Egan of Charter. Jack, your line is now open."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Great. Thanks so much for taking the questions. So I was hoping you could talk a bit about the margin outlook for some of the new accelerator ramps in the second half and into 26 and 27. Is there really like a structural difference in the margin profile for those products going into custom ASICs and TPUs? versus GPUs, whether better or for worse? I mean, really just any similarities or differences as to how that kind of long-term trajectory plays out would be helpful."
+      },
+      {
+        "speaker": "spk03",
+        "text": "I wouldn't say that there's a structural change. Now, you have individual opportunities that could be plus or minus. So this market, but there isn't a fundamental change in our margin model because of it."
+      },
+      {
+        "speaker": "spk17",
+        "text": "Yeah, NPS operator, we want to operate well within our module, our model. We're at the lower end, and we are very much aware of that. And we want to do is we're not going to a high volumes, low margin business. Doesn't matter what area. All these new products I said earlier, we release, okay, we all have higher margins. And we want to stay on the best performance. We're not competing on the price."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Okay, got it. Thanks. That's helpful. And then I guess for my follow-up, you know, as it kind of relates to just the broader analog cycle across end markets, If you kind of strip out monolithic new design ones that are ramping in share gains, are you seeing any signals that end demand broadly in maybe some of the more downtrodden markets is starting to increase? I mean, I'm not sure if you can really separate those factors out, but if you're looking at markets like automotive and industrial, is there anything that gives you confidence that maybe those markets are actually turning around?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "I think for MPS, it's impossible to strip out the revenue ramps from new products. I know that we've had a competitor or two that have announced that they've seen a bottoming out or potential improvement. Again, our story has to do with the new product revenue ramps. And in particular, we've talked a lot about the second half as far as enterprise data. um but uh i don't want to ignore all of the other opportunities and all of our other end markets uh so we feel very well positioned uh regardless of the macro for both the second half of this year as well as the uh momentum we're carrying into 2026. yeah for if you know the history for 21 years as a public company we only have a one year 2010"
+      },
+      {
+        "speaker": "spk17",
+        "text": "the year we didn't grow, we missed $3 million. Every year we grow."
+      },
+      {
+        "speaker": "spk10",
+        "text": "Right. Okay. That's super helpful. Thanks so much."
+      },
+      {
+        "speaker": "spk01",
+        "text": "Okay. Our last question is from Kelsey Chia of Citi Research. Kelsey, your line is now open."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Hi, Michael. I'm Bernie. Thanks for asking my question. So I'd like to dive deeper on the gross margin side. So it seems that legacy wafer pricing is trending down and also you're talking about new RAMs in enterprise data and auto. So is there room for gross margin expansion going forward in the second half?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Of course, there is room for gross margin expansion."
+      },
+      {
+        "speaker": "spk17",
+        "text": "For second half, no. Yeah. We're not going to increase the price to our customer. Okay. For next year, that's very possible. Yeah. Yeah."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Okay, right. And I'll also like to tap on the communications and markets. So I believe that segment is also benefiting from the AI infrastructure build-outs. I believe on the optical module side, could you provide more color on those applications? And also, when can we expect, can we expect sort of like a similar ramp to the enterprise data, the second half uptick for this year?"
+      },
+      {
+        "speaker": "spk03",
+        "text": "Sure. It was interesting because the way we look at our communications market is we have obviously the network telecom exposure. We have, you know, the router wireless modems. And more recently, we have optical fiber optics. And I would say that when I look at the last two quarters and the outlook for Q2, it's been very balanced. It hasn't been, you know, weighted by any one component. And that's what we're seeing. We already talked about that as far as storage of computing and an automotive in particular."
+      },
+      {
+        "speaker": "spk00",
+        "text": "Okay. Thank you. Yep."
+      },
+      {
+        "speaker": "spk01",
+        "text": "This concludes our Q&A session. I'd now like to turn the webinar back over to Bernie."
+      },
+      {
+        "speaker": "spk03",
+        "text": "So I'd like to thank you all for joining us on this conference call. I look forward to talking to you again during a second quarter 2025 conference call, which will likely be held in early August. So thank you. Have a nice day."
+      }
+    ],
+    "speaker_name_map_v2": {
+      "spk01": {
+        "name": "Genevieve Cunningham",
+        "title": "Moderator"
+      },
+      "spk03": {
+        "name": "Bernie Blagan",
+        "title": "EVP and CFO"
+      },
+      "spk17": {
+        "name": "Michael Singh",
+        "title": "CEO and Founder"
+      },
+      "spk04": {
+        "name": "Tony Ballo",
+        "title": "Vice President of Finance"
+      },
+      "spk12": {
+        "name": "Tori Svanberg",
+        "title": "Analyst (Stiefel)"
+      },
+      "spk15": {
+        "name": "Quinn Bolton",
+        "title": "Analyst (Needham)"
+      },
+      "spk02": {
+        "name": "Rick Schaefer",
+        "title": "Analyst (Oppenheimer)"
+      },
+      "spk13": {
+        "name": "Joe Quattrocchi",
+        "title": "Analyst (Wells Fargo)"
+      },
+      "spk11": {
+        "name": "Gary Mobley",
+        "title": "Analyst (Loop Capital)"
+      },
+      "spk05": {
+        "name": "Joshua Buchalter",
+        "title": "Analyst (Cohen)"
+      },
+      "spk16": {
+        "name": "Joshua Buchalter",
+        "title": "Analyst (Cohen)"
+      },
+      "spk08": {
+        "name": "William Stein",
+        "title": "Analyst (Truist)"
+      },
+      "spk07": {
+        "name": "Chris Caso",
+        "title": "Analyst (Wolf)"
+      },
+      "spk10": {
+        "name": "Jack Egan",
+        "title": "Analyst (Charter)"
+      },
+      "spk00": {
+        "name": "Kelsey Chia",
+        "title": "Analyst (Citi Research)"
+      }
+    }
+  },
+  "text": "Genevieve Cunningham (Moderator): Welcome everyone to the MPS First Quarter 2025 Earnings Webinar. My name is Genevieve Cunningham and I will be the moderator for this webinar. Joining me today are Michael Singh, CEO and Founder of MPS, Bernie Blagan, EVP and CFO, and Tony Ballo, Vice President of Finance. Earlier today, along with our earnings announcement, MPS released a written commentary on the results of our operations. both documents can be found on our website before we begin i would like to remind everyone that in the course of today's presentation we may make forward-looking statements and projections within the meaning of the private securities litigation reform act of nineteen ninety five that involve risk and uncertainty Risks, uncertainties, and other factors that could cause actual results to differ from these forward-looking statements are identified in the Safe Harbor statements contained in the Q1 2025 earnings release and in our SEC filings, including our Form 10-K, which can be found on our website. Our statements are made as of today, and we assume no obligation to update this information. Now, I'd like to turn the call over to Bernie Blagan.\n\nBernie Blagan (EVP and CFO): Thanks, Jen. Good afternoon and welcome to our Q1 2025 earnings call. In Q1, NPS achieved record quarterly revenue of $637.6 million, slightly higher than the fourth quarter of 2024 and 39.2% higher than Q1, 2024. This performance reflected the ongoing strength of our diversified market strategy, consistent execution, continued innovation and strong customer focus. Let me call out a few highlights from the first quarter. In our March 20th Investor Day, we showcased MPS innovation across a range of areas, including new opportunities in robotics, automotive, data center, building automation, medical, and audio. In Q1, storage and computing segment revenue increased 38% quarter over quarter on strong demand for both memory and notebook solutions. We continue to win designs across all major enterprise data customers with revenue ramps expected in the second half of this year. Finally, Q1 25 automotive revenue increased 13% from Q4 24, the third consecutive quarter of sequential double-digit growth. MPS continues to focus on innovation, solving our customers' most challenging problems and maintaining the highest level of quality. We continue to invest in new technology, expand into new markets and to diversify our end market applications and global supply chain. This will allow us to capture future growth opportunities, maintain supply stability and swiftly adapt to market changes as they occur. Our proven long-term growth strategy remains intact as we continue our transformation from being a chip-only semiconductor supplier to a full-service silicon-based solutions provider. I will now open the webinar up for questions.\n\nGenevieve Cunningham (Moderator): Thank you, Bernie. Analysts, I would now like to begin our Q&A session. As a reminder, if you would like to ask a question, please click on the participants icon on the menu bar and then click the raise hand button. Our first question is from Tori Svanberg of Stiefel. Tori, your line is now open.\n\nTori Svanberg (Analyst (Stiefel)): Yes. Thank you, Jen. And congratulations on a strong quarter, especially during this environment and especially the cash flows. First question is on enterprise data. So it did come in line with expectations, but you talked about some second half design wins ramping. Should we infer by that that this is sort of the low point for enterprise data this year?\n\nMichael Singh (CEO and Founder): Well, yeah, at this time, we feel, of course, when close to the second half of the year, we feel a lot better. And the overall numbers can be better. But at this time, we're not forecasting how good is good. So we have a lot more confidence at the beginning of the year.\n\nTori Svanberg (Analyst (Stiefel)): Great. Yeah, go ahead, Bernie.\n\nBernie Blagan (EVP and CFO): I think it's important to say that we're engaged with many different programs, either that we have the design wins or the qualification. So it's very broad based. It is, you know, Michael says, while our visibility is improving, clearly the improvement is second half weighted.\n\nMichael Singh (CEO and Founder): Yeah, that's a good comment. We do have many design wings, and customers design it in, and we're just waiting for the ramp.\n\nTori Svanberg (Analyst (Stiefel)): Great. Can I ask a follow-up? Yeah, go ahead. Yeah, so as my follow-up, Michael, I know over the last decade or so, you know, you've been working really hard to diversify globally, whether it's R&D centers, manufacturing partners, and so on and so forth. I was hoping you could talk a little bit about those efforts, you know, especially given the current tariff environment and, you know, how are those efforts really impacting, you know, your position right now?\n\nMichael Singh (CEO and Founder): Yeah, that's a good question. Started 10 years ago, we start to emphasize, you have a local manufacturing for local customers. And the US was out of China, particularly started the last couple of years. And right after pandemics, the volumes, we almost more than doubled our volumes. And we need to expand the fab capacities and the serendipities. And we all expanded in the outside of China. And at that time, the inside of China was full. So now they give us a very good positions, okay, for outside of China, for supplying the US side, and as well as the inside China. So now we're in a much better positions now.\n\nTori Svanberg (Analyst (Stiefel)): Great. Thank you for that. Congrats again.\n\nTony Ballo (Vice President of Finance): Sorry, the only thing I've got to add, right, from addition to the supply chain, right, the diversification approach has really been on the front end as well around R&D. So as we've been looking both the design and the supply, that's really been a hallmark of the strategy over the long haul here.\n\nTori Svanberg (Analyst (Stiefel)): Yeah. Great. Thank you. Yeah.\n\nGenevieve Cunningham (Moderator): Our next question is from Quinn Bolton of Needham. Quinn, you're lining up next.\n\nQuinn Bolton (Analyst (Needham)): Thank you, and I'll offer my congratulations as well and strong results and outlook. I guess, Bernie, Michael, maybe a follow-up on Tori's question just on enterprise data. I think you came into the year thinking enterprise data could be anywhere from flat plus or minus 20%. Sounds like you feel a little better about the business now, wondering if you might be able to sort of tighten up that range on enterprise data. And then specifically, one of your large customers, sounds like there may have been a platform change. And I think some investors are concerned that that platform change on their next generation GPU could have an impact on your share and I'm wondering if you might be able to address just your thoughts about how you're positioned in shares as you come into the second half of the year.\n\nMichael Singh (CEO and Founder): We were told by many customers we offer a breadth of a product that meets our customer needs. We don't comment on specific customers. And we don't come, and also the matter of fact that there's a, we don't know, okay, which our customers, okay, projects are gonna rent, okay, all of the changing, as you said, okay, and changing the schedules, and okay, these are out of our concern, and we don't know, and it's their decision, but we have enough product, we can meet that demand and we're winning, we feel better is because our customers recently qualified many of our product from the IC levels or to module levels. They passed many rigorous testings and they feel good about it. And now we see some, so we feel good about it. We expected to have a ramp. So at this time, we're not gonna forecast what's the half years. In the past, we said, or the last year, we said that this year could be a flattish in our numbers. We can, let's see. Let's deliver the numbers. Hopefully it's better than we expected.\n\nBernie Blagan (EVP and CFO): Yeah, and I think that Michael is right that we have increased visibility because the design went in the qualification processes down, you know, down the road another month. But still, as far as when the actual product ramps occur is outside of our control. So while I think that we feel more confident overall, the timing as far as the plus minus against the range, let's leave it wide open for right now.\n\nQuinn Bolton (Analyst (Needham)): And then maybe a follow-up question just, Bernie, on the second quarter guidance. Looks like gross margin ticks down by about 20 basis points at the midpoint. Wondered if you could just sort of address that. Is that just sort of mixed shift within the product groups? Are you starting to see either tariff costs and or pricing pressure? What accounts for the slight drop in gross margin in the second quarter? Thank you.\n\nBernie Blagan (EVP and CFO): Sure. There's not a specific event that we're pointing to. We're just saying that there's a mix of different things that may or may not be inside of our control. And so we're just being basically 20 basis points more conservative.\n\nMichael Singh (CEO and Founder): Yeah. Overall... All the new product we release will have higher margins. The higher volumes, the margins is lowered. But we not gonna intend to operate much below our corporate average. That's our goal.\n\nBernie Blagan (EVP and CFO): We stay within the range. Yeah, we stay with our model. Perfect. Thank you.\n\nGenevieve Cunningham (Moderator): Our next question is from Ross Seymour of Deutsche Bank. Ross, your line is up.\n\nspk14 (): Hi, guys. Congrats on the resulting guide. Thanks for the question. Bernie, in the first quarter, you had a very wide and divergent performance by segment to get you still to upside overall. Just wonder if there's any large segment moves in your second quarter guide, any kind of big divergent moves that you'd like to highlight?\n\nBernie Blagan (EVP and CFO): No, actually, the range of variance for all of the groups is, you know, plus minus five percentage points. So actually, we're seeing very narrow change sequentially. And it's worth commenting there that, you know, I believe that if we were heavily influenced by Pullens, for example, that we might have seen a more dramatic fall off in a particular market segment. But when we look against particularly year over year, our strength is fairly broad based with enterprise data, as we've talked about, you know, still looking for the ramp in the second half of the year.\n\nspk14 (): Got it. And I guess that leads to my second question, which was going to be something you kind of just touched on, which is the tariff side of things. I know you talked earlier about diversifying your manufacturing and Tony mentioned about diversifying the R&D side of things. But as far as the pull in, push out, any sort of different behavior from your customers, I've been surprised how little of that has been admitted to or has actually occurred by some of the other analog companies. And so I just wondered what you guys are saying.\n\nMichael Singh (CEO and Founder): If it happens that some pushing a pull out, pulling a pull out, a push out, and those are small numbers, small enough that we don't clearly understand it. And the overall number is very consistent. As you see it. Well, Bernie mentioned the Q1s and the computing segments and the growth, the revenue growth. And that gave me an idea. So that's also as expected from the previous quarters. We have a lot of design waiting in those areas and we are turning to our revenues.\n\nTony Ballo (Vice President of Finance): And, Boston, like in that area, for sure, right, there's a lot of other, you know, business factors beyond, you know, just tariff, potential tariff-related pull-ins because there's AIPC, there's the end of Win10 support, there's gaming. There's a lot of things that are driving the good business there as well.\n\nMichael Singh (CEO and Founder): Yeah, the key is the diversifications. And the best things I can \u2013 I can look at the numbers, and I can't have any target number that I want to analyze. Okay, everything looks very smooth.\n\nspk14 (): Got it. Well, let's hope it stays that way. Thanks, guys. Yeah, you guys.\n\nGenevieve Cunningham (Moderator): Our next question is from Rick Schaefer of Oppenheimer. Rick, your line is up.\n\nRick Schaefer (Analyst (Oppenheimer)): Thanks, Jen. And congrats, guys, on the solid quarter. I guess my first question, if I could, is really on data center or server power, rack power, to be specific. You talked about your 400-volt rack power solution at Analyst Day. I think you highlighted like 600 kilowatts within a couple of years. I mean, we're seeing more in the press about even megawatt racks within the next handful of years. So, you know, I was just curious if you could elaborate on the expected market opportunity or TAM there and sort of when rack power sales are expected to become material for MPS. Yeah.\n\nMichael Singh (CEO and Founder): Yeah, our customer asked us to put in, I think, I believe with this month, we start, if it's not this month, next month, we deliver samples. I think it's this much circuit. We deliver modules, each module levels like 120 kilowatt levels. And for each modules, you add up together is somewhere is about 600,000 kilowatt to a million watt powers. And so we do have a product for that, okay? And well, we do have initial developments and now we have samples, okay?\n\nRick Schaefer (Analyst (Oppenheimer)): But Michael, not to press you on it too hard, but would we see revenues like material revenues this year or is this more of a sample year, qualification year and it's more of a 2026 revenue driver?\n\nMichael Singh (CEO and Founder): I believe it's the 2026, okay? And if you... we expected to have a higher good revenue come from that type of a modules. And so the same times that we prepare our production ramps, okay, production qualifications, and there's a lot of work in the second half of the years, but we fully expected it and we anticipated that part of a growth.\n\nRick Schaefer (Analyst (Oppenheimer)): Thanks for all that, Michael. And then my second question is really on auto and To me, I think you have several material content drivers ramping this year. You look at 48-volt transition beginning, 800-volt battery transition. You've talked about power isolation modules. I know you talked about that at Analyst Day also. I guess I'm curious, kind of a similar question in terms of how much do you expect BMS to contribute to that segment, to auto segment revenues this year? And I guess I'm curious if there are any regions favored within that.\n\nMichael Singh (CEO and Founder): Yeah. Of course, China's model changes much faster than any other regions. But we do see in the US and Europe, even Korea, we're changing it. And changing not only from 400 volts to 800 volts, and also from 12 volts to 48 volts. And those segments start very early. These are still early, at the very early stage. And we do ship those products now to those segments. And I believe all the early changes, we are all in it, in every model.\n\nBernie Blagan (EVP and CFO): Yeah, and I think in automotive in particular here, because we've heard some concerns about unit volumes from North American and Chinese EVs in particular, but when we look at our second half, a lot of the momentum will be design wins that we secured in previous years that are coming to market, particularly in North America and in Europe. So we have really, it's a content-driven second half story for automotive. Yeah.\n\nMichael Singh (CEO and Founder): Well, what you mentioned about 800 volts, okay, 48 volts, and those are probably we'll see a lot more in the 2026 and the 27th. Great.\n\nRick Schaefer (Analyst (Oppenheimer)): Thanks, you guys. Okay.\n\nGenevieve Cunningham (Moderator): Our next question is from Joe Quattrocchi from Wells Fargo. Joe, your line is now open.\n\nJoe Quattrocchi (Analyst (Wells Fargo)): Yeah, thanks for taking the questions. I wanted to follow up on your comments on the storage and computing segment. I can appreciate you guys are seeing some design wins ramp. I guess as we look forward here, just given like the abnormal seasonality, you know, strength that you saw in 1Q, how do we think about that business kind of, you know, throughout the rest of this year?\n\nMichael Singh (CEO and Founder): Are you talking about seasonality? I don't know. Nowadays, MPS has been a public company for 21 years. And in recent years, I don't know what the seasonality is. But we talk about the design wings in the memory side, in the memory part of the power management. And we're talking about it for the last year or two or so. And I gave in that, um, I think at one time I even said that, okay, we're going to ramp up this year. But we don't know. These are kind of things that are plus and minus quarters. And the way you get it close to us, you get orders, but end of the quarter they don't push out. Now here's the numbers. And we're not very good at forecasting the numbers, but we're pretty good at that. delivering the members.\n\nBernie Blagan (EVP and CFO): But I think a really important point here as well is how broad-based this is. So we're looking at DDR5, SSD, even HDD on the memory side. And then, as Tony pointed out previously, that within the notebook, that there are a variety of factors that are driving that end market as well.\n\nMichael Singh (CEO and Founder): CPU side, in the notebook side. CPU side, desktops, and notebook side. I'm not getting me in the... And when Bernie mentioned all these segments, these are pretty evenly growth. And maybe memory side, the DDR5 is a little bit more than the other ones. But they're pretty much consistent and evenly growth in all each segments.\n\nTony Ballo (Vice President of Finance): Yeah, and Joe, just relative to what Bernie said before, going into Q2, everything's plus or minus a couple of points kind of thing. So you would infer from that that that segment would not see a sharp fall off necessarily in Q2. Yeah.\n\nJoe Quattrocchi (Analyst (Wells Fargo)): Yeah, that's helpful. I appreciate it. Maybe as a quick follow-up, looking at the enterprise data side, maybe on the non-AI segment of that market, how are you thinking about traditional server CPU demand this year?\n\nMichael Singh (CEO and Founder): They're doing good. And as you probably know it, and okay, all these, a lot of servers have the refresh, okay, and adopting whatever that entails the latest models. And we expected that, like, as we said it, beginning of the last year or year before, we will increase our market shares. And now, okay, we're pretty much, okay, and as we see as we said it years ago, okay, last year, okay.\n\nBernie Blagan (EVP and CFO): And I think just to stay on that point for a little bit longer is that, again, much like the other areas of our business, we're seeing consistent, steady growth. It's not like a spike or a hockey stick.\n\nMichael Singh (CEO and Founder): We will gain shares, and the next year, I think we'll even gain a higher percentage in a silver market.\n\nJoe Quattrocchi (Analyst (Wells Fargo)): Perfect. Thank you.\n\nGenevieve Cunningham (Moderator): Okay. Our next question is from Gary Mobley of Loop Capital. Gary, your line is now open.\n\nGary Mobley (Analyst (Loop Capital)): Hey, guys. Thanks for taking my question and congrats on the solid first half performance. On the topic of China, can you give us a sense of how big your business now is in China relative to, you know, local indigenous consumption? And, you know, given your China for China manufacturing supply chain, you know, How has that and how will that position you versus your larger U.S. competitor?\n\nMichael Singh (CEO and Founder): If you know our stories, a lot of design and a lot of design activities and a lot of manufacturing happened in China 10, 15 years ago. And started 2016, we diversified not only from the U.S. Before it was the U.S. and the China. And started 2016, 17, we established placing in Europe, multiple places since then. And as I mentioned before, mostly our manufacturing partners that's in China, after the pandemic, so we migrated out by serendipity, I said earlier. And as a result, there was the capacity within China. So we announced it. And so I don't know how we engage with our competitors. If there's any concentration, like concentrated in the US for productions, or concentrated in China, in the current environment, the need of a good, you need a really balanced. And in China, you're manufacturing, particularly manufacturing for China. So in the U.S., it's outside China. And the same as Europe.\n\nGary Mobley (Analyst (Loop Capital)): Okay. As my follow-up, I wanted to ask about capacity and customer order lead times. It appears as though you have almost a half a year's worth of inventory on your balance sheet. And you probably have infinite manufacturing availability, at least in the intermediate term.\n\nJoshua Buchalter (Analyst (Cohen)): Not quite infinite. So we have a lot. Yeah. Okay, go ahead. Sorry.\n\nGary Mobley (Analyst (Loop Capital)): Okay. So my question is, have you seen any sort of uptick in customer order lead times and related? Has that improved your visibility or your backlog or any of those forward-looking metrics?\n\nBernie Blagan (EVP and CFO): So as far as the inventory, let's take that on first off, is that we're a little bit, our model is to hold about 180 to 200 days on our books, and we're well below that level right now. When we look at inventory in the channel, we also see that that is very lean against what we typically experience or what our model is. As far as the lead times, they're actually holding pretty well as far as what we're seeing in the supply chain. And as I've commented in prior comments, that in certain of our end markets, they do demand short lead times. And so we have to build ahead of their demand. I think, though, right now we have a lot of flexibility. We're very well positioned, regardless which way the market goes.\n\nMichael Singh (CEO and Founder): Yeah, if you know our... What we tried to... We targeted 180 days to 200 days, okay, for many, many years, okay? And because of all the new product ramps, okay? And in Q1... I don't know if you remember, as I said, the inventory levels are very low, both from our density levels and as well as within the NPS at the very low levels. I may even say that it was unhealthy levels. Too low. Overall, our strategy is we always hold more inventory than in Disney. And we have a better management. Thank you.\n\nGenevieve Cunningham (Moderator): Our next question is from Joshua Buchalter of Cohen. Joshua, your line is now open.\n\nRick Schaefer (Analyst (Oppenheimer)): I wanted to follow up on Joe's question from earlier. Joshua there? You can't hear.\n\nJoshua Buchalter (Analyst (Cohen)): Oh, I cannot hear you.\n\nJoshua Buchalter (Analyst (Cohen)): Uh-oh.\n\nJoshua Buchalter (Analyst (Cohen)): Now it's better. Yeah, now. No, now it's cutting out.\n\nJoshua Buchalter (Analyst (Cohen)): Oh, now. Last try. Good?\n\nTony Ballo (Vice President of Finance): There you go. We can hear you.\n\nJoshua Buchalter (Analyst (Cohen)): Okay. I'm sorry about that, guys. My first time on Zoom. I wanted to follow up on Joe's question from earlier on storage and compute. I totally appreciate the share gains that you mentioned, but the 38% sequential growth in what's usually a sub-seasonal quarter for for pcs is is certainly eye-popping are there any more metrics you can give us as to maybe content or or share shifts that are going on um and you know to give us comfort that there's not inventory build happening here thank you well in a in the past we have a few eye-popping numbers right okay so we didn't we don't we didn't surprise it like i mean uh um\n\nMichael Singh (CEO and Founder): As we said, it's a pretty evenly growth in the segment, particularly a little bit more in the DDR5s, as we said a few quarters ago. Bernie, you want to?\n\nBernie Blagan (EVP and CFO): Yeah. Josh, you might recall from my comments from year end when we were looking at the Q1 outlook, and I said that there was an atypical seasonal uplift anticipated in storage and compute. And against our internal expectations, we came in within, you know, low single digit performance to the upside. So while it may be counter to whatever seasonality we've experienced in the past, everything rolled out pretty much as anticipated.\n\nTony Ballo (Vice President of Finance): Yeah, we have it. Okay, go ahead. As I said, and Josh just remembered that storage compute, you heard Michael say it before, it's growth from both the memory side as well as the notebook side. So it's not all notebook-driven. That might apply to your seasonality question.\n\nMichael Singh (CEO and Founder): I'm on desktop. Okay. And here is we have always, particularly in the last decade, couple of years and the mark is a very dynamic second. And you see one segment popping up the other one segments, not so much. And, and In the last couple of years, you see more. This quarter is storage in the compute. Last quarter, I don't know, the auto model. Before, it was the enterprise. And we keep running like a circle.\n\nJoshua Buchalter (Analyst (Cohen)): Thank you for the color. And then I wanted to follow up on enterprise data also. You mentioned the increased confidence versus three months ago. Is that coming from your biggest customer in that segment or is that more confidence in some of the newer platform wins that you expected to ramp in the second half? And within that, are lead times still measured in weeks? And when would you expect to, I guess, have more visibility onto the share in enterprise data?\n\nMichael Singh (CEO and Founder): Do it implies, and okay, we circle back. No, so okay, we feel, as a time, as a closer to the second half, okay, we feel better, so okay. As always, and we have a more, more Clear visibility.\n\nBernie Blagan (EVP and CFO): That's exactly right. We've talked about this in the past. It's not just the main customer, but some of our other customers are operating with shorter lead times. And as a result, we feel very good about the design wins, the qualifications. And as I mentioned earlier, it's really the timing of when they expect to ramp. But even within that, we're getting increasingly more confident.\n\nMichael Singh (CEO and Founder): Oh, yeah, you're talking about large customers, small customers. When we're looking at all these, they all can be very big. They can all be big. They all can be big, yeah.\n\nspk06 (): Well, congratulations on the results and apologize for my technical difficulties again.\n\nBernie Blagan (EVP and CFO): No, thanks, Josh.\n\nGenevieve Cunningham (Moderator): Our next question is from William Stein of Truist. William, your line is now open.\n\nWilliam Stein (Analyst (Truist)): Great. Thanks for taking my questions, guys. Two topics. I wanted to hit on tariffs and then I wanted to hit on some growth opportunities on the tariff side. You know, people have asked a bunch of different questions, but I wonder if you'd help us understand if there are any direct as in unit costs and unit pricing impact issues. that's influencing your Q2 guidance? And is there any indirect or unit demand impact influencing your Q2 guidance?\n\nBernie Blagan (EVP and CFO): No to both questions.\n\nWilliam Stein (Analyst (Truist)): Yeah. And then, you know, at the analyst day, you showed some pretty unique products for a semiconductor company. These sort of finished full up products. As I recall, there was a sonogram. I think you threatened to list that on Amazon, if I recall. But also, you know, building automation, you had audio amplifiers. I can't imagine that these are contributing meaningfully to revenue. But I wonder what your customer, either, you know, established customer or emerging customer reaction was to this. Did you see anything worth noting that could drive future demand that we'd want to think about?\n\nMichael Singh (CEO and Founder): All I try to do is, as Bernie said earlier, we want to have a silicon-based solution company. I want to monetize our know-how. And for example, in building automations, that box, we did it. And you add a lot of chicken shit stuff in the box. We sell a lot of sub-50 cents, a lot of products. We add it together and we put some softwares on most of our products. It's the programmables and now we're making MCUs and we'll put it all together. It can be a very good viable solution sell for a lot higher dollars. and the same as the ultrasound areas. And these are, to me, very interesting. We can leverage our know-how, so instead of selling $1, $2 parts, now you start to sell $1,000, $10,000 stuff. Our customers, sometimes, they relate to our customers. Our customers, they buy, we're talking to a different level of people. We're not talking to engineer anymore. We want to have cooperating with the large companies. We have those solutions. And you can sell, you can buy the entire solution. You can have it as like a white box. You label it. Or another way is you borrow modules rather than a chip. It just take much of an effort from their hand And we do things because we do silicon. We do silicons and then we know that we can know the module levels and then we stretch it out a little bit with adding more software. It's the entire blue systems. And depending on the level of our customer's interest, we can engage with them in the chip levels, in the module levels, on the system levels. And we just want to provide more. And that's our know-how. We leverage our know-how, leverage on the silicon. I contacted several very, very large companies. They're the leader in the area. There's much, much welcomes to these kind of solutions. They want to work with us. And they want to work with us. And this is at the very beginning. That's kind of things that we're transforming a company from a silicon only to a solution company. These are the ones. That's how we, from a silicon to module, we grow out of the silicon company. Then from a modules, we probably stay in the module level. We are never going to sell blinds in the shades of blinds. and the air conditioning where I know these are still in the module levels.\n\nWilliam Stein (Analyst (Truist)): Great, thank you.\n\nGenevieve Cunningham (Moderator): Our next question is from Chris Caso of Wolf. Chris, your line is now open.\n\nChris Caso (Analyst (Wolf)): Yes, thank you. My first question is with regard to the power for some of the custom AI projects this year. Could you detail how significant that is for the enterprise data segment this year and maybe some idea of what the content is on that as compared to the largest customer in that segment?\n\nBernie Blagan (EVP and CFO): So when I look at the opportunities, particularly with AI, the products are only getting higher power and they're getting smaller footprints. And it's that area of innovation where we can help lead our customers to their end solutions in a way that our competitors aren't. So right now, the market has been dominated with really one main customer. And now, as we see the second half of the year in particular, there's going to be a number of new market entrants. And they're all with the same format.\n\nMichael Singh (CEO and Founder): Including a big and small. Yeah. And the small looks like it's going to be a big. And the dollar content is a It's in half years, a few hundred million dollars came in. It's 500, 600 million dollars. It's not unthinkable for half years.\n\nChris Caso (Analyst (Wolf)): Got it. As a follow up question, maybe I'll dig into some of you talked about on the confidence on on the enterprise data as you go through the year. And I guess maybe a little more detail of the why you feel a little more comfortable now as compared to where you were at the beginning of the year. Is it simply a matter of qualifications where you're not qualified on platforms that you may not have been qualified on at the beginning of the year? Is it more confidence with regard to market share on those? Just a little bit of what is driving the confidence for the year as compared to where it was 90 days ago.\n\nMichael Singh (CEO and Founder): Well, the year is a half year then, okay, and now it's a half year, almost a half year later, and you'll feel bad or feel good, and okay, it's all going to happen as we're getting closer, okay, and so we see the result, okay, as we expected it, okay.\n\nBernie Blagan (EVP and CFO): Yeah, and say that we've got more positive data points that we can look at, but still how that converts in the year, you know, that's why I mentioned earlier that we're operating within a range of outcomes.\n\nMichael Singh (CEO and Founder): Yeah, and just we always, one thing we're good at in the look in the past, we're also pretty good at it, do as we said. Yeah.\n\nChris Caso (Analyst (Wolf)): Got it. Thank you.\n\nGenevieve Cunningham (Moderator): Our next question is from Jack Egan of Charter. Jack, your line is now open.\n\nJack Egan (Analyst (Charter)): Great. Thanks so much for taking the questions. So I was hoping you could talk a bit about the margin outlook for some of the new accelerator ramps in the second half and into 26 and 27. Is there really like a structural difference in the margin profile for those products going into custom ASICs and TPUs? versus GPUs, whether better or for worse? I mean, really just any similarities or differences as to how that kind of long-term trajectory plays out would be helpful.\n\nBernie Blagan (EVP and CFO): I wouldn't say that there's a structural change. Now, you have individual opportunities that could be plus or minus. So this market, but there isn't a fundamental change in our margin model because of it.\n\nMichael Singh (CEO and Founder): Yeah, NPS operator, we want to operate well within our module, our model. We're at the lower end, and we are very much aware of that. And we want to do is we're not going to a high volumes, low margin business. Doesn't matter what area. All these new products I said earlier, we release, okay, we all have higher margins. And we want to stay on the best performance. We're not competing on the price.\n\nJack Egan (Analyst (Charter)): Okay, got it. Thanks. That's helpful. And then I guess for my follow-up, you know, as it kind of relates to just the broader analog cycle across end markets, If you kind of strip out monolithic new design ones that are ramping in share gains, are you seeing any signals that end demand broadly in maybe some of the more downtrodden markets is starting to increase? I mean, I'm not sure if you can really separate those factors out, but if you're looking at markets like automotive and industrial, is there anything that gives you confidence that maybe those markets are actually turning around?\n\nBernie Blagan (EVP and CFO): I think for MPS, it's impossible to strip out the revenue ramps from new products. I know that we've had a competitor or two that have announced that they've seen a bottoming out or potential improvement. Again, our story has to do with the new product revenue ramps. And in particular, we've talked a lot about the second half as far as enterprise data. um but uh i don't want to ignore all of the other opportunities and all of our other end markets uh so we feel very well positioned uh regardless of the macro for both the second half of this year as well as the uh momentum we're carrying into 2026. yeah for if you know the history for 21 years as a public company we only have a one year 2010\n\nMichael Singh (CEO and Founder): the year we didn't grow, we missed $3 million. Every year we grow.\n\nJack Egan (Analyst (Charter)): Right. Okay. That's super helpful. Thanks so much.\n\nGenevieve Cunningham (Moderator): Okay. Our last question is from Kelsey Chia of Citi Research. Kelsey, your line is now open.\n\nKelsey Chia (Analyst (Citi Research)): Hi, Michael. I'm Bernie. Thanks for asking my question. So I'd like to dive deeper on the gross margin side. So it seems that legacy wafer pricing is trending down and also you're talking about new RAMs in enterprise data and auto. So is there room for gross margin expansion going forward in the second half?\n\nBernie Blagan (EVP and CFO): Of course, there is room for gross margin expansion.\n\nMichael Singh (CEO and Founder): For second half, no. Yeah. We're not going to increase the price to our customer. Okay. For next year, that's very possible. Yeah. Yeah.\n\nKelsey Chia (Analyst (Citi Research)): Okay, right. And I'll also like to tap on the communications and markets. So I believe that segment is also benefiting from the AI infrastructure build-outs. I believe on the optical module side, could you provide more color on those applications? And also, when can we expect, can we expect sort of like a similar ramp to the enterprise data, the second half uptick for this year?\n\nBernie Blagan (EVP and CFO): Sure. It was interesting because the way we look at our communications market is we have obviously the network telecom exposure. We have, you know, the router wireless modems. And more recently, we have optical fiber optics. And I would say that when I look at the last two quarters and the outlook for Q2, it's been very balanced. It hasn't been, you know, weighted by any one component. And that's what we're seeing. We already talked about that as far as storage of computing and an automotive in particular.\n\nKelsey Chia (Analyst (Citi Research)): Okay. Thank you. Yep.\n\nGenevieve Cunningham (Moderator): This concludes our Q&A session. I'd now like to turn the webinar back over to Bernie.\n\nBernie Blagan (EVP and CFO): So I'd like to thank you all for joining us on this conference call. I look forward to talking to you again during a second quarter 2025 conference call, which will likely be held in early August. So thank you. Have a nice day.",
+  "n_turns": 108
+}
