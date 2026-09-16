@@ -1,0 +1,56 @@
+{
+  "run_id": "baseline-v6-tune-batch",
+  "registered_at": "2026-09-15T00:00:00Z",
+  "split_scored": "tune",
+  "company_list": [
+    "ACN", "ARRY", "BAC", "BK", "BLDP", "CI", "CL", "CRM", "DHR", "DIS",
+    "ENVX", "EOG", "ETN", "EXC", "FCX", "GIS", "GOOGL", "GS", "HRL", "KHC",
+    "KO", "LMT", "LRCX", "MCD", "MCHP", "MO", "MPWR", "NEE", "NFLX", "ORCL",
+    "PFE", "PLD", "PM", "PNC", "PPG", "PSA", "PYPL", "RTX", "SBUX", "SEDG",
+    "SLB", "SNOW", "SPWR", "SRE", "SWKS", "T", "TSLA", "VLO", "VZ", "WDAY",
+    "WEC", "WFC", "WOLF", "ZTS"
+  ],
+  "company_count": 54,
+  "manifest_source": "analysis/data/corpus_v2/CORPUS_MANIFEST_V7.json",
+  "manifest_sha256": "0c53de3a54e835571aaf0445f12e6991d2e3089de16f64ea9377c85ba96713f9",
+  "split_source": "analysis/data/corpus_v2/SPLIT_V7_RESERVE_REPLACEMENTS.json",
+  "split_holdout_sha256": "909f68ccb7754384bbb9f6d5882afb1afd9cdfa317b69654eef22127e3dc1e0b",
+  "split_disjointness_assertion": "train/tune/holdout pairwise intersections all empty, checked directly against SPLIT_V7_RESERVE_REPLACEMENTS.json before any fetch. GOOGL confirmed in tune only.",
+  "prompt_version": "v6",
+  "prompt_path": "docs/EVALUATION_PROMPT.md",
+  "prompt_sha256": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+  "prompt_sha256_matches_registry": true,
+  "model_version_pinned": "claude-sonnet-4-6",
+  "model_version_pinned_matches_train_run": true,
+  "model_version_pinned_matches_train_run_note": "SCORING_PROTOCOL.json (train) -> model_version_pinned == claude-sonnet-4-6, identical to this run's pin. Same model confound as train applies: not the model v6's original 40.4%/39.6% figures were measured on (claude-sonnet-4-20250514, retired 2026-06-15).",
+  "grading_field": "per_call_rec",
+  "grading_field_note": "The analyst's own call, not final_action -- per CLAUDE.md's standing rule so a trend-layer change cannot read as a prompt improvement.",
+  "eval_cache_path": "analysis/data/evals/v6_claude-sonnet-4-6_tune/",
+  "request_cap": 1400,
+  "api_mode": "batch",
+  "max_tokens": 4096,
+  "max_tokens_source": "server/routes/evaluate.js line 117 (production value), same as SCORING_PROTOCOL.json (train)",
+  "ticker_alias_sweep": {
+    "method": "all 54 tune tickers checked against TICKER_ALIASES.json entries",
+    "aliases_found": [
+      {"manifest_ticker": "GOOGL", "working_vendor_symbol": "GOOG", "custom_id_uses": "GOOG"}
+    ],
+    "no_other_tune_ticker_aliased": true
+  },
+  "wolf_price_coverage": {
+    "status": "gap in scorer_price_cache_v1.json (172 tickers), 53/54 tune tickers + SPY covered, WOLF absent",
+    "driver_behavior": "scorer_price_cache_backfill_driver.py hardcodes WOLF in KNOWN_UNRECOVERABLE alongside NOVA, without attempting a yfinance fetch",
+    "live_probe_finding": "yfinance WOLF history shows live trading through 2026-09-15 (~$24-29/share) -- NOT permanently delisted -- but a complete gap in daily bars 2025-01-01 to 2025-09-28, consistent with Wolfspeed's 2025 Chapter 11 (filed ~2025-06, resumed trading 2025-09-29 post-emergence at a much lower price)",
+    "a6_verification_gap": "PREREGISTRATION_FIX.json -> A6_terminal_value_grading.companies_verified_against_public_record lists NOVA, SUNW, FRC only. WOLF is named in the same S4 cohort but was never individually verified there.",
+    "second_probe_result": "yfinance.Ticker('WOLF').history(start=2019-06-01, end=2025-06-30) returns EMPTY (0 rows, 'possibly delisted; no price data found') -- Yahoo has purged WOLF's pre-petition series entirely, not truncated it at delisting. Data exists ONLY from 2025-09-29 onward (post-emergence). This is the identical empty-pre-failure-series shape PREREGISTRATION_FIX.json documents for NOVA/SUNW/FRC ('corpus_v2_price_cache.json holds a fully EMPTY {} ... not just post-failure'), not a partial/fetchable series.",
+    "rule_applied": "LEFT UNGRADABLE, not forced to A6-zero. A6's terminal-value-zero mechanism (TERMINAL_OVERRIDES) lives in analysis/corpus_construction_outcomes_v3_terminal.py, a separate, one-off corpus-construction script -- analyst_direct_scorer.py (the scorer this run actually uses) has NO terminal-value override code path at all; it only reads {ticker: {date: close}} from a price-cache file, and a ticker with no entry there is simply excluded from grading. Checked scorer_price_cache_v1.json directly: NOVA (also A6-verified zero) is ALSO absent there and is silently ungradable today via this same scorer, with nobody having wired A6 into it. Forcing a synthetic zero-price entry into scorer_price_cache_v1.json for WOLF, to make analyst_direct_scorer.py emulate an override mechanism it doesn't have, would be new scorer behavior this prompt did not authorize. Leaving WOLF absent is therefore the change-minimal, consistent-with-existing-code choice: WOLF's calls fall into the same 'not yet gradable' bucket NOVA's already sit in.",
+    "second_probe_result": "yfinance.Ticker('WOLF').history(start=2019-06-01, end=2025-06-30) returns EMPTY (0 rows, 'possibly delisted; no price data found') -- Yahoo has purged WOLF's pre-petition series entirely. Data exists ONLY from 2025-09-29 onward (post-emergence, a different security economically). This matches the empty-pre-failure-series shape PREREGISTRATION_FIX.json documents for NOVA (also currently absent from scorer_price_cache_v1.json and also currently ungradable through this scorer).",
+    "not_a_guess": "Verified via two live yfinance probes (a full-history pull showing a live-trading tail plus a gap, then a pre-petition-window pull confirming the series is fully empty) before deciding, per this prompt's explicit instruction not to guess.",
+    "flag_for_design_session": "A6 (terminal-value-zero grading for verified wipeouts) is registered in PREREGISTRATION_FIX.json but not actually wired into analyst_direct_scorer.py, the scorer every run since baseline-v6-train-batch has used. NOVA already silently falls through this gap; WOLF now does too. Whether to wire a terminal-value override into analyst_direct_scorer.py, or to leave 'no price data' as the scorer's only ungradable category, is a design decision, not something this run should decide unilaterally."
+  },
+  "coverage_guard": {
+    "confirmed_present": true,
+    "confirmed_passing_on_train_without_allow_partial_coverage": true,
+    "verification": "python3 analyst_direct_scorer.py --eval-dir data/evals/v6_claude-sonnet-4-6 --price-cache data/corpus_v2/scorer_price_cache_v1.json reproduced 30.3%/27.8%/+2.48pp/35.5% exactly, no --allow-partial-coverage flag passed"
+  }
+}

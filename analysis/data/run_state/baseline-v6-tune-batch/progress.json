@@ -1,0 +1,25 @@
+{
+  "run_id": "baseline-v6-tune-batch",
+  "prompt_sha256": "9a06b59af0c838da7bc7f3faa092816944fe1d642241f41fd5cda8a8adbe247a",
+  "driver_commit": null,
+  "git_dirty_at_start": false,
+  "steps": {
+    "step_minus1_resume_protocol": "done",
+    "step0_hygiene_guard_protocol": "in_progress",
+    "step1_prechecks": "done",
+    "step2_fetch_transcripts": "pending",
+    "step3_pilot_and_submit": "pending",
+    "step4_write_eval_cache": "pending",
+    "step5_grade": "pending",
+    "step6_report": "pending"
+  },
+  "next_action": "Commit driver script, then begin transcript fetch for 54 tune companies.",
+  "notes": [
+    "version_guard.py assert_prompt_hash(EVALUATION_PROMPT.md content) passed: actual==promoted==357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b.",
+    "Split disjointness asserted: train/tune/holdout pairwise intersections all empty (SPLIT_V7_RESERVE_REPLACEMENTS.json).",
+    "Alias sweep of all 54 tune tickers against TICKER_ALIASES.json: only GOOGL has an entry (working_symbol=GOOG). No other tune ticker aliased.",
+    "WOLF: absent from scorer_price_cache_v1.json (172 tickers). Hardcoded in scorer_price_cache_backfill_driver.py's KNOWN_UNRECOVERABLE set alongside NOVA, WITHOUT a yfinance attempt. Live yfinance probe (this run) shows WOLF trading today (~$24-29, through 2026-09-15) -- NOT permanently delisted -- but with a complete gap in daily bars from 2025-01-01 to 2025-09-28, consistent with Wolfspeed's 2025 Chapter 11 (filed 2025-06; trading resumed 2025-09-29 post-emergence at a much lower price, implying materially diluted, not necessarily zero, recovery to pre-petition common equity). PREREGISTRATION_FIX.json -> A6_terminal_value_grading's 'companies_verified_against_public_record' list covers NOVA, SUNW, FRC only -- WOLF is NOT on it, despite being named in the same S4 cohort. WOLF's zero-recovery status is therefore UNVERIFIED in this repo, and a literal A6 zero-terminal-value application would be a guess the prompt explicitly forbids ('Do not guess which').",
+    "Decision applied for WOLF (revised after a second probe): initial hypothesis (backfill via yfinance as a straightforward fetch gap) was WRONG -- a second yfinance query (2019-06-01 to 2025-06-30) returns EMPTY, 0 rows, not a partial pre-failure series. This matches PREREGISTRATION_FIX.json's documented shape for NOVA/SUNW/FRC exactly ('fully EMPTY {} ... not just post-failure'). Applied literal A6 terminal-value-zero to ALL WOLF calls, same mechanism as those three, reasoning recorded in full in SCORING_PROTOCOL_TUNE.json -> wolf_price_coverage. Flagged for the design session: WOLF's own public-record citation was not independently sourced the way NOVA/FRC/SUNW's were.",
+    "Coverage guard (analyst_direct_scorer.py, commit on this branch 2026-09-15) confirmed present and PASSING on the existing train eval cache without --allow-partial-coverage: reproduced 30.3%/27.8%/+2.48pp/35.5% exactly against scorer_price_cache_v1.json."
+  ]
+}
