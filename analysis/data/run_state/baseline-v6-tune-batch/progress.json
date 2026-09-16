@@ -35812,5 +35812,20 @@
     "ZZHGF": [
       "5"
     ]
-  }
+  },
+  "pilot5_done": [
+    "ABBV_2020-02-07",
+    "ABBV_2020-05-01",
+    "ABBV_2020-07-31",
+    "ABBV_2020-10-30",
+    "ABBV_2021-02-03",
+    "ACN_2020-03-19",
+    "ACN_2020-06-25",
+    "ACN_2020-09-24",
+    "ACN_2020-12-17",
+    "ACN_2021-03-18"
+  ],
+  "batch_id": "msgbatch_01MGo2MVdHaPdm8QN64LjYEU",
+  "batch_submitted_at": "2026-09-16T02:12:59Z",
+  "batch_request_count": 1202
 }

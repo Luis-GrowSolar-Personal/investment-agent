@@ -282,10 +282,17 @@ MAX_TOKENS = 4096
 
 
 def all_calls():
-    """Every (ticker, call_date, transcript_path) that made it to disk."""
+    """Every (ticker, call_date, transcript_path) that made it to disk, for
+    TUNE tickers only. TRANSCRIPTS_DIR is shared with the train run (same
+    directory layout, disjoint ticker subdirs) -- filtering by tune's own
+    working-symbol set here is required, not optional: an earlier, unfiltered
+    version of this function fed the 5-call pilot 5 ABBV (train) transcripts
+    instead of tune ones (caught before batch submission; see findings.md and
+    the wrap-up's Deviations section)."""
+    tune_working = {working for _, working in load_tune_tickers()}
     out = []
     for tdir in sorted(TRANSCRIPTS_DIR.iterdir()):
-        if not tdir.is_dir():
+        if not tdir.is_dir() or tdir.name not in tune_working:
             continue
         for f in sorted(tdir.glob("*.json")):
             out.append((tdir.name, f.stem, f))
