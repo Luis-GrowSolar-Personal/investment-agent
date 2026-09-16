@@ -1,0 +1,226 @@
+<title>Tune Baseline: v6</title>
+<style>
+:root{
+  --bg:#f7f5f1; --surface:#ffffff; --surface-2:#f0ede6; --border:#ddd6c9;
+  --ink:#1e1c18; --ink-2:#5c574c; --ink-3:#8a8478;
+  --accent:#1f5f5b; --accent-ink:#0d3735; --accent-bg:#e4efee;
+  --good:#2f6e3f; --good-bg:#e6f1e4;
+  --warn:#93601a; --warn-bg:#f8ecd6;
+  --bad:#a3362b; --bad-bg:#f8e6e2;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161513; --surface:#1e1c19; --surface-2:#242220; --border:#39352e;
+    --ink:#ece7dd; --ink-2:#b8b2a3; --ink-3:#84806f;
+    --accent:#5fb8b1; --accent-ink:#bfe9e4; --accent-bg:#1c3634;
+    --good:#7fca8e; --good-bg:#1c3320;
+    --warn:#e3b568; --warn-bg:#3a2d13;
+    --bad:#e79389; --bad-bg:#3a201c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161513; --surface:#1e1c19; --surface-2:#242220; --border:#39352e;
+  --ink:#ece7dd; --ink-2:#b8b2a3; --ink-3:#84806f;
+  --accent:#5fb8b1; --accent-ink:#bfe9e4; --accent-bg:#1c3634;
+  --good:#7fca8e; --good-bg:#1c3320;
+  --warn:#e3b568; --warn-bg:#3a2d13;
+  --bad:#e79389; --bad-bg:#3a201c;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Source Sans 3',Inter,system-ui,sans-serif;
+  font-size:15.5px; line-height:1.55;
+  padding-inline:16px;
+}
+.wrap{max-width:920px; margin:0 auto; padding-block:32px 80px;}
+h1,h2,h3{font-family:'Source Serif 4',Georgia,serif; color:var(--ink); text-wrap:balance; letter-spacing:-0.01em;}
+h1{font-size:2rem; margin:0 0 4px;}
+h2{font-size:1.35rem; margin:2.4em 0 0.7em; padding-top:0.6em; border-top:1px solid var(--border);}
+h3{font-size:1.05rem; margin:1.6em 0 0.5em; color:var(--accent-ink);}
+p{margin:0.7em 0; max-width:70ch;}
+.kicker{font-family:var(--mono); font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-3);}
+.subhead{color:var(--ink-2); font-size:1.02rem; max-width:62ch; margin-top:6px;}
+code{font-family:var(--mono); font-size:0.88em; background:var(--surface-2); padding:0.12em 0.4em; border-radius:4px; color:var(--accent-ink);}
+pre{font-family:var(--mono); font-size:0.82rem; background:var(--surface-2); border:1px solid var(--border); border-radius:8px; padding:14px 16px; overflow-x:auto; line-height:1.5;}
+pre code{background:none; padding:0; color:var(--ink);}
+a{color:var(--accent-ink);}
+
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 4px;}
+.chip{font-family:var(--mono); font-size:0.76rem; padding:5px 10px; border-radius:999px; border:1px solid var(--border); background:var(--surface-2); color:var(--ink-2); white-space:nowrap;}
+.chip.good{background:var(--good-bg); color:var(--good); border-color:transparent;}
+.chip.warn{background:var(--warn-bg); color:var(--warn); border-color:transparent;}
+.chip.bad{background:var(--bad-bg); color:var(--bad); border-color:transparent;}
+
+.headline-card{
+  background:var(--surface); border:1px solid var(--border); border-radius:14px;
+  padding:22px 24px; margin:24px 0; display:grid; gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+}
+.stat{display:flex; flex-direction:column; gap:2px;}
+.stat .num{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:1.7rem; font-weight:600; color:var(--accent-ink);}
+.stat .num.neutral{color:var(--ink);}
+.stat .lbl{font-size:0.78rem; color:var(--ink-3); letter-spacing:0.01em;}
+
+.callout{
+  border:1px solid var(--border); border-left:4px solid var(--accent);
+  background:var(--accent-bg); border-radius:0 10px 10px 0;
+  padding:14px 18px; margin:1.2em 0; color:var(--ink);
+}
+.callout.warn{border-left-color:var(--warn); background:var(--warn-bg);}
+.callout p{margin:0.4em 0;}
+
+dl.terms{display:grid; grid-template-columns:max-content 1fr; gap:10px 22px; margin:1em 0;}
+dl.terms dt{font-family:var(--mono); font-weight:600; color:var(--accent-ink); white-space:nowrap; align-self:baseline;}
+dl.terms dd{margin:0; color:var(--ink-2);}
+
+.tbl-wrap{overflow-x:auto; margin:1.2em 0; border:1px solid var(--border); border-radius:10px;}
+table{border-collapse:collapse; width:100%; min-width:560px; font-size:0.92rem;}
+th,td{text-align:left; padding:9px 14px; border-bottom:1px solid var(--border); white-space:nowrap;}
+th{background:var(--surface-2); font-family:var(--mono); font-size:0.74rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-3); font-weight:600;}
+td{font-variant-numeric:tabular-nums;}
+tr:last-child td{border-bottom:none;}
+td.hero{color:var(--accent-ink); font-weight:600;}
+td.excl{color:var(--bad);}
+
+ul.plain{margin:0.7em 0; padding-left:1.3em;}
+ul.plain li{margin:0.5em 0;}
+
+.toc{display:flex; flex-wrap:wrap; gap:6px 16px; font-family:var(--mono); font-size:0.78rem; margin:20px 0 0; padding:14px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border);}
+.toc a{color:var(--ink-2); text-decoration:none;}
+.toc a:hover{color:var(--accent-ink);}
+
+footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--border); color:var(--ink-3); font-size:0.82rem;}
+</style>
+
+<div class="wrap">
+
+  <div class="kicker">baseline-v6-tune-batch &middot; wrap-up &middot; 2026-09-15</div>
+  <h1>v6, scored on the tune split</h1>
+  <div class="subhead">1,207 real earnings calls, 53 of 54 tune companies, ~$46.34 real spend. The luck-corrected gap that spanned zero on train now excludes it &mdash; on 51 of those companies.</div>
+
+  <div class="chips">
+    <span class="chip good">gap excludes zero (0.21&ndash;5.00pp)</span>
+    <span class="chip warn">51/54 companies gradable</span>
+    <span class="chip">model: claude-sonnet-4-6</span>
+    <span class="chip">batch 1202/1202 succeeded</span>
+  </div>
+
+  <nav class="toc">
+    <a href="#terms">0&nbsp;&middot; terms</a>
+    <a href="#headline">headline</a>
+    <a href="#compare">train vs tune</a>
+    <a href="#prechecks">pre-checks</a>
+    <a href="#spend">spend</a>
+    <a href="#findings">findings</a>
+    <a href="#limits">limitations</a>
+  </nav>
+
+  <h2 id="terms">0. Terms used in this report</h2>
+  <p>In plain English first: this run had the analyst read 1,207 real earnings-call transcripts from 53 of the 54 companies in the &ldquo;tune&rdquo; group &mdash; a different set of companies than the ones already scored in the prior &ldquo;train&rdquo; run &mdash; and checked its recommendations against what actually happened to each stock. Two companies (Wolfspeed/WOLF and the current SunPower/SPWR) turned out to be cases where the ticker was reused by a different, reorganized company after a 2024&ndash;2025 bankruptcy, so the price history needed to grade their older calls no longer exists anywhere fetchable. On the other 51 companies, the analyst did slightly better than chance &mdash; and unlike the train result, the margin here is wide enough that luck alone can&rsquo;t explain it.</p>
+
+  <dl class="terms">
+    <dt>train / tune / holdout</dt><dd>the three-way split of the 164-company corpus. Train was scored first and is the ruler every future candidate compares against. Tune (this run) is for prompt iteration. Holdout stays locked until a final promotion decision.</dd>
+    <dt>pp vs %</dt><dd>a percentage-point (<strong>pp</strong>) figure is an arithmetic difference between two percentages &mdash; not a relative change.</dd>
+    <dt>gradable</dt><dd>a scored call becomes gradable once its ticker has price coverage spanning both the call date and ~6 months later, and that forward window already exists in the frozen price data.</dd>
+    <dt>per_call_rec</dt><dd>the analyst&rsquo;s own call (Hold / Add / Trim / Exit), not any downstream allocator or trend-layer action. Only this field is graded &mdash; the analyst/allocator firewall holds.</dd>
+    <dt>balanced accuracy</dt><dd>average hit-rate across the three possible answers, so &ldquo;always guess the common answer&rdquo; doesn&rsquo;t score well by default. A skill-less guesser scores 33.3%.</dd>
+    <dt>luck-corrected gap</dt><dd>observed accuracy minus the accuracy you&rsquo;d expect from the analyst&rsquo;s own guessing habits. Zero means &ldquo;no better than a weighted coin.&rdquo;</dd>
+    <dt>95% range</dt><dd>a ticker-block bootstrap interval (resample tickers, not calls, with replacement; 5,000 resamples, seed 20201231). &ldquo;Spans zero&rdquo; means the data can&rsquo;t rule out &ldquo;no real effect.&rdquo;</dd>
+    <dt>A6 grading</dt><dd>an existing project rule for companies whose equity was wiped out: grade the forward return as a maximal loss without needing a real forward price. Relevant here, but <em>not currently wired into</em> the scorer this run uses &mdash; see §Pre-checks.</dd>
+  </dl>
+
+  <h2 id="headline">Headline</h2>
+
+  <div class="headline-card">
+    <div class="stat"><div class="num">28.3%</div><div class="lbl">observed accuracy (n=1,168)</div></div>
+    <div class="stat"><div class="num neutral">25.7%</div><div class="lbl">expected by luck</div></div>
+    <div class="stat"><div class="num">+2.64pp</div><div class="lbl">luck-corrected gap</div></div>
+    <div class="stat"><div class="num" style="font-size:1.15rem">0.21&ndash;5.00pp</div><div class="lbl">95% range &mdash; excludes zero</div></div>
+  </div>
+
+  <p><strong>On 51 of the 54 tune companies (1,168 gradable calls), v6 scores 28.3% against 25.7% expected by luck &mdash; a gap of +2.64 points, whose 95% range is 0.21 to 5.00pp.</strong> This is the first time in this project&rsquo;s record that a luck-corrected gap has cleared zero. Balanced accuracy is 35.8% (95% range 32.7&ndash;38.7%), which still spans the 33.3% chance line.</p>
+
+  <div class="callout warn">
+    <p><strong>Two of the 54 tune companies (WOLF, SPWR) could not be graded at all.</strong> Both are 2024/2025 corporate-reorg cases where the price history their pre-bankruptcy transcripts need has been fully purged from this project&rsquo;s data source (confirmed live, not assumed &mdash; see Pre-checks). This is a <strong>51-company test</strong>, with the exclusion disclosed and investigated, not the full 54-company test the prompt set out to run.</p>
+  </div>
+
+  <div class="callout">
+    <p><strong>Carry the model confound in the same breath.</strong> Every figure here comes from <code>claude-sonnet-4-6</code>, not the retired model that produced v6&rsquo;s original 40.4%/39.6% figures. That substitution&rsquo;s one formal gate returned <strong>HOLD</strong> (7.4pp regression, 4.2pp noise floor) before the champion was retired anyway. Any weakness &mdash; or the positive gap above &mdash; may be the model, not the prompt, and this data can&rsquo;t separate the two.</p>
+  </div>
+
+  <p>Which of the prompt&rsquo;s three named outcomes is this? Closest to <em>&ldquo;holds and the range excludes zero&rdquo;</em> &mdash; but on tune&rsquo;s own 51-company population, not yet on the pooled 107 companies together. <strong>Do not cite a pooled figure or a headroom-recomputation number from this run</strong> &mdash; that step belongs to the design session. What can be said now: the train result replicates in direction and magnitude, and tune&rsquo;s own interval is tight enough, on its own, to exclude zero where train&rsquo;s wasn&rsquo;t.</p>
+
+  <h2 id="compare">The comparison that matters</h2>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th></th><th>train (56 companies)</th><th>tune (51 of 54)</th></tr>
+    <tr><td>gradable calls</td><td>1,236</td><td class="hero">1,168</td></tr>
+    <tr><td>observed accuracy</td><td>30.3%</td><td class="hero">28.3%</td></tr>
+    <tr><td>expected by luck</td><td>27.8%</td><td class="hero">25.7%</td></tr>
+    <tr><td>gap</td><td>+2.48 points</td><td class="hero">+2.64 points</td></tr>
+    <tr><td>95% range on the gap</td><td>&minus;0.06 to +5.08 (spans zero)</td><td class="hero">0.21 to 5.00 (excludes zero)</td></tr>
+    <tr><td>balanced accuracy</td><td>35.5% (32.6&ndash;38.5%)</td><td class="hero">35.8% (32.7&ndash;38.7%)</td></tr>
+    <tr><td>bullish recall</td><td>38.2%</td><td class="hero">39.4% (31.2&ndash;47.6%)</td></tr>
+    <tr><td>bearish recall</td><td>11.2%</td><td class="hero">8.7% (5.2&ndash;12.9%)</td></tr>
+    <tr><td>neutral recall</td><td>57.1%</td><td class="hero">59.1% (49.1&ndash;67.7%)</td></tr>
+    <tr><td>always-bullish guesser</td><td>32.8%</td><td>32.8%</td></tr>
+    <tr><td>always-flat guesser</td><td>22.2%</td><td>18.8%</td></tr>
+    <tr><td>always-bearish guesser <span style="color:var(--ink-3)">(diagnostic)</span></td><td>51.7%</td><td class="excl">48.4%</td></tr>
+  </table>
+  </div>
+  <p style="color:var(--ink-3); font-size:0.9rem">Ground truth in this tune population skews bearish (48.4%), the same pattern train showed &mdash; a naive always-bearish guess still beats v6&rsquo;s own hit rate on this measure.</p>
+
+  <h2 id="prechecks">Pre-checks &mdash; reported explicitly, per the prompt</h2>
+
+  <h3>Ticker aliases</h3>
+  <p>Swept all 54 tune tickers against <code>TICKER_ALIASES.json</code>. Only <strong>GOOGL</strong> has an entry (&rarr; working symbol <code>GOOG</code>). No other tune ticker is aliased.</p>
+
+  <h3>WOLF price coverage</h3>
+  <p>Investigated live, not guessed. A first probe showed WOLF trading today (~$24&ndash;29/share) &mdash; not permanently delisted, which looked like a simple backfill gap. A second, more careful probe (2019&ndash;06 through 2025&ndash;06) returned <strong>zero rows</strong>: Yahoo has purged WOLF&rsquo;s pre-petition price series entirely, matching the same empty-series shape already documented for three other verified wipeouts (NOVA, SUNW, FRC). Consistent with Wolfspeed&rsquo;s 2025 Chapter 11 &mdash; trading resumed 2025-09-29 under the same ticker, but economically a different security.</p>
+  <p>Decision: left WOLF&rsquo;s calls in the fetch/scoring scope (a durable asset for later), but did <strong>not</strong> force a synthetic zero-price entry into the price cache &mdash; that would be new scorer behavior this prompt didn&rsquo;t authorize. NOVA is already silently ungradable through this same scorer today, for the identical reason.</p>
+
+  <h3>Coverage guard &mdash; and the finding it caught</h3>
+  <p>Confirmed present and passing on the existing train eval cache before relying on it here (reproduced 30.3%/27.8%/+2.48pp/35.5% exactly). Grading the full 53-ticker tune population then <strong>failed the guard</strong> &mdash; not only for WOLF (100% loss, expected) but also for <strong>SPWR, which lost 10/15 calls (67%), unanticipated by the prompt</strong>.</p>
+  <p>Investigated: <code>scorer_price_cache_v1.json</code>&rsquo;s SPWR series starts 2023&ndash;01&ndash;03, not the corpus window start. A live probe confirmed the identical purge pattern as WOLF: the original SunPower Corporation filed Chapter 11 in 2024, and the SPWR ticker was reused by a reorganized entity afterward. The price-cache build had marked SPWR <code>&quot;status&quot;: &quot;ok&quot;</code> because the fetch itself succeeded &mdash; it never checked whether the series covers the corpus window.</p>
+  <div class="callout">
+    <p><strong>Per the prompt&rsquo;s explicit rule, the guard was not overridden.</strong> This report covers the 51 tune tickers unaffected by this bankruptcy-driven ticker-reuse pattern, with WOLF and SPWR&rsquo;s exclusion stated up front &mdash; a disclosed scope restriction, not a silenced guard.</p>
+  </div>
+
+  <h2 id="spend">Spend, measured</h2>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th></th><th>estimate</th><th>actual</th></tr>
+    <tr><td>Pilot (5 calls, synchronous)</td><td>~$0.47</td><td>$0.3642 ($0.0728/call)</td></tr>
+    <tr><td>Discarded first pilot <span style="color:var(--ink-3)">(bug, see Findings)</span></td><td>&mdash;</td><td class="excl">$0.4321 (wasted)</td></tr>
+    <tr><td>Batch (1,202 calls, 50% off)</td><td>~$47 programme est.</td><td>~$45.54</td></tr>
+    <tr><td><strong>Total, all real spend</strong></td><td><strong>$47</strong></td><td class="hero"><strong>~$46.34</strong></td></tr>
+  </table>
+  </div>
+  <p>Pilot cost compared against train&rsquo;s own full-rate pilot ($0.0827/call): &minus;12%, within the 30% stop threshold. Batch cache hit rate 16.9%, consistent with train&rsquo;s 16.8%. Batch id <code>msgbatch_01MGo2MVdHaPdm8QN64LjYEU</code>: 1,202/1,202 succeeded, 0 errored, 0 expired.</p>
+  <p>Two full baseline runs (train + tune) have now cost <strong>~$92.24</strong> total against a combined original estimate of ~$103.</p>
+
+  <h2 id="findings">Findings</h2>
+  <ul class="plain">
+    <li><strong>A bug the pilot caught before it touched the real batch spend.</strong> The driver&rsquo;s transcript lister originally scanned the whole shared transcripts directory (train and tune coexist there) instead of filtering to tune&rsquo;s own tickers. The first pilot run scored 5 <strong>ABBV</strong> transcripts &mdash; a train ticker &mdash; by mistake ($0.4321 wasted, results discarded, not written to any eval cache). Fixed before the batch submitted. Unfixed, the ~$47 batch would have re-scored up to 1,240 already-scored train calls, violating the &ldquo;train split only&rdquo; hard constraint and roughly doubling real spend.</li>
+    <li><strong>BK/BNY: 0 transcripts.</strong> The vendor&rsquo;s only in-window-adjacent event for BNY falls after the corpus window &mdash; BNY only began trading under that ticker in 2025 post-rebrand, and pre-rebrand BK history isn&rsquo;t carried forward. 53/54 tune companies got transcripts.</li>
+    <li>Two explicit 404 coverage misses: GIS 2026Q1, SRE 2020Q1. 1,207 of 1,214 planned in-window transcripts landed.</li>
+    <li>Two transient network drops mid-fetch, both resumed cleanly with zero re-fetches (per-transcript flush-to-disk design).</li>
+    <li>Ground truth in the gradable sample skews bearish (48.4%) &mdash; the same pattern train showed on its own gradable slice.</li>
+  </ul>
+
+  <h2 id="limits">Limitations, stated plainly</h2>
+  <ul class="plain">
+    <li><strong>51 of 54 tune companies graded</strong>, not the full split &mdash; WOLF and SPWR excluded for a specific, investigated, disclosed reason, not dropped silently.</li>
+    <li>The model confound stands: <code>claude-sonnet-4-6</code> is not the model v6&rsquo;s original figures were measured on.</li>
+    <li>The corpus over-represents failures by construction, carried over unchanged from the legacy framing.</li>
+    <li>Sector-relative grading is unresolved; everything is benchmarked against SPY.</li>
+    <li>The tune interval excluding zero is on its own, standalone 51-company population &mdash; not yet checked against train under any joint/pooled test, and not a promotion-grade result on its own.</li>
+  </ul>
+
+  <footer>
+    Run <code>baseline-v6-tune-batch</code> &middot; full detail, follow-up commands, and provenance for every figure in <code>wrap-ups/baseline-v6-tune-batch-out.md</code> and <code>analysis/data/corpus_v2/SCORING_PROTOCOL_TUNE.json</code>.
+  </footer>
+
+</div>
