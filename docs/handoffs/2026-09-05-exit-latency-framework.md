@@ -1,12 +1,139 @@
 # Exit-Latency Framework — design discussion handoff
 
 **Date:** 2026-09-05 · **Branch at time of writing:** `sweep/db-corpus-baseline`
-**Status:** Design agreed in conversation, nothing built, nothing measured beyond §2.1's price-cache table.
+**Status:** Design agreed in conversation 2026-09-05. Revised 2026-09-17. **Superseded in part by §0 (addendum 2026-09-16), which reorders the analyst-side build queue against measured baseline data — read §0 first.** §1–§8 retained as the record.
 **Read with:** `docs/handoffs/2026-09-05-state-of-play.md` (§1, §4, §5.2), `docs/architecture/ALLOCATOR_OPERATING_MODEL.md` §0/§5, `docs/architecture/PROMOTION_GATE.md` §2.1/§7/§10 rule 4, `docs/architecture/TREND_LAYER.md`.
 
 This document records a design conversation, not results. Every prediction in
 §6 is written down so it can be wrong in public. Nothing here is a decision
 under `PROMOTION_GATE.md`; everything here is a candidate that must clear it.
+
+---
+
+---
+
+## 0. Addendum — reordered by what the ruler can now see
+
+*Opened 2026-09-16. Revised 2026-09-17 after the tune baseline landed, and
+narrowed: content that is really about the measuring instrument or about the
+analyst prompt has been moved to the files where those things are defined.*
+
+**Why this section exists.** When §1–§8 were written there was no working
+measuring instrument, so the build order was argued from mechanism. There is one
+now: 164-company corpus, v6 baselined on **both** train (56 companies, 1,236
+gradable calls) and tune (51 of 54, 1,168 calls), and a scorer that refuses to
+report when calls go missing. §0 reorders this document's plan by what that
+instrument can grade. §1–§8 are left intact as the record, including the
+predictions in §6 and §8.4.
+
+**Moved out of this document — look there, not here:**
+
+| Topic | Now lives in |
+|---|---|
+| Dead-band width, magnitude weighting, grading-window placement | `docs/architecture/PROMOTION_GATE.md` §3.1a (R1, R2, R3) |
+| One-prompt / per-ticker-inputs rule; candidate queue; per-round diagnostics; pre-flight screen; automated-iteration limits | `docs/architecture/PROMPT_ARCHITECTURE.md` |
+
+### 0.1 Where v6 stands after both baselines
+
+| | train (56 cos) | tune (51 fresh cos) |
+|---|---|---|
+| gap over luck | +2.48pp (95% −0.06 to +5.08) | **+2.64pp (95% 0.21 to 5.00 — excludes zero)** |
+| v6 accuracy | 30.3% | 28.3% |
+| times v6 said bearish | 103 (8.3%) | 84 (7.2%) |
+| …and was right | 60.2% | **59.5%** |
+| base rate for bearish | 44.9% | 48.4% |
+
+**The gap replicated on companies v6 had never seen, and tune's interval is the
+first in this project's record to exclude zero.** So did the diagnostic: v6's
+bearish calls are its best calls and it barely makes them.
+
+Read it alongside the fact that an always-bearish guesser scores 48.4% where v6
+scores 28.3%. Both are true. The edge is real and small; the answer distribution
+is badly off. Whether that mis-distribution is the prompt's fault or the ruler's
+is `PROMOTION_GATE.md` §3.1a R1, and it is unsettled.
+
+Not a corpus artifact: the bearish skew holds in every stratum (S1 43.9%, S2
+48.0%, S3 47.0%) and excluding the failures stratum moves the pooled figure from
+46.6% to 46.2%. It is the ordinary right-skew of stock returns, not this
+corpus's failure over-representation. Full detail:
+`wrap-ups/baseline-v6-tune-batch-out.md`.
+
+### 0.2 Which of §3's signals this ruler can grade
+
+The analyst ruler grades one prediction per call over a fixed forward window. A
+signal is measurable by it only if it changes what the analyst says **at a
+call**.
+
+| §3 signal | Changes the call itself? | Gradable by the analyst ruler |
+|---|---|---|
+| #5 thesis / guidance ledger | yes | **yes** |
+| #4 peer read-through | yes | **yes** |
+| #6 fact sheet, tier-conditioned | yes | **yes** |
+| #2 runway / dilution as context | yes | **yes** |
+| #3 post-call reaction | yes, **if K≥1** — see 0.3 | **yes, once §3.1a R3 is settled** |
+| #1 8-K / NT 10-Q triggers | no — fires between calls | no |
+| #7 insider clusters, exit-only price stop | no | no |
+
+The bottom rows are not disqualified. They need the simulator and dollar
+attribution (Test 7, Test 9), a different instrument with its own overfitting
+profile. **Do not force them through the analyst ruler.** This is the single
+most important consequence of §0 for this document's plan, and the reason Test 7
+no longer leads the analyst queue.
+
+### 0.3 Correction to signal #3 — it belongs analyst-side
+
+§3 filed post-call reaction as an allocator sizing modifier. **Too narrow.** If
+scoring is forced to K≥1 — after the market has reacted — the reaction is known
+at scoring time, point-in-time clean, and changes `per_call_rec` like any other
+input. Operational cost is at most one day, and the K=30 session cadence already
+satisfies it in backtest. Price data about a company is not portfolio data, so
+no firewall breach.
+
+**It carries a measurement precondition that is not optional**, together with
+the three-arm test design and the evidence for both: `PROMOTION_GATE.md` §3.1a
+R3. Do not implement this signal without reading that first.
+
+### 0.4 Revised build order
+
+Supersedes the build order at the end of §5 **for the analyst side**; §5's order
+still governs the allocator side. Analyst-side items are tracked with their
+pre-registration in `PROMPT_ARCHITECTURE.md` §2.2 — this list is the ordering,
+that file is the state.
+
+1. **Settle §3.1a R1** (dead band). $0, scorer only. Blocks item 2, because the
+   premise of item 2 depends on which side of R1 is right.
+2. **Decision-threshold / neutral-abstention change** (P1). No new data.
+3. **Settle §3.1a R3 and re-grade the baselines** under a shifted window. $0.
+4. **Post-call reaction, three arms** (P2).
+5. **Thesis / guidance ledger** (§3 signal #5, P3) — per-ticker memory, no new
+   vendor data, 1,184 usable calls already on disk. *Runnable today; the only
+   candidate not blocked on a free decision.*
+6. **Tier-conditioned reading of financial facts** (§4's two templates, P4) —
+   first item needing XBRL.
+7. **Peer read-through** (§3 signal #4, P5).
+8. **Test 7 lag decomposition and Test 9 Step 1** — unchanged, $0, allocator
+   side, runs in parallel. **The analyst ruler cannot grade either**, which is
+   why they no longer lead.
+9. 8-K / NT triggers, exit-only price stop, valuation modifier — unchanged
+   ordering, behind the above.
+
+### 0.5 Predictions from this addendum, written so they can be wrong
+
+1. R1 resolves toward a **wider** band than ±5% once the question is put as
+   "how far must a position diverge before the allocator would act," and v6's
+   neutral-heaviness turns out to be substantially calibration, not timidity.
+2. Even so, the neutral-abstention change (P1) still helps, because v6's bearish
+   *precision* advantage (≈60% against a 45–48% base rate) is band-independent
+   and it is leaving that on the table at any width.
+3. P1 flips **more than 200 calls**; its new bearish calls land between 45% and
+   60% precision.
+4. Prompt+reaction beats prompt alone under corrected grading, but by **less
+   than the +2.00 the mechanical rule scores alone**, because prompt and
+   reaction are largely reading the same quarter.
+5. The ledger (P3) helps bearish recall more than bullish — broken promises
+   precede downturns more reliably than kept ones precede rallies.
+6. At least one of P1 and P2 shows a large apparent gain on train that shrinks on
+   tune. That is the expected behaviour of this process, not a failure of it.
 
 ---
 
@@ -251,6 +378,10 @@ n=8, this is a design screen, not a gate run; anything adopted still goes
 through §2.1/§2.2a with the recent holdout intact.
 
 ### Build order after the tests
+
+> **Superseded for the analyst side by §0.4 (2026-09-17).** The order below still
+> governs the allocator side.
+
 
 1. Test 7 decomposition. 2. Thesis + guidance ledger (transcript-only, PIT-safe,
 repairs a signal already generated and discarded). 3. 8-K/NT poll + runway

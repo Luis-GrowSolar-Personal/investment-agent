@@ -7,6 +7,14 @@
   concentration rules, or backtest integrity
 - Always read docs/architecture/DOMAIN.md before building any
   module that sources, filters, or evaluates investment candidates
+- Always read docs/architecture/PROMPT_ARCHITECTURE.md before
+  changing the analyst prompt or proposing a prompt candidate — it
+  holds the closed decisions about the prompt's shape, the ranked
+  candidate queue, and the pre-registration and per-round diagnostics
+  every scoring round owes. What the SCORER measures is not there:
+  that is docs/architecture/PROMOTION_GATE.md §3.1 / §3.1a, whose
+  three open ruler questions (dead band, magnitude weighting,
+  grading window) block two of the queued candidates.
 
 ## Version truth
 
@@ -256,7 +264,9 @@ investment-agent/
     ├── Investment_Agent_Handoff_Brief.docx
     └── architecture/
         ├── DESIGN_PRINCIPLES.md
-        └── DOMAIN.md
+        ├── DOMAIN.md
+        ├── PROMOTION_GATE.md
+        └── PROMPT_ARCHITECTURE.md
 
 ## Environment Variables
 All credentials in root .env — never committed to GitHub.

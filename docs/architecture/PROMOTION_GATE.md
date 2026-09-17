@@ -259,6 +259,105 @@ rarer and more consequential than holds, so they must be graded separately or a
 over the next ~6 months. ENPH lagged TAN by >5% → hit. Beat TAN by >5% → miss.
 Within ±5% → it should have been "hold," so it's a wash.
 
+### 3.1a Open ruler-design questions (raised 2026-09-17 — NOT adopted)
+
+**Status: OPEN. Nothing in this subsection changes the gate metric.** These are
+three decisions about what §3.1 should measure, surfaced while reading the
+train and tune baselines. Each is free to settle (scorer-only, no model calls).
+They are filed here rather than in a handoff doc because §3.1 is where the code
+and any future session look for the metric's definition.
+
+Evidence throughout is the pooled train + tune eval caches
+(`analysis/data/evals/v6_claude-sonnet-4-6{,_tune}`, 2,404 gradable calls,
+WOLF/SPWR excluded per `wrap-ups/baseline-v6-tune-batch-out.md` §2c) graded via
+`analysis/analyst_direct_scorer.py`.
+
+#### R1 — Is the ±5% dead band the right width?
+
+§3.1 fixes the band at ±5% benchmark-relative over 2 quarters. That choice
+determines the label for **all three** answers, not only neutral, and it is
+currently unexamined.
+
+Outcome distribution and v6's score at several widths (v6 pooled says bullish
+33.5% / neutral 58.1% / bearish 7.8%):
+
+| dead band | lagged | beat | tracked | v6 accuracy | expected by luck | luck-corrected gap |
+|---|---|---|---|---|---|---|
+| ±5% (today) | 46.6% | 32.8% | 20.6% | 29.3% | 26.8% | +2.53 |
+| ±7.5% | 40.9% | 28.5% | 30.6% | 32.8% | 30.7% | +2.10 |
+| ±10% | 35.8% | 24.6% | 39.6% | 36.7% | 34.2% | +2.50 |
+| ±15% | 25.8% | 18.1% | 56.1% | 43.5% | 40.7% | +2.78 |
+| ±20% | 17.7% | 13.3% | 69.0% | 48.4% | 46.0% | +2.45 |
+| ±25% | 12.3% | 9.9% | 77.8% | 52.1% | 49.5% | +2.58 |
+
+Two readings, both load-bearing:
+
+1. **The gap is flat at +2.1 to +2.8 across every width.** Widening the band
+   raises v6's apparent accuracy from 29% to 52% and leaves its measured edge
+   unchanged. **Widening is therefore not an improvement and must never be
+   adopted on the grounds that the scoreboard looks better.** Any future
+   proposal to move the band states this row explicitly.
+2. At ±15%, "tracked the market" is 56.1% of outcomes against v6's 58.1%
+   neutral rate. v6 behaves as though calibrated to roughly ±15%, not ±5%.
+   Whether that is v6 being miscalibrated or the ruler being too tight is a
+   judgment about the portfolio, not a statistic: **how far must a position
+   diverge from the benchmark before the allocator would act differently?**
+   That question, not the table, settles R1.
+
+Related, and unresolved since 2026-09-13: this section's corrected metric at
+the top and the **"Scoring"** paragraph below disagree. The paragraph still
+specifies "lift over an always-hold baseline"; `analyst_direct_scorer.py`
+implements an always-**bullish** comparator (F1, §10). The luck-corrected gap
+supersedes both, but the stale paragraph remains in the file and should be
+resolved when R1 is.
+
+#### R2 — Should calls be weighted by how much the stock actually moved?
+
+§3.1 counts every call equally. A 6% relative miss on a call scores the same as
+a 60% relative collapse. The end-to-end metric (§3.2) does not work that way,
+so the two layers' metrics disagree about what matters, and §4 maps analyst
+changes to §3.1 as the primary gate.
+
+Proposal to evaluate: report a magnitude-weighted variant alongside the
+unweighted one, weighting each call by |benchmark-relative return|. Scorer-only
+change, no model calls. Expected to track dollar outcomes more closely than
+equal weighting; the Test 1 gradient (~$5,825 per point of analyst-direct lift,
+three-event basis, explicitly fragile) is currently the only bridge between
+§3.1 and §3.2 and is too thin to carry promotion decisions.
+
+**Do not replace the unweighted metric.** Report both, or a weighted metric
+becomes a second free parameter to select on.
+
+#### R3 — Grading window placement when the analyst sees post-call information
+
+If the analyst is ever given information dated after the call — the case under
+consideration is the post-call price reaction at K≥1 — the §3.1 window must
+start after whatever the analyst saw. Today it starts at the call date, so
+post-call inputs sit inside the window being graded.
+
+Measured on train: a rule with no analyst in it at all, "predict the direction
+of the first few days' move," scores
+
+| graded from | score | expected by luck | gap |
+|---|---|---|---|
+| the call date (today's §3.1) | 32.9% | 26.7% | **+6.23pp** |
+| after the reaction | 28.3% | 26.3% | **+2.00pp** |
+
+(5-trading-day proxy for the reaction; a real implementation needs per-call
+windows keyed to before-open vs after-close.) 336 of 1,236 train calls (27.2%)
+have a first-week move large enough to clear the ±5% band on its own.
+
+**Rule proposed for adoption at the time any post-call input is introduced, not
+before:** the forward window starts at the last date whose information the
+analyst was permitted to see. Re-grading the existing v6 baselines under a
+shifted window costs $0 and should be done as part of settling R3, so the
+comparison stays paired.
+
+Any candidate using a post-call input is tested in **three** arms — prompt
+alone, the mechanical rule alone, prompt plus input — because the mechanical
+rule scores +2.00 clean against v6's +2.48, and a candidate that fails to beat
+both is adding nothing over a number computable without a model.
+
 ### 3.2 End-to-end metric (portfolio outcome)
 **Primary gate for allocator-layer changes.** Risk-adjusted portfolio outcome:
 **return per unit of max drawdown** (consistent with Luis's stated goal of compounding
@@ -853,6 +952,7 @@ the natural test is on **discordant pairs** (McNemar). Fix before reuse.
 
 | Date | Change | Rationale |
 |---|---|---|
+| 2026-09-17 | §3.1a added: three OPEN ruler-design questions — dead-band width (R1), magnitude weighting (R2), grading-window placement for post-call inputs (R3). Nothing adopted; the gate metric is unchanged. | Reading the train and tune baselines showed the luck-corrected gap is flat (+2.1 to +2.8) across dead bands from ±5% to ±25% while apparent accuracy moves 29%→52%, so the band is a presentation choice masquerading as a measurement one and needed pinning down before it could be moved for the wrong reason. R2 records that §3.1 and §3.2 disagree about what matters — equal-weighted calls vs dollars — with only a three-event gradient bridging them. R3 pre-empts a measurement error the post-call-reaction candidate would otherwise ship: a rule with no analyst in it scores +6.23pp graded from the call date and +2.00pp graded honestly. |
 | 2026-05-23 | Initial methodology drafted and locked | Generalizes manual change-testing into a disciplined champion/challenger gate. Triggered by the accidental model bump (4→4.6) exposing un-version-controlled analyst drift. Decisions: manual/on-demand trigger; benchmark-relative 2Q ±5% lift-over-hold analyst metric; return-per-drawdown portfolio metric; recent-holdout + scaled-rigor OOS; metric-to-change mapping per §4. |
 | 2026-05-23b | Two-hurdle extension: split analyst changes into improvement vs equivalence hurdle | If every model version update must clearly beat the incumbent to be adopted, and none ever does, the system would eventually be stranded on a deprecated model with no validated fallback. Model-version changes now use an equivalence hurdle: adopt unless the challenger clearly regresses (Δ < −1 SD). Prompt / eval-logic changes retain the improvement hurdle (Δ > +1 SD to adopt). Three-verdict system (PROMOTE / EQUIVALENT / HOLD) added to §5; holdout skipped for EQUIVALENT results. Implemented in gate_runner.py via --change-class flag. |
 | 2026-09-02 | Third change class: implementation-layer changes (§2.3), fidelity hurdle, binary CONFORM / DIVERGE verdict (§5d); fixture version discipline (§8); conformance fixtures added to the build sequence (§9.6) as a prerequisite for `CLAUDE.md` Step 8(a); in-app replay recorded as a deferred product feature (§10). Mechanics in `CONFORMANCE_FIXTURES.md`. | The gate as locked answers “should we adopt this design?” and never asks “did we build the design we adopted?” §2.1 runs the simulator against the frozen evaluation cache and never executes production code, so a production defect passes silently — as task #77’s 11x sizing divergence would have. Comparison is on the decision stream rather than dollars: Python↔JS bit-exactness is unachievable, and a trade-list diff localizes a defect where a dollar gap does not. Fixtures rather than in-app replay because they run in CI on every commit at a fraction of the build. |
