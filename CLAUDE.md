@@ -48,7 +48,7 @@ registry-build run wired up.
 
 **"Read the state of play" means this file, and only this file:**
 
-    docs/handoffs/2026-09-14-state-of-play.md
+    docs/handoffs/2026-09-17-state-of-play.md
 
 Reading version (renders correctly anywhere, including on a phone):
 <https://claude.ai/code/artifact/552cc2ad-cc29-4905-b181-09cf1deba7d1>

@@ -274,6 +274,25 @@ WOLF/SPWR excluded per `wrap-ups/baseline-v6-tune-batch-out.md` §2c) graded via
 
 #### R1 — Is the ±5% dead band the right width?
 
+**Open, but it blocks nothing. Demoted from blocker 2026-09-17, same day it was
+raised.** R1 was briefly recorded as gating the first prompt candidate, on the
+reasoning that "v6 over-calls neutral" might be a ruler artifact rather than a
+prompt flaw. Two checks retired that reasoning:
+
+1. **v6's bearish-call edge is band-independent.** It says bearish on 187 of
+   2,404 pooled calls (7.8%) and beats the base rate by 13 to 18 points at every
+   width — ±5%: 59.9% vs 46.6%; ±10%: 52.4% vs 35.8%; ±15%: 40.6% vs 25.8%;
+   ±20%: 35.3% vs 17.7%. The actionable finding survives any answer to R1.
+2. **A wider band does not make improvements easier to detect.** Ticker-block
+   bootstrap on the gap, 2,000 resamples, seed 20201231: 95% width is 3.40
+   points at ±5%, 3.63 at ±10%, 3.80 at ±15%, 4.07 at ±20%. Wider bands give
+   slightly *wider* intervals, not tighter ones.
+
+So R1 changes how flattering the scoreboard looks and whether "v6 over-calls
+neutral" is a fair criticism. It does not change what to build, and it does not
+change detection power. Settle it for honesty about what the metric means, not
+as a prerequisite for anything.
+
 §3.1 fixes the band at ±5% benchmark-relative over 2 quarters. That choice
 determines the label for **all three** answers, not only neutral, and it is
 currently unexamined.
@@ -303,6 +322,15 @@ Two readings, both load-bearing:
    judgment about the portfolio, not a statistic: **how far must a position
    diverge from the benchmark before the allocator would act differently?**
    That question, not the table, settles R1.
+
+**Pooled figure, recorded here because §3.1a is where it will be looked for.**
+Across both baselines (2,404 gradable calls, 107 companies), the luck-corrected
+gap is **+2.53pp, 95% range +0.79 to +4.19 — excludes zero** (ticker-block
+bootstrap, 2,000 resamples, seed 20201231). Pooling train with tune is
+legitimate *for v6 specifically*, because v6 was never selected using train; the
+split exists to protect future candidates, not the incumbent. **No future
+candidate may be reported on a pooled population** — §11 comparison protocol
+still governs, and a candidate screened on train has used it.
 
 Related, and unresolved since 2026-09-13: this section's corrected metric at
 the top and the **"Scoring"** paragraph below disagree. The paragraph still
@@ -953,6 +981,7 @@ the natural test is on **discordant pairs** (McNemar). Fix before reuse.
 | Date | Change | Rationale |
 |---|---|---|
 | 2026-09-17 | §3.1a added: three OPEN ruler-design questions — dead-band width (R1), magnitude weighting (R2), grading-window placement for post-call inputs (R3). Nothing adopted; the gate metric is unchanged. | Reading the train and tune baselines showed the luck-corrected gap is flat (+2.1 to +2.8) across dead bands from ±5% to ±25% while apparent accuracy moves 29%→52%, so the band is a presentation choice masquerading as a measurement one and needed pinning down before it could be moved for the wrong reason. R2 records that §3.1 and §3.2 disagree about what matters — equal-weighted calls vs dollars — with only a three-event gradient bridging them. R3 pre-empts a measurement error the post-call-reaction candidate would otherwise ship: a rule with no analyst in it scores +6.23pp graded from the call date and +2.00pp graded honestly. |
+| 2026-09-17b | R1 demoted from blocker to open-but-not-blocking, same day it was raised; pooled v6 figure (+2.53pp, 95% +0.79 to +4.19, excludes zero) recorded in §3.1a. | R1 was recorded as gating the first prompt candidate. It does not: v6's bearish-call edge over the base rate is 13–18 points at every band from ±5% to ±20%, and bootstrap interval width does not shrink as the band widens (3.40 → 4.07 points). The band decides how flattering the scoreboard looks, not what to build or how well anything can be detected. Left open for honesty about the metric; removed from the critical path. |
 | 2026-05-23 | Initial methodology drafted and locked | Generalizes manual change-testing into a disciplined champion/challenger gate. Triggered by the accidental model bump (4→4.6) exposing un-version-controlled analyst drift. Decisions: manual/on-demand trigger; benchmark-relative 2Q ±5% lift-over-hold analyst metric; return-per-drawdown portfolio metric; recent-holdout + scaled-rigor OOS; metric-to-change mapping per §4. |
 | 2026-05-23b | Two-hurdle extension: split analyst changes into improvement vs equivalence hurdle | If every model version update must clearly beat the incumbent to be adopted, and none ever does, the system would eventually be stranded on a deprecated model with no validated fallback. Model-version changes now use an equivalence hurdle: adopt unless the challenger clearly regresses (Δ < −1 SD). Prompt / eval-logic changes retain the improvement hurdle (Δ > +1 SD to adopt). Three-verdict system (PROMOTE / EQUIVALENT / HOLD) added to §5; holdout skipped for EQUIVALENT results. Implemented in gate_runner.py via --change-class flag. |
 | 2026-09-02 | Third change class: implementation-layer changes (§2.3), fidelity hurdle, binary CONFORM / DIVERGE verdict (§5d); fixture version discipline (§8); conformance fixtures added to the build sequence (§9.6) as a prerequisite for `CLAUDE.md` Step 8(a); in-app replay recorded as a deferred product feature (§10). Mechanics in `CONFORMANCE_FIXTURES.md`. | The gate as locked answers “should we adopt this design?” and never asks “did we build the design we adopted?” §2.1 runs the simulator against the frozen evaluation cache and never executes production code, so a production defect passes silently — as task #77’s 11x sizing divergence would have. Comparison is on the decision stream rather than dollars: Python↔JS bit-exactness is unachievable, and a trade-list diff localizes a defect where a dollar gap does not. Fixtures rather than in-app replay because they run in CI on every commit at a fraction of the build. |

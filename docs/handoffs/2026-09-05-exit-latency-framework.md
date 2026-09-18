@@ -100,31 +100,31 @@ still governs the allocator side. Analyst-side items are tracked with their
 pre-registration in `PROMPT_ARCHITECTURE.md` §2.2 — this list is the ordering,
 that file is the state.
 
-1. **Settle §3.1a R1** (dead band). $0, scorer only. Blocks item 2, because the
-   premise of item 2 depends on which side of R1 is right.
-2. **Decision-threshold / neutral-abstention change** (P1). No new data.
-3. **Settle §3.1a R3 and re-grade the baselines** under a shifted window. $0.
-4. **Post-call reaction, three arms** (P2).
-5. **Thesis / guidance ledger** (§3 signal #5, P3) — per-ticker memory, no new
-   vendor data, 1,184 usable calls already on disk. *Runnable today; the only
-   candidate not blocked on a free decision.*
-6. **Tier-conditioned reading of financial facts** (§4's two templates, P4) —
+1. **Commit to bearish when the evidence supports it** (P1). No new data,
+   runnable today. *Was briefly ordered behind §3.1a R1; R1 was demoted the same
+   day it was raised — v6's bearish edge is 13–18 points at every band, so the
+   fix does not depend on where the band sits.*
+2. **Settle §3.1a R3 and re-grade the baselines** under a shifted window. $0.
+3. **Post-call reaction, three arms** (P2).
+4. **Thesis / guidance ledger** (§3 signal #5, P3) — per-ticker memory, no new
+   vendor data, 1,184 usable calls already on disk. Also runnable today.
+5. **Tier-conditioned reading of financial facts** (§4's two templates, P4) —
    first item needing XBRL.
-7. **Peer read-through** (§3 signal #4, P5).
-8. **Test 7 lag decomposition and Test 9 Step 1** — unchanged, $0, allocator
+6. **Peer read-through** (§3 signal #4, P5).
+7. **Test 7 lag decomposition and Test 9 Step 1** — unchanged, $0, allocator
    side, runs in parallel. **The analyst ruler cannot grade either**, which is
    why they no longer lead.
-9. 8-K / NT triggers, exit-only price stop, valuation modifier — unchanged
+8. 8-K / NT triggers, exit-only price stop, valuation modifier — unchanged
    ordering, behind the above.
 
 ### 0.5 Predictions from this addendum, written so they can be wrong
 
-1. R1 resolves toward a **wider** band than ±5% once the question is put as
-   "how far must a position diverge before the allocator would act," and v6's
-   neutral-heaviness turns out to be substantially calibration, not timidity.
-2. Even so, the neutral-abstention change (P1) still helps, because v6's bearish
-   *precision* advantage (≈60% against a 45–48% base rate) is band-independent
-   and it is leaving that on the table at any width.
+1. R1, whenever it is settled, resolves toward a **wider** band than ±5% once
+   the question is put as "how far must a position diverge before the allocator
+   would act," and v6's neutral-heaviness turns out to be substantially
+   calibration, not timidity. This no longer affects the build order.
+2. P1 helps regardless, because v6's bearish edge (13–18 points over the base
+   rate) holds at every band and it is leaving that on the table at any width.
 3. P1 flips **more than 200 calls**; its new bearish calls land between 45% and
    60% precision.
 4. Prompt+reaction beats prompt alone under corrected grading, but by **less

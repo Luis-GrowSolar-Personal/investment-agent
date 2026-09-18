@@ -90,13 +90,20 @@ both `claude-sonnet-4-6`:
 derived from: v6's bearish calls are right ~60% against base rates of 45–48%,
 and it makes them 7–8% of the time.** Its rarest answer is its best one.
 
-**Two live explanations, not yet separated.** (a) The prompt retreats to a
-non-answer — a commitment problem, fixable in the prompt. (b) The ±5% dead band
-is tighter than what v6 treats as meaningful; at ±15% the outcome distribution
-(56.1% neutral) nearly matches v6's own (58.1%), which would make v6 roughly
-calibrated and the ruler too tight. **`PROMOTION_GATE.md` §3.1a R1 settles which,
-costs $0, and blocks candidate P1.** Do not spend a scoring round before it is
-settled.
+**State it in the band-independent form, because the other form is a trap.**
+"v6 over-calls neutral" depends on where the dead band sits: at ±15% the outcome
+distribution (56.1% neutral) nearly matches v6's own (58.1%), and the criticism
+evaporates. That framing was briefly used to block P1 and should not be used
+again.
+
+What survives at every band is this: **v6 under-uses its single best signal.**
+Its bearish calls beat the base rate by 13 to 18 points at ±5%, ±10%, ±15% and
+±20% alike, and it deploys them on 7.8% of calls. Evidence and the retraction:
+`PROMOTION_GATE.md` §3.1a R1, which remains open but blocks nothing.
+
+**Pooled across both baselines** (2,404 calls, 107 companies): gap **+2.53pp,
+95% +0.79 to +4.19 — excludes zero.** Legitimate for v6 only; v6 was never
+selected using train. No candidate may be reported this way.
 
 Not a corpus artifact: the bearish skew holds in every stratum (S1 megacap
 43.9%, S2 48.0%, S3 47.0%), and excluding the failures stratum moves the pooled
@@ -109,14 +116,33 @@ several hours.
 
 | # | Candidate | New data? | Blocked by | Status |
 |---|---|---|---|---|
-| P1 | Decision-threshold / neutral-abstention change | none | §3.1a R1 | blocked |
+| P1 | **Commit to bearish when the evidence supports it** | none | — | **ready — run first** |
 | P2 | Post-call reaction at K≥1, three arms | none (price cache) | §3.1a R3 | blocked |
 | P3 | Thesis / guidance ledger — score QN−1's promises at QN | none (transcripts on disk) | — | ready |
 | P4 | Tier-conditioned reading of financial facts | XBRL build | P3 | not started |
 | P5 | Peer read-through across cohort members | none (transcripts) | — | not started |
 
-P1 and P2 are blocked on free decisions, not on work. P3 is the first candidate
-that can run today: 1,184 usable calls, no vendor fetching, no new corpus.
+P2 is blocked on a free decision (R3's grading-window rule), not on work. P1 and
+P3 can both run today against the existing corpus — no vendor fetching, no new
+transcripts.
+
+**P1 — pre-registration, registered 2026-09-17**
+
+- **Change.** Push the prompt to issue a bearish call whenever its own evidence
+  supports one, rather than defaulting to a non-committal answer. Aimed at
+  deployment frequency, not at the discrimination the analyst already has.
+- **Why this and not "say neutral less."** The neutral framing is an artifact of
+  the dead band (§2.1). The under-deployment is not: 13–18 points of edge on
+  7.8% of calls at every band tested.
+- **Expected to move.** Bearish call rate up from 7.8%; overall accuracy and the
+  luck-corrected gap up. Bearish *precision* down — from 59.9% toward the 46.6%
+  base rate, because new calls come from weaker evidence.
+- **Predicted flip count.** >200 of ~1,200 on train.
+- **Falsified if.** Bearish precision falls to or below the base rate (46.6% at
+  ±5%) — that means the prompt is guessing, not committing. Also falsified if
+  the flip count is under ~100, which means the instruction did not take.
+- **Runs on.** Train first. Tune only if it clears, and only once.
+- **Pre-flight.** §2.5 screen on ~150 calls before the full round.
 
 ### 2.3 Pre-registration — required before any candidate is run
 
