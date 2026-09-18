@@ -10,9 +10,9 @@
     "step5c_axis_preregistration": "done",
     "step5c_axis_computation": "done",
     "step5d_spread_summary": "done",
-    "report": "in_progress"
+    "report": "done"
   },
-  "next_action": "Write wrap-ups/q2-bearish-strength-separation-out.md, .docx, and the published artifact, all in sync.",
+  "next_action": "None -- run complete. Awaiting Luis's decision in conversation on whether/how P1 proceeds, and whether to pursue a precision-focused candidate given the weak/reversing strength axes.",
   "notes": [
     "No version guard required: this run makes no scoring/model calls (read-only analysis of existing eval caches). See CLAUDE.md version-truth section and prompt Step 0c.",
     "Holdout exclusion verified structurally: only two eval dirs exist on disk (v6_claude-sonnet-4-6 = train, v6_claude-sonnet-4-6_tune = tune); no holdout eval dir exists, so zero holdout tickers can enter this analysis by construction.",
@@ -21,6 +21,7 @@
     "driver_commit 8a022ff was the driver as first committed (before running). The driver was subsequently revised in place (not re-committed as a separate commit) to fix two issues caught while running it: (1) the prompt's literal price_cache.json instruction does not cover this corpus, corrected to the actual baseline cache scorer_price_cache_v1.json (findings.md 'Flagged premise 1'); (2) a base-rate computation bug that made base rate identical to pct_right by construction (findings.md 'Base-rate computation bug'). Both are documented in findings.md; the final driver state (which produced joined_calls.csv and cells.jsonl) will be committed together with those output files in the next commit, so driver + outputs are consistent as of that commit.",
     "All three reference figures (train 103/60.2%/44.9%, tune 84/59.5%/48.4%, pooled 187/59.9%/46.6%) reproduced exactly after the two fixes above -- no discrepancy to report per §5b.",
     "A5 (ratchetTranche) excluded as an axis: 26.0% null on pooled bearish calls, exceeds the 5% threshold (prompt §5a).",
-    "Of the 7 remaining axes, only A6 (credibilityDelta sign) held its direction on both train and tune; A1/A2 had unusable near-empty second buckets; A3/A4/A7/A8 reversed direction from train to tune. Full detail in findings.md."
+    "Of the 7 remaining axes, only A6 (credibilityDelta sign) held its direction on both train and tune; A1/A2 had unusable near-empty second buckets; A3/A4/A7/A8 reversed direction from train to tune. Full detail in findings.md.",
+    "Report shipped in all three forms per CLAUDE.md: wrap-ups/q2-bearish-strength-separation-out.md, wrap-ups/q2-bearish-strength-separation-out.docx (real Word tables), and published artifact https://claude.ai/artifact/Knogqzee1JLBQRcA4SxZ83."
   ]
 }
