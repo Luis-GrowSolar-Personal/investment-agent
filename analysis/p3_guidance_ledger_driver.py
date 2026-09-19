@@ -843,11 +843,395 @@ def cmd_build_ledger():
           f"extraction_missing={n_missing_ext} promises={len(flat)} unparseable_json={len(st['unparseable'])}")
 
 
+# --------------------------------------------------------------------------- v6 cache + outcomes
+def v6_directions():
+    from analyst_direct_scorer import parse_structured, direction_from_score
+    out = {}
+    for f in sorted(glob.glob(str(V6_EVAL_DIR / "*.txt"))):
+        stem = Path(f).stem
+        tk, dt = stem.rsplit("_", 1)
+        sc = parse_structured(Path(f).read_text())
+        out[(tk, dt)] = {"dir": direction_from_score(sc), "rec": sc.get("recommendation"), "health": sc.get("thesisHealth")}
+    return out
+
+
+def outcomes():
+    import csv
+    out = {}
+    with JOINED.open() as f:
+        for r in csv.DictReader(f):
+            if r["split"] != "train":
+                continue
+            out[(r["ticker"], r["call_date"])] = {"gt": r["ground_truth"], "rel": float(r["benchmark_rel_return_pct"]),
+                                                    "pred": r["predicted"]}
+    return out
+
+
+BAD = {"missed", "unreported", "withdrawn"}
+
+
+def flags(L):
+    g = [x["grade"] for x in L["rows"]]
+    graded = [x for x in g if x in GRADES6]
+    return {"graded": len(graded), "bad": any(x in BAD for x in g),
+            "clean": bool(graded) and not any(x in BAD for x in g) and any(x in ("met", "beat") for x in g),
+            "clean_beat": ("beat" in g) and not any(x in BAD for x in g)}
+
+
+def load_ledgers():
+    out = {}
+    for f in sorted(glob.glob(str(LEDGER_DIR / "*" / "*.json"))):
+        L = json.loads(Path(f).read_text())
+        out[(L["ticker"], L["call_date"])] = L
+    return out
+
+
+def wilson(k, n, z=1.96):
+    if n == 0:
+        return (float("nan"), float("nan"))
+    ph = k / n
+    den = 1 + z * z / n
+    c = (ph + z * z / (2 * n)) / den
+    h = z * ((ph * (1 - ph) / n + z * z / (4 * n * n)) ** 0.5) / den
+    return (100 * (c - h), 100 * (c + h))
+
+
+def block_boot_share(rows, key_fn, ticker_fn, B=2000, seed=11):
+    """Ticker-block bootstrap 95% range for the share of rows with key_fn true."""
+    rng = random.Random(seed)
+    by = {}
+    for r in rows:
+        by.setdefault(ticker_fn(r), []).append(1 if key_fn(r) else 0)
+    tks = list(by)
+    if not tks:
+        return (float("nan"), float("nan"))
+    vals = []
+    for _ in range(B):
+        k = n = 0
+        for t in (rng.choice(tks) for _ in tks):
+            k += sum(by[t]); n += len(by[t])
+        if n:
+            vals.append(100 * k / n)
+    vals.sort()
+    return (vals[int(0.025 * len(vals))], vals[int(0.975 * len(vals)) - 1])
+
+
+def cmd_diag():
+    """5c reports, 5d, 5e -- all $0."""
+    L = load_ledgers()
+    v6 = v6_directions()
+    oc = outcomes()
+    pred_bearing = {k: v for k, v in L.items() if v["has_predecessor"]}
+    fl = {k: flags(v) for k, v in pred_bearing.items()}
+    n = len(pred_bearing)
+    cov = sum(1 for k in pred_bearing if fl[k]["graded"] > 0)
+    print(f"predecessor-bearing calls: {n}; with >=1 graded promise (coverage): {cov} ({100*cov/n:.1f}%)")
+    print("gap-marked:", sum(1 for v in pred_bearing.values() if v["gap"]),
+          "| extraction missing:", sum(1 for v in pred_bearing.values() if v.get("extraction_missing")))
+    # grade tallies overall and by year
+    import collections
+    tot = collections.Counter(); by_year = collections.defaultdict(collections.Counter)
+    nprom = []
+    for k, v in pred_bearing.items():
+        nprom.append(sum(1 for x in v["rows"] if x["grade"] in GRADES6))
+        for x in v["rows"]:
+            tot[x["grade"]] += 1
+            by_year[k[1][:4]][x["grade"]] += 1
+    tp = sum(tot.values())
+    print("grade shares (all promises):", {g: f"{tot[g]} ({100*tot[g]/tp:.1f}%)" for g in tot})
+    import statistics
+    nz = [x for x in nprom if x]
+    if nz:
+        print(f"promises per non-empty call: median {statistics.median(nz)}, range {min(nz)}-{max(nz)}")
+    print("grade-by-year:")
+    for y in sorted(by_year):
+        print(" ", y, dict(by_year[y]))
+    fm = sum(1 for v in pred_bearing.values() for x in v["rows"] if x.get("framing_mismatch"))
+    print("framing mismatches (graded basis_mismatch, framing_mismatch=True):", fm, "| framing conversions: 0 (not implemented; see wrap-up)")
+    # 5d
+    def split_stats(name, member, target_gt, base, year=None):
+        rows = []
+        for k in pred_bearing:
+            if k not in oc or not member(fl[k]):
+                continue
+            if year is not None and (k[1][:4] == "2020") != year:
+                continue
+            rows.append(k)
+        kk = sum(1 for k in rows if oc[k]["gt"] == target_gt)
+        lo, hi = wilson(kk, len(rows))
+        bl, bh = block_boot_share([(k,) for k in rows], lambda r: oc[r[0]]["gt"] == target_gt, lambda r: r[0][0])
+        print(f"  {name}: n={len(rows)} {target_gt}-outcome share {100*kk/max(len(rows),1):.1f}% "
+              f"(Wilson {lo:.1f}-{hi:.1f}; ticker-block {bl:.1f}-{bh:.1f}) vs base {base}%")
+    print("5d-i (miss/unreported/withdrawn -> underperformed S&P by >5pts, base 46.6%):")
+    split_stats("all years", lambda f: f["bad"], "bearish", 46.6)
+    split_stats("2020 only", lambda f: f["bad"], "bearish", 46.6, year=True)
+    split_stats("excl 2020", lambda f: f["bad"], "bearish", 46.6, year=False)
+    print("5d-ii (clean beats, no miss -> outperformed S&P by >5pts, base 32.8%):")
+    split_stats("all years", lambda f: f["clean_beat"], "bullish", 32.8)
+    split_stats("2020 only", lambda f: f["clean_beat"], "bullish", 32.8, year=True)
+    split_stats("excl 2020", lambda f: f["clean_beat"], "bullish", 32.8, year=False)
+    # 5e populations
+    def vd(k):
+        return (v6.get(k) or {}).get("dir")
+    n_elig = [k for k in pred_bearing if fl[k]["bad"] and vd(k) != "bearish"]
+    n_bull = [k for k in pred_bearing if fl[k]["clean_beat"] and vd(k) != "bullish"]
+    n_reas = [k for k in pred_bearing if fl[k]["clean"] and vd(k) == "bearish"]
+    n_nomiss = [k for k in pred_bearing if fl[k]["graded"] > 0 and not fl[k]["bad"] and vd(k) != "bearish"]
+    print(f"5e: N_eligible={len(n_elig)} (gate >=150) | N_eligible_bull={len(n_bull)} | N_reassure={len(n_reas)} | no-miss ledger-bearing v6-not-bearish={len(n_nomiss)}")
+    res = {"n": n, "coverage": cov, "N_eligible": len(n_elig), "N_eligible_bull": len(n_bull), "N_reassure": len(n_reas),
+           "n_nomiss_pool": len(n_nomiss)}
+    (STATE / "diag_5cde.json").write_text(json.dumps(res, indent=1))
+    if len(n_elig) < 150:
+        print("*** GATE: N_eligible < 150 -- STOP before pre-flight and report ***")
+    return res
+
+
+# --------------------------------------------------------------------------- ledger text for the analyst
+def fmt_guide(g):
+    lo, hi = g.get("low_as_written"), g.get("high_as_written")
+    one = g.get("one_sided")
+    if one == "floor":
+        return f"at least {lo}"
+    if one == "ceiling":
+        return f"up to {hi}"
+    if lo and hi and lo != hi:
+        return f"{lo} to {hi}"
+    return lo or hi or "n/a"
+
+
+def pct(x):
+    return "" if x is None else f"{100*x:.1f}%"
+
+
+def ledger_text(L):
+    if not L["has_predecessor"]:
+        return "---PRIOR-CALL LEDGER---\nNo prior call on record.\n---END LEDGER---"
+    lines = ["---PRIOR-CALL LEDGER---",
+             "metric | original guide | latest revision | actual | grade | miss_pct | range_width_pct | quote"]
+    if L.get("gap"):
+        lines.insert(1, f"(note: the prior call on record is {L.get('gap_quarters')} quarters earlier; only guidance whose period covers this quarter is shown)")
+    shown = 0
+    for x in L["rows"]:
+        if x["grade"] not in GRADES6:
+            continue
+        shown += 1
+        mp = x.get("miss_pct") if x["grade"] == "missed" else x.get("beat_pct") if x["grade"] == "beat" else None
+        rw = x.get("range_width_pct")
+        rwt = "one-sided" if x.get("one_sided") else ("" if rw is None else f"{100*rw:.1f}%")
+        act = x.get("actual_as_written") or ("" if x["grade"] != "basis_mismatch" else "different basis/framing")
+        q = (x.get("quote") or "").replace("|", "/")[:140]
+        lines.append(f"{x['metric']} ({x['framing']}, {x['basis'] or 'basis unspecified'}, "
+                     f"{'Q'+str(x['period'][2])+' ' if x['period'][0]=='Q' else ''}FY{x['period'][1]}) | {fmt_guide(x['original'])} | "
+                     f"{fmt_guide(x['latest_revision']) if x.get('revised') else 'unchanged'} | {act} | {x['grade']} | "
+                     f"{pct(mp) if x['grade'] in ('missed','beat') else ''} | {rwt} | {q}")
+    if shown == 0:
+        lines.append("(no gradable promises from the prior call)")
+    lines.append("(derived lines)")
+    lines.append("none computed")
+    lines.append("(full-year promises, pending)")
+    if L["pending_fy"]:
+        for x in L["pending_fy"]:
+            lines.append(f"{x['metric']} FY: original {fmt_guide(x['original'])}; latest {fmt_guide(x['latest_revision'])}; "
+                         f"revised down: {'yes' if x['revised_down'] else 'no'}")
+    else:
+        lines.append("none")
+    lines.append("(stated intents due this quarter)")
+    if L["intents"]:
+        for it in L["intents"]:
+            lines.append(f"{it['intent']} (mentioned in this call: {'yes' if it['mentioned_now'] else 'no'})")
+    else:
+        lines.append("none")
+    lines.append("(retractions this quarter)")
+    lines.append("; ".join(L["retractions"]) if L["retractions"] else "none")
+    lines.append("---END LEDGER---")
+    return "\n".join(lines)
+
+
+def cand_user(w, date, L):
+    text = json.loads((TRANSCRIPTS / w / f"{date}.json").read_text())["text"]
+    return ledger_text(L) + "\n\n" + text
+
+
+# --------------------------------------------------------------------------- pre-flight
+ARM_PREFIX = {"elig": "E1", "nomiss": "N1", "noise": "A21a", "instr": "B21b"}
+
+
+def stratum_alloc(n_total, counts):
+    tot = sum(counts.values())
+    raw = {k: n_total * v / tot for k, v in counts.items()}
+    base = {k: int(v) for k, v in raw.items()}
+    rem = n_total - sum(base.values())
+    for k in sorted(raw, key=lambda k: raw[k] - base[k], reverse=True)[:rem]:
+        base[k] += 1
+    return base
+
+
+def cmd_preflight_select():
+    L = load_ledgers()
+    v6 = v6_directions()
+    smap = stratum_map()
+    rng = random.Random(11)
+    pb = {k: v for k, v in L.items() if v["has_predecessor"]}
+    fl = {k: flags(v) for k, v in pb.items()}
+    vd = lambda k: (v6.get(k) or {}).get("dir")
+    elig = sorted(k for k in pb if fl[k]["bad"] and vd(k) != "bearish")
+    nomiss = sorted(k for k in pb if fl[k]["graded"] > 0 and not fl[k]["bad"] and vd(k) != "bearish")
+    a = rng.sample(elig, min(125, len(elig)))
+    b = rng.sample(nomiss, min(75, len(nomiss)))
+    allk = sorted(v6.keys())
+    allk = [k for k in allk if k[0] in smap]
+    by_s = {}
+    for k in allk:
+        by_s.setdefault(smap[k[0]], []).append(k)
+    alloc = stratum_alloc(120, {s: len(v) for s, v in by_s.items()})
+    c = []
+    for st, n in sorted(alloc.items()):
+        c += rng.sample(by_s[st], n)
+    d = sorted(k for k, v in L.items() if not v["has_predecessor"])
+    sel = {"elig": a, "nomiss": b, "noise": c, "instr": d}
+    out = {arm: [list(k) for k in ks] for arm, ks in sel.items()}
+    out["_alloc_21a"] = alloc
+    out["_seed"] = 11
+    (STATE / "preflight_selection.json").write_text(json.dumps(out, indent=1))
+    print({arm: len(ks) for arm, ks in sel.items()}, alloc)
+
+
+def preflight_requests():
+    from anthropic.types.messages.batch_create_params import Request
+    from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+    from analysis.version_guard import assert_prompt_hash, sha256_text as vsha
+    sel = json.loads((STATE / "preflight_selection.json").read_text())
+    L = load_ledgers()
+    cand = CAND_PROMPT.read_text()
+    v6t = V6_PROMPT.read_text()
+    reg = json.loads((REPO / "docs/architecture/VERSION_REGISTRY.json").read_text())
+    regsha = next(c["sha256"] for c in reg["artifacts"]["evaluation_prompt"]["candidates"] if c["version"] == "v6+P3a")
+    assert vsha(cand) == regsha, "candidate hash != registry"
+    g1 = assert_prompt_hash(cand, candidate="v6+P3a")          # candidate arms
+    g2 = assert_prompt_hash(v6t)                                # 21a arm: promoted v6
+    assert g2["candidate_used"] is None
+    sys_c = [{"type": "text", "text": cand, "cache_control": {"type": "ephemeral"}}]
+    sys_6 = [{"type": "text", "text": v6t, "cache_control": {"type": "ephemeral"}}]
+    reqs = []
+    for arm in ("elig", "nomiss", "noise", "instr"):
+        for w, dt in sel[arm]:
+            c = f"{ARM_PREFIX[arm]}__{w}_{dt}"
+            assert re.match(r"^[a-zA-Z0-9_-]{1,64}$", c), c
+            if arm == "noise":
+                user = json.loads((TRANSCRIPTS / w / f"{dt}.json").read_text())["text"]
+                system = sys_6
+            else:
+                user = cand_user(w, dt, L[(w, dt)])
+                system = sys_c
+            reqs.append(Request(custom_id=c, params=MessageCreateParamsNonStreaming(
+                model=MODEL, max_tokens=SCORE_MAX_TOKENS, system=system,
+                messages=[{"role": "user", "content": user}])))
+    return reqs, {"candidate_guard": g1, "v6_guard": g2}
+
+
+def cmd_preflight_submit():
+    p = load_progress()
+    assert p["spend_approval"]["approved_by"] == "Luis" and p["phase"] == 1
+    reqs, guards = preflight_requests()
+    est = len(reqs) * 0.045
+    print(f"pre-flight requests {len(reqs)}; projected cost ~${est:.2f} (cap $20); guards {json.dumps(guards)}")
+    if est > 20:
+        raise SystemExit("projected pre-flight over $20 -- stop and report")
+    p["preflight_guards"] = guards
+    save_progress(p)
+    submit_batch(reqs, "batch_id_preflight")
+
+
+def cmd_preflight_poll():
+    poll_batch("batch_id_preflight", "preflight_scores.jsonl", "preflight")
+
+
+def cmd_preflight_report():
+    from analyst_direct_scorer import parse_structured, direction_from_score
+    recs = read_jsonl(STATE / "preflight_scores.jsonl")
+    v6 = v6_directions()
+    oc = outcomes()
+    L = load_ledgers()
+    smap = stratum_map()
+    arms = {}
+    stops = {"max_tokens": 0}
+    six = ["ledgerLoadBearingMetric", "ledgerLoadBearingOutcome", "ledgerMissCount", "ledgerMaxMissPct",
+           "ledgerRevisedDownCount", "ledgerWithdrawnCount"]
+    populated = {k: 0 for k in six}
+    n_cand = 0
+    cost = 0.0
+    for r in recs:
+        cost += r["cost_usd"]
+        pre, rest = r["custom_id"].split("__", 1)
+        w, dt = rest.rsplit("_", 1)
+        arm = {v: k for k, v in ARM_PREFIX.items()}[pre]
+        sc = parse_structured(r["content"])
+        nd = direction_from_score(sc)
+        if r.get("stop_reason") == "max_tokens":
+            stops["max_tokens"] += 1
+        if arm != "noise":
+            n_cand += 1
+            for k in six:
+                if k in sc:
+                    populated[k] += 1
+        od = (v6.get((w, dt)) or {}).get("dir")
+        arms.setdefault(arm, []).append({"k": (w, dt), "old": od, "new": nd, "stratum": smap.get(w)})
+    print(f"pre-flight results: {len(recs)}; cost ${cost:.2f}; stop_reason=max_tokens: {stops['max_tokens']}")
+    print(f"six new fields present in candidate outputs ({n_cand}): {populated}")
+    res = {"cost": cost, "arms": {}}
+    for arm, rows in arms.items():
+        n = len(rows)
+        flips = [x for x in rows if x["old"] and x["new"] and x["old"] != x["new"]]
+        nonb = [x for x in rows if x["old"] != "bearish"]
+        bflip = [x for x in nonb if x["new"] == "bearish"]
+        nonbull = [x for x in rows if x["old"] != "bullish"]
+        bullflip = [x for x in nonbull if x["new"] == "bullish"]
+        reas = [x for x in rows if x["old"] == "bearish" and x["new"] in ("neutral", "bullish")]
+        lo, hi = wilson(len(flips), n)
+        blo, bhi = wilson(len(bflip), len(nonb))
+        ulo, uhi = wilson(len(bullflip), len(nonbull))
+        print(f"[{arm}] n={n} any-flip {len(flips)} ({100*len(flips)/n:.1f}%, {lo:.1f}-{hi:.1f}) | "
+              f"bearish-direction flips {len(bflip)}/{len(nonb)} ({100*len(bflip)/max(len(nonb),1):.1f}%, {blo:.1f}-{bhi:.1f}) | "
+              f"bullish-direction {len(bullflip)}/{len(nonbull)} ({100*len(bullflip)/max(len(nonbull),1):.1f}%, {ulo:.1f}-{uhi:.1f}) | "
+              f"reassurance flips {len(reas)}")
+        res["arms"][arm] = {"n": n, "flips": len(flips), "bear_flips": len(bflip), "bear_denom": len(nonb),
+                            "bull_flips": len(bullflip), "bull_denom": len(nonbull), "reassure": len(reas)}
+        if arm == "noise":
+            by = {}
+            for x in rows:
+                by.setdefault(x["stratum"], []).append(x)
+            for st, xs in sorted(by.items(), key=lambda t: str(t[0])):
+                f = sum(1 for x in xs if x["old"] and x["new"] and x["old"] != x["new"])
+                a, b = wilson(f, len(xs))
+                print(f"     21a {st}: {f}/{len(xs)} ({100*f/len(xs):.1f}%, {a:.1f}-{b:.1f})")
+    # stop rule + projection
+    d = json.loads((STATE / "diag_5cde.json").read_text())
+    e, nm, nz, ins = (res["arms"].get(k) for k in ("elig", "nomiss", "noise", "instr"))
+    if e and nm:
+        er = e["bear_flips"] / max(e["bear_denom"], 1)
+        nr = nm["bear_flips"] / max(nm["bear_denom"], 1)
+        print(f"MECHANISM-FAILURE TEST: no-miss bearish-direction flip rate {100*nr:.1f}% vs eligible {100*er:.1f}% -> "
+              f"{'STOP (no-miss >= eligible)' if nr >= er else 'pass'}")
+    if e and nz:
+        noise_rate = nz["flips"] / nz["n"]
+        er_any = e["flips"] / e["n"]
+        net_rate = er_any - noise_rate
+        print(f"eligible any-flip rate {100*er_any:.1f}% minus 21a noise {100*noise_rate:.1f}% = net {100*net_rate:.1f}%; "
+              f"projected net flips on N_eligible={d['N_eligible']}: {net_rate*d['N_eligible']:.0f} "
+              f"(raw {er_any*d['N_eligible']:.0f}); floor ~100")
+    if ins and nz:
+        print(f"21b instruction-effect flip rate {100*ins['flips']/ins['n']:.1f}% minus 21a {100*nz['flips']/nz['n']:.1f}% "
+              f"= {100*(ins['flips']/ins['n']-nz['flips']/nz['n']):.1f} points (2020-clustering caveat applies)")
+    (STATE / "preflight_report.json").write_text(json.dumps(res, indent=1))
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
     fn = {"check0f": cmd_check0f, "sample": cmd_sample, "extract-sync": cmd_extract_sync,
           "fidelity": cmd_fidelity, "submit-a": cmd_submit_a, "poll-a": cmd_poll_a,
-          "build-ledger": cmd_build_ledger}.get(cmd)
+          "build-ledger": cmd_build_ledger, "diag": cmd_diag,
+          "preflight-select": cmd_preflight_select, "preflight-submit": cmd_preflight_submit,
+          "preflight-poll": cmd_preflight_poll, "preflight-report": cmd_preflight_report}.get(cmd)
     if fn:
         fn(*sys.argv[2:])
     else:

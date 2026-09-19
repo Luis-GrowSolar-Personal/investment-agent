@@ -27,6 +27,9 @@ entry per explicit number or range.
 Rules:
 1. Only explicit numbers and ranges are guidance. "Strong growth" is not a
    promise. "40 to 42% gross margin" is. "At least $1 billion" is one-sided.
+   A phrase with no stated number, such as "low to mid-40s" or "modest
+   growth", is NOT guidance: omit it. Never emit an entry whose quote or
+   `*_as_written` fields are empty.
 2. `metric` must be one of: revenue, gross_margin_pct, operating_margin_pct,
    operating_income, eps, free_cash_flow, capex, backlog, unit_shipments,
    customer_count, cash_balance, other. If other, put the raw name in
@@ -63,17 +66,21 @@ Rules:
    at this time" after having provided it). Use "all" or a metric name.
 8. `stated_intents` are dated non-numeric commitments ("we expect to launch X
    in the second half"). Keep few and specific.
-9. Keep the output small. Company-wide (consolidated) figures only; skip
+9. `reported` covers only the quarter (or, on a year-end call, the year) that
+   the call is reporting. Do NOT extract cumulative, since-inception, run-rate,
+   milestone ("past 200,000 customers", "$2 billion in revenue to date") or
+   prior-period figures as reported metrics.
+10. Keep the output small. Company-wide (consolidated) figures only; skip
    segment, product-line and geography guidance unless management gives no
    consolidated figure for that metric. At most 10 `reported` and 10 `guided`
    entries, most important first (revenue, margins, operating income, EPS, free
    cash flow, then the rest). One entry per metric and period; do not repeat
    an entry for a different quote. Skip `other` unless it is the headline
    measure management itself leads with (for example AFFO for a REIT).
-10. Extract only what is in the transcript. Do not infer, estimate, or
+11. Extract only what is in the transcript. Do not infer, estimate, or
    compute. Prior-period comparisons ("up 14% year over year") are not
    separate entries unless management states them as the headline figure.
-11. If the call has no numeric guidance or no reported numbers, return the
+12. If the call has no numeric guidance or no reported numbers, return the
     empty array for that key. Empty is a correct answer. Never invent.
 
 Output the JSON object only. No prose, no code fence.
