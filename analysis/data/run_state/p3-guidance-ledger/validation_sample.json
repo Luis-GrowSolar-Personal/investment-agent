@@ -1,0 +1,142 @@
+[
+ {
+  "ticker": "MRK",
+  "date": "2024-02-01",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/MRK/2024-02-01.json",
+  "tag": "S1_large_cap",
+  "stratum": "S1"
+ },
+ {
+  "ticker": "QCOM",
+  "date": "2025-11-05",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/QCOM/2025-11-05.json",
+  "tag": "S1_large_cap",
+  "stratum": "S1"
+ },
+ {
+  "ticker": "MRK",
+  "date": "2025-10-30",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/MRK/2025-10-30.json",
+  "tag": "S1_large_cap",
+  "stratum": "S1"
+ },
+ {
+  "ticker": "NOW",
+  "date": "2021-04-28",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/NOW/2021-04-28.json",
+  "tag": "S2_mixed_cap",
+  "stratum": "S2"
+ },
+ {
+  "ticker": "NOW",
+  "date": "2025-01-29",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/NOW/2025-01-29.json",
+  "tag": "S2_mixed_cap",
+  "stratum": "S2"
+ },
+ {
+  "ticker": "NXPI",
+  "date": "2024-11-05",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/NXPI/2024-11-05.json",
+  "tag": "S2_mixed_cap",
+  "stratum": "S2"
+ },
+ {
+  "ticker": "EQIX",
+  "date": "2022-04-27",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/EQIX/2022-04-27.json",
+  "tag": "S3",
+  "stratum": "S3"
+ },
+ {
+  "ticker": "EQIX",
+  "date": "2021-02-10",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/EQIX/2021-02-10.json",
+  "tag": "S3",
+  "stratum": "S3"
+ },
+ {
+  "ticker": "TTD",
+  "date": "2023-08-09",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/TTD/2023-08-09.json",
+  "tag": "S5_ALL16",
+  "stratum": "S5"
+ },
+ {
+  "ticker": "QS",
+  "date": "2023-02-15",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/QS/2023-02-15.json",
+  "tag": "S5_ALL16",
+  "stratum": "S5"
+ },
+ {
+  "ticker": "QS",
+  "date": "2021-10-26",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/QS/2021-10-26.json",
+  "tag": "S5_ALL16",
+  "stratum": "S5"
+ },
+ {
+  "ticker": "FRC",
+  "date": "2023-04-24",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/FRC/2023-04-24.json",
+  "tag": "S4_failures",
+  "stratum": "S4"
+ },
+ {
+  "ticker": "FRC",
+  "date": "2022-04-13",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/FRC/2022-04-13.json",
+  "tag": "S4_failures",
+  "stratum": "S4"
+ },
+ {
+  "ticker": "TEAM",
+  "date": "2021-07-29",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/TEAM/2021-07-29.json",
+  "tag": "no_numeric_guidance",
+  "stratum": "S2"
+ },
+ {
+  "ticker": "EOSE",
+  "date": "2022-11-08",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/EOSE/2022-11-08.json",
+  "tag": "no_numeric_guidance",
+  "stratum": "S5"
+ },
+ {
+  "ticker": "EQIX",
+  "date": "2020-05-06",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/EQIX/2020-05-06.json",
+  "tag": "random",
+  "stratum": "S3"
+ },
+ {
+  "ticker": "ABBV",
+  "date": "2023-04-27",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/ABBV/2023-04-27.json",
+  "tag": "random",
+  "stratum": "S1"
+ },
+ {
+  "ticker": "NEM",
+  "date": "2023-02-23",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/NEM/2023-02-23.json",
+  "tag": "random",
+  "stratum": "S3"
+ },
+ {
+  "ticker": "TMUS",
+  "date": "2023-10-25",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/TMUS/2023-10-25.json",
+  "tag": "random",
+  "stratum": "S1"
+ },
+ {
+  "ticker": "UPS",
+  "date": "2022-07-26",
+  "path": "/Users/luismorales/Library/CloudStorage/Dropbox/My Mac (MacBook-Pro.attlocal.net)/Desktop/investment-agent/analysis/data/corpus_v2/transcripts/UPS/2022-07-26.json",
+  "tag": "random",
+  "stratum": "S1"
+ }
+]

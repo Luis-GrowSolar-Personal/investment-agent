@@ -1,0 +1,16 @@
+{
+ "train_symbols": 57,
+ "resolved_files": 1240,
+ "resolved_companies": 56,
+ "unresolved_files": 1194,
+ "no_files_symbols": [
+  "MAXNQ"
+ ],
+ "eval_files": 1240,
+ "eval_unmapped_symbols": [],
+ "predecessor_bearing": 1184,
+ "disjoint_tune": true,
+ "disjoint_holdout": true,
+ "wolf_spwr_in_train": [],
+ "asserts_pass": true
+}

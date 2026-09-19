@@ -175,6 +175,8 @@ def parse_written(s):
         num = float(m.group(2).replace(",", ""))
     except ValueError:
         return None
+    if re.search(r"\bcents?\b", t[m.end():m.end() + 8]) and not m.group(3):
+        num = num / 100.0
     return num, m.group(3), ("%" in t or "percent" in t or "basis point" in t or "bps" in t)
 
 
@@ -260,9 +262,11 @@ def fidelity_filter(ex, transcript_text):
             else:
                 lw, hw = e.get("low_as_written"), e.get("high_as_written")
                 for val, w, sib in ((e.get("low"), lw, hw), (e.get("high"), hw, lw)):
-                    if w is None:
+                    if val is None:
                         continue
-                    r = plausible(val, w, sib)
+                    # a value may pair with either written bound (loss/burn ranges flip order); abs compared
+                    rs_ = [plausible(val, x, y) for x, y in ((lw, hw), (hw, lw)) if x is not None]
+                    r = True if True in rs_ else (None if None in rs_ else False)
                     mis = mis or (r is False)
                     unv = unv or (r is None)
             if mis:
@@ -539,10 +543,311 @@ def cmd_poll_a():
     poll_batch("batch_id_pass_a", "extractions.jsonl", "passA")
 
 
+# --------------------------------------------------------------------------- ledger (Step 1c, $0)
+METRICS = ["revenue", "gross_margin_pct", "operating_margin_pct", "operating_income", "eps", "free_cash_flow",
+           "capex", "backlog", "unit_shipments", "customer_count", "cash_balance", "other"]
+LOWER_IS_BETTER = {"capex"}
+SYNONYMS = {
+    "revenue": ["revenue", "revenues", "net sales", "sales", "top line", "top-line"],
+    "gross_margin_pct": ["gross margin", "gross profit margin"],
+    "operating_margin_pct": ["operating margin", "operating profit margin", "ebit margin"],
+    "operating_income": ["operating income", "operating profit", "ebit"],
+    "eps": ["eps", "earnings per share", "per diluted share", "per share"],
+    "free_cash_flow": ["free cash flow", "fcf"],
+    "capex": ["capex", "capital expenditure", "capital expenditures", "capital spending"],
+    "backlog": ["backlog", "remaining performance obligation", "rpo"],
+    "unit_shipments": ["shipments", "units shipped", "deliveries", "megawatts shipped"],
+    "customer_count": ["customers", "customer count", "subscribers", "members"],
+    "cash_balance": ["cash balance", "cash and cash equivalents", "cash and equivalents", "cash position"],
+}
+PER_LABEL = re.compile(r"^(?:Q([1-4])\s*)?FY\s*(\d{4})$|^Q([1-4])\s*(\d{4})$", re.I)
+
+
+def period_key(label):
+    """-> ('Q', year, q) | ('FY', year, None) | None"""
+    if not label:
+        return None
+    t = str(label).strip().upper().replace(",", "")
+    m = re.match(r"^Q([1-4])\s*FY\s*(\d{4})$", t) or re.match(r"^Q([1-4])\s*(\d{4})$", t)
+    if m:
+        return ("Q", int(m.group(2)), int(m.group(1)))
+    m = re.match(r"^(?:FY|F)\s*(\d{4})$", t) or re.match(r"^(\d{4})\s*FY$", t)
+    if m:
+        return ("FY", int(m.group(1)), None)
+    return None
+
+
+def qidx(y, q):
+    return y * 4 + q
+
+
+def load_extraction_kept():
+    """{custom_id: kept_extraction} from extractions.jsonl, after the fidelity filter."""
+    out = {}
+    stats = {"parsed": 0, "unparseable": []}
+    for r in read_jsonl(STATE / "extractions.jsonl"):
+        ex = parse_json_obj(r["content"])
+        if ex is None:
+            stats["unparseable"].append(r["custom_id"])
+            continue
+        tp = TRANSCRIPTS / r["ticker"] / f"{r['date']}.json"
+        text = json.loads(tp.read_text())["text"]
+        kept, st, drops = fidelity_filter(ex, text)
+        out[r["custom_id"]] = {"kept": kept, "stats": st, "n_drops": len(drops), "stop_reason": r.get("stop_reason")}
+        stats["parsed"] += 1
+    return out, stats
+
+
+def mid(g):
+    lo, hi = g.get("low"), g.get("high")
+    if lo is None:
+        return hi
+    if hi is None:
+        return lo
+    return (lo + hi) / 2
+
+
+def basis_conflict(a, b):
+    a, b = (a or "unspecified"), (b or "unspecified")
+    return "unspecified" not in (a, b) and a.lower() != b.lower()
+
+
+def mentioned_with_number(metric, text_norm):
+    for syn in SYNONYMS.get(metric, []):
+        for m in re.finditer(r"\b" + re.escape(syn) + r"\b", text_norm):
+            window = text_norm[m.end(): m.end() + 100] + " " + text_norm[max(0, m.start() - 60): m.start()]
+            if re.search(r"\d", window):
+                return True
+    return False
+
+
+def grade_one(g, actual, metric):
+    """g: guided entry; actual: number in the same framing. Returns dict grade fields."""
+    lo, hi = g.get("low"), g.get("high")
+    one = g.get("one_sided")
+    lib = metric in LOWER_IS_BETTER
+    out = {"range_width_pct": None}
+    if one is None and lo is not None and hi is not None:
+        out["range_width_pct"] = 0.0 if hi == lo else round((hi - lo) / abs(lo), 6) if lo else None
+    if one == "floor" or (lo is not None and hi is None):
+        bound, kind = lo, "floor"
+    elif one == "ceiling" or (hi is not None and lo is None):
+        bound, kind = hi, "ceiling"
+    else:
+        bound, kind = None, None
+    if kind == "floor":
+        if actual >= bound:
+            out.update(grade="met")
+        else:
+            out.update(grade="missed", miss_pct=round((bound - actual) / abs(bound), 6) if bound else None)
+        return out
+    if kind == "ceiling":
+        if actual <= bound:
+            out.update(grade="met")
+        else:
+            out.update(grade="missed", miss_pct=round((actual - bound) / abs(bound), 6) if bound else None)
+        return out
+    if lo <= actual <= hi:
+        out.update(grade="met")
+    elif actual < lo:
+        if lib:
+            out.update(grade="beat", beat_pct=round((lo - actual) / abs(lo), 6) if lo else None)
+        else:
+            out.update(grade="missed", miss_pct=round((lo - actual) / abs(lo), 6) if lo else None)
+    else:
+        if lib:
+            out.update(grade="missed", miss_pct=round((actual - hi) / abs(hi), 6) if hi else None)
+        else:
+            out.update(grade="beat", beat_pct=round((actual - hi) / abs(hi), 6) if hi else None)
+    return out
+
+
+def build_company_ledgers(w, rows, ext, texts_norm):
+    """rows sorted by date; ext: custom_id -> kept. Returns list of ledger dicts (one per call with predecessor)
+    plus the first-call empty ledger."""
+    out = []
+    # promise store: (metric, framing, period_key) -> list of (call_idx_in_rows, guided_entry)
+    for i, r in enumerate(rows):
+        c = cid(w, r["date"])
+        tgt_key = ("Q", r["year"], r["quarter"])
+        rec = {"ticker": w, "call_date": r["date"], "custom_id": c, "fiscal": [r["year"], r["quarter"]],
+               "has_predecessor": i > 0, "gap": False, "rows": [], "pending_fy": [], "intents": [],
+               "retractions": [], "counts": {}, "extraction_present": c in ext}
+        if i == 0:
+            out.append(rec)
+            continue
+        prev = rows[i - 1]
+        gap = qidx(r["year"], r["quarter"]) - qidx(prev["year"], prev["quarter"])
+        rec["gap"] = gap != 1
+        rec["gap_quarters"] = gap
+        tgt = ext.get(c)
+        if tgt is None:
+            rec["extraction_missing"] = True
+            out.append(rec)
+            continue
+        reported = tgt["kept"]["reported"]
+        retr = tgt["kept"]["retractions"]
+        # collect promises from calls before this one whose period covers this call
+        # (quarterly for this quarter; FY for this fiscal year -> pending unless this is the Q4 call)
+        promises = {}
+        for j in range(i):
+            cj = ext.get(cid(w, rows[j]["date"]))
+            if not cj:
+                continue
+            if rec["gap"] and j < i - 1:
+                # gap ledgers carry only guidance whose period still covers N+1; that is the same test below
+                pass
+            for g in cj["kept"]["guided"]:
+                pk = period_key(g.get("fiscal_period"))
+                if pk is None:
+                    continue
+                m = g.get("metric") or "other"
+                key = (m, g.get("framing"), pk)
+                promises.setdefault(key, []).append((j, g))
+        fy_year = r["year"]
+        is_fy_end = r["quarter"] == 4
+        for (m, framing, pk), lst in promises.items():
+            lst.sort(key=lambda t: t[0])
+            orig, latest = lst[0][1], lst[-1][1]
+            if pk[0] == "Q":
+                if (pk[1], pk[2]) != (r["year"], r["quarter"]):
+                    continue
+            else:
+                if pk[1] != fy_year:
+                    continue
+                if not is_fy_end:
+                    down = (m not in LOWER_IS_BETTER and mid(latest) is not None and mid(orig) is not None
+                            and mid(latest) < mid(orig))
+                    rec["pending_fy"].append({"metric": m, "framing": framing, "original": {k: orig.get(k) for k in ("low", "high", "low_as_written", "high_as_written")},
+                                              "latest_revision": {k: latest.get(k) for k in ("low", "high", "low_as_written", "high_as_written")},
+                                              "revised_down": bool(down), "n_revisions": len(lst)})
+                    continue
+            # find matching reported
+            want_period = pk
+            cands = []
+            for e in reported:
+                if (e.get("metric") or "other") != m:
+                    continue
+                epk = period_key(e.get("fiscal_period"))
+                if epk is not None and epk != want_period:
+                    continue
+                cands.append(e)
+            row = {"metric": m, "framing": framing, "period": list(pk), "basis": orig.get("basis"),
+                   "original": {k: orig.get(k) for k in ("low", "high", "low_as_written", "high_as_written", "one_sided")},
+                   "latest_revision": {k: latest.get(k) for k in ("low", "high", "low_as_written", "high_as_written", "one_sided")},
+                   "n_revisions": len(lst), "quote": orig.get("quote"), "one_sided": orig.get("one_sided")}
+            same_frame = [e for e in cands if e.get("framing") == framing]
+            if same_frame:
+                cands_used = same_frame
+                conv = False
+            else:
+                cands_used = []
+                conv = None
+            ok_basis = [e for e in cands_used if not basis_conflict(orig.get("basis"), e.get("basis"))]
+            if len(cands_used) > 1:
+                row["multi_candidate"] = len(cands_used)
+            if ok_basis:
+                act = ok_basis[0]
+                row["actual"] = act.get("value")
+                row["actual_as_written"] = act.get("value_as_written")
+                gr_o = grade_one(orig, act["value"], m)
+                gr_l = grade_one(latest, act["value"], m)
+                row.update(gr_o)
+                row["grade_vs_latest"] = gr_l["grade"]
+                row["revised"] = (orig.get("low"), orig.get("high")) != (latest.get("low"), latest.get("high"))
+            elif cands_used:
+                row.update(grade="basis_mismatch", basis_conflict=[orig.get("basis"), cands_used[0].get("basis")],
+                           range_width_pct=None)
+            elif cands:
+                # present in another numeric framing: convert only if the prior-year base is in the ledger
+                row["actual_framing"] = cands[0].get("framing")
+                row.update(grade="basis_mismatch", framing_mismatch=True, range_width_pct=None)
+            else:
+                retracted = any((x.get("metric_or_all") or "").lower() in ("all", m, m.replace("_", " "))
+                                or (x.get("metric_or_all") or "").lower() in SYNONYMS.get(m, []) for x in retr)
+                if retracted:
+                    row.update(grade="withdrawn", range_width_pct=None)
+                else:
+                    present = mentioned_with_number(m, texts_norm(w, r["date"]))
+                    row["searched_transcript"] = True
+                    if present:
+                        row.update(grade="ungradable_present", range_width_pct=None)  # present but not extracted
+                    else:
+                        row.update(grade="unreported", range_width_pct=None)
+            rec["rows"].append(row)
+        # stated intents from previous call due by this one
+        pc = ext.get(cid(w, prev["date"]))
+        if pc:
+            tn = texts_norm(w, r["date"])
+            for it in pc["kept"].get("stated_intents", []):
+                pk = period_key(it.get("by_fiscal_period"))
+                if pk and pk[0] == "Q" and (pk[1], pk[2]) == (r["year"], r["quarter"]):
+                    toks = [t for t in re.findall(r"[a-z]{5,}", norm(it.get("intent", "")))][:6]
+                    hit = sum(1 for t in toks if t in tn)
+                    rec["intents"].append({"intent": it.get("intent"), "mentioned_now": bool(toks and hit / len(toks) >= 0.5)})
+        rec["retractions"] = [x.get("metric_or_all") for x in retr]
+        # grades tallies
+        cnt = {}
+        for x in rec["rows"]:
+            cnt[x["grade"]] = cnt.get(x["grade"], 0) + 1
+        rec["counts"] = cnt
+        rec["revised_down_count"] = sum(1 for x in rec["pending_fy"] if x["revised_down"])
+        out.append(rec)
+    return out
+
+
+_TXT_CACHE = {}
+
+
+def texts_norm(w, date):
+    k = (w, date)
+    if k not in _TXT_CACHE:
+        _TXT_CACHE[k] = norm(json.loads((TRANSCRIPTS / w / f"{date}.json").read_text())["text"])
+    return _TXT_CACHE[k]
+
+
+GRADES6 = ["met", "missed", "beat", "unreported", "withdrawn", "basis_mismatch"]
+
+
+def cmd_build_ledger():
+    ext, st = load_extraction_kept()
+    calls = train_calls()
+    LEDGER_DIR.mkdir(parents=True, exist_ok=True)
+    flat = []
+    n_pred = n_nonempty = n_gap = n_missing_ext = 0
+    for w, rows in calls.items():
+        ledgers = build_company_ledgers(w, rows, ext, texts_norm)
+        for L in ledgers:
+            d = LEDGER_DIR / w
+            d.mkdir(parents=True, exist_ok=True)
+            (d / f"{L['call_date']}.json").write_text(json.dumps(L, indent=1))
+            if L["has_predecessor"]:
+                n_pred += 1
+                n_gap += 1 if L["gap"] else 0
+                n_missing_ext += 1 if L.get("extraction_missing") else 0
+                if any(x["grade"] in GRADES6 for x in L["rows"]):
+                    n_nonempty += 1
+            for x in L["rows"]:
+                flat.append({"ticker": w, "call_date": L["call_date"], "year": L["fiscal"][0], "quarter": L["fiscal"][1],
+                             "metric": x["metric"], "framing": x["framing"], "period": "/".join(map(str, x["period"])),
+                             "grade": x["grade"], "miss_pct": x.get("miss_pct"), "beat_pct": x.get("beat_pct"),
+                             "range_width_pct": x.get("range_width_pct"), "gap_call": L["gap"],
+                             "framing_mismatch": x.get("framing_mismatch", False),
+                             "revised": x.get("revised", False)})
+    import csv
+    with (C2 / "ledger_summary.csv").open("w", newline="") as f:
+        wr = csv.DictWriter(f, fieldnames=list(flat[0].keys()) if flat else ["ticker"])
+        wr.writeheader()
+        wr.writerows(flat)
+    print(f"ledger files written; predecessor-bearing={n_pred} non-empty={n_nonempty} gap={n_gap} "
+          f"extraction_missing={n_missing_ext} promises={len(flat)} unparseable_json={len(st['unparseable'])}")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
     fn = {"check0f": cmd_check0f, "sample": cmd_sample, "extract-sync": cmd_extract_sync,
-          "fidelity": cmd_fidelity, "submit-a": cmd_submit_a, "poll-a": cmd_poll_a}.get(cmd)
+          "fidelity": cmd_fidelity, "submit-a": cmd_submit_a, "poll-a": cmd_poll_a,
+          "build-ledger": cmd_build_ledger}.get(cmd)
     if fn:
         fn(*sys.argv[2:])
     else:

@@ -1,0 +1,97 @@
+{
+ "totals": {
+  "entries": 330,
+  "kept": 294,
+  "quote_miss": 31,
+  "written_miss": 24,
+  "mis_parse": 5,
+  "unverifiable": 8,
+  "no_quote": 0
+ },
+ "per_ticker": {
+  "MRK": {
+   "entries": 44,
+   "kept": 38,
+   "quote_miss": 6,
+   "written_miss": 6,
+   "mis_parse": 0,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "QCOM": {
+   "entries": 29,
+   "kept": 24,
+   "quote_miss": 5,
+   "written_miss": 5,
+   "mis_parse": 0,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "NOW": {
+   "entries": 49,
+   "kept": 45,
+   "quote_miss": 4,
+   "written_miss": 4,
+   "mis_parse": 0,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "EQIX": {
+   "entries": 73,
+   "kept": 61,
+   "quote_miss": 10,
+   "written_miss": 8,
+   "mis_parse": 2,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "TTD": {
+   "entries": 16,
+   "kept": 16,
+   "quote_miss": 0,
+   "written_miss": 0,
+   "mis_parse": 0,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "QS": {
+   "entries": 22,
+   "kept": 20,
+   "quote_miss": 2,
+   "written_miss": 0,
+   "mis_parse": 0,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "FRC": {
+   "entries": 64,
+   "kept": 60,
+   "quote_miss": 2,
+   "written_miss": 0,
+   "mis_parse": 2,
+   "unverifiable": 3,
+   "no_quote": 0
+  },
+  "TEAM": {
+   "entries": 20,
+   "kept": 20,
+   "quote_miss": 0,
+   "written_miss": 0,
+   "mis_parse": 0,
+   "unverifiable": 4,
+   "no_quote": 0
+  },
+  "EOSE": {
+   "entries": 13,
+   "kept": 10,
+   "quote_miss": 2,
+   "written_miss": 1,
+   "mis_parse": 1,
+   "unverifiable": 0,
+   "no_quote": 0
+  }
+ },
+ "drop_rate": 0.10909090909090909,
+ "unparseable": 1,
+ "empty": 0
+}
