@@ -144,6 +144,48 @@ transcripts.
 - **Runs on.** Train first. Tune only if it clears, and only once.
 - **Pre-flight.** §2.5 screen on ~150 calls before the full round.
 
+**P3a — guidance ledger, registered 2026-09-19** (before any spend;
+`prompts/P3-guidance-ledger.md` §7, run `p3-guidance-ledger`)
+
+- **Change.** Prepend to each call a mechanically graded table of the promises
+  the prior call made and what this call reported against them; point the
+  stumble test at it; ask which promise the thesis rests on. No change to the
+  decision matrix.
+- **Expected to move.** Bearish call rate up, concentrated on calls whose
+  ledger shows `missed`, `unreported` or `withdrawn` on a guided metric.
+  Bearish precision holds above the 46.6% base rate. Gap over luck up.
+- **Expected concentration.** Flips concentrate in the ~73% of calls that do
+  not already discuss their own prior guidance. *Diagnostic, not a gate.*
+- **Expected of the neutral pile.** v6's neutral calls carry zero edge over
+  their base rate (20.6%) on both splits, on 58% of calls. The ledger should
+  convert some into committed answers that beat their base rate. Report the
+  neutral share before and after. *Diagnostic, not a gate.*
+- **Measured but not instructed: the bullish side.** 5d-ii, `N_eligible_bull`,
+  bullish precision against 32.8%, bullish movement in the clean-beats group.
+  This candidate's text does not address beats; bullish movement falsifies
+  nothing here and pre-registers nothing for later.
+- **Predicted flip count: 150-300 net** of the pure-noise rate (arm 21a), raw
+  count reported beside it.
+- **Falsified if** (all net): fewer than ~100 flips net of noise; **or**
+  bearish precision at or below 46.6% (bearish-only by design); **or** flips
+  concentrate in calls whose ledger shows no miss; **or** the instruction-effect
+  arm (21b) exceeds the pure-noise arm (21a) by more than its own range (a
+  confound on the headline, reported prominently).
+- **Runs on.** Train. Tune only if it clears, and only once.
+- **Pass A standalone success.** Fidelity drop rate under 5% and ledger
+  coverage >= 90% of resolved predecessor-bearing train calls, whether or not
+  Pass B runs.
+
+**P3b — the analyst's own prior watch condition as a second ledger input.
+Named, NOT run.** Add the analyst's own "measurable condition that would change
+this recommendation" from call N to the ledger at N+1. Sequential by
+construction, so it cannot batch. **Why it is named now:** naming the follow-on
+before P3a's per-call diffs exist commits it in advance, so no later session
+can back its next candidate out of those diffs and call it design. Same
+discipline section 2.6 imposes on the auto-iterate loop. **Prohibition:** any
+candidate other than P3b derived from reading P3a's diffs must go through the
+section 2.6 split-half screen before it may touch tune.
+
 ### 2.3 Pre-registration — required before any candidate is run
 
 Fill this in, in this file, **before** the round. Six candidates screened on one
