@@ -1,12 +1,12 @@
 {
  "totals": {
-  "entries": 254,
-  "kept": 245,
-  "quote_miss": 6,
-  "written_miss": 1,
-  "mis_parse": 3,
-  "unverifiable": 1,
-  "no_quote": 3
+  "entries": 252,
+  "kept": 241,
+  "quote_miss": 5,
+  "written_miss": 0,
+  "mis_parse": 6,
+  "unverifiable": 2,
+  "no_quote": 1
  },
  "per_ticker": {
   "MRK": {
@@ -29,10 +29,10 @@
   },
   "NOW": {
    "entries": 36,
-   "kept": 36,
+   "kept": 34,
    "quote_miss": 0,
    "written_miss": 0,
-   "mis_parse": 0,
+   "mis_parse": 2,
    "unverifiable": 0,
    "no_quote": 0
   },
@@ -46,8 +46,8 @@
    "no_quote": 0
   },
   "EQIX": {
-   "entries": 36,
-   "kept": 34,
+   "entries": 37,
+   "kept": 35,
    "quote_miss": 2,
    "written_miss": 0,
    "mis_parse": 0,
@@ -55,18 +55,18 @@
    "no_quote": 1
   },
   "TTD": {
-   "entries": 12,
-   "kept": 11,
-   "quote_miss": 1,
+   "entries": 10,
+   "kept": 10,
+   "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
    "unverifiable": 0,
-   "no_quote": 1
+   "no_quote": 0
   },
   "QS": {
-   "entries": 20,
-   "kept": 19,
-   "quote_miss": 1,
+   "entries": 21,
+   "kept": 21,
+   "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
    "unverifiable": 0,
@@ -87,12 +87,12 @@
    "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
-   "unverifiable": 0,
+   "unverifiable": 1,
    "no_quote": 0
   },
   "EOSE": {
-   "entries": 7,
-   "kept": 7,
+   "entries": 6,
+   "kept": 6,
    "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
@@ -101,8 +101,8 @@
   },
   "ABBV": {
    "entries": 11,
-   "kept": 11,
-   "quote_miss": 0,
+   "kept": 10,
+   "quote_miss": 1,
    "written_miss": 0,
    "mis_parse": 0,
    "unverifiable": 0,
@@ -110,17 +110,17 @@
   },
   "NEM": {
    "entries": 20,
-   "kept": 17,
-   "quote_miss": 2,
-   "written_miss": 1,
+   "kept": 19,
+   "quote_miss": 0,
+   "written_miss": 0,
    "mis_parse": 1,
    "unverifiable": 0,
-   "no_quote": 1
+   "no_quote": 0
   },
   "TMUS": {
-   "entries": 15,
-   "kept": 15,
-   "quote_miss": 0,
+   "entries": 14,
+   "kept": 13,
+   "quote_miss": 1,
    "written_miss": 0,
    "mis_parse": 0,
    "unverifiable": 1,
@@ -128,15 +128,15 @@
   },
   "UPS": {
    "entries": 13,
-   "kept": 13,
-   "quote_miss": 0,
+   "kept": 11,
+   "quote_miss": 1,
    "written_miss": 0,
-   "mis_parse": 0,
+   "mis_parse": 1,
    "unverifiable": 0,
    "no_quote": 0
   }
  },
- "drop_rate": 0.03543307086614173,
+ "drop_rate": 0.04365079365079365,
  "unparseable": 0,
  "empty": 0
 }

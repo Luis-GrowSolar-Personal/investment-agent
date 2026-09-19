@@ -3,11 +3,38 @@
   "prompt_sha256": "36190fea9e2e38ef15d76a420f01808dd9feda7c0ceb7049940989098958724d",
   "driver_commit": null,
   "phase": 1,
-  "spend_approval": {"phase1_usd_cap": 65, "phase2_go": false, "approved_by": "Luis", "approved_on": "2026-09-19", "note": "Phase 1 only. Phase 2 (Pass B, <=$70) needs a separate explicit go."},
+  "spend_approval": {
+    "phase1_usd_cap": 65,
+    "phase2_go": false,
+    "approved_by": "Luis",
+    "approved_on": "2026-09-19",
+    "note": "Phase 1 only. Phase 2 (Pass B, <=$70) needs a separate explicit go."
+  },
   "batch_id_pass_a": null,
   "batch_id_preflight": null,
   "batch_id_pass_b": null,
-  "steps": {"0a":"pending","0b":"pending","0c":"pending","0d":"pending","0d-bis":"pending","0e":"pending","0f":"pending","1_passA":"pending","5b_fidelity":"pending","5c_ledger":"pending","5d":"pending","5e":"pending","5f_preflight":"pending","checkpoint":"pending"},
-  "next_action": "Read state-of-play 2026-09-19 sections 0, 2, 5; PROMPT_ARCHITECTURE.md; PROMOTION_GATE.md 3.1 and 8; then Step 0a hygiene.",
-  "notes": ["Prompt run started 2026-09-19; Luis approved Phase 1 via AskUserQuestion."]
+  "steps": {
+    "0a": "done",
+    "0b": "done",
+    "0c": "done",
+    "0d": "done",
+    "0d-bis": "done",
+    "0e": "done",
+    "0f": "done",
+    "1_passA": "pending",
+    "5b_fidelity": "validated_r4_drop_4.37pct",
+    "5c_ledger": "pending",
+    "5d": "pending",
+    "5e": "pending",
+    "5f_preflight": "pending",
+    "checkpoint": "pending"
+  },
+  "next_action": "Submit Pass A batch (submit-a), commit batch id, poll.",
+  "notes": [
+    "Prompt run started 2026-09-19; Luis approved Phase 1 via AskUserQuestion.",
+    "validation rounds r1-r4 done; r4 drop rate 4.37% (<5%); prompt sha 627f5b44544e"
+  ],
+  "extraction_prompt_sha256": "627f5b44544e5eca13d174b81676d77573cebac7180b9bbfaf53192748860feb",
+  "passA_cost_estimate_usd": 36.8,
+  "validation_spend_usd": 5.06
 }
