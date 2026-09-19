@@ -21,7 +21,7 @@
     "0d-bis": "done",
     "0e": "done",
     "0f": "done",
-    "1_passA": "pending",
+    "1_passA": "done",
     "5b_fidelity": "validated_r4_drop_4.37pct",
     "5c_ledger": "pending",
     "5d": "pending",
@@ -29,14 +29,17 @@
     "5f_preflight": "pending",
     "checkpoint": "pending"
   },
-  "next_action": "Submit Pass A batch (submit-a), commit batch id, poll.",
+  "next_action": "Full fidelity check, build ledger, diag (5c-5e), then pre-flight if N_eligible>=150.",
   "notes": [
     "Prompt run started 2026-09-19; Luis approved Phase 1 via AskUserQuestion.",
-    "validation rounds r1-r4 done; r4 drop rate 4.37% (<5%); prompt sha 627f5b44544e"
+    "validation rounds r1-r4 done; r4 drop rate 4.37% (<5%); prompt sha 627f5b44544e",
+    "Pass A cost \\$41.09 batch + \\$5.06 validation = \\$46.15 vs \\$45 cap: OVER by \\$1.15 (projection from validation sample was \\$36.80). Flag in wrap-up."
   ],
   "extraction_prompt_sha256": "627f5b44544e5eca13d174b81676d77573cebac7180b9bbfaf53192748860feb",
   "passA_cost_estimate_usd": 36.8,
   "validation_spend_usd": 5.06,
   "batch_id_pass_a_submitted_at": "2026-09-19T23:31:33Z",
-  "batch_id_pass_a_requests": 1240
+  "batch_id_pass_a_requests": 1240,
+  "passA_batch_cost_usd": 41.09,
+  "passA_total_incl_validation_usd": 46.15
 }
