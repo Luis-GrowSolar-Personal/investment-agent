@@ -699,7 +699,7 @@ def build_company_ledgers(w, rows, ext, texts_norm):
                 pass
             for g in cj["kept"]["guided"]:
                 pk = period_key(g.get("fiscal_period"))
-                if pk is None:
+                if pk is None or (g.get("low") is None and g.get("high") is None):
                     continue
                 m = g.get("metric") or "other"
                 key = (m, g.get("framing"), pk)
@@ -736,7 +736,8 @@ def build_company_ledgers(w, rows, ext, texts_norm):
                    "original": {k: orig.get(k) for k in ("low", "high", "low_as_written", "high_as_written", "one_sided")},
                    "latest_revision": {k: latest.get(k) for k in ("low", "high", "low_as_written", "high_as_written", "one_sided")},
                    "n_revisions": len(lst), "quote": orig.get("quote"), "one_sided": orig.get("one_sided")}
-            same_frame = [e for e in cands if e.get("framing") == framing]
+            cands.sort(key=lambda e: 0 if period_key(e.get("fiscal_period")) == want_period else 1)  # exact period first
+            same_frame = [e for e in cands if e.get("framing") == framing and e.get("value") is not None]
             if same_frame:
                 cands_used = same_frame
                 conv = False

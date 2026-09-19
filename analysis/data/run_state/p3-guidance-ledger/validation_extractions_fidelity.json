@@ -1,17 +1,17 @@
 {
  "totals": {
-  "entries": 248,
-  "kept": 240,
+  "entries": 254,
+  "kept": 245,
   "quote_miss": 6,
-  "written_miss": 2,
-  "mis_parse": 2,
-  "unverifiable": 0,
-  "no_quote": 2
+  "written_miss": 1,
+  "mis_parse": 3,
+  "unverifiable": 1,
+  "no_quote": 3
  },
  "per_ticker": {
   "MRK": {
-   "entries": 22,
-   "kept": 22,
+   "entries": 25,
+   "kept": 25,
    "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
@@ -19,17 +19,17 @@
    "no_quote": 0
   },
   "QCOM": {
-   "entries": 14,
-   "kept": 12,
-   "quote_miss": 2,
+   "entries": 15,
+   "kept": 15,
+   "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
    "unverifiable": 0,
    "no_quote": 0
   },
   "NOW": {
-   "entries": 34,
-   "kept": 34,
+   "entries": 36,
+   "kept": 36,
    "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
@@ -39,20 +39,20 @@
   "NXPI": {
    "entries": 14,
    "kept": 12,
-   "quote_miss": 1,
-   "written_miss": 1,
-   "mis_parse": 1,
+   "quote_miss": 0,
+   "written_miss": 0,
+   "mis_parse": 2,
    "unverifiable": 0,
    "no_quote": 0
   },
   "EQIX": {
-   "entries": 37,
-   "kept": 37,
-   "quote_miss": 0,
+   "entries": 36,
+   "kept": 34,
+   "quote_miss": 2,
    "written_miss": 0,
    "mis_parse": 0,
    "unverifiable": 0,
-   "no_quote": 0
+   "no_quote": 1
   },
   "TTD": {
    "entries": 12,
@@ -65,25 +65,25 @@
   },
   "QS": {
    "entries": 20,
-   "kept": 20,
-   "quote_miss": 0,
+   "kept": 19,
+   "quote_miss": 1,
    "written_miss": 0,
    "mis_parse": 0,
    "unverifiable": 0,
    "no_quote": 0
   },
   "FRC": {
-   "entries": 22,
-   "kept": 21,
-   "quote_miss": 1,
+   "entries": 23,
+   "kept": 23,
+   "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
    "unverifiable": 0,
-   "no_quote": 1
+   "no_quote": 0
   },
   "TEAM": {
-   "entries": 5,
-   "kept": 5,
+   "entries": 7,
+   "kept": 7,
    "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
@@ -91,10 +91,10 @@
    "no_quote": 0
   },
   "EOSE": {
-   "entries": 8,
+   "entries": 7,
    "kept": 7,
-   "quote_miss": 1,
-   "written_miss": 1,
+   "quote_miss": 0,
+   "written_miss": 0,
    "mis_parse": 0,
    "unverifiable": 0,
    "no_quote": 0
@@ -109,26 +109,26 @@
    "no_quote": 0
   },
   "NEM": {
-   "entries": 16,
-   "kept": 16,
+   "entries": 20,
+   "kept": 17,
+   "quote_miss": 2,
+   "written_miss": 1,
+   "mis_parse": 1,
+   "unverifiable": 0,
+   "no_quote": 1
+  },
+  "TMUS": {
+   "entries": 15,
+   "kept": 15,
    "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
-   "unverifiable": 0,
-   "no_quote": 0
-  },
-  "TMUS": {
-   "entries": 17,
-   "kept": 16,
-   "quote_miss": 0,
-   "written_miss": 0,
-   "mis_parse": 1,
-   "unverifiable": 0,
+   "unverifiable": 1,
    "no_quote": 0
   },
   "UPS": {
-   "entries": 16,
-   "kept": 16,
+   "entries": 13,
+   "kept": 13,
    "quote_miss": 0,
    "written_miss": 0,
    "mis_parse": 0,
@@ -136,7 +136,7 @@
    "no_quote": 0
   }
  },
- "drop_rate": 0.03225806451612903,
+ "drop_rate": 0.03543307086614173,
  "unparseable": 0,
  "empty": 0
 }

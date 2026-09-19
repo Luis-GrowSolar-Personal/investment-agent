@@ -52,6 +52,14 @@ Rules:
    to"), fill only the stated bound, and leave the other null. Otherwise
    `one_sided` is null. For a loss or burn stated as a positive magnitude, keep
    the sign as a negative `value` and `low` the more negative bound.
+   GROWTH AND MARGIN GUIDES ARE NUMERIC TOO. If the quote states a number, the
+   numeric fields MUST be filled; leaving `low`/`high` null while the quote
+   contains the number is an error. Example: "we expect top line growth of 10
+   to 11%" gives metric revenue, framing growth_pct, unit percent, low 10, high
+   11, low_as_written "10", high_as_written "11%". Example: "capital
+   expenditures around 5% of revenue" gives low 5, high 5, low_as_written "5%",
+   high_as_written "5%", framing margin_pct. If the quote states no number,
+   omit the entry instead (rule 1).
 5. `quote` is mandatory and must be a CHARACTER-FOR-CHARACTER copy of a span of
    the transcript, including its exact punctuation, capitalization and
    spacing: do not fix grammar, do not join sentences, do not drop "$" or
