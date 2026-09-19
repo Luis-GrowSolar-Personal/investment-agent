@@ -46,6 +46,8 @@ MODEL = "claude-sonnet-4-6"
 EXTRACT_MAX_TOKENS = 6000
 SCORE_MAX_TOKENS = 4096
 EXCLUDE = {"WOLF", "SPWR"}
+LABEL_CHECK = True      # promise quote must name its metric (see build_company_ledgers)
+EXCLUDE_OTHER = True    # `other`-metric promises are ungradable by construction
 
 # Sonnet 4.6 published rates, $/MTok. Batch = 50%.
 P_IN, P_OUT, P_CR, P_CW = 3.0, 15.0, 0.30, 3.75
@@ -612,8 +614,11 @@ def basis_conflict(a, b):
     return "unspecified" not in (a, b) and a.lower() != b.lower()
 
 
-def mentioned_with_number(metric, text_norm):
-    for syn in SYNONYMS.get(metric, []):
+def mentioned_with_number(metric, text_norm, raw=None):
+    syns = SYNONYMS.get(metric, [])
+    if metric == "other" and raw:
+        syns = [norm(raw)] + [" ".join(sorted(raw_tokens(raw)))]
+    for syn in [x for x in syns if x]:
         for m in re.finditer(r"\b" + re.escape(syn) + r"\b", text_norm):
             window = text_norm[m.end(): m.end() + 100] + " " + text_norm[max(0, m.start() - 60): m.start()]
             if re.search(r"\d", window):
@@ -662,10 +667,55 @@ def grade_one(g, actual, metric):
     return out
 
 
+
+_RAW_STOP = {"adjusted", "gaap", "non", "growth", "total", "net", "the", "and", "per", "full", "year", "quarter", "expected", "annual"}
+
+
+def raw_tokens(orig_or_e):
+    t = norm((orig_or_e or {}).get("metric_raw") or "") if isinstance(orig_or_e, dict) else norm(orig_or_e or "")
+    return {x for x in re.findall(r"[a-z]{3,}", t) if x not in _RAW_STOP}
+
+
+def same_metric(m, g, e):
+    if (e.get("metric") or "other") != m:
+        return False
+    if m != "other":
+        return True
+    a, b = raw_tokens(g), raw_tokens(e)
+    if not a or not b:
+        return False
+    return a <= b or b <= a or len(a & b) / len(a | b) >= 0.5
+
+
+def retraction_hits(what, m, g):
+    w = norm(what or "")
+    if w in ("all", "all guidance"):
+        return True
+    if m == "other":
+        rt = raw_tokens(g)
+        return bool(rt and rt & raw_tokens(w))
+    return w == m or w == m.replace("_", " ") or w in SYNONYMS.get(m, [])
+
+
+def year_ago_base(rep_index, m, g, pk):
+    """Level of the same metric one year earlier, if it is itself in the ledger's data."""
+    ya = ("Q", pk[1] - 1, pk[2]) if pk[0] == "Q" else ("FY", pk[1] - 1, None)
+    for key, e in rep_index:
+        if key == ya and e.get("framing") == "level" and e.get("value") and same_metric(m, g, e):
+            return e["value"]
+    return None
+
+
 def build_company_ledgers(w, rows, ext, texts_norm):
     """rows sorted by date; ext: custom_id -> kept. Returns list of ledger dicts (one per call with predecessor)
     plus the first-call empty ledger."""
     out = []
+    rep_index = []
+    for rr in rows:
+        cx = ext.get(cid(w, rr["date"]))
+        if cx:
+            for e in cx["kept"]["reported"]:
+                rep_index.append((period_key(e.get("fiscal_period")), e))
     # promise store: (metric, framing, period_key) -> list of (call_idx_in_rows, guided_entry)
     for i, r in enumerate(rows):
         c = cid(w, r["date"])
@@ -706,9 +756,23 @@ def build_company_ledgers(w, rows, ext, texts_norm):
                 promises.setdefault(key, []).append((j, g))
         fy_year = r["year"]
         is_fy_end = r["quarter"] == 4
+        rec["excluded_other"] = 0
         for (m, framing, pk), lst in promises.items():
+            if m == "other" and EXCLUDE_OTHER:
+                # ungradable by construction: the extraction prompt capped `reported` at 10 headline items and told
+                # the extractor to skip `other` there, so niche guided items have no reported counterpart to join.
+                if (pk[0] == "Q" and (pk[1], pk[2]) == (r["year"], r["quarter"])) or (pk[0] == "FY" and pk[1] == fy_year and is_fy_end):
+                    rec["excluded_other"] += 1
+                continue
             lst.sort(key=lambda t: t[0])
             orig, latest = lst[0][1], lst[-1][1]
+            qn = norm(orig.get("quote") or "")
+            if LABEL_CHECK and m != "other" and not any(re.search(r"\b" + re.escape(sy) + r"\b", qn) for sy in SYNONYMS.get(m, [])):
+                # label check: the promise's own quote must name the metric it was filed under (ABBV 2021-02-03 filed
+                # "R&D investment" as operating_income and would have graded a false `unreported`)
+                if (pk[0] == "Q" and (pk[1], pk[2]) == (r["year"], r["quarter"])) or (pk[0] == "FY" and pk[1] == fy_year and is_fy_end):
+                    rec["label_unverified"] = rec.get("label_unverified", 0) + 1
+                continue
             if pk[0] == "Q":
                 if (pk[1], pk[2]) != (r["year"], r["quarter"]):
                     continue
@@ -724,35 +788,47 @@ def build_company_ledgers(w, rows, ext, texts_norm):
                     continue
             # find matching reported
             want_period = pk
-            cands = []
-            for e in reported:
-                if (e.get("metric") or "other") != m:
-                    continue
-                epk = period_key(e.get("fiscal_period"))
-                if epk is not None and epk != want_period:
-                    continue
-                cands.append(e)
+            cands = [e for e in reported if same_metric(m, orig, e)]
+            cands = [e for e in cands if period_key(e.get("fiscal_period")) in (None, want_period)]
+            cands.sort(key=lambda e: 0 if period_key(e.get("fiscal_period")) == want_period else 1)  # exact period first
             row = {"metric": m, "framing": framing, "period": list(pk), "basis": orig.get("basis"),
+                   "metric_raw": orig.get("metric_raw"),
                    "original": {k: orig.get(k) for k in ("low", "high", "low_as_written", "high_as_written", "one_sided")},
                    "latest_revision": {k: latest.get(k) for k in ("low", "high", "low_as_written", "high_as_written", "one_sided")},
                    "n_revisions": len(lst), "quote": orig.get("quote"), "one_sided": orig.get("one_sided")}
-            cands.sort(key=lambda e: 0 if period_key(e.get("fiscal_period")) == want_period else 1)  # exact period first
             same_frame = [e for e in cands if e.get("framing") == framing and e.get("value") is not None]
+            conv = None
+            act_val, act_wr = None, None
             if same_frame:
                 cands_used = same_frame
-                conv = False
             else:
                 cands_used = []
-                conv = None
+                # framing conversion, only when the prior-year base is itself in the ledger
+                other = [e for e in cands if e.get("framing") != framing and e.get("value") is not None]
+                for e in other:
+                    if {framing, e.get("framing")} == {"growth_pct", "level"}:
+                        base = year_ago_base(rep_index, m, orig, pk)
+                        if base:
+                            if framing == "growth_pct" and e["framing"] == "level":
+                                act_val, act_wr = (e["value"] / base - 1) * 100, e.get("value_as_written")
+                            elif framing == "level" and e["framing"] == "growth_pct":
+                                act_val, act_wr = base * (1 + e["value"] / 100), e.get("value_as_written")
+                            conv = {"from": e["framing"], "to": framing, "base": base}
+                            cands_used = [e]
+                            break
             ok_basis = [e for e in cands_used if not basis_conflict(orig.get("basis"), e.get("basis"))]
             if len(cands_used) > 1:
                 row["multi_candidate"] = len(cands_used)
             if ok_basis:
                 act = ok_basis[0]
-                row["actual"] = act.get("value")
-                row["actual_as_written"] = act.get("value_as_written")
-                gr_o = grade_one(orig, act["value"], m)
-                gr_l = grade_one(latest, act["value"], m)
+                actual = act_val if conv else act.get("value")
+                row["actual"] = actual
+                row["actual_as_written"] = act_wr if conv else act.get("value_as_written")
+                if conv:
+                    row["converted"] = conv
+                    row["actual_as_written"] = f"{act.get('value_as_written')} (converted to {framing})"
+                gr_o = grade_one(orig, actual, m)
+                gr_l = grade_one(latest, actual, m)
                 row.update(gr_o)
                 row["grade_vs_latest"] = gr_l["grade"]
                 row["revised"] = (orig.get("low"), orig.get("high")) != (latest.get("low"), latest.get("high"))
@@ -760,16 +836,14 @@ def build_company_ledgers(w, rows, ext, texts_norm):
                 row.update(grade="basis_mismatch", basis_conflict=[orig.get("basis"), cands_used[0].get("basis")],
                            range_width_pct=None)
             elif cands:
-                # present in another numeric framing: convert only if the prior-year base is in the ledger
                 row["actual_framing"] = cands[0].get("framing")
                 row.update(grade="basis_mismatch", framing_mismatch=True, range_width_pct=None)
             else:
-                retracted = any((x.get("metric_or_all") or "").lower() in ("all", m, m.replace("_", " "))
-                                or (x.get("metric_or_all") or "").lower() in SYNONYMS.get(m, []) for x in retr)
+                retracted = any(retraction_hits(x.get("metric_or_all"), m, orig) for x in retr)
                 if retracted:
                     row.update(grade="withdrawn", range_width_pct=None)
                 else:
-                    present = mentioned_with_number(m, texts_norm(w, r["date"]))
+                    present = mentioned_with_number(m, texts_norm(w, r["date"]), orig.get("metric_raw"))
                     row["searched_transcript"] = True
                     if present:
                         row.update(grade="ungradable_present", range_width_pct=None)  # present but not extracted
@@ -861,7 +935,7 @@ def outcomes():
     out = {}
     with JOINED.open() as f:
         for r in csv.DictReader(f):
-            if r["split"] != "train":
+            if r["split"] != "train" or not r["ground_truth"] or r["benchmark_rel_return_pct"] in ("", None):
                 continue
             out[(r["ticker"], r["call_date"])] = {"gt": r["ground_truth"], "rel": float(r["benchmark_rel_return_pct"]),
                                                     "pred": r["predicted"]}
@@ -948,7 +1022,10 @@ def cmd_diag():
     for y in sorted(by_year):
         print(" ", y, dict(by_year[y]))
     fm = sum(1 for v in pred_bearing.values() for x in v["rows"] if x.get("framing_mismatch"))
-    print("framing mismatches (graded basis_mismatch, framing_mismatch=True):", fm, "| framing conversions: 0 (not implemented; see wrap-up)")
+    nconv = sum(1 for v in pred_bearing.values() for x in v["rows"] if x.get("converted"))
+    print(f"framing: conversions performed {nconv} | unconverted framing mismatches (graded basis_mismatch) {fm}")
+    print("ungradable_present (guided metric present in transcript but not extracted; excluded from the six grades):",
+          tot.get("ungradable_present", 0))
     # 5d
     def split_stats(name, member, target_gt, base, year=None):
         rows = []

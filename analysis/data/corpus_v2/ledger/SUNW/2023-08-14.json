@@ -1,0 +1,25 @@
+{
+ "ticker": "SUNW",
+ "call_date": "2023-08-14",
+ "custom_id": "SUNW_2023-08-14",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Company intends to use proceeds from factoring agreement, ERTC trade purchase, and ATM offerings to support elevated near-term working capital requirements",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

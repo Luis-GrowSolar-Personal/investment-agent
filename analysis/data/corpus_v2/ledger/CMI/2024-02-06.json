@@ -1,0 +1,64 @@
+{
+ "ticker": "CMI",
+ "call_date": "2024-02-06",
+ "custom_id": "CMI_2024-02-06",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 12,
+    "high": 17,
+    "low_as_written": "12%",
+    "high_as_written": "17%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18,
+    "high": 21,
+    "low_as_written": "18",
+    "high_as_written": "21%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We are forecasting total company revenues for 2023 to increase 12% to 17% compared to 2022",
+   "one_sided": null,
+   "actual": 21.352313167259783,
+   "actual_as_written": "$34.1 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 28100000000
+   },
+   "range_width_pct": 0.416667,
+   "grade": "beat",
+   "beat_pct": 0.256018,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 4,
+ "revised_down_count": 0
+}

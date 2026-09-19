@@ -1,0 +1,17 @@
+{
+ "ticker": "AEP",
+ "call_date": "2020-05-06",
+ "custom_id": "AEP_2020-05-06",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

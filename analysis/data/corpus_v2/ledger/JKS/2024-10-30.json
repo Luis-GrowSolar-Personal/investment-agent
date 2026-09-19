@@ -1,0 +1,73 @@
+{
+ "ticker": "JKS",
+ "call_date": "2024-10-30",
+ "custom_id": "JKS_2024-10-30",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "unit_shipments",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 23,
+    "high": 25,
+    "low_as_written": "23",
+    "high_as_written": "25 gigawatts",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 23,
+    "high": 25,
+    "low_as_written": "23",
+    "high_as_written": "25 gigawatts",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect module shipments to be between 23 to 25 gigawatts for the third quarter of 2024.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "unit_shipments",
+   "framing": "level",
+   "original": {
+    "low": 100,
+    "high": 110,
+    "low_as_written": "100",
+    "high_as_written": "110 gigawatts"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 110,
+    "low_as_written": "100",
+    "high_as_written": "110 gigawatts"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,158 @@
+{
+ "ticker": "NOW",
+ "call_date": "2022-07-27",
+ "custom_id": "NOW_2022-07-27",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1670000000,
+    "high": 1675000000,
+    "low_as_written": "1.67 billion",
+    "high_as_written": "1.675 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1670000000,
+    "high": 1675000000,
+    "low_as_written": "1.67 billion",
+    "high_as_written": "1.675 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q2, we expect subscription revenues between 1.67 billion and 1.675 billion, representing 26% year-over-year growth",
+   "one_sided": null,
+   "actual": 1658000000,
+   "actual_as_written": "$1.658 billion",
+   "range_width_pct": 0.002994,
+   "grade": "missed",
+   "miss_pct": 0.007186,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 22%, which reflects the timing of marketing spend that shifted from Q1 into Q2",
+   "one_sided": null,
+   "actual": 23,
+   "actual_as_written": "23%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.045455,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 7020000000,
+    "high": 7040000000,
+    "low_as_written": "$7.02 billion",
+    "high_as_written": "$7.04 billion"
+   },
+   "latest_revision": {
+    "low": 7025000000,
+    "high": 7040000000,
+    "low_as_written": "$7.025 billion",
+    "high_as_written": "$7.04 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%"
+   },
+   "latest_revision": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%"
+   },
+   "latest_revision": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Host Knowledge 22 signature events in The Hague, New York City, Sydney, and Las Vegas, plus a digital experience",
+   "mentioned_now": false
+  },
+  {
+   "intent": "Host Investor Day in Las Vegas",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

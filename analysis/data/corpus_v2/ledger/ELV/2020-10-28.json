@@ -1,0 +1,44 @@
+{
+ "ticker": "ELV",
+ "call_date": "2020-10-28",
+ "custom_id": "ELV_2020-10-28",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 22.3,
+    "high": 22.3,
+    "low_as_written": "$22.30",
+    "high_as_written": "$22.30"
+   },
+   "latest_revision": {
+    "low": 22.3,
+    "high": 22.3,
+    "low_as_written": "$22.30",
+    "high_as_written": "$22.30"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "More than 50% of Medicare Advantage AEP sales activity expected to be virtual",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

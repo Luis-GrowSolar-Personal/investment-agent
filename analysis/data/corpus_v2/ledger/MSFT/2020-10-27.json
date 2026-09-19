@@ -1,0 +1,58 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2020-10-27",
+ "custom_id": "MSFT_2020-10-27",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 13350000000,
+    "high": 13600000000,
+    "low_as_written": "13.35",
+    "high_as_written": "$13.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12300000000,
+    "high": 12700000000,
+    "low_as_written": "$12.3",
+    "high_as_written": "$12.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "In productivity and business processes, we expect revenue between 13.35 and $13.6 billion.",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "non-GAAP",
+    "GAAP"
+   ],
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

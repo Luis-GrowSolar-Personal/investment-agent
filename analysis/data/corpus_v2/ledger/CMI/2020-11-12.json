@@ -1,0 +1,54 @@
+{
+ "ticker": "CMI",
+ "call_date": "2020-11-12",
+ "custom_id": "CMI_2020-11-12",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 500000000,
+    "high": 525000000,
+    "low_as_written": "$500 million",
+    "high_as_written": "$525 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 500000000,
+    "high": 525000000,
+    "low_as_written": "$500",
+    "high_as_written": "$525 million",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We have adjusted down our plans for capital expenditures to be between $500 million and $525 million this year, down more than 25% from 2019.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

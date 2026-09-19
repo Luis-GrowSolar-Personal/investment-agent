@@ -1,0 +1,99 @@
+{
+ "ticker": "DD",
+ "call_date": "2023-02-07",
+ "custom_id": "DD_2023-02-07",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 17400000000,
+    "high": 17800000000,
+    "low_as_written": "$17.4",
+    "high_as_written": "$17.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13000000000,
+    "high": 13000000000,
+    "low_as_written": "about $13 billion",
+    "high_as_written": "about $13 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "For the full year, net sales of $17.4 to $17.8 billion and operating EBITDA of approximately $4.4 billion at the midpoint",
+   "one_sided": null,
+   "actual": 13000000000,
+   "actual_as_written": "13 billion",
+   "range_width_pct": 0.022989,
+   "grade": "missed",
+   "miss_pct": 0.252874,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.2,
+    "high": 3.5,
+    "low_as_written": "$3.20",
+    "high_as_written": "$3.50 per share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.3,
+    "high": 3.3,
+    "low_as_written": "about $3.30 per share",
+    "high_as_written": "about $3.30 per share",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "our full-year guidance ranges for operating EBITDA and adjusted EPS remain unchanged at $3.25 billion to $3.45 billion and $3.20 to $3.50 per share, respectively.",
+   "one_sided": null,
+   "actual": 3.41,
+   "actual_as_written": "$3.41",
+   "range_width_pct": 0.09375,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Retire $2.5 billion of senior notes due 2023 in Q4 2022",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

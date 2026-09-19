@@ -1,0 +1,44 @@
+{
+ "ticker": "QS",
+ "call_date": "2025-07-23",
+ "custom_id": "QS_2025-07-23",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 45000000,
+    "high": 75000000,
+    "low_as_written": "45 million",
+    "high_as_written": "75 million"
+   },
+   "latest_revision": {
+    "low": 45000000,
+    "high": 75000000,
+    "low_as_written": "$45 million",
+    "high_as_written": "$75 million"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Bring the COBRA separator process into baseline production",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

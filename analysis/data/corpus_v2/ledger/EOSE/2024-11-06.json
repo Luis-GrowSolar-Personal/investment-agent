@@ -1,0 +1,39 @@
+{
+ "ticker": "EOSE",
+ "call_date": "2024-11-06",
+ "custom_id": "EOSE_2024-11-06",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 60000000,
+    "high": 90000000,
+    "low_as_written": "$60",
+    "high_as_written": "$90 million"
+   },
+   "latest_revision": {
+    "low": 60000000,
+    "high": 90000000,
+    "low_as_written": "$60",
+    "high_as_written": "$90 million"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,145 @@
+{
+ "ticker": "IBM",
+ "call_date": "2025-01-29",
+ "custom_id": "IBM_2025-01-29",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 12000000000,
+    "high": 12000000000,
+    "low_as_written": "about $12 billion",
+    "high_as_written": "about $12 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12000000000,
+    "high": 12000000000,
+    "low_as_written": "$12 billion",
+    "high_as_written": "$12 billion",
+    "one_sided": "floor"
+   },
+   "n_revisions": 4,
+   "quote": "For free cash flow, we expect to generate about $12 billion.",
+   "one_sided": null,
+   "actual": 12700000000,
+   "actual_as_written": "$12.7 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.058333,
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6,
+    "high": 8,
+    "low_as_written": "6%",
+    "high_as_written": "8%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 200,
+    "low_as_written": "100",
+    "high_as_written": "200 basis point",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "In consulting, our solid signings and book-to-bill ratio support revenue growth in a range of 6% to 8%, with acceleration throughout the year.",
+   "one_sided": null,
+   "actual": 1.6129032258064502,
+   "actual_as_written": "about $63 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 62000000000
+   },
+   "range_width_pct": 0.333333,
+   "grade": "missed",
+   "miss_pct": 0.731183,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "consistent with the third quarter levels",
+    "high_as_written": "consistent with the third quarter levels",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "consistent with the third quarter levels",
+    "high_as_written": "consistent with the third quarter levels",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue growth in the fourth quarter to be consistent with the third quarter levels",
+   "one_sided": null,
+   "actual": 1.1494252873563315,
+   "actual_as_written": "$17.6 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 17400000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.425287,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "IBM expects to close the HashiCorp acquisition by the end of 2024",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "missed": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

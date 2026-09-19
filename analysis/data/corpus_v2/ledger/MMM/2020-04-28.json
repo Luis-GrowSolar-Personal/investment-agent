@@ -1,0 +1,59 @@
+{
+ "ticker": "MMM",
+ "call_date": "2020-04-28",
+ "custom_id": "MMM_2020-04-28",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.3,
+    "high": 9.75,
+    "low_as_written": "$9.30",
+    "high_as_written": "$9.75"
+   },
+   "latest_revision": {
+    "low": 9.3,
+    "high": 9.75,
+    "low_as_written": "$9.30",
+    "high_as_written": "$9.75"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5300000000,
+    "high": 6000000000,
+    "low_as_written": "$5.3",
+    "high_as_written": "$6 billion"
+   },
+   "latest_revision": {
+    "low": 5300000000,
+    "high": 6000000000,
+    "low_as_written": "$5.3",
+    "high_as_written": "$6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [
+  "all"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 4,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

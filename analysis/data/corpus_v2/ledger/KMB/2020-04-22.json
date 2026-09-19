@@ -1,0 +1,17 @@
+{
+ "ticker": "KMB",
+ "call_date": "2020-04-22",
+ "custom_id": "KMB_2020-04-22",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

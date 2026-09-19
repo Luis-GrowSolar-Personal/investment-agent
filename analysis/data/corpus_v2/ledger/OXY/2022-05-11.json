@@ -1,0 +1,25 @@
+{
+ "ticker": "OXY",
+ "call_date": "2022-05-11",
+ "custom_id": "OXY_2022-05-11",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Host a Low Carbon Ventures investor update to detail direct air capture and carbon capture strategy",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,117 @@
+{
+ "ticker": "MRK",
+ "call_date": "2023-02-02",
+ "custom_id": "MRK_2023-02-02",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 15,
+    "high": 18,
+    "low_as_written": "15%",
+    "high_as_written": "18%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": 21,
+    "low_as_written": "20",
+    "high_as_written": "21%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect revenue to be between $56.1 and $57.6 billion, representing growth of 15% to 18%, including a negative impact from foreign exchange of approximately 2% using mid-January rates.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.12,
+    "high": 7.27,
+    "low_as_written": "$7.12",
+    "high_as_written": "$7.27",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7.32,
+    "high": 7.37,
+    "low_as_written": "$7.32",
+    "high_as_written": "$7.37",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect EPS of $7.12 to $7.27, reflecting growth of 18% to 21%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "approximately 74%",
+    "high_as_written": "approximately 74%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 74,
+    "high": 74.5,
+    "low_as_written": "74",
+    "high_as_written": "74.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our gross margin is expected to be approximately 74%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,67 @@
+{
+ "ticker": "QS",
+ "call_date": "2025-02-12",
+ "custom_id": "QS_2025-02-12",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 70000000,
+    "high": 120000000,
+    "low_as_written": "$70 million",
+    "high_as_written": "$120 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 60000000,
+    "high": 75000000,
+    "low_as_written": "$60 million",
+    "high_as_written": "$75 million",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "For the full year 2024, we expect capital expenditures to be between $70 million and $120 million.",
+   "one_sided": null,
+   "actual": 62100000,
+   "actual_as_written": "62.1 million",
+   "range_width_pct": 0.714286,
+   "grade": "beat",
+   "beat_pct": 0.112857,
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "COBRA heat treatment equipment will be in place by end of 2024",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Co-founder and chairman Jagdeep Singh will retire from the board at end of 2024",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

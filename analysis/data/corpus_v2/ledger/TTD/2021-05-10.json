@@ -1,0 +1,59 @@
+{
+ "ticker": "TTD",
+ "call_date": "2021-05-10",
+ "custom_id": "TTD_2021-05-10",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 214000000,
+    "high": 217000000,
+    "low_as_written": "$214 million",
+    "high_as_written": "$217 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 214000000,
+    "high": 217000000,
+    "low_as_written": "$214 million",
+    "high_as_written": "$217 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We estimate Q1 revenue to be between $214 million and $217 million, which would represent growth of between 33% to 35% on a year-over-year basis",
+   "one_sided": null,
+   "actual": 219800000,
+   "actual_as_written": "$219.8 million",
+   "range_width_pct": 0.014019,
+   "grade": "beat",
+   "beat_pct": 0.012903,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

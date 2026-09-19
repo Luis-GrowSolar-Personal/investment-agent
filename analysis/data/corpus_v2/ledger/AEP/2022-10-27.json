@@ -1,0 +1,33 @@
+{
+ "ticker": "AEP",
+ "call_date": "2022-10-27",
+ "custom_id": "AEP_2022-10-27",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Launch auction process for unregulated contracted renewables portfolio no later than early September",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close Kentucky Power sale to Liberty this summer",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Host investor/analyst day in New York City on October 4th, providing 2023 guidance range and rolling forward five-year capital and financing plans through 2027",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,157 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2024-02-06",
+ "custom_id": "NXPI_2024-02-06",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 58.0,
+    "high": 59.0,
+    "low_as_written": "58.5%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 58.0,
+    "high": 59.0,
+    "low_as_written": "58.5%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP gross margin to be flat sequentially at 58.5% plus or minus 50 basis points",
+   "one_sided": null,
+   "actual": 58.7,
+   "actual_as_written": "58.7%",
+   "range_width_pct": 0.017241,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 35.4,
+    "high": 35.4,
+    "low_as_written": "35.4%",
+    "high_as_written": "35.4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 35.4,
+    "high": 35.4,
+    "low_as_written": "35.4%",
+    "high_as_written": "35.4%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "non-GAAP operating margin will be 35.4% at the midpoint.",
+   "one_sided": null,
+   "actual": 35.6,
+   "actual_as_written": "35.6%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.00565,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.65,
+    "high": 3.65,
+    "low_as_written": "$3.65",
+    "high_as_written": "$3.65",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.65,
+    "high": 3.65,
+    "low_as_written": "$3.65",
+    "high_as_written": "$3.65",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "at the midpoint implies a non-GAAP earnings per share of $3.65.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "6%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "6%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "capital expenditures of 6% of revenue.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1,
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

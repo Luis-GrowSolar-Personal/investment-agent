@@ -1,0 +1,17 @@
+{
+ "ticker": "FRC",
+ "call_date": "2022-01-14",
+ "custom_id": "FRC_2022-01-14",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

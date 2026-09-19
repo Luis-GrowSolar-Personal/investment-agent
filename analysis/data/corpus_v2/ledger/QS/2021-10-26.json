@@ -1,0 +1,66 @@
+{
+ "ticker": "QS",
+ "call_date": "2021-10-26",
+ "custom_id": "QS_2021-10-26",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": -290000000,
+    "high": -230000000,
+    "low_as_written": "$230",
+    "high_as_written": "$290 million"
+   },
+   "latest_revision": {
+    "low": -290000000,
+    "high": -230000000,
+    "low_as_written": "$230",
+    "high_as_written": "$290 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 40,
+    "high": 50,
+    "low_as_written": "40%",
+    "high_as_written": "50%"
+   },
+   "latest_revision": {
+    "low": 40,
+    "high": 50,
+    "low_as_written": "40%",
+    "high_as_written": "50%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Update CapEx guidance for 2021 in the Q3 shareholder letter when timing on QS0 payments comes into clearer focus",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Update full-year free cash flow burn guidance in the Q3 shareholder letter",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

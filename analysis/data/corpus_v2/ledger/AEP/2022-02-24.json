@@ -1,0 +1,64 @@
+{
+ "ticker": "AEP",
+ "call_date": "2022-02-24",
+ "custom_id": "AEP_2022-02-24",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.55,
+    "high": 4.75,
+    "low_as_written": "$4.55 per share",
+    "high_as_written": "$4.75 per share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.65,
+    "high": 4.75,
+    "low_as_written": "$4.65",
+    "high_as_written": "$4.75",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we feel confident in raising our operating earnings guidance range to $4.55 per share to $4.75 per share",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 4.74,
+   "actual_as_written": "$4.74",
+   "range_width_pct": 0.043956,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "AEP intends to introduce 2022 earnings guidance and a longer-term capital plan at the EEI conference in early November",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

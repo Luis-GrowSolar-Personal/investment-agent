@@ -1,0 +1,67 @@
+{
+ "ticker": "WMB",
+ "call_date": "2021-02-23",
+ "custom_id": "WMB_2021-02-23",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1000000000,
+    "high": 1200000000,
+    "low_as_written": "$1.0",
+    "high_as_written": "$1.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1000000000,
+    "high": 1200000000,
+    "low_as_written": "$1",
+    "high_as_written": "$1.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "On growth CapEx, we're reducing from the original range of 1.1 to 1.3 down to $1.0 to $1.2 billion",
+   "one_sided": null,
+   "actual": 1500000000,
+   "actual_as_written": "$1.5 billion",
+   "range_width_pct": 0.2,
+   "grade": "missed",
+   "miss_pct": 0.25,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Williams expects to provide 2021 financial guidance during the Q4 earnings release in February",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Williams expects to file a FERC application for Regional Energy Access project within the next three months",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

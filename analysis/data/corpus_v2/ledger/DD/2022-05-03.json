@@ -1,0 +1,86 @@
+{
+ "ticker": "DD",
+ "call_date": "2022-05-03",
+ "custom_id": "DD_2022-05-03",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4200000000,
+    "high": 4300000000,
+    "low_as_written": "$4.2",
+    "high_as_written": "$4.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4200000000,
+    "high": 4300000000,
+    "low_as_written": "$4.2",
+    "high_as_written": "$4.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "In the first quarter, we expect net sales between $4.2 and $4.3 billion, and operating EBITDA between 940 and 980 million.",
+   "one_sided": null,
+   "actual": 3300000000,
+   "actual_as_written": "$3.3 billion",
+   "range_width_pct": 0.02381,
+   "grade": "missed",
+   "miss_pct": 0.214286,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 17400000000,
+    "high": 17800000000,
+    "low_as_written": "$17.4",
+    "high_as_written": "$17.8 billion"
+   },
+   "latest_revision": {
+    "low": 17400000000,
+    "high": 17800000000,
+    "low_as_written": "$17.4",
+    "high_as_written": "$17.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Sign agreement to divest majority of M&M segment",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Complete remaining $375 million under existing share repurchase authorization",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

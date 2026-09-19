@@ -1,0 +1,21 @@
+{
+ "ticker": "NEM",
+ "call_date": "2023-02-23",
+ "custom_id": "NEM_2023-02-23",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

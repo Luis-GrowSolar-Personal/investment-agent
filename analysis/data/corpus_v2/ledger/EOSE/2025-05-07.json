@@ -1,0 +1,39 @@
+{
+ "ticker": "EOSE",
+ "call_date": "2025-05-07",
+ "custom_id": "EOSE_2025-05-07",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 150000000,
+    "high": 190000000,
+    "low_as_written": "150",
+    "high_as_written": "190 million"
+   },
+   "latest_revision": {
+    "low": 150000000,
+    "high": 190000000,
+    "low_as_written": "150",
+    "high_as_written": "190 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,57 @@
+{
+ "ticker": "BMY",
+ "call_date": "2025-07-31",
+ "custom_id": "BMY_2025-07-31",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 6.55,
+    "high": 6.85,
+    "low_as_written": "$6.55",
+    "high_as_written": "$6.85"
+   },
+   "latest_revision": {
+    "low": 6.7,
+    "high": 7.0,
+    "low_as_written": "$6.70",
+    "high_as_written": "$7"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 72,
+    "high": 72,
+    "low_as_written": "approximately 72%",
+    "high_as_written": "approximately 72%"
+   },
+   "latest_revision": {
+    "low": 72,
+    "high": 72,
+    "low_as_written": "approximately 72%",
+    "high_as_written": "approximately 72%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

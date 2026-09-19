@@ -1,0 +1,75 @@
+{
+ "ticker": "KMB",
+ "call_date": "2023-10-20",
+ "custom_id": "KMB_2023-10-20",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 6,
+    "low_as_written": "2%",
+    "high_as_written": "6%"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 6,
+    "low_as_written": "2%",
+    "high_as_written": "6%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "original": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "80 basis points",
+    "high_as_written": "80 basis points"
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "80 basis points",
+    "high_as_written": "80 basis points"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -2,
+    "high": -2,
+    "low_as_written": "two percentage points",
+    "high_as_written": "two percentage points"
+   },
+   "latest_revision": {
+    "low": -2,
+    "high": -2,
+    "low_as_written": "two percentage points",
+    "high_as_written": "two percentage points"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

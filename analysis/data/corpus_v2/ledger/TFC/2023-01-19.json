@@ -1,0 +1,68 @@
+{
+ "ticker": "TFC",
+ "call_date": "2023-01-19",
+ "custom_id": "TFC_2023-01-19",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2",
+    "high_as_written": "4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.5,
+    "high": 4.5,
+    "low_as_written": "three and a half",
+    "high_as_written": "four and a half",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "In 2022, we expect total revenue to grow 2 to 4% from 2021 as a result of higher net interest income combined with solid growth in fees.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete remaining decommissioning activities and finalize merger costs by year end",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Make the cash reserve feature available across Truist's full footprint",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close the BankDirect Capital Finance acquisition",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

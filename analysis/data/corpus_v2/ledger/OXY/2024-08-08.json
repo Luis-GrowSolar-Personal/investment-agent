@@ -1,0 +1,40 @@
+{
+ "ticker": "OXY",
+ "call_date": "2024-08-08",
+ "custom_id": "OXY_2024-08-08",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 100000000,
+    "high": 100000000,
+    "low_as_written": "$100 million",
+    "high_as_written": "$100 million"
+   },
+   "latest_revision": {
+    "low": 600000000,
+    "high": 600000000,
+    "low_as_written": "$600 million",
+    "high_as_written": "$600 million"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

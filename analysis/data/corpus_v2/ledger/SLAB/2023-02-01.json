@@ -1,0 +1,131 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2023-02-01",
+ "custom_id": "SLAB_2023-02-01",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 245000000,
+    "high": 255000000,
+    "low_as_written": "$245",
+    "high_as_written": "$255 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 245000000,
+    "high": 255000000,
+    "low_as_written": "$245",
+    "high_as_written": "$255 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue for Q4 to be in the range of $245 to $255 million.",
+   "one_sided": null,
+   "actual": 257000000,
+   "actual_as_written": "$257 million",
+   "range_width_pct": 0.040816,
+   "grade": "beat",
+   "beat_pct": 0.007843,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 60,
+    "high": 60,
+    "low_as_written": "60%",
+    "high_as_written": "60%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 60,
+    "high": 60,
+    "low_as_written": "60%",
+    "high_as_written": "60%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect non-GAAP gross margin in Q4 to be approximately 60%",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 61.3,
+   "actual_as_written": "61.3%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.021667,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.93,
+    "high": 1.03,
+    "low_as_written": "93 cents",
+    "high_as_written": "$1.03",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.93,
+    "high": 1.03,
+    "low_as_written": "93 cents",
+    "high_as_written": "$1.03",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "non-GAAP earnings to be between 93 cents to $1.03 per share",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 1.31,
+   "actual_as_written": "$1.31",
+   "range_width_pct": 0.107527,
+   "grade": "beat",
+   "beat_pct": 0.271845,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

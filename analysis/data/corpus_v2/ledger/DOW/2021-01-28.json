@@ -1,0 +1,138 @@
+{
+ "ticker": "DOW",
+ "call_date": "2021-01-28",
+ "custom_id": "DOW_2021-01-28",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9500000000,
+    "high": 9800000000,
+    "low_as_written": "$9.5",
+    "high_as_written": "$9.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9500000000,
+    "high": 9800000000,
+    "low_as_written": "$9.5",
+    "high_as_written": "$9.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We see total sales in the range of $9.5 to $9.8 billion.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "typical seasonality, which has historically been anywhere from a 3% to 5% sequential impact on sales",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_income",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 10,
+    "low_as_written": "5%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 10,
+    "low_as_written": "5%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "a 5% to 10% impact on EBIT",
+   "one_sided": null,
+   "actual": -21.999999999999996,
+   "actual_as_written": "$780 million (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 1000000000
+   },
+   "range_width_pct": 1.0,
+   "grade": "missed",
+   "miss_pct": 5.4,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Reach agreement to reprofile Sadara's project financing debt",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close sale of select U.S. Gulf Coast marine and terminal operations with more than $600 million in cash proceeds",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 2,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

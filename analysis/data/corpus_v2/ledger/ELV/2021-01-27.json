@@ -1,0 +1,64 @@
+{
+ "ticker": "ELV",
+ "call_date": "2021-01-27",
+ "custom_id": "ELV_2021-01-27",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 22.3,
+    "high": 22.3,
+    "low_as_written": "$22.30",
+    "high_as_written": "$22.30",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 22.3,
+    "high": 22.3,
+    "low_as_written": "$22.30",
+    "high_as_written": "$22.30",
+    "one_sided": "floor"
+   },
+   "n_revisions": 3,
+   "quote": "we are maintaining our original full-year adjusted earnings per share guidance of greater than $22.30",
+   "one_sided": "floor",
+   "multi_candidate": 2,
+   "actual": 22.48,
+   "actual_as_written": "$22.48",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Anthem will provide detailed 2021 financial outlook on the fourth quarter earnings call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

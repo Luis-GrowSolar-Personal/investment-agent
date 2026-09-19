@@ -1,0 +1,39 @@
+{
+ "ticker": "ELV",
+ "call_date": "2025-10-21",
+ "custom_id": "ELV_2025-10-21",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 34.15,
+    "high": 34.85,
+    "low_as_written": "$34.15",
+    "high_as_written": "$34.85"
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "approximately $30",
+    "high_as_written": "approximately $30"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

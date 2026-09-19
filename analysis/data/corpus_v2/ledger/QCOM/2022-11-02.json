@@ -1,0 +1,190 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2022-11-02",
+ "custom_id": "QCOM_2022-11-02",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 20,
+    "high": null,
+    "low_as_written": "20%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": null,
+    "low_as_written": "20%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "fiscal 22 will be another exciting year for Qualcomm, with year-over-year EPS growth expected to exceed 20%",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 11000000000,
+    "high": 11800000000,
+    "low_as_written": "$11",
+    "high_as_written": "$11.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9500000000,
+    "high": 10100000000,
+    "low_as_written": "$9.5",
+    "high_as_written": "$10.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "In the fourth fiscal quarter, we are forecasting revenues of $11 to $11.8 billion and non-GAAP EPS of $3 to $3.30.",
+   "one_sided": null,
+   "multi_candidate": 3,
+   "actual": 11400000000,
+   "actual_as_written": "$11.4 billion",
+   "range_width_pct": 0.072727,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.0,
+    "high": 3.3,
+    "low_as_written": "$3",
+    "high_as_written": "$3.30",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.0,
+    "high": 3.3,
+    "low_as_written": "$3",
+    "high_as_written": "$3.30",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are forecasting revenues of $11 to $11.8 billion and non-GAAP EPS of $3 to $3.30.",
+   "one_sided": null,
+   "actual": 3.13,
+   "actual_as_written": "$3.13",
+   "range_width_pct": 0.1,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 12.55,
+    "high": 12.55,
+    "low_as_written": "$12.55",
+    "high_as_written": "$12.55",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12.55,
+    "high": 12.55,
+    "low_as_written": "$12.55",
+    "high_as_written": "$12.55",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP EPS of $12.55, a growth of $4 relative to fiscal 21.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 37000000000,
+    "high": null,
+    "low_as_written": "$37 billion",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 37000000000,
+    "high": null,
+    "low_as_written": "$37 billion",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We are forecasting QCT revenues of greater than $37 billion, a year-over-year growth of greater than $10 billion",
+   "one_sided": "floor",
+   "actual": 44000000000,
+   "actual_as_written": "$44 billion",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "met": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

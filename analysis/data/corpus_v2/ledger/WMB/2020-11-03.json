@@ -1,0 +1,39 @@
+{
+ "ticker": "WMB",
+ "call_date": "2020-11-03",
+ "custom_id": "WMB_2020-11-03",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1000000000,
+    "high": 1200000000,
+    "low_as_written": "$1.0",
+    "high_as_written": "$1.2 billion"
+   },
+   "latest_revision": {
+    "low": 1000000000,
+    "high": 1200000000,
+    "low_as_written": "$1.0",
+    "high_as_written": "$1.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

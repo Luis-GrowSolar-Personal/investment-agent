@@ -1,0 +1,128 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2025-08-05",
+ "custom_id": "SLAB_2025-08-05",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 185000000,
+    "high": 200000000,
+    "low_as_written": "$185 million",
+    "high_as_written": "$200 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 185000000,
+    "high": 200000000,
+    "low_as_written": "$185 million",
+    "high_as_written": "$200 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate revenue in the June quarter to be in the range of $185 million to $200 million",
+   "one_sided": null,
+   "actual": 193000000,
+   "actual_as_written": "$193 million",
+   "range_width_pct": 0.081081,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 55,
+    "high": 57,
+    "low_as_written": "55%",
+    "high_as_written": "57%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 55,
+    "high": 57,
+    "low_as_written": "55%",
+    "high_as_written": "57%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we expect the gross margin improvements in the June quarter with both GAAP and non-GAAP gross margins to be in the range of 55% to 57%.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 56.1,
+   "actual_as_written": "56.1%",
+   "range_width_pct": 0.036364,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -0.95,
+    "high": -0.55,
+    "low_as_written": "$0.95",
+    "high_as_written": "$0.55",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.01,
+    "high": 0.19,
+    "low_as_written": "$0.01",
+    "high_as_written": "$0.19",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "gap loss per share is expected to be in the range of $0.55 to $0.95 loss on an assumed basic share count of 32.7 million shares.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": -0.67,
+   "actual_as_written": "$0.67",
+   "range_width_pct": 0.421053,
+   "grade": "met",
+   "grade_vs_latest": "missed",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

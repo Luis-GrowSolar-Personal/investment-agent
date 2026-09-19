@@ -1,0 +1,20 @@
+{
+ "ticker": "PARA",
+ "call_date": "2023-11-02",
+ "custom_id": "PARA_2023-11-02",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

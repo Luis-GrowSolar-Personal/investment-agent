@@ -1,0 +1,39 @@
+{
+ "ticker": "CMI",
+ "call_date": "2023-11-02",
+ "custom_id": "CMI_2023-11-02",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 12,
+    "high": 17,
+    "low_as_written": "12%",
+    "high_as_written": "17%"
+   },
+   "latest_revision": {
+    "low": 15,
+    "high": 20,
+    "low_as_written": "15",
+    "high_as_written": "20%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

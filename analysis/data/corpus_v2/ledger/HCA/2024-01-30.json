@@ -1,0 +1,129 @@
+{
+ "ticker": "HCA",
+ "call_date": "2024-01-30",
+ "custom_id": "HCA_2024-01-30",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 61500000000,
+    "high": 63500000000,
+    "low_as_written": "$61.5 billion",
+    "high_as_written": "$63.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 63500000000,
+    "high": 64500000000,
+    "low_as_written": "$63.5 billion",
+    "high_as_written": "$64.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect revenues to range between $61.5 billion and $63.5 billion.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 16.4,
+    "high": 17.6,
+    "low_as_written": "$16.40",
+    "high_as_written": "$17.60",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 17.8,
+    "high": 18.5,
+    "low_as_written": "$17.80",
+    "high_as_written": "$18.50",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect full-year diluted earnings per share to range between $16.40 and $17.60.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4300000000,
+    "high": 4300000000,
+    "low_as_written": "4.3 billion",
+    "high_as_written": "4.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4700000000,
+    "high": 4700000000,
+    "low_as_written": "$4.7 billion",
+    "high_as_written": "$4.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect capital spending to approximate 4.3 billion during the year.",
+   "one_sided": null,
+   "actual": 4700000000,
+   "actual_as_written": "$4.7 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.093023,
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "HCA Healthcare will provide details on long-term growth targets and early perspectives on 2024 at its Investor Day",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "ungradable_present": 1,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

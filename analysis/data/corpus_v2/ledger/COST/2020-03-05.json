@@ -1,0 +1,17 @@
+{
+ "ticker": "COST",
+ "call_date": "2020-03-05",
+ "custom_id": "COST_2020-03-05",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

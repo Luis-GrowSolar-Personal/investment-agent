@@ -1,0 +1,57 @@
+{
+ "ticker": "WMB",
+ "call_date": "2022-08-02",
+ "custom_id": "WMB_2022-08-02",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 2000000000,
+    "high": 2000000000,
+    "low_as_written": "$2 billion",
+    "high_as_written": "$2 billion"
+   },
+   "latest_revision": {
+    "low": 2000000000,
+    "high": 2000000000,
+    "low_as_written": "$2 billion",
+    "high_as_written": "$2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 35000000,
+    "high": 45000000,
+    "low_as_written": "$35",
+    "high_as_written": "$45 million"
+   },
+   "latest_revision": {
+    "low": 35000000,
+    "high": 45000000,
+    "low_as_written": "$35",
+    "high_as_written": "$45 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

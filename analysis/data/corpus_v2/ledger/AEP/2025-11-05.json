@@ -1,0 +1,29 @@
+{
+ "ticker": "AEP",
+ "call_date": "2025-11-05",
+ "custom_id": "AEP_2025-11-05",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "AEP expects to announce a new five-year capital plan of approximately $70 billion in fall 2025, with the revised plan and associated financing details to be shared on the Q3 2025 earnings call.",
+   "mentioned_now": true
+  },
+  {
+   "intent": "AEP expects a West Virginia Commission order in Q3 2025 on the APCO base rate case including potential securitization of up to $2.4 billion.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,175 @@
+{
+ "ticker": "NOW",
+ "call_date": "2024-10-23",
+ "custom_id": "NOW_2024-10-23",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2660000000,
+    "high": 2665000000,
+    "low_as_written": "2.660 billion",
+    "high_as_written": "2.665 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2660000000,
+    "high": 2665000000,
+    "low_as_written": "2.660 billion",
+    "high_as_written": "2.665 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q3, we expect subscription revenues between 2.660 billion and 2.665 billion, representing 20 to 20.5% year-over-year growth or 20.5% on a constant currency basis.",
+   "one_sided": null,
+   "actual": 2715000000,
+   "actual_as_written": "$2.715 billion",
+   "range_width_pct": 0.00188,
+   "grade": "beat",
+   "beat_pct": 0.018762,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 29.5,
+    "high": 29.5,
+    "low_as_written": "29.5%",
+    "high_as_written": "29.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 29.5,
+    "high": 29.5,
+    "low_as_written": "29.5%",
+    "high_as_written": "29.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 29.5%.",
+   "one_sided": null,
+   "actual": 31,
+   "actual_as_written": "over 31%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.050847,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 10555000000,
+    "high": 10575000000,
+    "low_as_written": "10.555 billion",
+    "high_as_written": "10.575 billion"
+   },
+   "latest_revision": {
+    "low": 10575000000,
+    "high": 10585000000,
+    "low_as_written": "$10.575 billion",
+    "high_as_written": "$10.585 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 84.5,
+    "high": 84.5,
+    "low_as_written": "84.5%",
+    "high_as_written": "84.5%"
+   },
+   "latest_revision": {
+    "low": 84.5,
+    "high": 84.5,
+    "low_as_written": "84.5%",
+    "high_as_written": "84.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "twenty nine percent",
+    "high_as_written": "twenty nine percent"
+   },
+   "latest_revision": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29%",
+    "high_as_written": "29%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%"
+   },
+   "latest_revision": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "ServiceNow plans to make additional announcements on September 10th regarding its growing data ambition",
+   "mentioned_now": true
+  },
+  {
+   "intent": "ServiceNow will launch the RaptorDB Lighthouse program for select top customers",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,141 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2023-04-25",
+ "custom_id": "MSFT_2023-04-25",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 18000000000,
+    "high": 18300000000,
+    "low_as_written": "18",
+    "high_as_written": "18.3 billion U.S. dollars",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12500000000,
+    "high": 12900000000,
+    "low_as_written": "12.5",
+    "high_as_written": "12.9 billion U.S. dollars",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "In productivity and business processes, we expect revenue to grow between 9 and 11% or 18 to 18.3 billion U.S. dollars.",
+   "one_sided": null,
+   "actual": 56500000000,
+   "actual_as_written": "$56.5 billion",
+   "range_width_pct": 0.016667,
+   "grade": "beat",
+   "beat_pct": 2.087432,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9,
+    "high": 11,
+    "low_as_written": "9",
+    "high_as_written": "11%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 11,
+    "low_as_written": "9",
+    "high_as_written": "11%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "In productivity and business processes, we expect revenue to grow between 9 and 11% or 18 to 18.3 billion U.S. dollars.",
+   "one_sided": null,
+   "actual": 14.372469635627528,
+   "actual_as_written": "$56.5 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 49400000000
+   },
+   "range_width_pct": 0.222222,
+   "grade": "beat",
+   "beat_pct": 0.306588,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "operating_income",
+   "framing": "level",
+   "original": {
+    "low": 3700000000,
+    "high": 3700000000,
+    "low_as_written": "approximately $3.7 billion",
+    "high_as_written": "approximately $3.7 billion"
+   },
+   "latest_revision": {
+    "low": 3700000000,
+    "high": 3700000000,
+    "low_as_written": "$3.7 billion",
+    "high_as_written": "$3.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "around 20%",
+    "high_as_written": "around 20%"
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "around 20%",
+    "high_as_written": "around 20%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Security Copilot will be available to customers via a paid early access program",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

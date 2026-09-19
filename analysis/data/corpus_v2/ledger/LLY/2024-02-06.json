@@ -1,0 +1,168 @@
+{
+ "ticker": "LLY",
+ "call_date": "2024-02-06",
+ "custom_id": "LLY_2024-02-06",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.9,
+    "high": 8.1,
+    "low_as_written": "$7.90",
+    "high_as_written": "$8.10",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.7,
+    "high": 9.9,
+    "low_as_written": "$9.70",
+    "high_as_written": "$9.90",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "new EPS range of $7.90 to $8.10 on a GAAP basis and $8.35 to $8.55 on a non-GAAP basis",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "roughly 7%",
+    "high_as_written": "roughly 7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "roughly 7%",
+    "high_as_written": "roughly 7%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "the midpoint of our 2023 revenue guidance range represents roughly 7% of growth or 50% growth for our core business, excluding COVID-19 antibodies",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 31200000000,
+    "high": 31700000000,
+    "low_as_written": "$31.2 billion",
+    "high_as_written": "$31.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 31200000000,
+    "high": 31700000000,
+    "low_as_written": "$31.2 billion",
+    "high_as_written": "$31.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are increasing the revenue guidance range by $900 million to now be in the range of $31.2 billion to $31.7 billion",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "approximately 80%",
+    "high_as_written": "approximately 80%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "approximately 80%",
+    "high_as_written": "approximately 80%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Our guidance for gross margin as a percent of revenue has increased to approximately 80%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Lilly expects to launch Terzepatide for obesity in the US later this year pending regulatory approval",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Lilly plans to make plasma pTau217 test commercially available as a laboratory-developed test in a phased approach starting end of 2023",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Lilly will provide initial 2024 financial guidance when reporting Q4 results",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Lilly expects to double Monjaro manufacturing capacity by end of 2023 from a year ago",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "basis_mismatch": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

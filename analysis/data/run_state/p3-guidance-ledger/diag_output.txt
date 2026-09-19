@@ -1,0 +1,23 @@
+predecessor-bearing calls: 1184; with >=1 graded promise (coverage): 417 (35.2%)
+gap-marked: 18 | extraction missing: 1
+grade shares (all promises): {'beat': '442 (38.8%)', 'basis_mismatch': '114 (10.0%)', 'missed': '144 (12.6%)', 'met': '182 (16.0%)', 'ungradable_present': '242 (21.2%)', 'unreported': '14 (1.2%)', 'withdrawn': '2 (0.2%)'}
+promises per non-empty call: median 2, range 1-8
+grade-by-year:
+  2020 {'beat': 39, 'basis_mismatch': 9, 'missed': 1, 'met': 12, 'ungradable_present': 13, 'withdrawn': 2}
+  2021 {'ungradable_present': 38, 'beat': 74, 'met': 17, 'basis_mismatch': 18, 'unreported': 3, 'missed': 10}
+  2022 {'beat': 87, 'basis_mismatch': 22, 'met': 33, 'missed': 20, 'ungradable_present': 38, 'unreported': 4}
+  2023 {'missed': 36, 'ungradable_present': 53, 'beat': 77, 'met': 45, 'basis_mismatch': 17, 'unreported': 3}
+  2024 {'beat': 73, 'ungradable_present': 58, 'missed': 33, 'met': 37, 'basis_mismatch': 23, 'unreported': 3}
+  2025 {'missed': 44, 'beat': 92, 'ungradable_present': 42, 'basis_mismatch': 25, 'met': 38, 'unreported': 1}
+framing: conversions performed 51 | unconverted framing mismatches (graded basis_mismatch) 99
+ungradable_present (guided metric present in transcript but not extracted; excluded from the six grades): 242
+5d-i (miss/unreported/withdrawn -> underperformed S&P by >5pts, base 46.6%):
+  all years: n=114 bearish-outcome share 47.4% (Wilson 38.4-56.5; ticker-block 39.7-56.7) vs base 46.6%
+  2020 only: n=3 bearish-outcome share 66.7% (Wilson 20.8-93.9; ticker-block 0.0-100.0) vs base 46.6%
+  excl 2020: n=111 bearish-outcome share 46.8% (Wilson 37.8-56.1; ticker-block 38.7-56.1) vs base 46.6%
+5d-ii (clean beats, no miss -> outperformed S&P by >5pts, base 32.8%):
+  all years: n=224 bullish-outcome share 30.4% (Wilson 24.7-36.7; ticker-block 25.5-34.8) vs base 32.8%
+  2020 only: n=23 bullish-outcome share 39.1% (Wilson 22.2-59.2; ticker-block 16.0-65.0) vs base 32.8%
+  excl 2020: n=201 bullish-outcome share 29.4% (Wilson 23.5-36.0; ticker-block 23.6-35.0) vs base 32.8%
+5e: N_eligible=93 (gate >=150) | N_eligible_bull=122 | N_reassure=11 | no-miss ledger-bearing v6-not-bearish=291
+*** GATE: N_eligible < 150 -- STOP before pre-flight and report ***

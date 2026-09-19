@@ -1,0 +1,142 @@
+{
+ "ticker": "HON",
+ "call_date": "2025-07-24",
+ "custom_id": "HON_2025-07-24",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.6,
+    "high": 2.7,
+    "low_as_written": "$2.60",
+    "high_as_written": "$2.70",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.6,
+    "high": 2.7,
+    "low_as_written": "$2.60",
+    "high_as_written": "$2.70",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Earnings per share in the second quarter is anticipated to be in the range of $2.60 and $2.70, up 4% to up 8% year-over-year",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 2.75,
+   "actual_as_written": "$2.75",
+   "range_width_pct": 0.038462,
+   "grade": "beat",
+   "beat_pct": 0.018519,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 39600000000,
+    "high": 40600000000,
+    "low_as_written": "$39.6",
+    "high_as_written": "$40.6 billion"
+   },
+   "latest_revision": {
+    "low": 39600000000,
+    "high": 40500000000,
+    "low_as_written": "$39.6",
+    "high_as_written": "$40.5 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 1,
+    "high": 4,
+    "low_as_written": "1%",
+    "high_as_written": "4%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.1,
+    "high": 10.5,
+    "low_as_written": "$10.10",
+    "high_as_written": "$10.50"
+   },
+   "latest_revision": {
+    "low": 10.2,
+    "high": 10.5,
+    "low_as_written": "ten dollars and twenty cents",
+    "high_as_written": "ten dollars and fifty cents"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5400000000,
+    "high": 5800000000,
+    "low_as_written": "$5.4",
+    "high_as_written": "$5.8 billion"
+   },
+   "latest_revision": {
+    "low": 5400000000,
+    "high": 5800000000,
+    "low_as_written": "$5.4",
+    "high_as_written": "$5.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Close acquisition of Sundyne",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Complete sale of PPE business",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 3,
+ "revised_down_count": 2
+}

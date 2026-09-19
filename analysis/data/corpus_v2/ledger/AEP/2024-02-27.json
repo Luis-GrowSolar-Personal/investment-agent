@@ -1,0 +1,67 @@
+{
+ "ticker": "AEP",
+ "call_date": "2024-02-27",
+ "custom_id": "AEP_2024-02-27",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5.19,
+    "high": 5.39,
+    "low_as_written": "$5.19",
+    "high_as_written": "$5.39",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5.19,
+    "high": 5.39,
+    "low_as_written": "$5.19",
+    "high_as_written": "$5.39",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "reaffirm our 2023 full-year operating guidance range of $5.19 per share to $5.39 per share, with a $5.29 per share midpoint and long-term earnings growth rate range of 6% to 7%.",
+   "one_sided": null,
+   "actual": 5.25,
+   "actual_as_written": "$5.25",
+   "range_width_pct": 0.038536,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete strategic review of Transource investment",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Provide 2024 guidance, updated capital plan, and five-year cash flows at EEI Financial Conference",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

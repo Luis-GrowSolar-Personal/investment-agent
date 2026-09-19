@@ -1,0 +1,63 @@
+{
+ "ticker": "WMB",
+ "call_date": "2022-02-22",
+ "custom_id": "WMB_2022-02-22",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1000000000,
+    "high": 1200000000,
+    "low_as_written": "$1.0",
+    "high_as_written": "$1.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1000000000,
+    "high": 1200000000,
+    "low_as_written": "$1.0",
+    "high_as_written": "$1.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Our growth capex of $1.0 to $1.2 billion is expected to remain in line with 2020",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Williams targets bringing Lighting South into full service earlier than projected and before the winter heating season",
+   "mentioned_now": false
+  },
+  {
+   "intent": "Williams expects to secure precedent agreements for another Transco system expansion, bringing total of three incremental expansion projects on Transco in the last half of 2021",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "unreported": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

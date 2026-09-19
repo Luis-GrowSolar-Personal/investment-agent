@@ -1,0 +1,25 @@
+{
+ "ticker": "AMPX",
+ "call_date": "2023-03-23",
+ "custom_id": "AMPX_2023-03-23",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Announce site selection for gigawatt-scale manufacturing facility (Texas or Georgia)",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

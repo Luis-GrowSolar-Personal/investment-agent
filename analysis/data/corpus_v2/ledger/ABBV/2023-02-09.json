@@ -1,0 +1,262 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2023-02-09",
+ "custom_id": "ABBV_2023-02-09",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 14.0,
+    "high": 14.2,
+    "low_as_written": "$14",
+    "high_as_written": "$14.20",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13.84,
+    "high": 13.88,
+    "low_as_written": "$13.84",
+    "high_as_written": "$13.88",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "our full-year adjusted earnings per share guidance is between $14 and $14.20, reflecting growth of 11% at the midpoint.",
+   "one_sided": null,
+   "actual": 13.77,
+   "actual_as_written": "$13.77",
+   "range_width_pct": 0.014286,
+   "grade": "missed",
+   "miss_pct": 0.016429,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 60000000000,
+    "high": 60000000000,
+    "low_as_written": "$60 billion",
+    "high_as_written": "$60 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 58200000000,
+    "high": 58200000000,
+    "low_as_written": "$58.2 billion",
+    "high_as_written": "$58.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect adjusted net revenue of approximately $60 billion.",
+   "one_sided": null,
+   "actual": 58000000000,
+   "actual_as_written": "$58 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.033333,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 51.5,
+    "high": 51.5,
+    "low_as_written": "51.5%",
+    "high_as_written": "51.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 52,
+    "high": 52,
+    "low_as_written": "52 percent",
+    "high_as_written": "52 percent",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We are forecasting the adjusted operating margin ratio to expand by 120 basis points to approximately 51.5% of sales.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 85,
+    "high": 85,
+    "low_as_written": "85 percent",
+    "high_as_written": "85 percent",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We are forecasting full-year adjusted gross margin of approximately 84% of sales",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 24000000000,
+    "high": 24000000000,
+    "low_as_written": "$24 billion",
+    "high_as_written": "$24 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 24000000000,
+    "high": 24000000000,
+    "low_as_written": "$24 billion",
+    "high_as_written": "$24 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect to generate adjusted free cash flow of approximately $24 billion in 2022, which is net of roughly $1 billion in SkyRizzo royalty payments.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.65,
+    "high": 3.69,
+    "low_as_written": "$3.65",
+    "high_as_written": "$3.69",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.65,
+    "high": 3.69,
+    "low_as_written": "$3.65",
+    "high_as_written": "$3.69",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $3.65 and $3.69.",
+   "one_sided": null,
+   "actual": 3.6,
+   "actual_as_written": "$3.60",
+   "range_width_pct": 0.010959,
+   "grade": "missed",
+   "miss_pct": 0.013699,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 15200000000,
+    "high": 15200000000,
+    "low_as_written": "$15.2 billion",
+    "high_as_written": "$15.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 15200000000,
+    "high": 15200000000,
+    "low_as_written": "$15.2 billion",
+    "high_as_written": "$15.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate net revenues of approximately $15.2 billion.",
+   "one_sided": null,
+   "actual": 15100000000,
+   "actual_as_written": "$15.1 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.006579,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide Humira sales guidance for 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 4,
+  "ungradable_present": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

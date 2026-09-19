@@ -1,0 +1,39 @@
+{
+ "ticker": "TMUS",
+ "call_date": "2021-11-02",
+ "custom_id": "TMUS_2021-11-02",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 4900000000,
+    "high": 5400000000,
+    "low_as_written": "$4.9",
+    "high_as_written": "$5.4 billion"
+   },
+   "latest_revision": {
+    "low": 5200000000,
+    "high": 5500000000,
+    "low_as_written": "$5.2",
+    "high_as_written": "$5.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

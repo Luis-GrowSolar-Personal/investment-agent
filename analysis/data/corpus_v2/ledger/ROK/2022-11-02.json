@@ -1,0 +1,192 @@
+{
+ "ticker": "ROK",
+ "call_date": "2022-11-02",
+ "custom_id": "ROK_2022-11-02",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 160000000,
+    "high": 160000000,
+    "low_as_written": "$160 million",
+    "high_as_written": "$160 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7700000000,
+    "high": 7900000000,
+    "low_as_written": "$7.7",
+    "high_as_written": "$7.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "it will generate $175 million of ARR, $160 million of revenue after the adjustment for deferred revenue",
+   "one_sided": null,
+   "actual": 7800000000,
+   "actual_as_written": "$7.8 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 47.75,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 14,
+    "high": 17,
+    "low_as_written": "14%",
+    "high_as_written": "17%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 12,
+    "low_as_written": "10",
+    "high_as_written": "12%",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "We expect organic sales growth to be in the range of 14% to 17%, and about 15.5% at the midpoint of our range.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10.5,
+    "high": 11.1,
+    "low_as_written": "$10.50",
+    "high_as_written": "$11.10",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.3,
+    "high": 9.7,
+    "low_as_written": "$9.30",
+    "high_as_written": "$9.70",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our adjusted EPS guidance is $10.50 to $11.10.",
+   "one_sided": null,
+   "actual": 9.49,
+   "actual_as_written": "$9.49",
+   "range_width_pct": 0.057143,
+   "grade": "missed",
+   "miss_pct": 0.09619,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "about 90 percent",
+    "high_as_written": "about 90 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 85,
+    "high": 85,
+    "low_as_written": "about 85%",
+    "high_as_written": "about 85%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect full year fiscal 22 free cash flow conversion of about 90 percent of adjusted income",
+   "one_sided": null,
+   "actual_framing": "margin_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 165000000,
+    "high": 165000000,
+    "low_as_written": "$165 million",
+    "high_as_written": "$165 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 165000000,
+    "high": 165000000,
+    "low_as_written": "$165 million",
+    "high_as_written": "$165 million",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "$165 million of capital expenditures, and funding higher levels of working capital to support higher sales.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "basis_mismatch": 2,
+  "missed": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

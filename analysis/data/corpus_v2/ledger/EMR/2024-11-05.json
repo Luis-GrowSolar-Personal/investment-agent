@@ -1,0 +1,200 @@
+{
+ "ticker": "EMR",
+ "call_date": "2024-11-05",
+ "custom_id": "EMR_2024-11-05",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2600000000,
+    "high": 2700000000,
+    "low_as_written": "$2.6",
+    "high_as_written": "$2.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2800000000,
+    "high": 2800000000,
+    "low_as_written": "approximately $2.8 billion",
+    "high_as_written": "approximately $2.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "free cash flow is expected to be $2.6 to $2.7 billion",
+   "one_sided": null,
+   "actual": 2900000000,
+   "actual_as_written": "$2.9 billion",
+   "range_width_pct": 0.038462,
+   "grade": "beat",
+   "beat_pct": 0.074074,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 15,
+    "high": 15,
+    "low_as_written": "approximately 15%",
+    "high_as_written": "approximately 15%",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "underlying sales growth of 4% to 6%.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2.5,
+    "high": 2.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "2.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.5,
+    "high": 2.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "2.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "increase our capex to approximately 2.5% of sales",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5.3,
+    "high": 5.45,
+    "low_as_written": "$5.30",
+    "high_as_written": "$5.45",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5.4,
+    "high": 5.5,
+    "low_as_written": "$5.40",
+    "high_as_written": "$5.50",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "Our adjusted EPS range increases from $5.30 to $5.45, driven by our Q1 performance.",
+   "one_sided": null,
+   "actual": 5.49,
+   "actual_as_written": "$5.49",
+   "range_width_pct": 0.028302,
+   "grade": "beat",
+   "beat_pct": 0.007339,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1500000000,
+    "high": 1600000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1500000000,
+    "high": 1600000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We still expect sales to be $1.5 to $1.6 billion as we continue to watch for the orders turn.",
+   "one_sided": null,
+   "actual": 1460000000,
+   "actual_as_written": "$1.46 billion",
+   "range_width_pct": 0.066667,
+   "grade": "missed",
+   "miss_pct": 0.026667,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete sale of remaining equity interest in Copeland joint venture",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "basis_mismatch": 1,
+  "ungradable_present": 1,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

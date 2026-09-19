@@ -1,0 +1,147 @@
+{
+ "ticker": "HON",
+ "call_date": "2023-04-27",
+ "custom_id": "HON_2023-04-27",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8300000000,
+    "high": 8600000000,
+    "low_as_written": "$8.3",
+    "high_as_written": "$8.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8300000000,
+    "high": 8600000000,
+    "low_as_written": "$8.3",
+    "high_as_written": "$8.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate sales in the range of $8.3 to $8.6 billion in the first quarter, up 1 to 5% organically",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1.86,
+    "high": 1.96,
+    "low_as_written": "$1.86",
+    "high_as_written": "$1.96",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.86,
+    "high": 1.96,
+    "low_as_written": "$1.86",
+    "high_as_written": "$1.96",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect first quarter EPS between $1.86 and $1.96, down 3% to up 3% year-over-year",
+   "one_sided": null,
+   "actual": 2.07,
+   "actual_as_written": "$2.07",
+   "range_width_pct": 0.053763,
+   "grade": "beat",
+   "beat_pct": 0.056122,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 36000000000,
+    "high": 37000000000,
+    "low_as_written": "$36",
+    "high_as_written": "$37 billion"
+   },
+   "latest_revision": {
+    "low": 36000000000,
+    "high": 37000000000,
+    "low_as_written": "$36",
+    "high_as_written": "$37 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.8,
+    "high": 9.2,
+    "low_as_written": "$8.80",
+    "high_as_written": "$9.20"
+   },
+   "latest_revision": {
+    "low": 8.8,
+    "high": 9.2,
+    "low_as_written": "$8.80",
+    "high_as_written": "$9.20"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,131 @@
+{
+ "ticker": "EMR",
+ "call_date": "2020-08-04",
+ "custom_id": "EMR_2020-08-04",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -16.0,
+    "high": -13.0,
+    "low_as_written": "down 16",
+    "high_as_written": "13 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -16.0,
+    "high": -13.0,
+    "low_as_written": "down 16",
+    "high_as_written": "13 percent",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Underlying sales is expected to be down 16 to 13 percent.",
+   "one_sided": null,
+   "actual": -15,
+   "actual_as_written": "down 15%",
+   "range_width_pct": 0.1875,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.55,
+    "high": 3.8,
+    "low_as_written": "$3.55",
+    "high_as_written": "$3.80"
+   },
+   "latest_revision": {
+    "low": 3.0,
+    "high": 3.2,
+    "low_as_written": "$3",
+    "high_as_written": "$3.20"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion"
+   },
+   "latest_revision": {
+    "low": 2200000000,
+    "high": 2200000000,
+    "low_as_written": "$2.2 billion",
+    "high_as_written": "$2.2 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 650000000,
+    "high": 650000000,
+    "low_as_written": "$650 million",
+    "high_as_written": "$650 million"
+   },
+   "latest_revision": {
+    "low": 550000000,
+    "high": 550000000,
+    "low_as_written": "$550 million",
+    "high_as_written": "$550 million"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -11.0,
+    "high": -9.0,
+    "low_as_written": "down 11%",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": -11.0,
+    "high": -9.0,
+    "low_as_written": "down 11%",
+    "high_as_written": "9%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 2
+}

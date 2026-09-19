@@ -1,0 +1,98 @@
+{
+ "ticker": "UPS",
+ "call_date": "2023-10-26",
+ "custom_id": "UPS_2023-10-26",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 97000000000,
+    "high": 99400000000,
+    "low_as_written": "$97",
+    "high_as_written": "$99.4 billion"
+   },
+   "latest_revision": {
+    "low": 14000000000,
+    "high": 14000000000,
+    "low_as_written": "$14 billion",
+    "high_as_written": "$14 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 5
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 12.8,
+    "high": 13.6,
+    "low_as_written": "12.8",
+    "high_as_written": "13.6 percent"
+   },
+   "latest_revision": {
+    "low": 11.8,
+    "high": 11.8,
+    "low_as_written": "11.8%",
+    "high_as_written": "11.8%"
+   },
+   "revised_down": true,
+   "n_revisions": 7
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 8000000000,
+    "high": 8000000000,
+    "low_as_written": "$8 billion",
+    "high_as_written": "$8 billion"
+   },
+   "latest_revision": {
+    "low": 8000000000,
+    "high": 8000000000,
+    "low_as_written": "$8 billion",
+    "high_as_written": "$8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 5300000000,
+    "high": 5300000000,
+    "low_as_written": "$5.3 billion",
+    "high_as_written": "$5.3 billion"
+   },
+   "latest_revision": {
+    "low": 5300000000,
+    "high": 5300000000,
+    "low_as_written": "$5.3 billion",
+    "high_as_written": "$5.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete U.S. Smart Package Smart Facility deployment by end of October 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 2
+}

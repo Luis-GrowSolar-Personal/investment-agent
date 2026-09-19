@@ -1,0 +1,80 @@
+{
+ "ticker": "PG",
+ "call_date": "2023-01-19",
+ "custom_id": "PG_2023-01-19",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 0,
+    "high": 4,
+    "low_as_written": "inline",
+    "high_as_written": "plus 4%"
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 4,
+    "low_as_written": "in line",
+    "high_as_written": "plus 4%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Host an investor day in Cincinnati on the afternoon and evening of Thursday, November 17th",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

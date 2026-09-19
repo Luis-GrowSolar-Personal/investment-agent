@@ -1,0 +1,30 @@
+{
+ "ticker": "DUK",
+ "call_date": "2022-02-10",
+ "custom_id": "DUK_2022-02-10",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide updated capital and financing plans including 2022 earnings guidance",
+   "mentioned_now": true
+  },
+  {
+   "intent": "File Indiana Integrated Resource Plan",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,160 @@
+{
+ "ticker": "PG",
+ "call_date": "2020-07-29",
+ "custom_id": "PG_2020-07-29",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 5,
+    "low_as_written": "4%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 5,
+    "low_as_written": "4%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We're maintaining our guidance range for organic sales growth of 4% to 5% for the fiscal year.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8,
+    "high": 9,
+    "low_as_written": "8%",
+    "high_as_written": "9%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 11,
+    "low_as_written": "8",
+    "high_as_written": "11%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we're raising our outlook for fiscal 24 core earnings per share from a range of 6% to 9% to a range of 8% to 9% growth versus last fiscal year",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted free cash flow productivity of 90%.",
+   "one_sided": null,
+   "actual": 114,
+   "actual_as_written": "114%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.266667,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We continue to expect adjusted free cash flow productivity of 100%.",
+   "one_sided": null,
+   "actual_framing": "margin_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide first outlook for fiscal 2021 on the year-end call in July",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 3,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

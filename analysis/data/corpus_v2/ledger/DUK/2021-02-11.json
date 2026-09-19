@@ -1,0 +1,58 @@
+{
+ "ticker": "DUK",
+ "call_date": "2021-02-11",
+ "custom_id": "DUK_2021-02-11",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5.05,
+    "high": 5.45,
+    "low_as_written": "$5.05",
+    "high_as_written": "$5.45",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5.05,
+    "high": 5.45,
+    "low_as_written": "$5.05",
+    "high_as_written": "$5.45",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we've announced our adjusted earnings per share guidance range of $5.05 to $5.45 with a 5.25 midpoint",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 5.12,
+   "actual_as_written": "$5.12",
+   "range_width_pct": 0.079208,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

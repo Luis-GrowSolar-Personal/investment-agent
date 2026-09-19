@@ -1,0 +1,57 @@
+{
+ "ticker": "MU",
+ "call_date": "2022-12-21",
+ "custom_id": "MU_2022-12-21",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -1500000000,
+    "high": -1500000000,
+    "low_as_written": "$1.5 billion",
+    "high_as_written": "$1.5 billion",
+    "one_sided": "ceiling"
+   },
+   "latest_revision": {
+    "low": -1500000000,
+    "high": -1500000000,
+    "low_as_written": "$1.5 billion",
+    "high_as_written": "$1.5 billion",
+    "one_sided": "ceiling"
+   },
+   "n_revisions": 1,
+   "quote": "we project to be over $1.5 billion negative free cash flow in the November quarter",
+   "one_sided": "ceiling",
+   "actual": -1500000000,
+   "actual_as_written": "negative $1.5 billion",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

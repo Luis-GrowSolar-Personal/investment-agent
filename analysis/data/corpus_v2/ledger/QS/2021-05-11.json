@@ -1,0 +1,57 @@
+{
+ "ticker": "QS",
+ "call_date": "2021-05-11",
+ "custom_id": "QS_2021-05-11",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": -290000000,
+    "high": -230000000,
+    "low_as_written": "$230",
+    "high_as_written": "$290 million"
+   },
+   "latest_revision": {
+    "low": -290000000,
+    "high": -230000000,
+    "low_as_written": "$230",
+    "high_as_written": "$290 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 40,
+    "high": 50,
+    "low_as_written": "40%",
+    "high_as_written": "50%"
+   },
+   "latest_revision": {
+    "low": 40,
+    "high": 50,
+    "low_as_written": "40%",
+    "high_as_written": "50%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

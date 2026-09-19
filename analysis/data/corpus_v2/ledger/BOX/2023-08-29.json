@@ -1,0 +1,206 @@
+{
+ "ticker": "BOX",
+ "call_date": "2023-08-29",
+ "custom_id": "BOX_2023-08-29",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 260000000,
+    "high": 262000000,
+    "low_as_written": "$260",
+    "high_as_written": "$262 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 260000000,
+    "high": 262000000,
+    "low_as_written": "$260",
+    "high_as_written": "$262 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate revenue in the range of $260 to $262 million, representing 7% year-over-year growth at the high end of this range",
+   "one_sided": null,
+   "actual": 261000000,
+   "actual_as_written": "$261 million",
+   "range_width_pct": 0.007692,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 24,
+    "high": 24,
+    "low_as_written": "approximately 24%",
+    "high_as_written": "approximately 24%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 24,
+    "high": 24,
+    "low_as_written": "approximately 24%",
+    "high_as_written": "approximately 24%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our non-GAAP operating margin to increase to approximately 24%, representing a 230 basis point improvement year over year",
+   "one_sided": null,
+   "actual": 24.8,
+   "actual_as_written": "24.8%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.033333,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.01,
+    "high": 0.02,
+    "low_as_written": "$0.01",
+    "high_as_written": "$0.02",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.01,
+    "high": 0.02,
+    "low_as_written": "$0.01",
+    "high_as_written": "$0.02",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "gap EPS to be in the range of $0.01 to $0.02",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "GAAP",
+    "non-GAAP"
+   ],
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 1050000000,
+    "high": 1060000000,
+    "low_as_written": "$1.05 billion",
+    "high_as_written": "$1.06 billion"
+   },
+   "latest_revision": {
+    "low": 1045000000,
+    "high": 1055000000,
+    "low_as_written": "$1,045,000,000",
+    "high_as_written": "$1,055,000,000"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 1.42,
+    "high": 1.48,
+    "low_as_written": "$1.42",
+    "high_as_written": "$1.48"
+   },
+   "latest_revision": {
+    "low": 0.17,
+    "high": 0.23,
+    "low_as_written": "17 cents",
+    "high_as_written": "23 cents"
+   },
+   "revised_down": true,
+   "n_revisions": 4
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "77%",
+    "high_as_written": "77%"
+   },
+   "latest_revision": {
+    "low": 77.5,
+    "high": 77.5,
+    "low_as_written": "roughly 77.5%",
+    "high_as_written": "roughly 77.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 25.5,
+    "high": 25.5,
+    "low_as_written": "approximately 25.5%",
+    "high_as_written": "approximately 25.5%"
+   },
+   "latest_revision": {
+    "low": 25.5,
+    "high": 25.5,
+    "low_as_written": "approximately 25.5%",
+    "high_as_written": "approximately 25.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Actively repurchase additional shares",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 2
+}

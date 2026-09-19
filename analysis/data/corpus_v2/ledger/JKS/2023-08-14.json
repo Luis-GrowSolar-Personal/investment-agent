@@ -1,0 +1,54 @@
+{
+ "ticker": "JKS",
+ "call_date": "2023-08-14",
+ "custom_id": "JKS_2023-08-14",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "unit_shipments",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 16,
+    "high": 18,
+    "low_as_written": "16",
+    "high_as_written": "18 GW",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 16,
+    "high": 18,
+    "low_as_written": "16",
+    "high_as_written": "18 GW",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect the module shipments to be in the range of 16 to 18 GW for the second quarter of 2023.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

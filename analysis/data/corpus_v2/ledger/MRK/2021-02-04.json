@@ -1,0 +1,147 @@
+{
+ "ticker": "MRK",
+ "call_date": "2021-02-04",
+ "custom_id": "MRK_2021-02-04",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 48800000000,
+    "high": 50300000000,
+    "low_as_written": "$48.8 billion",
+    "high_as_written": "$50.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 47600000000,
+    "high": 48600000000,
+    "low_as_written": "$47.6 billion",
+    "high_as_written": "$48.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect full-year 2020 revenue to be between $48.8 billion and $50.3 billion, which represents 4% to 7% growth versus 2019.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5.62,
+    "high": 5.77,
+    "low_as_written": "$5.62",
+    "high_as_written": "$5.77",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5.91,
+    "high": 6.01,
+    "low_as_written": "$5.91",
+    "high_as_written": "$6.01",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect EPS to be between $5.62 and $5.77, which represents growth of 8% to 11%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 75.5,
+    "high": 75.5,
+    "low_as_written": "75.5%",
+    "high_as_written": "75.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 75,
+    "high": 75,
+    "low_as_written": "roughly 75%",
+    "high_as_written": "roughly 75%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our gross margin will be roughly 75.5%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100 basis points",
+    "high_as_written": "100 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100 basis points",
+    "high_as_written": "100 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "This guidance still implies operating margin expansion of approximately 100 basis points for the year",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 4
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

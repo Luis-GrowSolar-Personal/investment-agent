@@ -1,0 +1,300 @@
+{
+ "ticker": "INTC",
+ "call_date": "2022-01-26",
+ "custom_id": "INTC_2022-01-26",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 72500000000,
+    "high": 72500000000,
+    "low_as_written": "$72.5 billion",
+    "high_as_written": "$72.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 73500000000,
+    "high": 73500000000,
+    "low_as_written": "$73.5 billion",
+    "high_as_written": "$73.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "For full year, we are increasing our guidance provided in March, now forecasting $72.5 billion in revenue, up $500 million from our prior guidance.",
+   "one_sided": null,
+   "actual": 74700000000,
+   "actual_as_written": "$74.7 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.030345,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 56.5,
+    "high": 56.5,
+    "low_as_written": "56.5%",
+    "high_as_written": "56.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 57,
+    "high": 57,
+    "low_as_written": "57%",
+    "high_as_written": "57%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "gross margin of 56.5%, and EPS at $4.60, up 5 cents from our March 23rd call.",
+   "one_sided": null,
+   "actual": 57.7,
+   "actual_as_written": "57.7%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.021239,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.6,
+    "high": 4.6,
+    "low_as_written": "$4.60",
+    "high_as_written": "$4.60",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5.28,
+    "high": 5.28,
+    "low_as_written": "$5.28",
+    "high_as_written": "$5.28",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "gross margin of 56.5%, and EPS at $4.60, up 5 cents from our March 23rd call.",
+   "one_sided": null,
+   "actual": 5.47,
+   "actual_as_written": "$5.47",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.18913,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10500000000,
+    "high": 10500000000,
+    "low_as_written": "$10.5 billion",
+    "high_as_written": "$10.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12500000000,
+    "high": 12500000000,
+    "low_as_written": "$12.5 billion",
+    "high_as_written": "$12.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We now expect free cash flow to be $10.5 billion, up $500 million versus prior expectations.",
+   "one_sided": null,
+   "actual": 11300000000,
+   "actual_as_written": "$11.3 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.07619,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 19000000000,
+    "high": 20000000000,
+    "low_as_written": "$19",
+    "high_as_written": "$20 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18000000000,
+    "high": 19000000000,
+    "low_as_written": "$18",
+    "high_as_written": "$19 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we expect CapEx of $19 to $20 billion this year",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 18300000000,
+    "high": 18300000000,
+    "low_as_written": "$18.3 billion",
+    "high_as_written": "$18.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18300000000,
+    "high": 18300000000,
+    "low_as_written": "$18.3 billion",
+    "high_as_written": "$18.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are forecasting $18.3 billion in revenue, up $200 million quarter-over-quarter",
+   "one_sided": null,
+   "actual": 19500000000,
+   "actual_as_written": "$19.5 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.065574,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 53.5,
+    "high": 53.5,
+    "low_as_written": "53.5%",
+    "high_as_written": "53.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 53.5,
+    "high": 53.5,
+    "low_as_written": "53.5%",
+    "high_as_written": "53.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Gross margin is expected to be approximately 53.5%, unchanged from prior expectation",
+   "one_sided": null,
+   "actual": 55.4,
+   "actual_as_written": "55.4%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.035514,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.9,
+    "high": 0.9,
+    "low_as_written": "$0.90",
+    "high_as_written": "$0.90",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.9,
+    "high": 0.9,
+    "low_as_written": "$0.90",
+    "high_as_written": "$0.90",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are forecasting EPS of $0.90 per share and a tax rate of 13%.",
+   "one_sided": null,
+   "actual": 1.09,
+   "actual_as_written": "$1.09",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.211111,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 7,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

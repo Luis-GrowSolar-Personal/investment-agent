@@ -1,0 +1,57 @@
+{
+ "ticker": "TEAM",
+ "call_date": "2024-10-31",
+ "custom_id": "TEAM_2024-10-31",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 16,
+    "high": 16,
+    "low_as_written": "16%",
+    "high_as_written": "16%"
+   },
+   "latest_revision": {
+    "low": 1.5,
+    "high": 2,
+    "low_as_written": "one and a half",
+    "high_as_written": "two points"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 21.5,
+    "high": 21.5,
+    "low_as_written": "21.5%",
+    "high_as_written": "21.5%"
+   },
+   "latest_revision": {
+    "low": 21.5,
+    "high": 21.5,
+    "low_as_written": "21.5%",
+    "high_as_written": "21.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

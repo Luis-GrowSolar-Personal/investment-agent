@@ -1,0 +1,135 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2024-11-04",
+ "custom_id": "SLAB_2024-11-04",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 160000000,
+    "high": 170000000,
+    "low_as_written": "160 million",
+    "high_as_written": "170 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 160000000,
+    "high": 170000000,
+    "low_as_written": "160 million",
+    "high_as_written": "170 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate revenue in the September quarter to be in the range of 160 million to 170 million.",
+   "one_sided": null,
+   "actual": 166000000,
+   "actual_as_written": "$166 million",
+   "range_width_pct": 0.0625,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 54,
+    "high": 56,
+    "low_as_written": "54%",
+    "high_as_written": "56%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 54,
+    "high": 56,
+    "low_as_written": "54%",
+    "high_as_written": "56%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect our GAAP gross margin in the September quarter to be in the range of 54% to 56%",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 54.3,
+   "actual_as_written": "54.3%",
+   "range_width_pct": 0.037037,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -1.25,
+    "high": -0.95,
+    "low_as_written": "$0.95",
+    "high_as_written": "$1.25",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.3,
+    "high": -0.1,
+    "low_as_written": "$0.10",
+    "high_as_written": "$0.30",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we expect gap loss per share to be in the range of $0.95 to $1.25 loss",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": -0.88,
+   "actual_as_written": "88 cents",
+   "range_width_pct": 0.24,
+   "grade": "beat",
+   "beat_pct": 0.073684,
+   "grade_vs_latest": "missed",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Silicon Labs will discuss its Series 3 platform at the Works with Developers Conference",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

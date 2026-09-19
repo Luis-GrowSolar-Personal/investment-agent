@@ -1,0 +1,199 @@
+{
+ "ticker": "NOW",
+ "call_date": "2023-10-25",
+ "custom_id": "NOW_2023-10-25",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 25.5,
+    "high": 26,
+    "low_as_written": "25.5%",
+    "high_as_written": "26%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25.5,
+    "high": 26,
+    "low_as_written": "25.5%",
+    "high_as_written": "26%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect subscription revenues between 2.185 billion and 2.195 billion, representing 25.5% to 26% year-over-year growth",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2185000000,
+    "high": 2195000000,
+    "low_as_written": "2.185 billion",
+    "high_as_written": "2.195 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2185000000,
+    "high": 2195000000,
+    "low_as_written": "2.185 billion",
+    "high_as_written": "2.195 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect subscription revenues between 2.185 billion and 2.195 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 27,
+    "high": 27,
+    "low_as_written": "27%",
+    "high_as_written": "27%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 27,
+    "high": 27,
+    "low_as_written": "27%",
+    "high_as_written": "27%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 27%",
+   "one_sided": null,
+   "actual": 30,
+   "actual_as_written": "30%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.111111,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 8440000000,
+    "high": 8500000000,
+    "low_as_written": "$8.44 billion",
+    "high_as_written": "$8.5 billion"
+   },
+   "latest_revision": {
+    "low": 8580000000,
+    "high": 8600000000,
+    "low_as_written": "$8.58 billion",
+    "high_as_written": "$8.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%"
+   },
+   "latest_revision": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 26,
+    "high": 26,
+    "low_as_written": "26%",
+    "high_as_written": "26%"
+   },
+   "latest_revision": {
+    "low": 26.5,
+    "high": 26.5,
+    "low_as_written": "26.5%",
+    "high_as_written": "26.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%"
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "ServiceNow plans to launch new generative AI ProPlus SKU offerings across ITSM, CSM, and HRSD with the Vancouver release",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

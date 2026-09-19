@@ -1,0 +1,155 @@
+{
+ "ticker": "MRK",
+ "call_date": "2022-02-03",
+ "custom_id": "MRK_2022-02-03",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 51800000000,
+    "high": 53800000000,
+    "low_as_written": "$51.8 billion",
+    "high_as_written": "$53.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 46400000000,
+    "high": 47400000000,
+    "low_as_written": "$46.4",
+    "high_as_written": "$47.4 billion",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "we expect revenues of $51.8 billion to $53.8 billion, which represents growth of 8% to 12% versus 2020.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "roughly 77%",
+    "high_as_written": "roughly 77%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 76.5,
+    "high": 76.5,
+    "low_as_written": "76.5%",
+    "high_as_written": "76.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our gross margin will be roughly 77%, including a benefit of 1.8 percentage points due to the reporting change.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 6.48,
+    "high": 6.68,
+    "low_as_written": "$6.48",
+    "high_as_written": "$6.68",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5.65,
+    "high": 5.7,
+    "low_as_written": "$5.65",
+    "high_as_written": "$5.70",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect our non-GAAP EPS to be between $6.48 to $6.68, which reflects growth of 12% to 15% versus 2020 recast EPS.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8,
+    "high": 12,
+    "low_as_written": "8%",
+    "high_as_written": "12%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 12,
+    "low_as_written": "8%",
+    "high_as_written": "12%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we continue to expect revenues of $51.8 to $53.8 billion, representing growth of 8% to 12% versus 2020.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Merck expects to close the Acceleron acquisition during the fourth quarter, subject to completion of the tender offer and regulatory approval",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 2,
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

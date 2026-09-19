@@ -1,0 +1,152 @@
+{
+ "ticker": "INTC",
+ "call_date": "2023-07-27",
+ "custom_id": "INTC_2023-07-27",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 11500000000,
+    "high": 11500000000,
+    "low_as_written": "11.5 billion dollars",
+    "high_as_written": "11.5 billion dollars",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11500000000,
+    "high": 11500000000,
+    "low_as_written": "11.5 billion dollars",
+    "high_as_written": "11.5 billion dollars",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect second quarter revenue of 11.5 billion dollars",
+   "one_sided": null,
+   "actual": 12900000000,
+   "actual_as_written": "$12.9 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.121739,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 37.5,
+    "high": 37.5,
+    "low_as_written": "37.5%",
+    "high_as_written": "37.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 37.5,
+    "high": 37.5,
+    "low_as_written": "37.5%",
+    "high_as_written": "37.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're forecasting Q2 gross margin of 37.5%, a tax rate of 13%, and EPS of negative 4 cents at the midpoint of revenue guidance.",
+   "one_sided": null,
+   "actual": 39.8,
+   "actual_as_written": "39.8%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.061333,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -0.04,
+    "high": -0.04,
+    "low_as_written": "negative 4 cents",
+    "high_as_written": "negative 4 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.04,
+    "high": -0.04,
+    "low_as_written": "negative 4 cents",
+    "high_as_written": "negative 4 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're forecasting Q2 gross margin of 37.5%, a tax rate of 13%, and EPS of negative 4 cents at the midpoint of revenue guidance.",
+   "one_sided": null,
+   "actual": 0.13,
+   "actual_as_written": "13 cents",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 4.25,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "low 30 percent",
+    "high_as_written": "low 30 percent"
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "low 30 percent",
+    "high_as_written": "low 30 percent"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Host internal Foundry investor webinar in Q2 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,149 @@
+{
+ "ticker": "EMR",
+ "call_date": "2025-05-07",
+ "custom_id": "EMR_2025-05-07",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1,
+    "high": 2,
+    "low_as_written": "1%",
+    "high_as_written": "2%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1,
+    "high": 2,
+    "low_as_written": "1%",
+    "high_as_written": "2%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "In the second quarter, we expect underlying sales to be up 1% to 2%",
+   "one_sided": null,
+   "actual": 2,
+   "actual_as_written": "2%",
+   "range_width_pct": 1.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.38,
+    "high": 1.42,
+    "low_as_written": "$1.38",
+    "high_as_written": "$1.42",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.38,
+    "high": 1.42,
+    "low_as_written": "$1.38",
+    "high_as_written": "$1.42",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted segment EBITDA margin of approximately 26.5% and adjusted EPS between $1.38 and $1.42.",
+   "one_sided": null,
+   "actual": 1.48,
+   "actual_as_written": "$1.48",
+   "range_width_pct": 0.028986,
+   "grade": "beat",
+   "beat_pct": 0.042254,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 1.5,
+    "high": 3.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "3.5%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 5.85,
+    "high": 6.05,
+    "low_as_written": "$5.85",
+    "high_as_written": "$6.05"
+   },
+   "latest_revision": {
+    "low": 5.85,
+    "high": 6.05,
+    "low_as_written": "$5.85",
+    "high_as_written": "$6.05"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 3200000000,
+    "high": 3300000000,
+    "low_as_written": "$3.2 billion",
+    "high_as_written": "$3.3 billion"
+   },
+   "latest_revision": {
+    "low": 3200000000,
+    "high": 3300000000,
+    "low_as_written": "$3.2",
+    "high_as_written": "$3.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

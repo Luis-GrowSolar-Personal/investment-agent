@@ -1,0 +1,154 @@
+{
+ "ticker": "ROK",
+ "call_date": "2020-11-10",
+ "custom_id": "ROK_2020-11-10",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100 percent",
+    "high_as_written": "100 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": null,
+    "low_as_written": "100%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 3,
+   "quote": "we continue to project free cash flow conversion of about 100 percent of adjusted income",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6350000000,
+    "high": 6350000000,
+    "low_as_written": "about $6.35 billion",
+    "high_as_written": "about $6.35 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6350000000,
+    "high": 6350000000,
+    "low_as_written": "about $6.35 billion",
+    "high_as_written": "about $6.35 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We now expect full-year fiscal 20 reported sales of about $6.35 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -9.5,
+    "high": -6.5,
+    "low_as_written": "9.5%",
+    "high_as_written": "6.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -5.5,
+    "high": -5.5,
+    "low_as_written": "5.5%",
+    "high_as_written": "5.5%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "project organic sales to be down between 9.5% and 6.5% compared to last year",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.3,
+    "high": 7.3,
+    "low_as_written": "$7.30",
+    "high_as_written": "$7.30",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7.4,
+    "high": 7.6,
+    "low_as_written": "$7.40",
+    "high_as_written": "$7.60",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "Adjusted EPS of $7.30 at the midpoint.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 7.68,
+   "actual_as_written": "$7.68",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.052055,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 3,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

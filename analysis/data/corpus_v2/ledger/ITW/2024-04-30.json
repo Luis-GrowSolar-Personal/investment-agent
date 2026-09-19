@@ -1,0 +1,39 @@
+{
+ "ticker": "ITW",
+ "call_date": "2024-04-30",
+ "custom_id": "ITW_2024-04-30",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2",
+    "high_as_written": "4 percent"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2",
+    "high_as_written": "4 percent"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

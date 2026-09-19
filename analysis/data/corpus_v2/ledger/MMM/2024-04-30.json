@@ -1,0 +1,113 @@
+{
+ "ticker": "MMM",
+ "call_date": "2024-04-30",
+ "custom_id": "MMM_2024-04-30",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7600000000,
+    "high": 7600000000,
+    "low_as_written": "$7.6 billion",
+    "high_as_written": "$7.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7600000000,
+    "high": 7600000000,
+    "low_as_written": "$7.6 billion",
+    "high_as_written": "$7.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see our adjusted sales being approximately $7.6 billion or down slightly versus last year",
+   "one_sided": null,
+   "actual": 7700000000,
+   "actual_as_written": "$7.7 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.013158,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.0,
+    "high": 2.15,
+    "low_as_written": "$2",
+    "high_as_written": "$2.15",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.0,
+    "high": 2.15,
+    "low_as_written": "$2",
+    "high_as_written": "$2.15",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect first quarter adjusted earnings per share to be in the range of $2 to $2.15 per share",
+   "one_sided": null,
+   "actual": 2.39,
+   "actual_as_written": "$2.39",
+   "range_width_pct": 0.075,
+   "grade": "beat",
+   "beat_pct": 0.111628,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.35,
+    "high": 9.75,
+    "low_as_written": "$9.35",
+    "high_as_written": "$9.75"
+   },
+   "latest_revision": {
+    "low": 9.35,
+    "high": 9.75,
+    "low_as_written": "$9.35",
+    "high_as_written": "$9.75"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

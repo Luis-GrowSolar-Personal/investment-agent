@@ -1,0 +1,57 @@
+{
+ "ticker": "LLY",
+ "call_date": "2023-04-27",
+ "custom_id": "LLY_2023-04-27",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.9,
+    "high": 8.1,
+    "low_as_written": "$7.90",
+    "high_as_written": "$8.10"
+   },
+   "latest_revision": {
+    "low": 8.35,
+    "high": 8.55,
+    "low_as_written": "$8.35",
+    "high_as_written": "$8.55"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "roughly 7%",
+    "high_as_written": "roughly 7%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "roughly 7%",
+    "high_as_written": "roughly 7%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

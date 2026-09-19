@@ -1,0 +1,122 @@
+{
+ "ticker": "EMR",
+ "call_date": "2020-04-22",
+ "custom_id": "EMR_2020-04-22",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.81,
+    "high": 0.81,
+    "low_as_written": "81 cents",
+    "high_as_written": "81 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.81,
+    "high": 0.81,
+    "low_as_written": "81 cents",
+    "high_as_written": "81 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted EPS of 81 cents, which excludes $50 million of planned restructuring actions in the quarter",
+   "one_sided": null,
+   "actual": 0.89,
+   "actual_as_written": "89 cents",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.098765,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.55,
+    "high": 3.8,
+    "low_as_written": "$3.55",
+    "high_as_written": "$3.80"
+   },
+   "latest_revision": {
+    "low": 3.55,
+    "high": 3.8,
+    "low_as_written": "$3.55",
+    "high_as_written": "$3.80"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion"
+   },
+   "latest_revision": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 650000000,
+    "high": 650000000,
+    "low_as_written": "$650 million",
+    "high_as_written": "$650 million"
+   },
+   "latest_revision": {
+    "low": 650000000,
+    "high": 650000000,
+    "low_as_written": "$650 million",
+    "high_as_written": "$650 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Present detail on board strategy review and update long-term guidance framework beyond 2020 at the investor conference",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Restart China manufacturing facilities on February 10th subject to government regulations",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

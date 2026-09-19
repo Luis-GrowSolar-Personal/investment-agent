@@ -1,0 +1,29 @@
+{
+ "ticker": "PSX",
+ "call_date": "2023-08-02",
+ "custom_id": "PSX_2023-08-02",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Close the DCP Midstream public unit buy-in transaction",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Provide detailed update on cost savings achieved through the first half of the year",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

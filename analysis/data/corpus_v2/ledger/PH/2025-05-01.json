@@ -1,0 +1,92 @@
+{
+ "ticker": "PH",
+ "call_date": "2025-05-01",
+ "custom_id": "PH_2025-05-01",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4900000000,
+    "high": 4900000000,
+    "low_as_written": "4.9 billion",
+    "high_as_written": "4.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4900000000,
+    "high": 4900000000,
+    "low_as_written": "4.9 billion",
+    "high_as_written": "4.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "reported sales are expected to be approximately 4.9 billion with organic growth of positive 1.5.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 20500000000,
+    "high": 20500000000,
+    "low_as_written": "$20.5 billion",
+    "high_as_written": "$20.5 billion"
+   },
+   "latest_revision": {
+    "low": 20300000000,
+    "high": 20300000000,
+    "low_as_written": "$20.3 billion",
+    "high_as_written": "$20.3 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 1.5,
+    "high": 4.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "4.5%"
+   },
+   "latest_revision": {
+    "low": -2,
+    "high": 1,
+    "low_as_written": "minus two",
+    "high_as_written": "positive one"
+   },
+   "revised_down": true,
+   "n_revisions": 4
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 2
+}

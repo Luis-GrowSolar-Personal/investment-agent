@@ -1,0 +1,130 @@
+{
+ "ticker": "NOW",
+ "call_date": "2025-04-23",
+ "custom_id": "NOW_2025-04-23",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2995000000,
+    "high": 3000000000,
+    "low_as_written": "$2.995",
+    "high_as_written": "$3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2995000000,
+    "high": 3000000000,
+    "low_as_written": "$2.995",
+    "high_as_written": "$3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect subscription revenues between $2.995 and $3 billion, representing 20% year-over-year growth at the midpoint on a constant currency basis",
+   "one_sided": null,
+   "actual": 3005000000,
+   "actual_as_written": "$3.005 billion",
+   "range_width_pct": 0.001669,
+   "grade": "beat",
+   "beat_pct": 0.001667,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 30%",
+   "one_sided": null,
+   "actual": 31,
+   "actual_as_written": "31%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.033333,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 12635000000,
+    "high": 12675000000,
+    "low_as_written": "$12.635 billion",
+    "high_as_written": "$12.675 billion"
+   },
+   "latest_revision": {
+    "low": 12635000000,
+    "high": 12675000000,
+    "low_as_written": "$12.635 billion",
+    "high_as_written": "$12.675 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 30.5,
+    "high": 30.5,
+    "low_as_written": "30.5%",
+    "high_as_written": "30.5%"
+   },
+   "latest_revision": {
+    "low": 30.5,
+    "high": 30.5,
+    "low_as_written": "30.5%",
+    "high_as_written": "30.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

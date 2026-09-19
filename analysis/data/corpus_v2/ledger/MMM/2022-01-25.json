@@ -1,0 +1,154 @@
+{
+ "ticker": "MMM",
+ "call_date": "2022-01-25",
+ "custom_id": "MMM_2022-01-25",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 8,
+    "low_as_written": "5",
+    "high_as_written": "8%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 9,
+    "low_as_written": "6%",
+    "high_as_written": "9%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we are forecasting total sales growth of 5 to 8%, with organic growth in the range of 3 to 6%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 9.2,
+    "high": 9.7,
+    "low_as_written": "$9.20",
+    "high_as_written": "$9.70",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.7,
+    "high": 9.9,
+    "low_as_written": "$9.70",
+    "high_as_written": "$9.90",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Earnings per share is projected to be between $9.20 and $9.70, or up 5 to 11% on an adjusted basis",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 95,
+    "high": 105,
+    "low_as_written": "95",
+    "high_as_written": "105%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect another year of robust cash flow, with free cash flow conversion in the range of 95 to 105%",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1500000000,
+    "high": 1600000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "CapEx for the year is expected to be in the range of $1.8 billion to $2 billion",
+   "one_sided": null,
+   "actual": 1600000000,
+   "actual_as_written": "$1.6 billion",
+   "range_width_pct": 0.111111,
+   "grade": "beat",
+   "beat_pct": 0.111111,
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "basis_mismatch": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 4,
+ "revised_down_count": 0
+}

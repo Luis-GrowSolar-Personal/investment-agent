@@ -1,0 +1,84 @@
+{
+ "ticker": "TFC",
+ "call_date": "2024-07-22",
+ "custom_id": "TFC_2024-07-22",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -2,
+    "high": -2,
+    "low_as_written": "2%",
+    "high_as_written": "2%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -2,
+    "high": -2,
+    "low_as_written": "2%",
+    "high_as_written": "2%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect revenue to decline about 2% from 1Q24 gap revenue of $4.9 billion",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -3,
+    "high": -1,
+    "low_as_written": "3%",
+    "high_as_written": "1%"
+   },
+   "latest_revision": {
+    "low": -5,
+    "high": -4,
+    "low_as_written": "down approximately 4",
+    "high_as_written": "5%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete the sale of Truist Insurance Holdings",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Evaluate balance sheet repositioning post-closing of TIH sale, with spirit of doing it simultaneously with close",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 3,
+ "revised_down_count": 1
+}

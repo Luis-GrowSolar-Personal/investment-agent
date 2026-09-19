@@ -1,0 +1,93 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2022-05-03",
+ "custom_id": "NXPI_2022-05-03",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 56.8,
+    "high": 57.8,
+    "low_as_written": "57.3%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 56.8,
+    "high": 57.8,
+    "low_as_written": "57.3%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect non-GAAP gross margin to be about 57.3% plus or minus 50 basis points",
+   "one_sided": null,
+   "actual": 57.6,
+   "actual_as_written": "57.6%",
+   "range_width_pct": 0.017606,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 35,
+    "high": 35,
+    "low_as_written": "35%",
+    "high_as_written": "35%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 35,
+    "high": 35,
+    "low_as_written": "35%",
+    "high_as_written": "35%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see non-GAAP operating margin to be about 35% at the midpoint",
+   "one_sided": null,
+   "actual": 35.7,
+   "actual_as_written": "35.7%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.02,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

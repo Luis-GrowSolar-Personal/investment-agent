@@ -1,0 +1,129 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2022-10-25",
+ "custom_id": "MSFT_2022-10-25",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 15950000000,
+    "high": 16250000000,
+    "low_as_written": "$15.95",
+    "high_as_written": "$16.25 billion U.S.",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13000000000,
+    "high": 13400000000,
+    "low_as_written": "13",
+    "high_as_written": "13.4 billion U.S. dollars",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect revenue to grow between 12% and 14% in constant currency, or $15.95 to $16.25 billion U.S.",
+   "one_sided": null,
+   "actual": 52900000000,
+   "actual_as_written": "$52.9 billion",
+   "range_width_pct": 0.018809,
+   "grade": "beat",
+   "beat_pct": 2.255385,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "two points",
+    "high_as_written": "two points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "two points",
+    "high_as_written": "two points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Microsoft Cloud gross margin percentage should be up roughly two points year over year, driven by the latest accounting estimate change noted earlier.",
+   "one_sided": null,
+   "actual_framing": "margin_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "operating_income",
+   "framing": "level",
+   "original": {
+    "low": 3700000000,
+    "high": 3700000000,
+    "low_as_written": "approximately $3.7 billion",
+    "high_as_written": "approximately $3.7 billion"
+   },
+   "latest_revision": {
+    "low": 3700000000,
+    "high": 3700000000,
+    "low_as_written": "$3.7 billion",
+    "high_as_written": "$3.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "around 20%",
+    "high_as_written": "around 20%"
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "around 20%",
+    "high_as_written": "around 20%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,26 @@
+{
+ "ticker": "PSX",
+ "call_date": "2023-01-31",
+ "custom_id": "PSX_2023-01-31",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "CPChem expects to make a final investment decision for the U.S. Gulf Coast petrochemical project before the end of 2022",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

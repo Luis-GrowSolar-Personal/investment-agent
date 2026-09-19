@@ -1,0 +1,172 @@
+{
+ "ticker": "ELV",
+ "call_date": "2022-01-26",
+ "custom_id": "ELV_2022-01-26",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 12,
+    "high": 15,
+    "low_as_written": "12%",
+    "high_as_written": "15%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12,
+    "high": 15,
+    "low_as_written": "12%",
+    "high_as_written": "15%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "our view of 2021 would affirm our long-term EPS growth rate of 12% to 15%, albeit skewed to the lower half",
+   "one_sided": null,
+   "actual": 44.493882091212456,
+   "actual_as_written": "$25.98 (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 17.98
+   },
+   "range_width_pct": 0.25,
+   "grade": "beat",
+   "beat_pct": 1.966259,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 24.5,
+    "high": null,
+    "low_as_written": "$24.50",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 25.2,
+    "high": 25.2,
+    "low_as_written": "$25.20",
+    "high_as_written": "$25.20",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "Our 2021 adjusted EPS guidance of greater than $24.50",
+   "one_sided": "floor",
+   "multi_candidate": 2,
+   "actual": 25.98,
+   "actual_as_written": "$25.98",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 135100000000,
+    "high": 135100000000,
+    "low_as_written": "$135.1 billion",
+    "high_as_written": "$135.1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 137000000000,
+    "high": 137000000000,
+    "low_as_written": "$137 billion",
+    "high_as_written": "$137 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we expect 2021 operating revenue to be approximately $135.1 billion, representing growth of 13.5% on a HIF-adjusted basis.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "customer_count",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 44400000,
+    "high": 44400000,
+    "low_as_written": "44.4 million members",
+    "high_as_written": "44.4 million members",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 44800000,
+    "high": 45300000,
+    "low_as_written": "44.8",
+    "high_as_written": "45.3 million",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "total medical membership is expected to reach 44.4 million members at the midpoint, which reflects growth across our key business segments.",
+   "one_sided": null,
+   "actual": 45400000,
+   "actual_as_written": "45.4 million members",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.022523,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide specific 2022 guidance on the fourth quarter earnings call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "met": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

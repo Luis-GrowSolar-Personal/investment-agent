@@ -1,0 +1,39 @@
+{
+ "ticker": "AEP",
+ "call_date": "2021-10-28",
+ "custom_id": "AEP_2021-10-28",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 4.55,
+    "high": 4.75,
+    "low_as_written": "$4.55 per share",
+    "high_as_written": "$4.75 per share"
+   },
+   "latest_revision": {
+    "low": 4.55,
+    "high": 4.75,
+    "low_as_written": "$4.55",
+    "high_as_written": "$4.75"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

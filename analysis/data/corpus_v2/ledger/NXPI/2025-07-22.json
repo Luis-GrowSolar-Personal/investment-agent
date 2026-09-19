@@ -1,0 +1,189 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2025-07-22",
+ "custom_id": "NXPI_2025-07-22",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 55.8,
+    "high": 56.8,
+    "low_as_written": "56.3%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 55.8,
+    "high": 56.8,
+    "low_as_written": "56.3%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP gross margin to be 56.3% plus or minus 50 basis points.",
+   "one_sided": null,
+   "actual": 56.5,
+   "actual_as_written": "56.5%",
+   "range_width_pct": 0.017921,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 31.8,
+    "high": 31.8,
+    "low_as_written": "31.8%",
+    "high_as_written": "31.8%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 31.8,
+    "high": 31.8,
+    "low_as_written": "31.8%",
+    "high_as_written": "31.8%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see non-GAAP operating margin to be 31.8% at the midpoint.",
+   "one_sided": null,
+   "actual": 32,
+   "actual_as_written": "32%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.006289,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.66,
+    "high": 2.66,
+    "low_as_written": "$2.66",
+    "high_as_written": "$2.66",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.66,
+    "high": 2.66,
+    "low_as_written": "$2.66",
+    "high_as_written": "$2.66",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "this implies a non-GAAP earnings per share of $2.66.",
+   "one_sided": null,
+   "actual": 2.72,
+   "actual_as_written": "$2.72",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.022556,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 4,
+    "low_as_written": "4%",
+    "high_as_written": "4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 4,
+    "low_as_written": "4%",
+    "high_as_written": "4%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect capital expenditures to be around 4% of rent.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "NXP expects regulatory approval of the Kinara acquisition to be complete by end of Q2 2025",
+   "mentioned_now": true
+  },
+  {
+   "intent": "NXP intends to get operating expenses to its stated long-term model of 23% of revenue in the second half of 2025 after closing the three pending acquisitions",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 2,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

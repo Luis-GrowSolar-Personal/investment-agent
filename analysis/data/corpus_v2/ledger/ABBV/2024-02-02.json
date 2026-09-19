@@ -1,0 +1,263 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2024-02-02",
+ "custom_id": "ABBV_2024-02-02",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10.7,
+    "high": 11.1,
+    "low_as_written": "$10.70",
+    "high_as_written": "$11.10",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11.19,
+    "high": 11.23,
+    "low_as_written": "$11.19",
+    "high_as_written": "$11.23",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "our full year adjusted earnings per share guidance is between $10.70 and $11.10.",
+   "one_sided": null,
+   "actual": 11.11,
+   "actual_as_written": "$11.11",
+   "range_width_pct": 0.037383,
+   "grade": "beat",
+   "beat_pct": 0.000901,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 52000000000,
+    "high": 52000000000,
+    "low_as_written": "$52 billion",
+    "high_as_written": "$52 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 54000000000,
+    "high": 54000000000,
+    "low_as_written": "$54 billion",
+    "high_as_written": "$54 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect net revenues of approximately $52 billion.",
+   "one_sided": null,
+   "actual": 54300000000,
+   "actual_as_written": "$54.3 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.044231,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 47,
+    "high": 47,
+    "low_as_written": "47%",
+    "high_as_written": "47%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We forecast an adjusted operating margin ratio of 47% of sales.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we are forecasting full-year adjusted gross margin of 84% of sales",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 19000000000,
+    "high": 19000000000,
+    "low_as_written": "$19 billion",
+    "high_as_written": "$19 billion",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 19000000000,
+    "high": 19000000000,
+    "low_as_written": "$19 billion",
+    "high_as_written": "$19 billion",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We expect to generate adjusted free cash flow of nearly $19 billion in 2023",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 14000000000,
+    "high": 14000000000,
+    "low_as_written": "$14 billion",
+    "high_as_written": "$14 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14000000000,
+    "high": 14000000000,
+    "low_as_written": "$14 billion",
+    "high_as_written": "$14 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Turning to the fourth quarter, we anticipate net revenues of approximately $14 billion.",
+   "one_sided": null,
+   "actual": 14300000000,
+   "actual_as_written": "$14.3 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.021429,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.87,
+    "high": 2.91,
+    "low_as_written": "$2.87",
+    "high_as_written": "$2.91",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.87,
+    "high": 2.91,
+    "low_as_written": "$2.87",
+    "high_as_written": "$2.91",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $2.87 and $2.91.",
+   "one_sided": null,
+   "actual": 2.79,
+   "actual_as_written": "$2.79",
+   "range_width_pct": 0.013937,
+   "grade": "missed",
+   "miss_pct": 0.027875,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Submit regulatory applications for Botox in platysma prominence in the U.S. near the end of the year",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 3,
+  "ungradable_present": 3,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

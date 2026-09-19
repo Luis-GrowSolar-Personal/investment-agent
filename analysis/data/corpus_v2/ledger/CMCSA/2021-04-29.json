@@ -1,0 +1,44 @@
+{
+ "ticker": "CMCSA",
+ "call_date": "2021-04-29",
+ "custom_id": "CMCSA_2021-04-29",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3.4,
+    "high": null,
+    "low_as_written": "3.4%",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 3.4,
+    "high": null,
+    "low_as_written": "3.4%",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Combine cable networks and broadcast into one reporting segment along with Peacock",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,29 @@
+{
+ "ticker": "PSX",
+ "call_date": "2021-04-30",
+ "custom_id": "PSX_2021-04-30",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete the South Texas Gateway Terminal with 8.6 million barrels of storage capacity and up to 800,000 barrels per day of export capacity",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Restart Alliance Refinery assuming market conditions support it",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 2,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,20 @@
+{
+ "ticker": "JPM",
+ "call_date": "2020-06-24",
+ "custom_id": "JPM_2020-06-24",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

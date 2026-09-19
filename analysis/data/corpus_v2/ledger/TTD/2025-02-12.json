@@ -1,0 +1,92 @@
+{
+ "ticker": "TTD",
+ "call_date": "2025-02-12",
+ "custom_id": "TTD_2025-02-12",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 756000000,
+    "high": 756000000,
+    "low_as_written": "$756 million",
+    "high_as_written": "$756 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 756000000,
+    "high": 756000000,
+    "low_as_written": "$756 million",
+    "high_as_written": "$756 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We estimate Q4 revenue to be at least $756 million, which would represent growth of about 25% on a year-over-year basis.",
+   "one_sided": "floor",
+   "actual": 741000000,
+   "actual_as_written": "$741 million",
+   "range_width_pct": null,
+   "grade": "missed",
+   "miss_pct": 0.019841,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect CapEx to increase in 2024 and 2025, but in both cases, It should be around 5% of revenue",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [
+  "revenue"
+ ],
+ "counts": {
+  "missed": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

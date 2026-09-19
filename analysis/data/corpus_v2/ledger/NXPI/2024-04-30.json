@@ -1,0 +1,182 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2024-04-30",
+ "custom_id": "NXPI_2024-04-30",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 57.5,
+    "high": 58.5,
+    "low_as_written": "58%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 57.5,
+    "high": 58.5,
+    "low_as_written": "58%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP gross margin to be about 58% plus or minus 50 basis points",
+   "one_sided": null,
+   "actual": 58.2,
+   "actual_as_written": "58.2%",
+   "range_width_pct": 0.017391,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 33.9,
+    "high": 33.9,
+    "low_as_written": "33.9%",
+    "high_as_written": "33.9%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 33.9,
+    "high": 33.9,
+    "low_as_written": "33.9%",
+    "high_as_written": "33.9%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see non-GAAP operating margin to be 33.9% at the midpoint.",
+   "one_sided": null,
+   "actual": 34.5,
+   "actual_as_written": "34.5%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.017699,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.17,
+    "high": 3.17,
+    "low_as_written": "$3.17",
+    "high_as_written": "$3.17",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.17,
+    "high": 3.17,
+    "low_as_written": "$3.17",
+    "high_as_written": "$3.17",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "this implies a non-GAAP earnings per share of $3.17.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For capital expenditures, we expect to be around 7%.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 6,
+    "high": 8,
+    "low_as_written": "6%",
+    "high_as_written": "8%"
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 8,
+    "low_as_written": "6%",
+    "high_as_written": "8%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Retire $1 billion 2024 debt tranche with cash on hand when it comes due on March 1st",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1,
+  "ungradable_present": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

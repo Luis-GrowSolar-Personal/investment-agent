@@ -1,0 +1,73 @@
+{
+ "ticker": "TFC",
+ "call_date": "2021-01-21",
+ "custom_id": "TFC_2021-01-21",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -3,
+    "high": -1,
+    "low_as_written": "1%",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -3,
+    "high": -1,
+    "low_as_written": "1%",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect taxable equivalent revenue excluding one-time security gains to be down 1% to 3% driven by lower purchase counting accretion.",
+   "one_sided": null,
+   "actual": 55.55555555555556,
+   "actual_as_written": "$5.6 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 3600000000
+   },
+   "range_width_pct": 0.666667,
+   "grade": "beat",
+   "beat_pct": 56.555556,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Submit capital plan to the Federal Reserve in early November",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Send PPP forgiveness invitations to all clients in November",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

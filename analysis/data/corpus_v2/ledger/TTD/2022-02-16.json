@@ -1,0 +1,58 @@
+{
+ "ticker": "TTD",
+ "call_date": "2022-02-16",
+ "custom_id": "TTD_2022-02-16",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 388000000,
+    "high": 388000000,
+    "low_as_written": "$388 million",
+    "high_as_written": "$388 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 388000000,
+    "high": 388000000,
+    "low_as_written": "$388 million",
+    "high_as_written": "$388 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we estimate Q4 revenue to be at least $388 million",
+   "one_sided": "floor",
+   "actual": 396000000,
+   "actual_as_written": "$396 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

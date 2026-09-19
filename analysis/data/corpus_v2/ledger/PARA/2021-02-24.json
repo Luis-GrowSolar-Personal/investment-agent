@@ -1,0 +1,91 @@
+{
+ "ticker": "PARA",
+ "call_date": "2021-02-24",
+ "custom_id": "PARA_2021-02-24",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5.15,
+    "high": 5.5,
+    "low_as_written": "$5.15",
+    "high_as_written": "$5.50",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5.15,
+    "high": 5.5,
+    "low_as_written": "$5.15",
+    "high_as_written": "$5.50",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "adjusted diluted EPS from continuing operations in the range of $5.15 to $5.50",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8",
+    "high_as_written": "$2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8",
+    "high_as_written": "$2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "adjusted free cash flow in the range of $1.8 to $2 billion",
+   "one_sided": null,
+   "actual": 2500000000,
+   "actual_as_written": "$2.5 billion",
+   "range_width_pct": 0.111111,
+   "grade": "beat",
+   "beat_pct": 0.25,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

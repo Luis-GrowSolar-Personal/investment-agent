@@ -1,0 +1,44 @@
+{
+ "ticker": "COST",
+ "call_date": "2020-05-28",
+ "custom_id": "COST_2020-05-28",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "$3 billion",
+    "high_as_written": "$3 billion"
+   },
+   "latest_revision": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "$3 billion",
+    "high_as_written": "$3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Plan to add approximately 100 more self-checkout locations in the next three months",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

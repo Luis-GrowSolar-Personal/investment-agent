@@ -1,0 +1,39 @@
+{
+ "ticker": "AEP",
+ "call_date": "2020-10-22",
+ "custom_id": "AEP_2020-10-22",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 4.25,
+    "high": 4.45,
+    "low_as_written": "$4.25",
+    "high_as_written": "$4.45 per share"
+   },
+   "latest_revision": {
+    "low": 4.25,
+    "high": 4.45,
+    "low_as_written": "$4.25",
+    "high_as_written": "$4.45 per share"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

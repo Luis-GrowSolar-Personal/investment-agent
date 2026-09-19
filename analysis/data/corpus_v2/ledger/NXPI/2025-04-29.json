@@ -1,0 +1,177 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2025-04-29",
+ "custom_id": "NXPI_2025-04-29",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 55.8,
+    "high": 56.8,
+    "low_as_written": "56.3%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 55.8,
+    "high": 56.8,
+    "low_as_written": "56.3%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP gross margin to be about 56.3% plus or minus 50 basis points",
+   "one_sided": null,
+   "actual": 56.1,
+   "actual_as_written": "56.1%",
+   "range_width_pct": 0.017921,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 31.5,
+    "high": 31.5,
+    "low_as_written": "31.5%",
+    "high_as_written": "31.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 31.5,
+    "high": 31.5,
+    "low_as_written": "31.5%",
+    "high_as_written": "31.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see non-GAAP operating margin to be 31.5% at the midpoint.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.59,
+    "high": 2.59,
+    "low_as_written": "$2.59",
+    "high_as_written": "$2.59",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.59,
+    "high": 2.59,
+    "low_as_written": "$2.59",
+    "high_as_written": "$2.59",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "this implies a non-GAAP earnings per share of $2.59.",
+   "one_sided": null,
+   "actual": 2.64,
+   "actual_as_written": "$2.64",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.019305,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect capital expenditures to be around 5% of revenue.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "ungradable_present": 1,
+  "beat": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

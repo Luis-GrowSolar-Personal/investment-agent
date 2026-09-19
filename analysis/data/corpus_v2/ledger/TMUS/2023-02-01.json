@@ -1,0 +1,91 @@
+{
+ "ticker": "TMUS",
+ "call_date": "2023-02-01",
+ "custom_id": "TMUS_2023-02-01",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7100000000,
+    "high": 7600000000,
+    "low_as_written": "$7.1",
+    "high_as_written": "$7.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7400000000,
+    "high": 7600000000,
+    "low_as_written": "$7.4",
+    "high_as_written": "$7.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "expected free cash flow, including payments for merger-related costs, to be in the range of $7.1 to $7.6 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 13000000000,
+    "high": 13500000000,
+    "low_as_written": "$13",
+    "high_as_written": "$13.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13700000000,
+    "high": 13900000000,
+    "low_as_written": "$13.7",
+    "high_as_written": "$13.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect cash capex to be between $13 and $13.5 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Update 2023 guidance at the Q4 earnings call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

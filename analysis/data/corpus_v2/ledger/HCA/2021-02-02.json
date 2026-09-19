@@ -1,0 +1,59 @@
+{
+ "ticker": "HCA",
+ "call_date": "2021-02-02",
+ "custom_id": "HCA_2021-02-02",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -1000000000,
+    "high": -1500000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "$3 billion",
+    "high_as_written": "$3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "anticipate reducing our capital spending anywhere from $1 billion to $1.5 billion for the remaining part of 2020",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide detailed 2021 guidance including ranges for key metrics at the fourth quarter earnings call in January",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

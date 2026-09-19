@@ -1,0 +1,29 @@
+{
+ "ticker": "SUNW",
+ "call_date": "2023-11-10",
+ "custom_id": "SUNW_2023-11-10",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete a reduction in force to right-size cost structure beginning in Q3 2023",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Anticipate financial performance in the second half of 2023 will be stronger than the first half",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

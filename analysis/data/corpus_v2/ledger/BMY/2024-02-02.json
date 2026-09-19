@@ -1,0 +1,140 @@
+{
+ "ticker": "BMY",
+ "call_date": "2024-02-02",
+ "custom_id": "BMY_2024-02-02",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.95,
+    "high": 8.25,
+    "low_as_written": "$7.95",
+    "high_as_written": "$8.25",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7.35,
+    "high": 7.65,
+    "low_as_written": "$7.35",
+    "high_as_written": "$7.65",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect to grow our non-GAAP earnings per share. with a range of $7.95 to $8.25.",
+   "one_sided": null,
+   "actual": 7.51,
+   "actual_as_written": "$7.51",
+   "range_width_pct": 0.037736,
+   "grade": "missed",
+   "miss_pct": 0.055346,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "approximately 76%",
+    "high_as_written": "approximately 76%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect our gross margin to be approximately 77%, which reflects a shift in product mix.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "approximately 2%",
+    "high_as_written": "approximately 2%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "approximately 2%",
+    "high_as_written": "approximately 2%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect 2023 revenues to grow approximately 2% on a reported and constant currency basis",
+   "one_sided": null,
+   "actual": -2.1739130434782594,
+   "actual_as_written": "approximately $45 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 46000000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 2.086957,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide 2024 financial guidance including profitability on the fourth quarter earnings call",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Achieve broader formulary access for Sotictu with majority of CVS patients moving to commercial product out of the hub",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 2,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

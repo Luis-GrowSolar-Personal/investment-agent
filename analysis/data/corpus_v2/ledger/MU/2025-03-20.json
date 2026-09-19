@@ -1,0 +1,58 @@
+{
+ "ticker": "MU",
+ "call_date": "2025-03-20",
+ "custom_id": "MU_2025-03-20",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "$3 billion",
+    "high_as_written": "$3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "$3 billion",
+    "high_as_written": "$3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "In fiscal Q2, we forecast net capex to be approximately $3 billion.",
+   "one_sided": null,
+   "actual": 3100000000,
+   "actual_as_written": "$3.1 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.033333,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

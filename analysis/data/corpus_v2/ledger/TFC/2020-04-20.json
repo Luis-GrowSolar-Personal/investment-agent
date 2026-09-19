@@ -1,0 +1,22 @@
+{
+ "ticker": "TFC",
+ "call_date": "2020-04-20",
+ "custom_id": "TFC_2020-04-20",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [
+  "all"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

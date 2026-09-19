@@ -1,0 +1,75 @@
+{
+ "ticker": "TFC",
+ "call_date": "2025-10-17",
+ "custom_id": "TFC_2025-10-17",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.5,
+    "high": 3.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "3.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.5,
+    "high": 3.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "3.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect revenue to increase approximately 2.5% to 3.5% relative to second quarter revenue of $5.1 billion",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3,
+    "high": 3.5,
+    "low_as_written": "3%",
+    "high_as_written": "3.5%"
+   },
+   "latest_revision": {
+    "low": 1.5,
+    "high": 2.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "2.5%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

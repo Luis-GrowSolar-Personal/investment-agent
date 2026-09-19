@@ -1,0 +1,39 @@
+{
+ "ticker": "CMCSA",
+ "call_date": "2023-10-26",
+ "custom_id": "CMCSA_2023-10-26",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 11,
+    "high": 11,
+    "low_as_written": "11%",
+    "high_as_written": "11%"
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 10,
+    "low_as_written": "10%",
+    "high_as_written": "10%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

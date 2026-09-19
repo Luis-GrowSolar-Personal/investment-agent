@@ -1,0 +1,29 @@
+{
+ "ticker": "COF",
+ "call_date": "2025-04-22",
+ "custom_id": "COF_2025-04-22",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete the acquisition of Discover early in 2025, subject to regulatory and shareholder approval",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Shareholder votes for the Discover acquisition are scheduled for February 18th",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

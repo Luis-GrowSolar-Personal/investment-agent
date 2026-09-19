@@ -1,0 +1,127 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2024-04-24",
+ "custom_id": "SLAB_2024-04-24",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100000000,
+    "high": 110000000,
+    "low_as_written": "$100",
+    "high_as_written": "$110 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100000000,
+    "high": 110000000,
+    "low_as_written": "$100",
+    "high_as_written": "$110 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue for the first quarter to be in the range of $100 to $110 million.",
+   "one_sided": null,
+   "actual": 106000000,
+   "actual_as_written": "$106 million",
+   "range_width_pct": 0.1,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 52,
+    "high": 52,
+    "low_as_written": "52%",
+    "high_as_written": "52%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 52,
+    "high": 52,
+    "low_as_written": "52%",
+    "high_as_written": "52%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect non-GAAP gross margin in the first quarter to be approximately 52%",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 52,
+   "actual_as_written": "52%",
+   "range_width_pct": 0.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -1.04,
+    "high": -0.92,
+    "low_as_written": "$0.92",
+    "high_as_written": "$1.04",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -2.05,
+    "high": -1.89,
+    "low_as_written": "$1.89",
+    "high_as_written": "$2.05",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "Our non-GAAP loss per share for Q1 is expected to be in the range of $0.92 to $1.04.",
+   "one_sided": null,
+   "actual": -0.92,
+   "actual_as_written": "92 cents",
+   "range_width_pct": 0.115385,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

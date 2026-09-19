@@ -1,0 +1,17 @@
+{
+ "ticker": "TEAM",
+ "call_date": "2020-10-29",
+ "custom_id": "TEAM_2020-10-29",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

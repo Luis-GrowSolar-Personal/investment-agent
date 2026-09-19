@@ -1,0 +1,75 @@
+{
+ "ticker": "BMY",
+ "call_date": "2024-07-26",
+ "custom_id": "BMY_2024-07-26",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "74%",
+    "high_as_written": "74%"
+   },
+   "latest_revision": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "approximately 74%",
+    "high_as_written": "approximately 74%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 37,
+    "high": null,
+    "low_as_written": "37%",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 37,
+    "high": null,
+    "low_as_written": "37%",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.1,
+    "high": 7.4,
+    "low_as_written": "$7.10",
+    "high_as_written": "$7.40"
+   },
+   "latest_revision": {
+    "low": 7.1,
+    "high": 7.4,
+    "low_as_written": "$7.10",
+    "high_as_written": "$7.40"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,165 @@
+{
+ "ticker": "ROK",
+ "call_date": "2023-04-27",
+ "custom_id": "ROK_2023-04-27",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 200000000,
+    "high": null,
+    "low_as_written": "above $200 million",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 8700000000,
+    "high": 8700000000,
+    "low_as_written": "$8.7 billion",
+    "high_as_written": "$8.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 9,
+    "high": 13,
+    "low_as_written": "9",
+    "high_as_written": "13%"
+   },
+   "latest_revision": {
+    "low": 11,
+    "high": 15,
+    "low_as_written": "11",
+    "high_as_written": "15%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.2,
+    "high": 11.0,
+    "low_as_written": "$10.20",
+    "high_as_written": "$11"
+   },
+   "latest_revision": {
+    "low": 10.7,
+    "high": 11.5,
+    "low_as_written": "$10.70",
+    "high_as_written": "$11.50"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 1100000000,
+    "high": 1100000000,
+    "low_as_written": "$1.1 billion",
+    "high_as_written": "$1.1 billion"
+   },
+   "latest_revision": {
+    "low": 1100000000,
+    "high": 1100000000,
+    "low_as_written": "$1.1 billion",
+    "high_as_written": "$1.1 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 190000000,
+    "high": 190000000,
+    "low_as_written": "$190 million",
+    "high_as_written": "$190 million"
+   },
+   "latest_revision": {
+    "low": 190000000,
+    "high": 190000000,
+    "low_as_written": "$190 million",
+    "high_as_written": "$190 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 21,
+    "high": 21,
+    "low_as_written": "about 21%",
+    "high_as_written": "about 21%"
+   },
+   "latest_revision": {
+    "low": 21,
+    "high": 21,
+    "low_as_written": "about 21%",
+    "high_as_written": "about 21%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 17,
+    "high": 17,
+    "low_as_written": "17%",
+    "high_as_written": "17%"
+   },
+   "latest_revision": {
+    "low": 17,
+    "high": 17,
+    "low_as_written": "17%",
+    "high_as_written": "17%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 95,
+    "high": 95,
+    "low_as_written": "about 95%",
+    "high_as_written": "about 95%"
+   },
+   "latest_revision": {
+    "low": 95,
+    "high": 95,
+    "low_as_written": "about 95%",
+    "high_as_written": "about 95%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

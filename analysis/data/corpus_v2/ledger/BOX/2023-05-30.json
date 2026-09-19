@@ -1,0 +1,218 @@
+{
+ "ticker": "BOX",
+ "call_date": "2023-05-30",
+ "custom_id": "BOX_2023-05-30",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 248000000,
+    "high": 250000000,
+    "low_as_written": "$248",
+    "high_as_written": "$250 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 248000000,
+    "high": 250000000,
+    "low_as_written": "$248",
+    "high_as_written": "$250 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate revenue of $248 to $250 million, representing 5% year-over-year growth.",
+   "one_sided": null,
+   "actual": 252000000,
+   "actual_as_written": "$252 million",
+   "range_width_pct": 0.008065,
+   "grade": "beat",
+   "beat_pct": 0.008,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 21,
+    "high": 21,
+    "low_as_written": "21%",
+    "high_as_written": "21%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 21,
+    "high": 21,
+    "low_as_written": "21%",
+    "high_as_written": "21%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our non-GAAP operating margin to be approximately 21% representing a year-over-year improvement",
+   "one_sided": null,
+   "actual": 22.8,
+   "actual_as_written": "22.8%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.085714,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "76%",
+    "high_as_written": "76%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "76%",
+    "high_as_written": "76%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect gross margin to be approximately 76% in Q1 and Q2 before improving in the back half of this year.",
+   "one_sided": null,
+   "actual": 77.9,
+   "actual_as_written": "77.9%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.025,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -0.04,
+    "high": -0.03,
+    "low_as_written": "negative four cents",
+    "high_as_written": "negative three cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.04,
+    "high": -0.03,
+    "low_as_written": "negative four cents",
+    "high_as_written": "negative three cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "GAAP EPS to be in the range of negative four cents to negative three cents.",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "GAAP",
+    "non-GAAP"
+   ],
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 1050000000,
+    "high": 1060000000,
+    "low_as_written": "$1.05 billion",
+    "high_as_written": "$1.06 billion"
+   },
+   "latest_revision": {
+    "low": 1050000000,
+    "high": 1060000000,
+    "low_as_written": "$1.05 billion",
+    "high_as_written": "$1.06 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 1.42,
+    "high": 1.48,
+    "low_as_written": "$1.42",
+    "high_as_written": "$1.48"
+   },
+   "latest_revision": {
+    "low": 0.17,
+    "high": 0.23,
+    "low_as_written": "17 cents",
+    "high_as_written": "23 cents"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "77%",
+    "high_as_written": "77%"
+   },
+   "latest_revision": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "77%",
+    "high_as_written": "77%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 3,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

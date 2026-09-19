@@ -1,0 +1,66 @@
+{
+ "ticker": "CMI",
+ "call_date": "2022-02-03",
+ "custom_id": "CMI_2022-02-03",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 4100000000,
+    "high": 4300000000,
+    "low_as_written": "$4.1",
+    "high_as_written": "$4.3 billion"
+   },
+   "latest_revision": {
+    "low": 4100000000,
+    "high": 4300000000,
+    "low_as_written": "$4.1",
+    "high_as_written": "$4.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 175000000,
+    "high": 200000000,
+    "low_as_written": "$175",
+    "high_as_written": "$200 million"
+   },
+   "latest_revision": {
+    "low": 175000000,
+    "high": 200000000,
+    "low_as_written": "$175",
+    "high_as_written": "$200 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete previously announced footprint consolidation initiative",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Host Virtual Strategy Day to share growth expectations and new EV business wins",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,25 @@
+{
+ "ticker": "PSX",
+ "call_date": "2022-07-29",
+ "custom_id": "PSX_2022-07-29",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Restart share repurchases under existing $2.5 billion authorization",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

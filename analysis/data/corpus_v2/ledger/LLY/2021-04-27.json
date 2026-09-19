@@ -1,0 +1,44 @@
+{
+ "ticker": "LLY",
+ "call_date": "2021-04-27",
+ "custom_id": "LLY_2021-04-27",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.1,
+    "high": 7.75,
+    "low_as_written": "$7.10",
+    "high_as_written": "$7.75"
+   },
+   "latest_revision": {
+    "low": 7.1,
+    "high": 7.75,
+    "low_as_written": "$7.10",
+    "high_as_written": "$7.75"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Lilly will host an investor call to present full Trailblazer-ALZ Phase 2 data for donanumab",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

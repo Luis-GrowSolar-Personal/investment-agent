@@ -1,0 +1,21 @@
+{
+ "ticker": "JPM",
+ "call_date": "2021-01-15",
+ "custom_id": "JPM_2021-01-15",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

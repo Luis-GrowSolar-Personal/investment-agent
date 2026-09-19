@@ -1,0 +1,133 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2023-05-02",
+ "custom_id": "NXPI_2023-05-02",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 57.5,
+    "high": 58.5,
+    "low_as_written": "58%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 57.5,
+    "high": 58.5,
+    "low_as_written": "58%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP gross margin to be about 58% plus or minus 50 basis points",
+   "one_sided": null,
+   "actual": 58.2,
+   "actual_as_written": "58.2%",
+   "range_width_pct": 0.017391,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 34.3,
+    "high": 34.3,
+    "low_as_written": "34.3%",
+    "high_as_written": "34.3%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 34.3,
+    "high": 34.3,
+    "low_as_written": "34.3%",
+    "high_as_written": "34.3%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see non-GAAP operating margin to be 34.3% at the midpoint.",
+   "one_sided": null,
+   "actual": 34.8,
+   "actual_as_written": "34.8%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.014577,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.01,
+    "high": 3.01,
+    "low_as_written": "$3.01",
+    "high_as_written": "$3.01",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.01,
+    "high": 3.01,
+    "low_as_written": "$3.01",
+    "high_as_written": "$3.01",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "at the midpoint, This implies a non-GAAP earnings per share of $3.01.",
+   "one_sided": null,
+   "actual": 3.19,
+   "actual_as_written": "$3.19",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.059801,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Maintain distribution channel inventory at 1.6 months level in Q1 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

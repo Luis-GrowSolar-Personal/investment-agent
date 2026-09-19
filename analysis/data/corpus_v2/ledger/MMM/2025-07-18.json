@@ -1,0 +1,57 @@
+{
+ "ticker": "MMM",
+ "call_date": "2025-07-18",
+ "custom_id": "MMM_2025-07-18",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.6,
+    "high": 7.9,
+    "low_as_written": "$7.60",
+    "high_as_written": "$7.90"
+   },
+   "latest_revision": {
+    "low": 7.6,
+    "high": 7.9,
+    "low_as_written": "$7.60",
+    "high_as_written": "$7.90"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "approximately $1 billion",
+    "high_as_written": "approximately $1 billion"
+   },
+   "latest_revision": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "approximately $1 billion",
+    "high_as_written": "approximately $1 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,273 @@
+{
+ "ticker": "DD",
+ "call_date": "2025-02-11",
+ "custom_id": "DD_2025-02-11",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 11900000000,
+    "high": 12300000000,
+    "low_as_written": "$11.9",
+    "high_as_written": "$12.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12450000000,
+    "high": 12450000000,
+    "low_as_written": "12.45 billion",
+    "high_as_written": "12.45 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect net sales to be between $11.9 and $12.3 billion",
+   "one_sided": null,
+   "actual": 5900000000,
+   "actual_as_written": "$5.9 billion",
+   "range_width_pct": 0.033613,
+   "grade": "missed",
+   "miss_pct": 0.504202,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.25,
+    "high": 3.65,
+    "low_as_written": "$3.25",
+    "high_as_written": "$3.65",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.9,
+    "high": 3.9,
+    "low_as_written": "$3.90",
+    "high_as_written": "$3.90",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect full-year adjusted EPS in the range of $3.25 to $3.65 per share",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect capital spending at about 5% of sales",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3070000000,
+    "high": 3070000000,
+    "low_as_written": "3.07 billion",
+    "high_as_written": "3.07 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3070000000,
+    "high": 3070000000,
+    "low_as_written": "3.07 billion",
+    "high_as_written": "3.07 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the fourth quarter, we expect net sales, operating EBITDA, and adjusted EPS of about 3.07 billion, 790 million, and 98 cents per share, respectively.",
+   "one_sided": null,
+   "actual": 3100000000,
+   "actual_as_written": "3.1 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.009772,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.98,
+    "high": 0.98,
+    "low_as_written": "98 cents",
+    "high_as_written": "98 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.98,
+    "high": 0.98,
+    "low_as_written": "98 cents",
+    "high_as_written": "98 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the fourth quarter, we expect net sales, operating EBITDA, and adjusted EPS of about 3.07 billion, 790 million, and 98 cents per share, respectively.",
+   "one_sided": null,
+   "actual": 1.13,
+   "actual_as_written": "$1.13",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.153061,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "6%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "6%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "our fourth quarter guidance assumes sales and earnings growth from both E&I and W&P, translating to total company growth and net sales of about 6%, operating EBITDA of 10%, and adjusted EPS of 13%.",
+   "one_sided": null,
+   "actual": 6.896551724137923,
+   "actual_as_written": "3.1 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 2900000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.149425,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 13,
+    "high": 13,
+    "low_as_written": "13%",
+    "high_as_written": "13%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13,
+    "high": 13,
+    "low_as_written": "13%",
+    "high_as_written": "13%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "translating to total company growth and net sales of about 6%, operating EBITDA of 10%, and adjusted EPS of 13%.",
+   "one_sided": null,
+   "actual": 29.885057471264354,
+   "actual_as_written": "$1.13 (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 0.87
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 1.298851,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "ungradable_present": 2,
+  "beat": 4
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

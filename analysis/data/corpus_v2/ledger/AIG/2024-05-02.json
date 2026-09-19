@@ -1,0 +1,25 @@
+{
+ "ticker": "AIG",
+ "call_date": "2024-05-02",
+ "custom_id": "AIG_2024-05-02",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "AIG expects to provide detail on AIG Next cost-to-achieve by category and expected timeline for realized benefits in 2024 and 2025 on the next quarter's call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

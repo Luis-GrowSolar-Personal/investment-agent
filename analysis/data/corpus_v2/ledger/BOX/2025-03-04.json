@@ -1,0 +1,305 @@
+{
+ "ticker": "BOX",
+ "call_date": "2025-03-04",
+ "custom_id": "BOX_2025-03-04",
+ "fiscal": [
+  2025,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "approximately 5%",
+    "high_as_written": "approximately 5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "approximately 5%",
+    "high_as_written": "approximately 5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We currently expect our FY25 reported revenue growth rate to be approximately 5%.",
+   "one_sided": null,
+   "actual": 4.807692307692313,
+   "actual_as_written": "$1.09 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 1040000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.038462,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 27,
+    "high": 27,
+    "low_as_written": "roughly 27%",
+    "high_as_written": "roughly 27%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "28%",
+    "high_as_written": "28%",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "We currently expect FY25 non-GAAP operating margin of roughly 27% representing an improvement of roughly 250 basis points year over year",
+   "one_sided": null,
+   "actual": 27.9,
+   "actual_as_written": "27.9%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.033333,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1080000000,
+    "high": 1085000000,
+    "low_as_written": "1.08",
+    "high_as_written": "1.085 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1090000000,
+    "high": 1090000000,
+    "low_as_written": "$1.09 billion",
+    "high_as_written": "$1.09 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We anticipate revenue in the range of 1.08 to 1.085 billion, representing approximately 5% year-over-year growth at the high end of this range and 6% in constant currency.",
+   "one_sided": null,
+   "actual": 1090000000,
+   "actual_as_written": "$1.09 billion",
+   "range_width_pct": 0.00463,
+   "grade": "beat",
+   "beat_pct": 0.004608,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "80%",
+    "high_as_written": "80%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "81%",
+    "high_as_written": "81%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect our FY25 gross margin to be roughly 80% representing a year-over-year improvement of more than 200 basis points.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.53,
+    "high": 1.57,
+    "low_as_written": "$1.53",
+    "high_as_written": "$1.57",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.7,
+    "high": 1.7,
+    "low_as_written": "$1.70",
+    "high_as_written": "$1.70",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect FY25 non-GAAP EPS to be in the range of $1.53 to $1.57, representing an 8% increase at the high end of this range versus $1.46 in the prior year",
+   "one_sided": null,
+   "actual": 1.71,
+   "actual_as_written": "$1.71",
+   "range_width_pct": 0.026144,
+   "grade": "beat",
+   "beat_pct": 0.089172,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 279000000,
+    "high": 279000000,
+    "low_as_written": "$279 million",
+    "high_as_written": "$279 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 279000000,
+    "high": 279000000,
+    "low_as_written": "$279 million",
+    "high_as_written": "$279 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect Q4 revenue to be approximately $279 million, representing 6% year-over-year growth.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 27.5,
+    "high": 27.5,
+    "low_as_written": "27.5%",
+    "high_as_written": "27.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 27.5,
+    "high": 27.5,
+    "low_as_written": "27.5%",
+    "high_as_written": "27.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our Q4 non-GAAP operating margin to be approximately 27.5%",
+   "one_sided": null,
+   "actual": 27.3,
+   "actual_as_written": "27.3%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.007273,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.41,
+    "high": 0.41,
+    "low_as_written": "41 cents",
+    "high_as_written": "41 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.41,
+    "high": 0.41,
+    "low_as_written": "41 cents",
+    "high_as_written": "41 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our Q4 non-GAAP EPS to be approximately 41 cents as compared to 42 cents a year ago.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Launch Enterprise Advanced (general availability)",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "other"
+ ],
+ "counts": {
+  "missed": 2,
+  "beat": 3,
+  "ungradable_present": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

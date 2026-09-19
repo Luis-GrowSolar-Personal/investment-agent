@@ -1,0 +1,25 @@
+{
+ "ticker": "OXY",
+ "call_date": "2022-08-03",
+ "custom_id": "OXY_2022-08-03",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Repay $5 billion of debt and reduce net debt to $20 billion as near-term targets, then initiate $3 billion share repurchase program",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

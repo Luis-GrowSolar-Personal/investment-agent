@@ -1,0 +1,114 @@
+{
+ "ticker": "BMY",
+ "call_date": "2023-07-27",
+ "custom_id": "BMY_2023-07-27",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect gross margin for the first half of the year to be approximately 77%",
+   "one_sided": null,
+   "actual": 75,
+   "actual_as_written": "approximately 75%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.025974,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.95,
+    "high": 8.25,
+    "low_as_written": "$7.95",
+    "high_as_written": "$8.25"
+   },
+   "latest_revision": {
+    "low": 7.95,
+    "high": 8.25,
+    "low_as_written": "$7.95",
+    "high_as_written": "$8.25"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%"
+   },
+   "latest_revision": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "approximately 2%",
+    "high_as_written": "approximately 2%"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "approximately 2%",
+    "high_as_written": "approximately 2%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

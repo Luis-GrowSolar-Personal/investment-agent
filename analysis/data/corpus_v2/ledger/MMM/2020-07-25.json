@@ -1,0 +1,75 @@
+{
+ "ticker": "MMM",
+ "call_date": "2020-07-25",
+ "custom_id": "MMM_2020-07-25",
+ "fiscal": [
+  2019,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.45,
+    "high": 10.9,
+    "low_as_written": "$10.45",
+    "high_as_written": "$10.90"
+   },
+   "latest_revision": {
+    "low": 9.25,
+    "high": 9.75,
+    "low_as_written": "$9.25",
+    "high_as_written": "$9.75"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 95,
+    "high": 105,
+    "low_as_written": "95",
+    "high_as_written": "105%"
+   },
+   "latest_revision": {
+    "low": 95,
+    "high": 105,
+    "low_as_written": "95",
+    "high_as_written": "105%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1600000000,
+    "high": 1700000000,
+    "low_as_written": "$1.6",
+    "high_as_written": "$1.7 billion"
+   },
+   "latest_revision": {
+    "low": 1600000000,
+    "high": 1700000000,
+    "low_as_written": "$1.6",
+    "high_as_written": "$1.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": -3,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

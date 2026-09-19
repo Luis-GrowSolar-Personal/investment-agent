@@ -1,0 +1,64 @@
+{
+ "ticker": "EOSE",
+ "call_date": "2024-03-05",
+ "custom_id": "EOSE_2024-03-05",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 30000000,
+    "high": 50000000,
+    "low_as_written": "$30",
+    "high_as_written": "$50 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 30000000,
+    "high": 50000000,
+    "low_as_written": "$30",
+    "high_as_written": "$50 million",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "anticipating $600 to $800 million in new booked orders while delivering $30 to $50 million of revenue in 2023.",
+   "one_sided": null,
+   "actual": 16400000,
+   "actual_as_written": "$16.4 million",
+   "range_width_pct": 0.666667,
+   "grade": "missed",
+   "miss_pct": 0.453333,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "EOS plans to provide a strategic roadmap and path to profitability update in December 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

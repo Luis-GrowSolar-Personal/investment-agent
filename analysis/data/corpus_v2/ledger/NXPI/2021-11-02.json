@@ -1,0 +1,108 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2021-11-02",
+ "custom_id": "NXPI_2021-11-02",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 56.0,
+    "high": 56.6,
+    "low_as_written": "56.3%",
+    "high_as_written": "30 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 56.0,
+    "high": 56.6,
+    "low_as_written": "56.3%",
+    "high_as_written": "30 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP gross margin to be about 56.3%, plus or minus 30 basis points.",
+   "one_sided": null,
+   "actual": 56.5,
+   "actual_as_written": "56.5 percent",
+   "range_width_pct": 0.010714,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 33,
+    "high": 33,
+    "low_as_written": "33%",
+    "high_as_written": "33%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 33,
+    "high": 33,
+    "low_as_written": "33%",
+    "high_as_written": "33%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see non-GAAP operating margin to be about 33% at the midpoint.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,125 @@
+{
+ "ticker": "EMR",
+ "call_date": "2021-08-04",
+ "custom_id": "EMR_2021-08-04",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -1,
+    "high": 2,
+    "low_as_written": "down 1",
+    "high_as_written": "plus 2%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion"
+   },
+   "latest_revision": {
+    "low": 2700000000,
+    "high": 2700000000,
+    "low_as_written": "$2.7 billion",
+    "high_as_written": "$2.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 600000000,
+    "high": 600000000,
+    "low_as_written": "$600 million",
+    "high_as_written": "$600 million"
+   },
+   "latest_revision": {
+    "low": 600000000,
+    "high": 600000000,
+    "low_as_written": "$600 million",
+    "high_as_written": "$600 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 17.5,
+    "high": 17.5,
+    "low_as_written": "17.5%",
+    "high_as_written": "17.5%"
+   },
+   "latest_revision": {
+    "low": 17.5,
+    "high": 17.5,
+    "low_as_written": "17.5%",
+    "high_as_written": "17.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion"
+   },
+   "latest_revision": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Emerson plans to conduct a company-wide cultural assessment of salaried employees, broadening the pilot in May 2021",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Emerson expects to publish diversity inclusion targets and goals as part of the ESG report following board conversations",
+   "mentioned_now": false
+  },
+  {
+   "intent": "Sempra Costa Azul LNG project award will be booked in Q3 FY2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

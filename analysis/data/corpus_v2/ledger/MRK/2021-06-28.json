@@ -1,0 +1,102 @@
+{
+ "ticker": "MRK",
+ "call_date": "2021-06-28",
+ "custom_id": "MRK_2021-06-28",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 51800000000,
+    "high": 53800000000,
+    "low_as_written": "$51.8 billion",
+    "high_as_written": "$53.8 billion"
+   },
+   "latest_revision": {
+    "low": 45800000000,
+    "high": 47800000000,
+    "low_as_written": "$45.8",
+    "high_as_written": "$47.8 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 5
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "roughly 77%",
+    "high_as_written": "roughly 77%"
+   },
+   "latest_revision": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "roughly 76%",
+    "high_as_written": "roughly 76%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 6.48,
+    "high": 6.68,
+    "low_as_written": "$6.48",
+    "high_as_written": "$6.68"
+   },
+   "latest_revision": {
+    "low": 6.48,
+    "high": 6.48,
+    "low_as_written": "$6.48",
+    "high_as_written": "$6.48"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 8,
+    "high": 12,
+    "low_as_written": "8%",
+    "high_as_written": "12%"
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 12,
+    "low_as_written": "8%",
+    "high_as_written": "12%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Merck expects to complete the Organon spinoff on June 2nd with trading in the new stock commencing on June 3rd.",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Merck expects to receive a special tax-free dividend of $9 billion upon close of the Organon spin-off, to be deployed in business development or returned to shareholders via share repurchases.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 3
+}

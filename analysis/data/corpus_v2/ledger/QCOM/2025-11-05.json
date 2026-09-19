@@ -1,0 +1,138 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2025-11-05",
+ "custom_id": "QCOM_2025-11-05",
+ "fiscal": [
+  2025,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10300000000,
+    "high": 11100000000,
+    "low_as_written": "$10.3",
+    "high_as_written": "$11.1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10300000000,
+    "high": 11100000000,
+    "low_as_written": "$10.3",
+    "high_as_written": "$11.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the fourth quarter, we are forecasting revenues of $10.3 to $11.1 billion and non-GAAP EPS of $2.75 to $2.95.",
+   "one_sided": null,
+   "actual": 11300000000,
+   "actual_as_written": "$11.3 billion",
+   "range_width_pct": 0.07767,
+   "grade": "beat",
+   "beat_pct": 0.018018,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.75,
+    "high": 2.95,
+    "low_as_written": "$2.75",
+    "high_as_written": "$2.95",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.75,
+    "high": 2.95,
+    "low_as_written": "$2.75",
+    "high_as_written": "$2.95",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the fourth quarter, we are forecasting revenues of $10.3 to $11.1 billion and non-GAAP EPS of $2.75 to $2.95.",
+   "one_sided": null,
+   "actual": 3.0,
+   "actual_as_written": "$3",
+   "range_width_pct": 0.072727,
+   "grade": "beat",
+   "beat_pct": 0.016949,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 16,
+    "high": 16,
+    "low_as_written": "16%",
+    "high_as_written": "16%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 16,
+    "high": 16,
+    "low_as_written": "16%",
+    "high_as_written": "16%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Based on the midpoint of our guidance, we are positioned to deliver revenue and non-GAAP EPS growth of 12% and 16% respectively relative to fiscal 24.",
+   "one_sided": null,
+   "actual": 17.710371819960848,
+   "actual_as_written": "$12.03 (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 10.22
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.106898,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "QCT handset revenues to grow approximately 5% sequentially in Q4 FY2025 despite lower Apple revenues",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

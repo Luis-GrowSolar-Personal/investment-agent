@@ -1,0 +1,29 @@
+{
+ "ticker": "MU",
+ "call_date": "2023-12-20",
+ "custom_id": "MU_2023-12-20",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Micron D5 volume to cross over D4 ahead of the industry",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Begin revenue shipments of one beta-based client D5 to PC OEMs",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

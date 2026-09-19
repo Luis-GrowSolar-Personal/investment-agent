@@ -1,0 +1,132 @@
+{
+ "ticker": "EQIX",
+ "call_date": "2024-02-14",
+ "custom_id": "EQIX_2024-02-14",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 14,
+    "high": 15,
+    "low_as_written": "14%",
+    "high_as_written": "15%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14,
+    "high": 15,
+    "low_as_written": "14%",
+    "high_as_written": "15%",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "we expect top-line revenues will step up by nearly $1 billion, representing a year-over-year growth rate of 14% to 15%",
+   "one_sided": null,
+   "actual": 12.328767123287676,
+   "actual_as_written": "$8.2 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 7300000000
+   },
+   "range_width_pct": 0.071429,
+   "grade": "missed",
+   "miss_pct": 0.119374,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 11,
+    "low_as_written": "10%",
+    "high_as_written": "11%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "FFO per share is expected to grow 8% to 10% at the top end of our long-term range",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2700000000,
+    "high": 2900000000,
+    "low_as_written": "$2.7",
+    "high_as_written": "$2.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2700000000,
+    "high": 2900000000,
+    "low_as_written": "$2.7",
+    "high_as_written": "$2.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "2023 CapEx is expected to range between $2.7 and $2.9 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Equinix expects to settle Q2 and incremental Q3 ATM forward equity contracts in late 2023.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

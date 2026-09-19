@@ -1,0 +1,44 @@
+{
+ "ticker": "COST",
+ "call_date": "2022-05-26",
+ "custom_id": "COST_2022-05-26",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 4000000000,
+    "high": 4000000000,
+    "low_as_written": "$4 billion",
+    "high_as_written": "$4 billion"
+   },
+   "latest_revision": {
+    "low": 4000000000,
+    "high": 4000000000,
+    "low_as_written": "$4.0 billion",
+    "high_as_written": "$4.0 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Announce March sales results for the five weeks ending April 3rd on Wednesday, April 6th after markets close",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

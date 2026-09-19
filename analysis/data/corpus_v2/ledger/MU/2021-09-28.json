@@ -1,0 +1,59 @@
+{
+ "ticker": "MU",
+ "call_date": "2021-09-28",
+ "custom_id": "MU_2021-09-28",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9500000000,
+    "high": 9500000000,
+    "low_as_written": "$9.5 billion",
+    "high_as_written": "$9.5 billion",
+    "one_sided": "floor"
+   },
+   "n_revisions": 4,
+   "quote": "We now expect fiscal 2021 CapEx of approximately $9 billion.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Micron plans to continue repurchasing shares in Q4 FY2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,229 @@
+{
+ "ticker": "BOX",
+ "call_date": "2022-11-30",
+ "custom_id": "BOX_2022-11-30",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 250000000,
+    "high": 252000000,
+    "low_as_written": "$250",
+    "high_as_written": "$252 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 250000000,
+    "high": 252000000,
+    "low_as_written": "$250",
+    "high_as_written": "$252 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the third quarter of fiscal 2023, we anticipate revenue of $250 to $252 million, representing 13% year-over-year growth at the high end of this range.",
+   "one_sided": null,
+   "actual": 250000000,
+   "actual_as_written": "$250 million",
+   "range_width_pct": 0.008,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 23,
+    "high": 23,
+    "low_as_written": "23%",
+    "high_as_written": "23%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 23,
+    "high": 23,
+    "low_as_written": "23%",
+    "high_as_written": "23%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our non-GAAP operating margin to be approximately 23%, representing a 230 basis point improvement year over year.",
+   "one_sided": null,
+   "actual": 24.0,
+   "actual_as_written": "24.0%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.043478,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.01,
+    "high": 0.02,
+    "low_as_written": "1 cent",
+    "high_as_written": "2 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.01,
+    "high": 0.02,
+    "low_as_written": "1 cent",
+    "high_as_written": "2 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "and GAAP EPS to be in the range of 1 cent to 2 cents, on approximately 151 million diluted shares and 143 million basic shares, respectively",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "GAAP",
+    "non-GAAP"
+   ],
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 990000000,
+    "high": 996000000,
+    "low_as_written": "990",
+    "high_as_written": "996 million"
+   },
+   "latest_revision": {
+    "low": 992000000,
+    "high": 996000000,
+    "low_as_written": "$992 million",
+    "high_as_written": "$996 million"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%"
+   },
+   "latest_revision": {
+    "low": 22.5,
+    "high": 22.5,
+    "low_as_written": "22.5%",
+    "high_as_written": "22.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 1.1,
+    "high": 1.14,
+    "low_as_written": "$1.10",
+    "high_as_written": "$1.14"
+   },
+   "latest_revision": {
+    "low": -0.03,
+    "high": 0.0,
+    "low_as_written": "negative three cents",
+    "high_as_written": "zero cents"
+   },
+   "revised_down": true,
+   "n_revisions": 6
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "76%",
+    "high_as_written": "76%"
+   },
+   "latest_revision": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "76%",
+    "high_as_written": "76%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Box will host BoxWorks with major product and partnership announcements, including an investor product briefing",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Box plans to roll out Box Canvas to customers in the fall and winter",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

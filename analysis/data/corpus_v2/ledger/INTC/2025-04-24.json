@@ -1,0 +1,152 @@
+{
+ "ticker": "INTC",
+ "call_date": "2025-04-24",
+ "custom_id": "INTC_2025-04-24",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 11700000000,
+    "high": 12700000000,
+    "low_as_written": "$11.7",
+    "high_as_written": "$12.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11700000000,
+    "high": 12700000000,
+    "low_as_written": "$11.7",
+    "high_as_written": "$12.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we're forecasting a revenue range of $11.7 to $12.7 billion in the first quarter of 2025, down between 11% to 18% sequentially",
+   "one_sided": null,
+   "actual": 12700000000,
+   "actual_as_written": "$12.7 billion",
+   "range_width_pct": 0.08547,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 36,
+    "high": 36,
+    "low_as_written": "36%",
+    "high_as_written": "36%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 36,
+    "high": 36,
+    "low_as_written": "36%",
+    "high_as_written": "36%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "At the midpoint of $12.2 billion, we expect gross margin of approximately 36% with a tax rate of 12% and breakeven EPS, all on a non-GAAP basis",
+   "one_sided": null,
+   "actual": 39.2,
+   "actual_as_written": "39.2%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.088889,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "breakeven",
+    "high_as_written": "breakeven",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "breakeven",
+    "high_as_written": "breakeven",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect gross margin of approximately 36% with a tax rate of 12% and breakeven EPS, all on a non-GAAP basis",
+   "one_sided": null,
+   "actual": 0.13,
+   "actual_as_written": "13 cents",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": null,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 20000000000,
+    "high": 23000000000,
+    "low_as_written": "$20",
+    "high_as_written": "$23 billion"
+   },
+   "latest_revision": {
+    "low": 8000000000,
+    "high": 11000000000,
+    "low_as_written": "$8",
+    "high_as_written": "$11 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete stake sale process for Altera with announcement expected by next earnings",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

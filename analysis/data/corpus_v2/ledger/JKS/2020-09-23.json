@@ -1,0 +1,83 @@
+{
+ "ticker": "JKS",
+ "call_date": "2020-09-23",
+ "custom_id": "JKS_2020-09-23",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1100000000,
+    "high": 1180000000,
+    "low_as_written": "1.1 billion",
+    "high_as_written": "1.18 billion U.S. dollars",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1100000000,
+    "high": 1180000000,
+    "low_as_written": "1.1 billion",
+    "high_as_written": "1.18 billion U.S. dollars",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Total revenues will be in the range of 1.1 billion to 1.18 billion U.S. dollars.",
+   "one_sided": null,
+   "actual": 1200000000,
+   "actual_as_written": "$1.2 billion",
+   "range_width_pct": 0.072727,
+   "grade": "beat",
+   "beat_pct": 0.016949,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 350000000,
+    "high": 350000000,
+    "low_as_written": "350 million",
+    "high_as_written": "350 million US dollars"
+   },
+   "latest_revision": {
+    "low": 350000000,
+    "high": 350000000,
+    "low_as_written": "350 million",
+    "high_as_written": "350 million US dollars"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Add 9 gigawatts of new high efficiency module capacity in production",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

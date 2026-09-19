@@ -1,0 +1,194 @@
+{
+ "ticker": "DD",
+ "call_date": "2025-11-06",
+ "custom_id": "DD_2025-11-06",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3320000000,
+    "high": 3320000000,
+    "low_as_written": "3.32 billion",
+    "high_as_written": "3.32 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3320000000,
+    "high": 3320000000,
+    "low_as_written": "3.32 billion",
+    "high_as_written": "3.32 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the third quarter, we estimate net sales of about 3.32 billion, operating EBITDA of about 875 million, and adjusted EPS of $1.15 per share.",
+   "one_sided": null,
+   "actual": 3100000000,
+   "actual_as_written": "3.1 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.066265,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.15,
+    "high": 1.15,
+    "low_as_written": "$1.15 per share",
+    "high_as_written": "$1.15 per share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.15,
+    "high": 1.15,
+    "low_as_written": "$1.15 per share",
+    "high_as_written": "$1.15 per share",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the third quarter, we estimate net sales of about 3.32 billion, operating EBITDA of about 875 million, and adjusted EPS of $1.15 per share.",
+   "one_sided": null,
+   "actual": 1.09,
+   "actual_as_written": "$1.09 per share",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.052174,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3,
+    "high": 3,
+    "low_as_written": "3%",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 3,
+    "low_as_written": "3%",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Our third quarter guidance assumes about 3% organic sales growth versus the prior year",
+   "one_sided": null,
+   "actual": -3.125,
+   "actual_as_written": "3.1 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 3200000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 2.041667,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 12800000000,
+    "high": 12900000000,
+    "low_as_written": "12.8",
+    "high_as_written": "12.9 billion"
+   },
+   "latest_revision": {
+    "low": 12800000000,
+    "high": 12900000000,
+    "low_as_written": "$12.85 billion",
+    "high_as_written": "$12.85 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 4.3,
+    "high": 4.4,
+    "low_as_written": "$4.30",
+    "high_as_written": "$4.40"
+   },
+   "latest_revision": {
+    "low": 4.4,
+    "high": 4.4,
+    "low_as_written": "$4.40 per share",
+    "high_as_written": "$4.40 per share"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 6,
+    "high": 7,
+    "low_as_written": "6%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 4,
+    "low_as_written": "3%",
+    "high_as_written": "4%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Hold Investor Day for DuPont and CUNY",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

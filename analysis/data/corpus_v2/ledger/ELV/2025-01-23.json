@@ -1,0 +1,59 @@
+{
+ "ticker": "ELV",
+ "call_date": "2025-01-23",
+ "custom_id": "ELV_2025-01-23",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 37,
+    "high": 37,
+    "low_as_written": "$37",
+    "high_as_written": "$37",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 33,
+    "high": 33,
+    "low_as_written": "approximately $33",
+    "high_as_written": "approximately $33",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "we believe the current consensus estimate for adjusted earnings per share of approximately $37 in 2024 is appropriate",
+   "one_sided": null,
+   "actual": 33.04,
+   "actual_as_written": "$33.04",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.107027,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 6,
+ "revised_down_count": 0
+}

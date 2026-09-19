@@ -1,0 +1,48 @@
+{
+ "ticker": "DOW",
+ "call_date": "2025-10-23",
+ "custom_id": "DOW_2025-10-23",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1 billion"
+   },
+   "latest_revision": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Implement a 50% dividend reduction effective in Q3 2025",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close the sale of Dow's 50% ownership in the Dow Axis Joint Venture in Q3 2025",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

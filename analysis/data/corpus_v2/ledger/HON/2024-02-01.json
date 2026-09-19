@@ -1,0 +1,215 @@
+{
+ "ticker": "HON",
+ "call_date": "2024-02-01",
+ "custom_id": "HON_2024-02-01",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 36000000000,
+    "high": 37000000000,
+    "low_as_written": "$36",
+    "high_as_written": "$37 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 36800000000,
+    "high": 37100000000,
+    "low_as_written": "$36.8",
+    "high_as_written": "$37.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "in total for 2023, we expect sales of $36 to $37 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "which represents an overall organic growth sales range of 2 to 5% for the year",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8.8,
+    "high": 9.2,
+    "low_as_written": "$8.80",
+    "high_as_written": "$9.20",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.1,
+    "high": 9.2,
+    "low_as_written": "nine dollars and ten cents",
+    "high_as_written": "nine dollars and twenty cents",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect 23 earnings per share to be in the range of $8.80 to $9.20, flat to up 5% year on year on an adjusted basis",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9600000000,
+    "high": 9900000000,
+    "low_as_written": "$9.6",
+    "high_as_written": "$9.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9600000000,
+    "high": 9900000000,
+    "low_as_written": "$9.6",
+    "high_as_written": "$9.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the fourth quarter, we anticipate sales to be between $9.6 and $9.9 billion, up 3 to 7% organically",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3,
+    "high": 7,
+    "low_as_written": "3",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 7,
+    "low_as_written": "3",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate sales to be between $9.6 and $9.9 billion, up 3 to 7% organically",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.53,
+    "high": 2.63,
+    "low_as_written": "$2.53",
+    "high_as_written": "$2.63",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.53,
+    "high": 2.63,
+    "low_as_written": "$2.53",
+    "high_as_written": "$2.63",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate adjusted earnings per share to be between $2.53 and $2.63 for the fourth quarter, flat to up 4% year over year",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 2.6,
+   "actual_as_written": "$2.60",
+   "range_width_pct": 0.039526,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 5,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 5,
+ "revised_down_count": 0
+}

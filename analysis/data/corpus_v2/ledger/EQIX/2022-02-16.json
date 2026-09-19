@@ -1,0 +1,124 @@
+{
+ "ticker": "EQIX",
+ "call_date": "2022-02-16",
+ "custom_id": "EQIX_2022-02-16",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10,
+    "high": 11,
+    "low_as_written": "10",
+    "high_as_written": "11%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 8,
+    "low_as_written": "8%",
+    "high_as_written": "8%",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "we expect top line growth of 10 to 11% reflecting the continued momentum in the business and favorable FX rates relative to the prior year",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 10,
+    "low_as_written": "9%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "AFFO per share is expected to grow 8% to 10%, including integration costs",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2500000000,
+    "high": 2800000000,
+    "low_as_written": "$2.5",
+    "high_as_written": "$2.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 193000000,
+    "high": 193000000,
+    "low_as_written": "$193 million",
+    "high_as_written": "$193 million",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "2021 CapEx is expected to be $2.5 to $2.8 billion, including approximately $180 million of recurring CapEx spend",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "NetworkEdge to be available in 25 metros around the world",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

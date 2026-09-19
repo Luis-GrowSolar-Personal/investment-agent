@@ -1,0 +1,64 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2025-02-05",
+ "custom_id": "QCOM_2025-02-05",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.85,
+    "high": 3.05,
+    "low_as_written": "$2.85",
+    "high_as_written": "$3.05",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.85,
+    "high": 3.05,
+    "low_as_written": "$2.85",
+    "high_as_written": "$3.05",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the first quarter of fiscal 25, we are forecasting revenues of $10.5 to $11.3 billion and non-GAAP EPS of $2.85 to $3.05",
+   "one_sided": null,
+   "actual": 3.41,
+   "actual_as_written": "$3.41",
+   "range_width_pct": 0.070175,
+   "grade": "beat",
+   "beat_pct": 0.118033,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Host Growth and Diversification Focus Investor Day in New York to share strategy and financial framework update",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

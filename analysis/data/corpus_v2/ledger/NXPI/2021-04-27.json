@@ -1,0 +1,131 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2021-04-27",
+ "custom_id": "NXPI_2021-04-27",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 53.2,
+    "high": 53.8,
+    "low_as_written": "53.5%",
+    "high_as_written": "30 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 53.2,
+    "high": 53.8,
+    "low_as_written": "53.5%",
+    "high_as_written": "30 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP gross margin to be about 53.5%, plus or minus 30 basis points.",
+   "one_sided": null,
+   "actual": 54.2,
+   "actual_as_written": "54.2%",
+   "range_width_pct": 0.011278,
+   "grade": "beat",
+   "beat_pct": 0.007435,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 30.4,
+    "high": 30.4,
+    "low_as_written": "30.4%",
+    "high_as_written": "30.4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 30.4,
+    "high": 30.4,
+    "low_as_written": "30.4%",
+    "high_as_written": "30.4%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see non-GAAP operating margin to be about 30.4% at the midpoint.",
+   "one_sided": null,
+   "actual": 30.9,
+   "actual_as_written": "30.9%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.016447,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2021,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 22,
+    "high": 30,
+    "low_as_written": "22",
+    "high_as_written": "30%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 22,
+    "high": 30,
+    "low_as_written": "22",
+    "high_as_written": "30%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are guiding quarter one revenue at 2.55 billion, up about 26% versus the first quarter of 2020, within the range of up 22 to up 30% year over year.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Continue buying back shares in line with capital allocation policy of returning all excess cash to shareholders",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

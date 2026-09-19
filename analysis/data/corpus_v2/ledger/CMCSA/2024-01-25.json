@@ -1,0 +1,86 @@
+{
+ "ticker": "CMCSA",
+ "call_date": "2024-01-25",
+ "custom_id": "CMCSA_2024-01-25",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 11,
+    "high": 11,
+    "low_as_written": "11%",
+    "high_as_written": "11%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 10,
+    "low_as_written": "10%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We expect CapEx intensity to stay at around 11%, similar to 2022 levels",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1200000000,
+    "high": 1200000000,
+    "low_as_written": "$1.2 billion",
+    "high_as_written": "$1.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1200000000,
+    "high": 1200000000,
+    "low_as_written": "$1.2 billion",
+    "high_as_written": "$1.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "parks CapEx to increase by around $1.2 billion for the full year, compared to 2022",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

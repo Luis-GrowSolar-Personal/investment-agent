@@ -1,0 +1,25 @@
+{
+ "ticker": "PSX",
+ "call_date": "2022-11-01",
+ "custom_id": "PSX_2022-11-01",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "FRAC 4 at Sweeney Hub expected to start up",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

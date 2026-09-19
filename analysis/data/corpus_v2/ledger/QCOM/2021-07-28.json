@@ -1,0 +1,95 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2021-07-28",
+ "custom_id": "QCOM_2021-07-28",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7100000000,
+    "high": 7900000000,
+    "low_as_written": "$7.1",
+    "high_as_written": "$7.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7100000000,
+    "high": 7900000000,
+    "low_as_written": "$7.1",
+    "high_as_written": "$7.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're forecasting revenues of $7.1 to $7.9 billion and non-gap EPS of $1.55 to $1.75",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 8000000000,
+   "actual_as_written": "$8 billion",
+   "range_width_pct": 0.112676,
+   "grade": "beat",
+   "beat_pct": 0.012658,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.55,
+    "high": 1.75,
+    "low_as_written": "$1.55",
+    "high_as_written": "$1.75",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.55,
+    "high": 1.75,
+    "low_as_written": "$1.55",
+    "high_as_written": "$1.75",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're forecasting revenues of $7.1 to $7.9 billion and non-gap EPS of $1.55 to $1.75",
+   "one_sided": null,
+   "actual": 1.92,
+   "actual_as_written": "$1.92",
+   "range_width_pct": 0.129032,
+   "grade": "beat",
+   "beat_pct": 0.097143,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

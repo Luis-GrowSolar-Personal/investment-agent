@@ -1,0 +1,153 @@
+{
+ "ticker": "ITW",
+ "call_date": "2020-07-31",
+ "custom_id": "ITW_2020-07-31",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -70,
+    "high": -60,
+    "low_as_written": "60%",
+    "high_as_written": "70%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -70,
+    "high": -60,
+    "low_as_written": "60%",
+    "high_as_written": "70%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "our automotive OEM business will be the hardest hit, with revenues potentially down 60% to 70% year-over-year",
+   "one_sided": null,
+   "actual": -27,
+   "actual_as_written": "27 percent",
+   "range_width_pct": 0.142857,
+   "grade": "beat",
+   "beat_pct": 0.55,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_income",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 200000000,
+    "high": 400000000,
+    "low_as_written": "$200 million",
+    "high_as_written": "$400 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 200000000,
+    "high": 400000000,
+    "low_as_written": "$200 million",
+    "high_as_written": "$400 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect that ITW would still make operating profit in the $200 million to $400 million range",
+   "one_sided": null,
+   "actual": 449000000,
+   "actual_as_written": "$449 million",
+   "range_width_pct": 1.0,
+   "grade": "beat",
+   "beat_pct": 0.1225,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 500000000,
+    "high": null,
+    "low_as_written": "$500 million",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 500000000,
+    "high": null,
+    "low_as_written": "$500 million",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "generate free cash flow of more than $500 million",
+   "one_sided": "floor",
+   "actual": 681000000,
+   "actual_as_written": "$681 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 24.5,
+    "high": 25,
+    "low_as_written": "24.5",
+    "high_as_written": "25 percent"
+   },
+   "latest_revision": {
+    "low": 17,
+    "high": 19,
+    "low_as_written": "17",
+    "high_as_written": "19%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Provide full compensation and benefit support to all ITW colleagues through at least end of Q2 2020",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

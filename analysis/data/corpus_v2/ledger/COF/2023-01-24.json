@@ -1,0 +1,25 @@
+{
+ "ticker": "COF",
+ "call_date": "2023-01-24",
+ "custom_id": "COF_2023-01-24",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Fourth quarter linked quarter increase in operating expense expected to be smaller than the approximately 7% average increase seen over the last five years",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

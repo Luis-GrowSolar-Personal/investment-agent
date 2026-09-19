@@ -1,0 +1,167 @@
+{
+ "ticker": "ROK",
+ "call_date": "2021-07-27",
+ "custom_id": "ROK_2021-07-27",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2021,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "20%",
+    "high_as_written": "20%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "20%",
+    "high_as_written": "20%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect second half year-over-year organic sales growth of about 20%.",
+   "one_sided": null,
+   "actual": 33,
+   "actual_as_written": "33%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.65,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 6800000000,
+    "high": 6800000000,
+    "low_as_written": "$6.8 billion",
+    "high_as_written": "$6.8 billion"
+   },
+   "latest_revision": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3.5,
+    "high": 6.5,
+    "low_as_written": "3.5%",
+    "high_as_written": "6.5%"
+   },
+   "latest_revision": {
+    "low": 10.5,
+    "high": 10.5,
+    "low_as_written": "10.5%",
+    "high_as_written": "10.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 5
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 20,
+    "high": 20.5,
+    "low_as_written": "20%",
+    "high_as_written": "20.5%"
+   },
+   "latest_revision": {
+    "low": 19.5,
+    "high": 19.5,
+    "low_as_written": "19.5%",
+    "high_as_written": "19.5%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.45,
+    "high": 8.85,
+    "low_as_written": "$8.45",
+    "high_as_written": "$8.85"
+   },
+   "latest_revision": {
+    "low": 8.95,
+    "high": 9.35,
+    "low_as_written": "$8.95",
+    "high_as_written": "$9.35"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 150000000,
+    "high": 150000000,
+    "low_as_written": "$150 million",
+    "high_as_written": "$150 million"
+   },
+   "latest_revision": {
+    "low": 150000000,
+    "high": 150000000,
+    "low_as_written": "$150 million",
+    "high_as_written": "$150 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

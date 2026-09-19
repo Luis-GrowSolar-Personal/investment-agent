@@ -1,0 +1,62 @@
+{
+ "ticker": "MMM",
+ "call_date": "2024-10-22",
+ "custom_id": "MMM_2024-10-22",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.35,
+    "high": 9.75,
+    "low_as_written": "$9.35",
+    "high_as_written": "$9.75"
+   },
+   "latest_revision": {
+    "low": 7.0,
+    "high": 7.3,
+    "low_as_written": "$7",
+    "high_as_written": "$7.30"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "original": {
+    "low": 90,
+    "high": 110,
+    "low_as_written": "90",
+    "high_as_written": "110%"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 110,
+    "low_as_written": "90",
+    "high_as_written": "110%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "3M expects to make total combined payments of $3.7 billion related to public water supplies and combat arms settlements",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

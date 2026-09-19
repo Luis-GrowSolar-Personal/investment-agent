@@ -1,0 +1,77 @@
+{
+ "ticker": "MU",
+ "call_date": "2025-06-25",
+ "custom_id": "MU_2025-06-25",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3000000000,
+    "high": null,
+    "low_as_written": "over $3 billion",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 3000000000,
+    "high": null,
+    "low_as_written": "over $3 billion",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "In fiscal Q3, we forecast CapEx to be over $3 billion.",
+   "one_sided": "floor",
+   "actual": 2700000000,
+   "actual_as_written": "$2.7 billion",
+   "range_width_pct": null,
+   "grade": "missed",
+   "miss_pct": 0.1,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 14000000000,
+    "high": 14000000000,
+    "low_as_written": "approximately $14 billion",
+    "high_as_written": "approximately $14 billion"
+   },
+   "latest_revision": {
+    "low": 14000000000,
+    "high": 14000000000,
+    "low_as_written": "approximately $14 billion",
+    "high_as_written": "approximately $14 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

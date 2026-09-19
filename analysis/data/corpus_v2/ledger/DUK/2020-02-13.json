@@ -1,0 +1,17 @@
+{
+ "ticker": "DUK",
+ "call_date": "2020-02-13",
+ "custom_id": "DUK_2020-02-13",
+ "fiscal": [
+  2019,
+  4
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

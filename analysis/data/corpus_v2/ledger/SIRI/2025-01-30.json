@@ -1,0 +1,156 @@
+{
+ "ticker": "SIRI",
+ "call_date": "2025-01-30",
+ "custom_id": "SIRI_2025-01-30",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 300000000,
+    "high": 300000000,
+    "low_as_written": "$300 million",
+    "high_as_written": "$300 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 450000000,
+    "high": 500000000,
+    "low_as_written": "$450",
+    "high_as_written": "$500 million",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "This satellite CapEx spending will be in the $300 million range per year in 2023 and 2024",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8750000000,
+    "high": 8750000000,
+    "low_as_written": "$8.75 billion",
+    "high_as_written": "$8.75 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8675000000,
+    "high": 8675000000,
+    "low_as_written": "$8.675 billion",
+    "high_as_written": "$8.675 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we released our 2024 guidance projecting revenue of approximately $8.75 billion adjusted EBITDA of approximately 2.7 billion, and free cash flow approximately 1.2 billion",
+   "one_sided": null,
+   "actual": 8700000000,
+   "actual_as_written": "$8.7 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.005714,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1200000000,
+    "high": 1200000000,
+    "low_as_written": "1.2 billion",
+    "high_as_written": "1.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we released our 2024 guidance projecting revenue of approximately $8.75 billion adjusted EBITDA of approximately 2.7 billion, and free cash flow approximately 1.2 billion",
+   "one_sided": null,
+   "actual": 1015000000,
+   "actual_as_written": "$1.015 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.154167,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "operating_income",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2700000000,
+    "high": 2700000000,
+    "low_as_written": "$2.7 billion",
+    "high_as_written": "$2.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2700000000,
+    "high": 2700000000,
+    "low_as_written": "$2.7 billion",
+    "high_as_written": "$2.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are reiterating our guidance to adjusted EBIT of approximately $2.7 billion and free cash flow of approximately $1 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "missed": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

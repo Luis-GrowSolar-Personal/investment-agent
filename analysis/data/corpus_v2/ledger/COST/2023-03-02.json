@@ -1,0 +1,44 @@
+{
+ "ticker": "COST",
+ "call_date": "2023-03-02",
+ "custom_id": "COST_2023-03-02",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 3800000000,
+    "high": 4000000000,
+    "low_as_written": "$3.8",
+    "high_as_written": "$4 billion"
+   },
+   "latest_revision": {
+    "low": 3800000000,
+    "high": 4000000000,
+    "low_as_written": "$3.8",
+    "high_as_written": "$4.0 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Costco will announce December sales results for the five weeks ending January 1st on January 5th after market close",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

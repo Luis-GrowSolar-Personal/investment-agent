@@ -1,0 +1,157 @@
+{
+ "ticker": "HCA",
+ "call_date": "2022-01-27",
+ "custom_id": "HCA_2022-01-27",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "four",
+    "high_as_written": "six",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "four",
+    "high_as_written": "six",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "our revenue expectation is more in that four to six.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 54000000000,
+    "high": 55500000000,
+    "low_as_written": "54 billion",
+    "high_as_written": "55.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 58700000000,
+    "high": 59300000000,
+    "low_as_written": "$58.7 billion",
+    "high_as_written": "$59.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We expect revenue to range between 54 billion and 55.5 billion.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 13.3,
+    "high": 14.3,
+    "low_as_written": "$13.30",
+    "high_as_written": "$14.30",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 17.2,
+    "high": 17.8,
+    "low_as_written": "$17.20",
+    "high_as_written": "$17.80",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We expect full-year diluted earnings per share to range between $13.30 and $14.30.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3700000000,
+    "high": 3700000000,
+    "low_as_written": "$3.7 billion",
+    "high_as_written": "$3.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3700000000,
+    "high": 3700000000,
+    "low_as_written": "$3.7 billion",
+    "high_as_written": "$3.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "our capital spending target remains at approximately $3.7 billion",
+   "one_sided": null,
+   "actual": 3600000000,
+   "actual_as_written": "$3.6 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.027027,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide more detailed 2022 annual guidance in January after completing the planning process",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 3,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "revised_down_count": 0
+}

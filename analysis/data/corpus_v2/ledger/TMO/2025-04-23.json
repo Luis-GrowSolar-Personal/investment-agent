@@ -1,0 +1,116 @@
+{
+ "ticker": "TMO",
+ "call_date": "2025-04-23",
+ "custom_id": "TMO_2025-04-23",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3,
+    "high": 4,
+    "low_as_written": "3%",
+    "high_as_written": "4%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 4,
+    "low_as_written": "3%",
+    "high_as_written": "4%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 23.1,
+    "high": 23.5,
+    "low_as_written": "$23.10",
+    "high_as_written": "$23.50"
+   },
+   "latest_revision": {
+    "low": 23.1,
+    "high": 23.5,
+    "low_as_written": "$23.10",
+    "high_as_written": "$23.50"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "approximately 90 basis points",
+    "high_as_written": "approximately 90 basis points"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "approximately 90 basis points",
+    "high_as_written": "approximately 90 basis points"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 7000000000,
+    "high": 7400000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7.4 billion"
+   },
+   "latest_revision": {
+    "low": 7000000000,
+    "high": 7400000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7.4 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1400000000,
+    "high": 1700000000,
+    "low_as_written": "$1.4",
+    "high_as_written": "$1.7 billion"
+   },
+   "latest_revision": {
+    "low": 1400000000,
+    "high": 1700000000,
+    "low_as_written": "$1.4",
+    "high_as_written": "$1.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete $2 billion of share buybacks (already completed in January 2025)",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,25 @@
+{
+ "ticker": "AIG",
+ "call_date": "2025-08-07",
+ "custom_id": "AIG_2025-08-07",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "AIG Board approved a 12.5% increase in quarterly dividend to $0.45 per share starting Q2 2025",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

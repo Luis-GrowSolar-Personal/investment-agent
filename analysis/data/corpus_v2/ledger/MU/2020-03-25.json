@@ -1,0 +1,17 @@
+{
+ "ticker": "MU",
+ "call_date": "2020-03-25",
+ "custom_id": "MU_2020-03-25",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

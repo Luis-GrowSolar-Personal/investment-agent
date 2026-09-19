@@ -1,0 +1,166 @@
+{
+ "ticker": "MMM",
+ "call_date": "2023-04-25",
+ "custom_id": "MMM_2023-04-25",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7200000000,
+    "high": 7600000000,
+    "low_as_written": "$7.2",
+    "high_as_written": "$7.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7200000000,
+    "high": 7600000000,
+    "low_as_written": "$7.2",
+    "high_as_written": "$7.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we estimate Q1 total adjusted sales in the range of $7.2 to $7.6 billion versus $8.5 billion adjusted for the exit of PFAS manufacturing",
+   "one_sided": null,
+   "actual": 7700000000,
+   "actual_as_written": "$7.7 billion",
+   "range_width_pct": 0.055556,
+   "grade": "beat",
+   "beat_pct": 0.013158,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.25,
+    "high": 1.65,
+    "low_as_written": "$1.25",
+    "high_as_written": "$1.65",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.25,
+    "high": 1.65,
+    "low_as_written": "$1.25",
+    "high_as_written": "$1.65",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we estimate that first quarter adjusted earnings per share will be in the range of $1.25 to $1.65.",
+   "one_sided": null,
+   "actual": 1.97,
+   "actual_as_written": "$1.97",
+   "range_width_pct": 0.32,
+   "grade": "beat",
+   "beat_pct": 0.193939,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.5,
+    "high": 9.0,
+    "low_as_written": "$8.50",
+    "high_as_written": "$9"
+   },
+   "latest_revision": {
+    "low": 8.5,
+    "high": 9.0,
+    "low_as_written": "$8.50",
+    "high_as_written": "$9"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90%",
+    "high_as_written": "100%"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90%",
+    "high_as_written": "100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -3,
+    "high": 0,
+    "low_as_written": "minus 3%",
+    "high_as_written": "flat"
+   },
+   "latest_revision": {
+    "low": -3,
+    "high": 0,
+    "low_as_written": "minus 3%",
+    "high_as_written": "flat"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1500000000,
+    "high": 1800000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.8 billion"
+   },
+   "latest_revision": {
+    "low": 1500000000,
+    "high": 1800000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

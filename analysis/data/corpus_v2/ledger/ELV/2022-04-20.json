@@ -1,0 +1,93 @@
+{
+ "ticker": "ELV",
+ "call_date": "2022-04-20",
+ "custom_id": "ELV_2022-04-20",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 12,
+    "high": null,
+    "low_as_written": "12%",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 12,
+    "high": null,
+    "low_as_written": "12%",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 28.25,
+    "high": 28.25,
+    "low_as_written": "$28.25",
+    "high_as_written": "$28.25"
+   },
+   "latest_revision": {
+    "low": 28.25,
+    "high": 28.25,
+    "low_as_written": "$28.25",
+    "high_as_written": "$28.25"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 152000000000,
+    "high": 152000000000,
+    "low_as_written": "$152 billion",
+    "high_as_written": "$152 billion"
+   },
+   "latest_revision": {
+    "low": 152000000000,
+    "high": 152000000000,
+    "low_as_written": "$152 billion",
+    "high_as_written": "$152 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "customer_count",
+   "framing": "level",
+   "original": {
+    "low": 45600000,
+    "high": 46200000,
+    "low_as_written": "45.6",
+    "high_as_written": "46.2 million members"
+   },
+   "latest_revision": {
+    "low": 45600000,
+    "high": 46200000,
+    "low_as_written": "45.6",
+    "high_as_written": "46.2 million members"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

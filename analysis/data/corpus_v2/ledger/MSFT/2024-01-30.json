@@ -1,0 +1,59 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2024-01-30",
+ "custom_id": "MSFT_2024-01-30",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 19900000000,
+    "high": 20200000000,
+    "low_as_written": "$19.9",
+    "high_as_written": "$20.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 15200000000,
+    "high": 15600000000,
+    "low_as_written": "$15.2",
+    "high_as_written": "$15.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "In productivity and business processes, we expect revenue to grow between 9% and 11% in constant currency, or $19.9 to $20.2 billion U.S. dollars.",
+   "one_sided": null,
+   "actual": 62000000000,
+   "actual_as_written": "$62 billion",
+   "range_width_pct": 0.015075,
+   "grade": "beat",
+   "beat_pct": 2.069307,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

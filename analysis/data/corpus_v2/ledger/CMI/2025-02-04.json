@@ -1,0 +1,64 @@
+{
+ "ticker": "CMI",
+ "call_date": "2025-02-04",
+ "custom_id": "CMI_2025-02-04",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -5,
+    "high": -2,
+    "low_as_written": "down 2%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -3,
+    "high": 0,
+    "low_as_written": "down 3%",
+    "high_as_written": "flat",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We currently project 2024 company revenues to be down 2% to 5% and company EBITDA margins in the range of 14.4% to 15.4%.",
+   "one_sided": null,
+   "actual": 0.0,
+   "actual_as_written": "$34.1 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 34100000000
+   },
+   "range_width_pct": 0.6,
+   "grade": "beat",
+   "beat_pct": 1.0,
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

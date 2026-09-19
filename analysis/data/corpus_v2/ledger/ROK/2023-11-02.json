@@ -1,0 +1,341 @@
+{
+ "ticker": "ROK",
+ "call_date": "2023-11-02",
+ "custom_id": "ROK_2023-11-02",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 200000000,
+    "high": null,
+    "low_as_written": "above $200 million",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 8900000000,
+    "high": 8900000000,
+    "low_as_written": "$8.9 billion",
+    "high_as_written": "$8.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect fiscal year 23 revenues to be above $200 million with a meaningful contribution to EPS in fiscal year 23.",
+   "one_sided": "floor",
+   "actual": 9100000000,
+   "actual_as_written": "$9.1 billion",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9,
+    "high": 13,
+    "low_as_written": "9",
+    "high_as_written": "13%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14,
+    "high": 16,
+    "low_as_written": "14 to 16%",
+    "high_as_written": "16%",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "We expect organic sales growth to be in a range of 9 to 13% and 11% at the midpoint of our range.",
+   "one_sided": null,
+   "actual": 16.666666666666675,
+   "actual_as_written": "$9.1 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 7800000000
+   },
+   "range_width_pct": 0.444444,
+   "grade": "beat",
+   "beat_pct": 0.282051,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10.2,
+    "high": 11.0,
+    "low_as_written": "$10.20",
+    "high_as_written": "$11",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11.7,
+    "high": 12.1,
+    "low_as_written": "$11.70",
+    "high_as_written": "$12.10",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our adjusted EPS guidance is $10.20 to $11.",
+   "one_sided": null,
+   "actual": 12.12,
+   "actual_as_written": "$12.12",
+   "range_width_pct": 0.078431,
+   "grade": "beat",
+   "beat_pct": 0.101818,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1100000000,
+    "high": 1100000000,
+    "low_as_written": "$1.1 billion",
+    "high_as_written": "$1.1 billion",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 1100000000,
+    "high": 1100000000,
+    "low_as_written": "$1.1 billion",
+    "high_as_written": "$1.1 billion",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we target generation of over $1.1 billion of free cash flow next year with a return to a more normalized conversion of 95%.",
+   "one_sided": "floor",
+   "actual": 1200000000,
+   "actual_as_written": "$1.2 billion",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 190000000,
+    "high": 190000000,
+    "low_as_written": "$190 million",
+    "high_as_written": "$190 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 190000000,
+    "high": 190000000,
+    "low_as_written": "$190 million",
+    "high_as_written": "$190 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "This reflects $190 million of capital expenditures.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 21,
+    "high": 21,
+    "low_as_written": "about 21%",
+    "high_as_written": "about 21%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 21.5,
+    "high": 21.5,
+    "low_as_written": "21.5%",
+    "high_as_written": "21.5%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We expect full year segment operating margin to be about 21% up from prior guidance of about 20.5%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 17,
+    "high": 17,
+    "low_as_written": "17%",
+    "high_as_written": "17%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "At the midpoint of this range, this represents 17% adjusted EPS growth, up from the prior guidance of approximately 12% at the midpoint.",
+   "one_sided": null,
+   "actual": 27.71338250790305,
+   "actual_as_written": "$12.12 (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 9.49
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.630199,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 95,
+    "high": 95,
+    "low_as_written": "about 95%",
+    "high_as_written": "about 95%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "80%",
+    "high_as_written": "80%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We expect full year fiscal 23 free cash flow conversion of about 95% of adjusted income.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "backlog",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4500000000,
+    "high": 5000000000,
+    "low_as_written": "$4.5",
+    "high_as_written": "$5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4500000000,
+    "high": 5000000000,
+    "low_as_written": "$4.5",
+    "high_as_written": "$5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we now expect to finish the year with about $4.5 to $5 billion in backlog",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Lifecycle services segment margin expected to exceed 10% in Q4 FY2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 2,
+  "beat": 3,
+  "unreported": 1,
+  "ungradable_present": 2,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,90 @@
+{
+ "ticker": "IBM",
+ "call_date": "2021-01-21",
+ "custom_id": "IBM_2021-01-21",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 13.35,
+    "high": 13.35,
+    "low_as_written": "$13.35",
+    "high_as_written": "$13.35",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 13.35,
+    "high": 13.35,
+    "low_as_written": "$13.35",
+    "high_as_written": "$13.35",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we expect to deliver at least $13.35 of operating earnings per share for the year.",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 12500000000,
+    "high": 12500000000,
+    "low_as_written": "$12.5 billion",
+    "high_as_written": "$12.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12500000000,
+    "high": 12500000000,
+    "low_as_written": "$12.5 billion",
+    "high_as_written": "$12.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Turning to free cash flow, we expect about $12.5 billion in 2020.",
+   "one_sided": null,
+   "actual": 10800000000,
+   "actual_as_written": "$10.8 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.136,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

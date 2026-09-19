@@ -1,0 +1,39 @@
+{
+ "ticker": "IBM",
+ "call_date": "2023-10-25",
+ "custom_id": "IBM_2023-10-25",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 8,
+    "low_as_written": "6%",
+    "high_as_written": "8%"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

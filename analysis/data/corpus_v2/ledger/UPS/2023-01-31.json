@@ -1,0 +1,312 @@
+{
+ "ticker": "UPS",
+ "call_date": "2023-01-31",
+ "custom_id": "UPS_2023-01-31",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 102000000000,
+    "high": 102000000000,
+    "low_as_written": "$102 billion",
+    "high_as_written": "$102 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 102000000000,
+    "high": 102000000000,
+    "low_as_written": "$102 billion",
+    "high_as_written": "$102 billion",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "consolidated revenues are expected to be about $102 billion",
+   "one_sided": null,
+   "actual": 100300000000,
+   "actual_as_written": "$100.3 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.016667,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 13.7,
+    "high": 13.7,
+    "low_as_written": "13.7%",
+    "high_as_written": "13.7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13.7,
+    "high": 13.7,
+    "low_as_written": "13.7%",
+    "high_as_written": "13.7%",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "consolidated operating margin is expected to be approximately 13.7%.",
+   "one_sided": null,
+   "actual": 13.8,
+   "actual_as_written": "13.8%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.007299,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9000000000,
+    "high": null,
+    "low_as_written": "$9 billion",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 3,
+   "quote": "We expect free cash flow of around $9 billion",
+   "one_sided": null,
+   "actual": 9000000000,
+   "actual_as_written": "$9 billion",
+   "range_width_pct": 0.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5500000000,
+    "high": 5500000000,
+    "low_as_written": "$5.5 billion",
+    "high_as_written": "$5.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5000000000,
+    "high": 5000000000,
+    "low_as_written": "$5 billion",
+    "high_as_written": "$5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect 2022 capital expenditures to be about 5.4% of revenue or $5.5 billion.",
+   "one_sided": null,
+   "actual": 4800000000,
+   "actual_as_written": "$4.8 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.127273,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5.5,
+    "high": 5.5,
+    "low_as_written": "5.5%",
+    "high_as_written": "5.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5.5,
+    "high": 5.5,
+    "low_as_written": "5.5%",
+    "high_as_written": "5.5%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "In U.S. domestic, We anticipate revenue growth of around 5.5%",
+   "one_sided": null,
+   "actual": 3.083247687564228,
+   "actual_as_written": "$100.3 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 97300000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.43941,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 50,
+    "high": 50,
+    "low_as_written": "50 basis points",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 50,
+    "high": 50,
+    "low_as_written": "50 basis points",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "in U.S. domestic, we expect operating margin to expand around 50 basis points for the full year in 2022.",
+   "one_sided": null,
+   "actual_framing": "margin_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4.5,
+    "high": 4.5,
+    "low_as_written": "4.5%",
+    "high_as_written": "4.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.5,
+    "high": 4.5,
+    "low_as_written": "4.5%",
+    "high_as_written": "4.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate fourth quarter 2022 revenue growth of around 4.5%",
+   "one_sided": null,
+   "actual": -2.877697841726623,
+   "actual_as_written": "$27 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 27800000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 1.639488,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 12.4,
+    "high": 12.4,
+    "low_as_written": "12.4%",
+    "high_as_written": "12.4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11.4,
+    "high": 11.4,
+    "low_as_written": "11.4%",
+    "high_as_written": "11.4%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect fourth quarter operating margin to expand year over year to around 12.4%",
+   "one_sided": null,
+   "actual": 14.1,
+   "actual_as_written": "14.1%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.137097,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 3,
+  "beat": 3,
+  "met": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

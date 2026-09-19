@@ -1,0 +1,57 @@
+{
+ "ticker": "IBM",
+ "call_date": "2025-10-22",
+ "custom_id": "IBM_2025-10-22",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": null,
+    "low_as_written": "5%",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 13500000000,
+    "high": 13500000000,
+    "low_as_written": "$13.5 billion",
+    "high_as_written": "$13.5 billion"
+   },
+   "latest_revision": {
+    "low": 13500000000,
+    "high": null,
+    "low_as_written": "$13.5 billion",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

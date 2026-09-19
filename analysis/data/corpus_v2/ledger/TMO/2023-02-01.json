@@ -1,0 +1,170 @@
+{
+ "ticker": "TMO",
+ "call_date": "2023-02-01",
+ "custom_id": "TMO_2023-02-01",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 25.4,
+    "high": 25.4,
+    "low_as_written": "25.4%",
+    "high_as_written": "25.4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 24.9,
+    "high": 24.9,
+    "low_as_written": "24.9%",
+    "high_as_written": "24.9%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we now expect adjusted operating margin to be 25.4% in 2022.",
+   "one_sided": null,
+   "actual": 24.5,
+   "actual_as_written": "24.5%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.035433,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": null,
+    "high": 7000000000,
+    "low_as_written": null,
+    "high_as_written": "$7 billion",
+    "one_sided": "ceiling"
+   },
+   "n_revisions": 4,
+   "quote": "free cash flow of approximately $7 billion.",
+   "one_sided": null,
+   "actual": 6940000000,
+   "actual_as_written": "$6.94 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.008571,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2500000000,
+    "high": 2700000000,
+    "low_as_written": "$2.5",
+    "high_as_written": "$2.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2300000000,
+    "high": 2500000000,
+    "low_as_written": "$2.3",
+    "high_as_written": "$2.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we continue to assume net capital expenditures of approximately $2.5 to $2.7 billion",
+   "one_sided": null,
+   "actual": 2200000000,
+   "actual_as_written": "$2.2 billion",
+   "range_width_pct": 0.08,
+   "grade": "beat",
+   "beat_pct": 0.12,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9,
+    "high": 9,
+    "low_as_written": "9%",
+    "high_as_written": "9%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 9,
+    "low_as_written": "9%",
+    "high_as_written": "9%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're also raising our core organic revenue growth outlook from 8% to 9% for the year.",
+   "one_sided": null,
+   "actual": 14.562611578678908,
+   "actual_as_written": "$44.92 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 39210000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.618068,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 2,
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 4,
+ "revised_down_count": 0
+}

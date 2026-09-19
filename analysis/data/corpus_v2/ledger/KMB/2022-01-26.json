@@ -1,0 +1,123 @@
+{
+ "ticker": "KMB",
+ "call_date": "2022-01-26",
+ "custom_id": "KMB_2022-01-26",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Our plans call for total sales growth of 4% to 6% in 2021",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.75,
+    "high": 8.0,
+    "low_as_written": "$7.75",
+    "high_as_written": "$8",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7.75,
+    "high": 8.0,
+    "low_as_written": "$7.75",
+    "high_as_written": "$8",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we're targeting adjusted earnings per share of $7.75 to $8",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_income",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -450000000,
+    "high": -450000000,
+    "low_as_written": "$450 million",
+    "high_as_written": "$450 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -450000000,
+    "high": -450000000,
+    "low_as_written": "$450 million",
+    "high_as_written": "$450 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "at the midpoint of our guidance, our operating profit is now expected to be down $450 million year over year",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Kimberly-Clark will provide 2022 outlook including more detail on margin recovery and pricing actions",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "unreported": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

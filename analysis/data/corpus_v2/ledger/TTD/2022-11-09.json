@@ -1,0 +1,82 @@
+{
+ "ticker": "TTD",
+ "call_date": "2022-11-09",
+ "custom_id": "TTD_2022-11-09",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 385000000,
+    "high": 385000000,
+    "low_as_written": "$385 million",
+    "high_as_written": "$385 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 385000000,
+    "high": 385000000,
+    "low_as_written": "$385 million",
+    "high_as_written": "$385 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we estimate Q3 revenue to be at least $385 million, which would represent growth of 28% on a year-over-year basis",
+   "one_sided": "floor",
+   "actual": 395000000,
+   "actual_as_written": "$395 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 75000000,
+    "high": 75000000,
+    "low_as_written": "75 million",
+    "high_as_written": "75 million"
+   },
+   "latest_revision": {
+    "low": 75000000,
+    "high": 75000000,
+    "low_as_written": "75 million",
+    "high_as_written": "75 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Hold an analyst day in New York City",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

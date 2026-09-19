@@ -1,0 +1,61 @@
+{
+ "ticker": "DUK",
+ "call_date": "2025-02-13",
+ "custom_id": "DUK_2025-02-13",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We have also extended our EPS growth target of 4% to 6% through 2024",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide 2025 earnings guidance along with updated load growth expectations and refreshed capital and financing plans",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

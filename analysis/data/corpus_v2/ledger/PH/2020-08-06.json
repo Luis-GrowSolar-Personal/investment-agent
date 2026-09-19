@@ -1,0 +1,55 @@
+{
+ "ticker": "PH",
+ "call_date": "2020-08-06",
+ "custom_id": "PH_2020-08-06",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10.25,
+    "high": 10.85,
+    "low_as_written": "$10.25",
+    "high_as_written": "$10.85",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8.78,
+    "high": 9.38,
+    "low_as_written": "$8.78",
+    "high_as_written": "$9.38",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "On an adjusted earnings per share basis, the guidance range is now $10.25 to $10.85 or $10.55 at the midpoint.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

@@ -1,0 +1,98 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2020-07-29",
+ "custom_id": "QCOM_2020-07-29",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4400000000,
+    "high": 5200000000,
+    "low_as_written": "$4.4",
+    "high_as_written": "$5.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3600000000,
+    "high": 4200000000,
+    "low_as_written": "$3.6",
+    "high_as_written": "$4.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We currently estimate revenues of $4.4 to $5.2 billion and non-GAAP earnings per share of 60 to 80 cents.",
+   "one_sided": null,
+   "multi_candidate": 3,
+   "actual": 4900000000,
+   "actual_as_written": "$4.9 billion",
+   "range_width_pct": 0.181818,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "unit_shipments",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 125000000,
+    "high": 145000000,
+    "low_as_written": "125",
+    "high_as_written": "145 million units",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 125000000,
+    "high": 145000000,
+    "low_as_written": "125",
+    "high_as_written": "145 million units",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "In QCT, we estimate revenues of $3.6 to $4.2 billion, MSM shipments of 125 to 145 million units, and EBT margins of 14 to 16%.",
+   "one_sided": null,
+   "actual": 130000000,
+   "actual_as_written": "130 million units",
+   "range_width_pct": 0.16,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Qualcomm expects to receive near-term payments from OPPO and Vivo on outstanding accounts receivable under the new license agreements",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

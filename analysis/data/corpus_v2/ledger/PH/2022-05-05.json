@@ -1,0 +1,104 @@
+{
+ "ticker": "PH",
+ "call_date": "2022-05-05",
+ "custom_id": "PH_2022-05-05",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.54,
+    "high": 4.54,
+    "low_as_written": "$4.54",
+    "high_as_written": "$4.54",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.54,
+    "high": 4.54,
+    "low_as_written": "$4.54",
+    "high_as_written": "$4.54",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Q3, FY22 Q3 adjusted EPS guide, we have at $4.54.",
+   "one_sided": null,
+   "actual": 4.83,
+   "actual_as_written": "$4.83",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.063877,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5,
+    "high": 9,
+    "low_as_written": "5%",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 11,
+    "low_as_written": "9%",
+    "high_as_written": "11%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Parker will hold a Virtual Investor Day to release new long-term financial targets",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Parker expects the MEGIT acquisition to close in Q3 calendar 2022",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

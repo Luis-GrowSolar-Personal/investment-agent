@@ -1,0 +1,139 @@
+{
+ "ticker": "MMM",
+ "call_date": "2025-01-21",
+ "custom_id": "MMM_2025-01-21",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 9.35,
+    "high": 9.75,
+    "low_as_written": "$9.35",
+    "high_as_written": "$9.75",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7.2,
+    "high": 7.3,
+    "low_as_written": "$7.20",
+    "high_as_written": "$7.30",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we anticipate earnings of $9.35 to $9.75 per share",
+   "one_sided": null,
+   "actual": 7.3,
+   "actual_as_written": "$7.30",
+   "range_width_pct": 0.042781,
+   "grade": "missed",
+   "miss_pct": 0.219251,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 90,
+    "high": 110,
+    "low_as_written": "90",
+    "high_as_written": "110%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 110,
+    "low_as_written": "90",
+    "high_as_written": "110%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "our expectation is that adjusted free cash flow conversion performance post-spin will remain in the range of 90 to 110%",
+   "one_sided": null,
+   "actual": -22.22222222222222,
+   "actual_as_written": "$4.9 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 6300000000
+   },
+   "range_width_pct": 0.222222,
+   "grade": "missed",
+   "miss_pct": 1.246914,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": null,
+    "low_as_written": "100%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": null,
+    "low_as_written": "100%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we expect that the adjusted free cash flow conversion performance will be 100% plus for the full year",
+   "one_sided": "floor",
+   "actual": 4900000000,
+   "actual_as_written": "$4.9 billion",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Add more than 50 new engineers in Q4 to high-priority focus areas such as specialty materials and films",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 2,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

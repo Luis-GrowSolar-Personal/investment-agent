@@ -1,0 +1,54 @@
+{
+ "ticker": "TFC",
+ "call_date": "2021-04-15",
+ "custom_id": "TFC_2021-04-15",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2021,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -5,
+    "high": -3,
+    "low_as_written": "5 percent",
+    "high_as_written": "3 to 5 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -5,
+    "high": -3,
+    "low_as_written": "5 percent",
+    "high_as_written": "3 to 5 percent",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect taxable equivalent revenue to be down 3 to 5 percent as a result of fewer days and purchase accounting runoff.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

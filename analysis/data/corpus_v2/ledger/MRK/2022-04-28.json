@@ -1,0 +1,88 @@
+{
+ "ticker": "MRK",
+ "call_date": "2022-04-28",
+ "custom_id": "MRK_2022-04-28",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 15,
+    "high": 18,
+    "low_as_written": "15%",
+    "high_as_written": "18%"
+   },
+   "latest_revision": {
+    "low": 15,
+    "high": 18,
+    "low_as_written": "15%",
+    "high_as_written": "18%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.12,
+    "high": 7.27,
+    "low_as_written": "$7.12",
+    "high_as_written": "$7.27"
+   },
+   "latest_revision": {
+    "low": 7.12,
+    "high": 7.27,
+    "low_as_written": "$7.12",
+    "high_as_written": "$7.27"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "approximately 74%",
+    "high_as_written": "approximately 74%"
+   },
+   "latest_revision": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "approximately 74%",
+    "high_as_written": "approximately 74%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Host an ESG investor event",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Deliver full 3.1 million courses of monupiravir to U.S. distribution hubs",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Announce new human health business leaders",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

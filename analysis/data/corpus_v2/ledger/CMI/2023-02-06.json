@@ -1,0 +1,134 @@
+{
+ "ticker": "CMI",
+ "call_date": "2023-02-06",
+ "custom_id": "CMI_2023-02-06",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4100000000,
+    "high": 4300000000,
+    "low_as_written": "$4.1",
+    "high_as_written": "$4.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1700000000,
+    "high": 1900000000,
+    "low_as_written": "$1.7 billion",
+    "high_as_written": "$1.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We are projecting our full-year sales to be in the range of $4.1 to $4.3 billion.",
+   "one_sided": null,
+   "actual": 28100000000,
+   "actual_as_written": "$28.1 billion",
+   "range_width_pct": 0.04878,
+   "grade": "beat",
+   "beat_pct": 5.534884,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 175000000,
+    "high": 200000000,
+    "low_as_written": "$175",
+    "high_as_written": "$200 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 175000000,
+    "high": 200000000,
+    "low_as_written": "$175",
+    "high_as_written": "$200 million",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we now expect our free cash flow to be in the range of $175 to $200 million",
+   "one_sided": null,
+   "actual": 2000000000,
+   "actual_as_written": "$2 billion",
+   "range_width_pct": 0.142857,
+   "grade": "beat",
+   "beat_pct": 9.0,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8,
+    "high": 8,
+    "low_as_written": "up 8%",
+    "high_as_written": "up 8%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 8,
+    "low_as_written": "8%",
+    "high_as_written": "8%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we are maintaining our 22 expectations of company revenues to be up 8% and our EBITDA margins at approximately 15.5% of sales.",
+   "one_sided": null,
+   "actual": 639.4736842105262,
+   "actual_as_written": "$28.1 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 3800000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 78.934211,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 5,
+ "revised_down_count": 0
+}

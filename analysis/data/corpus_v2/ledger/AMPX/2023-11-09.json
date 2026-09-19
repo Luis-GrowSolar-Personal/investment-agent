@@ -1,0 +1,26 @@
+{
+ "ticker": "AMPX",
+ "call_date": "2023-11-09",
+ "custom_id": "AMPX_2023-11-09",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Begin construction at Amprius Fab (Brighton, Colorado) as part of 18 to 24-month plan with goal to be operational in 2025",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

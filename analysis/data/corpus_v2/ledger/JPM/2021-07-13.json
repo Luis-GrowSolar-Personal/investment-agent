@@ -1,0 +1,25 @@
+{
+ "ticker": "JPM",
+ "call_date": "2021-07-13",
+ "custom_id": "JPM_2021-07-13",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "JPMorgan Chase will be in all lower 48 states with branches by end of July 2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

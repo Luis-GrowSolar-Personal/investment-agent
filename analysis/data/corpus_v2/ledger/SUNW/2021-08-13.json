@@ -1,0 +1,17 @@
+{
+ "ticker": "SUNW",
+ "call_date": "2021-08-13",
+ "custom_id": "SUNW_2021-08-13",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

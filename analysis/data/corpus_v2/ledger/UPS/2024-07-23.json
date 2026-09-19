@@ -1,0 +1,128 @@
+{
+ "ticker": "UPS",
+ "call_date": "2024-07-23",
+ "custom_id": "UPS_2024-07-23",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_income",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -30,
+    "high": -20,
+    "low_as_written": "20",
+    "high_as_written": "30 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -30,
+    "high": -20,
+    "low_as_written": "20",
+    "high_as_written": "30 percent",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect consolidated operating profit to be down between 20 and 30 percent.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 92000000000,
+    "high": 94500000000,
+    "low_as_written": "$92 billion",
+    "high_as_written": "$94.5 billion"
+   },
+   "latest_revision": {
+    "low": 13000000000,
+    "high": 13500000000,
+    "low_as_written": "$13",
+    "high_as_written": "$13.5 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 10,
+    "high": 10.6,
+    "low_as_written": "10%",
+    "high_as_written": "10.6%"
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 10.6,
+    "low_as_written": "10",
+    "high_as_written": "10.6%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 4500000000,
+    "high": 5300000000,
+    "low_as_written": "$4.5",
+    "high_as_written": "$5.3 billion"
+   },
+   "latest_revision": {
+    "low": 5900000000,
+    "high": 6700000000,
+    "low_as_written": "$5.9",
+    "high_as_written": "$6.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 4500000000,
+    "high": 4500000000,
+    "low_as_written": "$4.5 billion",
+    "high_as_written": "$4.5 billion"
+   },
+   "latest_revision": {
+    "low": 4500000000,
+    "high": 4500000000,
+    "low_as_written": "$4.5 billion",
+    "high_as_written": "$4.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

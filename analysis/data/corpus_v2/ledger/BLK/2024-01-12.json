@@ -1,0 +1,25 @@
+{
+ "ticker": "BLK",
+ "call_date": "2024-01-12",
+ "custom_id": "BLK_2024-01-12",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "BlackRock expects to see an acceleration in iShares ETF flows as year-end 2023 approaches, consistent with historical seasonality",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 4,
+ "revised_down_count": 0
+}

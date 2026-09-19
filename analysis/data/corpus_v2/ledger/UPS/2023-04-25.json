@@ -1,0 +1,93 @@
+{
+ "ticker": "UPS",
+ "call_date": "2023-04-25",
+ "custom_id": "UPS_2023-04-25",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 97000000000,
+    "high": 99400000000,
+    "low_as_written": "$97",
+    "high_as_written": "$99.4 billion"
+   },
+   "latest_revision": {
+    "low": 97000000000,
+    "high": 99400000000,
+    "low_as_written": "$97",
+    "high_as_written": "$99.4 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 12.8,
+    "high": 13.6,
+    "low_as_written": "12.8",
+    "high_as_written": "13.6 percent"
+   },
+   "latest_revision": {
+    "low": 21,
+    "high": 21,
+    "low_as_written": "21%",
+    "high_as_written": "21%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 8000000000,
+    "high": 8000000000,
+    "low_as_written": "$8 billion",
+    "high_as_written": "$8 billion"
+   },
+   "latest_revision": {
+    "low": 8000000000,
+    "high": 8000000000,
+    "low_as_written": "$8 billion",
+    "high_as_written": "$8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 5300000000,
+    "high": 5300000000,
+    "low_as_written": "$5.3 billion",
+    "high_as_written": "$5.3 billion"
+   },
+   "latest_revision": {
+    "low": 5300000000,
+    "high": 5300000000,
+    "low_as_written": "$5.3 billion",
+    "high_as_written": "$5.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

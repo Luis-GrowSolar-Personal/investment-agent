@@ -1,0 +1,39 @@
+{
+ "ticker": "KMB",
+ "call_date": "2022-10-25",
+ "custom_id": "KMB_2022-10-25",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5,
+    "high": 7,
+    "low_as_written": "5%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 7,
+    "low_as_written": "5%",
+    "high_as_written": "7%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

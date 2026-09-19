@@ -1,0 +1,68 @@
+{
+ "ticker": "COST",
+ "call_date": "2022-09-22",
+ "custom_id": "COST_2022-09-22",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4000000000,
+    "high": 4000000000,
+    "low_as_written": "$4 billion",
+    "high_as_written": "$4 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4000000000,
+    "high": 4000000000,
+    "low_as_written": "$4 billion",
+    "high_as_written": "$4 billion",
+    "one_sided": "ceiling"
+   },
+   "n_revisions": 3,
+   "quote": "Our full year CapEx spend is estimated to be just about $4 billion",
+   "one_sided": null,
+   "actual": 3900000000,
+   "actual_as_written": "$3.9 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.025,
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Open 10 additional new warehouses in Q4 FY2022, for a total of 27 openings (net 24) for the full fiscal year",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Open third Shanghai building in Pudong, China",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,59 @@
+{
+ "ticker": "MU",
+ "call_date": "2025-09-23",
+ "custom_id": "MU_2025-09-23",
+ "fiscal": [
+  2025,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 14000000000,
+    "high": 14000000000,
+    "low_as_written": "approximately $14 billion",
+    "high_as_written": "approximately $14 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14000000000,
+    "high": 14000000000,
+    "low_as_written": "approximately $14 billion",
+    "high_as_written": "approximately $14 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "Our CapEx projection for fiscal 2025 remains approximately $14 billion.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Report revenue, gross margin, and operating margin metrics across new market-segment-focused business units starting in fiscal Q4",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

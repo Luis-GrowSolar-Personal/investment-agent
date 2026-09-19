@@ -1,0 +1,62 @@
+{
+ "ticker": "ITW",
+ "call_date": "2025-07-30",
+ "custom_id": "ITW_2025-07-30",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.15,
+    "high": 10.55,
+    "low_as_written": "$10.15",
+    "high_as_written": "$10.55"
+   },
+   "latest_revision": {
+    "low": 10.15,
+    "high": 10.55,
+    "low_as_written": "$10.15",
+    "high_as_written": "$10.55"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 26.5,
+    "high": 27.5,
+    "low_as_written": "26.5",
+    "high_as_written": "27.5 percent"
+   },
+   "latest_revision": {
+    "low": 26.5,
+    "high": 27.5,
+    "low_as_written": "26.5",
+    "high_as_written": "27.5 percent"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Approximately 80% of full-year restructuring charges expected to occur in Q1 and Q2",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,57 @@
+{
+ "ticker": "BMY",
+ "call_date": "2020-11-05",
+ "custom_id": "BMY_2020-11-05",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 40000000000,
+    "high": 42000000000,
+    "low_as_written": "$40 billion",
+    "high_as_written": "$42 billion"
+   },
+   "latest_revision": {
+    "low": 40500000000,
+    "high": 42000000000,
+    "low_as_written": "$40.5 billion",
+    "high_as_written": "$42 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 6.1,
+    "high": 6.25,
+    "low_as_written": "$6.10",
+    "high_as_written": "$6.25"
+   },
+   "latest_revision": {
+    "low": 6.1,
+    "high": 6.25,
+    "low_as_written": "$6.10",
+    "high_as_written": "$6.25"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

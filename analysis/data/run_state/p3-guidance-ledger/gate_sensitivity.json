@@ -1,0 +1,38 @@
+[
+ {
+  "label_check": true,
+  "exclude_other": true,
+  "coverage": 417,
+  "coverage_pct": 35.2,
+  "N_eligible": 93,
+  "N_eligible_bull": 122,
+  "N_reassure": 11
+ },
+ {
+  "label_check": false,
+  "exclude_other": true,
+  "coverage": 501,
+  "coverage_pct": 42.3,
+  "N_eligible": 205,
+  "N_eligible_bull": 126,
+  "N_reassure": 11
+ },
+ {
+  "label_check": false,
+  "exclude_other": false,
+  "coverage": 620,
+  "coverage_pct": 52.4,
+  "N_eligible": 375,
+  "N_eligible_bull": 99,
+  "N_reassure": 9
+ },
+ {
+  "label_check": true,
+  "exclude_other": false,
+  "coverage": 573,
+  "coverage_pct": 48.4,
+  "N_eligible": 314,
+  "N_eligible_bull": 94,
+  "N_reassure": 10
+ }
+]

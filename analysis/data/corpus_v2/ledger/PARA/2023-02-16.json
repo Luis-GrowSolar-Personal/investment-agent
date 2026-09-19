@@ -1,0 +1,94 @@
+{
+ "ticker": "PARA",
+ "call_date": "2023-02-16",
+ "custom_id": "PARA_2023-02-16",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 60,
+    "high": 60,
+    "low_as_written": "60%",
+    "high_as_written": "60%",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 60,
+    "high": 60,
+    "low_as_written": "60%",
+    "high_as_written": "60%",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "all of which will translate to D2C revenue growth in excess of 60% for the full year.",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "customer_count",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 75000000,
+    "high": 75000000,
+    "low_as_written": "75 million",
+    "high_as_written": "75 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 75000000,
+    "high": 75000000,
+    "low_as_written": "75 million",
+    "high_as_written": "75 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We now expect to exceed our full-year global D2C subscriber growth expectation of 75 million global subs, excluding the removal of subscribers to our services in Russia.",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Launch Pluto TV in Canada",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Launch Paramount Plus in Germany, Austria, and Switzerland with Sky Deutschland, and in France with Canal Plus",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

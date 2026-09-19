@@ -1,0 +1,156 @@
+{
+ "ticker": "HON",
+ "call_date": "2023-07-27",
+ "custom_id": "HON_2023-07-27",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9000000000,
+    "high": 9200000000,
+    "low_as_written": "$9.0 billion",
+    "high_as_written": "$9.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9000000000,
+    "high": 9200000000,
+    "low_as_written": "$9.0 billion",
+    "high_as_written": "$9.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For our 2Q sales guidance, we expect to be in the range of $9.0 billion to $9.2 billion, up 1% to 4% on an organic basis.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.15,
+    "high": 2.25,
+    "low_as_written": "$2.15",
+    "high_as_written": "$2.25",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.15,
+    "high": 2.25,
+    "low_as_written": "$2.15",
+    "high_as_written": "$2.25",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "our adjusted earnings per share guidance range is between $2.15 and $2.25 for the second quarter, up 2% to 7% year-over-year.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 2.23,
+   "actual_as_written": "$2.23",
+   "range_width_pct": 0.046512,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 36000000000,
+    "high": 37000000000,
+    "low_as_written": "$36",
+    "high_as_written": "$37 billion"
+   },
+   "latest_revision": {
+    "low": 36500000000,
+    "high": 37300000000,
+    "low_as_written": "$36.5 billion",
+    "high_as_written": "$37.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.8,
+    "high": 9.2,
+    "low_as_written": "$8.80",
+    "high_as_written": "$9.20"
+   },
+   "latest_revision": {
+    "low": 9.0,
+    "high": 9.25,
+    "low_as_written": "$9",
+    "high_as_written": "$9.25"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Darius Adamczyk to transition to Executive Chairman and Vimal Kapoor to become CEO",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Honeywell to hold an Investor Day",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

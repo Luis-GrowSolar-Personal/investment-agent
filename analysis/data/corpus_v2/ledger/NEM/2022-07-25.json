@@ -1,0 +1,29 @@
+{
+ "ticker": "NEM",
+ "call_date": "2022-07-25",
+ "custom_id": "NEM_2022-07-25",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide update on Ahafo Underground third production level decision with Q2 earnings",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Provide update on CC&V operating strategy with Q2 earnings",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

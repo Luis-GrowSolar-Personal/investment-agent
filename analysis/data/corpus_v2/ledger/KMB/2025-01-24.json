@@ -1,0 +1,58 @@
+{
+ "ticker": "KMB",
+ "call_date": "2025-01-24",
+ "custom_id": "KMB_2025-01-24",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100000000,
+    "high": 120000000,
+    "low_as_written": "$100",
+    "high_as_written": "$120 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100000000,
+    "high": 120000000,
+    "low_as_written": "$100",
+    "high_as_written": "$120 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "CapEx should be at around again, between $100 and $120 million.",
+   "one_sided": null,
+   "actual": 2500000000,
+   "actual_as_written": "2.5 billion",
+   "range_width_pct": 0.2,
+   "grade": "missed",
+   "miss_pct": 19.833333,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

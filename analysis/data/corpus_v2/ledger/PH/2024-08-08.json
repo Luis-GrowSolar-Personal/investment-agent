@@ -1,0 +1,184 @@
+{
+ "ticker": "PH",
+ "call_date": "2024-08-08",
+ "custom_id": "PH_2024-08-08",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 4,
+    "low_as_written": "4%",
+    "high_as_written": "4%",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "Reported sales growth for the year is forecasted to be in the range of 3% to 6% or 4.5% at the midpoint. That equates to approximately $19.9 billion in total sales.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 19900000000,
+    "high": 19900000000,
+    "low_as_written": "$19.9 billion",
+    "high_as_written": "$19.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 19900000000,
+    "high": 19900000000,
+    "low_as_written": "$19.9 billion",
+    "high_as_written": "$19.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "That equates to approximately $19.9 billion in total sales.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 23,
+    "high": 23.4,
+    "low_as_written": "23.2%",
+    "high_as_written": "20 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 23.4,
+    "high": 23.8,
+    "low_as_written": "23.6%",
+    "high_as_written": "20 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "adjusted segment operating margin, our guidance is 23.2% at the midpoint, and there is a range of 20 basis points on either side of that midpoint.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2600000000,
+    "high": 3000000000,
+    "low_as_written": "$2.6 billion",
+    "high_as_written": "$3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "$3 billion",
+    "high_as_written": "$3 billion",
+    "one_sided": "floor"
+   },
+   "n_revisions": 3,
+   "quote": "full year free cash flow is expected to be between $2.6 billion and $3 billion, so we'll be mid-teens free cash flow and our conversion will be over 100%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 24.2,
+    "high": 24.2,
+    "low_as_written": "$24.20",
+    "high_as_written": "$24.20",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 20.8,
+    "high": 21.0,
+    "low_as_written": "$20.90",
+    "high_as_written": "$20.90",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "full year adjusted earnings per share has increased to $24.20.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Achieve net leverage of 2.0x gross debt to adjusted EBITDA",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 5
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

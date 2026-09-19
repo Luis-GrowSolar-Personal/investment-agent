@@ -1,0 +1,19 @@
+{
+ "ticker": "TEAM",
+ "call_date": "2023-02-02",
+ "custom_id": "TEAM_2023-02-02",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": false,
+ "gap_quarters": 1,
+ "extraction_missing": true
+}

@@ -1,0 +1,17 @@
+{
+ "ticker": "QS",
+ "call_date": "2021-02-16",
+ "custom_id": "QS_2021-02-16",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

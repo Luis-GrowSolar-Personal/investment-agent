@@ -1,0 +1,135 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2023-07-26",
+ "custom_id": "SLAB_2023-07-26",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 238000000,
+    "high": 248000000,
+    "low_as_written": "$238",
+    "high_as_written": "$248 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 238000000,
+    "high": 248000000,
+    "low_as_written": "$238",
+    "high_as_written": "$248 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue for Q2 to be in the range of $238 to $248 million.",
+   "one_sided": null,
+   "actual": 245000000,
+   "actual_as_written": "$245 million",
+   "range_width_pct": 0.042017,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 60,
+    "high": 61,
+    "low_as_written": "60%",
+    "high_as_written": "61%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 60,
+    "high": 60,
+    "low_as_written": "60%",
+    "high_as_written": "60%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect non-GAF gross margin to be between 60% and 61%.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 58.9,
+   "actual_as_written": "58.9%",
+   "range_width_pct": 0.016667,
+   "grade": "missed",
+   "miss_pct": 0.018333,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.98,
+    "high": 1.08,
+    "low_as_written": "98 cents",
+    "high_as_written": "$1.08",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.98,
+    "high": 1.08,
+    "low_as_written": "98 cents",
+    "high_as_written": "$1.08",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "non-GAAP earnings to be in the range of 98 cents to $1.08 per share.",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "non-GAAP",
+    "GAAP"
+   ],
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Settle par value of outstanding 2025 convertible notes ($535 million) in cash and any in-the-money value in shares, completing the redemption on June 20th",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "missed": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

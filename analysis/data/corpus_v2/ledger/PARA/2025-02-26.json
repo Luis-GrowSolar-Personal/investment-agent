@@ -1,0 +1,131 @@
+{
+ "ticker": "PARA",
+ "call_date": "2025-02-26",
+ "custom_id": "PARA_2025-02-26",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "our goal is to grow streaming revenue to north of $7 billion by the end of 2024.",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "customer_count",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 65000000,
+    "high": 75000000,
+    "low_as_written": "65",
+    "high_as_written": "75 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 65000000,
+    "high": 75000000,
+    "low_as_written": "65",
+    "high_as_written": "75 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We've set a goal. of achieving 65 to 75 million global streaming subscribers by the end of 2024.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": null,
+    "high": -1,
+    "low_as_written": null,
+    "high_as_written": "negative",
+    "one_sided": "ceiling"
+   },
+   "latest_revision": {
+    "low": null,
+    "high": -1,
+    "low_as_written": null,
+    "high_as_written": "negative",
+    "one_sided": "ceiling"
+   },
+   "n_revisions": 1,
+   "quote": "Free cash flow in Q4 will be negative given the timing of content spend and the headwind of approximately $150 million of cash restructuring payments",
+   "one_sided": "ceiling",
+   "actual": 56000000,
+   "actual_as_written": "$56 million",
+   "range_width_pct": null,
+   "grade": "missed",
+   "miss_pct": 56000001.0,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete remaining 10% of workforce reductions from $500 million cost savings program",
+   "mentioned_now": false
+  },
+  {
+   "intent": "Close Viacom 18 equity interest sale",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 4,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

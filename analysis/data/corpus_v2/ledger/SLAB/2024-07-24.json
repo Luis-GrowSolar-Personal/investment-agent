@@ -1,0 +1,139 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2024-07-24",
+ "custom_id": "SLAB_2024-07-24",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 135000000,
+    "high": 145000000,
+    "low_as_written": "$135",
+    "high_as_written": "$145 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 135000000,
+    "high": 145000000,
+    "low_as_written": "$135",
+    "high_as_written": "$145 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue for the second quarter to be in the range of $135 to $145 million.",
+   "one_sided": null,
+   "actual": 145000000,
+   "actual_as_written": "$145 million",
+   "range_width_pct": 0.074074,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 53,
+    "high": 53,
+    "low_as_written": "53%",
+    "high_as_written": "53%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 53,
+    "high": 53,
+    "low_as_written": "53 percent",
+    "high_as_written": "53 percent",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect non-GAAP gross margin in the second quarter to be approximately 53%.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 53,
+   "actual_as_written": "53%",
+   "range_width_pct": 0.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -0.7,
+    "high": -0.58,
+    "low_as_written": "58 cents",
+    "high_as_written": "70 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -1.61,
+    "high": -1.45,
+    "low_as_written": "$1.45",
+    "high_as_written": "$1.61",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "Our non-GAAP loss per share for Q2 is expected to be in the range of 58 cents to 70 cents.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": -0.56,
+   "actual_as_written": "56 cents",
+   "range_width_pct": 0.171429,
+   "grade": "beat",
+   "beat_pct": 0.034483,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Begin sampling Series 3 to Alpha customers",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Dean Butler joining as CFO",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,90 @@
+{
+ "ticker": "TTD",
+ "call_date": "2024-02-15",
+ "custom_id": "TTD_2024-02-15",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 80000000,
+    "high": 80000000,
+    "low_as_written": "80 million",
+    "high_as_written": "80 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 60000000,
+    "high": 60000000,
+    "low_as_written": "$60 million",
+    "high_as_written": "$60 million",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect 2023 capital expenditures and capitalized software investments to be around 80 million.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 580000000,
+    "high": 580000000,
+    "low_as_written": "$580 million",
+    "high_as_written": "$580 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 580000000,
+    "high": 580000000,
+    "low_as_written": "$580 million",
+    "high_as_written": "$580 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We estimate Q4 revenue to be at least $580 million, which would represent growth of 18% on a year-over-year basis",
+   "one_sided": "floor",
+   "actual": 606000000,
+   "actual_as_written": "$606 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "unreported": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,54 @@
+{
+ "ticker": "MU",
+ "call_date": "2023-09-27",
+ "custom_id": "MU_2023-09-27",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7000000000,
+    "high": 7500000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We are reducing our planned capital expenditures in fiscal 2023 to be in the range of $7 billion to $7.5 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

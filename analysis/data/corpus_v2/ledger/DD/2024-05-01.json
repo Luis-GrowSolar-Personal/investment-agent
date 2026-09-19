@@ -1,0 +1,113 @@
+{
+ "ticker": "DD",
+ "call_date": "2024-05-01",
+ "custom_id": "DD_2024-05-01",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2800000000,
+    "high": 2800000000,
+    "low_as_written": "$2.8 billion",
+    "high_as_written": "$2.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2800000000,
+    "high": 2800000000,
+    "low_as_written": "$2.8 billion",
+    "high_as_written": "$2.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the first quarter of 2024, we expect net sales of about $2.8 billion",
+   "one_sided": null,
+   "actual": 2900000000,
+   "actual_as_written": "$2.9 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.035714,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 11900000000,
+    "high": 12300000000,
+    "low_as_written": "$11.9",
+    "high_as_written": "$12.3 billion"
+   },
+   "latest_revision": {
+    "low": 11900000000,
+    "high": 12300000000,
+    "low_as_written": "$11.9",
+    "high_as_written": "$12.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.25,
+    "high": 3.65,
+    "low_as_written": "$3.25",
+    "high_as_written": "$3.65"
+   },
+   "latest_revision": {
+    "low": 3.25,
+    "high": 3.65,
+    "low_as_written": "$3.25",
+    "high_as_written": "$3.65"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

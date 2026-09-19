@@ -1,0 +1,78 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2021-08-03",
+ "custom_id": "NXPI_2021-08-03",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 31.3,
+    "high": 31.3,
+    "low_as_written": "31.3 percent",
+    "high_as_written": "31.3 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 31.3,
+    "high": 31.3,
+    "low_as_written": "31.3 percent",
+    "high_as_written": "31.3 percent",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see non-GAAP operating margin to be about 31.3 percent at the midpoint.",
+   "one_sided": null,
+   "actual": 32,
+   "actual_as_written": "32%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.022364,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

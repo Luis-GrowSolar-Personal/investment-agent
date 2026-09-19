@@ -1,0 +1,215 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2020-07-31",
+ "custom_id": "ABBV_2020-07-31",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.1,
+    "high": 2.16,
+    "low_as_written": "$2.10",
+    "high_as_written": "$2.16",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.1,
+    "high": 2.16,
+    "low_as_written": "$2.10",
+    "high_as_written": "$2.16",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $2.10 and $2.16, excluding approximately 53 cents of known intangible amortization and specified items",
+   "one_sided": null,
+   "actual": 2.34,
+   "actual_as_written": "$2.34",
+   "range_width_pct": 0.028571,
+   "grade": "beat",
+   "beat_pct": 0.083333,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8100000000,
+    "high": 8100000000,
+    "low_as_written": "$8.1 billion",
+    "high_as_written": "$8.1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8100000000,
+    "high": 8100000000,
+    "low_as_written": "$8.1 billion",
+    "high_as_written": "$8.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate adjusted revenue of approximately $8.1 billion for standalone AbbVie",
+   "one_sided": null,
+   "actual": 10400000000,
+   "actual_as_written": "$10.4 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.283951,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 47.5,
+    "high": 47.5,
+    "low_as_written": "47.5%",
+    "high_as_written": "47.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 47.5,
+    "high": 47.5,
+    "low_as_written": "47.5%",
+    "high_as_written": "47.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are forecasting an adjusted operating margin ratio of approximately 47.5% of sales",
+   "one_sided": null,
+   "actual": 47,
+   "actual_as_written": "47%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.010526,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.61,
+    "high": 9.71,
+    "low_as_written": "$9.61",
+    "high_as_written": "$9.71"
+   },
+   "latest_revision": {
+    "low": 9.61,
+    "high": 9.71,
+    "low_as_written": "$9.61",
+    "high_as_written": "$9.71"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 8,
+    "high": 8,
+    "low_as_written": "8%",
+    "high_as_written": "8%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 81.5,
+    "high": 81.5,
+    "low_as_written": "81.5%",
+    "high_as_written": "81.5%"
+   },
+   "latest_revision": {
+    "low": 82,
+    "high": 82,
+    "low_as_written": "82%",
+    "high_as_written": "82%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 48,
+    "high": 48,
+    "low_as_written": "48%",
+    "high_as_written": "48%"
+   },
+   "latest_revision": {
+    "low": 49,
+    "high": 49,
+    "low_as_written": "49%",
+    "high_as_written": "49%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Submit regulatory application for RINVOC in psoriatic arthritis",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Pay down approximately $7 billion of combined company debt",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close Allergan transaction",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

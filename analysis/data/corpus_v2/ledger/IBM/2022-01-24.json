@@ -1,0 +1,63 @@
+{
+ "ticker": "IBM",
+ "call_date": "2022-01-24",
+ "custom_id": "IBM_2022-01-24",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 11000000000,
+    "high": 12000000000,
+    "low_as_written": "$11",
+    "high_as_written": "$12 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11000000000,
+    "high": 12000000000,
+    "low_as_written": "$11",
+    "high_as_written": "$12 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect to generate between $11 to $12 billion of adjusted free cash flow",
+   "one_sided": null,
+   "actual": 6500000000,
+   "actual_as_written": "$6.5 billion",
+   "range_width_pct": 0.090909,
+   "grade": "missed",
+   "miss_pct": 0.409091,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete the separation of Kyndryl, targeting November 3rd distribution date",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,162 @@
+{
+ "ticker": "DD",
+ "call_date": "2022-02-08",
+ "custom_id": "DD_2022-02-08",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 15400000000,
+    "high": 15600000000,
+    "low_as_written": "$15.4",
+    "high_as_written": "$15.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 16400000000,
+    "high": 16600000000,
+    "low_as_written": "$16.5 billion",
+    "high_as_written": "$16.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "For the full year, we expect net sales of $15.4 to $15.6 billion, an increase of 8% at the midpoint",
+   "one_sided": null,
+   "actual": 16700000000,
+   "actual_as_written": "$16.7 billion",
+   "range_width_pct": 0.012987,
+   "grade": "beat",
+   "beat_pct": 0.070513,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.3,
+    "high": 3.45,
+    "low_as_written": "$3.30",
+    "high_as_written": "$3.45",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.3,
+    "high": 3.45,
+    "low_as_written": "$3.30",
+    "high_as_written": "$3.45",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Adjusted EPS of $3.30 to $3.45, an increase of 68% at the midpoint, versus 2020 adjusted EPS of $2.01 per share",
+   "one_sided": null,
+   "actual": 4.3,
+   "actual_as_written": "$4.30 per share",
+   "range_width_pct": 0.045455,
+   "grade": "beat",
+   "beat_pct": 0.246377,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we also look to continue our CapEx at about 5% of sales and R&D spending at about 4% of sales for 2021",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 90,
+    "high": null,
+    "low_as_written": "greater than 90%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": null,
+    "low_as_written": "greater than 90%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "For the year, we continue to target free cash flow conversions of greater than 90%.",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete the sale of the cleantech business for around $510 million before the end of the year",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

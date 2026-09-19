@@ -1,0 +1,25 @@
+{
+ "ticker": "TEAM",
+ "call_date": "2021-04-29",
+ "custom_id": "TEAM_2021-04-29",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Atlassian will cease new server license sales on February 2nd and will continue to allow customers to upgrade existing licenses for approximately one more year.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

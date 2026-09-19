@@ -1,0 +1,193 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2024-10-30",
+ "custom_id": "ABBV_2024-10-30",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 14200000000,
+    "high": 14200000000,
+    "low_as_written": "approximately $14.2 billion",
+    "high_as_written": "approximately $14.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14200000000,
+    "high": 14200000000,
+    "low_as_written": "approximately $14.2 billion",
+    "high_as_written": "approximately $14.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate net revenues of approximately $14.2 billion",
+   "one_sided": null,
+   "actual": 14500000000,
+   "actual_as_written": "nearly $14.5 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.021127,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.92,
+    "high": 2.96,
+    "low_as_written": "$2.92",
+    "high_as_written": "$2.96",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.92,
+    "high": 2.96,
+    "low_as_written": "$2.92",
+    "high_as_written": "$2.96",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $2.92 and $2.96",
+   "one_sided": null,
+   "actual": 3.0,
+   "actual_as_written": "$3",
+   "range_width_pct": 0.013699,
+   "grade": "beat",
+   "beat_pct": 0.013514,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.7,
+    "high": 10.7,
+    "low_as_written": "$10.70",
+    "high_as_written": "$10.70"
+   },
+   "latest_revision": {
+    "low": 10.71,
+    "high": 10.91,
+    "low_as_written": "$10.71",
+    "high_as_written": "$10.91"
+   },
+   "revised_down": false,
+   "n_revisions": 5
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 54200000000,
+    "high": 54200000000,
+    "low_as_written": "$54.2 billion",
+    "high_as_written": "$54.2 billion"
+   },
+   "latest_revision": {
+    "low": 55500000000,
+    "high": 55500000000,
+    "low_as_written": "approximately $55.5 billion",
+    "high_as_written": "approximately $55.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84 percent",
+    "high_as_written": "84 percent"
+   },
+   "latest_revision": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "approximately 84%",
+    "high_as_written": "approximately 84%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%"
+   },
+   "latest_revision": {
+    "low": 44.5,
+    "high": 44.5,
+    "low_as_written": "roughly 44.5%",
+    "high_as_written": "roughly 44.5%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion"
+   },
+   "latest_revision": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Submit Teliso-V for accelerated approval as a monotherapy in CMET overexpressing EGFR wild-type non-squamous NSCLC under FDA's real-time oncology review program",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close the Cerevel acquisition",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

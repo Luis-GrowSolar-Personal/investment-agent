@@ -1,0 +1,52 @@
+{
+ "ticker": "ELV",
+ "call_date": "2023-04-19",
+ "custom_id": "ELV_2023-04-19",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 32.6,
+    "high": 32.6,
+    "low_as_written": "$32.60",
+    "high_as_written": "$32.60"
+   },
+   "latest_revision": {
+    "low": 32.6,
+    "high": 32.6,
+    "low_as_written": "$32.60",
+    "high_as_written": "$32.60"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Host investor conference in New York City to provide update on long-range planning",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close acquisition of BioPlus, which is expected in the first quarter of 2023",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Begin reporting Carillon split between CarillonRx and Carillon Services with combined health benefits segment",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

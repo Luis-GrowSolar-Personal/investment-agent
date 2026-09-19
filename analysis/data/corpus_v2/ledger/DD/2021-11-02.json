@@ -1,0 +1,98 @@
+{
+ "ticker": "DD",
+ "call_date": "2021-11-02",
+ "custom_id": "DD_2021-11-02",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 15400000000,
+    "high": 15600000000,
+    "low_as_written": "$15.4",
+    "high_as_written": "$15.6 billion"
+   },
+   "latest_revision": {
+    "low": 16400000000,
+    "high": 16600000000,
+    "low_as_written": "$16.5 billion",
+    "high_as_written": "$16.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.3,
+    "high": 3.45,
+    "low_as_written": "$3.30",
+    "high_as_written": "$3.45"
+   },
+   "latest_revision": {
+    "low": 3.3,
+    "high": 3.45,
+    "low_as_written": "$3.30",
+    "high_as_written": "$3.45"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": null,
+    "low_as_written": "greater than 90%",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": null,
+    "low_as_written": "greater than 90%",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Host a webinar covering semiconductor technology with John Kemp",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

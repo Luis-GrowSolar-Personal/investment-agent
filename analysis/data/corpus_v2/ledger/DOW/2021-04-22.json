@@ -1,0 +1,79 @@
+{
+ "ticker": "DOW",
+ "call_date": "2021-04-22",
+ "custom_id": "DOW_2021-04-22",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10700000000,
+    "high": 11200000000,
+    "low_as_written": "$10.7",
+    "high_as_written": "$11.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10700000000,
+    "high": 11200000000,
+    "low_as_written": "$10.7",
+    "high_as_written": "$11.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect sequentially higher business results in the first quarter with total sales in the range of $10.7 to $11.2 billion",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1600000000,
+    "high": 1600000000,
+    "low_as_written": "$1.6 billion",
+    "high_as_written": "$1.6 billion"
+   },
+   "latest_revision": {
+    "low": 1600000000,
+    "high": 1600000000,
+    "low_as_written": "$1.6 billion",
+    "high_as_written": "$1.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Dow and partners expect to complete formal debt reprofiling agreements for SADARA within Q1 2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

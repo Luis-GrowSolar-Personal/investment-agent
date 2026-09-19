@@ -1,0 +1,63 @@
+{
+ "ticker": "AEP",
+ "call_date": "2021-02-25",
+ "custom_id": "AEP_2021-02-25",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.25,
+    "high": 4.45,
+    "low_as_written": "$4.25",
+    "high_as_written": "$4.45 per share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.25,
+    "high": 4.45,
+    "low_as_written": "$4.25",
+    "high_as_written": "$4.45",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "reaffirm our existing operating earnings guidance of 2020 from $4.25 to $4.45 per share",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "non-GAAP",
+    "GAAP"
+   ],
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "AEP will provide detailed drivers for 2021 earnings guidance by segment and updates to capital expenditure and financing plans at the virtual EEI conference",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

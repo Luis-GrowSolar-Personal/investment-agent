@@ -1,0 +1,75 @@
+{
+ "ticker": "TFC",
+ "call_date": "2024-04-22",
+ "custom_id": "TFC_2024-04-22",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -1,
+    "high": 0,
+    "low_as_written": "1%",
+    "high_as_written": "flat",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -1,
+    "high": 0,
+    "low_as_written": "1%",
+    "high_as_written": "flat",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect revenues to remain flat or decline by 1% from 4Q 2023 gap revenue of $5.8 billion",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -3,
+    "high": -1,
+    "low_as_written": "3%",
+    "high_as_written": "1%"
+   },
+   "latest_revision": {
+    "low": -3,
+    "high": -1,
+    "low_as_written": "3%",
+    "high_as_written": "1%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

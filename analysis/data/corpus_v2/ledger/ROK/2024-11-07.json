@@ -1,0 +1,195 @@
+{
+ "ticker": "ROK",
+ "call_date": "2024-11-07",
+ "custom_id": "ROK_2024-11-07",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9447000000,
+    "high": 9447000000,
+    "low_as_written": "$9.4 billion",
+    "high_as_written": "$9.4 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9447000000,
+    "high": 9447000000,
+    "low_as_written": "$9.4 billion",
+    "high_as_written": "$9.4 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Our fiscal 24 guidance assumes total reported sales of about $9.4 billion at the midpoint",
+   "one_sided": null,
+   "actual": 8300000000,
+   "actual_as_written": "$8.3 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.121414,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 0.5,
+    "high": 6.5,
+    "low_as_written": "0.5%",
+    "high_as_written": "6.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -10,
+    "high": -10,
+    "low_as_written": "10%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "n_revisions": 8,
+   "quote": "We expect our reported sales growth to range from 0.5% to 6.5%",
+   "one_sided": null,
+   "actual": -8.791208791208794,
+   "actual_as_written": "$8.3 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 9100000000
+   },
+   "range_width_pct": 12.0,
+   "grade": "missed",
+   "miss_pct": 18.582418,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 12.0,
+    "high": 13.5,
+    "low_as_written": "$12",
+    "high_as_written": "$13.50",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.6,
+    "high": 9.6,
+    "low_as_written": "$9.60",
+    "high_as_written": "$9.60",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our adjusted EPS guidance range is $12 to $13.50",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -21,
+    "high": -21,
+    "low_as_written": "21%",
+    "high_as_written": "21%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "Adjusted EPS is slated to grow 5% year over year at the midpoint",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 60,
+    "high": 60,
+    "low_as_written": "60%",
+    "high_as_written": "60%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect full year fiscal 24 free cash flow conversion of about 100% of adjusted income",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 2,
+  "ungradable_present": 2,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

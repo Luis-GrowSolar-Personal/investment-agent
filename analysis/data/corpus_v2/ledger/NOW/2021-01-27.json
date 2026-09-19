@@ -1,0 +1,196 @@
+{
+ "ticker": "NOW",
+ "call_date": "2021-01-27",
+ "custom_id": "NOW_2021-01-27",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4220000000,
+    "high": 4240000000,
+    "low_as_written": "4.22 billion",
+    "high_as_written": "4.24 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4257000000,
+    "high": 4262000000,
+    "low_as_written": "$4.257 billion",
+    "high_as_written": "$4.262 billion",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "For the full year 2020, we expect subscription revenues between 4.22 billion and 4.24 billion, representing 30% year-over-year growth.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 24,
+    "high": 24.5,
+    "low_as_written": "24",
+    "high_as_written": "24.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect 2020 subscription growth margin of 86%, operating margin of 22%, free cash flow margin of 29%",
+   "one_sided": null,
+   "actual": 25,
+   "actual_as_written": "25%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.136364,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29%",
+    "high_as_written": "29%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 31.5,
+    "high": 31.5,
+    "low_as_written": "31.5%",
+    "high_as_written": "31.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect 2020 subscription growth margin of 86%, operating margin of 22%, free cash flow margin of 29%",
+   "one_sided": null,
+   "actual": 32,
+   "actual_as_written": "32%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.103448,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1155000000,
+    "high": 1160000000,
+    "low_as_written": "1.155 billion",
+    "high_as_written": "1.160 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1155000000,
+    "high": 1160000000,
+    "low_as_written": "1.155 billion",
+    "high_as_written": "1.160 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect subscription revenues between 1.155 billion and 1.160 billion, representing 27% year-over-year constant currency growth.",
+   "one_sided": null,
+   "actual": 1184000000,
+   "actual_as_written": "$1.184 billion",
+   "range_width_pct": 0.004329,
+   "grade": "beat",
+   "beat_pct": 0.02069,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 21,
+    "high": 21,
+    "low_as_written": "21%",
+    "high_as_written": "21%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 21,
+    "high": 21,
+    "low_as_written": "21%",
+    "high_as_written": "21%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q4, we expect a 21% operating margin",
+   "one_sided": null,
+   "actual": 22,
+   "actual_as_written": "22%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.047619,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "beat": 4
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

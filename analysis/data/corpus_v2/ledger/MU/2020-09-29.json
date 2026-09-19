@@ -1,0 +1,62 @@
+{
+ "ticker": "MU",
+ "call_date": "2020-09-29",
+ "custom_id": "MU_2020-09-29",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7000000000,
+    "high": 8000000000,
+    "low_as_written": "$7",
+    "high_as_written": "$8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8000000000,
+    "high": 8000000000,
+    "low_as_written": "approximately $8 billion",
+    "high_as_written": "approximately $8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We're continuing to project FY20 CapEx in the range of $7 to $8 billion",
+   "one_sided": null,
+   "actual": 7900000000,
+   "actual_as_written": "$7.9 billion",
+   "range_width_pct": 0.142857,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Replacement gate NAND production to make up meaningful portion of NAND output",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

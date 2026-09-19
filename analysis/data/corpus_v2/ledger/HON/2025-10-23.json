@@ -1,0 +1,198 @@
+{
+ "ticker": "HON",
+ "call_date": "2025-10-23",
+ "custom_id": "HON_2025-10-23",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10000000000,
+    "high": 10300000000,
+    "low_as_written": "$10 billion",
+    "high_as_written": "$10.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10000000000,
+    "high": 10300000000,
+    "low_as_written": "$10 billion",
+    "high_as_written": "$10.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate a third-quarter organic sales growth of 2% to 4%, which equates to $10 billion to $10.3 billion",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2%",
+    "high_as_written": "4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2%",
+    "high_as_written": "4%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate a third-quarter organic sales growth of 2% to 4%",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2.5,
+    "high": 2.6,
+    "low_as_written": "$2.50",
+    "high_as_written": "$2.60",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.5,
+    "high": 2.6,
+    "low_as_written": "$2.50",
+    "high_as_written": "$2.60",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Earnings per share in the third quarter is anticipated to be $2.50 to $2.60",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 2.86,
+   "actual_as_written": "$2.86",
+   "range_width_pct": 0.04,
+   "grade": "beat",
+   "beat_pct": 0.1,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 39600000000,
+    "high": 40600000000,
+    "low_as_written": "$39.6",
+    "high_as_written": "$40.6 billion"
+   },
+   "latest_revision": {
+    "low": 40800000000,
+    "high": 41300000000,
+    "low_as_written": "$40.8 billion",
+    "high_as_written": "$41.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 5,
+    "low_as_written": "4%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.1,
+    "high": 10.5,
+    "low_as_written": "$10.10",
+    "high_as_written": "$10.50"
+   },
+   "latest_revision": {
+    "low": 10.45,
+    "high": 10.65,
+    "low_as_written": "$10.45",
+    "high_as_written": "$10.65"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5400000000,
+    "high": 5800000000,
+    "low_as_written": "$5.4",
+    "high_as_written": "$5.8 billion"
+   },
+   "latest_revision": {
+    "low": 5400000000,
+    "high": 5800000000,
+    "low_as_written": "$5.4 billion",
+    "high_as_written": "$5.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

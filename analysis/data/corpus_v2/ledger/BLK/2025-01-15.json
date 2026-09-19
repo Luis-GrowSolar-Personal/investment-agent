@@ -1,0 +1,26 @@
+{
+ "ticker": "BLK",
+ "call_date": "2025-01-15",
+ "custom_id": "BLK_2025-01-15",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Close acquisition of Prequin around year-end 2024, subject to regulatory approvals and other customary closing conditions",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

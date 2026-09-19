@@ -1,0 +1,149 @@
+{
+ "ticker": "NOW",
+ "call_date": "2020-07-29",
+ "custom_id": "NOW_2020-07-29",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 995000000,
+    "high": 1000000000,
+    "low_as_written": "$995 million",
+    "high_as_written": "$1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 960000000,
+    "high": 980000000,
+    "low_as_written": "$960",
+    "high_as_written": "$980 million",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "For Q2, we expect the scripture revenues between $995 million and $1 billion to representing 29 to 30% year-over-year constant currency growth.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 1016000000,
+   "actual_as_written": "$1.016 billion",
+   "range_width_pct": 0.005025,
+   "grade": "beat",
+   "beat_pct": 0.016,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 23,
+    "high": 23,
+    "low_as_written": "23%",
+    "high_as_written": "23%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 23,
+    "high": 23,
+    "low_as_written": "23%",
+    "high_as_written": "23%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect a 23% operating margin of 500 basis points year-over-year due to a reduction in travel expenses and the transition of knowledge to a digital experience.",
+   "one_sided": null,
+   "actual": 28,
+   "actual_as_written": "28%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.217391,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 4220000000,
+    "high": 4240000000,
+    "low_as_written": "4.22 billion",
+    "high_as_written": "4.24 billion"
+   },
+   "latest_revision": {
+    "low": 4600000000,
+    "high": 4660000000,
+    "low_as_written": "$4.60 billion",
+    "high_as_written": "$4.66 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%"
+   },
+   "latest_revision": {
+    "low": 23,
+    "high": 23,
+    "low_as_written": "23%",
+    "high_as_written": "23%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29%",
+    "high_as_written": "29%"
+   },
+   "latest_revision": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29%",
+    "high_as_written": "29%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

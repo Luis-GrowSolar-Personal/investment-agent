@@ -1,0 +1,193 @@
+{
+ "ticker": "EMR",
+ "call_date": "2025-11-05",
+ "custom_id": "EMR_2025-11-05",
+ "fiscal": [
+  2025,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.5,
+    "high": 3.5,
+    "low_as_written": "approximately 3.5%",
+    "high_as_written": "approximately 3.5%",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "Underlying sales are expected to grow 3% to 5% in the year.",
+   "one_sided": null,
+   "actual": 3,
+   "actual_as_written": "3%",
+   "range_width_pct": 0.666667,
+   "grade": "met",
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5.85,
+    "high": 6.05,
+    "low_as_written": "$5.85",
+    "high_as_written": "$6.05",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "approximately $6",
+    "high_as_written": "approximately $6",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect adjusted earnings per share for the year, to be between $5.85 and $6.05.",
+   "one_sided": null,
+   "actual": 6.0,
+   "actual_as_written": "$6",
+   "range_width_pct": 0.034188,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3200000000,
+    "high": 3300000000,
+    "low_as_written": "$3.2 billion",
+    "high_as_written": "$3.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3200000000,
+    "high": 3200000000,
+    "low_as_written": "approximately $3.2 billion",
+    "high_as_written": "approximately $3.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Full year free cash flow is expected to be $3.2 billion to $3.3 billion",
+   "one_sided": null,
+   "actual": 3240000000,
+   "actual_as_written": "$3.24 billion",
+   "range_width_pct": 0.03125,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 6,
+    "low_as_written": "5%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 6,
+    "low_as_written": "5%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect fourth quarter underlying sales growth of 5% to 6%",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.58,
+    "high": 1.62,
+    "low_as_written": "$1.58",
+    "high_as_written": "$1.62",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.58,
+    "high": 1.62,
+    "low_as_written": "$1.58",
+    "high_as_written": "$1.62",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect to land adjusted earnings per share between $1.58 and $1.62",
+   "one_sided": null,
+   "actual": 1.62,
+   "actual_as_written": "$1.62",
+   "range_width_pct": 0.025316,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 4,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

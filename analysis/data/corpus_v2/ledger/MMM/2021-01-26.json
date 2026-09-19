@@ -1,0 +1,130 @@
+{
+ "ticker": "MMM",
+ "call_date": "2021-01-26",
+ "custom_id": "MMM_2021-01-26",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9.3,
+    "high": 9.75,
+    "low_as_written": "$9.30",
+    "high_as_written": "$9.75",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.3,
+    "high": 9.75,
+    "low_as_written": "$9.30",
+    "high_as_written": "$9.75",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate organic growth of flat to 2%, along with earnings of $9.30 to $9.75 per share.",
+   "one_sided": null,
+   "actual": 8.74,
+   "actual_as_written": "$8.74",
+   "range_width_pct": 0.048387,
+   "grade": "missed",
+   "miss_pct": 0.060215,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5300000000,
+    "high": 6000000000,
+    "low_as_written": "$5.3",
+    "high_as_written": "$6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5300000000,
+    "high": 6000000000,
+    "low_as_written": "$5.3",
+    "high_as_written": "$6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "the $5.3 to $6 billion of free cash flow",
+   "one_sided": null,
+   "actual": 6700000000,
+   "actual_as_written": "$6.7 billion",
+   "range_width_pct": 0.132075,
+   "grade": "beat",
+   "beat_pct": 0.116667,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1300000000,
+    "high": 1300000000,
+    "low_as_written": "approximately $1.3 billion",
+    "high_as_written": "approximately $1.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1400000000,
+    "high": 1500000000,
+    "low_as_written": "$1.4",
+    "high_as_written": "$1.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we are lowering our full year capex budget to approximately $1.3 billion from a range of $1.6 to $1.8 billion previously.",
+   "one_sided": null,
+   "actual": 1500000000,
+   "actual_as_written": "$1.5 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.153846,
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

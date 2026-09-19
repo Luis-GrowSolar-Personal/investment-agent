@@ -1,0 +1,134 @@
+{
+ "ticker": "UPS",
+ "call_date": "2022-02-01",
+ "custom_id": "UPS_2022-02-01",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10.1,
+    "high": 10.1,
+    "low_as_written": "10.1%",
+    "high_as_written": "10.1%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 23.9,
+    "high": 23.9,
+    "low_as_written": "23.9%",
+    "high_as_written": "23.9%",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "we now expect full-year 2021 U.S. operating margin to be approximately 10.1%.",
+   "one_sided": null,
+   "actual": 13.5,
+   "actual_as_written": "13.5%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.336634,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 13.8,
+    "high": 13.8,
+    "low_as_written": "13.8%",
+    "high_as_written": "13.8%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 20.7,
+    "high": 20.7,
+    "low_as_written": "20.7%",
+    "high_as_written": "20.7%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect full-year 2021 revenue growth of around 13.8% year-over-year, which takes into account the divestiture of UPS freight.",
+   "one_sided": null,
+   "actual": 15.011820330969261,
+   "actual_as_written": "$97.3 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 84600000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.087813,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10500000000,
+    "high": 10500000000,
+    "low_as_written": "$10.5 billion",
+    "high_as_written": "$10.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10500000000,
+    "high": 10500000000,
+    "low_as_written": "$10.5 billion",
+    "high_as_written": "$10.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect free cash flow to be around $10.5 billion",
+   "one_sided": null,
+   "actual": 10900000000,
+   "actual_as_written": "$10.9 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.038095,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

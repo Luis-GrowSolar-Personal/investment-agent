@@ -1,0 +1,17 @@
+{
+ "ticker": "CMCSA",
+ "call_date": "2020-01-23",
+ "custom_id": "CMCSA_2020-01-23",
+ "fiscal": [
+  2019,
+  4
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

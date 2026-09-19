@@ -1,0 +1,99 @@
+{
+ "ticker": "SIRI",
+ "call_date": "2023-02-02",
+ "custom_id": "SIRI_2023-02-02",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "this year's new guidance calls for revenue of approximately $9 billion",
+   "one_sided": null,
+   "actual": 9000000000,
+   "actual_as_written": "$9 billion",
+   "range_width_pct": 0.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1550000000,
+    "high": 1550000000,
+    "low_as_written": "$1.55 billion",
+    "high_as_written": "$1.55 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1550000000,
+    "high": 1550000000,
+    "low_as_written": "$1.55 billion",
+    "high_as_written": "$1.55 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "free cash flow of approximately $1.55 billion as cash taxes increase and we normalize for 2021 one-time satellite insurance recovery",
+   "one_sided": null,
+   "actual": 1550000000,
+   "actual_as_written": "$1.55 billion",
+   "range_width_pct": 0.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Launch a full-time original Team Coco comedy channel available only to SiriusXM subscribers",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "unit_shipments"
+ ],
+ "counts": {
+  "met": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,159 @@
+{
+ "ticker": "NOW",
+ "call_date": "2022-10-26",
+ "custom_id": "NOW_2022-10-26",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1750000000,
+    "high": 1755000000,
+    "low_as_written": "1.75 billion",
+    "high_as_written": "1.755 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1750000000,
+    "high": 1755000000,
+    "low_as_written": "1.75 billion",
+    "high_as_written": "1.755 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q3, we expect subscription revenues between 1.75 billion and 1.755 billion, representing 23% year-over-year growth",
+   "one_sided": null,
+   "actual": 1742000000,
+   "actual_as_written": "$1.742 billion",
+   "range_width_pct": 0.002857,
+   "grade": "missed",
+   "miss_pct": 0.004571,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 25%",
+   "one_sided": null,
+   "actual": 26,
+   "actual_as_written": "26%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.04,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 7020000000,
+    "high": 7040000000,
+    "low_as_written": "$7.02 billion",
+    "high_as_written": "$7.04 billion"
+   },
+   "latest_revision": {
+    "low": 6915000000,
+    "high": 6925000000,
+    "low_as_written": "$6.915 billion",
+    "high_as_written": "$6.925 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%"
+   },
+   "latest_revision": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%"
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "ServiceNow will launch its Tokyo platform release in September 2022",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Bill McDermott will travel to Japan for the Tokyo platform release to reinforce commitment to the Japan market",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 2
+}

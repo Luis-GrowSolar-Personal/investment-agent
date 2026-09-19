@@ -1,0 +1,59 @@
+{
+ "ticker": "OXY",
+ "call_date": "2025-02-19",
+ "custom_id": "OXY_2025-02-19",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100000000,
+    "high": 100000000,
+    "low_as_written": "$100 million",
+    "high_as_written": "$100 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6800000000,
+    "high": 7000000000,
+    "low_as_written": "$6.8",
+    "high_as_written": "$7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we anticipate an incremental $100 million of capital spending starting in 2024 compared to 2023 guidance",
+   "one_sided": null,
+   "actual": 6800000000,
+   "actual_as_written": "$6.8 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 67.0,
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,59 @@
+{
+ "ticker": "DOW",
+ "call_date": "2022-01-27",
+ "custom_id": "DOW_2022-01-27",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1600000000,
+    "high": 1600000000,
+    "low_as_written": "$1.6 billion",
+    "high_as_written": "$1.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1600000000,
+    "high": 1600000000,
+    "low_as_written": "$1.6 billion",
+    "high_as_written": "$1.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we're increasing our capital expenditure target year-over-year to $1.6 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Dow plans to host its 2021 Investor Day on October 6, 2021, both virtually and in person in New York City, to share more detail on strategic and financial priorities.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 2,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

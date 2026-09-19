@@ -1,0 +1,135 @@
+{
+ "ticker": "INTC",
+ "call_date": "2023-04-27",
+ "custom_id": "INTC_2023-04-27",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10500000000,
+    "high": 11500000000,
+    "low_as_written": "$10.5 billion",
+    "high_as_written": "$11.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10500000000,
+    "high": 11500000000,
+    "low_as_written": "$10.5 billion",
+    "high_as_written": "$11.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q1, we expect first quarter revenue of $10.5 billion to $11.5 billion.",
+   "one_sided": null,
+   "actual": 11700000000,
+   "actual_as_written": "$11.7 billion",
+   "range_width_pct": 0.095238,
+   "grade": "beat",
+   "beat_pct": 0.017391,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 39,
+    "high": 39,
+    "low_as_written": "39%",
+    "high_as_written": "39%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 39,
+    "high": 39,
+    "low_as_written": "39%",
+    "high_as_written": "39%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're forecasting gross margin of 39%, a tax rate of 13%, and EPS of negative 15 cents at the midpoint of revenue guidance.",
+   "one_sided": null,
+   "actual": 38.4,
+   "actual_as_written": "38.4%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.015385,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -0.15,
+    "high": -0.15,
+    "low_as_written": "negative 15 cents",
+    "high_as_written": "negative 15 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.15,
+    "high": -0.15,
+    "low_as_written": "negative 15 cents",
+    "high_as_written": "negative 15 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're forecasting gross margin of 39%, a tax rate of 13%, and EPS of negative 15 cents at the midpoint of revenue guidance.",
+   "one_sided": null,
+   "actual": -0.04,
+   "actual_as_written": "negative 4 cents",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.733333,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Intel will not provide revenue guidance beyond Q1 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

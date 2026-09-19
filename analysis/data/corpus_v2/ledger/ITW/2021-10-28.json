@@ -1,0 +1,129 @@
+{
+ "ticker": "ITW",
+ "call_date": "2021-10-28",
+ "custom_id": "ITW_2021-10-28",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 9,
+    "high": 12,
+    "low_as_written": "9",
+    "high_as_written": "12%"
+   },
+   "latest_revision": {
+    "low": 11,
+    "high": 13,
+    "low_as_written": "11%",
+    "high_as_written": "13%"
+   },
+   "revised_down": false,
+   "n_revisions": 5
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.6,
+    "high": 8.0,
+    "low_as_written": "$7.60",
+    "high_as_written": "$8 a share"
+   },
+   "latest_revision": {
+    "low": 8.55,
+    "high": 8.95,
+    "low_as_written": "$8.55",
+    "high_as_written": "$8.95"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 24,
+    "high": 25,
+    "low_as_written": "24%",
+    "high_as_written": "25%"
+   },
+   "latest_revision": {
+    "low": 24.5,
+    "high": 25.5,
+    "low_as_written": "24.5",
+    "high_as_written": "25.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "greater than 100%",
+    "high_as_written": "greater than 100%"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "greater than 100%",
+    "high_as_written": "greater than 100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 14300000000,
+    "high": 14600000000,
+    "low_as_written": "$14.3",
+    "high_as_written": "$14.6 billion"
+   },
+   "latest_revision": {
+    "low": 14300000000,
+    "high": 14600000000,
+    "low_as_written": "$14.3",
+    "high_as_written": "$14.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "approximately 100%",
+    "high_as_written": "approximately 100%"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "approximately 100%",
+    "high_as_written": "approximately 100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

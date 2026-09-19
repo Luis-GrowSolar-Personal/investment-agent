@@ -1,0 +1,25 @@
+{
+ "ticker": "AEP",
+ "call_date": "2025-07-30",
+ "custom_id": "AEP_2025-07-30",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Close the minority equity interest investment in Ohio and I&M Transcos with KKR and PFC for $2.82 billion, pending FERC approval",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

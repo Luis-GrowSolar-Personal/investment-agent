@@ -1,0 +1,52 @@
+{
+ "ticker": "DOW",
+ "call_date": "2025-07-24",
+ "custom_id": "DOW_2025-07-24",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1 billion"
+   },
+   "latest_revision": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete sale of minority stake in select U.S. Gulf Coast infrastructure assets to Macquarie Asset Management and receive approximately $2.4 billion in proceeds",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Complete strategic review of European polyurethanes assets and determine best options including for three identified assets to idle or shut down",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Bring new alkoxylation expansion in Seadrift, Texas fully operational to provide earnings upside in downstream growth markets",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,132 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2024-02-07",
+ "custom_id": "SLAB_2024-02-07",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 70000000,
+    "high": 100000000,
+    "low_as_written": "$70",
+    "high_as_written": "$100 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 70000000,
+    "high": 100000000,
+    "low_as_written": "$70",
+    "high_as_written": "$100 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect a decline in revenue for the fourth quarter with a guided range of $70 to $100 million.",
+   "one_sided": null,
+   "actual": 87000000,
+   "actual_as_written": "$87 million",
+   "range_width_pct": 0.428571,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 53,
+    "high": 53,
+    "low_as_written": "53%",
+    "high_as_written": "53%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 53,
+    "high": 53,
+    "low_as_written": "53%",
+    "high_as_written": "53%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect non-GAAP gross margin in the fourth quarter to be approximately 53%.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 51,
+   "actual_as_written": "51%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.037736,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -1.66,
+    "high": -1.22,
+    "low_as_written": "$1.22",
+    "high_as_written": "$1.66",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -2.39,
+    "high": -1.95,
+    "low_as_written": "$1.95",
+    "high_as_written": "$2.39 per share",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "our non-GAAP loss per share for Q4 is expected to be in the range $1.22 to $1.66.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": -1.19,
+   "actual_as_written": "$1.19",
+   "range_width_pct": 0.26506,
+   "grade": "beat",
+   "beat_pct": 0.02459,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "missed": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

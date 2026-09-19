@@ -1,0 +1,95 @@
+{
+ "ticker": "PH",
+ "call_date": "2020-11-05",
+ "custom_id": "PH_2020-11-05",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.15,
+    "high": 2.15,
+    "low_as_written": "$2.15",
+    "high_as_written": "$2.15",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.15,
+    "high": 2.15,
+    "low_as_written": "$2.15",
+    "high_as_written": "$2.15",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "First quarter fiscal 2021 adjusted earnings per share is projected to be $2.15 per share at the midpoint",
+   "one_sided": null,
+   "actual": 3.07,
+   "actual_as_written": "$3.07",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.427907,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.8,
+    "high": 10.8,
+    "low_as_written": "$9.80",
+    "high_as_written": "$10.80"
+   },
+   "latest_revision": {
+    "low": 7.41,
+    "high": 8.41,
+    "low_as_written": "$7.41",
+    "high_as_written": "$8.41"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -10.7,
+    "high": -6.7,
+    "low_as_written": "10.7%",
+    "high_as_written": "6.7%"
+   },
+   "latest_revision": {
+    "low": -10.7,
+    "high": -6.7,
+    "low_as_written": "10.7%",
+    "high_as_written": "6.7%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

@@ -1,0 +1,29 @@
+{
+ "ticker": "TEAM",
+ "call_date": "2022-08-04",
+ "custom_id": "TEAM_2022-08-04",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Atlassian will openly publish a detailed post-incident review on its engineering blog by end of the week regarding the cloud outage",
+   "mentioned_now": false
+  },
+  {
+   "intent": "Customer compensation for the outage will begin in Q4 FY2022 but is not expected to be material",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

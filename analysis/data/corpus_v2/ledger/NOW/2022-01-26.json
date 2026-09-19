@@ -1,0 +1,194 @@
+{
+ "ticker": "NOW",
+ "call_date": "2022-01-26",
+ "custom_id": "NOW_2022-01-26",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5480000000,
+    "high": 5500000000,
+    "low_as_written": "$5.48 billion",
+    "high_as_written": "$5.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5565000000,
+    "high": 5570000000,
+    "low_as_written": "5.565 billion",
+    "high_as_written": "5.57 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect subscription revenues between $5.48 billion and $5.5 billion, representing 28% year-over-year growth, including a three-point FX tailwind.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 23.5,
+    "high": 23.5,
+    "low_as_written": "23.5%",
+    "high_as_written": "23.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect an operating margin of 23.5%, representing 100% 50 basis points expansion off of our pre-COVID 2020 run rate.",
+   "one_sided": null,
+   "actual": 25,
+   "actual_as_written": "25%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.06383,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 31.5,
+    "high": 31.5,
+    "low_as_written": "31.5%",
+    "high_as_written": "31.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Finally, we expect free cash flow margin of 30% and 202 million diluted weighted outstanding shares for the year.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1515000000,
+    "high": 1520000000,
+    "low_as_written": "1.515 billion",
+    "high_as_written": "1.52 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1515000000,
+    "high": 1520000000,
+    "low_as_written": "1.515 billion",
+    "high_as_written": "1.52 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q4, we expect subscription revenues between 1.515 billion and 1.52 billion, representing 28% year-over-year growth",
+   "one_sided": null,
+   "actual": 1523000000,
+   "actual_as_written": "1.523 billion",
+   "range_width_pct": 0.0033,
+   "grade": "beat",
+   "beat_pct": 0.001974,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 22%, which includes accelerated demand generation spend in the quarter",
+   "one_sided": null,
+   "actual": 23,
+   "actual_as_written": "23%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.045455,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "beat": 3,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

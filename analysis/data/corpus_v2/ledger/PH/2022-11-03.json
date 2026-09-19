@@ -1,0 +1,100 @@
+{
+ "ticker": "PH",
+ "call_date": "2022-11-03",
+ "custom_id": "PH_2022-11-03",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.13,
+    "high": 4.13,
+    "low_as_written": "$4.13",
+    "high_as_written": "$4.13",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.13,
+    "high": 4.13,
+    "low_as_written": "$4.13",
+    "high_as_written": "$4.13",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we foresee Q1 adjusted EPS to be $4.13, and that's right at the midpoint.",
+   "one_sided": null,
+   "actual": 4.74,
+   "actual_as_written": "$4.74",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.1477,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 0,
+    "high": 3,
+    "low_as_written": "flat",
+    "high_as_written": "3%"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 20.2,
+    "high": 20.6,
+    "low_as_written": "20.4%",
+    "high_as_written": "20 basis points on either side"
+   },
+   "latest_revision": {
+    "low": 22.3,
+    "high": 22.7,
+    "low_as_written": "22.5%",
+    "high_as_written": "20 basis points on either side"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Parker expects to close the Meggitt acquisition in Q1 FY2023 and plans to host an investor call after close to provide expanded guidance and details on the transaction.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,157 @@
+{
+ "ticker": "DD",
+ "call_date": "2024-02-06",
+ "custom_id": "DD_2024-02-06",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 12300000000,
+    "high": 12900000000,
+    "low_as_written": "$12.3 billion",
+    "high_as_written": "$12.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12170000000,
+    "high": 12170000000,
+    "low_as_written": "$12.17 billion",
+    "high_as_written": "$12.17 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect full-year 2023 net sales to be between $12.3 billion and $12.9 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.5,
+    "high": 4.0,
+    "low_as_written": "$3.50",
+    "high_as_written": "$4 per share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.45,
+    "high": 3.45,
+    "low_as_written": "$3.45",
+    "high_as_written": "$3.45",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "full year adjusted EPS guidance range of between $3.50 and $4 per share",
+   "one_sided": null,
+   "actual": 3.48,
+   "actual_as_written": "$3.48",
+   "range_width_pct": 0.142857,
+   "grade": "missed",
+   "miss_pct": 0.005714,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "In 2023, we expect to allocate CapEx at about 5% of sales",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "3 billion",
+    "high_as_written": "3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "3 billion",
+    "high_as_written": "3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the fourth quarter, we expect net sales of approximately 3 billion",
+   "one_sided": null,
+   "actual": 2900000000,
+   "actual_as_written": "$2.9 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.033333,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "missed": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

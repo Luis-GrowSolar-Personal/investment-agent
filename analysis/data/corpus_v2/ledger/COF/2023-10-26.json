@@ -1,0 +1,25 @@
+{
+ "ticker": "COF",
+ "call_date": "2023-10-26",
+ "custom_id": "COF_2023-10-26",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Capital One expects the monthly domestic card charge-off rate to reach 2019 levels in the third quarter of 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

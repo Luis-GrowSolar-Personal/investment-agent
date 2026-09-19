@@ -1,0 +1,29 @@
+{
+ "ticker": "COF",
+ "call_date": "2021-01-26",
+ "custom_id": "COF_2021-01-26",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Redeem outstanding preferred stock Series F",
+   "mentioned_now": false
+  },
+  {
+   "intent": "Significant sequential increase in total company marketing",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

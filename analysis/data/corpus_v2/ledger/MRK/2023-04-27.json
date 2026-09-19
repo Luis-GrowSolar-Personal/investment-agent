@@ -1,0 +1,98 @@
+{
+ "ticker": "MRK",
+ "call_date": "2023-04-27",
+ "custom_id": "MRK_2023-04-27",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 57200000000,
+    "high": 58700000000,
+    "low_as_written": "$57.2",
+    "high_as_written": "$58.7 billion"
+   },
+   "latest_revision": {
+    "low": 57200000000,
+    "high": 58700000000,
+    "low_as_written": "$57.2",
+    "high_as_written": "$58.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7,
+    "high": 10,
+    "low_as_written": "7%",
+    "high_as_written": "10%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 10,
+    "low_as_written": "7%",
+    "high_as_written": "10%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%"
+   },
+   "latest_revision": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 6.8,
+    "high": 6.95,
+    "low_as_written": "$6.80",
+    "high_as_written": "$6.95"
+   },
+   "latest_revision": {
+    "low": 6.8,
+    "high": 6.95,
+    "low_as_written": "$6.80",
+    "high_as_written": "$6.95"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Present data from STELLAR trial (cetatercept in PAH) and Phase II results for MK0616 (oral PCSK9 inhibitor) at ACC on March 6th",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

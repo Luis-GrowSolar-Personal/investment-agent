@@ -1,0 +1,93 @@
+{
+ "ticker": "MMM",
+ "call_date": "2021-04-27",
+ "custom_id": "MMM_2021-04-27",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5,
+    "high": 8,
+    "low_as_written": "5",
+    "high_as_written": "8%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3",
+    "high_as_written": "6%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.2,
+    "high": 9.7,
+    "low_as_written": "$9.20",
+    "high_as_written": "$9.70"
+   },
+   "latest_revision": {
+    "low": 9.2,
+    "high": 9.7,
+    "low_as_written": "$9.20",
+    "high_as_written": "$9.70"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 95,
+    "high": 105,
+    "low_as_written": "95",
+    "high_as_written": "105%"
+   },
+   "latest_revision": {
+    "low": 95,
+    "high": 105,
+    "low_as_written": "95",
+    "high_as_written": "105%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$2 billion"
+   },
+   "latest_revision": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

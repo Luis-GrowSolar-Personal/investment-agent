@@ -1,0 +1,30 @@
+{
+ "ticker": "RUN",
+ "call_date": "2024-02-21",
+ "custom_id": "RUN_2024-02-21",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Launch early renewal program to allow customers to renew subscriptions",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Provide 2024 guidance on the fourth quarter earnings call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,82 @@
+{
+ "ticker": "JKS",
+ "call_date": "2020-12-07",
+ "custom_id": "JKS_2020-12-07",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1220000000,
+    "high": 1300000000,
+    "low_as_written": "$1.22 billion",
+    "high_as_written": "$1.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1220000000,
+    "high": 1300000000,
+    "low_as_written": "$1.22 billion",
+    "high_as_written": "$1.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Total revenues for the third quarter is expected to be in the range of $1.22 billion to $1.3 billion.",
+   "one_sided": null,
+   "actual": 1290000000,
+   "actual_as_written": "$1.29 billion",
+   "range_width_pct": 0.065574,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 350000000,
+    "high": 350000000,
+    "low_as_written": "350 million",
+    "high_as_written": "350 million US dollars"
+   },
+   "latest_revision": {
+    "low": 350000000,
+    "high": 350000000,
+    "low_as_written": "350 million",
+    "high_as_written": "350 million US dollars"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete pre-IPO financing of 3.1 billion RMB, to be used for advanced capacity expansion and working capital",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

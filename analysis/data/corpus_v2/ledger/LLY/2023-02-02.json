@@ -1,0 +1,126 @@
+{
+ "ticker": "LLY",
+ "call_date": "2023-02-02",
+ "custom_id": "LLY_2023-02-02",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "approximately 76%",
+    "high_as_written": "approximately 76%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 78,
+    "high": 78,
+    "low_as_written": "approximately 78%",
+    "high_as_written": "approximately 78%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "GAAP gross margin percent is now expected to be approximately 76%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "approximately 28%",
+    "high_as_written": "approximately 28%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 26,
+    "high": 26,
+    "low_as_written": "approximately 26%",
+    "high_as_written": "approximately 26%",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "GAAP and non-GAAP operating margin decreased 200 basis points to approximately 28% and 30% respectively",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "GAAP",
+    "non-GAAP"
+   ],
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.3,
+    "high": 7.45,
+    "low_as_written": "$7.3",
+    "high_as_written": "$7.45 per share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6.5,
+    "high": 6.65,
+    "low_as_written": "$6.50",
+    "high_as_written": "$6.65",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "we have lowered our reported EPS guidance by $0.70 to now be in the range of $7.3 to $7.45 per share",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Lilly plans to provide 2023 financial guidance on December 13th",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

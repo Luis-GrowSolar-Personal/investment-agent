@@ -1,0 +1,25 @@
+{
+ "ticker": "OXY",
+ "call_date": "2025-05-08",
+ "custom_id": "OXY_2025-05-08",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Apply $1.2 billion in announced divestiture proceeds to debt reduction",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,166 @@
+{
+ "ticker": "INTC",
+ "call_date": "2024-01-25",
+ "custom_id": "INTC_2024-01-25",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "low 30 percent",
+    "high_as_written": "low 30 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "mid 30s",
+    "high_as_written": "mid 30s",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we expect to manage net capex intensity in the low 30 percent of revenue range in 2023",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 14600000000,
+    "high": 15600000000,
+    "low_as_written": "$14.6",
+    "high_as_written": "$15.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14600000000,
+    "high": 15600000000,
+    "low_as_written": "$14.6",
+    "high_as_written": "$15.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect fourth quarter revenue of $14.6 to $15.6 billion",
+   "one_sided": null,
+   "actual": 15400000000,
+   "actual_as_written": "$15.4 billion",
+   "range_width_pct": 0.068493,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect gross margin to flow through at approximately 60% of revenue growth, resulting in Q4 gross margin of approximately 46.5%",
+   "one_sided": null,
+   "actual": 48.8,
+   "actual_as_written": "48.8%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.049462,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 0.44,
+    "high": 0.44,
+    "low_as_written": "44 cents",
+    "high_as_written": "44 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.44,
+    "high": 0.44,
+    "low_as_written": "44 cents",
+    "high_as_written": "44 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "with a tax rate of 13% and EPS of 44 cents",
+   "one_sided": null,
+   "actual": 0.54,
+   "actual_as_written": "54 cents",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.227273,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Launch Emerald Rapids (5th Gen Xeon) and Meteor Lake (Core Ultra) on December 14th",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "met": 1,
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

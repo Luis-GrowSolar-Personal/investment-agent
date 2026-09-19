@@ -1,0 +1,57 @@
+{
+ "ticker": "HCA",
+ "call_date": "2022-04-22",
+ "custom_id": "HCA_2022-04-22",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 60000000000,
+    "high": 62000000000,
+    "low_as_written": "60 billion",
+    "high_as_written": "62 billion"
+   },
+   "latest_revision": {
+    "low": 60000000000,
+    "high": 62000000000,
+    "low_as_written": "60 billion",
+    "high_as_written": "62 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 4200000000,
+    "high": 4200000000,
+    "low_as_written": "$4.2 billion",
+    "high_as_written": "$4.2 billion"
+   },
+   "latest_revision": {
+    "low": 4200000000,
+    "high": 4200000000,
+    "low_as_written": "$4.2 billion",
+    "high_as_written": "$4.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

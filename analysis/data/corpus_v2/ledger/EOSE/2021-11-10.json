@@ -1,0 +1,44 @@
+{
+ "ticker": "EOSE",
+ "call_date": "2021-11-10",
+ "custom_id": "EOSE_2021-11-10",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 50000000,
+    "high": 50000000,
+    "low_as_written": "$50 million",
+    "high_as_written": "$50 million"
+   },
+   "latest_revision": {
+    "low": 5000000,
+    "high": 5000000,
+    "low_as_written": "$5 million",
+    "high_as_written": "$5 million"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Begin shipping UL-certified product in Q3 2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

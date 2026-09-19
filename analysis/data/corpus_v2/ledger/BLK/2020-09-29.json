@@ -1,0 +1,29 @@
+{
+ "ticker": "BLK",
+ "call_date": "2020-09-29",
+ "custom_id": "BLK_2020-09-29",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "BlackRock expects to restart selective hiring in the second half of 2020",
+   "mentioned_now": true
+  },
+  {
+   "intent": "BlackRock anticipates yield support fee waivers on U.S. government money market funds to begin around August or September 2020",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

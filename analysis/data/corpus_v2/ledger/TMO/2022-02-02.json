@@ -1,0 +1,166 @@
+{
+ "ticker": "TMO",
+ "call_date": "2022-02-02",
+ "custom_id": "TMO_2022-02-02",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 21.62,
+    "high": 21.62,
+    "low_as_written": "$21.62",
+    "high_as_written": "$21.62",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 23.37,
+    "high": 23.37,
+    "low_as_written": "$23.37",
+    "high_as_written": "$23.37",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We're initiating adjusted EPS guidance of $21.62 per share for the full year.",
+   "one_sided": null,
+   "actual": 25.13,
+   "actual_as_written": "$25.13",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.16235,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 29.8,
+    "high": 29.8,
+    "low_as_written": "29.8%",
+    "high_as_written": "29.8%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 30.4,
+    "high": 30.4,
+    "low_as_written": "30.4%",
+    "high_as_written": "30.4%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "The initial guidance assumes an adjusted operating margin of 29.8%, 10 basis points higher than last year.",
+   "one_sided": null,
+   "actual": 31,
+   "actual_as_written": "31%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.040268,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Free cash flow is expected to be approximately $7 billion in 2021.",
+   "one_sided": null,
+   "actual": 7000000000,
+   "actual_as_written": "$7 billion",
+   "range_width_pct": 0.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2200000000,
+    "high": 2400000000,
+    "low_as_written": "2.2",
+    "high_as_written": "$2.4 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2500000000,
+    "high": 2700000000,
+    "low_as_written": "$2.5",
+    "high_as_written": "$2.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We're assuming net capital expenditures of approximately 2.2 to $2.4 billion.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Close the acquisition of PPD by end of year",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "met": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,40 @@
+{
+ "ticker": "TFC",
+ "call_date": "2023-07-20",
+ "custom_id": "TFC_2023-07-20",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7,
+    "high": 9,
+    "low_as_written": "7%",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 7,
+    "low_as_written": "5",
+    "high_as_written": "7 percent"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

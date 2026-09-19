@@ -1,0 +1,112 @@
+{
+ "ticker": "TTD",
+ "call_date": "2025-11-06",
+ "custom_id": "TTD_2025-11-06",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 717000000,
+    "high": 717000000,
+    "low_as_written": "$717 million",
+    "high_as_written": "$717 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 717000000,
+    "high": 717000000,
+    "low_as_written": "$717 million",
+    "high_as_written": "$717 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we expect Q3 revenue to be at least $717 million.",
+   "one_sided": "floor",
+   "actual": 739000000,
+   "actual_as_written": "$739 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 14,
+    "high": 14,
+    "low_as_written": "14%",
+    "high_as_written": "14%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14,
+    "high": 14,
+    "low_as_written": "14%",
+    "high_as_written": "14%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect Q3 revenue to be at least $717 million. reflecting 14% year-over-year growth.",
+   "one_sided": null,
+   "actual": 22,
+   "actual_as_written": "approximately 22%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.571429,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

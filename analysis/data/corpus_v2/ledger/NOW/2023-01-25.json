@@ -1,0 +1,232 @@
+{
+ "ticker": "NOW",
+ "call_date": "2023-01-25",
+ "custom_id": "NOW_2023-01-25",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7020000000,
+    "high": 7040000000,
+    "low_as_written": "$7.02 billion",
+    "high_as_written": "$7.04 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6865000000,
+    "high": 6870000000,
+    "low_as_written": "6.865 billion",
+    "high_as_written": "6.870 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect subscription revenues between $7.02 billion and $7.04 billion, representing 26% year-over-year growth.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect an operating margin of 25%.",
+   "one_sided": null,
+   "actual": 26,
+   "actual_as_written": "26%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.04,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29%",
+    "high_as_written": "29%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect free cash flow margins of 31%",
+   "one_sided": null,
+   "actual": 30,
+   "actual_as_written": "30%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.032258,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1834000000,
+    "high": 1839000000,
+    "low_as_written": "1.834 billion",
+    "high_as_written": "1.839 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1834000000,
+    "high": 1839000000,
+    "low_as_written": "1.834 billion",
+    "high_as_written": "1.839 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q4, we expect subscription revenues between 1.834 billion and 1.839 billion, representing 26, 27% year-over-year growth on a constant currency basis",
+   "one_sided": null,
+   "actual": 1860000000,
+   "actual_as_written": "$1.86 billion",
+   "range_width_pct": 0.002726,
+   "grade": "beat",
+   "beat_pct": 0.011419,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 26,
+    "high": 26,
+    "low_as_written": "26%",
+    "high_as_written": "26%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 26,
+    "high": 26,
+    "low_as_written": "26%",
+    "high_as_written": "26%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 26%",
+   "one_sided": null,
+   "actual": 28,
+   "actual_as_written": "28%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.076923,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2100000000,
+    "high": 2100000000,
+    "low_as_written": "$2.1 billion",
+    "high_as_written": "$2.1 billion",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 2100000000,
+    "high": 2100000000,
+    "low_as_written": "$2.1 billion",
+    "high_as_written": "$2.1 billion",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we will generate over $2.1 billion in free cash flow",
+   "one_sided": "floor",
+   "actual": 2200000000,
+   "actual_as_written": "$2.2 billion",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "beat": 3,
+  "missed": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 4,
+ "revised_down_count": 0
+}

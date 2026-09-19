@@ -1,0 +1,29 @@
+{
+ "ticker": "TEAM",
+ "call_date": "2024-04-25",
+ "custom_id": "TEAM_2024-04-25",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Server end of support to occur within a few weeks of the call date",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Atlassian expects to host TEAM24 in Las Vegas at the end of April",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

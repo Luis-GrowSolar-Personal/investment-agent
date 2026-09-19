@@ -1,0 +1,34 @@
+{
+ "ticker": "AEP",
+ "call_date": "2024-11-06",
+ "custom_id": "AEP_2024-11-06",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "AEP plans to provide an update on capital spend implications from large load growth, including generation and transmission investment, and financing plans",
+   "mentioned_now": true
+  },
+  {
+   "intent": "APCO plans to file a base rate case in West Virginia",
+   "mentioned_now": true
+  },
+  {
+   "intent": "AEP onsite partners sale expected to close in Q3 2024",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,225 @@
+{
+ "ticker": "ROK",
+ "call_date": "2021-11-02",
+ "custom_id": "ROK_2021-11-02",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6800000000,
+    "high": 6800000000,
+    "low_as_written": "$6.8 billion",
+    "high_as_written": "$6.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7100000000,
+    "high": 7100000000,
+    "low_as_written": "$7.1 billion",
+    "high_as_written": "$7.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we are expecting sales of about $6.8 billion in fiscal 2021, up about 7.5% at the midpoint of the range.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3.5,
+    "high": 6.5,
+    "low_as_written": "3.5%",
+    "high_as_written": "6.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 8,
+    "low_as_written": "8%",
+    "high_as_written": "8%",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "We expect organic sales growth to be in the range of 3.5% to 6.5% and about 5% at the midpoint of our range.",
+   "one_sided": null,
+   "actual": 10.5,
+   "actual_as_written": "10.5%",
+   "range_width_pct": 0.857143,
+   "grade": "beat",
+   "beat_pct": 0.615385,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 20,
+    "high": 20.5,
+    "low_as_written": "20%",
+    "high_as_written": "20.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "20%",
+    "high_as_written": "20%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect segment operating margin to be between 20% and 20.5%, probably at the higher end of that range.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8.45,
+    "high": 8.85,
+    "low_as_written": "$8.45",
+    "high_as_written": "$8.85",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.1,
+    "high": 9.3,
+    "low_as_written": "$9.10",
+    "high_as_written": "$9.30",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our adjusted EPS guidance range on the new basis is $8.45 to $8.85.",
+   "one_sided": null,
+   "actual": 9.43,
+   "actual_as_written": "$9.43",
+   "range_width_pct": 0.047337,
+   "grade": "beat",
+   "beat_pct": 0.065537,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 105,
+    "high": 105,
+    "low_as_written": "above 105%",
+    "high_as_written": "above 105%",
+    "one_sided": "floor"
+   },
+   "n_revisions": 4,
+   "quote": "we expect full-year 2021 free cash flow conversion of about 100% on adjusted income.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 150000000,
+    "high": 150000000,
+    "low_as_written": "$150 million",
+    "high_as_written": "$150 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 150000000,
+    "high": 150000000,
+    "low_as_written": "$150 million",
+    "high_as_written": "$150 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "This assumes $150 million of capital expenditures and a $50 million voluntary pre-tax U.S. pension contribution.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Close the acquisition of Plex Systems",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "beat": 2,
+  "ungradable_present": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

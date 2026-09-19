@@ -1,0 +1,57 @@
+{
+ "ticker": "BMY",
+ "call_date": "2021-10-27",
+ "custom_id": "BMY_2021-10-27",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.15,
+    "high": 7.45,
+    "low_as_written": "$7.15",
+    "high_as_written": "$7.45"
+   },
+   "latest_revision": {
+    "low": 7.35,
+    "high": 7.55,
+    "low_as_written": "$7.35",
+    "high_as_written": "$7.55"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 80.5,
+    "high": 80.5,
+    "low_as_written": "approximately 80.5%",
+    "high_as_written": "approximately 80.5%"
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "80%",
+    "high_as_written": "80%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

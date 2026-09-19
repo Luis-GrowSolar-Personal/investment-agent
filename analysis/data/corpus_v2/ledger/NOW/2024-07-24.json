@@ -1,0 +1,172 @@
+{
+ "ticker": "NOW",
+ "call_date": "2024-07-24",
+ "custom_id": "NOW_2024-07-24",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2525000000,
+    "high": 2530000000,
+    "low_as_written": "$2.525 billion",
+    "high_as_written": "$2.530 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2525000000,
+    "high": 2530000000,
+    "low_as_written": "$2.525 billion",
+    "high_as_written": "$2.530 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q2, we expect subscription revenues between $2.525 billion and $2.530 billion, representing 21.5% to 22% year-over-year growth",
+   "one_sided": null,
+   "actual": 2542000000,
+   "actual_as_written": "$2.542 billion",
+   "range_width_pct": 0.00198,
+   "grade": "beat",
+   "beat_pct": 0.004743,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 25%.",
+   "one_sided": null,
+   "actual": 27,
+   "actual_as_written": "over 27%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.08,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 10555000000,
+    "high": 10575000000,
+    "low_as_written": "10.555 billion",
+    "high_as_written": "10.575 billion"
+   },
+   "latest_revision": {
+    "low": 10560000000,
+    "high": 10575000000,
+    "low_as_written": "$10.560 billion",
+    "high_as_written": "$10.575 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 84.5,
+    "high": 84.5,
+    "low_as_written": "84.5%",
+    "high_as_written": "84.5%"
+   },
+   "latest_revision": {
+    "low": 84.5,
+    "high": 84.5,
+    "low_as_written": "84.5%",
+    "high_as_written": "84.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "twenty nine percent",
+    "high_as_written": "twenty nine percent"
+   },
+   "latest_revision": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29%",
+    "high_as_written": "29%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%"
+   },
+   "latest_revision": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "ServiceNow will present GenAI strategy and long-term opportunities at Investor Day",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

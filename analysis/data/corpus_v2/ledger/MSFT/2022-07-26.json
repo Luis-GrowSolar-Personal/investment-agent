@@ -1,0 +1,59 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2022-07-26",
+ "custom_id": "MSFT_2022-07-26",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 16650000000,
+    "high": 16900000000,
+    "low_as_written": "$16.65",
+    "high_as_written": "$16.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14650000000,
+    "high": 14950000000,
+    "low_as_written": "$14.65",
+    "high_as_written": "$14.95 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "In productivity and business processes, we expect revenue between $16.65 and $16.9 billion.",
+   "one_sided": null,
+   "actual": 51900000000,
+   "actual_as_written": "$51.9 billion",
+   "range_width_pct": 0.015015,
+   "grade": "beat",
+   "beat_pct": 2.071006,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,229 @@
+{
+ "ticker": "INTC",
+ "call_date": "2025-01-30",
+ "custom_id": "INTC_2025-01-30",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 200,
+    "high": 200,
+    "low_as_written": "roughly 200 basis points",
+    "high_as_written": "roughly 200 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 200,
+    "high": 200,
+    "low_as_written": "roughly 200 basis points",
+    "high_as_written": "roughly 200 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect roughly 200 basis points of FY24 gross margin improvement compared to FY23",
+   "one_sided": null,
+   "actual_framing": "margin_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "approximately neutral",
+    "high_as_written": "approximately neutral",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "approximately neutral",
+    "high_as_written": "approximately neutral",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we continue to expect approximately neutral 2024 adjusted free cash flow",
+   "one_sided": null,
+   "actual": -2200000000,
+   "actual_as_written": "minus $2.2 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": null,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 25000000000,
+    "high": 27000000000,
+    "low_as_written": "$25",
+    "high_as_written": "$27 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25000000000,
+    "high": 25000000000,
+    "low_as_written": "$25 billion",
+    "high_as_written": "$25 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we now expect gross capex in 2024 to be between $25 and $27 billion.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 13300000000,
+    "high": 14300000000,
+    "low_as_written": "$13.3",
+    "high_as_written": "$14.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13300000000,
+    "high": 14300000000,
+    "low_as_written": "$13.3",
+    "high_as_written": "$14.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect revenue of $13.3 to $14.3 billion in the fourth quarter.",
+   "one_sided": null,
+   "actual": 14300000000,
+   "actual_as_written": "$14.3 billion",
+   "range_width_pct": 0.075188,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 39.5,
+    "high": 39.5,
+    "low_as_written": "39.5%",
+    "high_as_written": "39.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 39.5,
+    "high": 39.5,
+    "low_as_written": "39.5%",
+    "high_as_written": "39.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect gross margin of approximately 39.5%, with a tax rate of 13% and EPS of 12 cents, all on a non-GAAP basis.",
+   "one_sided": null,
+   "actual": 42.1,
+   "actual_as_written": "42.1%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.065823,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.12,
+    "high": 0.12,
+    "low_as_written": "12 cents",
+    "high_as_written": "12 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.12,
+    "high": 0.12,
+    "low_as_written": "12 cents",
+    "high_as_written": "12 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect gross margin of approximately 39.5%, with a tax rate of 13% and EPS of 12 cents, all on a non-GAAP basis.",
+   "one_sided": null,
+   "actual": 0.13,
+   "actual_as_written": "13 cents",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.083333,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "missed": 1,
+  "ungradable_present": 1,
+  "met": 1,
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

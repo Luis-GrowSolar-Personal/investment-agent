@@ -1,0 +1,90 @@
+{
+ "ticker": "BMY",
+ "call_date": "2022-02-04",
+ "custom_id": "BMY_2022-02-04",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.15,
+    "high": 7.45,
+    "low_as_written": "$7.15",
+    "high_as_written": "$7.45",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7.35,
+    "high": 7.55,
+    "low_as_written": "$7.35",
+    "high_as_written": "$7.55",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we are reaffirming our non-GAAP EPS guidance, $7.15 to $7.45, which absorbs the dilution associated with the myocardial acquisition.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 80.5,
+    "high": 80.5,
+    "low_as_written": "approximately 80.5%",
+    "high_as_written": "approximately 80.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "80%",
+    "high_as_written": "80%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We expect to sustain a high enterprise gross margin of approximately 80.5%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Host investor event in New York City",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

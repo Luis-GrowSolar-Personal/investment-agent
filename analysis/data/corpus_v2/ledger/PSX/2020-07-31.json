@@ -1,0 +1,26 @@
+{
+ "ticker": "PSX",
+ "call_date": "2020-07-31",
+ "custom_id": "PSX_2020-07-31",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "West Coast retail joint venture expected to close on acquisition of approximately 100 sites",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

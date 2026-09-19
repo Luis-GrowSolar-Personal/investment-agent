@@ -1,0 +1,113 @@
+{
+ "ticker": "ITW",
+ "call_date": "2020-10-23",
+ "custom_id": "ITW_2020-10-23",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -12,
+    "high": -12,
+    "low_as_written": "12 percent",
+    "high_as_written": "12 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -12,
+    "high": -12,
+    "low_as_written": "12 percent",
+    "high_as_written": "12 percent",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "second half organic revenues down about 12 percent",
+   "one_sided": null,
+   "actual": -4.6,
+   "actual_as_written": "4.6%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.616667,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 24.5,
+    "high": 25,
+    "low_as_written": "24.5",
+    "high_as_written": "25 percent"
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": 22,
+    "low_as_written": "20",
+    "high_as_written": "22 percent"
+   },
+   "revised_down": true,
+   "n_revisions": 4
+  },
+  {
+   "metric": "operating_income",
+   "framing": "level",
+   "original": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion"
+   },
+   "latest_revision": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 1800000000,
+    "high": 1800000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$1.8 billion"
+   },
+   "latest_revision": {
+    "low": 1800000000,
+    "high": 1800000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$1.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 1
+}

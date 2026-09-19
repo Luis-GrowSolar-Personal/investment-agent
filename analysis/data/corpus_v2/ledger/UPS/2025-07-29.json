@@ -1,0 +1,267 @@
+{
+ "ticker": "UPS",
+ "call_date": "2025-07-29",
+ "custom_id": "UPS_2025-07-29",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 21000000000,
+    "high": 21000000000,
+    "low_as_written": "$21 billion",
+    "high_as_written": "$21 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 21000000000,
+    "high": 21000000000,
+    "low_as_written": "$21 billion",
+    "high_as_written": "$21 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "revenue is expected to be approximately $21 billion",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 21200000000,
+   "actual_as_written": "$21.2 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.009524,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9.3,
+    "high": 9.3,
+    "low_as_written": "9.3%",
+    "high_as_written": "9.3%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.3,
+    "high": 9.3,
+    "low_as_written": "9.3%",
+    "high_as_written": "9.3%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "operating margin is expected to be approximately 9.3%.",
+   "one_sided": null,
+   "multi_candidate": 3,
+   "actual": 8.8,
+   "actual_as_written": "8.8%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.053763,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "approximately 30 basis points",
+    "high_as_written": "approximately 30 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "approximately 30 basis points",
+    "high_as_written": "approximately 30 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect the U.S. domestic operating margin to expand by approximately 30 basis points compared to last year.",
+   "one_sided": null,
+   "actual_framing": "margin_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -2,
+    "high": -2,
+    "low_as_written": "approximately 2%",
+    "high_as_written": "approximately 2%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -2,
+    "high": -2,
+    "low_as_written": "approximately 2%",
+    "high_as_written": "approximately 2%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Turning to international, we expect revenue to be down approximately 2% to last year",
+   "one_sided": null,
+   "actual": -2.752293577981646,
+   "actual_as_written": "$21.2 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 21800000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.376147,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 89000000000,
+    "high": 89000000000,
+    "low_as_written": "$89 billion",
+    "high_as_written": "$89 billion"
+   },
+   "latest_revision": {
+    "low": 11000000000,
+    "high": 11000000000,
+    "low_as_written": "$11 billion",
+    "high_as_written": "$11 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 10.8,
+    "high": 10.8,
+    "low_as_written": "10.8%",
+    "high_as_written": "10.8%"
+   },
+   "latest_revision": {
+    "low": 18.6,
+    "high": 18.6,
+    "low_as_written": "18.6%",
+    "high_as_written": "18.6%"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5700000000,
+    "high": 5700000000,
+    "low_as_written": "$5.7 billion",
+    "high_as_written": "$5.7 billion"
+   },
+   "latest_revision": {
+    "low": 5700000000,
+    "high": 5700000000,
+    "low_as_written": "$5.7 billion",
+    "high_as_written": "$5.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 3500000000,
+    "high": 3500000000,
+    "low_as_written": "$3.5 billion",
+    "high_as_written": "$3.5 billion"
+   },
+   "latest_revision": {
+    "low": 3500000000,
+    "high": 3500000000,
+    "low_as_written": "$3.5 billion",
+    "high_as_written": "$3.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2.5,
+    "high": 2.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "2.5%"
+   },
+   "latest_revision": {
+    "low": 2.5,
+    "high": 2.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "2.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete 164 operational closures including 73 building closures as part of network reconfiguration",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "all"
+ ],
+ "counts": {
+  "beat": 1,
+  "missed": 2,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 1
+}

@@ -1,0 +1,39 @@
+{
+ "ticker": "QS",
+ "call_date": "2022-10-26",
+ "custom_id": "QS_2022-10-26",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 325000000,
+    "high": 375000000,
+    "low_as_written": "$325",
+    "high_as_written": "$375 million"
+   },
+   "latest_revision": {
+    "low": 175000000,
+    "high": 225000000,
+    "low_as_written": "$175 million",
+    "high_as_written": "$225 million"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

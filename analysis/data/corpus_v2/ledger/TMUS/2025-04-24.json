@@ -1,0 +1,62 @@
+{
+ "ticker": "TMUS",
+ "call_date": "2025-04-24",
+ "custom_id": "TMUS_2025-04-24",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "approximately 5%",
+    "high_as_written": "approximately 5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "approximately 5%",
+    "high_as_written": "approximately 5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 17300000000,
+    "high": 18000000000,
+    "low_as_written": "$17.3",
+    "high_as_written": "$18 billion"
+   },
+   "latest_revision": {
+    "low": 17300000000,
+    "high": 18000000000,
+    "low_as_written": "$17.3",
+    "high_as_written": "$18 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Srini Gopalan to join as COO starting March 1st",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

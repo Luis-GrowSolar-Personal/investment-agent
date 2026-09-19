@@ -1,0 +1,153 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2021-10-29",
+ "custom_id": "ABBV_2021-10-29",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 14300000000,
+    "high": 14300000000,
+    "low_as_written": "$14.3 billion",
+    "high_as_written": "$14.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14300000000,
+    "high": 14300000000,
+    "low_as_written": "$14.3 billion",
+    "high_as_written": "$14.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "As we look ahead to the third quarter, we anticipate net revenue of approximately $14.3 billion.",
+   "one_sided": null,
+   "actual": 14300000000,
+   "actual_as_written": "$14.3 billion",
+   "range_width_pct": 0.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.18,
+    "high": 3.22,
+    "low_as_written": "$3.18",
+    "high_as_written": "$3.22",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.18,
+    "high": 3.22,
+    "low_as_written": "$3.18",
+    "high_as_written": "$3.22",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $3.18 and $3.22, excluding approximately $1.64 of known intangible amortization and specified items.",
+   "one_sided": null,
+   "actual": 3.33,
+   "actual_as_written": "$3.33",
+   "range_width_pct": 0.012579,
+   "grade": "beat",
+   "beat_pct": 0.034161,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 12.32,
+    "high": 12.52,
+    "low_as_written": "$12.32",
+    "high_as_written": "$12.52"
+   },
+   "latest_revision": {
+    "low": 12.52,
+    "high": 12.62,
+    "low_as_written": "$12.52",
+    "high_as_written": "$12.62"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 9.4,
+    "high": 9.4,
+    "low_as_written": "9.4%",
+    "high_as_written": "9.4%"
+   },
+   "latest_revision": {
+    "low": 10.7,
+    "high": 10.7,
+    "low_as_written": "10.7%",
+    "high_as_written": "10.7%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 55900000000,
+    "high": 55900000000,
+    "low_as_written": "$55.9 billion",
+    "high_as_written": "$55.9 billion"
+   },
+   "latest_revision": {
+    "low": 56300000000,
+    "high": 56300000000,
+    "low_as_written": "$56.3 billion",
+    "high_as_written": "$56.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Submit regulatory applications for RINVOC in UC and Skyrizzy in Crohn's disease",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

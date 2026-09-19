@@ -1,0 +1,62 @@
+{
+ "ticker": "LLY",
+ "call_date": "2020-10-27",
+ "custom_id": "LLY_2020-10-27",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 6.7,
+    "high": 6.9,
+    "low_as_written": "$6.70",
+    "high_as_written": "$6.90"
+   },
+   "latest_revision": {
+    "low": 6.48,
+    "high": 6.68,
+    "low_as_written": "$6.48 per share",
+    "high_as_written": "$6.68 per share"
+   },
+   "revised_down": true,
+   "n_revisions": 4
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "roughly 81%",
+    "high_as_written": "roughly 81%"
+   },
+   "latest_revision": {
+    "low": 78,
+    "high": 78,
+    "low_as_written": "78%",
+    "high_as_written": "78%"
+   },
+   "revised_down": true,
+   "n_revisions": 4
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Initiate registrational Phase 3 studies for LY-CoV-555 neutralizing antibody across multiple patient populations including prevention at long-term care facilities and treatment in ambulatory and hospitalized settings",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 2
+}

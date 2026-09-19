@@ -1,0 +1,75 @@
+{
+ "ticker": "PG",
+ "call_date": "2020-04-17",
+ "custom_id": "PG_2020-04-17",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 5,
+    "low_as_written": "4%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 5,
+    "low_as_written": "4%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 8,
+    "high": 9,
+    "low_as_written": "8%",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 9,
+    "low_as_written": "8%",
+    "high_as_written": "9%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

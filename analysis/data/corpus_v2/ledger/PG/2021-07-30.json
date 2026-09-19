@@ -1,0 +1,160 @@
+{
+ "ticker": "PG",
+ "call_date": "2021-07-30",
+ "custom_id": "PG_2021-07-30",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2%",
+    "high_as_written": "4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 6,
+    "low_as_written": "5%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We're targeting organic sales growth in the range of 2% to 4%.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3,
+    "high": 7,
+    "low_as_written": "3%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We're targeting core earnings per share growth of 3% to 7% versus prior year core earnings per share of $5.12.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "over 100%",
+    "high_as_written": "over 100%",
+    "one_sided": "floor"
+   },
+   "n_revisions": 3,
+   "quote": "We're targeting another year of 90% adjusted free cash flow productivity.",
+   "one_sided": null,
+   "actual": 107,
+   "actual_as_written": "107%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.188889,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 95,
+    "high": 95,
+    "low_as_written": "95%",
+    "high_as_written": "95%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 95,
+    "high": 95,
+    "low_as_written": "95%",
+    "high_as_written": "95%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're raising our target for adjusted free cash flow productivity from 90% to around 95%",
+   "one_sided": null,
+   "actual_framing": "margin_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "P&G plans to provide initial outlook for fiscal year 2022 on the year-end call in July",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 3,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

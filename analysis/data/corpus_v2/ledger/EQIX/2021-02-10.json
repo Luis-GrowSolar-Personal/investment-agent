@@ -1,0 +1,126 @@
+{
+ "ticker": "EQIX",
+ "call_date": "2021-02-10",
+ "custom_id": "EQIX_2021-02-10",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6000000000,
+    "high": 6000000000,
+    "low_as_written": "over $6 billion",
+    "high_as_written": "over $6 billion",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 6000000000,
+    "high": 6000000000,
+    "low_as_written": "over $6 billion",
+    "high_as_written": "over $6 billion",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we expect to deliver an 8% to 9% growth rate for 2020, delivering over $6 billion in revenue",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8,
+    "high": 12,
+    "low_as_written": "8",
+    "high_as_written": "12%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 11,
+    "low_as_written": "10%",
+    "high_as_written": "11%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect AFFO per share to grow between 8 and 12%, excluding capital market activities",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 150000000,
+    "high": 150000000,
+    "low_as_written": "approximately $150 million",
+    "high_as_written": "approximately $150 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 150000000,
+    "high": 150000000,
+    "low_as_written": "approximately $150 million",
+    "high_as_written": "approximately $150 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we now expect capital expenditures to increase by approximately $150 million, which reflects the anticipated timing of the closing of the Japan joint venture with GIC",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Close remaining Bell Canada asset allocated to the transaction",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close new X-scale JV in Japan with GIC adding locations in Osaka and Tokyo",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

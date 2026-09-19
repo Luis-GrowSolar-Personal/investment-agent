@@ -1,0 +1,29 @@
+{
+ "ticker": "AIG",
+ "call_date": "2023-05-05",
+ "custom_id": "AIG_2023-05-05",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Work towards a secondary offering of CoreBridge common stock by the end of the first quarter, with majority of net proceeds used for AIG common stock repurchases, subject to market conditions and regulatory approvals",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Revisit and announce changes to AIG's dividend on the first quarter call in May",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,100 @@
+{
+ "ticker": "PH",
+ "call_date": "2021-02-04",
+ "custom_id": "PH_2021-02-04",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.38,
+    "high": 2.38,
+    "low_as_written": "$2.38",
+    "high_as_written": "$2.38",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.38,
+    "high": 2.38,
+    "low_as_written": "$2.38",
+    "high_as_written": "$2.38",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Second quarter fiscal 2021 adjusted earnings per share is projected to be $2.38 at the midpoint.",
+   "one_sided": null,
+   "actual": 3.44,
+   "actual_as_written": "$3.44",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.445378,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.8,
+    "high": 10.8,
+    "low_as_written": "$9.80",
+    "high_as_written": "$10.80"
+   },
+   "latest_revision": {
+    "low": 9.93,
+    "high": 10.53,
+    "low_as_written": "$9.93",
+    "high_as_written": "$10.53"
+   },
+   "revised_down": true,
+   "n_revisions": 4
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -10.7,
+    "high": -6.7,
+    "low_as_written": "10.7%",
+    "high_as_written": "6.7%"
+   },
+   "latest_revision": {
+    "low": -3.5,
+    "high": -3.5,
+    "low_as_written": "3.5%",
+    "high_as_written": "3.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Parker plans to reinstate the 10b5-1 share repurchase program and will update investors on their thinking in the next earnings call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

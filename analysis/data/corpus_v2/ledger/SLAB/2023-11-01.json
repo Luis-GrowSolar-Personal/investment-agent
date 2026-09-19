@@ -1,0 +1,135 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2023-11-01",
+ "custom_id": "SLAB_2023-11-01",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 190000000,
+    "high": 210000000,
+    "low_as_written": "$190",
+    "high_as_written": "$210 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 190000000,
+    "high": 210000000,
+    "low_as_written": "$190",
+    "high_as_written": "$210 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are guiding revenue for the third quarter in the range of $190 to $210 million",
+   "one_sided": null,
+   "actual": 204000000,
+   "actual_as_written": "$204 million",
+   "range_width_pct": 0.105263,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 59,
+    "high": 59,
+    "low_as_written": "59%",
+    "high_as_written": "59%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 59,
+    "high": 59,
+    "low_as_written": "59 percent",
+    "high_as_written": "59 percent",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect non-GAAP gross margin to be slightly higher in the third quarter at 59%.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 58.5,
+   "actual_as_written": "58.5%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.008475,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.45,
+    "high": 0.73,
+    "low_as_written": "45 cents",
+    "high_as_written": "73 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.08,
+    "high": 0.2,
+    "low_as_written": "a loss of 8 cents",
+    "high_as_written": "20 cents",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "Our non-GAAP earnings per share is expected to be in the range of 45 cents to 73 cents.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 0.62,
+   "actual_as_written": "62 cents",
+   "range_width_pct": 0.622222,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Silicon Labs will preview the next-generation Series 3 platform at the Works With Conference on August 22-23",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 2,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

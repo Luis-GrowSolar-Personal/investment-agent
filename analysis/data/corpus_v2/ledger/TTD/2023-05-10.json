@@ -1,0 +1,85 @@
+{
+ "ticker": "TTD",
+ "call_date": "2023-05-10",
+ "custom_id": "TTD_2023-05-10",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 363000000,
+    "high": 363000000,
+    "low_as_written": "$363 million",
+    "high_as_written": "$363 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 363000000,
+    "high": 363000000,
+    "low_as_written": "$363 million",
+    "high_as_written": "$363 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we are cautiously optimistic and estimate Q1 revenue to be at least $363 million, which would represent growth of 15% on a year-over-year basis.",
+   "one_sided": "floor",
+   "actual": 383000000,
+   "actual_as_written": "$383 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 80000000,
+    "high": 80000000,
+    "low_as_written": "80 million",
+    "high_as_written": "80 million"
+   },
+   "latest_revision": {
+    "low": 80000000,
+    "high": 80000000,
+    "low_as_written": "80 million",
+    "high_as_written": "80 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Launch a CTV forward market event in early March 2023 for streaming inventory partners and top clients",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Begin opportunistic share repurchases under the $700 million repurchase program",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

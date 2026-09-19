@@ -1,0 +1,54 @@
+{
+ "ticker": "DOW",
+ "call_date": "2020-07-23",
+ "custom_id": "DOW_2020-07-23",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7500000000,
+    "high": 8500000000,
+    "low_as_written": "$7.5",
+    "high_as_written": "$8.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7500000000,
+    "high": 8500000000,
+    "low_as_written": "$7.5",
+    "high_as_written": "$8.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We see second quarter sales in the range of $7.5 to $8.5 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

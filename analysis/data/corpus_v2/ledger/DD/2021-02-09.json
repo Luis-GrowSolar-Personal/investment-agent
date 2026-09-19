@@ -1,0 +1,86 @@
+{
+ "ticker": "DD",
+ "call_date": "2021-02-09",
+ "custom_id": "DD_2021-02-09",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 21500000000,
+    "high": 22000000000,
+    "low_as_written": "$21.5",
+    "high_as_written": "$22 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 20100000000,
+    "high": 20200000000,
+    "low_as_written": "20.1",
+    "high_as_written": "20.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "For the full year, we expect sales of $21.5 to $22 billion, which is up slightly on an organic growth basis.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.7,
+    "high": 3.9,
+    "low_as_written": "$3.70",
+    "high_as_written": "$3.90 per share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.17,
+    "high": 3.21,
+    "low_as_written": "$3.17",
+    "high_as_written": "$3.21",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "this year we expect adjusted EPS of $3.70 to $3.90 per share",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

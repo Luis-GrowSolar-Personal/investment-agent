@@ -1,0 +1,77 @@
+{
+ "ticker": "MU",
+ "call_date": "2020-06-29",
+ "custom_id": "MU_2020-06-29",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4600000000,
+    "high": 5200000000,
+    "low_as_written": "$4.6",
+    "high_as_written": "$5.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4600000000,
+    "high": 5200000000,
+    "low_as_written": "$4.6",
+    "high_as_written": "$5.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue to be in the range of $4.6 to $5.2 billion",
+   "one_sided": null,
+   "actual": 5400000000,
+   "actual_as_written": "$5.4 billion",
+   "range_width_pct": 0.130435,
+   "grade": "beat",
+   "beat_pct": 0.038462,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 7000000000,
+    "high": 8000000000,
+    "low_as_written": "$7",
+    "high_as_written": "$8 billion"
+   },
+   "latest_revision": {
+    "low": 7000000000,
+    "high": 8000000000,
+    "low_as_written": "$7",
+    "high_as_written": "$8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

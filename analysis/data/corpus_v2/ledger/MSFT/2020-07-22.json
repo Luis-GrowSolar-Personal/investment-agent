@@ -1,0 +1,92 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2020-07-22",
+ "custom_id": "MSFT_2020-07-22",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 12750000000,
+    "high": 13000000000,
+    "low_as_written": "$12.75",
+    "high_as_written": "$13 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13200000000,
+    "high": 13600000000,
+    "low_as_written": "$13.2",
+    "high_as_written": "$13.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "In productivity and business processes, we expect revenue between $12.75 and $13 billion.",
+   "one_sided": null,
+   "actual": 43100000000,
+   "actual_as_written": "$43.1 billion",
+   "range_width_pct": 0.019608,
+   "grade": "beat",
+   "beat_pct": 2.315385,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3,
+    "high": 3,
+    "low_as_written": "3.0",
+    "high_as_written": "3.0",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 3,
+    "low_as_written": "3.0",
+    "high_as_written": "3.0",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Commercial cloud gross margin percentage will increase approximately 3.0 over year, again, driven by the change in accounting estimate noted earlier.",
+   "one_sided": null,
+   "actual_framing": "margin_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 4,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

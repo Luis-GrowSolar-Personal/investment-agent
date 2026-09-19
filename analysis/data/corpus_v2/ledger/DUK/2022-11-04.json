@@ -1,0 +1,25 @@
+{
+ "ticker": "DUK",
+ "call_date": "2022-11-04",
+ "custom_id": "DUK_2022-11-04",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Duke Energy expects to file a DEP South Carolina rate case in September 2022",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

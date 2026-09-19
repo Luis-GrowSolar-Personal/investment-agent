@@ -1,0 +1,26 @@
+{
+ "ticker": "AIG",
+ "call_date": "2021-11-05",
+ "custom_id": "AIG_2021-11-05",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Close Blackstone 9.9% equity investment in Life and Retirement",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

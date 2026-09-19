@@ -1,0 +1,55 @@
+{
+ "ticker": "DOW",
+ "call_date": "2020-10-22",
+ "custom_id": "DOW_2020-10-22",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8500000000,
+    "high": 9000000000,
+    "low_as_written": "$8.5",
+    "high_as_written": "$9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8500000000,
+    "high": 9000000000,
+    "low_as_written": "$8.5",
+    "high_as_written": "$9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We see third quarter sales in the range of $8.5 to $9 billion on our expectation of gradual demand recovery through the quarter.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

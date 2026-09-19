@@ -1,0 +1,82 @@
+{
+ "ticker": "PARA",
+ "call_date": "2022-08-04",
+ "custom_id": "PARA_2022-08-04",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "customer_count",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -3000000,
+    "high": -3000000,
+    "low_as_written": "approximately 3 million",
+    "high_as_written": "approximately 3 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -3000000,
+    "high": -3000000,
+    "low_as_written": "approximately 3 million",
+    "high_as_written": "approximately 3 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "starting in Q2, we expect these subscribers will be removed from reported D2C subscribers. This change will reduce Q2 D2C subscriber growth by approximately 3 million subs",
+   "one_sided": null,
+   "actual": 63700000,
+   "actual_as_written": "63.7 million",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 22.233333,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 60,
+    "high": 60,
+    "low_as_written": "60%",
+    "high_as_written": "60%"
+   },
+   "latest_revision": {
+    "low": 60,
+    "high": 60,
+    "low_as_written": "60%",
+    "high_as_written": "60%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Launch Paramount Plus in the UK and South Korea",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

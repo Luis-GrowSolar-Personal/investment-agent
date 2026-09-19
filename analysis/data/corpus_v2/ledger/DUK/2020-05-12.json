@@ -1,0 +1,39 @@
+{
+ "ticker": "DUK",
+ "call_date": "2020-05-12",
+ "custom_id": "DUK_2020-05-12",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 5.05,
+    "high": 5.45,
+    "low_as_written": "$5.05",
+    "high_as_written": "$5.45"
+   },
+   "latest_revision": {
+    "low": 5.05,
+    "high": 5.45,
+    "low_as_written": "$5.05",
+    "high_as_written": "$5.45"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

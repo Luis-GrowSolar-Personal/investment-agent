@@ -1,0 +1,204 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2020-05-01",
+ "custom_id": "ABBV_2020-05-01",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.28,
+    "high": 2.3,
+    "low_as_written": "$2.28",
+    "high_as_written": "$2.30",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.28,
+    "high": 2.3,
+    "low_as_written": "$2.28",
+    "high_as_written": "$2.30",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect adjusted earnings per share between $2.28 and $2.30, excluding approximately 53 cents of known intangible amortization and specified items.",
+   "one_sided": null,
+   "actual": 2.42,
+   "actual_as_written": "$2.42",
+   "range_width_pct": 0.008772,
+   "grade": "beat",
+   "beat_pct": 0.052174,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2020,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 48.5,
+    "high": 48.5,
+    "low_as_written": "48.5%",
+    "high_as_written": "48.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 48.5,
+    "high": 48.5,
+    "low_as_written": "48.5%",
+    "high_as_written": "48.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are forecasting an adjusted operating margin ratio of approximately 48.5% of sales.",
+   "one_sided": null,
+   "actual": 49.8,
+   "actual_as_written": "49.8%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.026804,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate first quarter operational sales growth of approximately 7%.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.61,
+    "high": 9.71,
+    "low_as_written": "$9.61",
+    "high_as_written": "$9.71"
+   },
+   "latest_revision": {
+    "low": 9.61,
+    "high": 9.71,
+    "low_as_written": "$9.61",
+    "high_as_written": "$9.71"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 8,
+    "high": 8,
+    "low_as_written": "8%",
+    "high_as_written": "8%"
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 8,
+    "low_as_written": "8%",
+    "high_as_written": "8%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 81.5,
+    "high": 81.5,
+    "low_as_written": "81.5%",
+    "high_as_written": "81.5%"
+   },
+   "latest_revision": {
+    "low": 81.5,
+    "high": 81.5,
+    "low_as_written": "81.5%",
+    "high_as_written": "81.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 48,
+    "high": 48,
+    "low_as_written": "48%",
+    "high_as_written": "48%"
+   },
+   "latest_revision": {
+    "low": 48,
+    "high": 48,
+    "low_as_written": "48%",
+    "high_as_written": "48%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Provide combined AbbVie and Allergan pro forma 2020 guidance after the close of the Allergan transaction, expected in Q1 2020",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

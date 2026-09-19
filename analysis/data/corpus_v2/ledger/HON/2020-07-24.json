@@ -1,0 +1,119 @@
+{
+ "ticker": "HON",
+ "call_date": "2020-07-24",
+ "custom_id": "HON_2020-07-24",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": null,
+    "high": -15,
+    "low_as_written": null,
+    "high_as_written": "more than 15%",
+    "one_sided": "ceiling"
+   },
+   "latest_revision": {
+    "low": null,
+    "high": -5,
+    "low_as_written": null,
+    "high_as_written": "more than 5%",
+    "one_sided": "ceiling"
+   },
+   "n_revisions": 5,
+   "quote": "we expect a very challenging second quarter, with sales expected to be down more than 15% for the company versus the prior year",
+   "one_sided": "ceiling",
+   "actual": -18,
+   "actual_as_written": "18%",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.6,
+    "high": 9.0,
+    "low_as_written": "$8.60",
+    "high_as_written": "$9"
+   },
+   "latest_revision": {
+    "low": 8.6,
+    "high": 9.0,
+    "low_as_written": "$8.60",
+    "high_as_written": "$9"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5700000000,
+    "high": 6200000000,
+    "low_as_written": "$5.7 billion",
+    "high_as_written": "$6.2 billion"
+   },
+   "latest_revision": {
+    "low": 5700000000,
+    "high": 6200000000,
+    "low_as_written": "$5.7 billion",
+    "high_as_written": "$6.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 0,
+    "high": 3,
+    "low_as_written": "0%",
+    "high_as_written": "3%"
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 3,
+    "low_as_written": "0%",
+    "high_as_written": "3%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete Phase 2 cost action plan within 30-60 days",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "all"
+ ],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

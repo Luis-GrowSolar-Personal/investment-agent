@@ -1,0 +1,123 @@
+{
+ "ticker": "BMY",
+ "call_date": "2022-04-29",
+ "custom_id": "BMY_2022-04-29",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 11000000000,
+    "high": 11500000000,
+    "low_as_written": "$11",
+    "high_as_written": "$11.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11000000000,
+    "high": 11500000000,
+    "low_as_written": "$11",
+    "high_as_written": "$11.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are projecting total global first quarter sales to range from $11 to $11.5 billion.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 11600000000,
+   "actual_as_written": "$11.6 billion",
+   "range_width_pct": 0.045455,
+   "grade": "beat",
+   "beat_pct": 0.008696,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 47000000000,
+    "high": 47000000000,
+    "low_as_written": "approximately $47 billion",
+    "high_as_written": "approximately $47 billion"
+   },
+   "latest_revision": {
+    "low": 47000000000,
+    "high": 47000000000,
+    "low_as_written": "approximately $47 billion",
+    "high_as_written": "approximately $47 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.65,
+    "high": 7.95,
+    "low_as_written": "$7.65",
+    "high_as_written": "$7.95"
+   },
+   "latest_revision": {
+    "low": 7.65,
+    "high": 7.95,
+    "low_as_written": "$7.65",
+    "high_as_written": "$7.95"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 78,
+    "high": 78,
+    "low_as_written": "approximately 78%",
+    "high_as_written": "approximately 78%"
+   },
+   "latest_revision": {
+    "low": 78,
+    "high": 78,
+    "low_as_written": "approximately 78%",
+    "high_as_written": "approximately 78%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Execute a $5 billion accelerated share repurchase (ASR)",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Launch Relatlamab and Mavacampton following PDUFA dates in March and April",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,148 @@
+{
+ "ticker": "INTC",
+ "call_date": "2025-07-24",
+ "custom_id": "INTC_2025-07-24",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 11200000000,
+    "high": 12400000000,
+    "low_as_written": "$11.2",
+    "high_as_written": "$12.4 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11200000000,
+    "high": 12400000000,
+    "low_as_written": "$11.2",
+    "high_as_written": "$12.4 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we're forecasting a wider than normal Q2 revenue range of $11.2 to $12.4 billion, down 2% to 12% sequentially",
+   "one_sided": null,
+   "actual": 12900000000,
+   "actual_as_written": "$12.9 billion",
+   "range_width_pct": 0.107143,
+   "grade": "beat",
+   "beat_pct": 0.040323,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 36.5,
+    "high": 36.5,
+    "low_as_written": "36.5%",
+    "high_as_written": "36.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 36.5,
+    "high": 36.5,
+    "low_as_written": "36.5%",
+    "high_as_written": "36.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "At the midpoint of $11.8 billion, we expect gross margin of approximately 36.5%",
+   "one_sided": null,
+   "actual": 29.7,
+   "actual_as_written": "29.7%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.186301,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "break-even",
+    "high_as_written": "break-even",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "break-even",
+    "high_as_written": "break-even",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "break-even EPS, all on a non-GAAP basis",
+   "one_sided": null,
+   "actual": -0.1,
+   "actual_as_written": "minus 10 cents",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": null,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 20000000000,
+    "high": 23000000000,
+    "low_as_written": "$20",
+    "high_as_written": "$23 billion"
+   },
+   "latest_revision": {
+    "low": 8000000000,
+    "high": 11000000000,
+    "low_as_written": "$8",
+    "high_as_written": "$11 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 6
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "missed": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

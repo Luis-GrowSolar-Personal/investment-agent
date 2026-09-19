@@ -1,0 +1,89 @@
+{
+ "ticker": "MU",
+ "call_date": "2024-09-25",
+ "custom_id": "MU_2024-09-25",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7500000000,
+    "high": 8000000000,
+    "low_as_written": "$7.5 billion",
+    "high_as_written": "$8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7500000000,
+    "high": 8000000000,
+    "low_as_written": "$7.5 billion",
+    "high_as_written": "$8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "Micron's fiscal 2024 capex is projected to be between $7.5 billion and $8 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 0,
+    "high": null,
+    "low_as_written": "positive free cash flow",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": null,
+    "low_as_written": "positive free cash flow",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "are now forecasting positive free cash flow in the fiscal fourth quarter.",
+   "one_sided": "floor",
+   "actual": 323000000,
+   "actual_as_written": "$323 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,88 @@
+{
+ "ticker": "LLY",
+ "call_date": "2022-08-04",
+ "custom_id": "LLY_2022-08-04",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "approximately 76%",
+    "high_as_written": "approximately 76%"
+   },
+   "latest_revision": {
+    "low": 78,
+    "high": 78,
+    "low_as_written": "approximately 78%",
+    "high_as_written": "approximately 78%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "approximately 28%",
+    "high_as_written": "approximately 28%"
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.3,
+    "high": 7.45,
+    "low_as_written": "$7.3",
+    "high_as_written": "$7.45 per share"
+   },
+   "latest_revision": {
+    "low": 7.3,
+    "high": 7.45,
+    "low_as_written": "$7.3",
+    "high_as_written": "$7.45 per share"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete rolling submission of donanemab to FDA under accelerated approval pathway in Q2 2022",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Complete rolling submission of pirtobrutinib for mantle cell lymphoma to FDA in Q2 2022",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Submit mirakizumab to EMA and PMDA for ulcerative colitis in Q2 2022",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

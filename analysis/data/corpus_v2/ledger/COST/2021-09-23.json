@@ -1,0 +1,68 @@
+{
+ "ticker": "COST",
+ "call_date": "2021-09-23",
+ "custom_id": "COST_2021-09-23",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3000000000,
+    "high": 3200000000,
+    "low_as_written": "$3",
+    "high_as_written": "$3.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3300000000,
+    "high": 3500000000,
+    "low_as_written": "$3.3",
+    "high_as_written": "$3.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our estimated capex for all of fiscal 21 is in the $3 to $3.2 billion range.",
+   "one_sided": null,
+   "actual": 3590000000,
+   "actual_as_written": "$3.59 billion",
+   "range_width_pct": 0.066667,
+   "grade": "missed",
+   "miss_pct": 0.121875,
+   "grade_vs_latest": "missed",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Open seven additional warehouses in Q4 (five in U.S., two internationally), bringing fiscal year total to 21 net new warehouses",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Begin phased return to full food sampling in U.S. warehouses, with ~170 locations activated by first week of June and most remaining by end of June",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

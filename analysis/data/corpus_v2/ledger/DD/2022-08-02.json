@@ -1,0 +1,100 @@
+{
+ "ticker": "DD",
+ "call_date": "2022-08-02",
+ "custom_id": "DD_2022-08-02",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3200000000,
+    "high": 3300000000,
+    "low_as_written": "$3.2 billion",
+    "high_as_written": "$3.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3200000000,
+    "high": 3300000000,
+    "low_as_written": "$3.2 billion",
+    "high_as_written": "$3.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect second quarter 2022 sales to be between $3.2 billion and $3.3 billion, or up about 5% year-over-year at the midpoint.",
+   "one_sided": null,
+   "actual": 3300000000,
+   "actual_as_written": "$3.3 billion",
+   "range_width_pct": 0.03125,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 17400000000,
+    "high": 17800000000,
+    "low_as_written": "$17.4",
+    "high_as_written": "$17.8 billion"
+   },
+   "latest_revision": {
+    "low": 13300000000,
+    "high": 13700000000,
+    "low_as_written": "$13.3 billion",
+    "high_as_written": "$13.7 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.2,
+    "high": 3.5,
+    "low_as_written": "$3.20",
+    "high_as_written": "$3.50 per share"
+   },
+   "latest_revision": {
+    "low": 3.2,
+    "high": 3.5,
+    "low_as_written": "$3.20",
+    "high_as_written": "$3.50 per share"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Close the Rogers acquisition by end of Q2 2022, potentially extending into early Q3 2022",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

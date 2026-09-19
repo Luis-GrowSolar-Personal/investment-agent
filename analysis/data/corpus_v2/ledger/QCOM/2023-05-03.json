@@ -1,0 +1,93 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2023-05-03",
+ "custom_id": "QCOM_2023-05-03",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8700000000,
+    "high": 9500000000,
+    "low_as_written": "$8.7",
+    "high_as_written": "$9.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7400000000,
+    "high": 8000000000,
+    "low_as_written": "$7.4",
+    "high_as_written": "$8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we are forecasting revenues of $8.7 to $9.5 billion and non-GAAP EPS of $2.05 to $2.25",
+   "one_sided": null,
+   "multi_candidate": 3,
+   "actual": 9300000000,
+   "actual_as_written": "$9.3 billion",
+   "range_width_pct": 0.091954,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.05,
+    "high": 2.25,
+    "low_as_written": "$2.05",
+    "high_as_written": "$2.25",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.05,
+    "high": 2.25,
+    "low_as_written": "$2.05",
+    "high_as_written": "$2.25",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are forecasting revenues of $8.7 to $9.5 billion and non-GAAP EPS of $2.05 to $2.25",
+   "one_sided": null,
+   "actual": 2.15,
+   "actual_as_written": "$2.15",
+   "range_width_pct": 0.097561,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

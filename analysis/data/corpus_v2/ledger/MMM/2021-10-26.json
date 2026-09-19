@@ -1,0 +1,99 @@
+{
+ "ticker": "MMM",
+ "call_date": "2021-10-26",
+ "custom_id": "MMM_2021-10-26",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5,
+    "high": 8,
+    "low_as_written": "5",
+    "high_as_written": "8%"
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 9,
+    "low_as_written": "6%",
+    "high_as_written": "9%"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.2,
+    "high": 9.7,
+    "low_as_written": "$9.20",
+    "high_as_written": "$9.70"
+   },
+   "latest_revision": {
+    "low": 9.7,
+    "high": 10.1,
+    "low_as_written": "$9.70",
+    "high_as_written": "$10.10"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 95,
+    "high": 105,
+    "low_as_written": "95",
+    "high_as_written": "105%"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90",
+    "high_as_written": "100 percent"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$2 billion"
+   },
+   "latest_revision": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8",
+    "high_as_written": "$2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Incur pre-tax restructuring charge in Q3 as part of restructuring program",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

@@ -1,0 +1,62 @@
+{
+ "ticker": "IBM",
+ "call_date": "2024-07-24",
+ "custom_id": "IBM_2024-07-24",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 12000000000,
+    "high": 12000000000,
+    "low_as_written": "about $12 billion",
+    "high_as_written": "about $12 billion"
+   },
+   "latest_revision": {
+    "low": 12000000000,
+    "high": 12000000000,
+    "low_as_written": "about $12 billion",
+    "high_as_written": "about $12 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 6,
+    "high": 8,
+    "low_as_written": "6%",
+    "high_as_written": "8%"
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 8,
+    "low_as_written": "6%",
+    "high_as_written": "8%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "IBM expects to close the announced acquisition of StreamSets and webMethods from Software AG",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

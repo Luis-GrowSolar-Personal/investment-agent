@@ -1,0 +1,162 @@
+{
+ "ticker": "BOX",
+ "call_date": "2021-05-27",
+ "custom_id": "BOX_2021-05-27",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 200000000,
+    "high": 201000000,
+    "low_as_written": "200",
+    "high_as_written": "201 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 200000000,
+    "high": 201000000,
+    "low_as_written": "200",
+    "high_as_written": "201 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate revenue of 200 to 201 million, up 9.5% at the high end of this range",
+   "one_sided": null,
+   "actual": 202000000,
+   "actual_as_written": "$202 million",
+   "range_width_pct": 0.005,
+   "grade": "beat",
+   "beat_pct": 0.004975,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -0.06,
+    "high": -0.05,
+    "low_as_written": "negative six cents",
+    "high_as_written": "negative five cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.06,
+    "high": -0.05,
+    "low_as_written": "negative six cents",
+    "high_as_written": "negative five cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "GAAP EPS in the range of negative six cents to negative five cents on approximately 166 million and 161 million shares, respectively",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "GAAP",
+    "non-GAAP"
+   ],
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8,
+    "high": 8,
+    "low_as_written": "8%",
+    "high_as_written": "8%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 8,
+    "low_as_written": "8%",
+    "high_as_written": "8%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect CapEx and capital lease payments combined to be roughly 8% of revenue in Q1",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 840000000,
+    "high": 848000000,
+    "low_as_written": "840 million",
+    "high_as_written": "848 million"
+   },
+   "latest_revision": {
+    "low": 840000000,
+    "high": 848000000,
+    "low_as_written": "840 million",
+    "high_as_written": "848 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "74%",
+    "high_as_written": "74%"
+   },
+   "latest_revision": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "74%",
+    "high_as_written": "74%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "basis_mismatch": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

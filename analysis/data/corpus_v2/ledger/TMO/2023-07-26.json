@@ -1,0 +1,120 @@
+{
+ "ticker": "TMO",
+ "call_date": "2023-07-26",
+ "custom_id": "TMO_2023-07-26",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 45300000000,
+    "high": 45300000000,
+    "low_as_written": "$45.3 billion",
+    "high_as_written": "$45.3 billion"
+   },
+   "latest_revision": {
+    "low": 45300000000,
+    "high": 45300000000,
+    "low_as_written": "$45.3 billion",
+    "high_as_written": "$45.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 23.7,
+    "high": 23.7,
+    "low_as_written": "$23.70",
+    "high_as_written": "$23.70"
+   },
+   "latest_revision": {
+    "low": 23.7,
+    "high": 23.7,
+    "low_as_written": "$23.70",
+    "high_as_written": "$23.70"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 23.9,
+    "high": 23.9,
+    "low_as_written": "23.9%",
+    "high_as_written": "23.9%"
+   },
+   "latest_revision": {
+    "low": 23.8,
+    "high": 23.9,
+    "low_as_written": "23.8%",
+    "high_as_written": "23.9%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 6900000000,
+    "high": 6900000000,
+    "low_as_written": "$6.9 billion",
+    "high_as_written": "$6.9 billion"
+   },
+   "latest_revision": {
+    "low": 6900000000,
+    "high": 6900000000,
+    "low_as_written": "$6.9 billion",
+    "high_as_written": "$6.9 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 2000000000,
+    "high": 2000000000,
+    "low_as_written": "$2 billion",
+    "high_as_written": "$2 billion"
+   },
+   "latest_revision": {
+    "low": 2000000000,
+    "high": 2000000000,
+    "low_as_written": "$2 billion",
+    "high_as_written": "$2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Release latest Corporate Social Responsibility Report",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Host Investor Day",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

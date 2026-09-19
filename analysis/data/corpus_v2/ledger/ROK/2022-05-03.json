@@ -1,0 +1,116 @@
+{
+ "ticker": "ROK",
+ "call_date": "2022-05-03",
+ "custom_id": "ROK_2022-05-03",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 160000000,
+    "high": 160000000,
+    "low_as_written": "$160 million",
+    "high_as_written": "$160 million"
+   },
+   "latest_revision": {
+    "low": 8200000000,
+    "high": 8200000000,
+    "low_as_written": "$8.2 billion",
+    "high_as_written": "$8.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 14,
+    "high": 17,
+    "low_as_written": "14%",
+    "high_as_written": "17%"
+   },
+   "latest_revision": {
+    "low": 14,
+    "high": 17,
+    "low_as_written": "14",
+    "high_as_written": "17%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.5,
+    "high": 11.1,
+    "low_as_written": "$10.50",
+    "high_as_written": "$11.10"
+   },
+   "latest_revision": {
+    "low": 10.5,
+    "high": 11.1,
+    "low_as_written": "$10.50",
+    "high_as_written": "$11.10"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "about 90 percent",
+    "high_as_written": "about 90 percent"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "about 90%",
+    "high_as_written": "about 90%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 165000000,
+    "high": 165000000,
+    "low_as_written": "$165 million",
+    "high_as_written": "$165 million"
+   },
+   "latest_revision": {
+    "low": 165000000,
+    "high": 165000000,
+    "low_as_written": "$165 million",
+    "high_as_written": "$165 million"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Rockwell plans to release a significant new version of Logix functionality",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

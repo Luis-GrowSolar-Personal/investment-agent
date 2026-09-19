@@ -1,0 +1,132 @@
+{
+ "ticker": "HON",
+ "call_date": "2021-07-23",
+ "custom_id": "HON_2021-07-23",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1.86,
+    "high": 1.96,
+    "low_as_written": "$1.86",
+    "high_as_written": "$1.96",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.86,
+    "high": 1.96,
+    "low_as_written": "$1.86",
+    "high_as_written": "$1.96",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect second quarter earnings per share between $1.86 and $1.96, up 48% to 56% year-on-year",
+   "one_sided": null,
+   "actual": 2.02,
+   "actual_as_written": "$2.02",
+   "range_width_pct": 0.053763,
+   "grade": "beat",
+   "beat_pct": 0.030612,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 33400000000,
+    "high": 34400000000,
+    "low_as_written": "$33.4",
+    "high_as_written": "$34.4 billion"
+   },
+   "latest_revision": {
+    "low": 34000000000,
+    "high": 34800000000,
+    "low_as_written": "34.0",
+    "high_as_written": "$34.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 1,
+    "high": 4,
+    "low_as_written": "1%",
+    "high_as_written": "4%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.6,
+    "high": 8.0,
+    "low_as_written": "$7.60",
+    "high_as_written": "$8"
+   },
+   "latest_revision": {
+    "low": 7.75,
+    "high": 8.0,
+    "low_as_written": "$7.75",
+    "high_as_written": "$8"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5100000000,
+    "high": 5500000000,
+    "low_as_written": "$5.1 billion",
+    "high_as_written": "$5.5 billion"
+   },
+   "latest_revision": {
+    "low": 5200000000,
+    "high": 5500000000,
+    "low_as_written": "$5.2 billion",
+    "high_as_written": "$5.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

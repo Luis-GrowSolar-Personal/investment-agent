@@ -1,0 +1,34 @@
+{
+ "ticker": "NEM",
+ "call_date": "2021-02-18",
+ "custom_id": "NEM_2021-02-18",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide updated long-term guidance at a guidance webcast in December",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Release longer-term science-based emissions targets next month",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Complete full commissioning of Musselwhite conveyor system and reach nameplate capacity in December",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

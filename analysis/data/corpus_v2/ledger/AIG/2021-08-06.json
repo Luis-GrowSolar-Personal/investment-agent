@@ -1,0 +1,26 @@
+{
+ "ticker": "AIG",
+ "call_date": "2021-08-06",
+ "custom_id": "AIG_2021-08-06",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete the remaining $230 million of the $500 million share buyback plan",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

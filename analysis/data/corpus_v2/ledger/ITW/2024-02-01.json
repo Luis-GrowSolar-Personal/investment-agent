@@ -1,0 +1,159 @@
+{
+ "ticker": "ITW",
+ "call_date": "2024-02-01",
+ "custom_id": "ITW_2024-02-01",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 24.5,
+    "high": 25.5,
+    "low_as_written": "24.5",
+    "high_as_written": "25.5 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25,
+    "high": 25.5,
+    "low_as_written": "25",
+    "high_as_written": "25.5 percent",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "Operating margin is expected to improve by 100 basis points or more to a range of 24.5 to 25.5 percent.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "more than 100 basis points",
+    "high_as_written": "more than 100 basis points",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "more than 100 basis points",
+    "high_as_written": "more than 100 basis points",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "Operating margin is projected to expand by more than 100 basis points at the midpoint of our range",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 9.7,
+    "high": 9.8,
+    "low_as_written": "9.75",
+    "high_as_written": "9.75",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.7,
+    "high": 9.8,
+    "low_as_written": "9.75",
+    "high_as_written": "9.75",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we raised our GAAP EPS guidance by 10 cents with a new midpoint of 9.75",
+   "one_sided": null,
+   "actual": 9.74,
+   "actual_as_written": "$9.74",
+   "range_width_pct": 0.010309,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100 percent",
+    "high_as_written": "100 percent",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": null,
+    "low_as_written": "more than 100%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 2,
+   "quote": "we're also projecting strong free cash flow performance with a conversion of over 100 percent of net income",
+   "one_sided": "floor",
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Scott Santee will transfer the CEO role to Chris O'Herlihy at year end 2023",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "met": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

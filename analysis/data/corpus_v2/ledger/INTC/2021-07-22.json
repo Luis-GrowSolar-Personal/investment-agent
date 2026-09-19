@@ -1,0 +1,201 @@
+{
+ "ticker": "INTC",
+ "call_date": "2021-07-22",
+ "custom_id": "INTC_2021-07-22",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 17800000000,
+    "high": 17800000000,
+    "low_as_written": "$17.8 billion",
+    "high_as_written": "$17.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 17800000000,
+    "high": 17800000000,
+    "low_as_written": "$17.8 billion",
+    "high_as_written": "$17.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q2, we are guiding revenue of $17.8 billion, down 2% year-over-year, excluding our NAND business.",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "non-GAAP",
+    "GAAP"
+   ],
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 57,
+    "high": 57,
+    "low_as_written": "57%",
+    "high_as_written": "57%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 57,
+    "high": 57,
+    "low_as_written": "57%",
+    "high_as_written": "57%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Gross margin is expected to be approximately 57%",
+   "one_sided": null,
+   "actual": 59.2,
+   "actual_as_written": "59.2%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.038596,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.05,
+    "high": 1.05,
+    "low_as_written": "$1.05",
+    "high_as_written": "$1.05",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.05,
+    "high": 1.05,
+    "low_as_written": "$1.05",
+    "high_as_written": "$1.05",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are forecasting EPS of $1.05 per share and a tax rate of 13%.",
+   "one_sided": null,
+   "actual": 1.28,
+   "actual_as_written": "$1.28",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.219048,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 72500000000,
+    "high": 72500000000,
+    "low_as_written": "$72.5 billion",
+    "high_as_written": "$72.5 billion"
+   },
+   "latest_revision": {
+    "low": 72500000000,
+    "high": 72500000000,
+    "low_as_written": "$72.5 billion",
+    "high_as_written": "$72.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 56.5,
+    "high": 56.5,
+    "low_as_written": "56.5%",
+    "high_as_written": "56.5%"
+   },
+   "latest_revision": {
+    "low": 56.5,
+    "high": 56.5,
+    "low_as_written": "56.5%",
+    "high_as_written": "56.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 4.6,
+    "high": 4.6,
+    "low_as_written": "$4.60",
+    "high_as_written": "$4.60"
+   },
+   "latest_revision": {
+    "low": 4.6,
+    "high": 4.6,
+    "low_as_written": "$4.60",
+    "high_as_written": "$4.60"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 10500000000,
+    "high": 10500000000,
+    "low_as_written": "$10.5 billion",
+    "high_as_written": "$10.5 billion"
+   },
+   "latest_revision": {
+    "low": 10500000000,
+    "high": 10500000000,
+    "low_as_written": "$10.5 billion",
+    "high_as_written": "$10.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

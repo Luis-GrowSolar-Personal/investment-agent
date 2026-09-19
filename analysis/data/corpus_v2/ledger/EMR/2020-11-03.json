@@ -1,0 +1,157 @@
+{
+ "ticker": "EMR",
+ "call_date": "2020-11-03",
+ "custom_id": "EMR_2020-11-03",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.55,
+    "high": 3.8,
+    "low_as_written": "$3.55",
+    "high_as_written": "$3.80",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.2,
+    "high": 3.35,
+    "low_as_written": "$3.20",
+    "high_as_written": "$3.35",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We now expect adjusted EPS in the range of $3.55 to $3.80",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2250000000,
+    "high": 2250000000,
+    "low_as_written": "$2.25 billion",
+    "high_as_written": "$2.25 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "leaving our free cash flow target unchanged at $2.5 billion",
+   "one_sided": null,
+   "actual": 2550000000,
+   "actual_as_written": "$2.55 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.02,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 650000000,
+    "high": 650000000,
+    "low_as_written": "$650 million",
+    "high_as_written": "$650 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 515000000,
+    "high": 515000000,
+    "low_as_written": "$515 million",
+    "high_as_written": "$515 million",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "CapEx spending is increased to $650 million",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -11.0,
+    "high": -9.0,
+    "low_as_written": "down 11%",
+    "high_as_written": "9%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -9,
+    "high": -7.5,
+    "low_as_written": "down 9",
+    "high_as_written": "down 7.5%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we now expect underlying sales to be down 9% to 7%, and net sales to be down 11% to 9% for the year",
+   "one_sided": null,
+   "actual": -9,
+   "actual_as_written": "down 9%",
+   "range_width_pct": 0.181818,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "beat": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

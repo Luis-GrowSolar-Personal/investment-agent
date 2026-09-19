@@ -1,0 +1,82 @@
+{
+ "ticker": "TTD",
+ "call_date": "2023-11-09",
+ "custom_id": "TTD_2023-11-09",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 485000000,
+    "high": 485000000,
+    "low_as_written": "$485 million",
+    "high_as_written": "$485 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 485000000,
+    "high": 485000000,
+    "low_as_written": "$485 million",
+    "high_as_written": "$485 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We estimate Q3 revenue to be at least $485 million, which would represent growth of 23% on a year-over-year basis.",
+   "one_sided": "floor",
+   "actual": 493000000,
+   "actual_as_written": "$493 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 80000000,
+    "high": 80000000,
+    "low_as_written": "80 million",
+    "high_as_written": "80 million"
+   },
+   "latest_revision": {
+    "low": 60000000,
+    "high": 60000000,
+    "low_as_written": "$60 million",
+    "high_as_written": "$60 million"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Launch new user experience as part of Kokai platform upgrade",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

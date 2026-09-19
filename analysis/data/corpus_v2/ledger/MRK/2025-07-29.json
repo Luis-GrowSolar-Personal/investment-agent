@@ -1,0 +1,84 @@
+{
+ "ticker": "MRK",
+ "call_date": "2025-07-29",
+ "custom_id": "MRK_2025-07-29",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 64100000000,
+    "high": 65600000000,
+    "low_as_written": "$64.1",
+    "high_as_written": "$65.6 billion"
+   },
+   "latest_revision": {
+    "low": 64100000000,
+    "high": 65600000000,
+    "low_as_written": "$64.1",
+    "high_as_written": "$65.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 82.5,
+    "high": 82.5,
+    "low_as_written": "82.5%",
+    "high_as_written": "82.5%"
+   },
+   "latest_revision": {
+    "low": 82,
+    "high": 82,
+    "low_as_written": "82%",
+    "high_as_written": "82%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.88,
+    "high": 9.03,
+    "low_as_written": "$8.88",
+    "high_as_written": "$9.03"
+   },
+   "latest_revision": {
+    "low": 8.82,
+    "high": 8.97,
+    "low_as_written": "$8.82",
+    "high_as_written": "$8.97"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Submit applications for marketing authorization for duravirin and islatravir regimen to regulatory agencies by mid-year",
+   "mentioned_now": false
+  },
+  {
+   "intent": "Host investor event at 2025 ASCO Annual Meeting in Chicago on June 2nd to provide pipeline and oncology strategy update",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 2
+}

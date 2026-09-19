@@ -1,0 +1,25 @@
+{
+ "ticker": "UPS",
+ "call_date": "2021-07-27",
+ "custom_id": "UPS_2021-07-27",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete divestiture of UPS Freight business",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

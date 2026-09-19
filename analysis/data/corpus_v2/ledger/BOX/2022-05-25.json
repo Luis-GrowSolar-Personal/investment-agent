@@ -1,0 +1,190 @@
+{
+ "ticker": "BOX",
+ "call_date": "2022-05-25",
+ "custom_id": "BOX_2022-05-25",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 233000000,
+    "high": 235000000,
+    "low_as_written": "$233",
+    "high_as_written": "$235 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 233000000,
+    "high": 235000000,
+    "low_as_written": "$233",
+    "high_as_written": "$235 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the first quarter of fiscal 2023, we anticipate revenue of $233 to $235 million, representing 16% year-over-year growth at the high end of this range.",
+   "one_sided": null,
+   "actual": 238000000,
+   "actual_as_written": "$238 million",
+   "range_width_pct": 0.008584,
+   "grade": "beat",
+   "beat_pct": 0.012766,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 21,
+    "high": 21,
+    "low_as_written": "21%",
+    "high_as_written": "21%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 21,
+    "high": 21,
+    "low_as_written": "21%",
+    "high_as_written": "21%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our non-GAAP operating margin to be approximately 21% representing a 400 basis point improvement year over year.",
+   "one_sided": null,
+   "actual": 20.6,
+   "actual_as_written": "20.6%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.019048,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 990000000,
+    "high": 996000000,
+    "low_as_written": "990",
+    "high_as_written": "996 million"
+   },
+   "latest_revision": {
+    "low": 990000000,
+    "high": 996000000,
+    "low_as_written": "990",
+    "high_as_written": "996 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%"
+   },
+   "latest_revision": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 1.1,
+    "high": 1.14,
+    "low_as_written": "$1.10",
+    "high_as_written": "$1.14"
+   },
+   "latest_revision": {
+    "low": -0.07,
+    "high": -0.03,
+    "low_as_written": "negative three",
+    "high_as_written": "negative seven cents"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "76%",
+    "high_as_written": "76%"
+   },
+   "latest_revision": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "76%",
+    "high_as_written": "76%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Host a virtual Financial Analyst Day on March 16th",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

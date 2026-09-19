@@ -1,0 +1,97 @@
+{
+ "ticker": "BMY",
+ "call_date": "2021-02-04",
+ "custom_id": "BMY_2021-02-04",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 40000000000,
+    "high": 42000000000,
+    "low_as_written": "$40 billion",
+    "high_as_written": "$42 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 41500000000,
+    "high": 42000000000,
+    "low_as_written": "$41.5 billion",
+    "high_as_written": "$42 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We now expect revenue to be between $40 billion and $42 billion",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 6.1,
+    "high": 6.25,
+    "low_as_written": "$6.10",
+    "high_as_written": "$6.25",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6.25,
+    "high": 6.35,
+    "low_as_written": "$6.25",
+    "high_as_written": "$6.35 per share",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we are increasing our EPS range to $6.10 to $6.25",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Close the acquisition of Myocardia",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Provide more color on 2021 guidance during the fourth quarter earnings call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,100 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2024-05-01",
+ "custom_id": "QCOM_2024-05-01",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8900000000,
+    "high": 9700000000,
+    "low_as_written": "$8.9",
+    "high_as_written": "$9.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8900000000,
+    "high": 9700000000,
+    "low_as_written": "$8.9",
+    "high_as_written": "$9.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are forecasting revenues of $8.9 to $9.7 billion and non-GAAP EPS of $2.20 to $2.40",
+   "one_sided": null,
+   "multi_candidate": 3,
+   "actual": 9400000000,
+   "actual_as_written": "$9.4 billion",
+   "range_width_pct": 0.089888,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.2,
+    "high": 2.4,
+    "low_as_written": "$2.20",
+    "high_as_written": "$2.40",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.2,
+    "high": 2.4,
+    "low_as_written": "$2.20",
+    "high_as_written": "$2.40",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are forecasting revenues of $8.9 to $9.7 billion and non-GAAP EPS of $2.20 to $2.40",
+   "one_sided": null,
+   "actual": 2.44,
+   "actual_as_written": "$2.44",
+   "range_width_pct": 0.090909,
+   "grade": "beat",
+   "beat_pct": 0.016667,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide update on design win pipeline for automotive business",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

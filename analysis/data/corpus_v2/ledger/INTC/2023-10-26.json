@@ -1,0 +1,187 @@
+{
+ "ticker": "INTC",
+ "call_date": "2023-10-26",
+ "custom_id": "INTC_2023-10-26",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 0,
+    "high": null,
+    "low_as_written": "positive",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": null,
+    "low_as_written": "positive",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we expect adjusted free cash flow to improve sequentially throughout the year and to be positive in second half of 2023.",
+   "one_sided": "floor",
+   "actual": 950000000,
+   "actual_as_written": "approximately $950 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 12900000000,
+    "high": 13900000000,
+    "low_as_written": "$12.9",
+    "high_as_written": "$13.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12900000000,
+    "high": 13900000000,
+    "low_as_written": "$12.9",
+    "high_as_written": "$13.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect third quarter revenue of $12.9 to $13.9 billion. At the midpoint of $13.4 billion",
+   "one_sided": null,
+   "actual": 14200000000,
+   "actual_as_written": "$14.2 billion",
+   "range_width_pct": 0.077519,
+   "grade": "beat",
+   "beat_pct": 0.021583,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 43,
+    "high": 43,
+    "low_as_written": "43%",
+    "high_as_written": "43%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 43,
+    "high": 43,
+    "low_as_written": "43%",
+    "high_as_written": "43%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're forecasting gross margin of 43%, a tax rate of 13%, and EPS of 20 cents at the midpoint of revenue guidance.",
+   "one_sided": null,
+   "actual": 45.8,
+   "actual_as_written": "45.8%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.065116,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 0.2,
+    "high": 0.2,
+    "low_as_written": "20 cents",
+    "high_as_written": "20 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.2,
+    "high": 0.2,
+    "low_as_written": "20 cents",
+    "high_as_written": "20 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're forecasting gross margin of 43%, a tax rate of 13%, and EPS of 20 cents at the midpoint of revenue guidance.",
+   "one_sided": null,
+   "actual": 0.41,
+   "actual_as_written": "41 cents",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 1.05,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "low 30 percent",
+    "high_as_written": "low 30 percent"
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "mid 30s",
+    "high_as_written": "mid 30s"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Launch Meteor Lake client processor (Q3 PRQ)",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

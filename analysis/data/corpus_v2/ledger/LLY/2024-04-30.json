@@ -1,0 +1,75 @@
+{
+ "ticker": "LLY",
+ "call_date": "2024-04-30",
+ "custom_id": "LLY_2024-04-30",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 40400000000,
+    "high": 41600000000,
+    "low_as_written": "$40.4 billion",
+    "high_as_written": "$41.6 billion"
+   },
+   "latest_revision": {
+    "low": 40400000000,
+    "high": 41600000000,
+    "low_as_written": "$40.4 billion",
+    "high_as_written": "$41.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "approximately 80%",
+    "high_as_written": "approximately 80%"
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "approximately 80%",
+    "high_as_written": "approximately 80%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 12.2,
+    "high": 12.7,
+    "low_as_written": "$12.20",
+    "high_as_written": "$12.70"
+   },
+   "latest_revision": {
+    "low": 12.2,
+    "high": 12.7,
+    "low_as_written": "$12.20",
+    "high_as_written": "$12.70"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

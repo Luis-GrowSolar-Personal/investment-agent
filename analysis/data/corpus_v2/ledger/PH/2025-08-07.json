@@ -1,0 +1,191 @@
+{
+ "ticker": "PH",
+ "call_date": "2025-08-07",
+ "custom_id": "PH_2025-08-07",
+ "fiscal": [
+  2025,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 20500000000,
+    "high": 20500000000,
+    "low_as_written": "$20.5 billion",
+    "high_as_written": "$20.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 20300000000,
+    "high": 20300000000,
+    "low_as_written": "$20.3 billion",
+    "high_as_written": "$20.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "That will equate to approximately $20.5 billion in sales.",
+   "one_sided": null,
+   "actual": 19900000000,
+   "actual_as_written": "19.9 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.029268,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1.5,
+    "high": 4.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "4.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1,
+    "high": 1,
+    "low_as_written": "positive one",
+    "high_as_written": "positive one",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "Reported sales is forecast to be in the range of 1.5% to 4.5% or 3% at the midpoint.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5100000000,
+    "high": 5100000000,
+    "low_as_written": "$5.1 billion",
+    "high_as_written": "$5.1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5100000000,
+    "high": 5100000000,
+    "low_as_written": "$5.1 billion",
+    "high_as_written": "$5.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect reported sales to be $5.1 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 26.6,
+    "high": 26.8,
+    "low_as_written": "$26.70",
+    "high_as_written": "$26.70",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25.92,
+    "high": 26.12,
+    "low_as_written": "$26.02",
+    "high_as_written": "$26.02",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we are maintaining our adjusted EPS guide of $26.70 at the midpoint. On both of those numbers, there's a range of plus or minus 10 cents",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.05,
+    "high": 7.05,
+    "low_as_written": "$7.05",
+    "high_as_written": "$7.05",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7.05,
+    "high": 7.05,
+    "low_as_written": "$7.05",
+    "high_as_written": "$7.05",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "adjusted EPS is expected to be $7.05.",
+   "one_sided": null,
+   "actual": 7.69,
+   "actual_as_written": "$7.69",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.09078,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "basis_mismatch": 1,
+  "ungradable_present": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 5,
+ "revised_down_count": 0
+}

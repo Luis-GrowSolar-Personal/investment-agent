@@ -1,0 +1,175 @@
+{
+ "ticker": "NOW",
+ "call_date": "2023-07-26",
+ "custom_id": "NOW_2023-07-26",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2040000000,
+    "high": 2045000000,
+    "low_as_written": "2.04 billion",
+    "high_as_written": "2.045 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2040000000,
+    "high": 2045000000,
+    "low_as_written": "2.04 billion",
+    "high_as_written": "2.045 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect subscription revenues between 2.04 billion and 2.045 billion, representing 23.5% to 24% year-over-year growth on a constant currency basis",
+   "one_sided": null,
+   "actual": 2080000000,
+   "actual_as_written": "2.08 billion",
+   "range_width_pct": 0.002451,
+   "grade": "beat",
+   "beat_pct": 0.017115,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 23,
+    "high": 23,
+    "low_as_written": "23%",
+    "high_as_written": "23%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 23,
+    "high": 23,
+    "low_as_written": "23%",
+    "high_as_written": "23%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 23%, and we expect 205 million GAAP diluted weighted average outstanding shares for the quarter.",
+   "one_sided": null,
+   "actual": 25,
+   "actual_as_written": "25%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.086957,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 8440000000,
+    "high": 8500000000,
+    "low_as_written": "$8.44 billion",
+    "high_as_written": "$8.5 billion"
+   },
+   "latest_revision": {
+    "low": 8470000000,
+    "high": 8520000000,
+    "low_as_written": "$8.47 billion",
+    "high_as_written": "$8.52 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%"
+   },
+   "latest_revision": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 26,
+    "high": 26,
+    "low_as_written": "26%",
+    "high_as_written": "26%"
+   },
+   "latest_revision": {
+    "low": 26,
+    "high": 26,
+    "low_as_written": "26%",
+    "high_as_written": "26%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%"
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Host Knowledge 2023 event and Investor Day in Las Vegas",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Share more details on generative AI pricing model at Financial Analyst Day",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

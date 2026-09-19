@@ -1,0 +1,26 @@
+{
+ "ticker": "OXY",
+ "call_date": "2022-02-25",
+ "custom_id": "OXY_2022-02-25",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Announce 2022 capital plan and production guidance on the next earnings call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

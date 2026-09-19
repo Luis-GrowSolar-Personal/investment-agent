@@ -1,0 +1,25 @@
+{
+ "ticker": "COST",
+ "call_date": "2025-12-11",
+ "custom_id": "COST_2025-12-11",
+ "fiscal": [
+  2026,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Change e-commerce comparable sales metric to digitally enabled comparable sales starting with September sales release",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,170 @@
+{
+ "ticker": "INTC",
+ "call_date": "2024-08-01",
+ "custom_id": "INTC_2024-08-01",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 12500000000,
+    "high": 13500000000,
+    "low_as_written": "$12.5",
+    "high_as_written": "$13.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12500000000,
+    "high": 13500000000,
+    "low_as_written": "$12.5",
+    "high_as_written": "$13.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue of $12.5 to $13.5 billion in the second quarter",
+   "one_sided": null,
+   "actual": 12800000000,
+   "actual_as_written": "$12.8 billion",
+   "range_width_pct": 0.08,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 43.5,
+    "high": 43.5,
+    "low_as_written": "43.5%",
+    "high_as_written": "43.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 43.5,
+    "high": 43.5,
+    "low_as_written": "43.5%",
+    "high_as_written": "43.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect gross margin of approximately 43.5%",
+   "one_sided": null,
+   "actual": 38.7,
+   "actual_as_written": "38.7%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.110345,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.1,
+    "high": 0.1,
+    "low_as_written": "10 cents",
+    "high_as_written": "10 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.1,
+    "high": 0.1,
+    "low_as_written": "10 cents",
+    "high_as_written": "10 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "EPS of 10 cents, all on a non-GAAP basis",
+   "one_sided": null,
+   "actual": 0.02,
+   "actual_as_written": "$0.02",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.8,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "growth_pct",
+   "original": {
+    "low": 200,
+    "high": 200,
+    "low_as_written": "roughly 200 basis points",
+    "high_as_written": "roughly 200 basis points"
+   },
+   "latest_revision": {
+    "low": 200,
+    "high": 200,
+    "low_as_written": "roughly 200 basis points",
+    "high_as_written": "roughly 200 basis points"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "approximately neutral",
+    "high_as_written": "approximately neutral"
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "approximately neutral",
+    "high_as_written": "approximately neutral"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Release the 1.0 PDK for Intel 18A",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "missed": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

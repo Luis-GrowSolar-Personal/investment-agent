@@ -1,0 +1,191 @@
+{
+ "ticker": "HON",
+ "call_date": "2022-07-28",
+ "custom_id": "HON_2022-07-28",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8500000000,
+    "high": 8800000000,
+    "low_as_written": "$8.5 billion",
+    "high_as_written": "$8.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8500000000,
+    "high": 8800000000,
+    "low_as_written": "$8.5 billion",
+    "high_as_written": "$8.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect second quarter sales to be in the range of $8.5 billion to $8.8 billion",
+   "one_sided": null,
+   "actual": 9152000000.0,
+   "actual_as_written": "4% (converted to level)",
+   "converted": {
+    "from": "growth_pct",
+    "to": "level",
+    "base": 8800000000
+   },
+   "range_width_pct": 0.035294,
+   "grade": "beat",
+   "beat_pct": 0.04,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.98,
+    "high": 2.08,
+    "low_as_written": "$1.98",
+    "high_as_written": "$2.08",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.98,
+    "high": 2.08,
+    "low_as_written": "$1.98",
+    "high_as_written": "$2.08",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect adjusted second quarter earnings per share between $1.98 and $2.08",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 2.1,
+   "actual_as_written": "$2.10",
+   "range_width_pct": 0.050505,
+   "grade": "beat",
+   "beat_pct": 0.009615,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 35400000000,
+    "high": 36400000000,
+    "low_as_written": "$35.4",
+    "high_as_written": "$36.4 billion"
+   },
+   "latest_revision": {
+    "low": 35500000000,
+    "high": 36400000000,
+    "low_as_written": "$35.5",
+    "high_as_written": "$36.4 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.4,
+    "high": 8.7,
+    "low_as_written": "$8.40",
+    "high_as_written": "$8.70"
+   },
+   "latest_revision": {
+    "low": 8.5,
+    "high": 8.8,
+    "low_as_written": "$8.50",
+    "high_as_written": "$8.80"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 4700000000,
+    "high": 5100000000,
+    "low_as_written": "$4.7",
+    "high_as_written": "$5.1 billion"
+   },
+   "latest_revision": {
+    "low": 4700000000,
+    "high": 5100000000,
+    "low_as_written": "$4.7 billion",
+    "high_as_written": "$5.1 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1100000000,
+    "high": 1200000000,
+    "low_as_written": "$1.1",
+    "high_as_written": "$1.2 billion"
+   },
+   "latest_revision": {
+    "low": 1100000000,
+    "high": 1200000000,
+    "low_as_written": "$1.1",
+    "high_as_written": "$1.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

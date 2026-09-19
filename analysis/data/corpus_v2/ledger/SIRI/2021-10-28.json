@@ -1,0 +1,70 @@
+{
+ "ticker": "SIRI",
+ "call_date": "2021-10-28",
+ "custom_id": "SIRI_2021-10-28",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 8350000000,
+    "high": 8350000000,
+    "low_as_written": "$8.35 billion",
+    "high_as_written": "$8.35 billion"
+   },
+   "latest_revision": {
+    "low": 8550000000,
+    "high": 8550000000,
+    "low_as_written": "$8.55 billion",
+    "high_as_written": "$8.55 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 1600000000,
+    "high": 1600000000,
+    "low_as_written": "$1.6 billion",
+    "high_as_written": "$1.6 billion"
+   },
+   "latest_revision": {
+    "low": 1700000000,
+    "high": 1700000000,
+    "low_as_written": "$1.7 billion",
+    "high_as_written": "$1.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Begin allowing digital subscription purchases directly in the iOS and Android versions of the SXM app",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Launch a new full-time SiriusXM channel with TikTok",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Use remaining cash proceeds in August to call outstanding 2022 notes",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

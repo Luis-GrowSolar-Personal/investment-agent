@@ -1,0 +1,238 @@
+{
+ "ticker": "INTC",
+ "call_date": "2020-07-23",
+ "custom_id": "INTC_2020-07-23",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 18500000000,
+    "high": 18500000000,
+    "low_as_written": "$18.5 billion",
+    "high_as_written": "$18.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18500000000,
+    "high": 18500000000,
+    "low_as_written": "$18.5 billion",
+    "high_as_written": "$18.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect total revenue of $18.5 billion",
+   "one_sided": null,
+   "actual": 19700000000,
+   "actual_as_written": "$19.7 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.064865,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "approximately 30%",
+    "high_as_written": "approximately 30%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "approximately 30%",
+    "high_as_written": "approximately 30%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Operating margin is expected to be approximately 30% down one point year on year on lower gross margin, largely offset by lower spending on higher revenue.",
+   "one_sided": null,
+   "actual": 31,
+   "actual_as_written": "31%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.033333,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.1,
+    "high": 1.1,
+    "low_as_written": "approximately $1.10 per share",
+    "high_as_written": "approximately $1.10 per share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.1,
+    "high": 1.1,
+    "low_as_written": "approximately $1.10 per share",
+    "high_as_written": "approximately $1.10 per share",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Q2 EPS is expected to be approximately $1.10 per share.",
+   "one_sided": null,
+   "actual": 1.23,
+   "actual_as_written": "$1.23",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.118182,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 73500000000,
+    "high": 73500000000,
+    "low_as_written": "$73.5 billion",
+    "high_as_written": "$73.5 billion"
+   },
+   "latest_revision": {
+    "low": 73500000000,
+    "high": 73500000000,
+    "low_as_written": "$73.5 billion",
+    "high_as_written": "$73.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "$5",
+    "high_as_written": "$5"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "$5",
+    "high_as_written": "$5"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 59,
+    "high": 59,
+    "low_as_written": "59%",
+    "high_as_written": "59%"
+   },
+   "latest_revision": {
+    "low": 59,
+    "high": 59,
+    "low_as_written": "59%",
+    "high_as_written": "59%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 33,
+    "high": 33,
+    "low_as_written": "33%",
+    "high_as_written": "33%"
+   },
+   "latest_revision": {
+    "low": 33,
+    "high": 33,
+    "low_as_written": "33%",
+    "high_as_written": "33%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 16500000000,
+    "high": 16500000000,
+    "low_as_written": "$16.5 billion",
+    "high_as_written": "$16.5 billion"
+   },
+   "latest_revision": {
+    "low": 16500000000,
+    "high": 16500000000,
+    "low_as_written": "$16.5 billion",
+    "high_as_written": "$16.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 17000000000,
+    "high": 17000000000,
+    "low_as_written": "$17 billion",
+    "high_as_written": "$17 billion"
+   },
+   "latest_revision": {
+    "low": 17000000000,
+    "high": 17000000000,
+    "low_as_written": "$17 billion",
+    "high_as_written": "$17 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

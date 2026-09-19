@@ -1,0 +1,168 @@
+{
+ "ticker": "BMY",
+ "call_date": "2023-02-02",
+ "custom_id": "BMY_2023-02-02",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 47000000000,
+    "high": 47000000000,
+    "low_as_written": "approximately $47 billion",
+    "high_as_written": "approximately $47 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 46000000000,
+    "high": 46000000000,
+    "low_as_written": "approximately $46 billion",
+    "high_as_written": "approximately $46 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect 2022 revenues to be approximately $47 billion, representing low single-digit growth over 2021.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 46000000000,
+   "actual_as_written": "$46 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.021277,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.65,
+    "high": 7.95,
+    "low_as_written": "$7.65",
+    "high_as_written": "$7.95",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7.44,
+    "high": 7.74,
+    "low_as_written": "$7.44",
+    "high_as_written": "$7.74",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we expect non-GAAP EPS to grow faster in sales and be between $7.65 and $7.95.",
+   "one_sided": null,
+   "actual": 7.7,
+   "actual_as_written": "$7.70",
+   "range_width_pct": 0.039216,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 78,
+    "high": 78,
+    "low_as_written": "approximately 78%",
+    "high_as_written": "approximately 78%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 79,
+    "high": 79,
+    "low_as_written": "approximately 79%",
+    "high_as_written": "approximately 79%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect our gross margin to be approximately 78%.",
+   "one_sided": null,
+   "actual": 79,
+   "actual_as_written": "approximately 79%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.012821,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Excluding the effects of currency, the underlying sales growth for the business expected to be 2% versus 2021.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Present BCMA T-cell engager (alnuctamab) data at ASH",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "met": 1,
+  "beat": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

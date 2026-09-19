@@ -1,0 +1,25 @@
+{
+ "ticker": "BLK",
+ "call_date": "2021-10-13",
+ "custom_id": "BLK_2021-10-13",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "BlackRock will give an 8% raise in base salary compensation for all employees up to and including director levels",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

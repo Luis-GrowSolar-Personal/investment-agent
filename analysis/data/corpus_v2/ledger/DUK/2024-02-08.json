@@ -1,0 +1,91 @@
+{
+ "ticker": "DUK",
+ "call_date": "2024-02-08",
+ "custom_id": "DUK_2024-02-08",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 7,
+    "low_as_written": "5%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 7,
+    "low_as_written": "5%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "This reflects 5% to 7% growth off the updated 2022 EPS midpoint of 525",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.5,
+    "high": 1.6,
+    "low_as_written": "$1.50",
+    "high_as_written": "$1.60",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.5,
+    "high": 1.6,
+    "low_as_written": "$1.50",
+    "high_as_written": "$1.60",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect a strong finish to the year, targeting $1.50 to $1.60 per share",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide 2024 earnings guidance and detailed capital and financing plans",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

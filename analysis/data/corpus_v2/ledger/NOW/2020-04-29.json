@@ -1,0 +1,148 @@
+{
+ "ticker": "NOW",
+ "call_date": "2020-04-29",
+ "custom_id": "NOW_2020-04-29",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 975000000,
+    "high": 980000000,
+    "low_as_written": "$975 million",
+    "high_as_written": "$980 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 975000000,
+    "high": 980000000,
+    "low_as_written": "$975 million",
+    "high_as_written": "$980 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q1 2020, we expect subscription revenues between $975 million and $980 million, representing 32% year-over-year growth.",
+   "one_sided": null,
+   "actual": 995000000,
+   "actual_as_written": "$995 million",
+   "range_width_pct": 0.005128,
+   "grade": "beat",
+   "beat_pct": 0.015306,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2020,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect a 22% operating margin and 195 million diluted weighted outstanding shares for the quarter.",
+   "one_sided": null,
+   "actual": 24,
+   "actual_as_written": "24%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.090909,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 4220000000,
+    "high": 4240000000,
+    "low_as_written": "4.22 billion",
+    "high_as_written": "4.24 billion"
+   },
+   "latest_revision": {
+    "low": 4220000000,
+    "high": 4240000000,
+    "low_as_written": "4.22 billion",
+    "high_as_written": "4.24 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%"
+   },
+   "latest_revision": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29%",
+    "high_as_written": "29%"
+   },
+   "latest_revision": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29%",
+    "high_as_written": "29%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

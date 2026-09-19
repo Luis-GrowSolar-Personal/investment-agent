@@ -1,0 +1,148 @@
+{
+ "ticker": "DD",
+ "call_date": "2024-07-31",
+ "custom_id": "DD_2024-07-31",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3025000000,
+    "high": 3025000000,
+    "low_as_written": "$3.025 billion",
+    "high_as_written": "$3.025 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3025000000,
+    "high": 3025000000,
+    "low_as_written": "$3.025 billion",
+    "high_as_written": "$3.025 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect net sales of about $3.025 billion",
+   "one_sided": null,
+   "actual": 3200000000,
+   "actual_as_written": "3.2 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.057851,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.84,
+    "high": 0.84,
+    "low_as_written": "84 cents",
+    "high_as_written": "84 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.84,
+    "high": 0.84,
+    "low_as_written": "84 cents",
+    "high_as_written": "84 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "adjusted EPS of 84 cents per share",
+   "one_sided": null,
+   "actual": 0.97,
+   "actual_as_written": "97 cents",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.154762,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 11900000000,
+    "high": 12300000000,
+    "low_as_written": "$11.9",
+    "high_as_written": "$12.3 billion"
+   },
+   "latest_revision": {
+    "low": 12250000000,
+    "high": 12250000000,
+    "low_as_written": "$12.25 billion",
+    "high_as_written": "$12.25 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.25,
+    "high": 3.65,
+    "low_as_written": "$3.25",
+    "high_as_written": "$3.65"
+   },
+   "latest_revision": {
+    "low": 3.6,
+    "high": 3.6,
+    "low_as_written": "$3.60",
+    "high_as_written": "$3.60"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

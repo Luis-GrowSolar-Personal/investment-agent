@@ -1,0 +1,156 @@
+{
+ "ticker": "INTC",
+ "call_date": "2025-10-23",
+ "custom_id": "INTC_2025-10-23",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 12600000000,
+    "high": 13600000000,
+    "low_as_written": "$12.6",
+    "high_as_written": "$13.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12600000000,
+    "high": 13600000000,
+    "low_as_written": "$12.6",
+    "high_as_written": "$13.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "for Q3, we're forecasting a revenue range of $12.6 to $13.6 billion, down to up 6% sequentially.",
+   "one_sided": null,
+   "actual": 13700000000,
+   "actual_as_written": "$13.7 billion",
+   "range_width_pct": 0.079365,
+   "grade": "beat",
+   "beat_pct": 0.007353,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 36,
+    "high": 36,
+    "low_as_written": "approximately 36%",
+    "high_as_written": "approximately 36%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 36,
+    "high": 36,
+    "low_as_written": "approximately 36%",
+    "high_as_written": "approximately 36%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect a gross margin of approximately 36% on an increased mix of outsourced products",
+   "one_sided": null,
+   "actual": 40,
+   "actual_as_written": "40%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.111111,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "break-even",
+    "high_as_written": "break-even",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "break-even",
+    "high_as_written": "break-even",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We forecast a tax rate of 12% and break-even EPS, all on a non-GAAP basis.",
+   "one_sided": null,
+   "actual": 0.23,
+   "actual_as_written": "23 cents",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": null,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 20000000000,
+    "high": 23000000000,
+    "low_as_written": "$20",
+    "high_as_written": "$23 billion"
+   },
+   "latest_revision": {
+    "low": 8000000000,
+    "high": 11000000000,
+    "low_as_written": "$8",
+    "high_as_written": "$11 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 8
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete the Altera stake sale to Silverlake",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Implement return to office mandate",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

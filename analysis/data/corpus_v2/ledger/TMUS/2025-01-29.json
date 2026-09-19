@@ -1,0 +1,59 @@
+{
+ "ticker": "TMUS",
+ "call_date": "2025-01-29",
+ "custom_id": "TMUS_2025-01-29",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 16400000000,
+    "high": 16900000000,
+    "low_as_written": "$16.4",
+    "high_as_written": "$16.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 16700000000,
+    "high": 17000000000,
+    "low_as_written": "$16.7",
+    "high_as_written": "$17 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we now expect adjusted free cash flow, including payments for merger-related costs, to be in the range of $16.4 to $16.9 billion",
+   "one_sided": null,
+   "actual": 17000000000,
+   "actual_as_written": "$17 billion",
+   "range_width_pct": 0.030488,
+   "grade": "beat",
+   "beat_pct": 0.005917,
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,95 @@
+{
+ "ticker": "PH",
+ "call_date": "2022-02-03",
+ "custom_id": "PH_2022-02-03",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.74,
+    "high": 3.74,
+    "low_as_written": "$3.74",
+    "high_as_written": "$3.74",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.74,
+    "high": 3.74,
+    "low_as_written": "$3.74",
+    "high_as_written": "$3.74",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "for Q2, we are expecting adjusted EPS to be $3.74 at the midpoint.",
+   "one_sided": null,
+   "actual": 4.46,
+   "actual_as_written": "$4.46",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.192513,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5,
+    "high": 9,
+    "low_as_written": "5%",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 9,
+    "low_as_written": "6%",
+    "high_as_written": "9%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

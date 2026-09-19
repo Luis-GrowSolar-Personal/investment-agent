@@ -1,0 +1,17 @@
+{
+ "ticker": "PARA",
+ "call_date": "2020-02-20",
+ "custom_id": "PARA_2020-02-20",
+ "fiscal": [
+  2019,
+  4
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

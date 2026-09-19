@@ -1,0 +1,135 @@
+{
+ "ticker": "IBM",
+ "call_date": "2025-07-23",
+ "custom_id": "IBM_2025-07-23",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": null,
+    "low_as_written": "4%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": null,
+    "low_as_written": "4%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue growth of at least 4% at constant currency",
+   "one_sided": "floor",
+   "actual": 5,
+   "actual_as_written": "over 5%",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 16400000000,
+    "high": 16750000000,
+    "low_as_written": "$16.4 billion",
+    "high_as_written": "$16.75 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 16400000000,
+    "high": 16750000000,
+    "low_as_written": "$16.4 billion",
+    "high_as_written": "$16.75 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "a revenue range of $16.4 billion to $16.75 billion",
+   "one_sided": null,
+   "actual": 17000000000,
+   "actual_as_written": "$17 billion",
+   "range_width_pct": 0.021341,
+   "grade": "beat",
+   "beat_pct": 0.014925,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 13500000000,
+    "high": 13500000000,
+    "low_as_written": "$13.5 billion",
+    "high_as_written": "$13.5 billion"
+   },
+   "latest_revision": {
+    "low": 13500000000,
+    "high": 13500000000,
+    "low_as_written": "$13.5 billion",
+    "high_as_written": "$13.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Launch Z17 mainframe with enhanced AI acceleration, new security features, and AI-powered usability tools",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

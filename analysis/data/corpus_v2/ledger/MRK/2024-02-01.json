@@ -1,0 +1,148 @@
+{
+ "ticker": "MRK",
+ "call_date": "2024-02-01",
+ "custom_id": "MRK_2024-02-01",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 57200000000,
+    "high": 58700000000,
+    "low_as_written": "$57.2",
+    "high_as_written": "$58.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 59700000000,
+    "high": 60200000000,
+    "low_as_written": "$59.7",
+    "high_as_written": "$60.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We project revenue to be between $57.2 and $58.7 billion, including approximately $1 billion from Ligebrio.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7,
+    "high": 10,
+    "low_as_written": "7%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11,
+    "high": 12,
+    "low_as_written": "11%",
+    "high_as_written": "12%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect strong underlying revenue growth of 7% to 10%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our gross margin is expected to be approximately 77%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 6.8,
+    "high": 6.95,
+    "low_as_written": "$6.80",
+    "high_as_written": "$6.95",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.33,
+    "high": 1.38,
+    "low_as_written": "$1.33",
+    "high_as_written": "$1.38",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect EPS of $6.80 to $6.95.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 4
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

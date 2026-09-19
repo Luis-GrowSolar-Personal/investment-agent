@@ -1,0 +1,57 @@
+{
+ "ticker": "TMUS",
+ "call_date": "2023-08-27",
+ "custom_id": "TMUS_2023-08-27",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 13100000000,
+    "high": 13600000000,
+    "low_as_written": "$13.1",
+    "high_as_written": "$13.6 billion"
+   },
+   "latest_revision": {
+    "low": 13200000000,
+    "high": 13600000000,
+    "low_as_written": "$13.2",
+    "high_as_written": "$13.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 9400000000,
+    "high": 9700000000,
+    "low_as_written": "9.4",
+    "high_as_written": "9.7 billion"
+   },
+   "latest_revision": {
+    "low": 9500000000,
+    "high": 9700000000,
+    "low_as_written": "$9.5",
+    "high_as_written": "$9.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": -1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

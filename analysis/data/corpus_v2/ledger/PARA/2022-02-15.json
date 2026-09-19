@@ -1,0 +1,54 @@
+{
+ "ticker": "PARA",
+ "call_date": "2022-02-15",
+ "custom_id": "PARA_2022-02-15",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 500000000,
+    "high": 500000000,
+    "low_as_written": "$500 million",
+    "high_as_written": "$500 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 500000000,
+    "high": 500000000,
+    "low_as_written": "$500 million",
+    "high_as_written": "$500 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "an additional $500 million in free cash flow benefit in 2021",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "revised_down_count": 0
+}

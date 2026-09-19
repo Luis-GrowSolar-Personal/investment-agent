@@ -1,0 +1,144 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2024-07-30",
+ "custom_id": "MSFT_2024-07-30",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 28700000000,
+    "high": 29000000000,
+    "low_as_written": "28.7",
+    "high_as_written": "29 billion US dollars",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 21900000000,
+    "high": 22100000000,
+    "low_as_written": "$21.9",
+    "high_as_written": "$22.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect revenue and productivity in business processes to grow between 10 and 11% in constant currency or 28.7 to 29 billion US dollars.",
+   "one_sided": null,
+   "actual": 69600000000,
+   "actual_as_written": "$69.6 billion",
+   "range_width_pct": 0.010453,
+   "grade": "beat",
+   "beat_pct": 1.4,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 70,
+    "high": 70,
+    "low_as_written": "roughly 70%",
+    "high_as_written": "roughly 70%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 70,
+    "high": 70,
+    "low_as_written": "roughly 70%",
+    "high_as_written": "roughly 70%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Microsoft Cloud gross margin percentage should be roughly 70% down year over year driven by the impact of scaling our AI infrastructure.",
+   "one_sided": null,
+   "actual": 69,
+   "actual_as_written": "69%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.014286,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 31,
+    "high": 32,
+    "low_as_written": "31",
+    "high_as_written": "32%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18,
+    "high": 20,
+    "low_as_written": "18",
+    "high_as_written": "20%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "In Azure, we expect Q2 revenue growth to be 31 to 32% in constant currency, driven by strong demand for our portfolio of services.",
+   "one_sided": null,
+   "actual": 12.25806451612903,
+   "actual_as_written": "$69.6 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 62000000000
+   },
+   "range_width_pct": 0.032258,
+   "grade": "missed",
+   "miss_pct": 0.604579,
+   "grade_vs_latest": "missed",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "AI business annual revenue run rate expected to surpass $10 billion, making it the fastest business in Microsoft history to reach this milestone",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Capital expenditures expected to increase on a sequential basis given cloud and AI demand signals",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "missed": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

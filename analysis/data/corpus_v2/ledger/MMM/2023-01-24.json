@@ -1,0 +1,127 @@
+{
+ "ticker": "MMM",
+ "call_date": "2023-01-24",
+ "custom_id": "MMM_2023-01-24",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10.75,
+    "high": 11.25,
+    "low_as_written": "$10.75",
+    "high_as_written": "$11.25",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10.1,
+    "high": 10.35,
+    "low_as_written": "$10.10",
+    "high_as_written": "$10.35",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "Adjusted earnings per share is expected to be $10.75 to $11.25.",
+   "one_sided": null,
+   "actual": 10.1,
+   "actual_as_written": "$10.10",
+   "range_width_pct": 0.046512,
+   "grade": "missed",
+   "miss_pct": 0.060465,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 85,
+    "high": 95,
+    "low_as_written": "85%",
+    "high_as_written": "95%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "free cash flow conversion expectations remain in the range of 90% to 100%.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7900000000,
+    "high": 8200000000,
+    "low_as_written": "$7.9",
+    "high_as_written": "$8.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7900000000,
+    "high": 8200000000,
+    "low_as_written": "$7.9",
+    "high_as_written": "$8.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect total sales to be in the range of $7.9 to $8.2 billion.",
+   "one_sided": null,
+   "actual": 8100000000,
+   "actual_as_written": "$8.1 billion",
+   "range_width_pct": 0.037975,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "basis_mismatch": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

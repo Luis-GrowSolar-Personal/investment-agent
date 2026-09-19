@@ -1,0 +1,69 @@
+{
+ "ticker": "CMCSA",
+ "call_date": "2022-01-27",
+ "custom_id": "CMCSA_2022-01-27",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3.4,
+    "high": null,
+    "low_as_written": "3.4%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 3.4,
+    "high": null,
+    "low_as_written": "3.4%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We expect cable communications revenue growth to exceed the 3.4% we just reported for 2020",
+   "one_sided": "floor",
+   "actual": 12.355212355212352,
+   "actual_as_written": "$116.4 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 103600000000
+   },
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Peacock will launch on Sky in November 2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "other"
+ ],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

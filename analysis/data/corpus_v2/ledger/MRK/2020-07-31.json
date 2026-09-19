@@ -1,0 +1,75 @@
+{
+ "ticker": "MRK",
+ "call_date": "2020-07-31",
+ "custom_id": "MRK_2020-07-31",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 48800000000,
+    "high": 50300000000,
+    "low_as_written": "$48.8 billion",
+    "high_as_written": "$50.3 billion"
+   },
+   "latest_revision": {
+    "low": 46100000000,
+    "high": 48100000000,
+    "low_as_written": "$46.1 billion",
+    "high_as_written": "$48.1 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 5.62,
+    "high": 5.77,
+    "low_as_written": "$5.62",
+    "high_as_written": "$5.77"
+   },
+   "latest_revision": {
+    "low": 5.17,
+    "high": 5.37,
+    "low_as_written": "$5.17",
+    "high_as_written": "$5.37"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 75.5,
+    "high": 75.5,
+    "low_as_written": "75.5%",
+    "high_as_written": "75.5%"
+   },
+   "latest_revision": {
+    "low": 75,
+    "high": 75,
+    "low_as_written": "75%",
+    "high_as_written": "75%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 3
+}

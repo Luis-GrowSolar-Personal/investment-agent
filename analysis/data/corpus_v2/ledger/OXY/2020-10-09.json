@@ -1,0 +1,25 @@
+{
+ "ticker": "OXY",
+ "call_date": "2020-10-09",
+ "custom_id": "OXY_2020-10-09",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Restart JV drilling in Midland Basin, running two rigs by end of Q3 2020",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

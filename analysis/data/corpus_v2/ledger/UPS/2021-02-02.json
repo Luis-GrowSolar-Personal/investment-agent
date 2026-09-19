@@ -1,0 +1,134 @@
+{
+ "ticker": "UPS",
+ "call_date": "2021-02-02",
+ "custom_id": "UPS_2021-02-02",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "in the U.S., we forecast revenue to increase 4% to 7%",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6700000000,
+    "high": 6700000000,
+    "low_as_written": "$6.7 billion",
+    "high_as_written": "$6.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5600000000,
+    "high": 5600000000,
+    "low_as_written": "$5.6 billion",
+    "high_as_written": "$5.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "CapEx for 2020 is planned to be around $6.7 billion.",
+   "one_sided": null,
+   "actual": 5600000000,
+   "actual_as_written": "$5.6 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.164179,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4300000000,
+    "high": 4700000000,
+    "low_as_written": "4.3",
+    "high_as_written": "4.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4300000000,
+    "high": 4700000000,
+    "low_as_written": "4.3",
+    "high_as_written": "4.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Adjusted free cash flow is anticipated to be between 4.3 and 4.7 billion.",
+   "one_sided": null,
+   "actual": 5100000000,
+   "actual_as_written": "$5.1 billion",
+   "range_width_pct": 0.093023,
+   "grade": "beat",
+   "beat_pct": 0.085106,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "UPS will complete its Fastest Ground Ever initiative",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "revenue",
+  "eps"
+ ],
+ "counts": {
+  "basis_mismatch": 1,
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

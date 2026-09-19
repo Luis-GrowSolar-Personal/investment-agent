@@ -1,0 +1,39 @@
+{
+ "ticker": "UPS",
+ "call_date": "2021-10-26",
+ "custom_id": "UPS_2021-10-26",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 10.1,
+    "high": 10.1,
+    "low_as_written": "10.1%",
+    "high_as_written": "10.1%"
+   },
+   "latest_revision": {
+    "low": 12.7,
+    "high": 12.7,
+    "low_as_written": "12.7%",
+    "high_as_written": "12.7%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

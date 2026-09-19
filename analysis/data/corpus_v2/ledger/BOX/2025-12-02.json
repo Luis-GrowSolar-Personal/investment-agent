@@ -1,0 +1,245 @@
+{
+ "ticker": "BOX",
+ "call_date": "2025-12-02",
+ "custom_id": "BOX_2025-12-02",
+ "fiscal": [
+  2026,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2026,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 298000000,
+    "high": 299000000,
+    "low_as_written": "298",
+    "high_as_written": "299 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 298000000,
+    "high": 299000000,
+    "low_as_written": "298",
+    "high_as_written": "299 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect Q3 revenue to be in the range of 298 to 299 million, representing approximately 8% year-over-year growth.",
+   "one_sided": null,
+   "actual": 301000000,
+   "actual_as_written": "$301 million",
+   "range_width_pct": 0.003356,
+   "grade": "beat",
+   "beat_pct": 0.006689,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2026,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "81%",
+    "high_as_written": "81%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "81%",
+    "high_as_written": "81%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect Q3 gross margin to be approximately 81%.",
+   "one_sided": null,
+   "actual": 81.7,
+   "actual_as_written": "81.7%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.008642,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2026,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "28%",
+    "high_as_written": "28%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "28%",
+    "high_as_written": "28%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate our Q3 non-GAAP operating margin to be approximately 28% versus 29.1% a year ago.",
+   "one_sided": null,
+   "actual": 28.6,
+   "actual_as_written": "28.6%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.021429,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2026,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.31,
+    "high": 0.32,
+    "low_as_written": "31 cents",
+    "high_as_written": "32 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.31,
+    "high": 0.32,
+    "low_as_written": "31 cents",
+    "high_as_written": "32 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our Q3 non-GAAP EPS to be in the range of 31 cents to 32 cents, which includes an expected tailwind of approximately 1 cent from FX.",
+   "one_sided": null,
+   "actual": 0.31,
+   "actual_as_written": "31 cents",
+   "range_width_pct": 0.032258,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 1155000000,
+    "high": 1160000000,
+    "low_as_written": "$1.155",
+    "high_as_written": "$1.16 billion"
+   },
+   "latest_revision": {
+    "low": 1170000000,
+    "high": 1175000000,
+    "low_as_written": "$1.170",
+    "high_as_written": "$1.175 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "81%",
+    "high_as_written": "81%"
+   },
+   "latest_revision": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "81%",
+    "high_as_written": "81%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "28%",
+    "high_as_written": "28%"
+   },
+   "latest_revision": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "28%",
+    "high_as_written": "28%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 1.13,
+    "high": 1.17,
+    "low_as_written": "$1.13",
+    "high_as_written": "$1.17"
+   },
+   "latest_revision": {
+    "low": 1.26,
+    "high": 1.28,
+    "low_as_written": "$1.26",
+    "high_as_written": "$1.28"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Host BoxWorks annual customer conference in San Francisco",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Host IR virtual investor product briefing in conjunction with BoxWorks on September 11th",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 3,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

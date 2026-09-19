@@ -1,0 +1,140 @@
+{
+ "ticker": "LLY",
+ "call_date": "2025-02-06",
+ "custom_id": "LLY_2025-02-06",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 40400000000,
+    "high": 41600000000,
+    "low_as_written": "$40.4 billion",
+    "high_as_written": "$41.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 45400000000,
+    "high": 46000000000,
+    "low_as_written": "$45.4 billion",
+    "high_as_written": "$46 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "revenue is expected to be between $40.4 billion and $41.6 billion.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "approximately 80%",
+    "high_as_written": "approximately 80%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "approximately 80%",
+    "high_as_written": "approximately 80%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "our expectations remain consistent that we will maintain gross margin of approximately 80% on a non-GAAP basis as productivity gains and volumes are offset by pricing pressures and the cost of new manufacturing facilities.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 12.2,
+    "high": 12.7,
+    "low_as_written": "$12.20",
+    "high_as_written": "$12.70",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13.02,
+    "high": 13.52,
+    "low_as_written": "$13.02",
+    "high_as_written": "$13.52",
+    "one_sided": null
+   },
+   "n_revisions": 7,
+   "quote": "Earnings per share is expected to be in the range of $12.20 to $12.70 on a non-GAAP basis.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Submit a supplemental BLA to the FDA for the modified titration of Denetimab",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Submit NDA to the FDA for imulonestrant (oral SERD) in ER-positive HER2-negative metastatic breast cancer",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Submit for U.S. approval of terzapatide in adults with obesity and heart failure with preserved ejection fraction",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Expect U.S. regulatory action for terzapatide in adults with obesity and obstructive sleep apnea",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Share top-line data readout for Surmount-5 (terzepatide vs. semaglutide head-to-head)",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

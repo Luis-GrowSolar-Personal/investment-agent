@@ -1,0 +1,156 @@
+{
+ "ticker": "EMR",
+ "call_date": "2022-11-02",
+ "custom_id": "EMR_2022-11-02",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6,
+    "high": 8,
+    "low_as_written": "6%",
+    "high_as_written": "8%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 7,
+    "low_as_written": "6%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "we expect underlying sales growth of 6% to 8% in 2022 and net sales growth of 46%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.82,
+    "high": 4.97,
+    "low_as_written": "$4.82",
+    "high_as_written": "$4.97",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.95,
+    "high": 5.1,
+    "low_as_written": "$4.95",
+    "high_as_written": "$5.10",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "our adjusted EPS to between $4.82 and $4.97",
+   "one_sided": null,
+   "actual": 5.25,
+   "actual_as_written": "$5.25",
+   "range_width_pct": 0.03112,
+   "grade": "beat",
+   "beat_pct": 0.056338,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "$3 billion",
+    "high_as_written": "$3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "Free cash flow is now $3 billion and represents approximately 100% conversion for 2022",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 525000000,
+    "high": 525000000,
+    "low_as_written": "$525 million",
+    "high_as_written": "$525 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 525000000,
+    "high": 525000000,
+    "low_as_written": "$525 million",
+    "high_as_written": "$525 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "CapEx is reduced to approximately $525 million.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "beat": 1,
+  "basis_mismatch": 1,
+  "unreported": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

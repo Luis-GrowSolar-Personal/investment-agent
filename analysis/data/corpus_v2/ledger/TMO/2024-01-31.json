@@ -1,0 +1,232 @@
+{
+ "ticker": "TMO",
+ "call_date": "2024-01-31",
+ "custom_id": "TMO_2024-01-31",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 45300000000,
+    "high": 45300000000,
+    "low_as_written": "$45.3 billion",
+    "high_as_written": "$45.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 42700000000,
+    "high": 42700000000,
+    "low_as_written": "$42.7 billion",
+    "high_as_written": "$42.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we're initiating 2023 revenue guidance of $45.3 billion and adjusted EPS guidance of $23.70 per share",
+   "one_sided": null,
+   "actual": 42900000000,
+   "actual_as_written": "$42.9 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.05298,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 23.7,
+    "high": 23.7,
+    "low_as_written": "$23.70",
+    "high_as_written": "$23.70",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 21.5,
+    "high": 21.5,
+    "low_as_written": "$21.50",
+    "high_as_written": "$21.50",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we're initiating 2023 revenue guidance of $45.3 billion and adjusted EPS guidance of $23.70 per share",
+   "one_sided": null,
+   "actual": 21.55,
+   "actual_as_written": "$21.55",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.090717,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 23.9,
+    "high": 23.9,
+    "low_as_written": "23.9%",
+    "high_as_written": "23.9%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 22.9,
+    "high": 22.9,
+    "low_as_written": "22.9%",
+    "high_as_written": "22.9%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "in 2023, we're assuming an adjusted operating margin of 23.9%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6900000000,
+    "high": 6900000000,
+    "low_as_written": "$6.9 billion",
+    "high_as_written": "$6.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6700000000,
+    "high": 6900000000,
+    "low_as_written": "$6.7",
+    "high_as_written": "$6.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "free cash flow is assumed to be $6.9 billion for the year",
+   "one_sided": null,
+   "actual": 7000000000,
+   "actual_as_written": "$7 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.014493,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2000000000,
+    "high": 2000000000,
+    "low_as_written": "$2 billion",
+    "high_as_written": "$2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1300000000,
+    "high": 1500000000,
+    "low_as_written": "$1.3",
+    "high_as_written": "$1.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we're expecting net capital expenditures will be approximately $2 billion in 2023",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2%",
+    "high_as_written": "4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2%",
+    "high_as_written": "4%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "with core organic revenue growth in the range of 2% to 4%",
+   "one_sided": null,
+   "actual": -4.49688334817453,
+   "actual_as_written": "$42.9 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 44920000000
+   },
+   "range_width_pct": 1.0,
+   "grade": "missed",
+   "miss_pct": 3.248442,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 3,
+  "ungradable_present": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

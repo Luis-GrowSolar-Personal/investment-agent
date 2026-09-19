@@ -1,0 +1,64 @@
+{
+ "ticker": "COST",
+ "call_date": "2023-09-26",
+ "custom_id": "COST_2023-09-26",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3800000000,
+    "high": 4000000000,
+    "low_as_written": "$3.8",
+    "high_as_written": "$4 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4000000000,
+    "high": 4000000000,
+    "low_as_written": "$4 billion",
+    "high_as_written": "$4 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our estimate for the upcoming year, fiscal 23, CapEx to be approximately the same in the $3.8 to $4 billion range.",
+   "one_sided": null,
+   "actual": 4320000000,
+   "actual_as_written": "$4.32 billion",
+   "range_width_pct": 0.052632,
+   "grade": "missed",
+   "miss_pct": 0.08,
+   "grade_vs_latest": "missed",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Open 9 new warehouse locations in Q4 FY2023, for a total of 26 openings (23 net new) for the full fiscal year, including fourth and fifth buildings in China planned for June and August",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

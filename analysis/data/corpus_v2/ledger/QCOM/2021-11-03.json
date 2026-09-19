@@ -1,0 +1,130 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2021-11-03",
+ "custom_id": "QCOM_2021-11-03",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8400000000,
+    "high": 9200000000,
+    "low_as_written": "$8.4",
+    "high_as_written": "$9.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1450000000,
+    "high": 1650000000,
+    "low_as_written": "$1.45",
+    "high_as_written": "$1.65 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "In the fourth fiscal quarter, we are forecasting revenues of $8.4 to $9.2 billion and non-GAAP EPS of $2.15 to $2.35.",
+   "one_sided": null,
+   "actual": 9300000000,
+   "actual_as_written": "$9.3 billion",
+   "range_width_pct": 0.095238,
+   "grade": "beat",
+   "beat_pct": 0.01087,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.15,
+    "high": 2.35,
+    "low_as_written": "$2.15",
+    "high_as_written": "$2.35",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.15,
+    "high": 2.35,
+    "low_as_written": "$2.15",
+    "high_as_written": "$2.35",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "In the fourth fiscal quarter, we are forecasting revenues of $8.4 to $9.2 billion and non-GAAP EPS of $2.15 to $2.35.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 2.55,
+   "actual_as_written": "$2.55",
+   "range_width_pct": 0.093023,
+   "grade": "beat",
+   "beat_pct": 0.085106,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8.24,
+    "high": 8.24,
+    "low_as_written": "$8.24",
+    "high_as_written": "$8.24",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8.24,
+    "high": 8.24,
+    "low_as_written": "$8.24",
+    "high_as_written": "$8.24",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP EPS of $8.24, nearly doubling relative to fiscal 2020.",
+   "one_sided": null,
+   "actual": 8.54,
+   "actual_as_written": "$8.54",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.036408,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,25 @@
+{
+ "ticker": "MS",
+ "call_date": "2024-10-16",
+ "custom_id": "MS_2024-10-16",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Morgan Stanley intends to make changes to advisory sweep rates in the third quarter against the backdrop of changing competitive dynamics",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

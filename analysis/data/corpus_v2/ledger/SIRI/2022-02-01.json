@@ -1,0 +1,99 @@
+{
+ "ticker": "SIRI",
+ "call_date": "2022-02-01",
+ "custom_id": "SIRI_2022-02-01",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8350000000,
+    "high": 8350000000,
+    "low_as_written": "$8.35 billion",
+    "high_as_written": "$8.35 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8650000000,
+    "high": 8650000000,
+    "low_as_written": "$8.65 billion",
+    "high_as_written": "$8.65 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "for 2021, we expect revenue of approximately $8.35 billion.",
+   "one_sided": null,
+   "actual": 8700000000,
+   "actual_as_written": "$8.7 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.041916,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1600000000,
+    "high": 1600000000,
+    "low_as_written": "$1.6 billion",
+    "high_as_written": "$1.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1800000000,
+    "high": null,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 4,
+   "quote": "we expect free cash flow of approximately $1.6 billion in 2021.",
+   "one_sided": null,
+   "actual": 1831000000,
+   "actual_as_written": "$1.831 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.144375,
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Increase the quarterly dividend by 50%",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

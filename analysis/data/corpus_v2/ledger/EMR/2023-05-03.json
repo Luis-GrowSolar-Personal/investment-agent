@@ -1,0 +1,153 @@
+{
+ "ticker": "EMR",
+ "call_date": "2023-05-03",
+ "custom_id": "EMR_2023-05-03",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10.5,
+    "high": 12.5,
+    "low_as_written": "10.5%",
+    "high_as_written": "12.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "net sales are expected to be 10.5% to 12.5% up",
+   "one_sided": null,
+   "actual": 14,
+   "actual_as_written": "14%",
+   "range_width_pct": 0.190476,
+   "grade": "beat",
+   "beat_pct": 0.12,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.95,
+    "high": 1.0,
+    "low_as_written": "$0.95",
+    "high_as_written": "$1",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.95,
+    "high": 1.0,
+    "low_as_written": "$0.95",
+    "high_as_written": "$1",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Adjusted earnings per share is expected to be between $0.95 and $1, which is a 13% increase at the midpoint of the guide.",
+   "one_sided": null,
+   "actual": 1.09,
+   "actual_as_written": "$1.09",
+   "range_width_pct": 0.052632,
+   "grade": "beat",
+   "beat_pct": 0.09,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 6.5,
+    "high": 8.5,
+    "low_as_written": "6.5%",
+    "high_as_written": "8.5%"
+   },
+   "latest_revision": {
+    "low": 6.5,
+    "high": 8.5,
+    "low_as_written": "6.5%",
+    "high_as_written": "8.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 4.0,
+    "high": 4.15,
+    "low_as_written": "$4",
+    "high_as_written": "$4.15"
+   },
+   "latest_revision": {
+    "low": 4.0,
+    "high": 4.15,
+    "low_as_written": "$4",
+    "high_as_written": "$4.15"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete divestiture of climate tech business",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

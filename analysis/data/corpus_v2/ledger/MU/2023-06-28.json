@@ -1,0 +1,39 @@
+{
+ "ticker": "MU",
+ "call_date": "2023-06-28",
+ "custom_id": "MU_2023-06-28",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 7000000000,
+    "high": 7500000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7.5 billion"
+   },
+   "latest_revision": {
+    "low": 7000000000,
+    "high": 7500000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

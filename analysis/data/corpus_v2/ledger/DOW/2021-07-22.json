@@ -1,0 +1,45 @@
+{
+ "ticker": "DOW",
+ "call_date": "2021-07-22",
+ "custom_id": "DOW_2021-07-22",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1600000000,
+    "high": 1600000000,
+    "low_as_written": "$1.6 billion",
+    "high_as_written": "$1.6 billion"
+   },
+   "latest_revision": {
+    "low": 1600000000,
+    "high": 1600000000,
+    "low_as_written": "a little over $1.6 billion",
+    "high_as_written": "a little over $1.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Dow expects second quarter 2021 to be its strongest performance since SPIN",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

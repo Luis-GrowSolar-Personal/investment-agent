@@ -1,0 +1,96 @@
+{
+ "ticker": "IBM",
+ "call_date": "2022-10-19",
+ "custom_id": "IBM_2022-10-19",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 9,
+    "high": 9,
+    "low_as_written": "high single-digit",
+    "high_as_written": "high single-digit",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 9,
+    "low_as_written": "high single-digit",
+    "high_as_written": "high single-digit",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Looking at the third quarter, we expect all-in constant currency revenue growth in the high single-digit range",
+   "one_sided": null,
+   "actual": 15,
+   "actual_as_written": "15%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.666667,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 12000000000,
+    "high": 13000000000,
+    "low_as_written": "$12",
+    "high_as_written": "$13 billion"
+   },
+   "latest_revision": {
+    "low": 10000000000,
+    "high": 10000000000,
+    "low_as_written": "$10 billion",
+    "high_as_written": "$10 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 5
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 4,
+    "low_as_written": "four-point",
+    "high_as_written": "four-point"
+   },
+   "latest_revision": {
+    "low": 3.5,
+    "high": 3.5,
+    "low_as_written": "3.5-point",
+    "high_as_written": "3.5-point"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 2
+}

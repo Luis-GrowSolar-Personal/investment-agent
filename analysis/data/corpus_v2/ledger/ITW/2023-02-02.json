@@ -1,0 +1,246 @@
+{
+ "ticker": "ITW",
+ "call_date": "2023-02-02",
+ "custom_id": "ITW_2023-02-02",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7.5,
+    "high": 10.5,
+    "low_as_written": "7.5%",
+    "high_as_written": "10.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 10,
+    "low_as_written": "9%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "n_revisions": 7,
+   "quote": "Our total revenue growth projection of 7.5% to 10.5% includes a 3% contribution from MTS",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8.9,
+    "high": 9.3,
+    "low_as_written": "$8.90",
+    "high_as_written": "$9.30",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.0,
+    "high": 9.4,
+    "low_as_written": "$9",
+    "high_as_written": "$9.40",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We expect gap EPS in the range of $8.90 to $9.30, which is up 10% to 15%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 24.5,
+    "high": 25.5,
+    "low_as_written": "24.5%",
+    "high_as_written": "25.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 24,
+    "high": 24,
+    "low_as_written": "approximately 24%",
+    "high_as_written": "approximately 24%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "Operating margin excluding MTS is forecast to expand by about 100 basis points to 24.5% to 25.5%",
+   "one_sided": null,
+   "actual": 24.4,
+   "actual_as_written": "24.4%",
+   "range_width_pct": 0.040816,
+   "grade": "missed",
+   "miss_pct": 0.004082,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "approximately 80%",
+    "high_as_written": "approximately 80%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We are forecasting solid free cash flow with a conversion rate of 90% to 100% of net income",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10,
+    "high": 20,
+    "low_as_written": "10%",
+    "high_as_written": "20%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 20,
+    "low_as_written": "10%",
+    "high_as_written": "20%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect strong free cash flow growth of 10% to 20% year-over-year with a conversion rate of 85% to 95% of net income",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1500000000,
+    "high": 1500000000,
+    "low_as_written": "$1.5 billion",
+    "high_as_written": "$1.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1500000000,
+    "high": 1500000000,
+    "low_as_written": "$1.5 billion",
+    "high_as_written": "$1.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "there's no change to free cash flow generation or share repurchases of $1.5 billion.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 40,
+    "high": 40,
+    "low_as_written": "about 40%",
+    "high_as_written": "about 40%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 40,
+    "high": 40,
+    "low_as_written": "about 40%",
+    "high_as_written": "about 40%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "with organic growth of approximately 10% and gap EPS growth of about 40%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 6,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

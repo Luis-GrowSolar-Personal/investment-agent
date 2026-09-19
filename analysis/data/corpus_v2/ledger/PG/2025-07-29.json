@@ -1,0 +1,169 @@
+{
+ "ticker": "PG",
+ "call_date": "2025-07-29",
+ "custom_id": "PG_2025-07-29",
+ "fiscal": [
+  2025,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "approximately 2%",
+    "high_as_written": "approximately 2%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "organic sales growth guidance range of 3% to 5% for the fiscal year.",
+   "one_sided": null,
+   "actual": 2,
+   "actual_as_written": "2 percent",
+   "range_width_pct": 0.666667,
+   "grade": "missed",
+   "miss_pct": 0.333333,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 7,
+    "low_as_written": "5%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 7,
+    "low_as_written": "5",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "Our core EPS guidance range for fiscal 25 starts the year at 5% to 7% versus fiscal 24 core EPS of 659.",
+   "one_sided": null,
+   "actual": 4,
+   "actual_as_written": "4%",
+   "range_width_pct": 0.4,
+   "grade": "missed",
+   "miss_pct": 0.2,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We expect adjusted free cash flow productivity of 90% for the year.",
+   "one_sided": null,
+   "actual": 87,
+   "actual_as_written": "87%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.033333,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 6.72,
+    "high": 6.82,
+    "low_as_written": "$6.72",
+    "high_as_written": "$6.82",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6.72,
+    "high": 6.82,
+    "low_as_written": "$6.72",
+    "high_as_written": "$6.82",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "our outlook is now for core EPS of $6.72 to $6.82 per share for the fiscal year",
+   "one_sided": null,
+   "actual": 6.83,
+   "actual_as_written": "$6.83",
+   "range_width_pct": 0.014881,
+   "grade": "beat",
+   "beat_pct": 0.001466,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Maintain innovation plans and investment in brands across all portfolio tiers",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 3,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "revised_down_count": 0
+}

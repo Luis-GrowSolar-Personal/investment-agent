@@ -1,0 +1,129 @@
+{
+ "ticker": "HCA",
+ "call_date": "2025-01-24",
+ "custom_id": "HCA_2025-01-24",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 67750000000,
+    "high": 70250000000,
+    "low_as_written": "$67.75 billion",
+    "high_as_written": "$70.25 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 69750000000,
+    "high": 71750000000,
+    "low_as_written": "$69.75 billion",
+    "high_as_written": "$71.75 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect revenues to range between $67.75 billion and $70.25 billion.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 19.7,
+    "high": 21.2,
+    "low_as_written": "$19.70",
+    "high_as_written": "$21.20",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 21.6,
+    "high": 22.8,
+    "low_as_written": "$21.60",
+    "high_as_written": "$22.80 per share",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "expect diluted earnings per share to range between $19.70 and $21.20",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5100000000,
+    "high": 5300000000,
+    "low_as_written": "$5.1 billion",
+    "high_as_written": "$5.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5000000000,
+    "high": 5000000000,
+    "low_as_written": "$5 billion",
+    "high_as_written": "$5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect capital spending to range between $5.1 billion and $5.3 billion",
+   "one_sided": null,
+   "actual": 4900000000,
+   "actual_as_written": "$4.9 billion",
+   "range_width_pct": 0.039216,
+   "grade": "beat",
+   "beat_pct": 0.039216,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "HCA Florida Largo Hospital expected to reopen in late December 2024 after hurricane damage",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "basis_mismatch": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

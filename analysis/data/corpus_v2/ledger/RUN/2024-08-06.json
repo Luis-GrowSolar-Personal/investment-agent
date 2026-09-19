@@ -1,0 +1,30 @@
+{
+ "ticker": "RUN",
+ "call_date": "2024-08-06",
+ "custom_id": "RUN_2024-08-06",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Launch repowering and renewal with add-on storage pilots beginning in May 2024, then scale the renewal program as the company exits 2024 into 2025",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close new tax equity and debt funding to recover Q1 working capital headwind from tax credit transfer timing",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

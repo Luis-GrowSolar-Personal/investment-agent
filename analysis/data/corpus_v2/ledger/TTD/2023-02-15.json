@@ -1,0 +1,90 @@
+{
+ "ticker": "TTD",
+ "call_date": "2023-02-15",
+ "custom_id": "TTD_2023-02-15",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 75000000,
+    "high": 75000000,
+    "low_as_written": "75 million",
+    "high_as_written": "75 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 75000000,
+    "high": 75000000,
+    "low_as_written": "75 million",
+    "high_as_written": "75 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We expect 2022 capital expenditures and capitalized software investments to be at least 75 million.",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 490000000,
+    "high": 490000000,
+    "low_as_written": "$490 million",
+    "high_as_written": "$490 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 490000000,
+    "high": 490000000,
+    "low_as_written": "$490 million",
+    "high_as_written": "$490 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we estimate Q4 revenue to be at least $490 million, which would represent growth of 24% on a year-over-year basis.",
+   "one_sided": "floor",
+   "actual": 491000000,
+   "actual_as_written": "$491 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

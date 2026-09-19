@@ -1,0 +1,132 @@
+{
+ "ticker": "QS",
+ "call_date": "2022-02-16",
+ "custom_id": "QS_2022-02-16",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -290000000,
+    "high": -230000000,
+    "low_as_written": "$230",
+    "high_as_written": "$290 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -300000000,
+    "high": -260000000,
+    "low_as_written": "260 million",
+    "high_as_written": "300 million",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We anticipate free cash flow burn to be in the range of $230 to $290 million for 2021",
+   "one_sided": null,
+   "actual": -255000000,
+   "actual_as_written": "$255 million",
+   "range_width_pct": 0.206897,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 40,
+    "high": 50,
+    "low_as_written": "40%",
+    "high_as_written": "50%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 40,
+    "high": 50,
+    "low_as_written": "40%",
+    "high_as_written": "50%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "of which approximately 40% to 50% is CapEx.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 135000000,
+    "high": 165000000,
+    "low_as_written": "$135 million",
+    "high_as_written": "$165 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 135000000,
+    "high": 165000000,
+    "low_as_written": "$135 million",
+    "high_as_written": "$165 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the full year, we now expect CapEx to be in the range of $135 million to $165 million.",
+   "one_sided": null,
+   "actual": 127000000,
+   "actual_as_written": "127 million",
+   "range_width_pct": 0.222222,
+   "grade": "beat",
+   "beat_pct": 0.059259,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide more specifics regarding 2022 CapEx on Q4 earnings call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "basis_mismatch": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

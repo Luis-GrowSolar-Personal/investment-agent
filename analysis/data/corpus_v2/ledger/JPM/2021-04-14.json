@@ -1,0 +1,25 @@
+{
+ "ticker": "JPM",
+ "call_date": "2021-04-14",
+ "custom_id": "JPM_2021-04-14",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Resume share buybacks in Q1 2021 up to Fed-authorized capacity after paying dividends",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

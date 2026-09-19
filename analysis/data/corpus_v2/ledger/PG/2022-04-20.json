@@ -1,0 +1,84 @@
+{
+ "ticker": "PG",
+ "call_date": "2022-04-20",
+ "custom_id": "PG_2022-04-20",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2%",
+    "high_as_written": "4%"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 5,
+    "low_as_written": "4%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%"
+   },
+   "latest_revision": {
+    "low": 95,
+    "high": 95,
+    "low_as_written": "95%",
+    "high_as_written": "95%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Increase pricing on the balance of fabric care portfolio including Tide, Gain, Downy, Bounce, and Unstoppables effective February 28th",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Increase pricing on certain personal health care brands in the US effective mid-April",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

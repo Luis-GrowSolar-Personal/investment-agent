@@ -1,0 +1,66 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2021-02-02",
+ "custom_id": "NXPI_2021-02-02",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 52.4,
+    "high": 53.0,
+    "low_as_written": "52.7%",
+    "high_as_written": "30 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 52.4,
+    "high": 53.0,
+    "low_as_written": "52.7%",
+    "high_as_written": "30 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP gross margin to be about 52.7% plus or minus 30 basis points.",
+   "one_sided": null,
+   "actual": 52.9,
+   "actual_as_written": "52.9%",
+   "range_width_pct": 0.01145,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "NXP will likely resume its share repurchase program during Q4 2020, buying back at a level that keeps net debt to trailing 12-month EBITDA at or below 2 times.",
+   "mentioned_now": true
+  },
+  {
+   "intent": "NXP will begin revenue shipments from its gallium nitride factory in Chandler, Arizona in Q4 2020, with no material impact on the business during the quarter.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

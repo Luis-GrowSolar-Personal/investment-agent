@@ -1,0 +1,25 @@
+{
+ "ticker": "TFC",
+ "call_date": "2021-10-15",
+ "custom_id": "TFC_2021-10-15",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Propose a 7% dividend increase to $0.48 per share at the board's July meeting",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

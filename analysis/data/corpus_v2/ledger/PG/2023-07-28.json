@@ -1,0 +1,133 @@
+{
+ "ticker": "PG",
+ "call_date": "2023-07-28",
+ "custom_id": "PG_2023-07-28",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "approximately 6%",
+    "high_as_written": "approximately 6%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "guidance for organic sales growth in the range of 3 to 5% for the fiscal 23",
+   "one_sided": null,
+   "actual": 7,
+   "actual_as_written": "seven percent",
+   "range_width_pct": 0.666667,
+   "grade": "beat",
+   "beat_pct": 0.4,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0,
+    "high": 4,
+    "low_as_written": "inline",
+    "high_as_written": "plus 4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 4,
+    "low_as_written": "inline",
+    "high_as_written": "plus 4%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect EPS growth in the range of inline to plus 4% versus fiscal 22 EPS of $5.81",
+   "one_sided": null,
+   "actual": 1.5490533562822817,
+   "actual_as_written": "$5.90 (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 5.81
+   },
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect adjusted free cash flow productivity of 90% for the year.",
+   "one_sided": null,
+   "actual": 95,
+   "actual_as_written": "95%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.055556,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

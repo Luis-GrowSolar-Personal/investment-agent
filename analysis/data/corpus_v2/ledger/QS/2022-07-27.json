@@ -1,0 +1,77 @@
+{
+ "ticker": "QS",
+ "call_date": "2022-07-27",
+ "custom_id": "QS_2022-07-27",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 35000000,
+    "high": 65000000,
+    "low_as_written": "$35 million",
+    "high_as_written": "$65 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 35000000,
+    "high": 65000000,
+    "low_as_written": "$35 million",
+    "high_as_written": "$65 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "forecast second quarter CapEx to be in the range of $35 million to $65 million.",
+   "one_sided": null,
+   "actual": 28000000,
+   "actual_as_written": "$28 million",
+   "range_width_pct": 0.857143,
+   "grade": "beat",
+   "beat_pct": 0.2,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 325000000,
+    "high": 375000000,
+    "low_as_written": "$325",
+    "high_as_written": "$375 million"
+   },
+   "latest_revision": {
+    "low": 325000000,
+    "high": 375000000,
+    "low_as_written": "$325 million",
+    "high_as_written": "$375 million"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

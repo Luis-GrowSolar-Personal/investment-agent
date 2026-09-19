@@ -1,0 +1,129 @@
+{
+ "ticker": "TMO",
+ "call_date": "2023-10-25",
+ "custom_id": "TMO_2023-10-25",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 45300000000,
+    "high": 45300000000,
+    "low_as_written": "$45.3 billion",
+    "high_as_written": "$45.3 billion"
+   },
+   "latest_revision": {
+    "low": 43400000000,
+    "high": 44000000000,
+    "low_as_written": "$43.4",
+    "high_as_written": "$44 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 23.7,
+    "high": 23.7,
+    "low_as_written": "$23.70",
+    "high_as_written": "$23.70"
+   },
+   "latest_revision": {
+    "low": 22.28,
+    "high": 22.72,
+    "low_as_written": "$22.28",
+    "high_as_written": "$22.72"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 23.9,
+    "high": 23.9,
+    "low_as_written": "23.9%",
+    "high_as_written": "23.9%"
+   },
+   "latest_revision": {
+    "low": 23.2,
+    "high": 23.4,
+    "low_as_written": "23.2",
+    "high_as_written": "23.4%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 6900000000,
+    "high": 6900000000,
+    "low_as_written": "$6.9 billion",
+    "high_as_written": "$6.9 billion"
+   },
+   "latest_revision": {
+    "low": 6900000000,
+    "high": 6900000000,
+    "low_as_written": "$6.9 billion",
+    "high_as_written": "$6.9 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 2000000000,
+    "high": 2000000000,
+    "low_as_written": "$2 billion",
+    "high_as_written": "$2 billion"
+   },
+   "latest_revision": {
+    "low": 1700000000,
+    "high": 1700000000,
+    "low_as_written": "$1.7 billion",
+    "high_as_written": "$1.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2%",
+    "high_as_written": "4%"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2%",
+    "high_as_written": "4%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 3
+}

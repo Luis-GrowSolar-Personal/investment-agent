@@ -1,0 +1,29 @@
+{
+ "ticker": "BLK",
+ "call_date": "2022-01-14",
+ "custom_id": "BLK_2022-01-14",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Expect sequential increase in Q4 core G&A spend consistent with previous years, reflecting seasonal increases in marketing spend, return to office planning costs, and ongoing technology costs for Aladdin cloud migrations",
+   "mentioned_now": true
+  },
+  {
+   "intent": "AEL mandate to fund in Q4 2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "revised_down_count": 0
+}

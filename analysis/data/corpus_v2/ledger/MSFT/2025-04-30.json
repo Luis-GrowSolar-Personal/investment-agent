@@ -1,0 +1,94 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2025-04-30",
+ "custom_id": "MSFT_2025-04-30",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 29400000000,
+    "high": 29700000000,
+    "low_as_written": "$29.4",
+    "high_as_written": "$29.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12400000000,
+    "high": 12800000000,
+    "low_as_written": "$12.4",
+    "high_as_written": "$12.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "we expect revenue to grow between 11% and 12% in constant currency, or $29.4 to $29.7 billion U.S. dollars.",
+   "one_sided": null,
+   "actual": 70100000000,
+   "actual_as_written": "$70.1 billion",
+   "range_width_pct": 0.010204,
+   "grade": "beat",
+   "beat_pct": 1.360269,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 69,
+    "high": 69,
+    "low_as_written": "roughly 69%",
+    "high_as_written": "roughly 69%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 69,
+    "high": 69,
+    "low_as_written": "roughly 69%",
+    "high_as_written": "roughly 69%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Microsoft Cloud gross margin percentage should be roughly 69% down year-over-year, driven by the impact of scaling our AI infrastructure.",
+   "one_sided": null,
+   "actual": 69,
+   "actual_as_written": "69%",
+   "range_width_pct": 0.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

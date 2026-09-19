@@ -1,0 +1,134 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2020-11-04",
+ "custom_id": "QCOM_2020-11-04",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7300000000,
+    "high": 8100000000,
+    "low_as_written": "$7.3",
+    "high_as_written": "$8.1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4300000000,
+    "high": 4900000000,
+    "low_as_written": "$4.3",
+    "high_as_written": "$4.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We estimate fourth quarter gap revenues to be in the range of $7.3 to $8.1 billion",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 8300000000,
+   "actual_as_written": "$8.3 billion",
+   "range_width_pct": 0.109589,
+   "grade": "beat",
+   "beat_pct": 0.024691,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.12,
+    "high": 2.32,
+    "low_as_written": "$2.12",
+    "high_as_written": "$2.32",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.05,
+    "high": 1.25,
+    "low_as_written": "$1.05",
+    "high_as_written": "$1.25",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "GAAP EPS of $2.12 to $2.32",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 2.58,
+   "actual_as_written": "$2.58",
+   "range_width_pct": 0.09434,
+   "grade": "beat",
+   "beat_pct": 0.112069,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "unit_shipments",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 145000000,
+    "high": 165000000,
+    "low_as_written": "145",
+    "high_as_written": "165 million units",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 145000000,
+    "high": 165000000,
+    "low_as_written": "145",
+    "high_as_written": "165 million units",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "In QCT, we expect MSM shipments of 145 to 165 million units, revenues of $4.3 to $4.9 billion, and EBT margins of 17 to 19%.",
+   "one_sided": null,
+   "grade": "withdrawn",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Huawei to pay $1.8 billion over a one-year period with first payment due in Q4 FY2020",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "unit_shipments"
+ ],
+ "counts": {
+  "beat": 2,
+  "withdrawn": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

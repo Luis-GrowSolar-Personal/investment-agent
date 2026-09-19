@@ -1,0 +1,44 @@
+{
+ "ticker": "MU",
+ "call_date": "2021-12-20",
+ "custom_id": "MU_2021-12-20",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 11000000000,
+    "high": 12000000000,
+    "low_as_written": "$11 billion",
+    "high_as_written": "$12 billion"
+   },
+   "latest_revision": {
+    "low": 11000000000,
+    "high": 12000000000,
+    "low_as_written": "$11 billion",
+    "high_as_written": "$12 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Close the Lehigh fab sale and receive approximately $900 million in proceeds",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

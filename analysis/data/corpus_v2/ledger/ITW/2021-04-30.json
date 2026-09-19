@@ -1,0 +1,93 @@
+{
+ "ticker": "ITW",
+ "call_date": "2021-04-30",
+ "custom_id": "ITW_2021-04-30",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 9,
+    "high": 12,
+    "low_as_written": "9",
+    "high_as_written": "12%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 10,
+    "low_as_written": "7%",
+    "high_as_written": "10%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.6,
+    "high": 8.0,
+    "low_as_written": "$7.60",
+    "high_as_written": "$8 a share"
+   },
+   "latest_revision": {
+    "low": 7.6,
+    "high": 8.0,
+    "low_as_written": "$7.60",
+    "high_as_written": "$8 a share"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 24,
+    "high": 25,
+    "low_as_written": "24%",
+    "high_as_written": "25%"
+   },
+   "latest_revision": {
+    "low": 24,
+    "high": 25,
+    "low_as_written": "24%",
+    "high_as_written": "25%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "greater than 100%",
+    "high_as_written": "greater than 100%"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "greater than 100%",
+    "high_as_written": "greater than 100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

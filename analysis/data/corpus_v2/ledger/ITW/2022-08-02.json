@@ -1,0 +1,111 @@
+{
+ "ticker": "ITW",
+ "call_date": "2022-08-02",
+ "custom_id": "ITW_2022-08-02",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7.5,
+    "high": 10.5,
+    "low_as_written": "7.5%",
+    "high_as_written": "10.5%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 10,
+    "low_as_written": "7%",
+    "high_as_written": "10%"
+   },
+   "revised_down": true,
+   "n_revisions": 4
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.9,
+    "high": 9.3,
+    "low_as_written": "$8.90",
+    "high_as_written": "$9.30"
+   },
+   "latest_revision": {
+    "low": 9.0,
+    "high": 9.4,
+    "low_as_written": "9%",
+    "high_as_written": "9.40%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 24.5,
+    "high": 25.5,
+    "low_as_written": "24.5%",
+    "high_as_written": "25.5%"
+   },
+   "latest_revision": {
+    "low": 24.5,
+    "high": 25.5,
+    "low_as_written": "24.5%",
+    "high_as_written": "25.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90%",
+    "high_as_written": "100%"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90%",
+    "high_as_written": "100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "original": {
+    "low": 10,
+    "high": 20,
+    "low_as_written": "10%",
+    "high_as_written": "20%"
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 20,
+    "low_as_written": "10%",
+    "high_as_written": "20%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

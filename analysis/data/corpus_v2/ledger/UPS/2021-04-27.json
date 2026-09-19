@@ -1,0 +1,23 @@
+{
+ "ticker": "UPS",
+ "call_date": "2021-04-27",
+ "custom_id": "UPS_2021-04-27",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [
+  "revenue",
+  "eps"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

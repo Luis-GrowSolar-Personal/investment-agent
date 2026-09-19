@@ -1,0 +1,88 @@
+{
+ "ticker": "TFC",
+ "call_date": "2025-01-17",
+ "custom_id": "TFC_2025-01-17",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -3,
+    "high": -1,
+    "low_as_written": "3%",
+    "high_as_written": "1%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -1,
+    "high": -0.5,
+    "low_as_written": "down 1%",
+    "high_as_written": "down 0.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "For the full year 2024, we expect revenues to decrease by 1% to 3%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -1.5,
+    "high": -1.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "1.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -1.5,
+    "high": -1.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "1.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect revenue to decrease 1.5% from the third quarter 2024 adjusted revenue of $5.1 billion",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

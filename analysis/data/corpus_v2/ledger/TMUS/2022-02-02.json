@@ -1,0 +1,59 @@
+{
+ "ticker": "TMUS",
+ "call_date": "2022-02-02",
+ "custom_id": "TMUS_2022-02-02",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4900000000,
+    "high": 5400000000,
+    "low_as_written": "$4.9",
+    "high_as_written": "$5.4 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5500000000,
+    "high": 5600000000,
+    "low_as_written": "$5.5",
+    "high_as_written": "$5.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "expected free cash flow, including payments for merger-related costs, to be in the range of $4.9 to $5.4 billion",
+   "one_sided": null,
+   "actual": 5600000000,
+   "actual_as_written": "$5.6 billion",
+   "range_width_pct": 0.102041,
+   "grade": "beat",
+   "beat_pct": 0.037037,
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

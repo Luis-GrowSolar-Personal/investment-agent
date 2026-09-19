@@ -1,0 +1,44 @@
+{
+ "ticker": "SIRI",
+ "call_date": "2025-05-01",
+ "custom_id": "SIRI_2025-05-01",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 8500000000,
+    "high": 8500000000,
+    "low_as_written": "8.5 billion",
+    "high_as_written": "8.5 billion"
+   },
+   "latest_revision": {
+    "low": 8500000000,
+    "high": 8500000000,
+    "low_as_written": "8.5 billion",
+    "high_as_written": "8.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Implement a rate increase in March",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

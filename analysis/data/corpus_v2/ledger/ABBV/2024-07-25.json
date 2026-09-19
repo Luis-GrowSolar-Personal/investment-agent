@@ -1,0 +1,225 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2024-07-25",
+ "custom_id": "ABBV_2024-07-25",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.05,
+    "high": 3.09,
+    "low_as_written": "$3.05",
+    "high_as_written": "$3.09",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.05,
+    "high": 3.09,
+    "low_as_written": "$3.05",
+    "high_as_written": "$3.09",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $3.05 and $3.09.",
+   "one_sided": null,
+   "actual": 2.65,
+   "actual_as_written": "$2.65",
+   "range_width_pct": 0.013115,
+   "grade": "missed",
+   "miss_pct": 0.131148,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 14000000000,
+    "high": 14000000000,
+    "low_as_written": "$14 billion",
+    "high_as_written": "$14 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14000000000,
+    "high": 14000000000,
+    "low_as_written": "$14 billion",
+    "high_as_written": "$14 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Turning to the second quarter, we anticipate net revenues of approximately $14 billion",
+   "one_sided": null,
+   "actual": 14500000000,
+   "actual_as_written": "nearly $14.5 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.035714,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 49.5,
+    "high": 49.5,
+    "low_as_written": "49.5%",
+    "high_as_written": "49.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 49.5,
+    "high": 49.5,
+    "low_as_written": "49.5%",
+    "high_as_written": "49.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are forecasting adjusted operating margin ratio of approximately 49.5% of sales",
+   "one_sided": null,
+   "actual": 42.6,
+   "actual_as_written": "42.6%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.139394,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.7,
+    "high": 10.7,
+    "low_as_written": "$10.70",
+    "high_as_written": "$10.70"
+   },
+   "latest_revision": {
+    "low": 11.13,
+    "high": 11.33,
+    "low_as_written": "$11.13",
+    "high_as_written": "$11.33"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 54200000000,
+    "high": 54200000000,
+    "low_as_written": "$54.2 billion",
+    "high_as_written": "$54.2 billion"
+   },
+   "latest_revision": {
+    "low": 55000000000,
+    "high": 55000000000,
+    "low_as_written": "$55 billion",
+    "high_as_written": "$55 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84 percent",
+    "high_as_written": "84 percent"
+   },
+   "latest_revision": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%"
+   },
+   "latest_revision": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion"
+   },
+   "latest_revision": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete the pending acquisition of Cereval",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

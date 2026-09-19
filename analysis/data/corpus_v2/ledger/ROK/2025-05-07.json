@@ -1,0 +1,131 @@
+{
+ "ticker": "ROK",
+ "call_date": "2025-05-07",
+ "custom_id": "ROK_2025-05-07",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "$2",
+    "high_as_written": "$2",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "$2",
+    "high_as_written": "$2",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Resulting EPS off those sales and margin expectations would be in the neighborhood of $2 per share.",
+   "one_sided": null,
+   "actual": 2.45,
+   "actual_as_written": "$2.45",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.225,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -4,
+    "high": 2,
+    "low_as_written": "negative 4%",
+    "high_as_written": "positive 2%"
+   },
+   "latest_revision": {
+    "low": -4,
+    "high": 2,
+    "low_as_written": "negative 4%",
+    "high_as_written": "positive 2%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.6,
+    "high": 9.8,
+    "low_as_written": "$8.60",
+    "high_as_written": "$9.80"
+   },
+   "latest_revision": {
+    "low": 8.6,
+    "high": 9.8,
+    "low_as_written": "$8.60",
+    "high_as_written": "$9.80"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

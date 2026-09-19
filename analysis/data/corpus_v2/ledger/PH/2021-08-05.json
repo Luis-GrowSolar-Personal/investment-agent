@@ -1,0 +1,122 @@
+{
+ "ticker": "PH",
+ "call_date": "2021-08-05",
+ "custom_id": "PH_2021-08-05",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 9.8,
+    "high": 10.8,
+    "low_as_written": "$9.80",
+    "high_as_written": "$10.80",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.93,
+    "high": 10.53,
+    "low_as_written": "$9.93",
+    "high_as_written": "$10.53",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "On an adjusted earnings per share basis, the guidance range is $9.80 to $10.80, or $10.30 at the midpoint.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -10.7,
+    "high": -6.7,
+    "low_as_written": "10.7%",
+    "high_as_written": "6.7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.5,
+    "high": 4.5,
+    "low_as_written": "4.5%",
+    "high_as_written": "4.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "total sales for fiscal year 21 are expected to decrease between 10.7% and 6.7% compared to the prior year.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.18,
+    "high": 4.18,
+    "low_as_written": "$4.18",
+    "high_as_written": "$4.18",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.18,
+    "high": 4.18,
+    "low_as_written": "$4.18",
+    "high_as_written": "$4.18",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q4, adjusted EPS is projected to be $4.18 per share.",
+   "one_sided": null,
+   "actual": 4.38,
+   "actual_as_written": "$4.38",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.047847,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

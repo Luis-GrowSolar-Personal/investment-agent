@@ -1,0 +1,299 @@
+{
+ "ticker": "INTC",
+ "call_date": "2023-01-26",
+ "custom_id": "INTC_2023-01-26",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 74000000000,
+    "high": 74000000000,
+    "low_as_written": "$74 billion",
+    "high_as_written": "$74 billion",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 65000000000,
+    "high": 68000000000,
+    "low_as_written": "$65 billion",
+    "high_as_written": "$68 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We see revenue in 2022 of at least $74 billion, despite ongoing supply constraints.",
+   "one_sided": "floor",
+   "actual": 63100000000,
+   "actual_as_written": "$63.1 billion",
+   "range_width_pct": null,
+   "grade": "missed",
+   "miss_pct": 0.147297,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 25000000000,
+    "high": 28000000000,
+    "low_as_written": "$25 billion",
+    "high_as_written": "$28 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 21000000000,
+    "high": 21000000000,
+    "low_as_written": "$21 billion",
+    "high_as_written": "$21 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we are forecasting 2022 CapEx of $25 billion to $28 billion with potential for further growth in subsequent years.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 52,
+    "high": 52,
+    "low_as_written": "52%",
+    "high_as_written": "52%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 49,
+    "high": 49,
+    "low_as_written": "49%",
+    "high_as_written": "49%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "For gross margin, we're guiding 52%, in line with the 51% to 53% range previously communicated.",
+   "one_sided": null,
+   "actual": 47.3,
+   "actual_as_written": "47.3%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.090385,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.6,
+    "high": 3.6,
+    "low_as_written": "$3.60",
+    "high_as_written": "$3.60",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.3,
+    "high": 2.3,
+    "low_as_written": "$2.30",
+    "high_as_written": "$2.30",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "For EPS, we're guiding $3.60, 10 cents higher than prior guide on the Q1B and a slightly improved tax rate of 12%.",
+   "one_sided": null,
+   "actual": 1.84,
+   "actual_as_written": "$1.84",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.488889,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 51,
+    "high": 51,
+    "low_as_written": "51%",
+    "high_as_written": "51%",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 45,
+    "high": 45,
+    "low_as_written": "45%",
+    "high_as_written": "45%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "gross margin will return to the low end of our target range of 51% to 53% in Q4",
+   "one_sided": "floor",
+   "actual": 44,
+   "actual_as_written": "44%",
+   "range_width_pct": null,
+   "grade": "missed",
+   "miss_pct": 0.137255,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 14000000000,
+    "high": 15000000000,
+    "low_as_written": "$14 billion",
+    "high_as_written": "$15 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14000000000,
+    "high": 15000000000,
+    "low_as_written": "$14 billion",
+    "high_as_written": "$15 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we're now guiding Q4 revenue in a range of $14 billion to $15 billion",
+   "one_sided": null,
+   "actual": 14000000000,
+   "actual_as_written": "$14 billion",
+   "range_width_pct": 0.071429,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.2,
+    "high": 0.2,
+    "low_as_written": "20 cents",
+    "high_as_written": "20 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.2,
+    "high": 0.2,
+    "low_as_written": "20 cents",
+    "high_as_written": "20 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're forecasting gross margin of 45%, a tax rate of 14%, and EPS of 20 cents at the midpoint of revenue guidance.",
+   "one_sided": null,
+   "actual": 0.1,
+   "actual_as_written": "10 cents",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.5,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -4000000000,
+    "high": -2000000000,
+    "low_as_written": "negative two",
+    "high_as_written": "negative four billion dollars",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -4000000000,
+    "high": -2000000000,
+    "low_as_written": "negative two",
+    "high_as_written": "negative four billion dollars",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we're reducing our full year adjusted free cash flow guidance to negative two to negative four billion dollars.",
+   "one_sided": null,
+   "actual": -4000000000,
+   "actual_as_written": "negative $4 billion",
+   "range_width_pct": 0.5,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 5,
+  "ungradable_present": 1,
+  "met": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

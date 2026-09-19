@@ -1,0 +1,135 @@
+{
+ "ticker": "ITW",
+ "call_date": "2021-02-05",
+ "custom_id": "ITW_2021-02-05",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 24.5,
+    "high": 25,
+    "low_as_written": "24.5",
+    "high_as_written": "25 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 22,
+    "high": 22.5,
+    "low_as_written": "22",
+    "high_as_written": "22.5%",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "We expect to expand operating margin from 24.1 percent in 2019 to a range of 24.5 to 25 percent in 2020",
+   "one_sided": null,
+   "actual": 22.9,
+   "actual_as_written": "22.9 percent",
+   "range_width_pct": 0.020408,
+   "grade": "missed",
+   "miss_pct": 0.065306,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "operating_income",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2700000000,
+    "high": 2800000000,
+    "low_as_written": "$2.7",
+    "high_as_written": "$2.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we would still make somewhere in the neighborhood of $2.5 billion of operating income",
+   "one_sided": null,
+   "actual": 2900000000,
+   "actual_as_written": "$2.9 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.16,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1800000000,
+    "high": 1800000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$1.8 billion",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 1800000000,
+    "high": 1800000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$1.8 billion",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "generate more than $1.8 billion in free cash flow",
+   "one_sided": "floor",
+   "actual": 2600000000,
+   "actual_as_written": "$2.6 billion",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Reinstate annual guidance when full-year 2020 results are released early next year",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "beat": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

@@ -1,0 +1,219 @@
+{
+ "ticker": "BOX",
+ "call_date": "2021-03-02",
+ "custom_id": "BOX_2021-03-02",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 196000000,
+    "high": 197000000,
+    "low_as_written": "$196",
+    "high_as_written": "$197 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 196000000,
+    "high": 197000000,
+    "low_as_written": "$196",
+    "high_as_written": "$197 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the fourth quarter of fiscal 2021, we anticipate revenue of $196 to $197 million.",
+   "one_sided": null,
+   "actual": 199000000,
+   "actual_as_written": "$199 million",
+   "range_width_pct": 0.005102,
+   "grade": "beat",
+   "beat_pct": 0.010152,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.16,
+    "high": 0.18,
+    "low_as_written": "$0.16",
+    "high_as_written": "$0.18",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.08,
+    "high": -0.06,
+    "low_as_written": "$0.08",
+    "high_as_written": "$0.06",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect our non-GAAP EPS to be in the range of $0.16 to $0.18",
+   "one_sided": null,
+   "actual": 0.22,
+   "actual_as_written": "$0.22",
+   "range_width_pct": 0.125,
+   "grade": "beat",
+   "beat_pct": 0.222222,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 768000000,
+    "high": 769000000,
+    "low_as_written": "$768 million",
+    "high_as_written": "$769 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 768000000,
+    "high": 769000000,
+    "low_as_written": "$768 million",
+    "high_as_written": "$769 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our FY21 revenue to be in the range of $768 million to $769 million, representing roughly 10% year-over-year growth at the midpoint of this range.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.64,
+    "high": 0.66,
+    "low_as_written": "$0.64",
+    "high_as_written": "$0.66",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.32,
+    "high": -0.3,
+    "low_as_written": "negative 32 cents",
+    "high_as_written": "negative 30 cents",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect our FY21 non-GAAP EPS to be in the range of $0.64 to $0.66 on approximately 162 million diluted shares.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 14,
+    "high": null,
+    "low_as_written": "14%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 14,
+    "high": null,
+    "low_as_written": "14%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We now expect our non-GAAP operating margin to be at least 14% of revenue",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "6%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "6%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect CapEx and capital lease payments combined to be roughly 6% of revenue in Q4",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2,
+  "ungradable_present": 4
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

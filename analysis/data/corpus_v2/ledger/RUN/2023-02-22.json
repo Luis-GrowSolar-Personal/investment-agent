@@ -1,0 +1,26 @@
+{
+ "ticker": "RUN",
+ "call_date": "2023-02-22",
+ "custom_id": "RUN_2023-02-22",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Sunrun will provide views on 2023 on the Q4 earnings call after finalizing the annual operating plan.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

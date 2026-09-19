@@ -1,0 +1,147 @@
+{
+ "ticker": "HON",
+ "call_date": "2023-10-26",
+ "custom_id": "HON_2023-10-26",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9100000000,
+    "high": 9300000000,
+    "low_as_written": "$9.1",
+    "high_as_written": "$9.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9100000000,
+    "high": 9300000000,
+    "low_as_written": "$9.1",
+    "high_as_written": "$9.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For our Q3 sales guidance, we expect to be in the range of $9.1 to $9.3 billion, up 1% to 4% on an organic basis.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.15,
+    "high": 2.25,
+    "low_as_written": "$2.15",
+    "high_as_written": "$2.25",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.15,
+    "high": 2.25,
+    "low_as_written": "$2.15",
+    "high_as_written": "$2.25",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "our adjusted EPS guidance range is now between $2.15 to $2.25 for the third quarter, which would be down 4% to flat year over year.",
+   "one_sided": null,
+   "actual": 2.27,
+   "actual_as_written": "$2.27",
+   "range_width_pct": 0.046512,
+   "grade": "beat",
+   "beat_pct": 0.008889,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 36000000000,
+    "high": 37000000000,
+    "low_as_written": "$36",
+    "high_as_written": "$37 billion"
+   },
+   "latest_revision": {
+    "low": 36700000000,
+    "high": 37300000000,
+    "low_as_written": "$36.7",
+    "high_as_written": "$37.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.8,
+    "high": 9.2,
+    "low_as_written": "$8.80",
+    "high_as_written": "$9.20"
+   },
+   "latest_revision": {
+    "low": 9.05,
+    "high": 9.25,
+    "low_as_written": "$9.05",
+    "high_as_written": "$9.25"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

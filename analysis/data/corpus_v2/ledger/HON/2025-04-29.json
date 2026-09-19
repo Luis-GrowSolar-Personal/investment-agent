@@ -1,0 +1,129 @@
+{
+ "ticker": "HON",
+ "call_date": "2025-04-29",
+ "custom_id": "HON_2025-04-29",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9500000000,
+    "high": 9700000000,
+    "low_as_written": "$9.5",
+    "high_as_written": "$9.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9500000000,
+    "high": 9700000000,
+    "low_as_written": "$9.5",
+    "high_as_written": "$9.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the first quarter, we expect sales of $9.5 to $9.7 billion, flat to up 2% organically.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 39600000000,
+    "high": 40600000000,
+    "low_as_written": "$39.6",
+    "high_as_written": "$40.6 billion"
+   },
+   "latest_revision": {
+    "low": 39600000000,
+    "high": 40600000000,
+    "low_as_written": "$39.6",
+    "high_as_written": "$40.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.1,
+    "high": 10.5,
+    "low_as_written": "$10.10",
+    "high_as_written": "$10.50"
+   },
+   "latest_revision": {
+    "low": 10.1,
+    "high": 10.5,
+    "low_as_written": "$10.10",
+    "high_as_written": "$10.50"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5400000000,
+    "high": 5800000000,
+    "low_as_written": "$5.4",
+    "high_as_written": "$5.8 billion"
+   },
+   "latest_revision": {
+    "low": 5400000000,
+    "high": 5800000000,
+    "low_as_written": "$5.4",
+    "high_as_written": "$5.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

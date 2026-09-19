@@ -1,0 +1,30 @@
+{
+ "ticker": "NEM",
+ "call_date": "2024-02-22",
+ "custom_id": "NEM_2024-02-22",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide 2024 guidance for the combined company including dividend payout range with Q4 and full-year results",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Provide update on Tanami Expansion 2 project cost and schedule with 2024 guidance",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

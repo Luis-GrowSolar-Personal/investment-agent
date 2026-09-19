@@ -1,0 +1,226 @@
+{
+ "ticker": "HON",
+ "call_date": "2022-02-03",
+ "custom_id": "HON_2022-02-03",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 33400000000,
+    "high": 34400000000,
+    "low_as_written": "$33.4",
+    "high_as_written": "$34.4 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 34200000000,
+    "high": 34600000000,
+    "low_as_written": "$34.2",
+    "high_as_written": "$34.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "For 2021, we expect sales of $33.4 to $34.4 billion, which represents overall organic sales growth in the range of 1% to 4%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1,
+    "high": 4,
+    "low_as_written": "1%",
+    "high_as_written": "4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "overall organic sales growth in the range of 1% to 4%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.6,
+    "high": 8.0,
+    "low_as_written": "$7.60",
+    "high_as_written": "$8",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8.0,
+    "high": 8.1,
+    "low_as_written": "$8",
+    "high_as_written": "$8.10",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we are guiding earnings per share of $7.60 to $8, up 7% to 13% adjusted.",
+   "one_sided": null,
+   "actual": 8.06,
+   "actual_as_written": "$8.06",
+   "range_width_pct": 0.052632,
+   "grade": "beat",
+   "beat_pct": 0.0075,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5100000000,
+    "high": 5500000000,
+    "low_as_written": "$5.1 billion",
+    "high_as_written": "$5.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5300000000,
+    "high": 5600000000,
+    "low_as_written": "$5.3",
+    "high_as_written": "$5.6 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We see free cash flow in the range of $5.1 billion to $5.5 billion in 2021.",
+   "one_sided": null,
+   "actual": 5700000000,
+   "actual_as_written": "$5.7 billion",
+   "range_width_pct": 0.078431,
+   "grade": "beat",
+   "beat_pct": 0.036364,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8500000000,
+    "high": 8900000000,
+    "low_as_written": "$8.5",
+    "high_as_written": "$8.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8500000000,
+    "high": 8900000000,
+    "low_as_written": "$8.5",
+    "high_as_written": "$8.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect sales to be in the range of $8.5 to $8.9 billion",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.03,
+    "high": 2.13,
+    "low_as_written": "$2.03",
+    "high_as_written": "$2.13",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.03,
+    "high": 2.13,
+    "low_as_written": "$2.03",
+    "high_as_written": "$2.13",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect fourth quarter adjusted earnings per share between $2.03 and $2.13",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 2.09,
+   "actual_as_written": "$2.09",
+   "range_width_pct": 0.049261,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2,
+  "beat": 2,
+  "basis_mismatch": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 4,
+ "revised_down_count": 0
+}

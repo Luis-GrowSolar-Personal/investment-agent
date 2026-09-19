@@ -1,0 +1,75 @@
+{
+ "ticker": "EQIX",
+ "call_date": "2024-10-30",
+ "custom_id": "EQIX_2024-10-30",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7,
+    "high": 9,
+    "low_as_written": "7%",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 8,
+    "low_as_written": "7%",
+    "high_as_written": "8%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%"
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 11,
+    "low_as_written": "9%",
+    "high_as_written": "11%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 2800000000,
+    "high": 3000000000,
+    "low_as_written": "$2.8",
+    "high_as_written": "$3 billion"
+   },
+   "latest_revision": {
+    "low": 2800000000,
+    "high": 3100000000,
+    "low_as_written": "$2.8",
+    "high_as_written": "$3.1 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

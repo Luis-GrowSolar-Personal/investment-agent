@@ -1,0 +1,120 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2022-02-02",
+ "custom_id": "QCOM_2022-02-02",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10000000000,
+    "high": 10800000000,
+    "low_as_written": "$10",
+    "high_as_written": "$10.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1600000000,
+    "high": 1800000000,
+    "low_as_written": "$1.6",
+    "high_as_written": "$1.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we are forecasting revenues of $10 to $10.8 billion and non-GAAP EPS of $2.90 to $3.10",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 8800000000,
+   "actual_as_written": "$8.8 billion",
+   "range_width_pct": 0.08,
+   "grade": "missed",
+   "miss_pct": 0.12,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.9,
+    "high": 3.1,
+    "low_as_written": "$2.90",
+    "high_as_written": "$3.10",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.9,
+    "high": 3.1,
+    "low_as_written": "$2.90",
+    "high_as_written": "$3.10",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are forecasting revenues of $10 to $10.8 billion and non-GAAP EPS of $2.90 to $3.10",
+   "one_sided": null,
+   "actual": 3.23,
+   "actual_as_written": "$3.23",
+   "range_width_pct": 0.068966,
+   "grade": "beat",
+   "beat_pct": 0.041935,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 20,
+    "high": null,
+    "low_as_written": "20%",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": null,
+    "low_as_written": "20%",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Qualcomm plans to provide additional detail about its growth strategy at Investor Day",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,93 @@
+{
+ "ticker": "LLY",
+ "call_date": "2023-11-02",
+ "custom_id": "LLY_2023-11-02",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.9,
+    "high": 8.1,
+    "low_as_written": "$7.90",
+    "high_as_written": "$8.10"
+   },
+   "latest_revision": {
+    "low": 9.7,
+    "high": 9.9,
+    "low_as_written": "$9.70",
+    "high_as_written": "$9.90"
+   },
+   "revised_down": false,
+   "n_revisions": 6
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "roughly 7%",
+    "high_as_written": "roughly 7%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "roughly 7%",
+    "high_as_written": "roughly 7%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 31200000000,
+    "high": 31700000000,
+    "low_as_written": "$31.2 billion",
+    "high_as_written": "$31.7 billion"
+   },
+   "latest_revision": {
+    "low": 31200000000,
+    "high": 31700000000,
+    "low_as_written": "$31.2 billion",
+    "high_as_written": "$31.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "approximately 80%",
+    "high_as_written": "approximately 80%"
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "approximately 80%",
+    "high_as_written": "approximately 80%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

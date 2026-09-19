@@ -1,0 +1,20 @@
+{
+ "ticker": "DIOD",
+ "call_date": "2021-11-03",
+ "custom_id": "DIOD_2021-11-03",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

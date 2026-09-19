@@ -1,0 +1,95 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2022-07-27",
+ "custom_id": "SLAB_2022-07-27",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 245000000,
+    "high": 255000000,
+    "low_as_written": "$245",
+    "high_as_written": "$255 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 245000000,
+    "high": 255000000,
+    "low_as_written": "$245",
+    "high_as_written": "$255 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue to increase to a range of $245 to $255 million",
+   "one_sided": null,
+   "actual": 263000000,
+   "actual_as_written": "$263 million",
+   "range_width_pct": 0.040816,
+   "grade": "beat",
+   "beat_pct": 0.031373,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 61,
+    "high": 61,
+    "low_as_written": "around 61 percent",
+    "high_as_written": "around 61 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 61,
+    "high": 61,
+    "low_as_written": "around 61%",
+    "high_as_written": "around 61%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect non-GAAP gross margin to decline to around 61 percent",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 62.4,
+   "actual_as_written": "62.4%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.022951,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,26 @@
+{
+ "ticker": "OXY",
+ "call_date": "2025-11-11",
+ "custom_id": "OXY_2025-11-11",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Remaining $580 million of announced divestitures expected to close in Q3 2025",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

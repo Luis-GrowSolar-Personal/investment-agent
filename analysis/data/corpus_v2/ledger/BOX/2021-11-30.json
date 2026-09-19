@@ -1,0 +1,157 @@
+{
+ "ticker": "BOX",
+ "call_date": "2021-11-30",
+ "custom_id": "BOX_2021-11-30",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 218000000,
+    "high": 219000000,
+    "low_as_written": "218",
+    "high_as_written": "219 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 218000000,
+    "high": 219000000,
+    "low_as_written": "218",
+    "high_as_written": "219 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate revenue of 218 to 219 million, representing 12% year-over-year growth",
+   "one_sided": null,
+   "actual": 224000000,
+   "actual_as_written": "$224 million",
+   "range_width_pct": 0.004587,
+   "grade": "beat",
+   "beat_pct": 0.022831,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "approximately 20%",
+    "high_as_written": "approximately 20%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "approximately 20%",
+    "high_as_written": "approximately 20%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our non-GAAP operating margin to be approximately 20%, representing a 200 basis point improvement year-over-year.",
+   "one_sided": null,
+   "actual": 20.7,
+   "actual_as_written": "20.7%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.035,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 840000000,
+    "high": 848000000,
+    "low_as_written": "840 million",
+    "high_as_written": "848 million"
+   },
+   "latest_revision": {
+    "low": 856000000,
+    "high": 860000000,
+    "low_as_written": "$856",
+    "high_as_written": "$860 million"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "74%",
+    "high_as_written": "74%"
+   },
+   "latest_revision": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "approximately 74%",
+    "high_as_written": "approximately 74%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 18.0,
+    "high": 18.5,
+    "low_as_written": "18",
+    "high_as_written": "18.5%"
+   },
+   "latest_revision": {
+    "low": 19.5,
+    "high": 19.5,
+    "low_as_written": "approximately 19.5%",
+    "high_as_written": "approximately 19.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Roll out BoxSign to all business and enterprise customers throughout fall 2021",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Host BoxWorks as an all-digital event for the second year in a row",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

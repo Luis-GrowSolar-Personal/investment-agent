@@ -1,0 +1,82 @@
+{
+ "ticker": "TFC",
+ "call_date": "2023-10-19",
+ "custom_id": "TFC_2023-10-19",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -4,
+    "high": -4,
+    "low_as_written": "down 4%",
+    "high_as_written": "down 4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -4,
+    "high": -4,
+    "low_as_written": "down 4%",
+    "high_as_written": "down 4%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Looking into the third quarter of 2023, we expect revenues to be down 4% due to seasonally lower insurance revenue and slightly lower loan balances",
+   "one_sided": null,
+   "actual": 50.0,
+   "actual_as_written": "$5.7 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 3800000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 13.5,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7,
+    "high": 9,
+    "low_as_written": "7%",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": 1,
+    "high": 2,
+    "low_as_written": "1%",
+    "high_as_written": "2%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

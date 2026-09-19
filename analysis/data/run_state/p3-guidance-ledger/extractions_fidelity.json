@@ -1,0 +1,520 @@
+{
+ "totals": {
+  "entries": 15081,
+  "kept": 14232,
+  "quote_miss": 359,
+  "written_miss": 176,
+  "mis_parse": 490,
+  "unverifiable": 173,
+  "no_quote": 43
+ },
+ "per_ticker": {
+  "INTC": {
+   "entries": 325,
+   "kept": 322,
+   "quote_miss": 2,
+   "written_miss": 1,
+   "mis_parse": 1,
+   "unverifiable": 8,
+   "no_quote": 0
+  },
+  "COF": {
+   "entries": 253,
+   "kept": 249,
+   "quote_miss": 3,
+   "written_miss": 3,
+   "mis_parse": 1,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "CMCSA": {
+   "entries": 284,
+   "kept": 273,
+   "quote_miss": 10,
+   "written_miss": 2,
+   "mis_parse": 1,
+   "unverifiable": 7,
+   "no_quote": 2
+  },
+  "NOW": {
+   "entries": 398,
+   "kept": 391,
+   "quote_miss": 3,
+   "written_miss": 2,
+   "mis_parse": 4,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "DD": {
+   "entries": 301,
+   "kept": 284,
+   "quote_miss": 9,
+   "written_miss": 5,
+   "mis_parse": 8,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "EQIX": {
+   "entries": 283,
+   "kept": 277,
+   "quote_miss": 5,
+   "written_miss": 3,
+   "mis_parse": 1,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "MU": {
+   "entries": 336,
+   "kept": 246,
+   "quote_miss": 6,
+   "written_miss": 2,
+   "mis_parse": 84,
+   "unverifiable": 4,
+   "no_quote": 1
+  },
+  "PARA": {
+   "entries": 279,
+   "kept": 263,
+   "quote_miss": 14,
+   "written_miss": 6,
+   "mis_parse": 2,
+   "unverifiable": 4,
+   "no_quote": 2
+  },
+  "OXY": {
+   "entries": 251,
+   "kept": 235,
+   "quote_miss": 10,
+   "written_miss": 7,
+   "mis_parse": 6,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "NEM": {
+   "entries": 284,
+   "kept": 266,
+   "quote_miss": 8,
+   "written_miss": 3,
+   "mis_parse": 10,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "IBM": {
+   "entries": 267,
+   "kept": 260,
+   "quote_miss": 5,
+   "written_miss": 3,
+   "mis_parse": 2,
+   "unverifiable": 26,
+   "no_quote": 0
+  },
+  "HCA": {
+   "entries": 232,
+   "kept": 222,
+   "quote_miss": 9,
+   "written_miss": 9,
+   "mis_parse": 1,
+   "unverifiable": 4,
+   "no_quote": 0
+  },
+  "ROK": {
+   "entries": 347,
+   "kept": 339,
+   "quote_miss": 6,
+   "written_miss": 3,
+   "mis_parse": 2,
+   "unverifiable": 2,
+   "no_quote": 2
+  },
+  "TEAM": {
+   "entries": 93,
+   "kept": 86,
+   "quote_miss": 6,
+   "written_miss": 1,
+   "mis_parse": 1,
+   "unverifiable": 2,
+   "no_quote": 3
+  },
+  "MS": {
+   "entries": 278,
+   "kept": 275,
+   "quote_miss": 2,
+   "written_miss": 0,
+   "mis_parse": 1,
+   "unverifiable": 3,
+   "no_quote": 1
+  },
+  "QS": {
+   "entries": 168,
+   "kept": 167,
+   "quote_miss": 1,
+   "written_miss": 1,
+   "mis_parse": 0,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "COST": {
+   "entries": 226,
+   "kept": 222,
+   "quote_miss": 1,
+   "written_miss": 0,
+   "mis_parse": 3,
+   "unverifiable": 1,
+   "no_quote": 1
+  },
+  "SIRI": {
+   "entries": 252,
+   "kept": 249,
+   "quote_miss": 2,
+   "written_miss": 0,
+   "mis_parse": 1,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "ELV": {
+   "entries": 273,
+   "kept": 265,
+   "quote_miss": 3,
+   "written_miss": 2,
+   "mis_parse": 5,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "MMM": {
+   "entries": 337,
+   "kept": 326,
+   "quote_miss": 7,
+   "written_miss": 3,
+   "mis_parse": 4,
+   "unverifiable": 5,
+   "no_quote": 3
+  },
+  "MSFT": {
+   "entries": 425,
+   "kept": 422,
+   "quote_miss": 2,
+   "written_miss": 0,
+   "mis_parse": 1,
+   "unverifiable": 12,
+   "no_quote": 2
+  },
+  "PSX": {
+   "entries": 236,
+   "kept": 235,
+   "quote_miss": 0,
+   "written_miss": 0,
+   "mis_parse": 1,
+   "unverifiable": 3,
+   "no_quote": 0
+  },
+  "PG": {
+   "entries": 314,
+   "kept": 303,
+   "quote_miss": 3,
+   "written_miss": 2,
+   "mis_parse": 8,
+   "unverifiable": 12,
+   "no_quote": 1
+  },
+  "TTD": {
+   "entries": 195,
+   "kept": 185,
+   "quote_miss": 10,
+   "written_miss": 1,
+   "mis_parse": 0,
+   "unverifiable": 0,
+   "no_quote": 5
+  },
+  "CMI": {
+   "entries": 257,
+   "kept": 242,
+   "quote_miss": 11,
+   "written_miss": 5,
+   "mis_parse": 4,
+   "unverifiable": 3,
+   "no_quote": 0
+  },
+  "JKS": {
+   "entries": 254,
+   "kept": 205,
+   "quote_miss": 12,
+   "written_miss": 8,
+   "mis_parse": 37,
+   "unverifiable": 4,
+   "no_quote": 1
+  },
+  "JPM": {
+   "entries": 284,
+   "kept": 281,
+   "quote_miss": 2,
+   "written_miss": 1,
+   "mis_parse": 1,
+   "unverifiable": 0,
+   "no_quote": 1
+  },
+  "MRK": {
+   "entries": 274,
+   "kept": 269,
+   "quote_miss": 3,
+   "written_miss": 1,
+   "mis_parse": 2,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "BLK": {
+   "entries": 279,
+   "kept": 274,
+   "quote_miss": 4,
+   "written_miss": 2,
+   "mis_parse": 1,
+   "unverifiable": 3,
+   "no_quote": 2
+  },
+  "AMPX": {
+   "entries": 119,
+   "kept": 116,
+   "quote_miss": 2,
+   "written_miss": 1,
+   "mis_parse": 1,
+   "unverifiable": 6,
+   "no_quote": 0
+  },
+  "KMB": {
+   "entries": 173,
+   "kept": 162,
+   "quote_miss": 5,
+   "written_miss": 3,
+   "mis_parse": 6,
+   "unverifiable": 3,
+   "no_quote": 0
+  },
+  "ABBV": {
+   "entries": 308,
+   "kept": 304,
+   "quote_miss": 3,
+   "written_miss": 0,
+   "mis_parse": 1,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "DUK": {
+   "entries": 148,
+   "kept": 121,
+   "quote_miss": 14,
+   "written_miss": 5,
+   "mis_parse": 13,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "TFC": {
+   "entries": 360,
+   "kept": 333,
+   "quote_miss": 13,
+   "written_miss": 4,
+   "mis_parse": 14,
+   "unverifiable": 14,
+   "no_quote": 2
+  },
+  "LLY": {
+   "entries": 267,
+   "kept": 251,
+   "quote_miss": 7,
+   "written_miss": 6,
+   "mis_parse": 9,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "BOX": {
+   "entries": 362,
+   "kept": 335,
+   "quote_miss": 5,
+   "written_miss": 1,
+   "mis_parse": 22,
+   "unverifiable": 6,
+   "no_quote": 0
+  },
+  "AIG": {
+   "entries": 337,
+   "kept": 328,
+   "quote_miss": 9,
+   "written_miss": 4,
+   "mis_parse": 0,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "WMB": {
+   "entries": 231,
+   "kept": 215,
+   "quote_miss": 7,
+   "written_miss": 5,
+   "mis_parse": 9,
+   "unverifiable": 3,
+   "no_quote": 1
+  },
+  "TMO": {
+   "entries": 395,
+   "kept": 388,
+   "quote_miss": 5,
+   "written_miss": 1,
+   "mis_parse": 2,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "AEP": {
+   "entries": 195,
+   "kept": 169,
+   "quote_miss": 18,
+   "written_miss": 15,
+   "mis_parse": 8,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "PH": {
+   "entries": 339,
+   "kept": 292,
+   "quote_miss": 6,
+   "written_miss": 4,
+   "mis_parse": 41,
+   "unverifiable": 6,
+   "no_quote": 0
+  },
+  "SLAB": {
+   "entries": 272,
+   "kept": 262,
+   "quote_miss": 2,
+   "written_miss": 1,
+   "mis_parse": 8,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "EMR": {
+   "entries": 316,
+   "kept": 292,
+   "quote_miss": 7,
+   "written_miss": 4,
+   "mis_parse": 17,
+   "unverifiable": 3,
+   "no_quote": 0
+  },
+  "EOSE": {
+   "entries": 177,
+   "kept": 167,
+   "quote_miss": 5,
+   "written_miss": 3,
+   "mis_parse": 5,
+   "unverifiable": 2,
+   "no_quote": 2
+  },
+  "QCOM": {
+   "entries": 375,
+   "kept": 366,
+   "quote_miss": 6,
+   "written_miss": 3,
+   "mis_parse": 3,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "DOW": {
+   "entries": 206,
+   "kept": 196,
+   "quote_miss": 6,
+   "written_miss": 3,
+   "mis_parse": 4,
+   "unverifiable": 2,
+   "no_quote": 0
+  },
+  "DIOD": {
+   "entries": 265,
+   "kept": 189,
+   "quote_miss": 3,
+   "written_miss": 2,
+   "mis_parse": 73,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "ITW": {
+   "entries": 282,
+   "kept": 243,
+   "quote_miss": 27,
+   "written_miss": 13,
+   "mis_parse": 12,
+   "unverifiable": 3,
+   "no_quote": 6
+  },
+  "FRC": {
+   "entries": 78,
+   "kept": 73,
+   "quote_miss": 4,
+   "written_miss": 1,
+   "mis_parse": 1,
+   "unverifiable": 1,
+   "no_quote": 2
+  },
+  "TMUS": {
+   "entries": 321,
+   "kept": 308,
+   "quote_miss": 9,
+   "written_miss": 4,
+   "mis_parse": 4,
+   "unverifiable": 2,
+   "no_quote": 0
+  },
+  "NXPI": {
+   "entries": 286,
+   "kept": 242,
+   "quote_miss": 10,
+   "written_miss": 7,
+   "mis_parse": 34,
+   "unverifiable": 0,
+   "no_quote": 0
+  },
+  "HON": {
+   "entries": 376,
+   "kept": 369,
+   "quote_miss": 5,
+   "written_miss": 5,
+   "mis_parse": 2,
+   "unverifiable": 3,
+   "no_quote": 0
+  },
+  "UPS": {
+   "entries": 352,
+   "kept": 339,
+   "quote_miss": 10,
+   "written_miss": 1,
+   "mis_parse": 3,
+   "unverifiable": 1,
+   "no_quote": 1
+  },
+  "BMY": {
+   "entries": 274,
+   "kept": 273,
+   "quote_miss": 1,
+   "written_miss": 1,
+   "mis_parse": 0,
+   "unverifiable": 1,
+   "no_quote": 0
+  },
+  "RUN": {
+   "entries": 214,
+   "kept": 201,
+   "quote_miss": 9,
+   "written_miss": 3,
+   "mis_parse": 4,
+   "unverifiable": 2,
+   "no_quote": 0
+  },
+  "SUNW": {
+   "entries": 68,
+   "kept": 65,
+   "quote_miss": 2,
+   "written_miss": 0,
+   "mis_parse": 1,
+   "unverifiable": 0,
+   "no_quote": 2
+  }
+ },
+ "drop_rate": 0.05629600159140641,
+ "unparseable": 1,
+ "empty": 3
+}

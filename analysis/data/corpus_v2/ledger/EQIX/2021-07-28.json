@@ -1,0 +1,80 @@
+{
+ "ticker": "EQIX",
+ "call_date": "2021-07-28",
+ "custom_id": "EQIX_2021-07-28",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 10,
+    "high": 11,
+    "low_as_written": "10",
+    "high_as_written": "11%"
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "6%",
+    "high_as_written": "6%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%"
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 2500000000,
+    "high": 2800000000,
+    "low_as_written": "$2.5",
+    "high_as_written": "$2.8 billion"
+   },
+   "latest_revision": {
+    "low": 2725000000,
+    "high": 2975000000,
+    "low_as_written": "2.725",
+    "high_as_written": "2.975 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Equinix plans to hold an analyst day in June 2021 to discuss business model, opportunity, and long-term value creation",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

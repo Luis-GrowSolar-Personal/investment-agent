@@ -1,0 +1,181 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2024-11-05",
+ "custom_id": "NXPI_2024-11-05",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 58.0,
+    "high": 59.0,
+    "low_as_written": "58.5%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 58.0,
+    "high": 59.0,
+    "low_as_written": "58.5%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP gross margin to be about 58.5% plus or minus 50 basis points.",
+   "one_sided": null,
+   "actual": 58.2,
+   "actual_as_written": "58.2%",
+   "range_width_pct": 0.017241,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 35.1,
+    "high": 35.1,
+    "low_as_written": "35.1%",
+    "high_as_written": "35.1%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 35.1,
+    "high": 35.1,
+    "low_as_written": "35.1%",
+    "high_as_written": "35.1%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see non-GAAP operating margin to be 35.1% at the midpoint.",
+   "one_sided": null,
+   "actual": 35.5,
+   "actual_as_written": "35.5%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.011396,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.42,
+    "high": 3.42,
+    "low_as_written": "$3.42",
+    "high_as_written": "$3.42",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.42,
+    "high": 3.42,
+    "low_as_written": "$3.42",
+    "high_as_written": "$3.42",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "at the midpoint, this implies a non-GAAP earnings per share of $3.42.",
+   "one_sided": null,
+   "actual": 3.45,
+   "actual_as_written": "$3.45",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.008772,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "6%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "6%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For capital expenditures, we expect to be around 6%.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 6,
+    "high": 8,
+    "low_as_written": "6%",
+    "high_as_written": "8%"
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 8,
+    "low_as_written": "6%",
+    "high_as_written": "8%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 2,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

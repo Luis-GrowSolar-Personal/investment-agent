@@ -1,0 +1,95 @@
+{
+ "ticker": "IBM",
+ "call_date": "2022-04-19",
+ "custom_id": "IBM_2022-04-19",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 3,
+    "low_as_written": "two",
+    "high_as_written": "three points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 3,
+    "low_as_written": "two",
+    "high_as_written": "three points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "about a four-point year-to-year improvement in IBM's pre-tax operating margin for the full year, and two to three points in the first quarter",
+   "one_sided": null,
+   "actual": 280,
+   "actual_as_written": "280 basis points",
+   "range_width_pct": 0.5,
+   "grade": "beat",
+   "beat_pct": 92.333333,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 12000000000,
+    "high": 13000000000,
+    "low_as_written": "$12",
+    "high_as_written": "$13 billion"
+   },
+   "latest_revision": {
+    "low": 10000000000,
+    "high": 10500000000,
+    "low_as_written": "$10",
+    "high_as_written": "$10.5 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 4,
+    "low_as_written": "four-point",
+    "high_as_written": "four-point"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 4,
+    "low_as_written": "four-point",
+    "high_as_written": "four-point"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

@@ -1,0 +1,131 @@
+{
+ "ticker": "SIRI",
+ "call_date": "2024-02-01",
+ "custom_id": "SIRI_2024-02-01",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "approximately $9 billion",
+    "high_as_written": "approximately $9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "approximately $9 billion",
+    "high_as_written": "approximately $9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "This morning, we issued 2023 guidance that anticipates approximately $9 billion of revenue, adjusted EBITDA of approximately $2.7 billion, and free cash flow of approximately $1.05 billion.",
+   "one_sided": null,
+   "actual": 8950000000,
+   "actual_as_written": "8.95 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.005556,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1050000000,
+    "high": 1050000000,
+    "low_as_written": "approximately $1.05 billion",
+    "high_as_written": "approximately $1.05 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1150000000,
+    "high": 1150000000,
+    "low_as_written": "$1.15 billion",
+    "high_as_written": "$1.15 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "This morning, we issued 2023 guidance that anticipates approximately $9 billion of revenue, adjusted EBITDA of approximately $2.7 billion, and free cash flow of approximately $1.05 billion.",
+   "one_sided": null,
+   "actual": 1200000000,
+   "actual_as_written": "$1.2 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.142857,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 300000000,
+    "high": 300000000,
+    "low_as_written": "$300 million",
+    "high_as_written": "$300 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 350000000,
+    "high": 400000000,
+    "low_as_written": "$350",
+    "high_as_written": "$400 million",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "This satellite CapEx spending will be in the $300 million range per year in 2023 and 2024",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Launch next-generation SiriusXM streaming platform later in Q4 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "beat": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

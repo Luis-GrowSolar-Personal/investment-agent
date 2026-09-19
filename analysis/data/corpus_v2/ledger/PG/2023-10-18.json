@@ -1,0 +1,93 @@
+{
+ "ticker": "PG",
+ "call_date": "2023-10-18",
+ "custom_id": "PG_2023-10-18",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 5,
+    "low_as_written": "4",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 5,
+    "low_as_written": "4",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 6.25,
+    "high": 6.43,
+    "low_as_written": "$6.25",
+    "high_as_written": "$6.43"
+   },
+   "latest_revision": {
+    "low": 6.25,
+    "high": 6.43,
+    "low_as_written": "$6.25",
+    "high_as_written": "$6.43"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 6,
+    "high": 9,
+    "low_as_written": "6",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 9,
+    "low_as_written": "6",
+    "high_as_written": "9%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

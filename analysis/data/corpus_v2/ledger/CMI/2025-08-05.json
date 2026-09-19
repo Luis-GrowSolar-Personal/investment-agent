@@ -1,0 +1,39 @@
+{
+ "ticker": "CMI",
+ "call_date": "2025-08-05",
+ "custom_id": "CMI_2025-08-05",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -2,
+    "high": 3,
+    "low_as_written": "down 2",
+    "high_as_written": "up 3%"
+   },
+   "latest_revision": {
+    "low": -2,
+    "high": 3,
+    "low_as_written": "down 2",
+    "high_as_written": "up 3%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

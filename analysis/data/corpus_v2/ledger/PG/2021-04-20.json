@@ -1,0 +1,98 @@
+{
+ "ticker": "PG",
+ "call_date": "2021-04-20",
+ "custom_id": "PG_2021-04-20",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2%",
+    "high_as_written": "4%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 6,
+    "low_as_written": "5%",
+    "high_as_written": "6%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3,
+    "high": 7,
+    "low_as_written": "3%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8",
+    "high_as_written": "10"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%"
+   },
+   "latest_revision": {
+    "low": 95,
+    "high": 100,
+    "low_as_written": "95",
+    "high_as_written": "100%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 95,
+    "high": 95,
+    "low_as_written": "95%",
+    "high_as_written": "95%"
+   },
+   "latest_revision": {
+    "low": 95,
+    "high": 95,
+    "low_as_written": "95%",
+    "high_as_written": "95%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Andre Schulten to take on Chief Financial Officer responsibilities",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

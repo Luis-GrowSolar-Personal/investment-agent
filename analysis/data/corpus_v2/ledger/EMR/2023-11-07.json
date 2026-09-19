@@ -1,0 +1,159 @@
+{
+ "ticker": "EMR",
+ "call_date": "2023-11-07",
+ "custom_id": "EMR_2023-11-07",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 6.5,
+    "high": 8.5,
+    "low_as_written": "6.5%",
+    "high_as_written": "8.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8.5,
+    "high": 10,
+    "low_as_written": "8.5%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "support our guidance for underlying sales growth between 6.5% and 8.5%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.0,
+    "high": 4.15,
+    "low_as_written": "$4",
+    "high_as_written": "$4.15",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.4,
+    "high": 4.45,
+    "low_as_written": "$4.40",
+    "high_as_written": "$4.45",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect adjusted EPS to increase from $3.64 in 2022 to between $4 and $4.15 in 2023, a 12% increase at the midpoint.",
+   "one_sided": null,
+   "actual": 4.44,
+   "actual_as_written": "$4.44",
+   "range_width_pct": 0.0375,
+   "grade": "beat",
+   "beat_pct": 0.06988,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Free cash flow conversion is expected to continue to approximate 100%.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2200000000,
+    "high": 2200000000,
+    "low_as_written": "$2.2 billion",
+    "high_as_written": "$2.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2200000000,
+    "high": 2300000000,
+    "low_as_written": "$2.2",
+    "high_as_written": "$2.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "Free cash flow is expected to be approximately $2.2 billion for the year, of which Aspen Tech contributes approximately $300 million.",
+   "one_sided": null,
+   "actual": 2400000000,
+   "actual_as_written": "$2.4 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.090909,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "beat": 2,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,26 @@
+{
+ "ticker": "RUN",
+ "call_date": "2023-11-01",
+ "custom_id": "RUN_2023-11-01",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Begin reflecting energy community ITC adders in net subscriber value metrics starting in Q3 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

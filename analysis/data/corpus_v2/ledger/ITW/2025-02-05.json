@@ -1,0 +1,116 @@
+{
+ "ticker": "ITW",
+ "call_date": "2025-02-05",
+ "custom_id": "ITW_2025-02-05",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2",
+    "high_as_written": "4 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "flat",
+    "high_as_written": "flat",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "our top-line guidance of revenue growth of 2 to 4 percent and organic growth of 1 to 3 percent",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 26,
+    "high": 27,
+    "low_as_written": "26",
+    "high_as_written": "27 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 26.5,
+    "high": 27.0,
+    "low_as_written": "26.5%",
+    "high_as_written": "27%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "Operating margin is expected to improve by 140 basis points at the midpoint to a range of 26 to 27 percent",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10.3,
+    "high": 10.7,
+    "low_as_written": "$10.30",
+    "high_as_written": "$10.70",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10.37,
+    "high": 10.47,
+    "low_as_written": "$10.37",
+    "high_as_written": "$10.47",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we raised our full-year gap EPS guidance to a new range of $10.30 to $10.70",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,116 @@
+{
+ "ticker": "UPS",
+ "call_date": "2022-04-26",
+ "custom_id": "UPS_2022-04-26",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 102000000000,
+    "high": 102000000000,
+    "low_as_written": "$102 billion",
+    "high_as_written": "$102 billion"
+   },
+   "latest_revision": {
+    "low": 17000000000,
+    "high": 17000000000,
+    "low_as_written": "$17 billion",
+    "high_as_written": "$17 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 13.7,
+    "high": 13.7,
+    "low_as_written": "13.7%",
+    "high_as_written": "13.7%"
+   },
+   "latest_revision": {
+    "low": 9.4,
+    "high": 9.4,
+    "low_as_written": "9.4%",
+    "high_as_written": "9.4%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion"
+   },
+   "latest_revision": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 5500000000,
+    "high": 5500000000,
+    "low_as_written": "$5.5 billion",
+    "high_as_written": "$5.5 billion"
+   },
+   "latest_revision": {
+    "low": 5500000000,
+    "high": 5500000000,
+    "low_as_written": "$5.5 billion",
+    "high_as_written": "$5.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5.5,
+    "high": 5.5,
+    "low_as_written": "5.5%",
+    "high_as_written": "5.5%"
+   },
+   "latest_revision": {
+    "low": 5.5,
+    "high": 5.5,
+    "low_as_written": "5.5%",
+    "high_as_written": "5.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "UPS Board approved a 49% increase in the quarterly dividend to $1.52 per share starting Q1 2022",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 2
+}

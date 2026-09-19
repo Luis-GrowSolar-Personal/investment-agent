@@ -1,0 +1,26 @@
+{
+ "ticker": "TEAM",
+ "call_date": "2024-08-01",
+ "custom_id": "TEAM_2024-08-01",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Atlassian will host Investor Day at Team24 customer conference in Las Vegas",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

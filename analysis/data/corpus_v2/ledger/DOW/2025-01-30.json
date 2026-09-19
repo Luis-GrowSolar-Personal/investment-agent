@@ -1,0 +1,64 @@
+{
+ "ticker": "DOW",
+ "call_date": "2025-01-30",
+ "custom_id": "DOW_2025-01-30",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "approximately $3 billion",
+    "high_as_written": "approximately $3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect to spend, on average, roughly $1 billion of CapEx annually on the project beginning next year through project completion.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete the sale of the laminating adhesives business (including two manufacturing sites in Italy) for $150 million",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Share further progress on evaluation of strategic options for non-product-producing infrastructure assets, expecting over $1 billion in proceeds",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

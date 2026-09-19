@@ -1,0 +1,135 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2025-02-04",
+ "custom_id": "SLAB_2025-02-04",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 161000000,
+    "high": 171000000,
+    "low_as_written": "$161 million",
+    "high_as_written": "$171 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 161000000,
+    "high": 171000000,
+    "low_as_written": "$161 million",
+    "high_as_written": "$171 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate revenue in the December quarter to be in the range of $161 million to $171 million",
+   "one_sided": null,
+   "actual": 166000000,
+   "actual_as_written": "$166 million",
+   "range_width_pct": 0.062112,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 54,
+    "high": 55,
+    "low_as_written": "54",
+    "high_as_written": "55%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 54,
+    "high": 55,
+    "low_as_written": "54",
+    "high_as_written": "55%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect GAAP gross margin in the December quarter to be in the range of 54 to 55%.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 54.3,
+   "actual_as_written": "54.3%",
+   "range_width_pct": 0.018519,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -1.05,
+    "high": -0.75,
+    "low_as_written": "$0.75",
+    "high_as_written": "$1.05",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.21,
+    "high": -0.01,
+    "low_as_written": "$0.01",
+    "high_as_written": "$0.21",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "GAAP loss per share is expected to be in the range of $0.75 to $1.05 loss.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": -0.73,
+   "actual_as_written": "$0.73",
+   "range_width_pct": 0.285714,
+   "grade": "beat",
+   "beat_pct": 0.026667,
+   "grade_vs_latest": "missed",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Begin initial production shipments to continuous blood glucose monitoring customers with line of sight to full-scale customer ramps",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

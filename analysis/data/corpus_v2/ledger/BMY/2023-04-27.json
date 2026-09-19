@@ -1,0 +1,57 @@
+{
+ "ticker": "BMY",
+ "call_date": "2023-04-27",
+ "custom_id": "BMY_2023-04-27",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.95,
+    "high": 8.25,
+    "low_as_written": "$7.95",
+    "high_as_written": "$8.25"
+   },
+   "latest_revision": {
+    "low": 7.95,
+    "high": 8.25,
+    "low_as_written": "$7.95",
+    "high_as_written": "$8.25"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%"
+   },
+   "latest_revision": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,39 @@
+{
+ "ticker": "HCA",
+ "call_date": "2021-04-22",
+ "custom_id": "HCA_2021-04-22",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "four",
+    "high_as_written": "six"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "four",
+    "high_as_written": "six"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

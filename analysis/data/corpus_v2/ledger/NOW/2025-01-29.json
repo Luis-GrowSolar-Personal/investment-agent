@@ -1,0 +1,236 @@
+{
+ "ticker": "NOW",
+ "call_date": "2025-01-29",
+ "custom_id": "NOW_2025-01-29",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10555000000,
+    "high": 10575000000,
+    "low_as_written": "10.555 billion",
+    "high_as_written": "10.575 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10655000000,
+    "high": 10660000000,
+    "low_as_written": "10.655 billion",
+    "high_as_written": "10.66 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "raising our subscription revenues outlook by $165 million at the midpoint to a range of 10.555 billion to 10.575 billion, representing 21.5 to 22% year-over-year growth",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 84.5,
+    "high": 84.5,
+    "low_as_written": "84.5%",
+    "high_as_written": "84.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 84.5,
+    "high": 84.5,
+    "low_as_written": "84.5%",
+    "high_as_written": "84.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect subscription gross margin of 84.5%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "twenty nine percent",
+    "high_as_written": "twenty nine percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 29.5,
+    "high": 29.5,
+    "low_as_written": "29.5%",
+    "high_as_written": "29.5%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We're also raising our full year operating margin target from twenty eight percent to twenty nine percent driven by continued OPEX efficiencies",
+   "one_sided": null,
+   "actual": 29.5,
+   "actual_as_written": "29.5%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.017241,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect free cash flow margin of 31%, up 50 basis points year-over-year",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2875000000,
+    "high": 2880000000,
+    "low_as_written": "$2.875 billion",
+    "high_as_written": "$2.88 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2875000000,
+    "high": 2880000000,
+    "low_as_written": "$2.875 billion",
+    "high_as_written": "$2.88 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect subscription revenues between $2.875 billion and $2.88 billion, representing 21.5% to 22% year-over-year growth, or 20.5% on a constant currency basis.",
+   "one_sided": null,
+   "actual": 2866000000,
+   "actual_as_written": "2.866 billion",
+   "range_width_pct": 0.001739,
+   "grade": "missed",
+   "miss_pct": 0.00313,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29%",
+    "high_as_written": "29%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29%",
+    "high_as_written": "29%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 29%.",
+   "one_sided": null,
+   "actual": 29.5,
+   "actual_as_written": "29.5%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.017241,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Roll out RaptorDB Pro globally in Q4 2024",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Launch workflow data fabric product to customers",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "unreported": 1,
+  "beat": 2,
+  "basis_mismatch": 1,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 4,
+ "revised_down_count": 0
+}

@@ -1,0 +1,100 @@
+{
+ "ticker": "PH",
+ "call_date": "2021-04-29",
+ "custom_id": "PH_2021-04-29",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.54,
+    "high": 3.54,
+    "low_as_written": "$3.54",
+    "high_as_written": "$3.54",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.54,
+    "high": 3.54,
+    "low_as_written": "$3.54",
+    "high_as_written": "$3.54",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the third quarter of FY21, We are forecasting adjusted earnings per share to be $3.54 at the midpoint",
+   "one_sided": null,
+   "actual": 4.11,
+   "actual_as_written": "$4.11",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.161017,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.8,
+    "high": 10.8,
+    "low_as_written": "$9.80",
+    "high_as_written": "$10.80"
+   },
+   "latest_revision": {
+    "low": 9.93,
+    "high": 10.53,
+    "low_as_written": "$9.93",
+    "high_as_written": "$10.53"
+   },
+   "revised_down": true,
+   "n_revisions": 4
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -10.7,
+    "high": -6.7,
+    "low_as_written": "10.7%",
+    "high_as_written": "6.7%"
+   },
+   "latest_revision": {
+    "low": 1.7,
+    "high": 1.7,
+    "low_as_written": "1.7",
+    "high_as_written": "1.7"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Reinstate 10b5-1 share repurchase program effective Q3 FY2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

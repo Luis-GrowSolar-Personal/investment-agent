@@ -1,0 +1,133 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2025-05-13",
+ "custom_id": "SLAB_2025-05-13",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 170000000,
+    "high": 185000000,
+    "low_as_written": "$170 million",
+    "high_as_written": "$185 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 170000000,
+    "high": 185000000,
+    "low_as_written": "$170 million",
+    "high_as_written": "$185 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate revenue in the March quarter to be in the range of $170 million to $185 million",
+   "one_sided": null,
+   "actual": 178000000,
+   "actual_as_written": "$178 million",
+   "range_width_pct": 0.088235,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 54,
+    "high": 56,
+    "low_as_written": "54%",
+    "high_as_written": "56%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 54,
+    "high": 56,
+    "low_as_written": "54%",
+    "high_as_written": "56%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect gap gross margin in the March quarter to be in the range of 54% to 56%",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 55,
+   "actual_as_written": "55%",
+   "range_width_pct": 0.037037,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -1.05,
+    "high": -0.75,
+    "low_as_written": "$1.05 loss",
+    "high_as_written": "75 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.19,
+    "high": 0.01,
+    "low_as_written": "19 cents",
+    "high_as_written": "1 cent",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "GAAP loss per share is expected to be the range of 75 cents to $1.05 loss",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": -0.94,
+   "actual_as_written": "94 cents",
+   "range_width_pct": 0.285714,
+   "grade": "met",
+   "grade_vs_latest": "missed",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Host Analyst Day in New York City to provide in-depth review of long-term strategy, key growth initiatives, and financial outlook",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

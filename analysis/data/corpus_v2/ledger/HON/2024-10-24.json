@@ -1,0 +1,207 @@
+{
+ "ticker": "HON",
+ "call_date": "2024-10-24",
+ "custom_id": "HON_2024-10-24",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9800000000,
+    "high": 10000000000,
+    "low_as_written": "$9.8",
+    "high_as_written": "$10 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9800000000,
+    "high": 10000000000,
+    "low_as_written": "$9.8",
+    "high_as_written": "$10 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the third quarter, we anticipate sales in the range of $9.8 to $10 billion, up 4% to 6% organically",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate sales in the range of $9.8 to $10 billion, up 4% to 6% organically",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2.45,
+    "high": 2.55,
+    "low_as_written": "$2.45",
+    "high_as_written": "$2.55",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.45,
+    "high": 2.55,
+    "low_as_written": "$2.45",
+    "high_as_written": "$2.55",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect third quarter earnings per share between $2.45 and $2.55, up 3% to 7% year over year.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 2.58,
+   "actual_as_written": "$2.58",
+   "range_width_pct": 0.040816,
+   "grade": "beat",
+   "beat_pct": 0.011765,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 38100000000,
+    "high": 38900000000,
+    "low_as_written": "$38.1",
+    "high_as_written": "$38.9 billion"
+   },
+   "latest_revision": {
+    "low": 39100000000,
+    "high": 39700000000,
+    "low_as_written": "$39.1",
+    "high_as_written": "$39.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 6,
+    "low_as_written": "5%",
+    "high_as_written": "6%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.8,
+    "high": 10.1,
+    "low_as_written": "$9.80",
+    "high_as_written": "$10.10"
+   },
+   "latest_revision": {
+    "low": 10.05,
+    "high": 10.25,
+    "low_as_written": "$10.05",
+    "high_as_written": "$10.25"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5600000000,
+    "high": 6000000000,
+    "low_as_written": "$5.6",
+    "high_as_written": "$6 billion"
+   },
+   "latest_revision": {
+    "low": 5500000000,
+    "high": 5900000000,
+    "low_as_written": "$5.5",
+    "high_as_written": "$5.9 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Close the CAES Systems acquisition",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close the Air Products LNG business acquisition",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

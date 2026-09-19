@@ -1,0 +1,241 @@
+{
+ "ticker": "BOX",
+ "call_date": "2025-05-27",
+ "custom_id": "BOX_2025-05-27",
+ "fiscal": [
+  2026,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2026,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 274000000,
+    "high": 275000000,
+    "low_as_written": "$274",
+    "high_as_written": "$275 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 274000000,
+    "high": 275000000,
+    "low_as_written": "$274",
+    "high_as_written": "$275 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect Q1 revenue to be in the range of $274 to $275 million",
+   "one_sided": null,
+   "actual": 276000000,
+   "actual_as_written": "$276 million",
+   "range_width_pct": 0.00365,
+   "grade": "beat",
+   "beat_pct": 0.003636,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2026,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "80%",
+    "high_as_written": "80%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "80%",
+    "high_as_written": "80%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect Q1 gross margin to be approximately 80%.",
+   "one_sided": null,
+   "actual": 80.5,
+   "actual_as_written": "80.5%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.00625,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2026,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25,
+    "high": 25,
+    "low_as_written": "25%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our Q1 non-GAAP operating margin to be approximately 25%",
+   "one_sided": null,
+   "actual": 25.3,
+   "actual_as_written": "25.3%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.012,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2026,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.25,
+    "high": 0.26,
+    "low_as_written": "$0.25",
+    "high_as_written": "$0.26",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.25,
+    "high": 0.26,
+    "low_as_written": "$0.25",
+    "high_as_written": "$0.26",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our Q1 non-GAAP EPS to be in the range of $0.25 to $0.26",
+   "one_sided": null,
+   "actual": 0.3,
+   "actual_as_written": "30 cents",
+   "range_width_pct": 0.04,
+   "grade": "beat",
+   "beat_pct": 0.153846,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 1155000000,
+    "high": 1160000000,
+    "low_as_written": "$1.155",
+    "high_as_written": "$1.16 billion"
+   },
+   "latest_revision": {
+    "low": 1155000000,
+    "high": 1160000000,
+    "low_as_written": "$1.155",
+    "high_as_written": "$1.16 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "81%",
+    "high_as_written": "81%"
+   },
+   "latest_revision": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "81%",
+    "high_as_written": "81%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "28%",
+    "high_as_written": "28%"
+   },
+   "latest_revision": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "28%",
+    "high_as_written": "28%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 1.13,
+    "high": 1.17,
+    "low_as_written": "$1.13",
+    "high_as_written": "$1.17"
+   },
+   "latest_revision": {
+    "low": 1.13,
+    "high": 1.17,
+    "low_as_written": "$1.13",
+    "high_as_written": "$1.17"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Box will hold its Fiscal 2026 Financial Analyst Day to provide more details on roadmap and growth strategy",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 4
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

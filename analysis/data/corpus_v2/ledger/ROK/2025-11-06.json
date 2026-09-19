@@ -1,0 +1,164 @@
+{
+ "ticker": "ROK",
+ "call_date": "2025-11-06",
+ "custom_id": "ROK_2025-11-06",
+ "fiscal": [
+  2025,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -4,
+    "high": 2,
+    "low_as_written": "negative 4%",
+    "high_as_written": "positive 2%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -2.0,
+    "high": 1.0,
+    "low_as_written": "negative 2%",
+    "high_as_written": "positive 1%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect reported sales in a range from negative 4% to positive 2%, or slightly below $8.2 billion at the midpoint",
+   "one_sided": null,
+   "actual": 0.0,
+   "actual_as_written": "8.3 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 8300000000
+   },
+   "range_width_pct": 1.5,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8.6,
+    "high": 9.8,
+    "low_as_written": "$8.60",
+    "high_as_written": "$9.80",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.2,
+    "high": 10.2,
+    "low_as_written": "$9.20",
+    "high_as_written": "$10.20",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "Our adjusted EPS guidance ranges $8.60 to $9.80, with $9.20 at the midpoint.",
+   "one_sided": null,
+   "actual": 10.53,
+   "actual_as_written": "$10.53",
+   "range_width_pct": 0.139535,
+   "grade": "beat",
+   "beat_pct": 0.07449,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect full year fiscal 2025 free cash flow conversion of about 100% of adjusted income.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2025,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100.0,
+    "high": 100.0,
+    "low_as_written": "100%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We expect free cash flow conversion of 100% in fiscal year 25.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1,
+  "basis_mismatch": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

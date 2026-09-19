@@ -1,0 +1,64 @@
+{
+ "ticker": "IBM",
+ "call_date": "2020-10-19",
+ "custom_id": "IBM_2020-10-19",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 13.35,
+    "high": 13.35,
+    "low_as_written": "$13.35",
+    "high_as_written": "$13.35"
+   },
+   "latest_revision": {
+    "low": 13.35,
+    "high": 13.35,
+    "low_as_written": "$13.35",
+    "high_as_written": "$13.35"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 12500000000,
+    "high": 12500000000,
+    "low_as_written": "$12.5 billion",
+    "high_as_written": "$12.5 billion"
+   },
+   "latest_revision": {
+    "low": 12500000000,
+    "high": 12500000000,
+    "low_as_written": "$12.5 billion",
+    "high_as_written": "$12.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Savings from structural actions will start to yield in the second half, providing better cost competitiveness and margin performance, especially in GTS",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "all"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

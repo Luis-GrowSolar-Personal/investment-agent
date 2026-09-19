@@ -1,0 +1,77 @@
+{
+ "ticker": "JKS",
+ "call_date": "2021-09-15",
+ "custom_id": "JKS_2021-09-15",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1200000000,
+    "high": 1250000000,
+    "low_as_written": "1.2 billion U.S. dollars",
+    "high_as_written": "1.25 billion U.S. dollars",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1200000000,
+    "high": 1250000000,
+    "low_as_written": "1.2 billion U.S. dollars",
+    "high_as_written": "1.25 billion U.S. dollars",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Total revenue for the second quarter is expected to be in the range of 1.2 billion U.S. dollars to 1.25 billion U.S. dollars.",
+   "one_sided": null,
+   "actual": 1230000000,
+   "actual_as_written": "$1.23 billion",
+   "range_width_pct": 0.041667,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1000000000,
+    "high": 1200000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1.2 billion"
+   },
+   "latest_revision": {
+    "low": 800000000,
+    "high": 800000000,
+    "low_as_written": "$800 million",
+    "high_as_written": "$800 million"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

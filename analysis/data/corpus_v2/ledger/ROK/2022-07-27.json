@@ -1,0 +1,111 @@
+{
+ "ticker": "ROK",
+ "call_date": "2022-07-27",
+ "custom_id": "ROK_2022-07-27",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 160000000,
+    "high": 160000000,
+    "low_as_written": "$160 million",
+    "high_as_written": "$160 million"
+   },
+   "latest_revision": {
+    "low": 7800000000,
+    "high": 8000000000,
+    "low_as_written": "$7.8",
+    "high_as_written": "$8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 14,
+    "high": 17,
+    "low_as_written": "14%",
+    "high_as_written": "17%"
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 14,
+    "low_as_written": "10%",
+    "high_as_written": "14%"
+   },
+   "revised_down": true,
+   "n_revisions": 4
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.5,
+    "high": 11.1,
+    "low_as_written": "$10.50",
+    "high_as_written": "$11.10"
+   },
+   "latest_revision": {
+    "low": 9.2,
+    "high": 9.8,
+    "low_as_written": "$9.20",
+    "high_as_written": "$9.80"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "about 90 percent",
+    "high_as_written": "about 90 percent"
+   },
+   "latest_revision": {
+    "low": 85,
+    "high": 85,
+    "low_as_written": "85%",
+    "high_as_written": "85%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 165000000,
+    "high": 165000000,
+    "low_as_written": "$165 million",
+    "high_as_written": "$165 million"
+   },
+   "latest_revision": {
+    "low": 165000000,
+    "high": 165000000,
+    "low_as_written": "$165 million",
+    "high_as_written": "$165 million"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 3
+}

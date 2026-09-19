@@ -1,0 +1,121 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2022-04-26",
+ "custom_id": "MSFT_2022-04-26",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 15950000000,
+    "high": 16250000000,
+    "low_as_written": "$15.95",
+    "high_as_written": "$16.25 billion U.S.",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13000000000,
+    "high": 13400000000,
+    "low_as_written": "13",
+    "high_as_written": "13.4 billion U.S. dollars.",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect revenue to grow between 12% and 14% in constant currency, or $15.95 to $16.25 billion U.S.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "two points",
+    "high_as_written": "two points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "two points",
+    "high_as_written": "two points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Microsoft Cloud gross margin percentage should be up roughly two points year over year, driven by the latest accounting estimate change noted earlier.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_income",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1100000000,
+    "high": 1100000000,
+    "low_as_written": "approximately $1.1 billion",
+    "high_as_written": "approximately $1.1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1100000000,
+    "high": 1100000000,
+    "low_as_written": "approximately $1.1 billion",
+    "high_as_written": "approximately $1.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect fiscal year 23 operating income to be favorably impacted by approximately $3.7 billion for the full fiscal year and approximately $1.1 billion in the first quarter.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "11,000 new hires expected to start in Q1, primarily in cloud engineering, LinkedIn, customer deployment, and commercial sales",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

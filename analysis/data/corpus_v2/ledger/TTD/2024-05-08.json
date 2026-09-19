@@ -1,0 +1,55 @@
+{
+ "ticker": "TTD",
+ "call_date": "2024-05-08",
+ "custom_id": "TTD_2024-05-08",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 478000000,
+    "high": 478000000,
+    "low_as_written": "$478 million",
+    "high_as_written": "$478 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 478000000,
+    "high": 478000000,
+    "low_as_written": "$478 million",
+    "high_as_written": "$478 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We estimate Q1 revenue to be at least $478 million, which would represent growth of 25% on a year-over-year basis.",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "unreported": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

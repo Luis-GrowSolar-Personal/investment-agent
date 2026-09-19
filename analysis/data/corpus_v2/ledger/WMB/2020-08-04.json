@@ -1,0 +1,25 @@
+{
+ "ticker": "WMB",
+ "call_date": "2020-08-04",
+ "custom_id": "WMB_2020-08-04",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Williams plans to file Regional Energy Access pre-filing documents with FERC in the summer of 2020",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

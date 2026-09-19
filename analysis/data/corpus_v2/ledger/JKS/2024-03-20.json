@@ -1,0 +1,54 @@
+{
+ "ticker": "JKS",
+ "call_date": "2024-03-20",
+ "custom_id": "JKS_2024-03-20",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 15000000000,
+    "high": 15000000000,
+    "low_as_written": "15 billion RMB",
+    "high_as_written": "15 billion RMB",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 15000000000,
+    "high": 15000000000,
+    "low_as_written": "15 billion RMB",
+    "high_as_written": "15 billion RMB",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "for the capex this year it's roughly 15 billion RMB.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,232 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2022-04-29",
+ "custom_id": "ABBV_2022-04-29",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 13500000000,
+    "high": 13500000000,
+    "low_as_written": "$13.5 billion",
+    "high_as_written": "$13.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13500000000,
+    "high": 13500000000,
+    "low_as_written": "$13.5 billion",
+    "high_as_written": "$13.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate net revenue approaching $13.5 billion.",
+   "one_sided": null,
+   "actual": 13500000000,
+   "actual_as_written": "$13.5 billion",
+   "range_width_pct": 0.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 51,
+    "high": 51,
+    "low_as_written": "51%",
+    "high_as_written": "51%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 51,
+    "high": 51,
+    "low_as_written": "51%",
+    "high_as_written": "51%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are forecasting an adjusted operating margin ratio of approximately 51% of sales",
+   "one_sided": null,
+   "actual": 51.4,
+   "actual_as_written": "51.4%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.007843,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.1,
+    "high": 3.14,
+    "low_as_written": "$3.10",
+    "high_as_written": "$3.14",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.1,
+    "high": 3.14,
+    "low_as_written": "$3.10",
+    "high_as_written": "$3.14",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $3.10 and $3.14, excluding approximately $1.22 of known intangible amortization and specified items.",
+   "one_sided": null,
+   "actual": 3.16,
+   "actual_as_written": "$3.16",
+   "range_width_pct": 0.012903,
+   "grade": "beat",
+   "beat_pct": 0.006369,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 14.0,
+    "high": 14.2,
+    "low_as_written": "$14",
+    "high_as_written": "$14.20"
+   },
+   "latest_revision": {
+    "low": 14.0,
+    "high": 14.2,
+    "low_as_written": "$14",
+    "high_as_written": "$14.20"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 60000000000,
+    "high": 60000000000,
+    "low_as_written": "$60 billion",
+    "high_as_written": "$60 billion"
+   },
+   "latest_revision": {
+    "low": 60000000000,
+    "high": 60000000000,
+    "low_as_written": "$60 billion",
+    "high_as_written": "$60 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 51.5,
+    "high": 51.5,
+    "low_as_written": "51.5%",
+    "high_as_written": "51.5%"
+   },
+   "latest_revision": {
+    "low": 51.5,
+    "high": 51.5,
+    "low_as_written": "51.5%",
+    "high_as_written": "51.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%"
+   },
+   "latest_revision": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 24000000000,
+    "high": 24000000000,
+    "low_as_written": "$24 billion",
+    "high_as_written": "$24 billion"
+   },
+   "latest_revision": {
+    "low": 24000000000,
+    "high": 24000000000,
+    "low_as_written": "$24 billion",
+    "high_as_written": "$24 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Submit regulatory application for Skyrizzy in Crohn's disease in the US next month and Europe later in 2022",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Submit regulatory application for RINVOC in ulcerative colitis with FDA approval decision next month",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Submit regulatory application for Vrelar in major depressive disorder in Q1 2022",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

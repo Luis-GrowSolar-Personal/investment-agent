@@ -1,0 +1,26 @@
+{
+ "ticker": "DIOD",
+ "call_date": "2022-02-09",
+ "custom_id": "DIOD_2022-02-09",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Fully ramp 8-inch S-FAB capacity by end of Q4 2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

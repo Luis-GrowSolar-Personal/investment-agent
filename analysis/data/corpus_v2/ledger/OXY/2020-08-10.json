@@ -1,0 +1,58 @@
+{
+ "ticker": "OXY",
+ "call_date": "2020-08-10",
+ "custom_id": "OXY_2020-08-10",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 500000000,
+    "high": 500000000,
+    "low_as_written": "$500 million",
+    "high_as_written": "$500 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 500000000,
+    "high": 500000000,
+    "low_as_written": "$500 million",
+    "high_as_written": "$500 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "which will lower our second quarter capital spending to approximately $500 million",
+   "one_sided": null,
+   "actual": 375000000,
+   "actual_as_written": "$375 million",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.25,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

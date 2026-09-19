@@ -1,0 +1,157 @@
+{
+ "ticker": "BOX",
+ "call_date": "2021-08-25",
+ "custom_id": "BOX_2021-08-25",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 211000000,
+    "high": 212000000,
+    "low_as_written": "$211",
+    "high_as_written": "$212 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 211000000,
+    "high": 212000000,
+    "low_as_written": "$211",
+    "high_as_written": "$212 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate revenue of $211 to $212 million, representing 10% year-over-year growth",
+   "one_sided": null,
+   "actual": 214000000,
+   "actual_as_written": "214 million",
+   "range_width_pct": 0.004739,
+   "grade": "beat",
+   "beat_pct": 0.009434,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 18.0,
+    "high": 18.5,
+    "low_as_written": "18",
+    "high_as_written": "18.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18.0,
+    "high": 18.5,
+    "low_as_written": "18",
+    "high_as_written": "18.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP operating margin to be in the range of 18 to 18.5%",
+   "one_sided": null,
+   "actual": 20.6,
+   "actual_as_written": "20.6%",
+   "range_width_pct": 0.027778,
+   "grade": "beat",
+   "beat_pct": 0.113514,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 840000000,
+    "high": 848000000,
+    "low_as_written": "840 million",
+    "high_as_written": "848 million"
+   },
+   "latest_revision": {
+    "low": 845000000,
+    "high": 853000000,
+    "low_as_written": "$845 million",
+    "high_as_written": "$853 million"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "74%",
+    "high_as_written": "74%"
+   },
+   "latest_revision": {
+    "low": 74.0,
+    "high": 74.0,
+    "low_as_written": "74%",
+    "high_as_written": "74%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 18.0,
+    "high": 18.5,
+    "low_as_written": "18",
+    "high_as_written": "18.5%"
+   },
+   "latest_revision": {
+    "low": 18.0,
+    "high": 18.5,
+    "low_as_written": "18",
+    "high_as_written": "18.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "BoxSign expected to be generally available this summer, natively embedded into Box and included in all Box business subscription plans",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Company expects to launch self-tender offer for common stock repurchase next week",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

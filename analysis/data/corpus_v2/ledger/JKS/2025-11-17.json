@@ -1,0 +1,39 @@
+{
+ "ticker": "JKS",
+ "call_date": "2025-11-17",
+ "custom_id": "JKS_2025-11-17",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 10,
+    "low_as_written": "5%",
+    "high_as_written": "10%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 10,
+    "low_as_written": "5%",
+    "high_as_written": "10%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 2,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

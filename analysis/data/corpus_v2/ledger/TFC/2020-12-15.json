@@ -1,0 +1,55 @@
+{
+ "ticker": "TFC",
+ "call_date": "2020-12-15",
+ "custom_id": "TFC_2020-12-15",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -5,
+    "high": -3,
+    "low_as_written": "5 percent",
+    "high_as_written": "3 to 5 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -5,
+    "high": -3,
+    "low_as_written": "5 percent",
+    "high_as_written": "3 to 5 percent",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect taxable equivalent revenue to be down 3 to 5 percent after excluding one-time security gains from the sale of non-agency MBS",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,29 @@
+{
+ "ticker": "JPM",
+ "call_date": "2025-01-15",
+ "custom_id": "JPM_2025-01-15",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "expect deposits to be relatively flat for the remainder of 2024",
+   "mentioned_now": true
+  },
+  {
+   "intent": "provide formal NII and expense guidance for 2025 next quarter",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "revised_down_count": 0
+}

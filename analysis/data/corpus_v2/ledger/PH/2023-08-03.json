@@ -1,0 +1,210 @@
+{
+ "ticker": "PH",
+ "call_date": "2023-08-03",
+ "custom_id": "PH_2023-08-03",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0,
+    "high": 3,
+    "low_as_written": "flat",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 10,
+    "low_as_written": "10%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "reported sales growth for the year is forecasted to be flat to 3% or 1.5% positive at the midpoint.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 20.2,
+    "high": 20.6,
+    "low_as_written": "20.4%",
+    "high_as_written": "20 basis points on either side",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 22.5,
+    "high": 22.5,
+    "low_as_written": "22.5%",
+    "high_as_written": "22.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "our as reported segment operating margin guidance is 20.4%. On an adjusted basis, that's 22.5%. That's at the midpoint. We have a range of 20 basis points on either side of that.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": null,
+    "low_as_written": "over 100%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": null,
+    "low_as_written": "over 100%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "certainly free cash flow conversion over 100% for the full year.",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Our CapEx, as we have communicated, just slightly over 2% for the year.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 20.6,
+    "high": 20.9,
+    "low_as_written": "20.75",
+    "high_as_written": "20.75",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 20.6,
+    "high": 20.9,
+    "low_as_written": "20.75",
+    "high_as_written": "20.75",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "the midpoint of adjusted EPS is raised to 20.75 for the full year with a range of plus or minus 15 cents.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "over 100",
+    "high_as_written": "over 100",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "over 100",
+    "high_as_written": "over 100",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "for the full year, we continue to forecast cash flow from operations and free cash flow conversion of over 100, and that free cash flow would be mid-teens for the year.",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 6
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

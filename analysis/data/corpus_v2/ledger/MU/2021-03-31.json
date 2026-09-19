@@ -1,0 +1,77 @@
+{
+ "ticker": "MU",
+ "call_date": "2021-03-31",
+ "custom_id": "MU_2021-03-31",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.68,
+    "high": 0.82,
+    "low_as_written": "75 cents",
+    "high_as_written": "seven cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.68,
+    "high": 0.82,
+    "low_as_written": "75 cents",
+    "high_as_written": "seven cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect earnings per share to be 75 cents, plus or minus seven cents",
+   "one_sided": null,
+   "actual": 0.98,
+   "actual_as_written": "98 cents",
+   "range_width_pct": 0.205882,
+   "grade": "beat",
+   "beat_pct": 0.195122,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion"
+   },
+   "latest_revision": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "approximately $9 billion",
+    "high_as_written": "approximately $9 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

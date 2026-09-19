@@ -1,0 +1,25 @@
+{
+ "ticker": "AIG",
+ "call_date": "2025-05-02",
+ "custom_id": "AIG_2025-05-02",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "AIG expects to provide more detail on strategy and financials at Investor Day",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

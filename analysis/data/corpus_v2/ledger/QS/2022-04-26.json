@@ -1,0 +1,76 @@
+{
+ "ticker": "QS",
+ "call_date": "2022-04-26",
+ "custom_id": "QS_2022-04-26",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 30000000,
+    "high": 60000000,
+    "low_as_written": "$30 million",
+    "high_as_written": "$60 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 30000000,
+    "high": 60000000,
+    "low_as_written": "$30 million",
+    "high_as_written": "$60 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate Q1 2022 CAPEX to be in the range of $30 million to $60 million",
+   "one_sided": null,
+   "actual": 39000000,
+   "actual_as_written": "$39 million",
+   "range_width_pct": 1.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 325000000,
+    "high": 375000000,
+    "low_as_written": "$325",
+    "high_as_written": "$375 million"
+   },
+   "latest_revision": {
+    "low": 325000000,
+    "high": 375000000,
+    "low_as_written": "$325",
+    "high_as_written": "$375 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

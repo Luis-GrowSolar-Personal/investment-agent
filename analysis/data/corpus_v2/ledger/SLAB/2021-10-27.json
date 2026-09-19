@@ -1,0 +1,17 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2021-10-27",
+ "custom_id": "SLAB_2021-10-27",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

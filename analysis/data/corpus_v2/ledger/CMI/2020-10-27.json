@@ -1,0 +1,39 @@
+{
+ "ticker": "CMI",
+ "call_date": "2020-10-27",
+ "custom_id": "CMI_2020-10-27",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 500000000,
+    "high": 525000000,
+    "low_as_written": "$500 million",
+    "high_as_written": "$525 million"
+   },
+   "latest_revision": {
+    "low": 500000000,
+    "high": 525000000,
+    "low_as_written": "$500 million",
+    "high_as_written": "$525 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

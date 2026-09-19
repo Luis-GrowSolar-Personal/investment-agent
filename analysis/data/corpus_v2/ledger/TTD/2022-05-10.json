@@ -1,0 +1,77 @@
+{
+ "ticker": "TTD",
+ "call_date": "2022-05-10",
+ "custom_id": "TTD_2022-05-10",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 303000000,
+    "high": 303000000,
+    "low_as_written": "$303 million",
+    "high_as_written": "$303 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 303000000,
+    "high": 303000000,
+    "low_as_written": "$303 million",
+    "high_as_written": "$303 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we estimate Q1 revenue to be at least $303 million, which would represent growth of 38% on a year-over-year basis.",
+   "one_sided": "floor",
+   "actual": 315000000,
+   "actual_as_written": "$315 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 75000000,
+    "high": 75000000,
+    "low_as_written": "75 million",
+    "high_as_written": "75 million"
+   },
+   "latest_revision": {
+    "low": 75000000,
+    "high": 75000000,
+    "low_as_written": "75 million",
+    "high_as_written": "75 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

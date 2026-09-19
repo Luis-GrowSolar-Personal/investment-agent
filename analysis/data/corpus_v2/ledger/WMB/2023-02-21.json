@@ -1,0 +1,92 @@
+{
+ "ticker": "WMB",
+ "call_date": "2023-02-21",
+ "custom_id": "WMB_2023-02-21",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2000000000,
+    "high": 2000000000,
+    "low_as_written": "$2 billion",
+    "high_as_written": "$2 billion",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 2200000000,
+    "high": 2200000000,
+    "low_as_written": "$2.2 billion",
+    "high_as_written": "$2.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we expect sales to exceed $2 billion",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 35000000,
+    "high": 45000000,
+    "low_as_written": "$35",
+    "high_as_written": "$45 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 35000000,
+    "high": 45000000,
+    "low_as_written": "$35",
+    "high_as_written": "$45 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we should generate between $35 and $45 million in free cash flow in 2022",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Williams will not provide 2023 guidance until the next quarterly call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "unreported": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

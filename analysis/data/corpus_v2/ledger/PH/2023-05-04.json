@@ -1,0 +1,132 @@
+{
+ "ticker": "PH",
+ "call_date": "2023-05-04",
+ "custom_id": "PH_2023-05-04",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.86,
+    "high": 4.86,
+    "low_as_written": "$4.86",
+    "high_as_written": "$4.86",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.86,
+    "high": 4.86,
+    "low_as_written": "$4.86",
+    "high_as_written": "$4.86",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "adjusted EPS is expected to be $4.86 at the midpoint.",
+   "one_sided": null,
+   "actual": 5.93,
+   "actual_as_written": "$5.93",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.220165,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 0,
+    "high": 3,
+    "low_as_written": "flat",
+    "high_as_written": "3%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 20.2,
+    "high": 20.6,
+    "low_as_written": "20.4%",
+    "high_as_written": "20 basis points on either side"
+   },
+   "latest_revision": {
+    "low": 21.7,
+    "high": 22.1,
+    "low_as_written": "21.7%",
+    "high_as_written": "22.1%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 100,
+    "high": null,
+    "low_as_written": "over 100%",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": null,
+    "low_as_written": "over 100%",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

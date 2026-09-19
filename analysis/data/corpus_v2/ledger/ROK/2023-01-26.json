@@ -1,0 +1,116 @@
+{
+ "ticker": "ROK",
+ "call_date": "2023-01-26",
+ "custom_id": "ROK_2023-01-26",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 200000000,
+    "high": null,
+    "low_as_written": "above $200 million",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 8500000000,
+    "high": 8500000000,
+    "low_as_written": "$8.5 billion",
+    "high_as_written": "$8.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 9,
+    "high": 13,
+    "low_as_written": "9",
+    "high_as_written": "13%"
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 13,
+    "low_as_written": "9",
+    "high_as_written": "13%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.2,
+    "high": 11.0,
+    "low_as_written": "$10.20",
+    "high_as_written": "$11"
+   },
+   "latest_revision": {
+    "low": 10.2,
+    "high": 11.0,
+    "low_as_written": "$10.20",
+    "high_as_written": "$11"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 1100000000,
+    "high": 1100000000,
+    "low_as_written": "$1.1 billion",
+    "high_as_written": "$1.1 billion"
+   },
+   "latest_revision": {
+    "low": 1100000000,
+    "high": 1100000000,
+    "low_as_written": "$1.1 billion",
+    "high_as_written": "$1.1 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 190000000,
+    "high": 190000000,
+    "low_as_written": "$190 million",
+    "high_as_written": "$190 million"
+   },
+   "latest_revision": {
+    "low": 190000000,
+    "high": 190000000,
+    "low_as_written": "$190 million",
+    "high_as_written": "$190 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Introduce cloud-native programming application for Logix, new operator interface package, new I/O for process industries, and on-machine motor control at Automation Fair",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

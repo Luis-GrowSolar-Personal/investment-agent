@@ -1,0 +1,71 @@
+{
+ "ticker": "COST",
+ "call_date": "2020-09-24",
+ "custom_id": "COST_2020-09-24",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3000000000,
+    "high": 3000000000,
+    "low_as_written": "$3 billion",
+    "high_as_written": "$3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2700000000,
+    "high": 2900000000,
+    "low_as_written": "$2.7",
+    "high_as_written": "$2.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "our estimated CapEx for all of fiscal 20 remains right around $3 billion",
+   "one_sided": null,
+   "actual": 2800000000,
+   "actual_as_written": "$2.8 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.066667,
+   "grade_vs_latest": "met",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Open 10 new warehouses in Q4 FY2020, including two reloads, for a net of 8, bringing estimated net total for the year to approximately 13",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Resume mailings for the savings book in June",
+   "mentioned_now": false
+  },
+  {
+   "intent": "Begin slow rollout of food sampling in mid-June",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

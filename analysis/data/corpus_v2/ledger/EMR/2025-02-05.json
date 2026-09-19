@@ -1,0 +1,153 @@
+{
+ "ticker": "EMR",
+ "call_date": "2025-02-05",
+ "custom_id": "EMR_2025-02-05",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.25,
+    "high": 1.3,
+    "low_as_written": "$1.25",
+    "high_as_written": "$1.30",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.25,
+    "high": 1.3,
+    "low_as_written": "$1.25",
+    "high_as_written": "$1.30",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted EPS of $1.25 to $1.30, of which 10 to 11 cents comes from AspenTech.",
+   "one_sided": null,
+   "actual": 1.38,
+   "actual_as_written": "$1.38",
+   "range_width_pct": 0.04,
+   "grade": "beat",
+   "beat_pct": 0.061538,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2025,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 3,
+    "low_as_written": "2%",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 3,
+    "low_as_written": "2%",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the first quarter, we expect underlying sales to increase 2% to 3% with leverage in the mid-50s.",
+   "one_sided": null,
+   "actual": 2,
+   "actual_as_written": "2%",
+   "range_width_pct": 0.5,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 5,
+    "low_as_written": "3%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 5.85,
+    "high": 6.05,
+    "low_as_written": "$5.85",
+    "high_as_written": "$6.05"
+   },
+   "latest_revision": {
+    "low": 5.85,
+    "high": 6.05,
+    "low_as_written": "$5.85",
+    "high_as_written": "$6.05"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 3200000000,
+    "high": 3300000000,
+    "low_as_written": "$3.2 billion",
+    "high_as_written": "$3.3 billion"
+   },
+   "latest_revision": {
+    "low": 3200000000,
+    "high": 3300000000,
+    "low_as_written": "$3.2 billion",
+    "high_as_written": "$3.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Emerson plans to repurchase approximately $2 billion of common stock, with approximately $1 billion completed by end of Q1 FY2025",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

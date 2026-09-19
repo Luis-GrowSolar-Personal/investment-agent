@@ -1,0 +1,85 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2023-07-25",
+ "custom_id": "MSFT_2023-07-25",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_income",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3700000000,
+    "high": 3700000000,
+    "low_as_written": "approximately $3.7 billion",
+    "high_as_written": "approximately $3.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3700000000,
+    "high": 3700000000,
+    "low_as_written": "$3.7 billion",
+    "high_as_written": "$3.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we expect fiscal year 23 operating income to be favorably impacted by approximately $3.7 billion for the full fiscal year and approximately $1.1 billion in the first quarter.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "around 20%",
+    "high_as_written": "around 20%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "around 20%",
+    "high_as_written": "around 20%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Revenue will be driven by around 20% constant currency growth in our commercial business.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

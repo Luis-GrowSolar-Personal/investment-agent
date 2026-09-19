@@ -1,0 +1,27 @@
+{
+ "ticker": "MS",
+ "call_date": "2023-01-17",
+ "custom_id": "MS_2023-01-17",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Expect integration expense from E-Trade similar to Q3 2022 level",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "other"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

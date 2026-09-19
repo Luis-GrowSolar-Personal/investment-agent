@@ -1,7 +1,7 @@
 {
   "run_id": "p3-guidance-ledger",
   "prompt_sha256": "36190fea9e2e38ef15d76a420f01808dd9feda7c0ceb7049940989098958724d",
-  "driver_commit": null,
+  "driver_commit": "see git log; final driver edits committed with ledger",
   "phase": 1,
   "spend_approval": {
     "phase1_usd_cap": 65,
@@ -23,17 +23,18 @@
     "0f": "done",
     "1_passA": "done",
     "5b_fidelity": "validated_r4_drop_4.37pct",
-    "5c_ledger": "pending",
-    "5d": "pending",
-    "5e": "pending",
-    "5f_preflight": "pending",
-    "checkpoint": "pending"
+    "5c_ledger": "done",
+    "5d": "done",
+    "5e": "GATE_FIRED_N_eligible_93",
+    "5f_preflight": "not_run_gate",
+    "checkpoint": "in_progress"
   },
-  "next_action": "Full fidelity check, build ledger, diag (5c-5e), then pre-flight if N_eligible>=150.",
+  "next_action": "Phase 1 STOPPED at the 5e gate (N_eligible=93 < 150). Pre-flight NOT run. Await Luis/design-session decision; Phase 2 not authorized.",
   "notes": [
     "Prompt run started 2026-09-19; Luis approved Phase 1 via AskUserQuestion.",
     "validation rounds r1-r4 done; r4 drop rate 4.37% (<5%); prompt sha 627f5b44544e",
-    "Pass A cost \\$41.09 batch + \\$5.06 validation = \\$46.15 vs \\$45 cap: OVER by \\$1.15 (projection from validation sample was \\$36.80). Flag in wrap-up."
+    "Pass A cost \\$41.09 batch + \\$5.06 validation = \\$46.15 vs \\$45 cap: OVER by \\$1.15 (projection from validation sample was \\$36.80). Flag in wrap-up.",
+    "5e gate fired: N_eligible=93 on the label-checked ledger; sensitivity 93/205/314/375 in gate_sensitivity.json. No pre-flight, no Pass B. phase2_go remains false."
   ],
   "extraction_prompt_sha256": "627f5b44544e5eca13d174b81676d77573cebac7180b9bbfaf53192748860feb",
   "passA_cost_estimate_usd": 36.8,
@@ -41,5 +42,6 @@
   "batch_id_pass_a_submitted_at": "2026-09-19T23:31:33Z",
   "batch_id_pass_a_requests": 1240,
   "passA_batch_cost_usd": 41.09,
-  "passA_total_incl_validation_usd": 46.15
+  "passA_total_incl_validation_usd": 46.15,
+  "phase1_spend_usd": 46.15
 }

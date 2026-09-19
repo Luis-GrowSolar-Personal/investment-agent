@@ -1,0 +1,39 @@
+{
+ "ticker": "ELV",
+ "call_date": "2024-04-18",
+ "custom_id": "ELV_2024-04-18",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 37,
+    "high": 37,
+    "low_as_written": "$37",
+    "high_as_written": "$37"
+   },
+   "latest_revision": {
+    "low": 37.1,
+    "high": null,
+    "low_as_written": "$37.10",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

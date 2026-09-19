@@ -1,0 +1,25 @@
+{
+ "ticker": "JKS",
+ "call_date": "2023-04-28",
+ "custom_id": "JKS_2023-04-28",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Second phase of 11 gigawatt TopCon cell capacity in Dianshan expected to reach full production",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

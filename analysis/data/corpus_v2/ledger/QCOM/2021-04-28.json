@@ -1,0 +1,94 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2021-04-28",
+ "custom_id": "QCOM_2021-04-28",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7200000000,
+    "high": 8000000000,
+    "low_as_written": "$7.2",
+    "high_as_written": "$8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6000000000,
+    "high": 6500000000,
+    "low_as_written": "$6",
+    "high_as_written": "$6.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we're forecasting revenues of $7.2 to $8 billion and non-GAAP EPS of $1.55 to $1.75",
+   "one_sided": null,
+   "actual": 7900000000,
+   "actual_as_written": "$7.9 billion",
+   "range_width_pct": 0.111111,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.55,
+    "high": 1.75,
+    "low_as_written": "$1.55",
+    "high_as_written": "$1.75",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.55,
+    "high": 1.75,
+    "low_as_written": "$1.55",
+    "high_as_written": "$1.75",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we're forecasting revenues of $7.2 to $8 billion and non-GAAP EPS of $1.55 to $1.75",
+   "one_sided": null,
+   "actual": 1.9,
+   "actual_as_written": "$1.90",
+   "range_width_pct": 0.129032,
+   "grade": "beat",
+   "beat_pct": 0.085714,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

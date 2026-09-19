@@ -1,0 +1,147 @@
+{
+ "ticker": "HON",
+ "call_date": "2020-05-01",
+ "custom_id": "HON_2020-05-01",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.02,
+    "high": 2.07,
+    "low_as_written": "$2.02",
+    "high_as_written": "$2.07",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.02,
+    "high": 2.07,
+    "low_as_written": "$2.02",
+    "high_as_written": "$2.07",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "earnings per share in the range of $2.02 to $2.07, representing growth of 5% to 8% earnings per share",
+   "one_sided": null,
+   "actual": 2.21,
+   "actual_as_written": "$2.21",
+   "range_width_pct": 0.024752,
+   "grade": "beat",
+   "beat_pct": 0.067633,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2020,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -2,
+    "high": 2,
+    "low_as_written": "down 2%",
+    "high_as_written": "up 2%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -2,
+    "high": 2,
+    "low_as_written": "down 2%",
+    "high_as_written": "up 2%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect organic sales to be in the range of down 2% to up 2% organically",
+   "one_sided": null,
+   "grade": "withdrawn",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.6,
+    "high": 9.0,
+    "low_as_written": "$8.60",
+    "high_as_written": "$9"
+   },
+   "latest_revision": {
+    "low": 8.6,
+    "high": 9.0,
+    "low_as_written": "$8.60",
+    "high_as_written": "$9"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5700000000,
+    "high": 6200000000,
+    "low_as_written": "$5.7 billion",
+    "high_as_written": "$6.2 billion"
+   },
+   "latest_revision": {
+    "low": 5700000000,
+    "high": 6200000000,
+    "low_as_written": "$5.7 billion",
+    "high_as_written": "$6.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 0,
+    "high": 3,
+    "low_as_written": "0%",
+    "high_as_written": "3%"
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 3,
+    "low_as_written": "0%",
+    "high_as_written": "3%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [
+  "all"
+ ],
+ "counts": {
+  "beat": 1,
+  "withdrawn": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

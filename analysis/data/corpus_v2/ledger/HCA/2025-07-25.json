@@ -1,0 +1,93 @@
+{
+ "ticker": "HCA",
+ "call_date": "2025-07-25",
+ "custom_id": "HCA_2025-07-25",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 3,
+    "low_as_written": "two",
+    "high_as_written": "three percent"
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 3,
+    "low_as_written": "2%",
+    "high_as_written": "3%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 72800000000,
+    "high": 75800000000,
+    "low_as_written": "$72.8 billion",
+    "high_as_written": "$75.8 billion"
+   },
+   "latest_revision": {
+    "low": 72800000000,
+    "high": 75800000000,
+    "low_as_written": "$72.8 billion",
+    "high_as_written": "$75.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 24.05,
+    "high": 25.85,
+    "low_as_written": "$24.05",
+    "high_as_written": "$25.85"
+   },
+   "latest_revision": {
+    "low": 24.05,
+    "high": 25.85,
+    "low_as_written": "$24.05",
+    "high_as_written": "$25.85"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 5000000000,
+    "high": 5200000000,
+    "low_as_written": "$5 billion",
+    "high_as_written": "$5.2 billion"
+   },
+   "latest_revision": {
+    "low": 5000000000,
+    "high": 5200000000,
+    "low_as_written": "$5 billion",
+    "high_as_written": "$5.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

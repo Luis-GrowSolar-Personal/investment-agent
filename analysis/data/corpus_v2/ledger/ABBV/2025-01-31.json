@@ -1,0 +1,258 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2025-01-31",
+ "custom_id": "ABBV_2025-01-31",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10.7,
+    "high": 10.7,
+    "low_as_written": "$10.70",
+    "high_as_written": "$10.70",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 10.9,
+    "high": 10.94,
+    "low_as_written": "$10.90",
+    "high_as_written": "$10.94",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "we don't anticipate that 2024 earnings will be lower than the $10.70 floor of the 2023 adjusted earnings per share guidance",
+   "one_sided": "floor",
+   "actual": 10.12,
+   "actual_as_written": "$10.12",
+   "range_width_pct": null,
+   "grade": "missed",
+   "miss_pct": 0.054206,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 54200000000,
+    "high": 54200000000,
+    "low_as_written": "$54.2 billion",
+    "high_as_written": "$54.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 56000000000,
+    "high": 56000000000,
+    "low_as_written": "$56 billion",
+    "high_as_written": "$56 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect total net revenues of approximately $54.2 billion, reflecting a return to modest operational growth.",
+   "one_sided": null,
+   "actual": 56300000000,
+   "actual_as_written": "$56.3 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.038745,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84 percent",
+    "high_as_written": "84 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we are forecasting full-year adjusted gross margin of 84 percent of sales",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 44.5,
+    "high": 44.5,
+    "low_as_written": "44.5%",
+    "high_as_written": "44.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "adjusted operating margin ratio of roughly 46.5% of sales.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect to generate free cash flow of approximately $18 billion in 2024, which includes roughly $1.9 billion in SkyRizzy royalty payments.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.94,
+    "high": 2.98,
+    "low_as_written": "$2.94",
+    "high_as_written": "$2.98",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.94,
+    "high": 2.98,
+    "low_as_written": "$2.94",
+    "high_as_written": "$2.98",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $2.94 and $2.98",
+   "one_sided": null,
+   "actual": 2.16,
+   "actual_as_written": "$2.16",
+   "range_width_pct": 0.013605,
+   "grade": "missed",
+   "miss_pct": 0.265306,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 14800000000,
+    "high": 14800000000,
+    "low_as_written": "$14.8 billion",
+    "high_as_written": "$14.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14800000000,
+    "high": 14800000000,
+    "low_as_written": "$14.8 billion",
+    "high_as_written": "$14.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate net revenues approaching $14.8 billion",
+   "one_sided": null,
+   "actual": 15100000000,
+   "actual_as_written": "$15.1 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.02027,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 2,
+  "beat": 2,
+  "ungradable_present": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

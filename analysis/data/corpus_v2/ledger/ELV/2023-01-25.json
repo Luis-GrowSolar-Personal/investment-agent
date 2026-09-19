@@ -1,0 +1,171 @@
+{
+ "ticker": "ELV",
+ "call_date": "2023-01-25",
+ "custom_id": "ELV_2023-01-25",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 12,
+    "high": null,
+    "low_as_written": "12%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 12,
+    "high": null,
+    "low_as_written": "12%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "we believe our tailwinds will largely offset our headwinds, enabling us to reaffirm our commitment to growth and adjusted earnings per share of at least 12% in 2022 after adjusting for the portion of investment income that we have identified as non-recurring",
+   "one_sided": "floor",
+   "actual": 11.893764434180131,
+   "actual_as_written": "$29.07 (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 25.98
+   },
+   "range_width_pct": null,
+   "grade": "missed",
+   "miss_pct": 0.008853,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 28.25,
+    "high": 28.25,
+    "low_as_written": "$28.25",
+    "high_as_written": "$28.25",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 28.95,
+    "high": 28.95,
+    "low_as_written": "$28.95",
+    "high_as_written": "$28.95",
+    "one_sided": "floor"
+   },
+   "n_revisions": 4,
+   "quote": "adjusted earnings per share of greater than $28.25, which reflects growth of at least 12% from the normalized adjusted earnings per share baseline of of $25.20 in 2021",
+   "one_sided": "floor",
+   "multi_candidate": 2,
+   "actual": 29.07,
+   "actual_as_written": "$29.07",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 152000000000,
+    "high": 152000000000,
+    "low_as_written": "$152 billion",
+    "high_as_written": "$152 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 152000000000,
+    "high": 152000000000,
+    "low_as_written": "$152 billion",
+    "high_as_written": "$152 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "will drive operating revenue up 11% year over year to approximately $152 billion",
+   "one_sided": null,
+   "actual": 156000000000,
+   "actual_as_written": "$156 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.026316,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "customer_count",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 45600000,
+    "high": 46200000,
+    "low_as_written": "45.6",
+    "high_as_written": "46.2 million members",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 45600000,
+    "high": 46200000,
+    "low_as_written": "45.6",
+    "high_as_written": "46.2 million members",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect to end 2022 with total medical membership in the range of 45.6 to 46.2 million members",
+   "one_sided": null,
+   "actual": 47500000,
+   "actual_as_written": "47.5 million",
+   "range_width_pct": 0.013158,
+   "grade": "beat",
+   "beat_pct": 0.028139,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "met": 1,
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

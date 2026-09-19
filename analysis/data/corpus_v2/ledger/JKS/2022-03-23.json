@@ -1,0 +1,98 @@
+{
+ "ticker": "JKS",
+ "call_date": "2022-03-23",
+ "custom_id": "JKS_2022-03-23",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1000000000,
+    "high": 1200000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1200000000,
+    "high": 1200000000,
+    "low_as_written": "$1.2 billion",
+    "high_as_written": "$1.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "The CapEx, you know, in 2021, it's in our range of $1 billion to, you know, $1.2 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1800000000,
+    "high": 2200000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$2.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1800000000,
+    "high": 2200000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$2.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Total revenue for the fourth quarter is expected to be in the range of $1.8 billion to $2.2 billion.",
+   "one_sided": null,
+   "actual": 2570000000,
+   "actual_as_written": "$2.57 billion",
+   "range_width_pct": 0.222222,
+   "grade": "beat",
+   "beat_pct": 0.168182,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete China subsidiary IPO, raising at least 6 billion RMB",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "gross_margin_pct"
+ ],
+ "counts": {
+  "ungradable_present": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,40 @@
+{
+ "ticker": "QS",
+ "call_date": "2023-04-26",
+ "custom_id": "QS_2023-04-26",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 100000000,
+    "high": 150000000,
+    "low_as_written": "$100 million",
+    "high_as_written": "$150 million"
+   },
+   "latest_revision": {
+    "low": 100000000,
+    "high": 150000000,
+    "low_as_written": "$100 million",
+    "high_as_written": "$150 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

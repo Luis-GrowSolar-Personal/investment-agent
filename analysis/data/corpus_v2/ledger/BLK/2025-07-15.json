@@ -1,0 +1,29 @@
+{
+ "ticker": "BLK",
+ "call_date": "2025-07-15",
+ "custom_id": "BLK_2025-07-15",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "BlackRock targets closing the HPS transaction in mid-2025, subject to regulatory approvals",
+   "mentioned_now": true
+  },
+  {
+   "intent": "BlackRock plans to launch a target date style offering with private markets on a retirement platform in mid-2025",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

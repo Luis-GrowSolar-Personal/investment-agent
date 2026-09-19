@@ -1,0 +1,137 @@
+{
+ "ticker": "HON",
+ "call_date": "2021-04-23",
+ "custom_id": "HON_2021-04-23",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.68,
+    "high": 1.83,
+    "low_as_written": "$1.68",
+    "high_as_written": "$1.83",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.68,
+    "high": 1.83,
+    "low_as_written": "$1.68",
+    "high_as_written": "$1.83",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect first quarter earnings per share between $1.68 and $1.83, down 24% to 17% year on year.",
+   "one_sided": null,
+   "actual": 1.92,
+   "actual_as_written": "$1.92",
+   "range_width_pct": 0.089286,
+   "grade": "beat",
+   "beat_pct": 0.04918,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 33400000000,
+    "high": 34400000000,
+    "low_as_written": "$33.4",
+    "high_as_written": "$34.4 billion"
+   },
+   "latest_revision": {
+    "low": 33400000000,
+    "high": 34400000000,
+    "low_as_written": "$33.4",
+    "high_as_written": "$34.4 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 1,
+    "high": 4,
+    "low_as_written": "1%",
+    "high_as_written": "4%"
+   },
+   "latest_revision": {
+    "low": 1,
+    "high": 4,
+    "low_as_written": "1%",
+    "high_as_written": "4%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.6,
+    "high": 8.0,
+    "low_as_written": "$7.60",
+    "high_as_written": "$8"
+   },
+   "latest_revision": {
+    "low": 7.6,
+    "high": 8.0,
+    "low_as_written": "$7.60",
+    "high_as_written": "$8"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5100000000,
+    "high": 5500000000,
+    "low_as_written": "$5.1 billion",
+    "high_as_written": "$5.5 billion"
+   },
+   "latest_revision": {
+    "low": 5100000000,
+    "high": 5500000000,
+    "low_as_written": "$5.1 billion",
+    "high_as_written": "$5.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete the sale of the performance and lifestyle footwear business to Rocky Brands",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,25 @@
+{
+ "ticker": "PARA",
+ "call_date": "2024-02-28",
+ "custom_id": "PARA_2024-02-28",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Paramount will use Simon & Schuster sale proceeds of approximately $1.3 billion after-tax to pay down debt, and announced a $1 billion tender offer for upcoming debt maturities.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,290 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2021-02-03",
+ "custom_id": "ABBV_2021-02-03",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 9.61,
+    "high": 9.71,
+    "low_as_written": "$9.61",
+    "high_as_written": "$9.71",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.61,
+    "high": 9.71,
+    "low_as_written": "$9.61",
+    "high_as_written": "$9.71",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "our full year adjusted earnings per share guidance is between $9.61 to $9.71. reflecting growth of 8.1% at the midpoint.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8,
+    "high": 8,
+    "low_as_written": "8%",
+    "high_as_written": "8%",
+    "one_sided": "ceiling"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we expect revenue growth approaching 8% on an operational basis.",
+   "one_sided": "ceiling",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 81.5,
+    "high": 81.5,
+    "low_as_written": "81.5%",
+    "high_as_written": "81.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 82,
+    "high": 82,
+    "low_as_written": "82%",
+    "high_as_written": "82%",
+    "one_sided": "floor"
+   },
+   "n_revisions": 4,
+   "quote": "we are forecasting adjusted gross margin of approximately 81.5% of sales.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 48,
+    "high": 48,
+    "low_as_written": "48%",
+    "high_as_written": "48%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 48,
+    "high": 48,
+    "low_as_written": "48%",
+    "high_as_written": "48%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We are forecasting an adjusted operating margin ratio of approximately 48% of sales, an improvement of roughly 70 basis points versus 2019.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 45500000000,
+    "high": 45500000000,
+    "low_as_written": "$45.5 billion",
+    "high_as_written": "$45.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 45700000000,
+    "high": 45700000000,
+    "low_as_written": "$45.7 billion",
+    "high_as_written": "$45.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "This guidance now contemplates full-year revenue of approximately $45.5 billion.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 13800000000,
+    "high": 13800000000,
+    "low_as_written": "$13.8 billion",
+    "high_as_written": "$13.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13800000000,
+    "high": 13800000000,
+    "low_as_written": "$13.8 billion",
+    "high_as_written": "$13.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate adjusted net revenue approaching $13.8 billion",
+   "one_sided": null,
+   "actual": 13900000000,
+   "actual_as_written": "$13.9 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.007246,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.83,
+    "high": 2.85,
+    "low_as_written": "$2.83",
+    "high_as_written": "$2.85",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.83,
+    "high": 2.85,
+    "low_as_written": "$2.83",
+    "high_as_written": "$2.85",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $2.83 and $2.85, excluding approximately $1.73 of known intangible amortization and specified items.",
+   "one_sided": null,
+   "actual": 2.92,
+   "actual_as_written": "$2.92",
+   "range_width_pct": 0.007067,
+   "grade": "beat",
+   "beat_pct": 0.024561,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are forecasting an adjusted operating margin ratio of approximately 46.5% of sales.",
+   "one_sided": null,
+   "actual": 46.9,
+   "actual_as_written": "46.9%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.008602,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Host an immunology-focused investor day in December to discuss strategy, progress, and expectations for the immunology franchise",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 5,
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,257 @@
+{
+ "ticker": "HON",
+ "call_date": "2023-02-02",
+ "custom_id": "HON_2023-02-02",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 35400000000,
+    "high": 36400000000,
+    "low_as_written": "$35.4",
+    "high_as_written": "$36.4 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 35400000000,
+    "high": 35700000000,
+    "low_as_written": "$35.4",
+    "high_as_written": "$35.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect sales of $35.4 to $36.4 billion, which represents overall organic sales growth in the range of 4% to 7%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 7,
+    "low_as_written": "6",
+    "high_as_written": "7 percent",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "overall organic sales growth in the range of 4% to 7%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8.4,
+    "high": 8.7,
+    "low_as_written": "$8.40",
+    "high_as_written": "$8.70",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8.7,
+    "high": 8.8,
+    "low_as_written": "$8.70",
+    "high_as_written": "$8.80",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect earnings per share of $8.40 to $8.70, up 4% to 8% adjusted",
+   "one_sided": null,
+   "actual": 8.76,
+   "actual_as_written": "$8.76",
+   "range_width_pct": 0.035714,
+   "grade": "beat",
+   "beat_pct": 0.006897,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4700000000,
+    "high": 5100000000,
+    "low_as_written": "$4.7",
+    "high_as_written": "$5.1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4700000000,
+    "high": 5100000000,
+    "low_as_written": "$4.7",
+    "high_as_written": "$5.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We see free cash flow in the range of $4.7 to $5.1 billion in 22",
+   "one_sided": null,
+   "actual": 4900000000,
+   "actual_as_written": "$4.9 billion",
+   "range_width_pct": 0.085106,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1100000000,
+    "high": 1200000000,
+    "low_as_written": "$1.1",
+    "high_as_written": "$1.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1100000000,
+    "high": 1200000000,
+    "low_as_written": "$1.1",
+    "high_as_written": "$1.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we plan to spend $1.1 to $1.2 billion in CapEx, up $200 million versus 2021",
+   "one_sided": null,
+   "actual": 800000000,
+   "actual_as_written": "$800 million",
+   "range_width_pct": 0.090909,
+   "grade": "beat",
+   "beat_pct": 0.272727,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9100000000,
+    "high": 9400000000,
+    "low_as_written": "$9.1",
+    "high_as_written": "$9.4 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9100000000,
+    "high": 9400000000,
+    "low_as_written": "$9.1",
+    "high_as_written": "$9.4 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For a 4Q sales guidance, we expect to be in the range of $9.1 to $9.4 billion, up 10% to 13% on an organic basis",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.46,
+    "high": 2.56,
+    "low_as_written": "$2.46",
+    "high_as_written": "$2.56",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.46,
+    "high": 2.56,
+    "low_as_written": "$2.46",
+    "high_as_written": "$2.56",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "our adjusted EPS guidance range is between $2.46 and $2.56 for the fourth quarter, up 18% to 22% year-over-year.",
+   "one_sided": null,
+   "actual": 2.52,
+   "actual_as_written": "$2.52",
+   "range_width_pct": 0.04065,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 3,
+  "beat": 2,
+  "met": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 4,
+ "revised_down_count": 0
+}

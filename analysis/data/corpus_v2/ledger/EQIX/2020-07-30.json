@@ -1,0 +1,57 @@
+{
+ "ticker": "EQIX",
+ "call_date": "2020-07-30",
+ "custom_id": "EQIX_2020-07-30",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 6000000000,
+    "high": 6000000000,
+    "low_as_written": "over $6 billion",
+    "high_as_written": "over $6 billion"
+   },
+   "latest_revision": {
+    "low": 6000000000,
+    "high": 6000000000,
+    "low_as_written": "over $6 billion",
+    "high_as_written": "over $6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 8,
+    "high": 12,
+    "low_as_written": "8",
+    "high_as_written": "12%"
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": null,
+    "low_as_written": "greater than 8%",
+    "high_as_written": null
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

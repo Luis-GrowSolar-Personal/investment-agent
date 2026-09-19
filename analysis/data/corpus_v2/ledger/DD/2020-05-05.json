@@ -1,0 +1,95 @@
+{
+ "ticker": "DD",
+ "call_date": "2020-05-05",
+ "custom_id": "DD_2020-05-05",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.7,
+    "high": 0.74,
+    "low_as_written": "$0.70",
+    "high_as_written": "$0.74 per share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.7,
+    "high": 0.74,
+    "low_as_written": "$0.70",
+    "high_as_written": "$0.74 per share",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "adjusted EPS to be in the range of $0.70 to $0.74 per share.",
+   "one_sided": null,
+   "actual": 0.84,
+   "actual_as_written": "$0.84",
+   "range_width_pct": 0.057143,
+   "grade": "beat",
+   "beat_pct": 0.135135,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 21500000000,
+    "high": 22000000000,
+    "low_as_written": "$21.5",
+    "high_as_written": "$22 billion"
+   },
+   "latest_revision": {
+    "low": 21500000000,
+    "high": 22000000000,
+    "low_as_written": "$21.5",
+    "high_as_written": "$22 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.7,
+    "high": 3.9,
+    "low_as_written": "$3.70",
+    "high_as_written": "$3.90 per share"
+   },
+   "latest_revision": {
+    "low": 3.7,
+    "high": 3.9,
+    "low_as_written": "$3.70",
+    "high_as_written": "$3.90 per share"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

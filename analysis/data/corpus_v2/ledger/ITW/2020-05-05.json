@@ -1,0 +1,46 @@
+{
+ "ticker": "ITW",
+ "call_date": "2020-05-05",
+ "custom_id": "ITW_2020-05-05",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 24.5,
+    "high": 25,
+    "low_as_written": "24.5",
+    "high_as_written": "25 percent"
+   },
+   "latest_revision": {
+    "low": 24.5,
+    "high": 25,
+    "low_as_written": "24.5",
+    "high_as_written": "25 percent"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Provide full progress update on enterprise strategy and full potential performance at Investor Day in March",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "all"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

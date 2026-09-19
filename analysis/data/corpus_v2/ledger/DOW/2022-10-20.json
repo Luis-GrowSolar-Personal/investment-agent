@@ -1,0 +1,45 @@
+{
+ "ticker": "DOW",
+ "call_date": "2022-10-20",
+ "custom_id": "DOW_2022-10-20",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 2200000000,
+    "high": 2200000000,
+    "low_as_written": "$2.2 billion",
+    "high_as_written": "$2.2 billion"
+   },
+   "latest_revision": {
+    "low": 2200000000,
+    "high": 2300000000,
+    "low_as_written": "$2.2",
+    "high_as_written": "$2.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete Alcoxalates capacity investments startup",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

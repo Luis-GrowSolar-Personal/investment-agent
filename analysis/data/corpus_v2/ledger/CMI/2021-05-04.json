@@ -1,0 +1,75 @@
+{
+ "ticker": "CMI",
+ "call_date": "2021-05-04",
+ "custom_id": "CMI_2021-05-04",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 60000000,
+    "high": 100000000,
+    "low_as_written": "$60",
+    "high_as_written": "$100 million"
+   },
+   "latest_revision": {
+    "low": 110000000,
+    "high": 125000000,
+    "low_as_written": "$110",
+    "high_as_written": "$125 million"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 85000000,
+    "high": 85000000,
+    "low_as_written": "$85 million",
+    "high_as_written": "$85 million"
+   },
+   "latest_revision": {
+    "low": 85000000,
+    "high": 85000000,
+    "low_as_written": "$85 million",
+    "high_as_written": "$85 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 3650000000,
+    "high": 3800000000,
+    "low_as_written": "$3.65",
+    "high_as_written": "$3.8 billion"
+   },
+   "latest_revision": {
+    "low": 3650000000,
+    "high": 3800000000,
+    "low_as_written": "$3.65",
+    "high_as_written": "$3.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

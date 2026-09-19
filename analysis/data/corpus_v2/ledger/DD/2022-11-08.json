@@ -1,0 +1,136 @@
+{
+ "ticker": "DD",
+ "call_date": "2022-11-08",
+ "custom_id": "DD_2022-11-08",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3170000000,
+    "high": 3370000000,
+    "low_as_written": "3.17",
+    "high_as_written": "3.37 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3170000000,
+    "high": 3370000000,
+    "low_as_written": "3.17",
+    "high_as_written": "3.37 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For third quarter 2022, we expect net sales to be between 3.17 and 3.37 billion and operating EBITDA to be about 810 million",
+   "one_sided": null,
+   "actual": 3300000000,
+   "actual_as_written": "$3.3 billion",
+   "range_width_pct": 0.063091,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.81,
+    "high": 0.81,
+    "low_as_written": "81 cents",
+    "high_as_written": "81 cents per share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.81,
+    "high": 0.81,
+    "low_as_written": "81 cents",
+    "high_as_written": "81 cents per share",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect third quarter 2022 adjusted EPS of approximately 81 cents per share",
+   "one_sided": null,
+   "actual": 0.82,
+   "actual_as_written": "$0.82 per share",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.012346,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 17400000000,
+    "high": 17800000000,
+    "low_as_written": "$17.4",
+    "high_as_written": "$17.8 billion"
+   },
+   "latest_revision": {
+    "low": 13000000000,
+    "high": 13400000000,
+    "low_as_written": "$13 billion",
+    "high_as_written": "$13.4 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.2,
+    "high": 3.5,
+    "low_as_written": "$3.20",
+    "high_as_written": "$3.50 per share"
+   },
+   "latest_revision": {
+    "low": 3.27,
+    "high": 3.43,
+    "low_as_written": "$3.27",
+    "high_as_written": "$3.43 per share"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Close Rogers acquisition during the third quarter of 2022",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

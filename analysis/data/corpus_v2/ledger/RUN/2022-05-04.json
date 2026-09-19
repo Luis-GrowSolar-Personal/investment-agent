@@ -1,0 +1,17 @@
+{
+ "ticker": "RUN",
+ "call_date": "2022-05-04",
+ "custom_id": "RUN_2022-05-04",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

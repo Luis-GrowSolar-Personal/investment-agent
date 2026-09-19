@@ -1,0 +1,30 @@
+{
+ "ticker": "PSX",
+ "call_date": "2022-01-28",
+ "custom_id": "PSX_2022-01-28",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Reduce debt balance by approximately another $500 million before year end",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Complete construction of Fract 4 at the Sweeney Hub",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

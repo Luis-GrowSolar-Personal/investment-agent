@@ -1,0 +1,33 @@
+{
+ "ticker": "AIG",
+ "call_date": "2022-08-09",
+ "custom_id": "AIG_2022-08-09",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "AIG targets an IPO of CoreBridge Financial (life and retirement business) in the second quarter, subject to market conditions and required regulatory approvals, retaining greater than 50% interest post-IPO.",
+   "mentioned_now": true
+  },
+  {
+   "intent": "AIG will begin transferring assets to BlackRock over the course of Q2 2022 following signing of IMAs.",
+   "mentioned_now": true
+  },
+  {
+   "intent": "AIG will receive the remaining $1.9 billion under the CoreBridge promissory note during Q2 2022.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

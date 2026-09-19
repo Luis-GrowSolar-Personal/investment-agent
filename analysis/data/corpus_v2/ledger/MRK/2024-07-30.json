@@ -1,0 +1,98 @@
+{
+ "ticker": "MRK",
+ "call_date": "2024-07-30",
+ "custom_id": "MRK_2024-07-30",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 62700000000,
+    "high": 64200000000,
+    "low_as_written": "$62.7",
+    "high_as_written": "$64.2 billion"
+   },
+   "latest_revision": {
+    "low": 63100000000,
+    "high": 64300000000,
+    "low_as_written": "$63.1",
+    "high_as_written": "$64.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 7,
+    "low_as_written": "5%",
+    "high_as_written": "7%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 80.5,
+    "high": 80.5,
+    "low_as_written": "80.5%",
+    "high_as_written": "80.5%"
+   },
+   "latest_revision": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "81%",
+    "high_as_written": "81%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.44,
+    "high": 8.59,
+    "low_as_written": "$8.44",
+    "high_as_written": "$8.59"
+   },
+   "latest_revision": {
+    "low": 8.53,
+    "high": 8.53,
+    "low_as_written": "$8.53",
+    "high_as_written": "$8.53"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Merck to host investor event at ASCO in Chicago to provide update on oncology portfolio",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

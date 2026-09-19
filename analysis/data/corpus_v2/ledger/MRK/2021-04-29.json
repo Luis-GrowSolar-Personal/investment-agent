@@ -1,0 +1,75 @@
+{
+ "ticker": "MRK",
+ "call_date": "2021-04-29",
+ "custom_id": "MRK_2021-04-29",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 51800000000,
+    "high": 53800000000,
+    "low_as_written": "$51.8 billion",
+    "high_as_written": "$53.8 billion"
+   },
+   "latest_revision": {
+    "low": 6000000000,
+    "high": 6500000000,
+    "low_as_written": "$6 billion",
+    "high_as_written": "$6.5 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "roughly 77%",
+    "high_as_written": "roughly 77%"
+   },
+   "latest_revision": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "roughly 77%",
+    "high_as_written": "roughly 77%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 6.48,
+    "high": 6.68,
+    "low_as_written": "$6.48",
+    "high_as_written": "$6.68"
+   },
+   "latest_revision": {
+    "low": 6.48,
+    "high": 6.68,
+    "low_as_written": "$6.48",
+    "high_as_written": "$6.68"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

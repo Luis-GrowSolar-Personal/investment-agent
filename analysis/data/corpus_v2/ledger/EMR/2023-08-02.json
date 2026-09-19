@@ -1,0 +1,171 @@
+{
+ "ticker": "EMR",
+ "call_date": "2023-08-02",
+ "custom_id": "EMR_2023-08-02",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10,
+    "high": 12,
+    "low_as_written": "10",
+    "high_as_written": "12 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 12,
+    "low_as_written": "10",
+    "high_as_written": "12 percent",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect underlying sales growth of 10 to 12 percent.",
+   "one_sided": null,
+   "actual": 14,
+   "actual_as_written": "14%",
+   "range_width_pct": 0.2,
+   "grade": "beat",
+   "beat_pct": 0.166667,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.07,
+    "high": 1.11,
+    "low_as_written": "$1.07",
+    "high_as_written": "$1.11",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.07,
+    "high": 1.11,
+    "low_as_written": "$1.07",
+    "high_as_written": "$1.11",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "adjusted EPS to be between $1.07 and $1.11.",
+   "one_sided": null,
+   "actual": 1.29,
+   "actual_as_written": "$1.29",
+   "range_width_pct": 0.037383,
+   "grade": "beat",
+   "beat_pct": 0.162162,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 6.5,
+    "high": 8.5,
+    "low_as_written": "6.5%",
+    "high_as_written": "8.5%"
+   },
+   "latest_revision": {
+    "low": 8.5,
+    "high": 10,
+    "low_as_written": "8.5%",
+    "high_as_written": "10%"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 4.0,
+    "high": 4.15,
+    "low_as_written": "$4",
+    "high_as_written": "$4.15"
+   },
+   "latest_revision": {
+    "low": 4.0,
+    "high": 4.15,
+    "low_as_written": "$4",
+    "high_as_written": "$4.15"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 2200000000,
+    "high": 2200000000,
+    "low_as_written": "$2.2 billion",
+    "high_as_written": "$2.2 billion"
+   },
+   "latest_revision": {
+    "low": 2200000000,
+    "high": 2200000000,
+    "low_as_written": "$2.2 billion",
+    "high_as_written": "$2.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Emerson expects to close the Climate Technologies transaction on May 31st",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

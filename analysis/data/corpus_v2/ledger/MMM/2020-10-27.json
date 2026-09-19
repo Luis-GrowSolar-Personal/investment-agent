@@ -1,0 +1,83 @@
+{
+ "ticker": "MMM",
+ "call_date": "2020-10-27",
+ "custom_id": "MMM_2020-10-27",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.3,
+    "high": 9.75,
+    "low_as_written": "$9.30",
+    "high_as_written": "$9.75"
+   },
+   "latest_revision": {
+    "low": 9.3,
+    "high": 9.75,
+    "low_as_written": "$9.30",
+    "high_as_written": "$9.75"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5300000000,
+    "high": 6000000000,
+    "low_as_written": "$5.3",
+    "high_as_written": "$6 billion"
+   },
+   "latest_revision": {
+    "low": 5300000000,
+    "high": 6000000000,
+    "low_as_written": "$5.3",
+    "high_as_written": "$6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1300000000,
+    "high": 1300000000,
+    "low_as_written": "approximately $1.3 billion",
+    "high_as_written": "approximately $1.3 billion"
+   },
+   "latest_revision": {
+    "low": 1400000000,
+    "high": 1400000000,
+    "low_as_written": "$1.4 billion",
+    "high_as_written": "$1.4 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "3M will continue to provide monthly sales information and will provide an update on July sales once finalized",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "all"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

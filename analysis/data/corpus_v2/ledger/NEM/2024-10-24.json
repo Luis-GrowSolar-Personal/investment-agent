@@ -1,0 +1,29 @@
+{
+ "ticker": "NEM",
+ "call_date": "2024-10-24",
+ "custom_id": "NEM_2024-10-24",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Newmont expects to receive $153 million from the monetisation of Batu Hijau deferred payment obligations upon closing",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Autoclave 4 at Lihir to commence 120-day shutdown on August 1st",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

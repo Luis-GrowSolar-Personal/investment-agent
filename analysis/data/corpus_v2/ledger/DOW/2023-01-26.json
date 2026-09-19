@@ -1,0 +1,67 @@
+{
+ "ticker": "DOW",
+ "call_date": "2023-01-26",
+ "custom_id": "DOW_2023-01-26",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2200000000,
+    "high": 2200000000,
+    "low_as_written": "$2.2 billion",
+    "high_as_written": "$2.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1900000000,
+    "high": 1900000000,
+    "low_as_written": "$1.9 billion",
+    "high_as_written": "$1.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we anticipate increasing our capital expenditures to $2.2 billion, well within our DNA target",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Start up 34 kiloton alkoxylation project in Spain",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Start up 150 kiloton FCDH pilot plant in Louisiana",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Reach preliminary investment decision for Path to Zero project in Alberta",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

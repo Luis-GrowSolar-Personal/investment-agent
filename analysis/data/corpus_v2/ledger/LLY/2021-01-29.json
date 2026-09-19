@@ -1,0 +1,93 @@
+{
+ "ticker": "LLY",
+ "call_date": "2021-01-29",
+ "custom_id": "LLY_2021-01-29",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 6.7,
+    "high": 6.9,
+    "low_as_written": "$6.70",
+    "high_as_written": "$6.90",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6.2,
+    "high": 6.4,
+    "low_as_written": "$6.20",
+    "high_as_written": "$6.40",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "Earnings per share is now expected to be in the range of $6.70 to $6.90 on a non-GAAP basis.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "roughly 81%",
+    "high_as_written": "roughly 81%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 78,
+    "high": 78,
+    "low_as_written": "78%",
+    "high_as_written": "78%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we're confirming our prior expectations for gross margin as a percent of revenue to be roughly 81% on a non-GAAP basis",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Submit request for emergency use authorization for combination therapy (bamlanivimab + etesevimab) to FDA",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

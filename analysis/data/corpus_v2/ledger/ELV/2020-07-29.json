@@ -1,0 +1,41 @@
+{
+ "ticker": "ELV",
+ "call_date": "2020-07-29",
+ "custom_id": "ELV_2020-07-29",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 22.3,
+    "high": 22.3,
+    "low_as_written": "$22.30",
+    "high_as_written": "$22.30"
+   },
+   "latest_revision": {
+    "low": 22.3,
+    "high": 22.3,
+    "low_as_written": "$22.30",
+    "high_as_written": "$22.30"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [
+  "all"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

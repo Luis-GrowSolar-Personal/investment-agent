@@ -1,0 +1,99 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2025-07-30",
+ "custom_id": "MSFT_2025-07-30",
+ "fiscal": [
+  2025,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 32050000000,
+    "high": 32350000000,
+    "low_as_written": "$32.05",
+    "high_as_written": "$32.35 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12350000000,
+    "high": 12850000000,
+    "low_as_written": "12.35",
+    "high_as_written": "12.85 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect revenue of $32.05 to $32.35 billion for or growth of 11% to 12% in constant currency.",
+   "one_sided": null,
+   "actual": 81300000000,
+   "actual_as_written": "$81.3 billion",
+   "range_width_pct": 0.00936,
+   "grade": "beat",
+   "beat_pct": 1.513138,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 67,
+    "high": 67,
+    "low_as_written": "roughly 67%",
+    "high_as_written": "roughly 67%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 67,
+    "high": 67,
+    "low_as_written": "roughly 67%",
+    "high_as_written": "roughly 67%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Microsoft Cloud gross margin percentage should be roughly 67% down year-over-year, primarily driven by the impact of scaling our AI infrastructure.",
+   "one_sided": null,
+   "actual": 68,
+   "actual_as_written": "68%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.014925,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Q4 capital expenditures expected to increase on a sequential basis; H2 CapEx total remains unchanged from January H2 guidance",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

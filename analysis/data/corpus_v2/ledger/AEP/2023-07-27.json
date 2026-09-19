@@ -1,0 +1,48 @@
+{
+ "ticker": "AEP",
+ "call_date": "2023-07-27",
+ "custom_id": "AEP_2023-07-27",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 5.19,
+    "high": 5.39,
+    "low_as_written": "$5.19",
+    "high_as_written": "$5.39"
+   },
+   "latest_revision": {
+    "low": 5.19,
+    "high": 5.39,
+    "low_as_written": "$5.19",
+    "high_as_written": "$5.39"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "File a base rate case in Kentucky in June 2023 with new rates expected to take effect in January 2024",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close the sale of the unregulated contracted renewables portfolio",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

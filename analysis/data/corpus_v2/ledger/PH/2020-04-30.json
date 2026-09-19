@@ -1,0 +1,79 @@
+{
+ "ticker": "PH",
+ "call_date": "2020-04-30",
+ "custom_id": "PH_2020-04-30",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.36,
+    "high": 2.36,
+    "low_as_written": "$2.36",
+    "high_as_written": "$2.36",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.36,
+    "high": 2.36,
+    "low_as_written": "$2.36",
+    "high_as_written": "$2.36",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Third quarter fiscal 2020 adjusted earnings per share is projected to be $2.36 per share at the midpoint.",
+   "one_sided": null,
+   "actual": 2.92,
+   "actual_as_written": "$2.92",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.237288,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.25,
+    "high": 10.85,
+    "low_as_written": "$10.25",
+    "high_as_written": "$10.85"
+   },
+   "latest_revision": {
+    "low": 8.78,
+    "high": 9.38,
+    "low_as_written": "$8.78",
+    "high_as_written": "$9.38"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [
+  "all"
+ ],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

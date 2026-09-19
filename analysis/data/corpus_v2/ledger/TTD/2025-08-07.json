@@ -1,0 +1,77 @@
+{
+ "ticker": "TTD",
+ "call_date": "2025-08-07",
+ "custom_id": "TTD_2025-08-07",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 682000000,
+    "high": 682000000,
+    "low_as_written": "$682 million",
+    "high_as_written": "$682 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 682000000,
+    "high": 682000000,
+    "low_as_written": "$682 million",
+    "high_as_written": "$682 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "in Q2, we expect revenue to be at least $682 million, reflecting 17% year-over-year growth.",
+   "one_sided": "floor",
+   "actual": 694000000,
+   "actual_as_written": "$694 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,229 @@
+{
+ "ticker": "MMM",
+ "call_date": "2024-01-23",
+ "custom_id": "MMM_2024-01-23",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8.5,
+    "high": 9.0,
+    "low_as_written": "$8.50",
+    "high_as_written": "$9",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8.95,
+    "high": 9.15,
+    "low_as_written": "$8.95",
+    "high_as_written": "$9.15",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "adjusted EPS of $8.50 to $9, and adjusted free cash flow conversion of 90% to 100%.",
+   "one_sided": null,
+   "actual": 9.24,
+   "actual_as_written": "$9.24",
+   "range_width_pct": 0.058824,
+   "grade": "beat",
+   "beat_pct": 0.026667,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90%",
+    "high_as_written": "100%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 110,
+    "low_as_written": "100%",
+    "high_as_written": "110%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "adjusted EPS of $8.50 to $9, and adjusted free cash flow conversion of 90% to 100%.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -3,
+    "high": 0,
+    "low_as_written": "minus 3%",
+    "high_as_written": "flat",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -3,
+    "high": 0,
+    "low_as_written": "minus 3%",
+    "high_as_written": "flat",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we estimate our full-year adjusted organic sales growth to be in the range of minus 3% to flat.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1500000000,
+    "high": 1800000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1500000000,
+    "high": 1800000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect capital expenditures in the range of $1.5 to $1.8 billion, which includes approximately $200 million of investment in water stewardship related to our exit of PFAS manufacturing.",
+   "one_sided": null,
+   "actual": 1400000000,
+   "actual_as_written": "$1.4 billion",
+   "range_width_pct": 0.2,
+   "grade": "beat",
+   "beat_pct": 0.066667,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7600000000,
+    "high": 7700000000,
+    "low_as_written": "$7.6",
+    "high_as_written": "$7.7 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7600000000,
+    "high": 7700000000,
+    "low_as_written": "$7.6",
+    "high_as_written": "$7.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate fourth quarter adjusted sales to be in the range of $7.6 to $7.7 billion",
+   "one_sided": null,
+   "actual": 7700000000,
+   "actual_as_written": "$7.7 billion",
+   "range_width_pct": 0.013158,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.13,
+    "high": 2.33,
+    "low_as_written": "$2.13",
+    "high_as_written": "$2.33",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.13,
+    "high": 2.33,
+    "low_as_written": "$2.13",
+    "high_as_written": "$2.33",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect fourth quarter adjusted earnings per share will be in the range of $2.13 to $2.33.",
+   "one_sided": null,
+   "actual": 2.42,
+   "actual_as_written": "$2.42",
+   "range_width_pct": 0.093897,
+   "grade": "beat",
+   "beat_pct": 0.038627,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 3,
+  "basis_mismatch": 1,
+  "ungradable_present": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

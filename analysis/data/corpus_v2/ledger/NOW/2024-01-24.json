@@ -1,0 +1,231 @@
+{
+ "ticker": "NOW",
+ "call_date": "2024-01-24",
+ "custom_id": "NOW_2024-01-24",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8440000000,
+    "high": 8500000000,
+    "low_as_written": "$8.44 billion",
+    "high_as_written": "$8.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8635000000,
+    "high": 8640000000,
+    "low_as_written": "$8.635 billion",
+    "high_as_written": "$8.640 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect subscription revenues between $8.44 billion and $8.5 billion, representing 22.5% to 23.5% year-over-year growth on both a reported and constant currency basis.",
+   "one_sided": null,
+   "actual": 8680000000,
+   "actual_as_written": "8.68 billion",
+   "range_width_pct": 0.007109,
+   "grade": "beat",
+   "beat_pct": 0.021176,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84%",
+    "high_as_written": "84%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect subscription gross margin of 84%, reflecting the expected diminishing impact of the change in useful life of our data center equipment",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 26,
+    "high": 26,
+    "low_as_written": "26%",
+    "high_as_written": "26%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 27,
+    "high": 27,
+    "low_as_written": "27%",
+    "high_as_written": "27%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect operating margin of 26% as sales and marketing efficiencies are offsetting headwinds from gross margins.",
+   "one_sided": null,
+   "actual": 28,
+   "actual_as_written": "28%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.076923,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 30,
+    "high": 30,
+    "low_as_written": "30%",
+    "high_as_written": "30%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect free cash flow margin of 30%.",
+   "one_sided": null,
+   "actual": 30,
+   "actual_as_written": "30%",
+   "range_width_pct": 0.0,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2320000000,
+    "high": 2325000000,
+    "low_as_written": "$2.320 billion",
+    "high_as_written": "$2.325 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2320000000,
+    "high": 2325000000,
+    "low_as_written": "$2.320 billion",
+    "high_as_written": "$2.325 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q4, we expect subscription revenues between $2.320 billion and $2.325 billion, representing 24.5% to 25% year-over-year growth",
+   "one_sided": null,
+   "actual": 2365000000,
+   "actual_as_written": "2.365 billion",
+   "range_width_pct": 0.002155,
+   "grade": "beat",
+   "beat_pct": 0.017204,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 27.5,
+    "high": 27.5,
+    "low_as_written": "27.5%",
+    "high_as_written": "27.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 27.5,
+    "high": 27.5,
+    "low_as_written": "27.5%",
+    "high_as_written": "27.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect an operating margin of 27.5%",
+   "one_sided": null,
+   "actual": 29,
+   "actual_as_written": "29%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.054545,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 4,
+  "ungradable_present": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

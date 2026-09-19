@@ -1,0 +1,62 @@
+{
+ "ticker": "ITW",
+ "call_date": "2023-08-01",
+ "custom_id": "ITW_2023-08-01",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 24.5,
+    "high": 25.5,
+    "low_as_written": "24.5",
+    "high_as_written": "25.5 percent"
+   },
+   "latest_revision": {
+    "low": 24.5,
+    "high": 25.5,
+    "low_as_written": "24.5",
+    "high_as_written": "25.5 percent"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "more than 100 basis points",
+    "high_as_written": "more than 100 basis points"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "more than 100 basis points",
+    "high_as_written": "more than 100 basis points"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "ITW will host an Investor Day in Boston on May 18th featuring segments including food equipment and automotive OEM.",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

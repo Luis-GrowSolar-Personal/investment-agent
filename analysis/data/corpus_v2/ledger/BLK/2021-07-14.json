@@ -1,0 +1,25 @@
+{
+ "ticker": "BLK",
+ "call_date": "2021-07-14",
+ "custom_id": "BLK_2021-07-14",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "BlackRock expects a large U.S. public pension client to transition approximately $55 billion of low-fee index assets to another investment manager",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

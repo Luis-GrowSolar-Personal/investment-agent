@@ -1,0 +1,63 @@
+{
+ "ticker": "CMCSA",
+ "call_date": "2021-01-28",
+ "custom_id": "CMCSA_2021-01-28",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": null,
+    "high": 100,
+    "low_as_written": null,
+    "high_as_written": "100 basis points",
+    "one_sided": "ceiling"
+   },
+   "latest_revision": {
+    "low": null,
+    "high": 100,
+    "low_as_written": null,
+    "high_as_written": "100 basis points",
+    "one_sided": "ceiling"
+   },
+   "n_revisions": 2,
+   "quote": "We also expect our full year CapEx intensity to improve by up to 100 basis points year over year versus our prior guidance of approximately 50 basis points of improvement",
+   "one_sided": "ceiling",
+   "actual": 68.1159420289855,
+   "actual_as_written": "$11.6 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 6900000000
+   },
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

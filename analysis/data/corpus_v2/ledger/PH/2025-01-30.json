@@ -1,0 +1,133 @@
+{
+ "ticker": "PH",
+ "call_date": "2025-01-30",
+ "custom_id": "PH_2025-01-30",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4800000000,
+    "high": 4800000000,
+    "low_as_written": "$4.8 billion",
+    "high_as_written": "$4.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4800000000,
+    "high": 4800000000,
+    "low_as_written": "$4.8 billion",
+    "high_as_written": "$4.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Reported sales are expected to be $4.8 billion with organic growth of 1%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 6.15,
+    "high": 6.15,
+    "low_as_written": "$6.15",
+    "high_as_written": "$6.15",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6.15,
+    "high": 6.15,
+    "low_as_written": "$6.15",
+    "high_as_written": "$6.15",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "adjusted EPS is now expected to be $6.15.",
+   "one_sided": null,
+   "actual": 6.53,
+   "actual_as_written": "$6.53",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.061789,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 20500000000,
+    "high": 20500000000,
+    "low_as_written": "$20.5 billion",
+    "high_as_written": "$20.5 billion"
+   },
+   "latest_revision": {
+    "low": 20300000000,
+    "high": 20300000000,
+    "low_as_written": "$20.3 billion",
+    "high_as_written": "$20.3 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 1.5,
+    "high": 4.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "4.5%"
+   },
+   "latest_revision": {
+    "low": 1.5,
+    "high": 3.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "3.5%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Parker expects divestitures to close in the second quarter of fiscal 2025, representing a 1.5% reduction to fiscal year 2025 reported sales",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 2
+}

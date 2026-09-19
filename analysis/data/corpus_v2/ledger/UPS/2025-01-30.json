@@ -1,0 +1,240 @@
+{
+ "ticker": "UPS",
+ "call_date": "2025-01-30",
+ "custom_id": "UPS_2025-01-30",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 92000000000,
+    "high": 94500000000,
+    "low_as_written": "$92 billion",
+    "high_as_written": "$94.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 91100000000,
+    "high": 91100000000,
+    "low_as_written": "$91.1 billion",
+    "high_as_written": "$91.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "revenues are expected to range from approximately $92 billion to $94.5 billion",
+   "one_sided": null,
+   "actual": 91100000000,
+   "actual_as_written": "$91.1 billion",
+   "range_width_pct": 0.027174,
+   "grade": "missed",
+   "miss_pct": 0.009783,
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10,
+    "high": 10.6,
+    "low_as_written": "10%",
+    "high_as_written": "10.6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9.6,
+    "high": 9.6,
+    "low_as_written": "9.6%",
+    "high_as_written": "9.6%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "operating margin is expected to range from approximately 10% to 10.6%",
+   "one_sided": null,
+   "actual": 9.8,
+   "actual_as_written": "9.8%",
+   "range_width_pct": 0.06,
+   "grade": "missed",
+   "miss_pct": 0.02,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4500000000,
+    "high": 5300000000,
+    "low_as_written": "$4.5",
+    "high_as_written": "$5.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5100000000,
+    "high": 5100000000,
+    "low_as_written": "$5.1 billion",
+    "high_as_written": "$5.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect free cash flow to be within a range of approximately $4.5 to $5.3 billion",
+   "one_sided": null,
+   "actual": 10100000000,
+   "actual_as_written": "$10.1 billion",
+   "range_width_pct": 0.177778,
+   "grade": "beat",
+   "beat_pct": 0.90566,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4500000000,
+    "high": 4500000000,
+    "low_as_written": "$4.5 billion",
+    "high_as_written": "$4.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4000000000,
+    "high": 4000000000,
+    "low_as_written": "$4 billion",
+    "high_as_written": "$4 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect 2024 capital expenditures to be within our target of around 5% of revenue, or $4.5 billion.",
+   "one_sided": null,
+   "actual": 3900000000,
+   "actual_as_written": "$3.9 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.133333,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1.5,
+    "high": 1.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "1.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.5,
+    "high": 1.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "1.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect a combination of both volume and revenue per piece growth to increase revenue by 1.5% in the fourth quarter.",
+   "one_sided": null,
+   "actual": 1.6064257028112428,
+   "actual_as_written": "$25.3 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 24900000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.07095,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3300000000,
+    "high": 3300000000,
+    "low_as_written": "$3.3 billion",
+    "high_as_written": "$3.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3300000000,
+    "high": 3300000000,
+    "low_as_written": "$3.3 billion",
+    "high_as_written": "$3.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect revenue in the fourth quarter of around $3.3 billion, which takes into consideration the disposition of Coyote",
+   "one_sided": null,
+   "actual": 25300000000,
+   "actual_as_written": "$25.3 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 6.666667,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 2,
+  "beat": 4
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

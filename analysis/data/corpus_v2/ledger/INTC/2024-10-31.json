@@ -1,0 +1,185 @@
+{
+ "ticker": "INTC",
+ "call_date": "2024-10-31",
+ "custom_id": "INTC_2024-10-31",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 12500000000,
+    "high": 13500000000,
+    "low_as_written": "$12.5",
+    "high_as_written": "$13.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12500000000,
+    "high": 13500000000,
+    "low_as_written": "$12.5",
+    "high_as_written": "$13.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect revenue of $12.5 to $13.5 billion in the third quarter.",
+   "one_sided": null,
+   "actual": 13300000000,
+   "actual_as_written": "$13.3 billion",
+   "range_width_pct": 0.08,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 38,
+    "high": 38,
+    "low_as_written": "38%",
+    "high_as_written": "38%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 38,
+    "high": 38,
+    "low_as_written": "38%",
+    "high_as_written": "38%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "At the midpoint of $13 billion, we expect gross margin of approximately 38%, with a tax rate of 13%, an EPS of negative 3 cents, all on a non-GAAP basis.",
+   "one_sided": null,
+   "actual": 18,
+   "actual_as_written": "18%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.526316,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -0.03,
+    "high": -0.03,
+    "low_as_written": "negative 3 cents",
+    "high_as_written": "negative 3 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.03,
+    "high": -0.03,
+    "low_as_written": "negative 3 cents",
+    "high_as_written": "negative 3 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect gross margin of approximately 38%, with a tax rate of 13%, an EPS of negative 3 cents, all on a non-GAAP basis.",
+   "one_sided": null,
+   "actual": -0.46,
+   "actual_as_written": "46 cents",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 14.333333,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "growth_pct",
+   "original": {
+    "low": 200,
+    "high": 200,
+    "low_as_written": "roughly 200 basis points",
+    "high_as_written": "roughly 200 basis points"
+   },
+   "latest_revision": {
+    "low": 200,
+    "high": 200,
+    "low_as_written": "roughly 200 basis points",
+    "high_as_written": "roughly 200 basis points"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "approximately neutral",
+    "high_as_written": "approximately neutral"
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 0,
+    "low_as_written": "approximately neutral",
+    "high_as_written": "approximately neutral"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 25000000000,
+    "high": 27000000000,
+    "low_as_written": "$25",
+    "high_as_written": "$27 billion"
+   },
+   "latest_revision": {
+    "low": 25000000000,
+    "high": 27000000000,
+    "low_as_written": "$25",
+    "high_as_written": "$27 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [
+  "other"
+ ],
+ "counts": {
+  "met": 1,
+  "missed": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

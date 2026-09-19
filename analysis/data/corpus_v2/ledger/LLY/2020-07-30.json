@@ -1,0 +1,62 @@
+{
+ "ticker": "LLY",
+ "call_date": "2020-07-30",
+ "custom_id": "LLY_2020-07-30",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 6.7,
+    "high": 6.9,
+    "low_as_written": "$6.70",
+    "high_as_written": "$6.90"
+   },
+   "latest_revision": {
+    "low": 6.2,
+    "high": 6.4,
+    "low_as_written": "$6.20",
+    "high_as_written": "$6.40"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "roughly 81%",
+    "high_as_written": "roughly 81%"
+   },
+   "latest_revision": {
+    "low": 79,
+    "high": 79,
+    "low_as_written": "79%",
+    "high_as_written": "79%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Submit IND to FDA for neutralizing antibody COVID-19 therapy by end of May to allow start of clinical testing",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 2
+}

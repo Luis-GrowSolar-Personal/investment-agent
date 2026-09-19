@@ -1,0 +1,39 @@
+{
+ "ticker": "DOW",
+ "call_date": "2025-04-24",
+ "custom_id": "DOW_2025-04-24",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1 billion"
+   },
+   "latest_revision": {
+    "low": 3000000000,
+    "high": 3200000000,
+    "low_as_written": "$3 billion",
+    "high_as_written": "$3.2"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

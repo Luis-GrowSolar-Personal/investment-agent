@@ -1,0 +1,75 @@
+{
+ "ticker": "TFC",
+ "call_date": "2023-04-20",
+ "custom_id": "TFC_2023-04-20",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2023,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -3,
+    "high": -2,
+    "low_as_written": "2%",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -3,
+    "high": -2,
+    "low_as_written": "2%",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Looking into 1Q23, we expect revenues to decline 2% to 3% relative to 4Q2022.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7,
+    "high": 9,
+    "low_as_written": "7%",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 9,
+    "low_as_written": "7%",
+    "high_as_written": "9%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

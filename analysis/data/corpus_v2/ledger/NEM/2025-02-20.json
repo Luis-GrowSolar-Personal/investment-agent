@@ -1,0 +1,34 @@
+{
+ "ticker": "NEM",
+ "call_date": "2025-02-20",
+ "custom_id": "NEM_2025-02-20",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete Telfer/Havieron divestiture transaction",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close Ahafo North mine commissioning and begin stockpiling ore",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close Akyem divestiture transaction",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 5,
+ "revised_down_count": 0
+}

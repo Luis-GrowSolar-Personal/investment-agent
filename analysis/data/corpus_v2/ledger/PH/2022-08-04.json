@@ -1,0 +1,159 @@
+{
+ "ticker": "PH",
+ "call_date": "2022-08-04",
+ "custom_id": "PH_2022-08-04",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 9,
+    "low_as_written": "5%",
+    "high_as_written": "9%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 10,
+    "low_as_written": "10%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "n_revisions": 5,
+   "quote": "Sales, we're forecasting sales to increase in the range of 5% to 9%, really 7% at the midpoint",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 2,
+    "low_as_written": "2%",
+    "high_as_written": "2%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect capital expenditures to be 2% for the year.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 18.0,
+    "high": 18.3,
+    "low_as_written": "$18.15",
+    "high_as_written": "$18.15",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18.0,
+    "high": 18.3,
+    "low_as_written": "$18.15",
+    "high_as_written": "$18.15",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We're raising full-year EPS by 10 cents. Last quarter, we were projecting $18.05 per share. We are now at $18.15 per share at the midpoint. We've also narrowed the range to $0.15 on either side.",
+   "one_sided": null,
+   "actual": 18.72,
+   "actual_as_written": "$18.72",
+   "range_width_pct": 0.016667,
+   "grade": "beat",
+   "beat_pct": 0.022951,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.6,
+    "high": 4.6,
+    "low_as_written": "$4.60",
+    "high_as_written": "$4.60",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.6,
+    "high": 4.6,
+    "low_as_written": "$4.60",
+    "high_as_written": "$4.60",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "for us that equates to an EPS, adjusted EPS guide for Q4 of $4.60.",
+   "one_sided": null,
+   "actual": 5.16,
+   "actual_as_written": "$5.16",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.121739,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "unreported": 1,
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

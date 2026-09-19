@@ -1,0 +1,97 @@
+{
+ "ticker": "CMCSA",
+ "call_date": "2023-01-26",
+ "custom_id": "CMCSA_2023-01-26",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 11,
+    "high": 11,
+    "low_as_written": "11%",
+    "high_as_written": "11%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11,
+    "high": 11,
+    "low_as_written": "11%",
+    "high_as_written": "11%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we continue to expect Cable capex intensity to stay around 11% as we increase investment in our broadband network.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "NBC Universal CapEx related to the construction of Epic Universe to be up around $1 billion year over year.",
+   "one_sided": null,
+   "actual": 14.049586776859503,
+   "actual_as_written": "$13.8 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 12100000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 1.0,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,96 @@
+{
+ "ticker": "IBM",
+ "call_date": "2023-01-25",
+ "custom_id": "IBM_2023-01-25",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 12000000000,
+    "high": 13000000000,
+    "low_as_written": "$12",
+    "high_as_written": "$13 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10000000000,
+    "high": 10000000000,
+    "low_as_written": "about $10 billion",
+    "high_as_written": "about $10 billion",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "we expect to build on this with adjusted free cash flow in the range of $12 to $13 billion",
+   "one_sided": null,
+   "actual": 9300000000,
+   "actual_as_written": "$9.3 billion",
+   "range_width_pct": 0.083333,
+   "grade": "missed",
+   "miss_pct": 0.225,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 4,
+    "low_as_written": "four-point",
+    "high_as_written": "four-point",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.5,
+    "high": 3.5,
+    "low_as_written": "3.5-point",
+    "high_as_written": "3.5-point",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "These segment revenue and margin dynamics we yield about a four-point year-to-year improvement in IBM's pre-tax operating margin for the full year",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "IBM will provide a view of 2023 during the fourth quarter earnings report",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

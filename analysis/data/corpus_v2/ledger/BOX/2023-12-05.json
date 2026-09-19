@@ -1,0 +1,210 @@
+{
+ "ticker": "BOX",
+ "call_date": "2023-12-05",
+ "custom_id": "BOX_2023-12-05",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 261000000,
+    "high": 263000000,
+    "low_as_written": "$261",
+    "high_as_written": "$263 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 261000000,
+    "high": 263000000,
+    "low_as_written": "$261",
+    "high_as_written": "$263 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the third quarter of fiscal 2024, we anticipate revenue in the range of $261 to $263 million",
+   "one_sided": null,
+   "actual": 262000000,
+   "actual_as_written": "$262 million",
+   "range_width_pct": 0.007663,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "roughly 77%",
+    "high_as_written": "roughly 77%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "roughly 77%",
+    "high_as_written": "roughly 77%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our Q3 gross margin to be roughly 77%.",
+   "one_sided": null,
+   "actual": 76.3,
+   "actual_as_written": "76.3%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.009091,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 25.5,
+    "high": 25.5,
+    "low_as_written": "approximately 25.5%",
+    "high_as_written": "approximately 25.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25.5,
+    "high": 25.5,
+    "low_as_written": "approximately 25.5%",
+    "high_as_written": "approximately 25.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our Q3 non-GAAP operating margin to increase to approximately 25.5%",
+   "one_sided": null,
+   "actual": 24.7,
+   "actual_as_written": "24.7%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.031373,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 1050000000,
+    "high": 1060000000,
+    "low_as_written": "$1.05 billion",
+    "high_as_written": "$1.06 billion"
+   },
+   "latest_revision": {
+    "low": 1040000000,
+    "high": 1044000000,
+    "low_as_written": "$1.04 billion",
+    "high_as_written": "$1.044 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 1.42,
+    "high": 1.48,
+    "low_as_written": "$1.42",
+    "high_as_written": "$1.48"
+   },
+   "latest_revision": {
+    "low": 1.46,
+    "high": 1.5,
+    "low_as_written": "$1.46",
+    "high_as_written": "$1.50"
+   },
+   "revised_down": false,
+   "n_revisions": 5
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "77%",
+    "high_as_written": "77%"
+   },
+   "latest_revision": {
+    "low": 77.5,
+    "high": 77.5,
+    "low_as_written": "roughly 77.5%",
+    "high_as_written": "roughly 77.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 25.5,
+    "high": 25.5,
+    "low_as_written": "approximately 25.5%",
+    "high_as_written": "approximately 25.5%"
+   },
+   "latest_revision": {
+    "low": 25.5,
+    "high": 25.5,
+    "low_as_written": "approximately 25.5%",
+    "high_as_written": "approximately 25.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Box expects to be fully running its production environment in the public cloud by the end of Q3 FY2024",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Box plans to host BoxWorks customer conference on October 11th with a virtual investor product briefing",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "missed": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

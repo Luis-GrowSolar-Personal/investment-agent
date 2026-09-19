@@ -1,0 +1,137 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2023-01-24",
+ "custom_id": "MSFT_2023-01-24",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 16600000000,
+    "high": 16900000000,
+    "low_as_written": "16.6",
+    "high_as_written": "16.9 billion U.S. dollars",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13350000000,
+    "high": 13750000000,
+    "low_as_written": "13.35",
+    "high_as_written": "13.75 billion U.S. dollars",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "we expect revenue to grow between 11 and 13% in constant currency, or 16.6 to 16.9 billion U.S. dollars.",
+   "one_sided": null,
+   "actual": 56200000000,
+   "actual_as_written": "$56.2 billion",
+   "range_width_pct": 0.018072,
+   "grade": "beat",
+   "beat_pct": 2.325444,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10,
+    "high": 12,
+    "low_as_written": "10",
+    "high_as_written": "12%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 12,
+    "low_as_written": "10",
+    "high_as_written": "12%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect revenue to grow between 10 and 12% in constant currency, or 17.9 to 18.2 billion U.S. dollars",
+   "one_sided": null,
+   "actual": 8.285163776493265,
+   "actual_as_written": "$56.2 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 51900000000
+   },
+   "range_width_pct": 0.2,
+   "grade": "missed",
+   "miss_pct": 0.171484,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "operating_income",
+   "framing": "level",
+   "original": {
+    "low": 3700000000,
+    "high": 3700000000,
+    "low_as_written": "approximately $3.7 billion",
+    "high_as_written": "approximately $3.7 billion"
+   },
+   "latest_revision": {
+    "low": 3700000000,
+    "high": 3700000000,
+    "low_as_written": "$3.7 billion",
+    "high_as_written": "$3.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "around 20%",
+    "high_as_written": "around 20%"
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": 20,
+    "low_as_written": "around 20%",
+    "high_as_written": "around 20%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

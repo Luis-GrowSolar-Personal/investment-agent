@@ -1,0 +1,181 @@
+{
+ "ticker": "EMR",
+ "call_date": "2024-08-07",
+ "custom_id": "EMR_2024-08-07",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.38,
+    "high": 1.42,
+    "low_as_written": "$1.38",
+    "high_as_written": "$1.42",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.38,
+    "high": 1.42,
+    "low_as_written": "$1.38",
+    "high_as_written": "$1.42",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Adjusted earnings per share is expected at $1.38 to $1.42.",
+   "one_sided": null,
+   "actual": 1.43,
+   "actual_as_written": "$1.43",
+   "range_width_pct": 0.028986,
+   "grade": "beat",
+   "beat_pct": 0.007042,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3,
+    "high": 4.5,
+    "low_as_written": "3%",
+    "high_as_written": "4.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 4.5,
+    "low_as_written": "3%",
+    "high_as_written": "4.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the third quarter, we expect underlying sales growth between 3% and 4.5%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 2600000000,
+    "high": 2700000000,
+    "low_as_written": "$2.6",
+    "high_as_written": "$2.7 billion"
+   },
+   "latest_revision": {
+    "low": 2700000000,
+    "high": 2700000000,
+    "low_as_written": "$2.7 billion",
+    "high_as_written": "$2.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%"
+   },
+   "latest_revision": {
+    "low": 15,
+    "high": 16,
+    "low_as_written": "15%",
+    "high_as_written": "16%"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 2.5,
+    "high": 2.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "2.5%"
+   },
+   "latest_revision": {
+    "low": 2.5,
+    "high": 2.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "2.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 5.3,
+    "high": 5.45,
+    "low_as_written": "$5.30",
+    "high_as_written": "$5.45"
+   },
+   "latest_revision": {
+    "low": 5.4,
+    "high": 5.5,
+    "low_as_written": "$5.40",
+    "high_as_written": "$5.50"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 1500000000,
+    "high": 1600000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.6 billion"
+   },
+   "latest_revision": {
+    "low": 1500000000,
+    "high": 1600000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

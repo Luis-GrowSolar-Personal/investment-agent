@@ -1,0 +1,39 @@
+{
+ "ticker": "DUK",
+ "call_date": "2025-08-05",
+ "custom_id": "DUK_2025-08-05",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5.0,
+    "high": 7.0,
+    "low_as_written": "5%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 7,
+    "low_as_written": "5%",
+    "high_as_written": "7%"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

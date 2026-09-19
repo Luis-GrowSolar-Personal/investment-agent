@@ -1,0 +1,25 @@
+{
+ "ticker": "NEM",
+ "call_date": "2023-07-20",
+ "custom_id": "NEM_2023-07-20",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Newmont plans to issue its third annual climate report outlining climate-related risks, opportunities, and carbon reduction actions",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

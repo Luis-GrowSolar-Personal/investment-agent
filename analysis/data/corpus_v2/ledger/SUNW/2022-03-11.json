@@ -1,0 +1,25 @@
+{
+ "ticker": "SUNW",
+ "call_date": "2022-03-11",
+ "custom_id": "SUNW_2022-03-11",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Identify a national sales leader for C&I sales efforts",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

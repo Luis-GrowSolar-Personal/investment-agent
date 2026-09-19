@@ -1,0 +1,99 @@
+{
+ "ticker": "UPS",
+ "call_date": "2024-04-23",
+ "custom_id": "UPS_2024-04-23",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 92000000000,
+    "high": 94500000000,
+    "low_as_written": "$92 billion",
+    "high_as_written": "$94.5 billion"
+   },
+   "latest_revision": {
+    "low": 13000000000,
+    "high": 13500000000,
+    "low_as_written": "$13",
+    "high_as_written": "$13.5 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 10,
+    "high": 10.6,
+    "low_as_written": "10%",
+    "high_as_written": "10.6%"
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 10.6,
+    "low_as_written": "10%",
+    "high_as_written": "10.6%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 4500000000,
+    "high": 5300000000,
+    "low_as_written": "$4.5",
+    "high_as_written": "$5.3 billion"
+   },
+   "latest_revision": {
+    "low": 4500000000,
+    "high": 5300000000,
+    "low_as_written": "$4.5",
+    "high_as_written": "$5.3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 4500000000,
+    "high": 4500000000,
+    "low_as_written": "$4.5 billion",
+    "high_as_written": "$4.5 billion"
+   },
+   "latest_revision": {
+    "low": 4500000000,
+    "high": 4500000000,
+    "low_as_written": "$4.5 billion",
+    "high_as_written": "$4.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "UPS plans to share multi-year targets and strategy details at its Investor and Analyst Day",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

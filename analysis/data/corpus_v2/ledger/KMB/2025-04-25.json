@@ -1,0 +1,44 @@
+{
+ "ticker": "KMB",
+ "call_date": "2025-04-25",
+ "custom_id": "KMB_2025-04-25",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 100000000,
+    "high": 120000000,
+    "low_as_written": "$100",
+    "high_as_written": "$120 million"
+   },
+   "latest_revision": {
+    "low": 100000000,
+    "high": 120000000,
+    "low_as_written": "$100",
+    "high_as_written": "$120 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Propose a high single-digit dividend increase at the February board and shareholders meetings",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

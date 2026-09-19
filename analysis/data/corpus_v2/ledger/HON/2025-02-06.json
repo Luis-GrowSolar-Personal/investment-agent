@@ -1,0 +1,223 @@
+{
+ "ticker": "HON",
+ "call_date": "2025-02-06",
+ "custom_id": "HON_2025-02-06",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 38100000000,
+    "high": 38900000000,
+    "low_as_written": "$38.1",
+    "high_as_written": "$38.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 38600000000,
+    "high": 38800000000,
+    "low_as_written": "$38.6",
+    "high_as_written": "$38.8 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect sales of $38.1 to $38.9 billion, which represents an overall organic sales growth range of 4% to 6% for the year",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 6,
+    "low_as_written": "5%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "an overall organic sales growth range of 4% to 6% for the year",
+   "one_sided": null,
+   "actual": 3,
+   "actual_as_written": "3%",
+   "range_width_pct": 0.5,
+   "grade": "missed",
+   "miss_pct": 0.25,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 9.8,
+    "high": 10.1,
+    "low_as_written": "$9.80",
+    "high_as_written": "$10.10",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10.15,
+    "high": 10.25,
+    "low_as_written": "$10.15",
+    "high_as_written": "$10.25",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we anticipate full year adjusted earnings per share to be between $9.80 and $10.10, up 7% to 10% year on year.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5600000000,
+    "high": 6000000000,
+    "low_as_written": "$5.6",
+    "high_as_written": "$6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5100000000,
+    "high": 5400000000,
+    "low_as_written": "$5.1",
+    "high_as_written": "$5.4 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect free cash flow to be in the $5.6 to $6 billion range, up 6% to 13%, excluding the impact of prior year settlements.",
+   "one_sided": null,
+   "actual": 4900000000,
+   "actual_as_written": "$4.9 billion",
+   "range_width_pct": 0.071429,
+   "grade": "missed",
+   "miss_pct": 0.125,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 10200000000,
+    "high": 10400000000,
+    "low_as_written": "$10.2 billion",
+    "high_as_written": "$10.4 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10200000000,
+    "high": 10400000000,
+    "low_as_written": "$10.2 billion",
+    "high_as_written": "$10.4 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the fourth quarter, we anticipate sales in the range of $10.2 billion to $10.4 billion, up 2% to 4% organically.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.73,
+    "high": 2.83,
+    "low_as_written": "$2.73",
+    "high_as_written": "$2.83",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.73,
+    "high": 2.83,
+    "low_as_written": "$2.73",
+    "high_as_written": "$2.83",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect fourth quarter adjusted earnings per share between $2.73 and $2.83, up 1% to 5% year-on-year.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 4,
+  "missed": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 4,
+ "revised_down_count": 0
+}

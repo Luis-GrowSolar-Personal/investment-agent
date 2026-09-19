@@ -1,0 +1,17 @@
+{
+ "ticker": "TMUS",
+ "call_date": "2020-11-05",
+ "custom_id": "TMUS_2020-11-05",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

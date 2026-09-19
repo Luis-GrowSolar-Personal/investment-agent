@@ -1,0 +1,96 @@
+{
+ "ticker": "HCA",
+ "call_date": "2023-01-27",
+ "custom_id": "HCA_2023-01-27",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 60000000000,
+    "high": 62000000000,
+    "low_as_written": "60 billion",
+    "high_as_written": "62 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 59500000000,
+    "high": 61500000000,
+    "low_as_written": "$59.5 billion",
+    "high_as_written": "$61.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect revenue to range between 60 billion and 62 billion.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2022,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4200000000,
+    "high": 4200000000,
+    "low_as_written": "$4.2 billion",
+    "high_as_written": "$4.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4200000000,
+    "high": 4200000000,
+    "low_as_written": "$4.2 billion",
+    "high_as_written": "$4.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect capital spending to approximate $4.2 billion during the year.",
+   "one_sided": null,
+   "actual": 4400000000,
+   "actual_as_written": "$4.4 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.047619,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "HCA will provide full 2023 outlook after completing planning process in early January 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 4,
+ "revised_down_count": 0
+}

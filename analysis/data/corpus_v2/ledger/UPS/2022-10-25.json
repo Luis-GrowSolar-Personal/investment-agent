@@ -1,0 +1,207 @@
+{
+ "ticker": "UPS",
+ "call_date": "2022-10-25",
+ "custom_id": "UPS_2022-10-25",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 11.6,
+    "high": 11.6,
+    "low_as_written": "11.6%",
+    "high_as_written": "11.6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13.6,
+    "high": 13.6,
+    "low_as_written": "13.6%",
+    "high_as_written": "13.6%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect second half operating margin to expand to about 11.6%",
+   "one_sided": null,
+   "actual": 13,
+   "actual_as_written": "13%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.12069,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect revenue in the second half of 2022 of nearly $9 billion, driven by our logistics and healthcare businesses",
+   "one_sided": null,
+   "actual": 24200000000,
+   "actual_as_written": "$24.2 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 1.688889,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 102000000000,
+    "high": 102000000000,
+    "low_as_written": "$102 billion",
+    "high_as_written": "$102 billion"
+   },
+   "latest_revision": {
+    "low": 102000000000,
+    "high": 102000000000,
+    "low_as_written": "$102 billion",
+    "high_as_written": "$102 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 13.7,
+    "high": 13.7,
+    "low_as_written": "13.7%",
+    "high_as_written": "13.7%"
+   },
+   "latest_revision": {
+    "low": 13.7,
+    "high": 13.7,
+    "low_as_written": "13.7%",
+    "high_as_written": "13.7%"
+   },
+   "revised_down": false,
+   "n_revisions": 5
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion"
+   },
+   "latest_revision": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 5500000000,
+    "high": 5500000000,
+    "low_as_written": "$5.5 billion",
+    "high_as_written": "$5.5 billion"
+   },
+   "latest_revision": {
+    "low": 5500000000,
+    "high": 5500000000,
+    "low_as_written": "$5.5 billion",
+    "high_as_written": "$5.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5.5,
+    "high": 5.5,
+    "low_as_written": "5.5%",
+    "high_as_written": "5.5%"
+   },
+   "latest_revision": {
+    "low": 5.5,
+    "high": 5.5,
+    "low_as_written": "5.5%",
+    "high_as_written": "5.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "original": {
+    "low": 50,
+    "high": 50,
+    "low_as_written": "50 basis points",
+    "high_as_written": "50 basis points"
+   },
+   "latest_revision": {
+    "low": 50,
+    "high": 50,
+    "low_as_written": "50 basis points",
+    "high_as_written": "50 basis points"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Go live with upstream delivery density program with first customer and nine additional customers lined up",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

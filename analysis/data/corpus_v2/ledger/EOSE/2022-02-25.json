@@ -1,0 +1,59 @@
+{
+ "ticker": "EOSE",
+ "call_date": "2022-02-25",
+ "custom_id": "EOSE_2022-02-25",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 50000000,
+    "high": 50000000,
+    "low_as_written": "$50 million",
+    "high_as_written": "$50 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5000000,
+    "high": 5000000,
+    "low_as_written": "$5 million",
+    "high_as_written": "$5 million",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We're going to deliver $50 million in revenue",
+   "one_sided": null,
+   "actual": 4600000,
+   "actual_as_written": "$4.6 million",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.908,
+   "grade_vs_latest": "missed",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

@@ -1,0 +1,131 @@
+{
+ "ticker": "PH",
+ "call_date": "2024-02-01",
+ "custom_id": "PH_2024-02-01",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5.17,
+    "high": 5.17,
+    "low_as_written": "$5.17",
+    "high_as_written": "$5.17",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5.17,
+    "high": 5.17,
+    "low_as_written": "$5.17",
+    "high_as_written": "$5.17",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "specifically for Q2, adjusted EPS is now expected to be $5.17 at the midpoint.",
+   "one_sided": null,
+   "actual": 6.15,
+   "actual_as_written": "$6.15",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.189555,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%"
+   },
+   "latest_revision": {
+    "low": 1.5,
+    "high": 1.5,
+    "low_as_written": "1.5%",
+    "high_as_written": "1.5%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 19900000000,
+    "high": 19900000000,
+    "low_as_written": "$19.9 billion",
+    "high_as_written": "$19.9 billion"
+   },
+   "latest_revision": {
+    "low": 19900000000,
+    "high": 19900000000,
+    "low_as_written": "$19.9 billion",
+    "high_as_written": "$19.9 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 23,
+    "high": 23.4,
+    "low_as_written": "23.2%",
+    "high_as_written": "20 basis points"
+   },
+   "latest_revision": {
+    "low": 23.4,
+    "high": 23.8,
+    "low_as_written": "23.6%",
+    "high_as_written": "20 basis points"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 2600000000,
+    "high": 3000000000,
+    "low_as_written": "$2.6 billion",
+    "high_as_written": "$3 billion"
+   },
+   "latest_revision": {
+    "low": 2600000000,
+    "high": 3000000000,
+    "low_as_written": "$2.6 billion",
+    "high_as_written": "$3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

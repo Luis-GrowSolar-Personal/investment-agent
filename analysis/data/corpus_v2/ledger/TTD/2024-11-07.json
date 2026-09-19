@@ -1,0 +1,58 @@
+{
+ "ticker": "TTD",
+ "call_date": "2024-11-07",
+ "custom_id": "TTD_2024-11-07",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 618000000,
+    "high": 618000000,
+    "low_as_written": "$618 million",
+    "high_as_written": "$618 million",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 618000000,
+    "high": 618000000,
+    "low_as_written": "$618 million",
+    "high_as_written": "$618 million",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We estimate Q3 revenue to be at least $618 million, which would represent growth of 25% on a year-over-year basis.",
+   "one_sided": "floor",
+   "actual": 628000000,
+   "actual_as_written": "$628 million",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

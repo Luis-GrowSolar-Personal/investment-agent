@@ -1,0 +1,255 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2024-04-26",
+ "custom_id": "ABBV_2024-04-26",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 11900000000,
+    "high": 11900000000,
+    "low_as_written": "$11.9 billion",
+    "high_as_written": "$11.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11900000000,
+    "high": 11900000000,
+    "low_as_written": "$11.9 billion",
+    "high_as_written": "$11.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate net revenues of approximately $11.9 billion.",
+   "one_sided": null,
+   "actual": 12300000000,
+   "actual_as_written": "$12.3 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.033613,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.3,
+    "high": 2.34,
+    "low_as_written": "$2.30",
+    "high_as_written": "$2.34",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.3,
+    "high": 2.34,
+    "low_as_written": "$2.30",
+    "high_as_written": "$2.34",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $2.30 and $2.34.",
+   "one_sided": null,
+   "actual": 2.31,
+   "actual_as_written": "$2.31",
+   "range_width_pct": 0.017391,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 83.5,
+    "high": 83.5,
+    "low_as_written": "83.5 percent",
+    "high_as_written": "83.5 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 83.5,
+    "high": 83.5,
+    "low_as_written": "83.5 percent",
+    "high_as_written": "83.5 percent",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are forecasting an adjusted gross margin of approximately 83.5 percent of sales",
+   "one_sided": null,
+   "actual": 82.9,
+   "actual_as_written": "82.9%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.007186,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 44.5,
+    "high": 44.5,
+    "low_as_written": "44.5 percent",
+    "high_as_written": "44.5 percent",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 44.5,
+    "high": 44.5,
+    "low_as_written": "44.5 percent",
+    "high_as_written": "44.5 percent",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "an adjusted operating margin ratio of roughly 44.5 percent of sales.",
+   "one_sided": null,
+   "actual": 42.2,
+   "actual_as_written": "42.2%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.051685,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 10.7,
+    "high": 10.7,
+    "low_as_written": "$10.70",
+    "high_as_written": "$10.70"
+   },
+   "latest_revision": {
+    "low": 11.05,
+    "high": 11.25,
+    "low_as_written": "$11.05",
+    "high_as_written": "$11.25"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 54200000000,
+    "high": 54200000000,
+    "low_as_written": "$54.2 billion",
+    "high_as_written": "$54.2 billion"
+   },
+   "latest_revision": {
+    "low": 54200000000,
+    "high": 54200000000,
+    "low_as_written": "$54.2 billion",
+    "high_as_written": "$54.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84 percent",
+    "high_as_written": "84 percent"
+   },
+   "latest_revision": {
+    "low": 84,
+    "high": 84,
+    "low_as_written": "84 percent",
+    "high_as_written": "84 percent"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%"
+   },
+   "latest_revision": {
+    "low": 46.5,
+    "high": 46.5,
+    "low_as_written": "46.5%",
+    "high_as_written": "46.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion"
+   },
+   "latest_revision": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "met": 1,
+  "missed": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

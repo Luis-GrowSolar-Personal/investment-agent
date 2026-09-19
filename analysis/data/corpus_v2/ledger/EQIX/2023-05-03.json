@@ -1,0 +1,80 @@
+{
+ "ticker": "EQIX",
+ "call_date": "2023-05-03",
+ "custom_id": "EQIX_2023-05-03",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 14,
+    "high": 15,
+    "low_as_written": "14%",
+    "high_as_written": "15%"
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 10,
+    "low_as_written": "9%",
+    "high_as_written": "10%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%"
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 2700000000,
+    "high": 2900000000,
+    "low_as_written": "$2.7",
+    "high_as_written": "$2.9 billion"
+   },
+   "latest_revision": {
+    "low": 2700000000,
+    "high": 2900000000,
+    "low_as_written": "$2.7",
+    "high_as_written": "$2.9 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Equinix plans to fund a Japanese yen private placement of approximately $600 million in Q1 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

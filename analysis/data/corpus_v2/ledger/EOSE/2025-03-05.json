@@ -1,0 +1,68 @@
+{
+ "ticker": "EOSE",
+ "call_date": "2025-03-05",
+ "custom_id": "EOSE_2025-03-05",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 60000000,
+    "high": 90000000,
+    "low_as_written": "$60",
+    "high_as_written": "$90 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 15000000,
+    "high": 15000000,
+    "low_as_written": "$15 million",
+    "high_as_written": "$15 million",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we currently expect production rates for the first half of the year to be similar or slightly above what we saw in Q4 of 2023. Before we conclude, we want to initiate guidance for 2024 on both revenue and profitability. Regarding our revenue estimates for 2024, we expect to be between $60 and $90 million",
+   "one_sided": null,
+   "actual": 15600000,
+   "actual_as_written": "$15.6 million",
+   "range_width_pct": 0.5,
+   "grade": "missed",
+   "miss_pct": 0.74,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Begin production from a second enclosure supplier",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close the DOE Title 17 loan",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

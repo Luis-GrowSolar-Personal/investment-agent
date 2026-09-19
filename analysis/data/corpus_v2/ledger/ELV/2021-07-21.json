@@ -1,0 +1,99 @@
+{
+ "ticker": "ELV",
+ "call_date": "2021-07-21",
+ "custom_id": "ELV_2021-07-21",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 12,
+    "high": 15,
+    "low_as_written": "12%",
+    "high_as_written": "15%"
+   },
+   "latest_revision": {
+    "low": 12,
+    "high": 15,
+    "low_as_written": "12%",
+    "high_as_written": "15%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 24.5,
+    "high": null,
+    "low_as_written": "$24.50",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 25.1,
+    "high": 25.1,
+    "low_as_written": "$25.10",
+    "high_as_written": "$25.10"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 135100000000,
+    "high": 135100000000,
+    "low_as_written": "$135.1 billion",
+    "high_as_written": "$135.1 billion"
+   },
+   "latest_revision": {
+    "low": 135100000000,
+    "high": 135100000000,
+    "low_as_written": "$135.1 billion",
+    "high_as_written": "$135.1 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "customer_count",
+   "framing": "level",
+   "original": {
+    "low": 44400000,
+    "high": 44400000,
+    "low_as_written": "44.4 million members",
+    "high_as_written": "44.4 million members"
+   },
+   "latest_revision": {
+    "low": 44400000,
+    "high": 44400000,
+    "low_as_written": "44.4 million members",
+    "high_as_written": "44.4 million members"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Between 52% and 54% of full-year adjusted EPS guidance expected to occur in the first half of the year",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,152 @@
+{
+ "ticker": "BMY",
+ "call_date": "2025-02-06",
+ "custom_id": "BMY_2025-02-06",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "74%",
+    "high_as_written": "74%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 74,
+    "high": 74,
+    "low_as_written": "approximately 74%",
+    "high_as_written": "approximately 74%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "we expect gross margin to be approximately 74%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 37,
+    "high": null,
+    "low_as_written": "37%",
+    "high_as_written": null,
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 37,
+    "high": 37,
+    "low_as_written": "37%",
+    "high_as_written": "37%",
+    "one_sided": "floor"
+   },
+   "n_revisions": 3,
+   "quote": "This aligns with our previous operating margin target of at least 37%",
+   "one_sided": "floor",
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.1,
+    "high": 7.4,
+    "low_as_written": "$7.10",
+    "high_as_written": "$7.40",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.75,
+    "high": 0.95,
+    "low_as_written": "$0.75",
+    "high_as_written": "$0.95",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect to deliver non-GAAP earnings per share within the range of $7.10 and $7.40",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "non-GAAP",
+    "GAAP"
+   ],
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 6,
+    "low_as_written": "6%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We now expect full-year 2024 revenue to increase approximately 5% as reported",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 3,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

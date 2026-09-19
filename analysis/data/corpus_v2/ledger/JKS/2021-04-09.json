@@ -1,0 +1,90 @@
+{
+ "ticker": "JKS",
+ "call_date": "2021-04-09",
+ "custom_id": "JKS_2021-04-09",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 350000000,
+    "high": 350000000,
+    "low_as_written": "350 million",
+    "high_as_written": "350 million US dollars",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 350000000,
+    "high": 350000000,
+    "low_as_written": "350 million",
+    "high_as_written": "350 million US dollars",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Total capex for 2020 is expected to be around 350 million US dollars",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2020,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1310000000,
+    "high": 1430000000,
+    "low_as_written": "$1.31 billion",
+    "high_as_written": "$1.43 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1310000000,
+    "high": 1430000000,
+    "low_as_written": "$1.31 billion",
+    "high_as_written": "$1.43 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Total revenue for the fourth quarter is expected to be in the range of $1.31 billion to $1.43 billion.",
+   "one_sided": null,
+   "actual": 1400000000,
+   "actual_as_written": "1.4 billion U.S. dollars",
+   "range_width_pct": 0.091603,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

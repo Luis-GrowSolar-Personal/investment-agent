@@ -1,0 +1,44 @@
+{
+ "ticker": "CMCSA",
+ "call_date": "2025-10-30",
+ "custom_id": "CMCSA_2025-10-30",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 10,
+    "high": 10,
+    "low_as_written": "10%",
+    "high_as_written": "10%"
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 10,
+    "low_as_written": "10%",
+    "high_as_written": "10%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Open Universal Horror Unleashed in Las Vegas",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

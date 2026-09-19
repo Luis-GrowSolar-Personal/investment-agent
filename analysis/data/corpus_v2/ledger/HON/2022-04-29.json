@@ -1,0 +1,156 @@
+{
+ "ticker": "HON",
+ "call_date": "2022-04-29",
+ "custom_id": "HON_2022-04-29",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.8,
+    "high": 1.9,
+    "low_as_written": "$1.80",
+    "high_as_written": "$1.90",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.8,
+    "high": 1.9,
+    "low_as_written": "$1.80",
+    "high_as_written": "$1.90",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect first quarter EPS between $1.80 and $1.90, down 6% to down 1% year over year",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 1.91,
+   "actual_as_written": "$1.91",
+   "range_width_pct": 0.055556,
+   "grade": "beat",
+   "beat_pct": 0.005263,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 35400000000,
+    "high": 36400000000,
+    "low_as_written": "$35.4",
+    "high_as_written": "$36.4 billion"
+   },
+   "latest_revision": {
+    "low": 35400000000,
+    "high": 36400000000,
+    "low_as_written": "$35.4",
+    "high_as_written": "$36.4 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.4,
+    "high": 8.7,
+    "low_as_written": "$8.40",
+    "high_as_written": "$8.70"
+   },
+   "latest_revision": {
+    "low": 8.4,
+    "high": 8.7,
+    "low_as_written": "$8.40",
+    "high_as_written": "$8.70"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 4700000000,
+    "high": 5100000000,
+    "low_as_written": "$4.7",
+    "high_as_written": "$5.1 billion"
+   },
+   "latest_revision": {
+    "low": 4700000000,
+    "high": 5100000000,
+    "low_as_written": "$4.7",
+    "high_as_written": "$5.1 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1100000000,
+    "high": 1200000000,
+    "low_as_written": "$1.1",
+    "high_as_written": "$1.2 billion"
+   },
+   "latest_revision": {
+    "low": 1100000000,
+    "high": 1200000000,
+    "low_as_written": "$1.1",
+    "high_as_written": "$1.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Honeywell will hold an Investor Day at its corporate headquarters in Charlotte to discuss business strategy and long-term growth algorithm",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

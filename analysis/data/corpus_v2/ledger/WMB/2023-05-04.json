@@ -1,0 +1,57 @@
+{
+ "ticker": "WMB",
+ "call_date": "2023-05-04",
+ "custom_id": "WMB_2023-05-04",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 250000000,
+    "high": 250000000,
+    "low_as_written": "$250 million",
+    "high_as_written": "$250 million"
+   },
+   "latest_revision": {
+    "low": 250000000,
+    "high": 250000000,
+    "low_as_written": "$250 million",
+    "high_as_written": "$250 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 1.8,
+    "high": 1.8,
+    "low_as_written": "$1.80",
+    "high_as_written": "$1.80"
+   },
+   "latest_revision": {
+    "low": 1.8,
+    "high": 1.8,
+    "low_as_written": "$1.80",
+    "high_as_written": "$1.80"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

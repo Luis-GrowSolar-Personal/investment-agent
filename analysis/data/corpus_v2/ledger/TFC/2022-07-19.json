@@ -1,0 +1,44 @@
+{
+ "ticker": "TFC",
+ "call_date": "2022-07-19",
+ "custom_id": "TFC_2022-07-19",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 4,
+    "low_as_written": "2",
+    "high_as_written": "4%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 4,
+    "low_as_written": "3",
+    "high_as_written": "4%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Launch Truist Assist cloud-based self-service digital assistant accessible to all clients 24-7 via digital channels",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

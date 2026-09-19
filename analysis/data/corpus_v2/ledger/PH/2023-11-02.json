@@ -1,0 +1,127 @@
+{
+ "ticker": "PH",
+ "call_date": "2023-11-02",
+ "custom_id": "PH_2023-11-02",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 5.1,
+    "high": 5.1,
+    "low_as_written": "$5.10",
+    "high_as_written": "$5.10",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5.1,
+    "high": 5.1,
+    "low_as_written": "$5.10",
+    "high_as_written": "$5.10",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "specifically for Q1 of FY24, we are forecasting adjusted EPS to be $5.10 at the midpoint.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 19900000000,
+    "high": 19900000000,
+    "low_as_written": "$19.9 billion",
+    "high_as_written": "$19.9 billion"
+   },
+   "latest_revision": {
+    "low": 19900000000,
+    "high": 19900000000,
+    "low_as_written": "$19.9 billion",
+    "high_as_written": "$19.9 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 23,
+    "high": 23.4,
+    "low_as_written": "23.2%",
+    "high_as_written": "20 basis points"
+   },
+   "latest_revision": {
+    "low": 23,
+    "high": 23.4,
+    "low_as_written": "23.2%",
+    "high_as_written": "20 basis points"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 2600000000,
+    "high": 3000000000,
+    "low_as_written": "$2.6 billion",
+    "high_as_written": "$3 billion"
+   },
+   "latest_revision": {
+    "low": 2600000000,
+    "high": 3000000000,
+    "low_as_written": "$2.6 billion",
+    "high_as_written": "$3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

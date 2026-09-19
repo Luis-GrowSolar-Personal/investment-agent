@@ -1,0 +1,127 @@
+{
+ "ticker": "EQIX",
+ "call_date": "2025-02-12",
+ "custom_id": "EQIX_2025-02-12",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7,
+    "high": 9,
+    "low_as_written": "7%",
+    "high_as_written": "9%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 8,
+    "low_as_written": "7%",
+    "high_as_written": "8%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect top-line growth of 7% to 9% on an as-reported basis, or 7% to 8% on a normalized and constant currency basis",
+   "one_sided": null,
+   "actual": 6.0975609756097615,
+   "actual_as_written": "8.7 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 8200000000
+   },
+   "range_width_pct": 0.285714,
+   "grade": "missed",
+   "miss_pct": 0.12892,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 11,
+    "low_as_written": "9%",
+    "high_as_written": "11%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "AFFO per share is expected to grow between 8% and 10%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2800000000,
+    "high": 3000000000,
+    "low_as_written": "$2.8",
+    "high_as_written": "$3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2800000000,
+    "high": 3100000000,
+    "low_as_written": "$2.8",
+    "high_as_written": "$3.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "2024 capex is expected to range between $2.8 and $3 billion, including about $220 million of recurring capex",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "ungradable_present": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

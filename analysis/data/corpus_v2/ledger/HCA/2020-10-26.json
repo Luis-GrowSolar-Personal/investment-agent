@@ -1,0 +1,39 @@
+{
+ "ticker": "HCA",
+ "call_date": "2020-10-26",
+ "custom_id": "HCA_2020-10-26",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": -1000000000,
+    "high": -1500000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1.5 billion"
+   },
+   "latest_revision": {
+    "low": 2800000000,
+    "high": 3000000000,
+    "low_as_written": "$2.8",
+    "high_as_written": "$3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

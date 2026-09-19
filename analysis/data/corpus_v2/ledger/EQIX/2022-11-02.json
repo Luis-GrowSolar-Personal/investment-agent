@@ -1,0 +1,80 @@
+{
+ "ticker": "EQIX",
+ "call_date": "2022-11-02",
+ "custom_id": "EQIX_2022-11-02",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 9,
+    "high": 10,
+    "low_as_written": "9%",
+    "high_as_written": "10%"
+   },
+   "latest_revision": {
+    "low": 10,
+    "high": 11,
+    "low_as_written": "10",
+    "high_as_written": "11%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7,
+    "high": 8,
+    "low_as_written": "7%",
+    "high_as_written": "8%"
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 9,
+    "low_as_written": "8%",
+    "high_as_written": "9%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 2300000000,
+    "high": 2600000000,
+    "low_as_written": "$2.3",
+    "high_as_written": "$2.6 billion"
+   },
+   "latest_revision": {
+    "low": 2300000000,
+    "high": 2600000000,
+    "low_as_written": "$2.3",
+    "high_as_written": "$2.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Close acquisition of one additional data center from Intel, extending reach to Lima, Peru",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

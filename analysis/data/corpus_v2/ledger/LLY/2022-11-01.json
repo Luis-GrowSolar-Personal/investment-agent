@@ -1,0 +1,84 @@
+{
+ "ticker": "LLY",
+ "call_date": "2022-11-01",
+ "custom_id": "LLY_2022-11-01",
+ "fiscal": [
+  2022,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "approximately 76%",
+    "high_as_written": "approximately 76%"
+   },
+   "latest_revision": {
+    "low": 78,
+    "high": 78,
+    "low_as_written": "approximately 78%",
+    "high_as_written": "approximately 78%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "approximately 28%",
+    "high_as_written": "approximately 28%"
+   },
+   "latest_revision": {
+    "low": 29,
+    "high": 29,
+    "low_as_written": "29",
+    "high_as_written": "29 percent"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.3,
+    "high": 7.45,
+    "low_as_written": "$7.3",
+    "high_as_written": "$7.45 per share"
+   },
+   "latest_revision": {
+    "low": 7.9,
+    "high": 8.05,
+    "low_as_written": "$7.90",
+    "high_as_written": "$8.05"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Lilly intends to begin making beptolivumab available for purchase by states, hospitals, and certain other providers through a sole distributor agreement later this month",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Lilly plans to initiate the Phase III program for Remternitug in the coming weeks",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

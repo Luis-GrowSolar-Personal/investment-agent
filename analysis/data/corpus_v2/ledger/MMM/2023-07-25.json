@@ -1,0 +1,166 @@
+{
+ "ticker": "MMM",
+ "call_date": "2023-07-25",
+ "custom_id": "MMM_2023-07-25",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7700000000,
+    "high": 7900000000,
+    "low_as_written": "$7.7",
+    "high_as_written": "$7.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7700000000,
+    "high": 7900000000,
+    "low_as_written": "$7.7",
+    "high_as_written": "$7.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "expectations for Q2 are for total adjusted sales to be in the range of $7.7 to $7.9 billion versus $8.4 billion last year",
+   "one_sided": null,
+   "actual": 8000000000,
+   "actual_as_written": "$8 billion",
+   "range_width_pct": 0.025974,
+   "grade": "beat",
+   "beat_pct": 0.012658,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.5,
+    "high": 1.75,
+    "low_as_written": "$1.50",
+    "high_as_written": "$1.75",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.5,
+    "high": 1.75,
+    "low_as_written": "$1.50",
+    "high_as_written": "$1.75",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we estimate that second quarter adjusted earnings per share will be in the range of $1.50 to $1.75",
+   "one_sided": null,
+   "actual": 2.17,
+   "actual_as_written": "$2.17",
+   "range_width_pct": 0.166667,
+   "grade": "beat",
+   "beat_pct": 0.24,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.5,
+    "high": 9.0,
+    "low_as_written": "$8.50",
+    "high_as_written": "$9"
+   },
+   "latest_revision": {
+    "low": 8.5,
+    "high": 9.0,
+    "low_as_written": "$8.50",
+    "high_as_written": "$9 per share"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90%",
+    "high_as_written": "100%"
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 100,
+    "low_as_written": "90",
+    "high_as_written": "100 percent"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -3,
+    "high": 0,
+    "low_as_written": "minus 3%",
+    "high_as_written": "flat"
+   },
+   "latest_revision": {
+    "low": -3,
+    "high": 0,
+    "low_as_written": "minus 3%",
+    "high_as_written": "flat"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1500000000,
+    "high": 1800000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.8 billion"
+   },
+   "latest_revision": {
+    "low": 1500000000,
+    "high": 1800000000,
+    "low_as_written": "$1.5",
+    "high_as_written": "$1.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

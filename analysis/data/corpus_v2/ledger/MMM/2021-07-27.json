@@ -1,0 +1,131 @@
+{
+ "ticker": "MMM",
+ "call_date": "2021-07-27",
+ "custom_id": "MMM_2021-07-27",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -125,
+    "high": -75,
+    "low_as_written": "75",
+    "high_as_written": "125 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -125,
+    "high": -75,
+    "low_as_written": "75",
+    "high_as_written": "125 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate a second quarter year-on-year operating margin headwind of 75 to 125 basis points from selling prices net of higher raw materials and logistics costs",
+   "one_sided": null,
+   "actual": 22,
+   "actual_as_written": "22%",
+   "range_width_pct": 0.4,
+   "grade": "beat",
+   "beat_pct": 1.293333,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 5,
+    "high": 8,
+    "low_as_written": "5",
+    "high_as_written": "8%"
+   },
+   "latest_revision": {
+    "low": 3,
+    "high": 6,
+    "low_as_written": "3%",
+    "high_as_written": "6%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 9.2,
+    "high": 9.7,
+    "low_as_written": "$9.20",
+    "high_as_written": "$9.70"
+   },
+   "latest_revision": {
+    "low": 9.2,
+    "high": 9.7,
+    "low_as_written": "$9.20",
+    "high_as_written": "$9.70"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 95,
+    "high": 105,
+    "low_as_written": "95",
+    "high_as_written": "105%"
+   },
+   "latest_revision": {
+    "low": 95,
+    "high": 105,
+    "low_as_written": "95%",
+    "high_as_written": "105%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8 billion",
+    "high_as_written": "$2 billion"
+   },
+   "latest_revision": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8",
+    "high_as_written": "$2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 1
+}

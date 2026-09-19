@@ -1,0 +1,239 @@
+{
+ "ticker": "ITW",
+ "call_date": "2022-02-03",
+ "custom_id": "ITW_2022-02-03",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9,
+    "high": 12,
+    "low_as_written": "9",
+    "high_as_written": "12%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 11,
+    "high": 12,
+    "low_as_written": "11%",
+    "high_as_written": "12%",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "total revenue growth forecast of 9% to 12%",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.6,
+    "high": 8.0,
+    "low_as_written": "$7.60",
+    "high_as_written": "$8 a share",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8.3,
+    "high": 8.5,
+    "low_as_written": "$8.30",
+    "high_as_written": "$8.50",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect GAAP EPS in the range of $7.60 to $8 a share, up 18% at the midpoint",
+   "one_sided": null,
+   "actual": 8.51,
+   "actual_as_written": "$8.51",
+   "range_width_pct": 0.052632,
+   "grade": "beat",
+   "beat_pct": 0.06375,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 24,
+    "high": 25,
+    "low_as_written": "24%",
+    "high_as_written": "25%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 24,
+    "high": 24,
+    "low_as_written": "24%",
+    "high_as_written": "24%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We're forecasting operating margin in the range of 24% to 25%, which is an improvement of more than 150 basis points year-over-year at the midpoint",
+   "one_sided": null,
+   "actual": 24.1,
+   "actual_as_written": "24.1%",
+   "range_width_pct": 0.041667,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "greater than 100%",
+    "high_as_written": "greater than 100%",
+    "one_sided": "floor"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "greater than 100%",
+    "high_as_written": "greater than 100%",
+    "one_sided": "floor"
+   },
+   "n_revisions": 1,
+   "quote": "We expect strong free cash flow in 2021 with a conversion rate greater than 100% of net income",
+   "one_sided": "floor",
+   "actual": -11.538461538461542,
+   "actual_as_written": "$2.3 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 2600000000
+   },
+   "range_width_pct": null,
+   "grade": "missed",
+   "miss_pct": 1.115385,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 14300000000,
+    "high": 14600000000,
+    "low_as_written": "$14.3",
+    "high_as_written": "$14.6 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14200000000,
+    "high": 14300000000,
+    "low_as_written": "$14.2",
+    "high_as_written": "$14.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We now expect full-year revenue to be in the range of $14.3 to $14.6 billion",
+   "one_sided": null,
+   "actual": 14500000000,
+   "actual_as_written": "$14.5 billion",
+   "range_width_pct": 0.020979,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "approximately 100%",
+    "high_as_written": "approximately 100%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": 90,
+    "low_as_written": "90%",
+    "high_as_written": "90%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect free cash flow conversion to be approximately 100% of net income",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "ITW expects to receive final regulatory approval for the MTS test and simulation business acquisition and close the transaction in Q4 2021",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 2,
+  "beat": 1,
+  "met": 2,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

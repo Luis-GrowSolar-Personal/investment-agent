@@ -1,0 +1,265 @@
+{
+ "ticker": "BOX",
+ "call_date": "2024-03-05",
+ "custom_id": "BOX_2024-03-05",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1050000000,
+    "high": 1060000000,
+    "low_as_written": "$1.05 billion",
+    "high_as_written": "$1.06 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1037000000,
+    "high": 1039000000,
+    "low_as_written": "$1.037 billion",
+    "high_as_written": "$1.039 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We anticipate our FY24 revenue to be in the range of $1.05 billion to $1.06 billion, representing 7% year-over-year growth at the high end of this range, or 10% on a constant currency basis.",
+   "one_sided": null,
+   "actual": 1040000000,
+   "actual_as_written": "$1.04 billion",
+   "range_width_pct": 0.009524,
+   "grade": "missed",
+   "miss_pct": 0.009524,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.42,
+    "high": 1.48,
+    "low_as_written": "$1.42",
+    "high_as_written": "$1.48",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1.42,
+    "high": 1.43,
+    "low_as_written": "$1.42",
+    "high_as_written": "$1.43",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "We expect our FY24 non-GAAP EPS to be in the range of $1.42 to $1.48, up from $1.20 in the prior year.",
+   "one_sided": null,
+   "actual": 1.46,
+   "actual_as_written": "$1.46",
+   "range_width_pct": 0.042254,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "77%",
+    "high_as_written": "77%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "77%",
+    "high_as_written": "77%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "For the full year, we expect gross margin to be roughly 77%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 25.5,
+    "high": 25.5,
+    "low_as_written": "approximately 25.5%",
+    "high_as_written": "approximately 25.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 24.5,
+    "high": 24.5,
+    "low_as_written": "24.5%",
+    "high_as_written": "24.5%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we are raising our FY24 non-GAAP operating margin guidance by 50 basis points to approximately 25.5%, representing a 240 basis point improvement from last year's results",
+   "one_sided": null,
+   "actual": 24.7,
+   "actual_as_written": "24.7%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.031373,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 79,
+    "high": 79,
+    "low_as_written": "roughly 79%",
+    "high_as_written": "roughly 79%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 78,
+    "high": 78,
+    "low_as_written": "78%",
+    "high_as_written": "78%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect our Q4 gross margin to be roughly 79%.",
+   "one_sided": null,
+   "actual": 78.4,
+   "actual_as_written": "78.4%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.007595,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 262000000,
+    "high": 264000000,
+    "low_as_written": "262",
+    "high_as_written": "264 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 262000000,
+    "high": 264000000,
+    "low_as_written": "262",
+    "high_as_written": "264 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate revenue in the range of 262 to 264 million, representing 3% year-over-year growth at the high end of this range, or 5% in constant currency.",
+   "one_sided": null,
+   "actual": 263000000,
+   "actual_as_written": "$263 million",
+   "range_width_pct": 0.007634,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 25.5,
+    "high": 25.5,
+    "low_as_written": "25.5%",
+    "high_as_written": "25.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 25.5,
+    "high": 25.5,
+    "low_as_written": "25.5%",
+    "high_as_written": "25.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our Q4 non-GAAP operating margin to be approximately 25.5%, which includes an expected negative impact of approximately 180 basis points due to FX.",
+   "one_sided": null,
+   "actual": 26.7,
+   "actual_as_written": "26.7%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.047059,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 3,
+  "met": 2,
+  "ungradable_present": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

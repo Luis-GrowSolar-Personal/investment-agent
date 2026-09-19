@@ -1,0 +1,25 @@
+{
+ "ticker": "JPM",
+ "call_date": "2020-10-13",
+ "custom_id": "JPM_2020-10-13",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "The board intends to maintain the 90-cent dividend in Q3 2020 unless things change meaningfully",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

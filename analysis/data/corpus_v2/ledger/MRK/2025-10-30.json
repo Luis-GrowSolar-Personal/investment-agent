@@ -1,0 +1,80 @@
+{
+ "ticker": "MRK",
+ "call_date": "2025-10-30",
+ "custom_id": "MRK_2025-10-30",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 64100000000,
+    "high": 65600000000,
+    "low_as_written": "$64.1",
+    "high_as_written": "$65.6 billion"
+   },
+   "latest_revision": {
+    "low": 64300000000,
+    "high": 65300000000,
+    "low_as_written": "$64.3",
+    "high_as_written": "$65.3 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 82.5,
+    "high": 82.5,
+    "low_as_written": "82.5%",
+    "high_as_written": "82.5%"
+   },
+   "latest_revision": {
+    "low": 82,
+    "high": 82,
+    "low_as_written": "approximately 82%",
+    "high_as_written": "approximately 82%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.88,
+    "high": 9.03,
+    "low_as_written": "$8.88",
+    "high_as_written": "$9.03"
+   },
+   "latest_revision": {
+    "low": 8.87,
+    "high": 8.97,
+    "low_as_written": "$8.87",
+    "high_as_written": "$8.97"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Launch WinRevere in Japan",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 3
+}

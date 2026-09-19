@@ -1,0 +1,136 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2022-02-02",
+ "custom_id": "SLAB_2022-02-02",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 195000000,
+    "high": 205000000,
+    "low_as_written": "$195",
+    "high_as_written": "$205 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 195000000,
+    "high": 205000000,
+    "low_as_written": "$195",
+    "high_as_written": "$205 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue for the fourth quarter to be in the range of $195 to $205 million.",
+   "one_sided": null,
+   "actual": 209000000,
+   "actual_as_written": "$209 million",
+   "range_width_pct": 0.051282,
+   "grade": "beat",
+   "beat_pct": 0.019512,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 59.5,
+    "high": 59.5,
+    "low_as_written": "59.5%",
+    "high_as_written": "59.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 59,
+    "high": 59,
+    "low_as_written": "59%",
+    "high_as_written": "59%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect non-GAAP gross margin to be approximately 59.5%.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 61.4,
+   "actual_as_written": "61.4%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.031933,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": -0.41,
+    "high": -0.31,
+    "low_as_written": "41 cent",
+    "high_as_written": "31 cent loss",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -0.41,
+    "high": -0.31,
+    "low_as_written": "41 cent",
+    "high_as_written": "31 cent loss",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "GAAP loss per share to be in the range of a 41 cent to a 31 cent loss.",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 0.13,
+   "actual_as_written": "$0.13",
+   "range_width_pct": 0.243902,
+   "grade": "beat",
+   "beat_pct": 1.419355,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Enter into an accelerated share repurchase agreement to repurchase an additional $400 million in shares",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

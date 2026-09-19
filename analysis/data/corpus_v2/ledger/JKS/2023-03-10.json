@@ -1,0 +1,21 @@
+{
+ "ticker": "JKS",
+ "call_date": "2023-03-10",
+ "custom_id": "JKS_2023-03-10",
+ "fiscal": [
+  2022,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 3,
+ "revised_down_count": 0
+}

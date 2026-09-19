@@ -1,0 +1,123 @@
+{
+ "ticker": "EQIX",
+ "call_date": "2024-08-07",
+ "custom_id": "EQIX_2024-08-07",
+ "fiscal": [
+  2024,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2024,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 3,
+    "low_as_written": "2%",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 3,
+    "low_as_written": "2%",
+    "high_as_written": "3%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Q2 revenues are expected to step up 2% to 3% over the prior quarter",
+   "one_sided": null,
+   "actual": 6.987115956392476,
+   "actual_as_written": "$2.159 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 2018000000
+   },
+   "range_width_pct": 0.5,
+   "grade": "beat",
+   "beat_pct": 1.329039,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7,
+    "high": 9,
+    "low_as_written": "7%",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 8,
+    "low_as_written": "7%",
+    "high_as_written": "8%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%"
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 11,
+    "low_as_written": "8%",
+    "high_as_written": "11%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 2800000000,
+    "high": 3000000000,
+    "low_as_written": "$2.8",
+    "high_as_written": "$3 billion"
+   },
+   "latest_revision": {
+    "low": 2800000000,
+    "high": 3000000000,
+    "low_as_written": "$2.8",
+    "high_as_written": "$3 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Charles Myers to transition to executive chairman role with Adair Fax-Martin stepping into the CEO role",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

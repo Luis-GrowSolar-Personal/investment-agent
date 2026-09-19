@@ -1,0 +1,301 @@
+{
+ "ticker": "BOX",
+ "call_date": "2023-03-01",
+ "custom_id": "BOX_2023-03-01",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 990000000,
+    "high": 996000000,
+    "low_as_written": "990",
+    "high_as_written": "996 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 990000000,
+    "high": 992000000,
+    "low_as_written": "$990",
+    "high_as_written": "$992 million",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect FY23 revenue to be in the range of 990 to 996 million, up 14% year over year at the high end of this range.",
+   "one_sided": null,
+   "actual": 991000000,
+   "actual_as_written": "$991 million",
+   "range_width_pct": 0.006061,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": true
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 22,
+    "high": 22,
+    "low_as_written": "22%",
+    "high_as_written": "22%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 22.5,
+    "high": 22.5,
+    "low_as_written": "22.5%",
+    "high_as_written": "22.5%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect our non-GAAP operating margin to be approximately 22% representing an improvement of more than 200 basis points year over year.",
+   "one_sided": null,
+   "actual": 23.0,
+   "actual_as_written": "23%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.045455,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 1.1,
+    "high": 1.14,
+    "low_as_written": "$1.10",
+    "high_as_written": "$1.14",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.02,
+    "high": 0.03,
+    "low_as_written": "$0.02",
+    "high_as_written": "$0.03",
+    "one_sided": null
+   },
+   "n_revisions": 8,
+   "quote": "We anticipate our FY23 non-GAAP EPS to be in the range of $1.10 to $1.14 on approximately 154 million diluted shares",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "76%",
+    "high_as_written": "76%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 76,
+    "high": 76,
+    "low_as_written": "76%",
+    "high_as_written": "76%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect gross margin to continue to improve going forward, and to land in the 76% range in FY23.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We expect CapEx and capital lease payments combined to be roughly 5% of revenue in Q1 and roughly 5% of revenue for the full year of FY23.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 255000000,
+    "high": 257000000,
+    "low_as_written": "$255",
+    "high_as_written": "$257 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 255000000,
+    "high": 257000000,
+    "low_as_written": "$255",
+    "high_as_written": "$257 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the fourth quarter of fiscal 2023, we anticipate revenue of $255 to $257 million, representing 10% year-over-year growth at the high end of this range.",
+   "one_sided": null,
+   "actual": 256000000,
+   "actual_as_written": "$256 million",
+   "range_width_pct": 0.007843,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 24.5,
+    "high": 24.5,
+    "low_as_written": "24.5%",
+    "high_as_written": "24.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 24.5,
+    "high": 24.5,
+    "low_as_written": "24.5%",
+    "high_as_written": "24.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our non-GAAP operating margin to increase to approximately 24.5%, representing a 370 basis point improvement year over year.",
+   "one_sided": null,
+   "actual": 26.0,
+   "actual_as_written": "26.0%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.061224,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    4
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.06,
+    "high": 0.07,
+    "low_as_written": "$0.06",
+    "high_as_written": "$0.07",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.06,
+    "high": 0.07,
+    "low_as_written": "$0.06",
+    "high_as_written": "$0.07",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "and GAAP EPS to be in the range of $0.06 to $0.07.",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "GAAP",
+    "non-GAAP"
+   ],
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Box Canvas visual collaboration and virtual whiteboarding tool will begin to roll out in Q4 FY2023",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Provide detailed FY24 guidance on the fiscal Q4 earnings call",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 2,
+  "beat": 2,
+  "ungradable_present": 2,
+  "unreported": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

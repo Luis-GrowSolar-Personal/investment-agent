@@ -1,0 +1,138 @@
+{
+ "ticker": "ROK",
+ "call_date": "2021-01-26",
+ "custom_id": "ROK_2021-01-26",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 6800000000,
+    "high": 6800000000,
+    "low_as_written": "$6.8 billion",
+    "high_as_written": "$6.8 billion"
+   },
+   "latest_revision": {
+    "low": 6800000000,
+    "high": 6800000000,
+    "low_as_written": "$6.8 billion",
+    "high_as_written": "$6.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 3.5,
+    "high": 6.5,
+    "low_as_written": "3.5%",
+    "high_as_written": "6.5%"
+   },
+   "latest_revision": {
+    "low": 3.5,
+    "high": 6.5,
+    "low_as_written": "3.5%",
+    "high_as_written": "6.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 20,
+    "high": 20.5,
+    "low_as_written": "20%",
+    "high_as_written": "20.5%"
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": 20.5,
+    "low_as_written": "20%",
+    "high_as_written": "20.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.45,
+    "high": 8.85,
+    "low_as_written": "$8.45",
+    "high_as_written": "$8.85"
+   },
+   "latest_revision": {
+    "low": 8.45,
+    "high": 8.85,
+    "low_as_written": "$8.45",
+    "high_as_written": "$8.85"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 150000000,
+    "high": 150000000,
+    "low_as_written": "$150 million",
+    "high_as_written": "$150 million"
+   },
+   "latest_revision": {
+    "low": 150000000,
+    "high": 150000000,
+    "low_as_written": "$150 million",
+    "high_as_written": "$150 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Reverse temporary pay reductions by end of November",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Report results in new three-segment format beginning Q1 fiscal 2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

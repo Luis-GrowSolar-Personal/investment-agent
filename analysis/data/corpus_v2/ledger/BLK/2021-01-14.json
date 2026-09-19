@@ -1,0 +1,29 @@
+{
+ "ticker": "BLK",
+ "call_date": "2021-01-14",
+ "custom_id": "BLK_2021-01-14",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "BlackRock intends to be opportunistic with share repurchases should attractive relative valuation opportunities arise during the remainder of the year",
+   "mentioned_now": true
+  },
+  {
+   "intent": "BlackRock expects fee waivers on select government money funds to accelerate into Q4 2020 and 2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

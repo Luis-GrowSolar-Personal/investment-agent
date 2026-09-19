@@ -1,0 +1,86 @@
+{
+ "ticker": "UPS",
+ "call_date": "2020-10-28",
+ "custom_id": "UPS_2020-10-28",
+ "fiscal": [
+  2020,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 6700000000,
+    "high": 6700000000,
+    "low_as_written": "$6.7 billion",
+    "high_as_written": "$6.7 billion"
+   },
+   "latest_revision": {
+    "low": 5600000000,
+    "high": 5600000000,
+    "low_as_written": "$5.6 billion",
+    "high_as_written": "$5.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 4300000000,
+    "high": 4700000000,
+    "low_as_written": "4.3",
+    "high_as_written": "4.7 billion"
+   },
+   "latest_revision": {
+    "low": 4300000000,
+    "high": 4700000000,
+    "low_as_written": "4.3",
+    "high_as_written": "4.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete time-in-transit (fastest ground ever) investment by October 2020",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Nearly 75% of the U.S. population will get Saturday ground residential service before peak season 2020",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "all"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

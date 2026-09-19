@@ -1,0 +1,26 @@
+{
+ "ticker": "WMB",
+ "call_date": "2025-02-13",
+ "custom_id": "WMB_2025-02-13",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Williams plans to provide an update to 2025 financial guidance when full year 2024 results are released",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 3,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

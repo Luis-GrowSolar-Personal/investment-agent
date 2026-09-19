@@ -1,0 +1,98 @@
+{
+ "ticker": "UPS",
+ "call_date": "2024-10-24",
+ "custom_id": "UPS_2024-10-24",
+ "fiscal": [
+  2024,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 92000000000,
+    "high": 94500000000,
+    "low_as_written": "$92 billion",
+    "high_as_written": "$94.5 billion"
+   },
+   "latest_revision": {
+    "low": 93000000000,
+    "high": 93000000000,
+    "low_as_written": "$93 billion",
+    "high_as_written": "$93 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 10,
+    "high": 10.6,
+    "low_as_written": "10%",
+    "high_as_written": "10.6%"
+   },
+   "latest_revision": {
+    "low": 9.4,
+    "high": 9.4,
+    "low_as_written": "9.4%",
+    "high_as_written": "9.4%"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 4500000000,
+    "high": 5300000000,
+    "low_as_written": "$4.5",
+    "high_as_written": "$5.3 billion"
+   },
+   "latest_revision": {
+    "low": 5800000000,
+    "high": 5800000000,
+    "low_as_written": "$5.8 billion",
+    "high_as_written": "$5.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 4500000000,
+    "high": 4500000000,
+    "low_as_written": "$4.5 billion",
+    "high_as_written": "$4.5 billion"
+   },
+   "latest_revision": {
+    "low": 4000000000,
+    "high": 4000000000,
+    "low_as_written": "$4 billion",
+    "high_as_written": "$4 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "UPS intends to fully onboard the USPS air cargo business before peak season, with full implementation by end of Q3 2024",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 2
+}

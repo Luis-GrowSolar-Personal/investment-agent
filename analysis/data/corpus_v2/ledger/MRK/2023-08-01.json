@@ -1,0 +1,98 @@
+{
+ "ticker": "MRK",
+ "call_date": "2023-08-01",
+ "custom_id": "MRK_2023-08-01",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 57200000000,
+    "high": 58700000000,
+    "low_as_written": "$57.2",
+    "high_as_written": "$58.7 billion"
+   },
+   "latest_revision": {
+    "low": 57700000000,
+    "high": 58900000000,
+    "low_as_written": "$57.7",
+    "high_as_written": "$58.9 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 7,
+    "high": 10,
+    "low_as_written": "7%",
+    "high_as_written": "10%"
+   },
+   "latest_revision": {
+    "low": 8,
+    "high": 10,
+    "low_as_written": "8%",
+    "high_as_written": "10%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%"
+   },
+   "latest_revision": {
+    "low": 77,
+    "high": 77,
+    "low_as_written": "approximately 77%",
+    "high_as_written": "approximately 77%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 6.8,
+    "high": 6.95,
+    "low_as_written": "$6.80",
+    "high_as_written": "$6.95"
+   },
+   "latest_revision": {
+    "low": 6.88,
+    "high": 7.0,
+    "low_as_written": "$6.88",
+    "high_as_written": "$7"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Merck plans to submit additional analysis to the FDA for Gefapixant in response to the CRL",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

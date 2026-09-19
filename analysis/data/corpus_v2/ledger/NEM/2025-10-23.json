@@ -1,0 +1,20 @@
+{
+ "ticker": "NEM",
+ "call_date": "2025-10-23",
+ "custom_id": "NEM_2025-10-23",
+ "fiscal": [
+  2025,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

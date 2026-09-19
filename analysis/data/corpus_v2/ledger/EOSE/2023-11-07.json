@@ -1,0 +1,47 @@
+{
+ "ticker": "EOSE",
+ "call_date": "2023-11-07",
+ "custom_id": "EOSE_2023-11-07",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 30000000,
+    "high": 50000000,
+    "low_as_written": "$30",
+    "high_as_written": "$50 million"
+   },
+   "latest_revision": {
+    "low": 30000000,
+    "high": 50000000,
+    "low_as_written": "$30",
+    "high_as_written": "$50 million"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [
+  {
+   "intent": "EOS hopes to receive a positive outcome on its DOE loan application by Labor Day 2023",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "revenue",
+  "other"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

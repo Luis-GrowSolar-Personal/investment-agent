@@ -1,0 +1,98 @@
+{
+ "ticker": "TMO",
+ "call_date": "2022-07-28",
+ "custom_id": "TMO_2022-07-28",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 25.4,
+    "high": 25.4,
+    "low_as_written": "25.4%",
+    "high_as_written": "25.4%"
+   },
+   "latest_revision": {
+    "low": 25.4,
+    "high": 25.4,
+    "low_as_written": "25.4%",
+    "high_as_written": "25.4%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion"
+   },
+   "latest_revision": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 2500000000,
+    "high": 2700000000,
+    "low_as_written": "$2.5",
+    "high_as_written": "$2.7 billion"
+   },
+   "latest_revision": {
+    "low": 2500000000,
+    "high": 2700000000,
+    "low_as_written": "$2.5",
+    "high_as_written": "$2.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 9,
+    "high": 9,
+    "low_as_written": "9%",
+    "high_as_written": "9%"
+   },
+   "latest_revision": {
+    "low": 9,
+    "high": 9,
+    "low_as_written": "9%",
+    "high_as_written": "9%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Thermo Fisher will hold an in-person Investor Day",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

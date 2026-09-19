@@ -1,0 +1,64 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2023-10-24",
+ "custom_id": "MSFT_2023-10-24",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 18800000000,
+    "high": 19100000000,
+    "low_as_written": "18.8",
+    "high_as_written": "19.1 billion U.S. dollars",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 14700000000,
+    "high": 15100000000,
+    "low_as_written": "14.7",
+    "high_as_written": "15.1 billion U.S. dollars",
+    "one_sided": null
+   },
+   "n_revisions": 6,
+   "quote": "In productivity and business processes, we expect revenue to grow between 11 and 12%, or 18.8 to 19.1 billion U.S. dollars.",
+   "one_sided": null,
+   "actual": 61900000000,
+   "actual_as_written": "$61.9 billion",
+   "range_width_pct": 0.015957,
+   "grade": "beat",
+   "beat_pct": 2.240838,
+   "grade_vs_latest": "beat",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Expect capital expenditures to increase materially on a sequential basis driven by cloud and AI infrastructure investments and slip of a delivery date from Q2 to Q3",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

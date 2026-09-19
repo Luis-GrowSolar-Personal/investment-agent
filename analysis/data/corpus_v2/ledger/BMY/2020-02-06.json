@@ -1,0 +1,17 @@
+{
+ "ticker": "BMY",
+ "call_date": "2020-02-06",
+ "custom_id": "BMY_2020-02-06",
+ "fiscal": [
+  2019,
+  4
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

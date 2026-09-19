@@ -1,0 +1,17 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2020-02-05",
+ "custom_id": "QCOM_2020-02-05",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": false,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true
+}

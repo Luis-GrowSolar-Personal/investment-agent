@@ -1,0 +1,119 @@
+{
+ "ticker": "KMB",
+ "call_date": "2024-01-19",
+ "custom_id": "KMB_2024-01-19",
+ "fiscal": [
+  2023,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2,
+    "high": 6,
+    "low_as_written": "2%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2,
+    "high": 6,
+    "low_as_written": "2%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "this translates to 2% to 6% growth in earnings per share in 2023",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "80 basis points",
+    "high_as_written": "80 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 80,
+    "high": 80,
+    "low_as_written": "80 basis points",
+    "high_as_written": "80 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we plan to improve operating margin by approximately 80 basis points",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2023,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -2,
+    "high": -2,
+    "low_as_written": "two percentage points",
+    "high_as_written": "two percentage points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -2,
+    "high": -2,
+    "low_as_written": "two percentage points",
+    "high_as_written": "two percentage points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "for next year on the top line, we've said that for the full year, we're talking around two percentage points of a drag",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 2,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

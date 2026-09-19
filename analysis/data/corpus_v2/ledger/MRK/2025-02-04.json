@@ -1,0 +1,155 @@
+{
+ "ticker": "MRK",
+ "call_date": "2025-02-04",
+ "custom_id": "MRK_2025-02-04",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 62700000000,
+    "high": 64200000000,
+    "low_as_written": "$62.7",
+    "high_as_written": "$64.2 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 63600000000,
+    "high": 64100000000,
+    "low_as_written": "63.6",
+    "high_as_written": "$64.1 billion",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We project revenue to be between $62.7 and $64.2 billion, representing growth of 4% to 7%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 6,
+    "high": 7,
+    "low_as_written": "6%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We project revenue to be between $62.7 and $64.2 billion, representing growth of 4% to 7%.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 80.5,
+    "high": 80.5,
+    "low_as_written": "80.5%",
+    "high_as_written": "80.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "approximately 81%",
+    "high_as_written": "approximately 81%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "Our gross margin assumption is approximately 80.5%, which includes the benefit from reduced royalties paid on Keytruda and Gardasil.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2024,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 8.44,
+    "high": 8.59,
+    "low_as_written": "$8.44",
+    "high_as_written": "$8.59",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7.72,
+    "high": 7.77,
+    "low_as_written": "$7.72",
+    "high_as_written": "$7.77",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect EPS of $8.44 to $8.59. This range includes an approximate 26 cents per share charge related to the planned acquisition of Harpoon Therapeutics",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Provide 2025 full-year guidance with the fourth quarter earnings",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "other"
+ ],
+ "counts": {
+  "ungradable_present": 4
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

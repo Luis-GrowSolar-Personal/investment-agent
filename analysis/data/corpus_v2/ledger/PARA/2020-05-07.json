@@ -1,0 +1,57 @@
+{
+ "ticker": "PARA",
+ "call_date": "2020-05-07",
+ "custom_id": "PARA_2020-05-07",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 5.15,
+    "high": 5.5,
+    "low_as_written": "$5.15",
+    "high_as_written": "$5.50"
+   },
+   "latest_revision": {
+    "low": 5.15,
+    "high": 5.5,
+    "low_as_written": "$5.15",
+    "high_as_written": "$5.50"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8",
+    "high_as_written": "$2 billion"
+   },
+   "latest_revision": {
+    "low": 1800000000,
+    "high": 2000000000,
+    "low_as_written": "$1.8",
+    "high_as_written": "$2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,59 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2022-07-26",
+ "custom_id": "NXPI_2022-07-26",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 35.7,
+    "high": 35.7,
+    "low_as_written": "35.7%",
+    "high_as_written": "35.7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 35.7,
+    "high": 35.7,
+    "low_as_written": "35.7%",
+    "high_as_written": "35.7%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we see our non-GAAP operating margin to be 35.7% at the midpoint.",
+   "one_sided": null,
+   "actual": 36,
+   "actual_as_written": "36%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.008403,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

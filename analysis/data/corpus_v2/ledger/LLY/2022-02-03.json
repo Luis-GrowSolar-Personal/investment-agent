@@ -1,0 +1,133 @@
+{
+ "ticker": "LLY",
+ "call_date": "2022-02-03",
+ "custom_id": "LLY_2022-02-03",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 7.1,
+    "high": 7.75,
+    "low_as_written": "$7.10",
+    "high_as_written": "$7.75",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7.1,
+    "high": 7.75,
+    "low_as_written": "$7.10",
+    "high_as_written": "$7.75",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "reported earnings per share for 2021 now expected to be in the range of $7.10 to $7.75",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 31,
+    "high": 31,
+    "low_as_written": "31%",
+    "high_as_written": "31%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 24,
+    "high": 24,
+    "low_as_written": "approximately 24%",
+    "high_as_written": "approximately 24%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We're lowering our non-GAAP operating margin guidance to approximately 31%",
+   "one_sided": null,
+   "actual": 29.9,
+   "actual_as_written": "29.9%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.035484,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 79,
+    "high": 79,
+    "low_as_written": "approximately 79%",
+    "high_as_written": "approximately 79%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 75,
+    "high": 75,
+    "low_as_written": "approximately 75%",
+    "high_as_written": "approximately 75%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "Our outlook for non-GAAP gross margin percent remains unchanged at approximately 79%",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete the rolling BLA submission to the FDA for Donanumab in early Alzheimer's disease within the next few months",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Share initial 2022 financial guidance at Investor Day",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "missed": 1,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

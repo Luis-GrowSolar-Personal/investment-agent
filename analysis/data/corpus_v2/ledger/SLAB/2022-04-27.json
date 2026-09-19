@@ -1,0 +1,100 @@
+{
+ "ticker": "SLAB",
+ "call_date": "2022-04-27",
+ "custom_id": "SLAB_2022-04-27",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 220000000,
+    "high": 230000000,
+    "low_as_written": "$220",
+    "high_as_written": "$230 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 220000000,
+    "high": 230000000,
+    "low_as_written": "$220",
+    "high_as_written": "$230 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect revenue in the first quarter to be in the range of $220 to $230 million",
+   "one_sided": null,
+   "actual": 234000000,
+   "actual_as_written": "$234 million",
+   "range_width_pct": 0.045455,
+   "grade": "beat",
+   "beat_pct": 0.017391,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 63,
+    "high": 63,
+    "low_as_written": "63%",
+    "high_as_written": "63%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 63,
+    "high": 63,
+    "low_as_written": "63%",
+    "high_as_written": "63%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect to see a brief rise in non-GAAP gross margin in Q1 to around 63%",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 67,
+   "actual_as_written": "nearly 67%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.063492,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Hold Analyst Day event in hybrid format in New York and webcast",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

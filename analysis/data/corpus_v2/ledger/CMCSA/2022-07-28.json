@@ -1,0 +1,62 @@
+{
+ "ticker": "CMCSA",
+ "call_date": "2022-07-28",
+ "custom_id": "CMCSA_2022-07-28",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 11,
+    "high": 11,
+    "low_as_written": "11%",
+    "high_as_written": "11%"
+   },
+   "latest_revision": {
+    "low": 11,
+    "high": 11,
+    "low_as_written": "11%",
+    "high_as_written": "11%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "growth_pct",
+   "original": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1 billion"
+   },
+   "latest_revision": {
+    "low": 1000000000,
+    "high": 1000000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Launch employee field test of 5G radios in June",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

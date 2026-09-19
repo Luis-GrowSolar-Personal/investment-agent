@@ -1,0 +1,20 @@
+{
+ "ticker": "INTC",
+ "call_date": "2021-04-23",
+ "custom_id": "INTC_2021-04-23",
+ "fiscal": [
+  2021,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 2,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

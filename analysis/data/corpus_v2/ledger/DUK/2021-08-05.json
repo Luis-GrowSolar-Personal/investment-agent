@@ -1,0 +1,25 @@
+{
+ "ticker": "DUK",
+ "call_date": "2021-08-05",
+ "custom_id": "DUK_2021-08-05",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete first tranche of minority sale of Duke Energy Indiana to GIC",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

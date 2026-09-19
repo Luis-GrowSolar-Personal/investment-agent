@@ -1,0 +1,175 @@
+{
+ "ticker": "DD",
+ "call_date": "2021-08-03",
+ "custom_id": "DD_2021-08-03",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3975000000,
+    "high": 3975000000,
+    "low_as_written": "$3.975 billion",
+    "high_as_written": "$3.975 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3975000000,
+    "high": 3975000000,
+    "low_as_written": "$3.975 billion",
+    "high_as_written": "$3.975 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the second quarter 2021, we expect net sales to be about $3.975 billion",
+   "one_sided": null,
+   "actual": 4100000000,
+   "actual_as_written": "$4.1 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.031447,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.94,
+    "high": 0.94,
+    "low_as_written": "$0.94",
+    "high_as_written": "$0.94",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.94,
+    "high": 0.94,
+    "low_as_written": "$0.94",
+    "high_as_written": "$0.94",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect adjusted EPS for the second quarter of 2021 of $0.94 per share",
+   "one_sided": null,
+   "actual": 1.06,
+   "actual_as_written": "$1.06 per share",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.12766,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 15400000000,
+    "high": 15600000000,
+    "low_as_written": "$15.4",
+    "high_as_written": "$15.6 billion"
+   },
+   "latest_revision": {
+    "low": 15800000000,
+    "high": 15800000000,
+    "low_as_written": "15.8 billion",
+    "high_as_written": "15.8 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.3,
+    "high": 3.45,
+    "low_as_written": "$3.30",
+    "high_as_written": "$3.45"
+   },
+   "latest_revision": {
+    "low": 3.3,
+    "high": 3.45,
+    "low_as_written": "$3.30",
+    "high_as_written": "$3.45"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "margin_pct",
+   "original": {
+    "low": 90,
+    "high": null,
+    "low_as_written": "greater than 90%",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 90,
+    "high": null,
+    "low_as_written": "greater than 90%",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Redeem $2 billion of long-term debt",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Utilize remaining ~$500 million share repurchase authorization under existing program",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

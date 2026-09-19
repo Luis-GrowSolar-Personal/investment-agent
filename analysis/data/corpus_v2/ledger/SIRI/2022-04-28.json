@@ -1,0 +1,57 @@
+{
+ "ticker": "SIRI",
+ "call_date": "2022-04-28",
+ "custom_id": "SIRI_2022-04-28",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion"
+   },
+   "latest_revision": {
+    "low": 9000000000,
+    "high": 9000000000,
+    "low_as_written": "$9 billion",
+    "high_as_written": "$9 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 1550000000,
+    "high": 1550000000,
+    "low_as_written": "$1.55 billion",
+    "high_as_written": "$1.55 billion"
+   },
+   "latest_revision": {
+    "low": 1550000000,
+    "high": 1550000000,
+    "low_as_written": "$1.55 billion",
+    "high_as_written": "$1.55 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

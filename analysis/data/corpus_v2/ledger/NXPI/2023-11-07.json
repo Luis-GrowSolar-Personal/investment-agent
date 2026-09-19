@@ -1,0 +1,167 @@
+{
+ "ticker": "NXPI",
+ "call_date": "2023-11-07",
+ "custom_id": "NXPI_2023-11-07",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 57.9,
+    "high": 58.9,
+    "low_as_written": "58.4%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 57.9,
+    "high": 58.9,
+    "low_as_written": "58.4%",
+    "high_as_written": "50 basis points",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect non-GAAP gross margin to be flat sequentially at 58.4%. plus or minus 50 basis points",
+   "one_sided": null,
+   "actual": 58.5,
+   "actual_as_written": "58.5%",
+   "range_width_pct": 0.017271,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 35.3,
+    "high": 35.3,
+    "low_as_written": "35.3%",
+    "high_as_written": "35.3%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 35.3,
+    "high": 35.3,
+    "low_as_written": "35.3%",
+    "high_as_written": "35.3%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "non-GAAP operating margin will be 35.3% at the midpoint",
+   "one_sided": null,
+   "actual": 35,
+   "actual_as_written": "35%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.008499,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.6,
+    "high": 3.6,
+    "low_as_written": "$3.60",
+    "high_as_written": "$3.60",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.6,
+    "high": 3.6,
+    "low_as_written": "$3.60",
+    "high_as_written": "$3.60",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "this implies a non-GAAP earnings per share of $3.60",
+   "one_sided": null,
+   "actual": 3.7,
+   "actual_as_written": "$3.70",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.027778,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 7,
+    "high": 7,
+    "low_as_written": "7%",
+    "high_as_written": "7%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "capital expenditures of 7% of revenue",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "NXP intends to maintain distribution channel inventory at 1.6 months in Q3 2023, with potential to increase if consistent sell-through strength emerges",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "missed": 1,
+  "beat": 1,
+  "basis_mismatch": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,20 @@
+{
+ "ticker": "PSX",
+ "call_date": "2020-05-01",
+ "custom_id": "PSX_2020-05-01",
+ "fiscal": [
+  2020,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": -3,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,29 @@
+{
+ "ticker": "TEAM",
+ "call_date": "2022-11-03",
+ "custom_id": "TEAM_2022-11-03",
+ "fiscal": [
+  2023,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Atlassian will introduce incoming CFO Joe Binns on the next earnings call",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Atlassian will hold a Work Management event called Work Life in San Francisco on September 29",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

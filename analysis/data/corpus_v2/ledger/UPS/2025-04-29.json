@@ -1,0 +1,122 @@
+{
+ "ticker": "UPS",
+ "call_date": "2025-04-29",
+ "custom_id": "UPS_2025-04-29",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 89000000000,
+    "high": 89000000000,
+    "low_as_written": "$89 billion",
+    "high_as_written": "$89 billion"
+   },
+   "latest_revision": {
+    "low": 11000000000,
+    "high": 11000000000,
+    "low_as_written": "$11 billion",
+    "high_as_written": "$11 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 10.8,
+    "high": 10.8,
+    "low_as_written": "10.8%",
+    "high_as_written": "10.8%"
+   },
+   "latest_revision": {
+    "low": 18.6,
+    "high": 18.6,
+    "low_as_written": "18.6%",
+    "high_as_written": "18.6%"
+   },
+   "revised_down": false,
+   "n_revisions": 4
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 5700000000,
+    "high": 5700000000,
+    "low_as_written": "$5.7 billion",
+    "high_as_written": "$5.7 billion"
+   },
+   "latest_revision": {
+    "low": 5700000000,
+    "high": 5700000000,
+    "low_as_written": "$5.7 billion",
+    "high_as_written": "$5.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 3500000000,
+    "high": 3500000000,
+    "low_as_written": "$3.5 billion",
+    "high_as_written": "$3.5 billion"
+   },
+   "latest_revision": {
+    "low": 3500000000,
+    "high": 3500000000,
+    "low_as_written": "$3.5 billion",
+    "high_as_written": "$3.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2.5,
+    "high": 2.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "2.5%"
+   },
+   "latest_revision": {
+    "low": 2.5,
+    "high": 2.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "2.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "UPS will provide more detail on the network reconfiguration execution plan on the first quarter 2025 earnings call in April",
+   "mentioned_now": true
+  },
+  {
+   "intent": "UPS will hold an investor event to lay out 2026 revenue targets and addressable markets",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [
+  "all"
+ ],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

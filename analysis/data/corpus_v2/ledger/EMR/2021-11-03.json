@@ -1,0 +1,218 @@
+{
+ "ticker": "EMR",
+ "call_date": "2021-11-03",
+ "custom_id": "EMR_2021-11-03",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -1,
+    "high": 2,
+    "low_as_written": "down 1",
+    "high_as_written": "plus 2%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 6,
+    "low_as_written": "5%",
+    "high_as_written": "6%",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "we expect a flat underlying sales year with a range of down 1 to plus 2%.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2700000000,
+    "high": 2700000000,
+    "low_as_written": "$2.7 billion",
+    "high_as_written": "$2.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "capital spending of $600 million, resulting in free cash flow target of approximately $2.5 billion.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 600000000,
+    "high": 600000000,
+    "low_as_written": "$600 million",
+    "high_as_written": "$600 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 600000000,
+    "high": 600000000,
+    "low_as_written": "$600 million",
+    "high_as_written": "$600 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect operating cash flow to come in at approximately $3.1 billion, capital spending of $600 million",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 17.5,
+    "high": 17.5,
+    "low_as_written": "17.5%",
+    "high_as_written": "17.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18,
+    "high": 18,
+    "low_as_written": "18%",
+    "high_as_written": "18%",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We now expect 17.5% adjusted EBIT margin for the entire enterprise.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18400000000,
+    "high": 18400000000,
+    "low_as_written": "$18.4 billion",
+    "high_as_written": "$18.4 billion",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "We expect net sales to be just a bit above $18 billion.",
+   "one_sided": null,
+   "actual_framing": "growth_pct",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 4.06,
+    "high": 4.08,
+    "low_as_written": "$4.07",
+    "high_as_written": "$4.07",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4.06,
+    "high": 4.08,
+    "low_as_written": "$4.07",
+    "high_as_written": "$4.07",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are also raising our adjusted EPS guidance to $4.07, plus or minus one penny.",
+   "one_sided": null,
+   "actual": 4.1,
+   "actual_as_written": "$4.10",
+   "range_width_pct": 0.004926,
+   "grade": "beat",
+   "beat_pct": 0.004902,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 3,
+  "unreported": 2,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "revised_down_count": 0
+}

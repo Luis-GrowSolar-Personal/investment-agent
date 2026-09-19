@@ -1,0 +1,20 @@
+{
+ "ticker": "JKS",
+ "call_date": "2025-04-29",
+ "custom_id": "JKS_2025-04-29",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 2,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

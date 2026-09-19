@@ -1,0 +1,94 @@
+{
+ "ticker": "PH",
+ "call_date": "2025-11-06",
+ "custom_id": "PH_2025-11-06",
+ "fiscal": [
+  2026,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 20600000000,
+    "high": 20600000000,
+    "low_as_written": "$20.6 billion",
+    "high_as_written": "$20.6 billion"
+   },
+   "latest_revision": {
+    "low": 20600000000,
+    "high": 20600000000,
+    "low_as_written": "$20.6 billion",
+    "high_as_written": "$20.6 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 2,
+    "high": 5,
+    "low_as_written": "2",
+    "high_as_written": "5"
+   },
+   "latest_revision": {
+    "low": 1.5,
+    "high": 4.5,
+    "low_as_written": "1.5",
+    "high_as_written": "4.5"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 3000000000,
+    "high": 4000000000,
+    "low_as_written": "$3",
+    "high_as_written": "$4 billion"
+   },
+   "latest_revision": {
+    "low": 3000000000,
+    "high": 4000000000,
+    "low_as_written": "$3",
+    "high_as_written": "$4 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 2.5,
+    "high": 2.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "2.5%"
+   },
+   "latest_revision": {
+    "low": 2.5,
+    "high": 2.5,
+    "low_as_written": "2.5%",
+    "high_as_written": "2.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 1
+}

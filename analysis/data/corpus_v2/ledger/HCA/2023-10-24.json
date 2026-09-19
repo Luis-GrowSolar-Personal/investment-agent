@@ -1,0 +1,75 @@
+{
+ "ticker": "HCA",
+ "call_date": "2023-10-24",
+ "custom_id": "HCA_2023-10-24",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 61500000000,
+    "high": 63500000000,
+    "low_as_written": "$61.5 billion",
+    "high_as_written": "$63.5 billion"
+   },
+   "latest_revision": {
+    "low": 63250000000,
+    "high": 64750000000,
+    "low_as_written": "$63.25 billion",
+    "high_as_written": "$64.75 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 16.4,
+    "high": 17.6,
+    "low_as_written": "$16.40",
+    "high_as_written": "$17.60"
+   },
+   "latest_revision": {
+    "low": 17.7,
+    "high": 18.9,
+    "low_as_written": "$17.70",
+    "high_as_written": "$18.90"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 4300000000,
+    "high": 4300000000,
+    "low_as_written": "4.3 billion",
+    "high_as_written": "4.3 billion"
+   },
+   "latest_revision": {
+    "low": 4700000000,
+    "high": 4700000000,
+    "low_as_written": "$4.7 billion",
+    "high_as_written": "$4.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

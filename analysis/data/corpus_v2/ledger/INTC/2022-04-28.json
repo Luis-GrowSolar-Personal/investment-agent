@@ -1,0 +1,136 @@
+{
+ "ticker": "INTC",
+ "call_date": "2022-04-28",
+ "custom_id": "INTC_2022-04-28",
+ "fiscal": [
+  2022,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 18300000000,
+    "high": 18300000000,
+    "low_as_written": "$18.3 billion",
+    "high_as_written": "$18.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18300000000,
+    "high": 18300000000,
+    "low_as_written": "$18.3 billion",
+    "high_as_written": "$18.3 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect Q1 revenue of $18.3 billion, down 1% year-over-year",
+   "one_sided": null,
+   "grade": "basis_mismatch",
+   "basis_conflict": [
+    "non-GAAP",
+    "GAAP"
+   ],
+   "range_width_pct": null
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    1
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 52,
+    "high": 52,
+    "low_as_written": "52%",
+    "high_as_written": "52%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 52,
+    "high": 52,
+    "low_as_written": "52%",
+    "high_as_written": "52%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are forecasting gross margin of 52%, ETS of approximately 80 cents, and a tax rate of approximately 15%.",
+   "one_sided": null,
+   "actual": 53,
+   "actual_as_written": "53%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.019231,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 74000000000,
+    "high": 74000000000,
+    "low_as_written": "$74 billion",
+    "high_as_written": "$74 billion"
+   },
+   "latest_revision": {
+    "low": 74000000000,
+    "high": 74000000000,
+    "low_as_written": "$74 billion",
+    "high_as_written": "$74 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 25000000000,
+    "high": 28000000000,
+    "low_as_written": "$25 billion",
+    "high_as_written": "$28 billion"
+   },
+   "latest_revision": {
+    "low": 25000000000,
+    "high": 28000000000,
+    "low_as_written": "$25 billion",
+    "high_as_written": "$28 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Ship initial SKUs of Sapphire Rapids to select customers",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "basis_mismatch": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

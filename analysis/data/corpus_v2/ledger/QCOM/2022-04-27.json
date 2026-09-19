@@ -1,0 +1,114 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2022-04-27",
+ "custom_id": "QCOM_2022-04-27",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 10200000000,
+    "high": 11000000000,
+    "low_as_written": "$10.2",
+    "high_as_written": "$11 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1450000000,
+    "high": 1650000000,
+    "low_as_written": "$1.45",
+    "high_as_written": "$1.65 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we are forecasting revenues of $10.2 to $11 billion and non-GAAP EPS of $2.80 to $3",
+   "one_sided": null,
+   "multi_candidate": 2,
+   "actual": 11200000000,
+   "actual_as_written": "$11.2 billion",
+   "range_width_pct": 0.078431,
+   "grade": "beat",
+   "beat_pct": 0.018182,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.8,
+    "high": 3.0,
+    "low_as_written": "$2.80",
+    "high_as_written": "$3",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.8,
+    "high": 3.0,
+    "low_as_written": "$2.80",
+    "high_as_written": "$3",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we are forecasting revenues of $10.2 to $11 billion and non-GAAP EPS of $2.80 to $3",
+   "one_sided": null,
+   "actual": 3.21,
+   "actual_as_written": "$3.21",
+   "range_width_pct": 0.071429,
+   "grade": "beat",
+   "beat_pct": 0.07,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "growth_pct",
+   "original": {
+    "low": 20,
+    "high": null,
+    "low_as_written": "20%",
+    "high_as_written": null
+   },
+   "latest_revision": {
+    "low": 20,
+    "high": null,
+    "low_as_written": "20%",
+    "high_as_written": null
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

@@ -1,0 +1,58 @@
+{
+ "ticker": "PH",
+ "call_date": "2023-02-02",
+ "custom_id": "PH_2023-02-02",
+ "fiscal": [
+  2023,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 0,
+    "high": 3,
+    "low_as_written": "flat",
+    "high_as_written": "3%"
+   },
+   "latest_revision": {
+    "low": 11,
+    "high": 14,
+    "low_as_written": "11",
+    "high_as_written": "14%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 20.2,
+    "high": 20.6,
+    "low_as_written": "20.4%",
+    "high_as_written": "20 basis points on either side"
+   },
+   "latest_revision": {
+    "low": 21.7,
+    "high": 22.1,
+    "low_as_written": "21.7%",
+    "high_as_written": "22.1%"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

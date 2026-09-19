@@ -1,0 +1,131 @@
+{
+ "ticker": "CMI",
+ "call_date": "2021-11-17",
+ "custom_id": "CMI_2021-11-17",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 60000000,
+    "high": 100000000,
+    "low_as_written": "$60",
+    "high_as_written": "$100 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 115000000,
+    "high": 115000000,
+    "low_as_written": "$115 million",
+    "high_as_written": "$115 million",
+    "one_sided": null
+   },
+   "n_revisions": 4,
+   "quote": "We expect to generate $60 to $100 million in free cash flow, resulting in a conversion rate of 75%",
+   "one_sided": null,
+   "actual": 107000000,
+   "actual_as_written": "$107 million",
+   "range_width_pct": 0.666667,
+   "grade": "beat",
+   "beat_pct": 0.07,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 85000000,
+    "high": 85000000,
+    "low_as_written": "$85 million",
+    "high_as_written": "$85 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 70000000,
+    "high": 70000000,
+    "low_as_written": "$70 million",
+    "high_as_written": "$70 million",
+    "one_sided": null
+   },
+   "n_revisions": 2,
+   "quote": "on your CapEx, capital expenditures questions, you know, it's about $85 million, very similar to what we did last year.",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "unreported",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 3650000000,
+    "high": 3800000000,
+    "low_as_written": "$3.65",
+    "high_as_written": "$3.8 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3900000000,
+    "high": 3900000000,
+    "low_as_written": "$3.9 billion",
+    "high_as_written": "$3.9 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we are now forecasting sales to be in a range of $3.65 to $3.8 billion",
+   "one_sided": null,
+   "actual": 3800000000,
+   "actual_as_written": "over $3.8 billion",
+   "range_width_pct": 0.041096,
+   "grade": "met",
+   "grade_vs_latest": "missed",
+   "revised": true
+  }
+ ],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Launch 14XE integrated drive axle into production",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "unreported": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 4,
+ "revised_down_count": 0
+}

@@ -1,0 +1,236 @@
+{
+ "ticker": "BOX",
+ "call_date": "2025-08-26",
+ "custom_id": "BOX_2025-08-26",
+ "fiscal": [
+  2026,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2026,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 290000000,
+    "high": 291000000,
+    "low_as_written": "$290",
+    "high_as_written": "$291 million",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 290000000,
+    "high": 291000000,
+    "low_as_written": "$290",
+    "high_as_written": "$291 million",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we expect Q2 revenue to be in the range of $290 to $291 million, representing approximately 8% year-over-year growth at the high end of the range and 6% growth in constant currency.",
+   "one_sided": null,
+   "actual": 294000000,
+   "actual_as_written": "$294 million",
+   "range_width_pct": 0.003448,
+   "grade": "beat",
+   "beat_pct": 0.010309,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2026,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "approximately 81%",
+    "high_as_written": "approximately 81%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "approximately 81%",
+    "high_as_written": "approximately 81%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect Q2 gross margin to be approximately 81%.",
+   "one_sided": null,
+   "actual": 81.4,
+   "actual_as_written": "81.4%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.004938,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2026,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "approximately 28%",
+    "high_as_written": "approximately 28%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "approximately 28%",
+    "high_as_written": "approximately 28%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We anticipate our Q2 non-GAAP operating margin to be approximately 28%, versus 28.4% a year ago.",
+   "one_sided": null,
+   "actual": 28.6,
+   "actual_as_written": "28.6%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.021429,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2026,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.3,
+    "high": 0.31,
+    "low_as_written": "30 cents",
+    "high_as_written": "31 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.3,
+    "high": 0.31,
+    "low_as_written": "30 cents",
+    "high_as_written": "31 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect our Q2 non-GAAP EPS to be in the range of 30 cents to 31 cents, which includes an expected tailwind of approximately 2 cents from FX.",
+   "one_sided": null,
+   "actual": 0.33,
+   "actual_as_written": "$0.33",
+   "range_width_pct": 0.033333,
+   "grade": "beat",
+   "beat_pct": 0.064516,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 1155000000,
+    "high": 1160000000,
+    "low_as_written": "$1.155",
+    "high_as_written": "$1.16 billion"
+   },
+   "latest_revision": {
+    "low": 1165000000,
+    "high": 1170000000,
+    "low_as_written": "1.165",
+    "high_as_written": "1.17 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "81%",
+    "high_as_written": "81%"
+   },
+   "latest_revision": {
+    "low": 81,
+    "high": 81,
+    "low_as_written": "approximately 81%",
+    "high_as_written": "approximately 81%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "28%",
+    "high_as_written": "28%"
+   },
+   "latest_revision": {
+    "low": 28,
+    "high": 28,
+    "low_as_written": "approximately 28%",
+    "high_as_written": "approximately 28%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 1.13,
+    "high": 1.17,
+    "low_as_written": "$1.13",
+    "high_as_written": "$1.17"
+   },
+   "latest_revision": {
+    "low": 1.22,
+    "high": 1.26,
+    "low_as_written": "$1.22",
+    "high_as_written": "$1.26"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 4
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

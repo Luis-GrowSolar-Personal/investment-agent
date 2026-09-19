@@ -1,0 +1,94 @@
+{
+ "ticker": "QCOM",
+ "call_date": "2024-11-06",
+ "custom_id": "QCOM_2024-11-06",
+ "fiscal": [
+  2024,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 9500000000,
+    "high": 10300000000,
+    "low_as_written": "$9.5",
+    "high_as_written": "$10.3 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8100000000,
+    "high": 8700000000,
+    "low_as_written": "$8.1",
+    "high_as_written": "$8.7 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We are forecasting revenues of $9.5 to $10.3 billion and non-GAAP EPS of $2.45 to $2.65.",
+   "one_sided": null,
+   "actual": 10200000000,
+   "actual_as_written": "$10.2 billion",
+   "range_width_pct": 0.084211,
+   "grade": "met",
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2024,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 2.45,
+    "high": 2.65,
+    "low_as_written": "$2.45",
+    "high_as_written": "$2.65",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 2.45,
+    "high": 2.65,
+    "low_as_written": "$2.45",
+    "high_as_written": "$2.65",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We are forecasting revenues of $9.5 to $10.3 billion and non-GAAP EPS of $2.45 to $2.65.",
+   "one_sided": null,
+   "actual": 2.69,
+   "actual_as_written": "$2.69",
+   "range_width_pct": 0.081633,
+   "grade": "beat",
+   "beat_pct": 0.015094,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "met": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

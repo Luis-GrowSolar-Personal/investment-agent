@@ -1,0 +1,94 @@
+{
+ "ticker": "MSFT",
+ "call_date": "2025-01-29",
+ "custom_id": "MSFT_2025-01-29",
+ "fiscal": [
+  2025,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 32050000000,
+    "high": 32350000000,
+    "low_as_written": "$32.05",
+    "high_as_written": "$32.35 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12350000000,
+    "high": 12850000000,
+    "low_as_written": "12.35",
+    "high_as_written": "12.85 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect revenue of $32.05 to $32.35 billion for or growth of 11% to 12% in constant currency.",
+   "one_sided": null,
+   "actual": 69600000000,
+   "actual_as_written": "$69.6 billion",
+   "range_width_pct": 0.00936,
+   "grade": "beat",
+   "beat_pct": 1.151468,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2025,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 67,
+    "high": 67,
+    "low_as_written": "67%",
+    "high_as_written": "67%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 67,
+    "high": 67,
+    "low_as_written": "67%",
+    "high_as_written": "67%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Microsoft Cloud gross margin percentage should be roughly 67% down year-over-year, primarily driven by the impact of scaling our AI infrastructure.",
+   "one_sided": null,
+   "actual": 69,
+   "actual_as_written": "69%",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.029851,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 2,
+ "label_unverified": 1,
+ "revised_down_count": 0
+}

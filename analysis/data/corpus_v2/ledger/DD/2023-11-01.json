@@ -1,0 +1,159 @@
+{
+ "ticker": "DD",
+ "call_date": "2023-11-01",
+ "custom_id": "DD_2023-11-01",
+ "fiscal": [
+  2023,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3150000000,
+    "high": 3150000000,
+    "low_as_written": "$3.15 billion",
+    "high_as_written": "$3.15 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3150000000,
+    "high": 3150000000,
+    "low_as_written": "$3.15 billion",
+    "high_as_written": "$3.15 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For the third quarter 2023, we expect revenue of approximately $3.15 billion",
+   "one_sided": null,
+   "actual": 3100000000,
+   "actual_as_written": "$3.1 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.015873,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2023,
+    3
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.84,
+    "high": 0.84,
+    "low_as_written": "84 cents",
+    "high_as_written": "84 cents",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.84,
+    "high": 0.84,
+    "low_as_written": "84 cents",
+    "high_as_written": "84 cents",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "an adjusted EPS of approximately 84 cents per share",
+   "one_sided": null,
+   "actual": 0.92,
+   "actual_as_written": "$0.92",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.095238,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 12300000000,
+    "high": 12900000000,
+    "low_as_written": "$12.3 billion",
+    "high_as_written": "$12.9 billion"
+   },
+   "latest_revision": {
+    "low": 12450000000,
+    "high": 12550000000,
+    "low_as_written": "$12.45",
+    "high_as_written": "$12.55 billion"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.5,
+    "high": 4.0,
+    "low_as_written": "$3.50",
+    "high_as_written": "$4 per share"
+   },
+   "latest_revision": {
+    "low": 3.4,
+    "high": 3.5,
+    "low_as_written": "$3.40",
+    "high_as_written": "$3.50 per share"
+   },
+   "revised_down": true,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "margin_pct",
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Complete the $3.25 billion accelerated share repurchase transaction launched last November within a month",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Execute a new $2 billion ASR shortly after completing the $3.25 billion ASR",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "missed": 1,
+  "beat": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "label_unverified": 1,
+ "revised_down_count": 2
+}

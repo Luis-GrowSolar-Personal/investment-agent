@@ -1,0 +1,44 @@
+{
+ "ticker": "DUK",
+ "call_date": "2020-08-10",
+ "custom_id": "DUK_2020-08-10",
+ "fiscal": [
+  2020,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 5.05,
+    "high": 5.45,
+    "low_as_written": "$5.05",
+    "high_as_written": "$5.45"
+   },
+   "latest_revision": {
+    "low": 5.05,
+    "high": 5.45,
+    "low_as_written": "$5.05",
+    "high_as_written": "$5.45"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Duke Energy expects the U.S. Fish and Wildlife Service to reissue the biological opinion and incidental take statement for ACP in mid-2020",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

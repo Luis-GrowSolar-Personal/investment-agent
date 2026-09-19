@@ -1,0 +1,48 @@
+{
+ "ticker": "NEM",
+ "call_date": "2021-07-22",
+ "custom_id": "NEM_2021-07-22",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 3500000000,
+    "high": 3500000000,
+    "low_as_written": "$3.5 billion",
+    "high_as_written": "$3.5 billion"
+   },
+   "latest_revision": {
+    "low": 3500000000,
+    "high": 3500000000,
+    "low_as_written": "$3.5 billion",
+    "high_as_written": "$3.5 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Bring Yanacocha Sulfides forward for full funds approval in the second half of 2021",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Close the GT Gold acquisition in the second quarter of 2021",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

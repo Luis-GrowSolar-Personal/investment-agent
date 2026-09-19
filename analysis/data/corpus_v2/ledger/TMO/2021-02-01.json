@@ -1,0 +1,166 @@
+{
+ "ticker": "TMO",
+ "call_date": "2021-02-01",
+ "custom_id": "TMO_2021-02-01",
+ "fiscal": [
+  2020,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 13.49,
+    "high": 13.67,
+    "low_as_written": "$13.49",
+    "high_as_written": "$13.67",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 13.49,
+    "high": 13.67,
+    "low_as_written": "$13.49",
+    "high_as_written": "$13.67",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "we're initiating a 2020 adjusted EPS guidance range of $13.49 to $13.67, which would result in 9% to 11% growth over 2019",
+   "one_sided": null,
+   "actual": 19.55,
+   "actual_as_written": "$19.55",
+   "range_width_pct": 0.013343,
+   "grade": "beat",
+   "beat_pct": 0.430139,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 4500000000,
+    "high": 4500000000,
+    "low_as_written": "$4.5 billion",
+    "high_as_written": "$4.5 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 4500000000,
+    "high": 4500000000,
+    "low_as_written": "$4.5 billion",
+    "high_as_written": "$4.5 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Free cash flow is expected to be approximately $4.5 billion in 2020",
+   "one_sided": null,
+   "actual": 6800000000,
+   "actual_as_written": "$6.8 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.511111,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 1000000000,
+    "high": 1100000000,
+    "low_as_written": "$1 billion",
+    "high_as_written": "$1.1 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 1300000000,
+    "high": 1400000000,
+    "low_as_written": "$1.3 billion",
+    "high_as_written": "$1.4 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "We're seeing net capital expenditures in the range of $1 billion to $1.1 billion",
+   "one_sided": null,
+   "searched_transcript": true,
+   "grade": "ungradable_present",
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2020,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 5,
+    "high": 5,
+    "low_as_written": "5%",
+    "high_as_written": "5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "Our initial guidance for 2020 assumes 5% organic revenue growth for the year",
+   "one_sided": null,
+   "actual": 26.155050900548147,
+   "actual_as_written": "$32.22 billion (converted to growth_pct)",
+   "converted": {
+    "from": "level",
+    "to": "growth_pct",
+    "base": 25540000000
+   },
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 4.23101,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 3,
+  "ungradable_present": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 2,
+ "excluded_other": 1,
+ "label_unverified": 2,
+ "revised_down_count": 0
+}

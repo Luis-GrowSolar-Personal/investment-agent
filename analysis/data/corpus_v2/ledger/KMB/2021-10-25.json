@@ -1,0 +1,75 @@
+{
+ "ticker": "KMB",
+ "call_date": "2021-10-25",
+ "custom_id": "KMB_2021-10-25",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 6,
+    "low_as_written": "4%",
+    "high_as_written": "6%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 7.75,
+    "high": 8.0,
+    "low_as_written": "$7.75",
+    "high_as_written": "$8"
+   },
+   "latest_revision": {
+    "low": 7.75,
+    "high": 8.0,
+    "low_as_written": "$7.75",
+    "high_as_written": "$8"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "operating_income",
+   "framing": "growth_pct",
+   "original": {
+    "low": -450000000,
+    "high": -450000000,
+    "low_as_written": "$450 million",
+    "high_as_written": "$450 million"
+   },
+   "latest_revision": {
+    "low": -450000000,
+    "high": -450000000,
+    "low_as_written": "$450 million",
+    "high_as_written": "$450 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

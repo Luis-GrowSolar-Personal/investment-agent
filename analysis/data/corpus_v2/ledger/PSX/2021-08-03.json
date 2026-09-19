@@ -1,0 +1,25 @@
+{
+ "ticker": "PSX",
+ "call_date": "2021-08-03",
+ "custom_id": "PSX_2021-08-03",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [],
+ "intents": [
+  {
+   "intent": "Complete the C2G pipeline connecting Clemens storage caverns to petrochemical facilities in the Corpus Christi area.",
+   "mentioned_now": false
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

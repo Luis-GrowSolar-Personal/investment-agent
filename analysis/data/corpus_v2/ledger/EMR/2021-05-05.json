@@ -1,0 +1,157 @@
+{
+ "ticker": "EMR",
+ "call_date": "2021-05-05",
+ "custom_id": "EMR_2021-05-05",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": -1,
+    "high": 1,
+    "low_as_written": "down 1%",
+    "high_as_written": "up 1%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": -1,
+    "high": 1,
+    "low_as_written": "down 1%",
+    "high_as_written": "up 1%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We now expect the underlying sales will be roughly flat year over year with a range of down 1% to up 1%.",
+   "one_sided": null,
+   "actual": 2,
+   "actual_as_written": "2%",
+   "range_width_pct": 2.0,
+   "grade": "beat",
+   "beat_pct": 1.0,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2021,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 17.0,
+    "high": 17.5,
+    "low_as_written": "17.0",
+    "high_as_written": "17.5%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 17.0,
+    "high": 17.5,
+    "low_as_written": "17.0",
+    "high_as_written": "17.5%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted EBIT margin to be 17.0 to 17.5%, with adjusted EBITDA margin in the range of 22.2 to 22.8%.",
+   "one_sided": null,
+   "actual": 18.2,
+   "actual_as_written": "18.2%",
+   "range_width_pct": 0.029412,
+   "grade": "beat",
+   "beat_pct": 0.04,
+   "grade_vs_latest": "beat",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -1,
+    "high": 2,
+    "low_as_written": "down 1",
+    "high_as_written": "plus 2%"
+   },
+   "latest_revision": {
+    "low": 0,
+    "high": 4,
+    "low_as_written": "flat",
+    "high_as_written": "plus 4%"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 2500000000,
+    "high": 2500000000,
+    "low_as_written": "$2.5 billion",
+    "high_as_written": "$2.5 billion"
+   },
+   "latest_revision": {
+    "low": 2550000000,
+    "high": 2550000000,
+    "low_as_written": "$2.55 billion",
+    "high_as_written": "$2.55 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 600000000,
+    "high": 600000000,
+    "low_as_written": "$600 million",
+    "high_as_written": "$600 million"
+   },
+   "latest_revision": {
+    "low": 600000000,
+    "high": 600000000,
+    "low_as_written": "$600 million",
+    "high_as_written": "$600 million"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Emerson will hold an investor conference presenting the next generation leadership team and updated strategy",
+   "mentioned_now": true
+  },
+  {
+   "intent": "Lal Karsanbhai to assume CEO role effective February 5th",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {
+  "beat": 2
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

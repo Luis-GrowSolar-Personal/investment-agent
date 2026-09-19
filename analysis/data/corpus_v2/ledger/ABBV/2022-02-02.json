@@ -1,0 +1,196 @@
+{
+ "ticker": "ABBV",
+ "call_date": "2022-02-02",
+ "custom_id": "ABBV_2022-02-02",
+ "fiscal": [
+  2021,
+  4
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 12.32,
+    "high": 12.52,
+    "low_as_written": "$12.32",
+    "high_as_written": "$12.52",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 12.63,
+    "high": 12.67,
+    "low_as_written": "$12.63",
+    "high_as_written": "$12.67",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we anticipate 2021 adjusted earnings per share of $12.32 to $12.52, representing growth of 17.6% at the midpoint.",
+   "one_sided": null,
+   "actual": 12.7,
+   "actual_as_written": "$12.70",
+   "range_width_pct": 0.016234,
+   "grade": "beat",
+   "beat_pct": 0.014377,
+   "grade_vs_latest": "beat",
+   "revised": true
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 9.4,
+    "high": 9.4,
+    "low_as_written": "9.4%",
+    "high_as_written": "9.4%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 10.7,
+    "high": 10.7,
+    "low_as_written": "10.7%",
+    "high_as_written": "10.7%",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "we expect full year 2021 comparable operational sales growth of approximately 9.4%.",
+   "one_sided": null,
+   "actual_framing": "level",
+   "grade": "basis_mismatch",
+   "framing_mismatch": true,
+   "range_width_pct": null
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "FY",
+    2021,
+    null
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 55900000000,
+    "high": 55900000000,
+    "low_as_written": "$55.9 billion",
+    "high_as_written": "$55.9 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 56200000000,
+    "high": 56200000000,
+    "low_as_written": "$56.2 billion",
+    "high_as_written": "$56.2 billion",
+    "one_sided": null
+   },
+   "n_revisions": 3,
+   "quote": "This implies a full-year revenue forecast of approximately $55.9 billion.",
+   "one_sided": null,
+   "actual": 56000000000,
+   "actual_as_written": "$56 billion",
+   "range_width_pct": 0.0,
+   "grade": "beat",
+   "beat_pct": 0.001789,
+   "grade_vs_latest": "missed",
+   "revised": true
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 3.24,
+    "high": 3.28,
+    "low_as_written": "$3.24",
+    "high_as_written": "$3.28",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 3.24,
+    "high": 3.28,
+    "low_as_written": "$3.24",
+    "high_as_written": "$3.28",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect adjusted earnings per share between $3.24 and $3.28, excluding approximately $1.14 of known intangible amortization and specified items",
+   "one_sided": null,
+   "actual": 3.31,
+   "actual_as_written": "$3.31",
+   "range_width_pct": 0.012346,
+   "grade": "beat",
+   "beat_pct": 0.009146,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2021,
+    4
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 14900000000,
+    "high": 14900000000,
+    "low_as_written": "$15 billion",
+    "high_as_written": "$15 billion",
+    "one_sided": "ceiling"
+   },
+   "latest_revision": {
+    "low": 14900000000,
+    "high": 14900000000,
+    "low_as_written": "$15 billion",
+    "high_as_written": "$15 billion",
+    "one_sided": "ceiling"
+   },
+   "n_revisions": 1,
+   "quote": "we anticipate net revenue approaching $15 billion",
+   "one_sided": "ceiling",
+   "actual": 14900000000,
+   "actual_as_written": "$14.9 billion",
+   "range_width_pct": null,
+   "grade": "met",
+   "grade_vs_latest": "met",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 3,
+  "basis_mismatch": 1,
+  "met": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 1,
+ "revised_down_count": 0
+}

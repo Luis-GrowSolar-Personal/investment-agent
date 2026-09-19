@@ -1,0 +1,93 @@
+{
+ "ticker": "TMO",
+ "call_date": "2021-10-27",
+ "custom_id": "TMO_2021-10-27",
+ "fiscal": [
+  2021,
+  3
+ ],
+ "has_predecessor": true,
+ "gap": true,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 21.62,
+    "high": 21.62,
+    "low_as_written": "$21.62",
+    "high_as_written": "$21.62"
+   },
+   "latest_revision": {
+    "low": 22.07,
+    "high": 22.07,
+    "low_as_written": "$22.07",
+    "high_as_written": "$22.07"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "operating_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 29.8,
+    "high": 29.8,
+    "low_as_written": "29.8%",
+    "high_as_written": "29.8%"
+   },
+   "latest_revision": {
+    "low": 29.7,
+    "high": 29.7,
+    "low_as_written": "29.7%",
+    "high_as_written": "29.7%"
+   },
+   "revised_down": true,
+   "n_revisions": 2
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion"
+   },
+   "latest_revision": {
+    "low": 7000000000,
+    "high": 7000000000,
+    "low_as_written": "$7 billion",
+    "high_as_written": "$7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 2200000000,
+    "high": 2400000000,
+    "low_as_written": "2.2",
+    "high_as_written": "$2.4 billion"
+   },
+   "latest_revision": {
+    "low": 2500000000,
+    "high": 2700000000,
+    "low_as_written": "$2.5",
+    "high_as_written": "$2.7 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 3
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 4,
+ "excluded_other": 0,
+ "revised_down_count": 1
+}

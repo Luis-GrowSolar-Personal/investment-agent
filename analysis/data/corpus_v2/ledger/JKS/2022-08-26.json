@@ -1,0 +1,94 @@
+{
+ "ticker": "JKS",
+ "call_date": "2022-08-26",
+ "custom_id": "JKS_2022-08-26",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "unit_shipments",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 8.5,
+    "high": 9.5,
+    "low_as_written": "8.5",
+    "high_as_written": "9.5 gigawatts",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 8.5,
+    "high": 9.5,
+    "low_as_written": "8.5",
+    "high_as_written": "9.5 gigawatts",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "We expect the total shipments to be in the range of 8.5 to 9.5 gigawatts for the second quarter of 2022.",
+   "one_sided": null,
+   "actual": 10.5,
+   "actual_as_written": "10.5 gigawatts",
+   "range_width_pct": 0.117647,
+   "grade": "beat",
+   "beat_pct": 0.105263,
+   "grade_vs_latest": "beat",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 15.1,
+    "high": 15.1,
+    "low_as_written": "stable",
+    "high_as_written": "stable",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 15.1,
+    "high": 15.1,
+    "low_as_written": "stable",
+    "high_as_written": "stable",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For Q2, we expect that the gross profit margin would be stable.",
+   "one_sided": null,
+   "actual": 14.7,
+   "actual_as_written": "14.7%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.02649,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "beat": 1,
+  "missed": 1
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,39 @@
+{
+ "ticker": "IBM",
+ "call_date": "2021-07-19",
+ "custom_id": "IBM_2021-07-19",
+ "fiscal": [
+  2021,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "free_cash_flow",
+   "framing": "level",
+   "original": {
+    "low": 11000000000,
+    "high": 12000000000,
+    "low_as_written": "$11",
+    "high_as_written": "$12 billion"
+   },
+   "latest_revision": {
+    "low": 11000000000,
+    "high": 12000000000,
+    "low_as_written": "$11",
+    "high_as_written": "$12 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

@@ -1,0 +1,98 @@
+{
+ "ticker": "MRK",
+ "call_date": "2024-04-25",
+ "custom_id": "MRK_2024-04-25",
+ "fiscal": [
+  2024,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 62700000000,
+    "high": 64200000000,
+    "low_as_written": "$62.7",
+    "high_as_written": "$64.2 billion"
+   },
+   "latest_revision": {
+    "low": 62700000000,
+    "high": 64200000000,
+    "low_as_written": "$62.7",
+    "high_as_written": "$64.2 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%"
+   },
+   "latest_revision": {
+    "low": 4,
+    "high": 7,
+    "low_as_written": "4%",
+    "high_as_written": "7%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 80.5,
+    "high": 80.5,
+    "low_as_written": "80.5%",
+    "high_as_written": "80.5%"
+   },
+   "latest_revision": {
+    "low": 80.5,
+    "high": 80.5,
+    "low_as_written": "80.5%",
+    "high_as_written": "80.5%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.44,
+    "high": 8.59,
+    "low_as_written": "$8.44",
+    "high_as_written": "$8.59"
+   },
+   "latest_revision": {
+    "low": 8.44,
+    "high": 8.59,
+    "low_as_written": "$8.44",
+    "high_as_written": "$8.59"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Launch Cetatacept (sertatacept) in the US pending FDA approval with target action date of March 26, 2024",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

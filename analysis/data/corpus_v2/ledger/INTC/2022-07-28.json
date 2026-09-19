@@ -1,0 +1,201 @@
+{
+ "ticker": "INTC",
+ "call_date": "2022-07-28",
+ "custom_id": "INTC_2022-07-28",
+ "fiscal": [
+  2022,
+  2
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "unspecified",
+   "metric_raw": null,
+   "original": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 18000000000,
+    "high": 18000000000,
+    "low_as_written": "$18 billion",
+    "high_as_written": "$18 billion",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For revenue, we're guiding $18 billion down 2% sequentially",
+   "one_sided": null,
+   "actual": 15300000000,
+   "actual_as_written": "$15.3 billion",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.15,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 51,
+    "high": 51,
+    "low_as_written": "51%",
+    "high_as_written": "51%",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 51,
+    "high": 51,
+    "low_as_written": "51%",
+    "high_as_written": "51%",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "For gross margin, we're guiding 51% down approximately 200 basis points sequentially",
+   "one_sided": null,
+   "actual": 45,
+   "actual_as_written": "approximately 45%",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.117647,
+   "grade_vs_latest": "missed",
+   "revised": false
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "period": [
+    "Q",
+    2022,
+    2
+   ],
+   "basis": "non-GAAP",
+   "metric_raw": null,
+   "original": {
+    "low": 0.7,
+    "high": 0.7,
+    "low_as_written": "$0.70",
+    "high_as_written": "$0.70",
+    "one_sided": null
+   },
+   "latest_revision": {
+    "low": 0.7,
+    "high": 0.7,
+    "low_as_written": "$0.70",
+    "high_as_written": "$0.70",
+    "one_sided": null
+   },
+   "n_revisions": 1,
+   "quote": "EPS of $0.70, down $0.17 sequentially on lower growth profit and higher OPEX.",
+   "one_sided": null,
+   "actual": 0.29,
+   "actual_as_written": "29 cents",
+   "range_width_pct": 0.0,
+   "grade": "missed",
+   "miss_pct": 0.585714,
+   "grade_vs_latest": "missed",
+   "revised": false
+  }
+ ],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "level",
+   "original": {
+    "low": 74000000000,
+    "high": 74000000000,
+    "low_as_written": "$74 billion",
+    "high_as_written": "$74 billion"
+   },
+   "latest_revision": {
+    "low": 76000000000,
+    "high": 76000000000,
+    "low_as_written": "$76 billion",
+    "high_as_written": "$76 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "capex",
+   "framing": "level",
+   "original": {
+    "low": 25000000000,
+    "high": 28000000000,
+    "low_as_written": "$25 billion",
+    "high_as_written": "$28 billion"
+   },
+   "latest_revision": {
+    "low": 27000000000,
+    "high": 27000000000,
+    "low_as_written": "$27 billion",
+    "high_as_written": "$27 billion"
+   },
+   "revised_down": false,
+   "n_revisions": 2
+  },
+  {
+   "metric": "gross_margin_pct",
+   "framing": "margin_pct",
+   "original": {
+    "low": 52,
+    "high": 52,
+    "low_as_written": "52%",
+    "high_as_written": "52%"
+   },
+   "latest_revision": {
+    "low": 52,
+    "high": 52,
+    "low_as_written": "52%",
+    "high_as_written": "52%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 3.6,
+    "high": 3.6,
+    "low_as_written": "$3.60",
+    "high_as_written": "$3.60"
+   },
+   "latest_revision": {
+    "low": 3.6,
+    "high": 3.6,
+    "low_as_written": "$3.60",
+    "high_as_written": "$3.60"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [],
+ "retractions": [],
+ "counts": {
+  "missed": 3
+ },
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}

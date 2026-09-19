@@ -1,0 +1,80 @@
+{
+ "ticker": "ROK",
+ "call_date": "2025-02-10",
+ "custom_id": "ROK_2025-02-10",
+ "fiscal": [
+  2025,
+  1
+ ],
+ "has_predecessor": true,
+ "gap": false,
+ "rows": [],
+ "pending_fy": [
+  {
+   "metric": "revenue",
+   "framing": "growth_pct",
+   "original": {
+    "low": -4,
+    "high": 2,
+    "low_as_written": "negative 4%",
+    "high_as_written": "positive 2%"
+   },
+   "latest_revision": {
+    "low": -4,
+    "high": 2,
+    "low_as_written": "negative 4%",
+    "high_as_written": "positive 2%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "eps",
+   "framing": "level",
+   "original": {
+    "low": 8.6,
+    "high": 9.8,
+    "low_as_written": "$8.60",
+    "high_as_written": "$9.80"
+   },
+   "latest_revision": {
+    "low": 8.6,
+    "high": 9.8,
+    "low_as_written": "$8.60",
+    "high_as_written": "$9.80"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  },
+  {
+   "metric": "free_cash_flow",
+   "framing": "growth_pct",
+   "original": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "latest_revision": {
+    "low": 100,
+    "high": 100,
+    "low_as_written": "100%",
+    "high_as_written": "100%"
+   },
+   "revised_down": false,
+   "n_revisions": 1
+  }
+ ],
+ "intents": [
+  {
+   "intent": "Rockwell expects to showcase new product introductions at Automation Fair and hold an Investor Day in Anaheim during the show",
+   "mentioned_now": true
+  }
+ ],
+ "retractions": [],
+ "counts": {},
+ "extraction_present": true,
+ "gap_quarters": 1,
+ "excluded_other": 0,
+ "revised_down_count": 0
+}
