@@ -10,7 +10,7 @@
     "approved_on": "2026-09-19",
     "note": "Phase 1 only. Phase 2 (Pass B, <=$70) needs a separate explicit go."
   },
-  "batch_id_pass_a": null,
+  "batch_id_pass_a": "msgbatch_01XSxnDnsUYifm1r4A1Pr357",
   "batch_id_preflight": null,
   "batch_id_pass_b": null,
   "steps": {
@@ -36,5 +36,7 @@
   ],
   "extraction_prompt_sha256": "627f5b44544e5eca13d174b81676d77573cebac7180b9bbfaf53192748860feb",
   "passA_cost_estimate_usd": 36.8,
-  "validation_spend_usd": 5.06
+  "validation_spend_usd": 5.06,
+  "batch_id_pass_a_submitted_at": "2026-09-19T23:31:33Z",
+  "batch_id_pass_a_requests": 1240
 }
