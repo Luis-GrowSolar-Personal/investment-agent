@@ -179,5 +179,38 @@ def cmd_extra():
     (RUN / "extra.json").write_text(json.dumps(out, indent=1))
 
 
+def cmd_nopara():
+    """Sensitivity added after finding the PARA price series corrupt (levels of ~100,000 decaying to ~1):
+    (1) this run's four strategies with PARA excluded; (2) v6 baseline 182-day edges (arm A, call-date entry, as in the
+    scorer) with and without PARA. Does NOT touch the cache."""
+    prices = PriceCache(r4.PRICE_CACHE)
+    cases = json.loads((RUN / "cases.json").read_text())
+    out = {}
+    for split in ("train", "tune", "pooled"):
+        sub = [c for c in cases if c["ticker"] != "PARA" and (split == "pooled" or c["split"] == split)]
+        for grp in ("all", "next_bearish", "next_neutral"):
+            g = sub if grp == "all" else [c for c in sub if c["next"] == grp.split("_")[1]]
+            r = summarize(g)
+            out[f"{split}/{grp}"] = r
+            print(f"NO-PARA {split:6} {grp:13} n={r['A']['n']:3} cos={r['A']['companies']:2} | A {r['A']['mean_pct']:+.1f} {r['A']['mean_ci95']} "
+                  f"C {r['C']['mean_pct']:+.1f} D {r['D']['mean_pct']:+.1f} wait {r['wait_cost']['mean_pct']:+.1f} | C-A {r['C_minus_A']['mean_pct']:+.1f} {r['C_minus_A']['mean_ci95']}")
+    base = {}
+    for label, excl in (("with PARA", set()), ("without PARA", {"PARA"})):
+        Ms = {}
+        for sp in ("train", "tune"):
+            calls = [c for c in r4.load_calls(sp) if c[0] not in excl]
+            per, n, ng = r4.matrices(calls, prices, 182)
+            Ms[sp] = sum(per.values())
+        for name, M in (("train", Ms["train"]), ("tune", Ms["tune"]), ("pooled", Ms["train"] + Ms["tune"])):
+            st = r4.stats_from(M)
+            base[f"{label}/{name}"] = {"n": st["n"], "base_rate": st["base_rate_pct"], "bear_calls": st["bearish"]["calls"],
+                                       "bear_hit": st["bearish"]["hit_rate_pct"], "bear_edge": st["bearish"]["edge_pts"],
+                                       "bull_edge": st["bullish"]["edge_pts"], "neut_edge": st["neutral"]["edge_pts"], "gap": st["gap_pts"]}
+            print("BASELINE-182", label, name, json.dumps(base[f"{label}/{name}"]))
+    pa = [c for s_ in ("train", "tune") for c in r4.load_calls(s_) if c[0] == "PARA"]
+    print("PARA calls in corpus:", len(pa), "bearish:", sum(1 for c in pa if c[2] == "bearish"))
+    (RUN / "nopara.json").write_text(json.dumps({"strategies": out, "baseline182": base}, indent=1))
+
+
 if __name__ == "__main__":
-    {"run": cmd_run, "extra": cmd_extra}.get((sys.argv[1:] or [""])[0], lambda: print(__doc__))()
+    {"run": cmd_run, "extra": cmd_extra, "nopara": cmd_nopara}.get((sys.argv[1:] or [""])[0], lambda: print(__doc__))()
