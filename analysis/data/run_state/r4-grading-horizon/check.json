@@ -1,0 +1,17 @@
+{
+ "train": {
+  "files": 1240,
+  "tickers": 56,
+  "not_in_split": [],
+  "in_holdout": [],
+  "wolf_spwr_files": 0
+ },
+ "tune": {
+  "files": 1207,
+  "tickers": 53,
+  "not_in_split": [],
+  "in_holdout": [],
+  "wolf_spwr_files": 38
+ },
+ "asserts_pass": true
+}
