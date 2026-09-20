@@ -1,1 +1,17 @@
-{"run_id":"r4-grading-horizon","prompt_sha256":"bddff77fc269b1404aa61f0b1d9490e6d79e546319e489a394d617bfd0962b29","driver_commit":null,"steps":{"0a":"pending","0b":"pending","prereg":"pending","sweep_train":"pending","sweep_tune":"pending","report":"pending"},"next_action":"read scorer, hygiene, driver","notes":["/bin/zsh run, no model calls; version guard skipped because no scoring calls are made"]}
+{
+ "run_id": "r4-grading-horizon",
+ "prompt_sha256": "bddff77fc269b1404aa61f0b1d9490e6d79e546319e489a394d617bfd0962b29",
+ "driver_commit": "see git log (r4_horizon_driver.py, two commits)",
+ "steps": {
+  "0a": "done",
+  "0b": "done",
+  "prereg": "done",
+  "sweep_train": "done",
+  "sweep_tune": "done",
+  "report": "done"
+ },
+ "next_action": "none; complete. 6c not run (pre-registered condition unmet).",
+ "notes": [
+  "/bin/zsh run, no model calls; version guard skipped because no scoring calls are made"
+ ]
+}
