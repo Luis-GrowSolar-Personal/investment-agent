@@ -23,3 +23,5 @@ Definitions fixed here (mine):
 - "Ranges too wide to tell": if the 95% range of the 3-of-3 minus 1-of-3 tail-share difference includes zero on a split, that split cannot tell them apart.
 - Version guard: run against the promoted v6 hash (357b6b0b...), no candidate; recorded in progress.json.
 - Spend cap $20; request cap 400 (354 planned).
+
+- 2026-09-20: batch ended 352/352 succeeded; 354 readings, all end_turn, 0 unreadable. Spend $15.07 (cap $20). Groups: 3-of-3 = 101 (57.1%), 2-of-3 = 34 (19.2%), 1-of-3 = 42 (23.7%). Only 66.7% of re-runs came back bearish (236 of 354; 116 neutral, 2 bullish) vs ~87% implied by the prompt's 12.8% pairwise disagreement. Sanity gate PASS (50-95%). Likely selection effect: calls chosen BECAUSE the cached draw was bearish. Outcomes not yet computed at this point.

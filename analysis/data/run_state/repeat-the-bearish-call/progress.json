@@ -11,12 +11,12 @@
     "prereg": "done",
     "pilot": "done",
     "submit": "done",
-    "collect": "pending",
-    "groups_sanity": "pending",
+    "collect": "done",
+    "groups_sanity": "done_pass",
     "outcomes": "pending",
     "report": "pending"
   },
-  "next_action": "poll batch; collect; groups sanity gate; analyze",
+  "next_action": "analyze (money + accuracy + concentration), then report",
   "notes": [
     "spends real money ~$14, cap $20; prompt states the cost; queued by Luis",
     "prompt text = promoted v6, guard vs promoted hash, no candidate"
@@ -27,5 +27,6 @@
     "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
     "candidate": null,
     "ok": true
-  }
+  },
+  "spend_usd": 15.07
 }
