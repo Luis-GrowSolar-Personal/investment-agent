@@ -1,1 +1,1219 @@
-{"run_id":"finnhub-coverage-probe","prompt_sha256":"a41a084b04afa28e35ba030af61dcd9706b34a7c3fdac9e7ac0521e328fd81bb","driver_commit":null,"calls_used":0,"call_cap":600,"steps":{"driver":"pending","step1_endpoints":"pending","step2_coverage":"pending","step3_point_in_time":"pending","report":"pending"},"next_action":"write driver, commit, run step 1","notes":["no Anthropic calls; key read from env only, sent in a header, never in a URL; version guard skipped: no scoring calls"]}
+{
+  "run_id": "finnhub-coverage-probe",
+  "prompt_sha256": "a41a084b04afa28e35ba030af61dcd9706b34a7c3fdac9e7ac0521e328fd81bb",
+  "driver_commit": null,
+  "calls_used": 120,
+  "call_cap": 600,
+  "steps": {
+    "driver": "pending",
+    "step1_endpoints": "pending",
+    "step2_coverage": "pending",
+    "step3_point_in_time": "pending",
+    "report": "pending"
+  },
+  "next_action": "write driver, commit, run step 1",
+  "notes": [
+    "no Anthropic calls; key read from env only, sent in a header, never in a URL; version guard skipped: no scoring calls"
+  ],
+  "call_log": [
+    {
+      "n": 1,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MSFT",
+        "limit": "100"
+      },
+      "note": "step1",
+      "at": "2026-09-20T20:46:27Z"
+    },
+    {
+      "n": 2,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MSFT"
+      },
+      "note": "step1",
+      "at": "2026-09-20T20:46:29Z"
+    },
+    {
+      "n": 3,
+      "path": "stock/eps-estimate",
+      "params": {
+        "symbol": "MSFT",
+        "freq": "quarterly"
+      },
+      "note": "step1",
+      "at": "2026-09-20T20:46:30Z"
+    },
+    {
+      "n": 4,
+      "path": "stock/revenue-estimate",
+      "params": {
+        "symbol": "MSFT",
+        "freq": "quarterly"
+      },
+      "note": "step1",
+      "at": "2026-09-20T20:46:31Z"
+    },
+    {
+      "n": 5,
+      "path": "stock/recommendation",
+      "params": {
+        "symbol": "MSFT"
+      },
+      "note": "step1",
+      "at": "2026-09-20T20:46:33Z"
+    },
+    {
+      "n": 6,
+      "path": "stock/price-target",
+      "params": {
+        "symbol": "MSFT"
+      },
+      "note": "step1",
+      "at": "2026-09-20T20:46:34Z"
+    },
+    {
+      "n": 7,
+      "path": "stock/metric",
+      "params": {
+        "symbol": "MSFT",
+        "metric": "all"
+      },
+      "note": "step1",
+      "at": "2026-09-20T20:46:35Z"
+    },
+    {
+      "n": 8,
+      "path": "calendar/earnings",
+      "params": {
+        "symbol": "MSFT",
+        "from": "2020-01-01",
+        "to": "2026-01-01"
+      },
+      "note": "step1",
+      "at": "2026-09-20T20:46:37Z"
+    },
+    {
+      "n": 9,
+      "path": "calendar/earnings",
+      "params": {
+        "symbol": "MSFT",
+        "from": "2025-09-20",
+        "to": "2026-01-01"
+      },
+      "note": "",
+      "at": "2026-09-20T20:46:45Z"
+    },
+    {
+      "n": 10,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ABBV",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:00Z"
+    },
+    {
+      "n": 11,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ACN",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:02Z"
+    },
+    {
+      "n": 12,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "AEP",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:03Z"
+    },
+    {
+      "n": 13,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "AIG",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:04Z"
+    },
+    {
+      "n": 14,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "AMPX",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:06Z"
+    },
+    {
+      "n": 15,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ANTM",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:07Z"
+    },
+    {
+      "n": 16,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ARRY",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:08Z"
+    },
+    {
+      "n": 17,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "BAC",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:10Z"
+    },
+    {
+      "n": 18,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "BK",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:11Z"
+    },
+    {
+      "n": 19,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "BLDP",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:12Z"
+    },
+    {
+      "n": 20,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "BLK",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:13Z"
+    },
+    {
+      "n": 21,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "BMY",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:15Z"
+    },
+    {
+      "n": 22,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "BNY",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:16Z"
+    },
+    {
+      "n": 23,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "BOX",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:17Z"
+    },
+    {
+      "n": 24,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "CI",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:19Z"
+    },
+    {
+      "n": 25,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "CL",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:20Z"
+    },
+    {
+      "n": 26,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "CMCSA",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:21Z"
+    },
+    {
+      "n": 27,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "CMI",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:23Z"
+    },
+    {
+      "n": 28,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "COF",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:24Z"
+    },
+    {
+      "n": 29,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "COST",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:25Z"
+    },
+    {
+      "n": 30,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "CRM",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:27Z"
+    },
+    {
+      "n": 31,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "DD",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:28Z"
+    },
+    {
+      "n": 32,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "DHR",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:29Z"
+    },
+    {
+      "n": 33,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "DIOD",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:31Z"
+    },
+    {
+      "n": 34,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "DIS",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:32Z"
+    },
+    {
+      "n": 35,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "DOW",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:33Z"
+    },
+    {
+      "n": 36,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "DUK",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:35Z"
+    },
+    {
+      "n": 37,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ELV",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:36Z"
+    },
+    {
+      "n": 38,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "EMR",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:37Z"
+    },
+    {
+      "n": 39,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ENVX",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:39Z"
+    },
+    {
+      "n": 40,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "EOG",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:40Z"
+    },
+    {
+      "n": 41,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "EOSE",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:41Z"
+    },
+    {
+      "n": 42,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "EQIX",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:42Z"
+    },
+    {
+      "n": 43,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ETN",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:44Z"
+    },
+    {
+      "n": 44,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "EXC",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:45Z"
+    },
+    {
+      "n": 45,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "FCX",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:46Z"
+    },
+    {
+      "n": 46,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "FRC",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:48Z"
+    },
+    {
+      "n": 47,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "GIS",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:49Z"
+    },
+    {
+      "n": 48,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "GOOG",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:50Z"
+    },
+    {
+      "n": 49,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "GOOGL",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:52Z"
+    },
+    {
+      "n": 50,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "GS",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:53Z"
+    },
+    {
+      "n": 51,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "HCA",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:55Z"
+    },
+    {
+      "n": 52,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "HON",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:56Z"
+    },
+    {
+      "n": 53,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "HRL",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:57Z"
+    },
+    {
+      "n": 54,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "IBM",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:47:59Z"
+    },
+    {
+      "n": 55,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "INTC",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:00Z"
+    },
+    {
+      "n": 56,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ITW",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:01Z"
+    },
+    {
+      "n": 57,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "JKS",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:03Z"
+    },
+    {
+      "n": 58,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "JPM",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:04Z"
+    },
+    {
+      "n": 59,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "KHC",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:05Z"
+    },
+    {
+      "n": 60,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "KMB",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:07Z"
+    },
+    {
+      "n": 61,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "KO",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:08Z"
+    },
+    {
+      "n": 62,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "LLY",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:09Z"
+    },
+    {
+      "n": 63,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "LMT",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:10Z"
+    },
+    {
+      "n": 64,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "LRCX",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:12Z"
+    },
+    {
+      "n": 65,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MAXN",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:13Z"
+    },
+    {
+      "n": 66,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MAXNQ",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:14Z"
+    },
+    {
+      "n": 67,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MCD",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:16Z"
+    },
+    {
+      "n": 68,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MCHP",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:17Z"
+    },
+    {
+      "n": 69,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MMM",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:18Z"
+    },
+    {
+      "n": 70,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MO",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:20Z"
+    },
+    {
+      "n": 71,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MPWR",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:21Z"
+    },
+    {
+      "n": 72,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MRK",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:22Z"
+    },
+    {
+      "n": 73,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MS",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:24Z"
+    },
+    {
+      "n": 74,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MU",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:25Z"
+    },
+    {
+      "n": 75,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "NEE",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:26Z"
+    },
+    {
+      "n": 76,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "NEM",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:28Z"
+    },
+    {
+      "n": 77,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "NFLX",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:29Z"
+    },
+    {
+      "n": 78,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "NOW",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:30Z"
+    },
+    {
+      "n": 79,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "NXPI",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:32Z"
+    },
+    {
+      "n": 80,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ORCL",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:33Z"
+    },
+    {
+      "n": 81,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "OXY",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:34Z"
+    },
+    {
+      "n": 82,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "PFE",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:36Z"
+    },
+    {
+      "n": 83,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "PG",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:37Z"
+    },
+    {
+      "n": 84,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "PH",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:38Z"
+    },
+    {
+      "n": 85,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "PLD",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:40Z"
+    },
+    {
+      "n": 86,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "PM",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:41Z"
+    },
+    {
+      "n": 87,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "PNC",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:42Z"
+    },
+    {
+      "n": 88,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "PPG",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:44Z"
+    },
+    {
+      "n": 89,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "PSA",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:45Z"
+    },
+    {
+      "n": 90,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "PSX",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:46Z"
+    },
+    {
+      "n": 91,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "PYPL",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:47Z"
+    },
+    {
+      "n": 92,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "QCOM",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:49Z"
+    },
+    {
+      "n": 93,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "QS",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:50Z"
+    },
+    {
+      "n": 94,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ROK",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:51Z"
+    },
+    {
+      "n": 95,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "RTX",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:53Z"
+    },
+    {
+      "n": 96,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "RUN",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:54Z"
+    },
+    {
+      "n": 97,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "SBUX",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:55Z"
+    },
+    {
+      "n": 98,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "SEDG",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:57Z"
+    },
+    {
+      "n": 99,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "SIRI",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:58Z"
+    },
+    {
+      "n": 100,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "SLAB",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:48:59Z"
+    },
+    {
+      "n": 101,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "SLB",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:01Z"
+    },
+    {
+      "n": 102,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "SNOW",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:02Z"
+    },
+    {
+      "n": 103,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "SRE",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:03Z"
+    },
+    {
+      "n": 104,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "SUNW",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:05Z"
+    },
+    {
+      "n": 105,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "SWKS",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:06Z"
+    },
+    {
+      "n": 106,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "T",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:07Z"
+    },
+    {
+      "n": 107,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "TEAM",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:09Z"
+    },
+    {
+      "n": 108,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "TFC",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:10Z"
+    },
+    {
+      "n": 109,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "TMO",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:11Z"
+    },
+    {
+      "n": 110,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "TMUS",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:13Z"
+    },
+    {
+      "n": 111,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "TSLA",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:14Z"
+    },
+    {
+      "n": 112,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "TTD",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:15Z"
+    },
+    {
+      "n": 113,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "UPS",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:17Z"
+    },
+    {
+      "n": 114,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "VLO",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:18Z"
+    },
+    {
+      "n": 115,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "VZ",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:19Z"
+    },
+    {
+      "n": 116,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "WDAY",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:20Z"
+    },
+    {
+      "n": 117,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "WEC",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:22Z"
+    },
+    {
+      "n": 118,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "WFC",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:23Z"
+    },
+    {
+      "n": 119,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "WMB",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:25Z"
+    },
+    {
+      "n": 120,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "ZTS",
+        "limit": "100"
+      },
+      "note": "step2",
+      "at": "2026-09-20T20:49:26Z"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"path": "stock/eps-estimate", "params": {"symbol": "MSFT", "freq": "quarterly"}, "status": 403, "fetched_at": "2026-09-20T20:46:30Z", "body": {"error": "You don't have access to this resource."}}

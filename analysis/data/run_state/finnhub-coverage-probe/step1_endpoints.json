@@ -1,0 +1,50 @@
+[
+ {
+  "endpoint": "stock/earnings (limit=100)",
+  "status": 200,
+  "kind": "populated",
+  "items": 4
+ },
+ {
+  "endpoint": "stock/earnings (default)",
+  "status": 200,
+  "kind": "populated",
+  "items": 4
+ },
+ {
+  "endpoint": "stock/eps-estimate",
+  "status": 403,
+  "kind": "HTTP 403: {'error': \"You don't have access to this resource.\"}",
+  "items": "-"
+ },
+ {
+  "endpoint": "stock/revenue-estimate",
+  "status": 403,
+  "kind": "HTTP 403: {'error': \"You don't have access to this resource.\"}",
+  "items": "-"
+ },
+ {
+  "endpoint": "stock/recommendation",
+  "status": 200,
+  "kind": "populated",
+  "items": 4
+ },
+ {
+  "endpoint": "stock/price-target",
+  "status": 403,
+  "kind": "HTTP 403: {'error': \"You don't have access to this resource.\"}",
+  "items": "-"
+ },
+ {
+  "endpoint": "stock/metric",
+  "status": 200,
+  "kind": "populated",
+  "items": "-"
+ },
+ {
+  "endpoint": "calendar/earnings (EXTRA, not in prompt)",
+  "status": 200,
+  "kind": "empty",
+  "items": 0
+ }
+]
