@@ -1,0 +1,1 @@
+{"path": "eod/ANTM.US", "params": {"from": "2020-01-01", "to": "2026-09-14", "period": "d", "fmt": "json"}, "status": 200, "headers": {"content-type": "application/json", "x-ratelimit-limit": "1200", "x-ratelimit-remaining": "1199"}, "fetched_at": "2026-09-20T17:50:47Z", "body": [{"warning": "Data is limited by one year as you have free subscription"}]}

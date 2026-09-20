@@ -2,17 +2,18 @@
   "run_id": "eodhd-coverage-probe",
   "prompt_sha256": "1078a950310d9dc2b363df257a811802744bde74ce821e53bec3940dc5b4cbe6",
   "driver_commit": null,
-  "calls_used": 8,
+  "calls_used": 15,
   "call_cap": 300,
   "steps": {
-    "driver": "pending",
-    "step1_prices": "pending",
-    "step2_calendar": "pending",
-    "report": "pending"
+    "driver": "done",
+    "step1_prices": "done",
+    "step2_calendar": "blocked_403_free_tier",
+    "report": "done"
   },
-  "next_action": "write driver, commit, run step 1",
+  "next_action": "Step 2 needs a paid key with the earnings-calendar endpoint. Then: python3 analysis/eodhd_probe.py calendar 12 (~10 calls). No further calls needed on the free key.",
   "notes": [
-    "no Anthropic calls; vendor key read from env only, never printed"
+    "no Anthropic calls; vendor key read from env only, never printed",
+    "calendar/earnings returned HTTP 403 Only EOD data allowed for free users; prices limited to one year"
   ],
   "call_log": [
     {
@@ -107,6 +108,90 @@
       },
       "note": "step1 prices",
       "at": "2026-09-20T17:49:35Z"
+    },
+    {
+      "n": 9,
+      "path": "calendar/earnings",
+      "params": {
+        "symbols": "MSFT.US,INTC.US,SEDG.US,EOSE.US",
+        "from": "2020-01-01",
+        "to": "2026-01-01",
+        "fmt": "json"
+      },
+      "note": "",
+      "at": "2026-09-20T17:50:20Z"
+    },
+    {
+      "n": 10,
+      "path": "eod/ANTM.US",
+      "params": {
+        "from": "2020-01-01",
+        "to": "2026-09-14",
+        "period": "d",
+        "fmt": "json"
+      },
+      "note": "symbol preference probe",
+      "at": "2026-09-20T17:50:47Z"
+    },
+    {
+      "n": 11,
+      "path": "eod/ELV.US",
+      "params": {
+        "from": "2020-01-01",
+        "to": "2026-09-14",
+        "period": "d",
+        "fmt": "json"
+      },
+      "note": "symbol preference probe",
+      "at": "2026-09-20T17:51:02Z"
+    },
+    {
+      "n": 12,
+      "path": "eod/GOOGL.US",
+      "params": {
+        "from": "2020-01-01",
+        "to": "2026-09-14",
+        "period": "d",
+        "fmt": "json"
+      },
+      "note": "symbol preference probe",
+      "at": "2026-09-20T17:51:02Z"
+    },
+    {
+      "n": 13,
+      "path": "eod/GOOG.US",
+      "params": {
+        "from": "2020-01-01",
+        "to": "2026-09-14",
+        "period": "d",
+        "fmt": "json"
+      },
+      "note": "symbol preference probe",
+      "at": "2026-09-20T17:51:03Z"
+    },
+    {
+      "n": 14,
+      "path": "eod/BK.US",
+      "params": {
+        "from": "2020-01-01",
+        "to": "2026-09-14",
+        "period": "d",
+        "fmt": "json"
+      },
+      "note": "symbol preference probe",
+      "at": "2026-09-20T17:51:03Z"
+    },
+    {
+      "n": 15,
+      "path": "eod/BNY.US",
+      "params": {
+        "from": "2020-01-01",
+        "to": "2026-09-14",
+        "period": "d",
+        "fmt": "json"
+      },
+      "note": "symbol preference probe",
+      "at": "2026-09-20T17:51:04Z"
     }
   ]
 }

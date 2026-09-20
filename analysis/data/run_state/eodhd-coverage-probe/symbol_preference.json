@@ -1,0 +1,60 @@
+{
+ "ANTM": {
+  "status": 200,
+  "rows": 0,
+  "first": null,
+  "last": null,
+  "ours_rows": 1831,
+  "warning": "Data is limited by one year as you have free subscription"
+ },
+ "ELV": {
+  "status": 200,
+  "rows": 246,
+  "first": "2025-09-22",
+  "last": "2026-09-14",
+  "ours_rows": 1831,
+  "warning": "Data is limited by one year as you have free subscription",
+  "shared": 246,
+  "close_within_1pct": 246
+ },
+ "GOOGL": {
+  "status": 200,
+  "rows": 246,
+  "first": "2025-09-22",
+  "last": "2026-09-14",
+  "ours_rows": 1831,
+  "warning": "Data is limited by one year as you have free subscription",
+  "shared": 246,
+  "close_within_1pct": 228
+ },
+ "GOOG": {
+  "status": 200,
+  "rows": 246,
+  "first": "2025-09-22",
+  "last": "2026-09-14",
+  "ours_rows": 1831,
+  "warning": "Data is limited by one year as you have free subscription",
+  "shared": 246,
+  "close_within_1pct": 246
+ },
+ "BK": {
+  "status": 200,
+  "rows": 167,
+  "first": "2025-09-22",
+  "last": "2026-05-20",
+  "ours_rows": 1831,
+  "warning": "Data is limited by one year as you have free subscription",
+  "shared": 167,
+  "close_within_1pct": 167
+ },
+ "BNY": {
+  "status": 200,
+  "rows": 246,
+  "first": "2025-09-22",
+  "last": "2026-09-14",
+  "ours_rows": 1831,
+  "warning": "Data is limited by one year as you have free subscription",
+  "shared": 246,
+  "close_within_1pct": 246
+ }
+}

@@ -1,0 +1,1 @@
+{"path": "calendar/earnings", "params": {"symbols": "MSFT.US,INTC.US,SEDG.US,EOSE.US", "from": "2020-01-01", "to": "2026-01-01", "fmt": "json"}, "status": 403, "headers": {}, "fetched_at": "2026-09-20T17:50:21Z", "body": "Only EOD data allowed for free users. Please, contact our support team: support@eodhistoricaldata.com"}
