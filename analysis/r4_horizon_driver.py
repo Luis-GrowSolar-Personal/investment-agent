@@ -159,7 +159,7 @@ def done_keys():
     p = cells_path()
     if not p.exists():
         return set()
-    return {(r["split"], r["horizon"]) for r in map(json.loads, p.read_text().splitlines()) if r.strip()}
+    return {(r["split"], r["horizon"]) for r in (json.loads(l) for l in p.read_text().splitlines() if l.strip())}
 
 
 def cmd_sweep(split):
