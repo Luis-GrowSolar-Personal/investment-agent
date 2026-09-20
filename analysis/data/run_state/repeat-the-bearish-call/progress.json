@@ -1,1 +1,31 @@
-{"run_id":"repeat-the-bearish-call","prompt_sha256":"97d75249b64661a0228e30859ed30a39943e04cbf51949aabd1160a982cbc969","driver_commit":null,"spend_cap_usd":20,"request_cap":400,"batch_id":null,"steps":{"premise":"pending","driver":"pending","prereg":"pending","pilot":"pending","submit":"pending","collect":"pending","groups_sanity":"pending","outcomes":"pending","report":"pending"},"next_action":"derive bearish list, write driver","notes":["spends real money ~$14, cap $20; prompt states the cost; queued by Luis","prompt text = promoted v6, guard vs promoted hash, no candidate"]}
+{
+  "run_id": "repeat-the-bearish-call",
+  "prompt_sha256": "97d75249b64661a0228e30859ed30a39943e04cbf51949aabd1160a982cbc969",
+  "driver_commit": null,
+  "spend_cap_usd": 20,
+  "request_cap": 400,
+  "batch_id": "msgbatch_01WMERpikWAk8gdC5QqeCCYp",
+  "steps": {
+    "premise": "done",
+    "driver": "done",
+    "prereg": "done",
+    "pilot": "done",
+    "submit": "done",
+    "collect": "pending",
+    "groups_sanity": "pending",
+    "outcomes": "pending",
+    "report": "pending"
+  },
+  "next_action": "poll batch; collect; groups sanity gate; analyze",
+  "notes": [
+    "spends real money ~$14, cap $20; prompt states the cost; queued by Luis",
+    "prompt text = promoted v6, guard vs promoted hash, no candidate"
+  ],
+  "batch_submitted_at": "2026-09-20T18:15:37Z",
+  "batch_requests": 352,
+  "guard": {
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "candidate": null,
+    "ok": true
+  }
+}
