@@ -1,0 +1,1323 @@
+{
+ "strategies": {
+  "train/all": {
+   "A": {
+    "n": 90,
+    "companies": 29,
+    "mean_pct": 0.2,
+    "median_pct": -7.83,
+    "share_negative_pct": 60.0,
+    "mean_ci95": [
+     -14.69,
+     12.68
+    ],
+    "share_negative_ci95": [
+     48.5,
+     71.6
+    ]
+   },
+   "B": {
+    "n": 90,
+    "companies": 29,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C": {
+    "n": 90,
+    "companies": 29,
+    "mean_pct": 2.33,
+    "median_pct": -7.66,
+    "share_negative_pct": 61.1,
+    "mean_ci95": [
+     -8.98,
+     12.55
+    ],
+    "share_negative_ci95": [
+     49.2,
+     72.8
+    ]
+   },
+   "D": {
+    "n": 90,
+    "companies": 29,
+    "mean_pct": -2.14,
+    "median_pct": -7.56,
+    "share_negative_pct": 66.7,
+    "mean_ci95": [
+     -11.23,
+     5.67
+    ],
+    "share_negative_ci95": [
+     55.9,
+     79.1
+    ]
+   },
+   "loss_avoided_B_vs_A": {
+    "n": 90,
+    "companies": 29,
+    "mean_pct": -0.2,
+    "median_pct": 7.83,
+    "share_negative_pct": 40.0,
+    "mean_ci95": [
+     -12.68,
+     14.69
+    ],
+    "share_negative_ci95": [
+     28.4,
+     51.5
+    ]
+   },
+   "C_minus_A": {
+    "n": 90,
+    "companies": 29,
+    "mean_pct": 2.13,
+    "median_pct": 0.0,
+    "share_negative_pct": 13.3,
+    "mean_ci95": [
+     -1.77,
+     7.1
+    ],
+    "share_negative_ci95": [
+     4.1,
+     22.2
+    ]
+   },
+   "C_minus_B": {
+    "n": 90,
+    "companies": 29,
+    "mean_pct": 2.33,
+    "median_pct": -7.66,
+    "share_negative_pct": 61.1,
+    "mean_ci95": [
+     -8.98,
+     12.55
+    ],
+    "share_negative_ci95": [
+     49.2,
+     72.8
+    ]
+   },
+   "D_minus_A": {
+    "n": 90,
+    "companies": 29,
+    "mean_pct": -2.34,
+    "median_pct": 2.21,
+    "share_negative_pct": 43.3,
+    "mean_ci95": [
+     -9.19,
+     4.79
+    ],
+    "share_negative_ci95": [
+     31.5,
+     55.3
+    ]
+   },
+   "wait_cost": {
+    "n": 90,
+    "companies": 29,
+    "mean_pct": -2.14,
+    "median_pct": -7.56,
+    "share_negative_pct": 66.7,
+    "mean_ci95": [
+     -11.23,
+     5.67
+    ],
+    "share_negative_ci95": [
+     55.9,
+     79.1
+    ]
+   }
+  },
+  "train/next_bearish": {
+   "A": {
+    "n": 36,
+    "companies": 15,
+    "mean_pct": -20.0,
+    "median_pct": -18.07,
+    "share_negative_pct": 77.8,
+    "mean_ci95": [
+     -41.41,
+     -2.94
+    ],
+    "share_negative_ci95": [
+     61.8,
+     91.7
+    ]
+   },
+   "B": {
+    "n": 36,
+    "companies": 15,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C": {
+    "n": 36,
+    "companies": 15,
+    "mean_pct": -14.67,
+    "median_pct": -12.08,
+    "share_negative_pct": 80.6,
+    "mean_ci95": [
+     -24.96,
+     -7.1
+    ],
+    "share_negative_ci95": [
+     68.0,
+     96.2
+    ]
+   },
+   "D": {
+    "n": 36,
+    "companies": 15,
+    "mean_pct": -14.67,
+    "median_pct": -12.08,
+    "share_negative_pct": 80.6,
+    "mean_ci95": [
+     -24.96,
+     -7.1
+    ],
+    "share_negative_ci95": [
+     68.0,
+     96.2
+    ]
+   },
+   "loss_avoided_B_vs_A": {
+    "n": 36,
+    "companies": 15,
+    "mean_pct": 20.0,
+    "median_pct": 18.07,
+    "share_negative_pct": 22.2,
+    "mean_ci95": [
+     2.94,
+     41.41
+    ],
+    "share_negative_ci95": [
+     8.3,
+     38.2
+    ]
+   },
+   "C_minus_A": {
+    "n": 36,
+    "companies": 15,
+    "mean_pct": 5.33,
+    "median_pct": 5.54,
+    "share_negative_pct": 33.3,
+    "mean_ci95": [
+     -4.8,
+     17.83
+    ],
+    "share_negative_ci95": [
+     12.1,
+     53.2
+    ]
+   },
+   "C_minus_B": {
+    "n": 36,
+    "companies": 15,
+    "mean_pct": -14.67,
+    "median_pct": -12.08,
+    "share_negative_pct": 80.6,
+    "mean_ci95": [
+     -24.96,
+     -7.1
+    ],
+    "share_negative_ci95": [
+     68.0,
+     96.2
+    ]
+   },
+   "D_minus_A": {
+    "n": 36,
+    "companies": 15,
+    "mean_pct": 5.33,
+    "median_pct": 5.54,
+    "share_negative_pct": 33.3,
+    "mean_ci95": [
+     -4.8,
+     17.83
+    ],
+    "share_negative_ci95": [
+     12.1,
+     53.2
+    ]
+   },
+   "wait_cost": {
+    "n": 36,
+    "companies": 15,
+    "mean_pct": -14.67,
+    "median_pct": -12.08,
+    "share_negative_pct": 80.6,
+    "mean_ci95": [
+     -24.96,
+     -7.1
+    ],
+    "share_negative_ci95": [
+     68.0,
+     96.2
+    ]
+   }
+  },
+  "train/next_neutral": {
+   "A": {
+    "n": 47,
+    "companies": 26,
+    "mean_pct": 14.61,
+    "median_pct": 2.1,
+    "share_negative_pct": 46.8,
+    "mean_ci95": [
+     -2.79,
+     33.36
+    ],
+    "share_negative_ci95": [
+     28.0,
+     64.6
+    ]
+   },
+   "B": {
+    "n": 47,
+    "companies": 26,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C": {
+    "n": 47,
+    "companies": 26,
+    "mean_pct": 14.61,
+    "median_pct": 2.1,
+    "share_negative_pct": 46.8,
+    "mean_ci95": [
+     -2.79,
+     33.36
+    ],
+    "share_negative_ci95": [
+     28.0,
+     64.6
+    ]
+   },
+   "D": {
+    "n": 47,
+    "companies": 26,
+    "mean_pct": 4.04,
+    "median_pct": -4.92,
+    "share_negative_pct": 59.6,
+    "mean_ci95": [
+     -4.83,
+     12.68
+    ],
+    "share_negative_ci95": [
+     43.2,
+     75.0
+    ]
+   },
+   "loss_avoided_B_vs_A": {
+    "n": 47,
+    "companies": 26,
+    "mean_pct": -14.61,
+    "median_pct": -2.1,
+    "share_negative_pct": 53.2,
+    "mean_ci95": [
+     -33.36,
+     2.79
+    ],
+    "share_negative_ci95": [
+     35.4,
+     72.0
+    ]
+   },
+   "C_minus_A": {
+    "n": 47,
+    "companies": 26,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C_minus_B": {
+    "n": 47,
+    "companies": 26,
+    "mean_pct": 14.61,
+    "median_pct": 2.1,
+    "share_negative_pct": 46.8,
+    "mean_ci95": [
+     -2.79,
+     33.36
+    ],
+    "share_negative_ci95": [
+     28.0,
+     64.6
+    ]
+   },
+   "D_minus_A": {
+    "n": 47,
+    "companies": 26,
+    "mean_pct": -10.57,
+    "median_pct": 0.0,
+    "share_negative_pct": 48.9,
+    "mean_ci95": [
+     -23.71,
+     -0.52
+    ],
+    "share_negative_ci95": [
+     34.0,
+     65.1
+    ]
+   },
+   "wait_cost": {
+    "n": 47,
+    "companies": 26,
+    "mean_pct": 4.04,
+    "median_pct": -4.92,
+    "share_negative_pct": 59.6,
+    "mean_ci95": [
+     -4.83,
+     12.68
+    ],
+    "share_negative_ci95": [
+     43.2,
+     75.0
+    ]
+   }
+  },
+  "tune/all": {
+   "A": {
+    "n": 79,
+    "companies": 27,
+    "mean_pct": -0.13,
+    "median_pct": -7.71,
+    "share_negative_pct": 58.2,
+    "mean_ci95": [
+     -8.44,
+     11.02
+    ],
+    "share_negative_ci95": [
+     43.7,
+     70.8
+    ]
+   },
+   "B": {
+    "n": 79,
+    "companies": 27,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C": {
+    "n": 79,
+    "companies": 27,
+    "mean_pct": -1.52,
+    "median_pct": -8.14,
+    "share_negative_pct": 60.8,
+    "mean_ci95": [
+     -7.53,
+     7.64
+    ],
+    "share_negative_ci95": [
+     47.9,
+     71.4
+    ]
+   },
+   "D": {
+    "n": 79,
+    "companies": 27,
+    "mean_pct": -0.24,
+    "median_pct": -5.53,
+    "share_negative_pct": 55.7,
+    "mean_ci95": [
+     -6.64,
+     8.57
+    ],
+    "share_negative_ci95": [
+     42.4,
+     66.7
+    ]
+   },
+   "loss_avoided_B_vs_A": {
+    "n": 79,
+    "companies": 27,
+    "mean_pct": 0.13,
+    "median_pct": 7.71,
+    "share_negative_pct": 41.8,
+    "mean_ci95": [
+     -11.02,
+     8.44
+    ],
+    "share_negative_ci95": [
+     29.2,
+     56.3
+    ]
+   },
+   "C_minus_A": {
+    "n": 79,
+    "companies": 27,
+    "mean_pct": -1.39,
+    "median_pct": 0.0,
+    "share_negative_pct": 17.7,
+    "mean_ci95": [
+     -6.65,
+     2.25
+    ],
+    "share_negative_ci95": [
+     10.4,
+     25.3
+    ]
+   },
+   "C_minus_B": {
+    "n": 79,
+    "companies": 27,
+    "mean_pct": -1.52,
+    "median_pct": -8.14,
+    "share_negative_pct": 60.8,
+    "mean_ci95": [
+     -7.53,
+     7.64
+    ],
+    "share_negative_ci95": [
+     47.9,
+     71.4
+    ]
+   },
+   "D_minus_A": {
+    "n": 79,
+    "companies": 27,
+    "mean_pct": -0.1,
+    "median_pct": 3.1,
+    "share_negative_pct": 40.5,
+    "mean_ci95": [
+     -5.2,
+     4.46
+    ],
+    "share_negative_ci95": [
+     31.2,
+     51.3
+    ]
+   },
+   "wait_cost": {
+    "n": 79,
+    "companies": 27,
+    "mean_pct": -0.24,
+    "median_pct": -5.53,
+    "share_negative_pct": 55.7,
+    "mean_ci95": [
+     -6.64,
+     8.57
+    ],
+    "share_negative_ci95": [
+     42.4,
+     66.7
+    ]
+   }
+  },
+  "tune/next_bearish": {
+   "A": {
+    "n": 33,
+    "companies": 12,
+    "mean_pct": -2.1,
+    "median_pct": -10.55,
+    "share_negative_pct": 66.7,
+    "mean_ci95": [
+     -21.12,
+     27.19
+    ],
+    "share_negative_ci95": [
+     46.4,
+     82.5
+    ]
+   },
+   "B": {
+    "n": 33,
+    "companies": 12,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C": {
+    "n": 33,
+    "companies": 12,
+    "mean_pct": -5.42,
+    "median_pct": -13.57,
+    "share_negative_pct": 72.7,
+    "mean_ci95": [
+     -18.68,
+     18.39
+    ],
+    "share_negative_ci95": [
+     56.5,
+     85.3
+    ]
+   },
+   "D": {
+    "n": 33,
+    "companies": 12,
+    "mean_pct": -5.42,
+    "median_pct": -13.57,
+    "share_negative_pct": 72.7,
+    "mean_ci95": [
+     -18.68,
+     18.39
+    ],
+    "share_negative_ci95": [
+     56.5,
+     85.3
+    ]
+   },
+   "loss_avoided_B_vs_A": {
+    "n": 33,
+    "companies": 12,
+    "mean_pct": 2.1,
+    "median_pct": 10.55,
+    "share_negative_pct": 33.3,
+    "mean_ci95": [
+     -27.19,
+     21.12
+    ],
+    "share_negative_ci95": [
+     17.5,
+     53.6
+    ]
+   },
+   "C_minus_A": {
+    "n": 33,
+    "companies": 12,
+    "mean_pct": -3.32,
+    "median_pct": 7.01,
+    "share_negative_pct": 42.4,
+    "mean_ci95": [
+     -17.18,
+     5.09
+    ],
+    "share_negative_ci95": [
+     26.2,
+     65.0
+    ]
+   },
+   "C_minus_B": {
+    "n": 33,
+    "companies": 12,
+    "mean_pct": -5.42,
+    "median_pct": -13.57,
+    "share_negative_pct": 72.7,
+    "mean_ci95": [
+     -18.68,
+     18.39
+    ],
+    "share_negative_ci95": [
+     56.5,
+     85.3
+    ]
+   },
+   "D_minus_A": {
+    "n": 33,
+    "companies": 12,
+    "mean_pct": -3.32,
+    "median_pct": 7.01,
+    "share_negative_pct": 42.4,
+    "mean_ci95": [
+     -17.18,
+     5.09
+    ],
+    "share_negative_ci95": [
+     26.2,
+     65.0
+    ]
+   },
+   "wait_cost": {
+    "n": 33,
+    "companies": 12,
+    "mean_pct": -5.42,
+    "median_pct": -13.57,
+    "share_negative_pct": 72.7,
+    "mean_ci95": [
+     -18.68,
+     18.39
+    ],
+    "share_negative_ci95": [
+     56.5,
+     85.3
+    ]
+   }
+  },
+  "tune/next_neutral": {
+   "A": {
+    "n": 43,
+    "companies": 27,
+    "mean_pct": 0.81,
+    "median_pct": -1.44,
+    "share_negative_pct": 53.5,
+    "mean_ci95": [
+     -6.45,
+     9.93
+    ],
+    "share_negative_ci95": [
+     35.9,
+     68.8
+    ]
+   },
+   "B": {
+    "n": 43,
+    "companies": 27,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C": {
+    "n": 43,
+    "companies": 27,
+    "mean_pct": 0.81,
+    "median_pct": -1.44,
+    "share_negative_pct": 53.5,
+    "mean_ci95": [
+     -6.45,
+     9.93
+    ],
+    "share_negative_ci95": [
+     35.9,
+     68.8
+    ]
+   },
+   "D": {
+    "n": 43,
+    "companies": 27,
+    "mean_pct": 3.8,
+    "median_pct": 3.64,
+    "share_negative_pct": 41.9,
+    "mean_ci95": [
+     -1.62,
+     9.12
+    ],
+    "share_negative_ci95": [
+     25.0,
+     58.5
+    ]
+   },
+   "loss_avoided_B_vs_A": {
+    "n": 43,
+    "companies": 27,
+    "mean_pct": -0.81,
+    "median_pct": 1.44,
+    "share_negative_pct": 46.5,
+    "mean_ci95": [
+     -9.93,
+     6.45
+    ],
+    "share_negative_ci95": [
+     31.2,
+     64.1
+    ]
+   },
+   "C_minus_A": {
+    "n": 43,
+    "companies": 27,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C_minus_B": {
+    "n": 43,
+    "companies": 27,
+    "mean_pct": 0.81,
+    "median_pct": -1.44,
+    "share_negative_pct": 53.5,
+    "mean_ci95": [
+     -6.45,
+     9.93
+    ],
+    "share_negative_ci95": [
+     35.9,
+     68.8
+    ]
+   },
+   "D_minus_A": {
+    "n": 43,
+    "companies": 27,
+    "mean_pct": 2.99,
+    "median_pct": 2.98,
+    "share_negative_pct": 37.2,
+    "mean_ci95": [
+     -3.19,
+     7.96
+    ],
+    "share_negative_ci95": [
+     22.7,
+     53.7
+    ]
+   },
+   "wait_cost": {
+    "n": 43,
+    "companies": 27,
+    "mean_pct": 3.8,
+    "median_pct": 3.64,
+    "share_negative_pct": 41.9,
+    "mean_ci95": [
+     -1.62,
+     9.12
+    ],
+    "share_negative_ci95": [
+     25.0,
+     58.5
+    ]
+   }
+  },
+  "pooled/all": {
+   "A": {
+    "n": 169,
+    "companies": 56,
+    "mean_pct": 0.04,
+    "median_pct": -7.71,
+    "share_negative_pct": 59.2,
+    "mean_ci95": [
+     -8.72,
+     8.66
+    ],
+    "share_negative_ci95": [
+     50.9,
+     67.7
+    ]
+   },
+   "B": {
+    "n": 169,
+    "companies": 56,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C": {
+    "n": 169,
+    "companies": 56,
+    "mean_pct": 0.53,
+    "median_pct": -7.71,
+    "share_negative_pct": 60.9,
+    "mean_ci95": [
+     -6.44,
+     7.48
+    ],
+    "share_negative_ci95": [
+     53.1,
+     69.2
+    ]
+   },
+   "D": {
+    "n": 169,
+    "companies": 56,
+    "mean_pct": -1.25,
+    "median_pct": -6.99,
+    "share_negative_pct": 61.5,
+    "mean_ci95": [
+     -6.82,
+     4.73
+    ],
+    "share_negative_ci95": [
+     53.3,
+     70.1
+    ]
+   },
+   "loss_avoided_B_vs_A": {
+    "n": 169,
+    "companies": 56,
+    "mean_pct": -0.04,
+    "median_pct": 7.71,
+    "share_negative_pct": 40.8,
+    "mean_ci95": [
+     -8.66,
+     8.72
+    ],
+    "share_negative_ci95": [
+     32.3,
+     49.1
+    ]
+   },
+   "C_minus_A": {
+    "n": 169,
+    "companies": 56,
+    "mean_pct": 0.49,
+    "median_pct": 0.0,
+    "share_negative_pct": 15.4,
+    "mean_ci95": [
+     -2.75,
+     3.56
+    ],
+    "share_negative_ci95": [
+     9.5,
+     21.1
+    ]
+   },
+   "C_minus_B": {
+    "n": 169,
+    "companies": 56,
+    "mean_pct": 0.53,
+    "median_pct": -7.71,
+    "share_negative_pct": 60.9,
+    "mean_ci95": [
+     -6.44,
+     7.48
+    ],
+    "share_negative_ci95": [
+     53.1,
+     69.2
+    ]
+   },
+   "D_minus_A": {
+    "n": 169,
+    "companies": 56,
+    "mean_pct": -1.29,
+    "median_pct": 3.04,
+    "share_negative_pct": 42.0,
+    "mean_ci95": [
+     -5.56,
+     3.05
+    ],
+    "share_negative_ci95": [
+     34.4,
+     49.4
+    ]
+   },
+   "wait_cost": {
+    "n": 169,
+    "companies": 56,
+    "mean_pct": -1.25,
+    "median_pct": -6.99,
+    "share_negative_pct": 61.5,
+    "mean_ci95": [
+     -6.82,
+     4.73
+    ],
+    "share_negative_ci95": [
+     53.3,
+     70.1
+    ]
+   }
+  },
+  "pooled/next_bearish": {
+   "A": {
+    "n": 69,
+    "companies": 27,
+    "mean_pct": -11.44,
+    "median_pct": -15.37,
+    "share_negative_pct": 72.5,
+    "mean_ci95": [
+     -26.1,
+     4.12
+    ],
+    "share_negative_ci95": [
+     60.8,
+     83.6
+    ]
+   },
+   "B": {
+    "n": 69,
+    "companies": 27,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C": {
+    "n": 69,
+    "companies": 27,
+    "mean_pct": -10.25,
+    "median_pct": -12.46,
+    "share_negative_pct": 76.8,
+    "mean_ci95": [
+     -18.43,
+     1.03
+    ],
+    "share_negative_ci95": [
+     67.4,
+     86.2
+    ]
+   },
+   "D": {
+    "n": 69,
+    "companies": 27,
+    "mean_pct": -10.25,
+    "median_pct": -12.46,
+    "share_negative_pct": 76.8,
+    "mean_ci95": [
+     -18.43,
+     1.03
+    ],
+    "share_negative_ci95": [
+     67.4,
+     86.2
+    ]
+   },
+   "loss_avoided_B_vs_A": {
+    "n": 69,
+    "companies": 27,
+    "mean_pct": 11.44,
+    "median_pct": 15.37,
+    "share_negative_pct": 27.5,
+    "mean_ci95": [
+     -4.12,
+     26.1
+    ],
+    "share_negative_ci95": [
+     16.4,
+     39.2
+    ]
+   },
+   "C_minus_A": {
+    "n": 69,
+    "companies": 27,
+    "mean_pct": 1.19,
+    "median_pct": 5.86,
+    "share_negative_pct": 37.7,
+    "mean_ci95": [
+     -6.61,
+     9.32
+    ],
+    "share_negative_ci95": [
+     24.7,
+     51.5
+    ]
+   },
+   "C_minus_B": {
+    "n": 69,
+    "companies": 27,
+    "mean_pct": -10.25,
+    "median_pct": -12.46,
+    "share_negative_pct": 76.8,
+    "mean_ci95": [
+     -18.43,
+     1.03
+    ],
+    "share_negative_ci95": [
+     67.4,
+     86.2
+    ]
+   },
+   "D_minus_A": {
+    "n": 69,
+    "companies": 27,
+    "mean_pct": 1.19,
+    "median_pct": 5.86,
+    "share_negative_pct": 37.7,
+    "mean_ci95": [
+     -6.61,
+     9.32
+    ],
+    "share_negative_ci95": [
+     24.7,
+     51.5
+    ]
+   },
+   "wait_cost": {
+    "n": 69,
+    "companies": 27,
+    "mean_pct": -10.25,
+    "median_pct": -12.46,
+    "share_negative_pct": 76.8,
+    "mean_ci95": [
+     -18.43,
+     1.03
+    ],
+    "share_negative_ci95": [
+     67.4,
+     86.2
+    ]
+   }
+  },
+  "pooled/next_neutral": {
+   "A": {
+    "n": 90,
+    "companies": 53,
+    "mean_pct": 8.02,
+    "median_pct": 0.12,
+    "share_negative_pct": 50.0,
+    "mean_ci95": [
+     -1.88,
+     19.21
+    ],
+    "share_negative_ci95": [
+     37.3,
+     62.5
+    ]
+   },
+   "B": {
+    "n": 90,
+    "companies": 53,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C": {
+    "n": 90,
+    "companies": 53,
+    "mean_pct": 8.02,
+    "median_pct": 0.12,
+    "share_negative_pct": 50.0,
+    "mean_ci95": [
+     -1.88,
+     19.21
+    ],
+    "share_negative_ci95": [
+     37.3,
+     62.5
+    ]
+   },
+   "D": {
+    "n": 90,
+    "companies": 53,
+    "mean_pct": 3.92,
+    "median_pct": -0.25,
+    "share_negative_pct": 51.1,
+    "mean_ci95": [
+     -1.56,
+     8.91
+    ],
+    "share_negative_ci95": [
+     39.6,
+     62.6
+    ]
+   },
+   "loss_avoided_B_vs_A": {
+    "n": 90,
+    "companies": 53,
+    "mean_pct": -8.02,
+    "median_pct": -0.12,
+    "share_negative_pct": 50.0,
+    "mean_ci95": [
+     -19.21,
+     1.88
+    ],
+    "share_negative_ci95": [
+     37.5,
+     62.7
+    ]
+   },
+   "C_minus_A": {
+    "n": 90,
+    "companies": 53,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "share_negative_pct": 0.0,
+    "mean_ci95": [
+     0.0,
+     0.0
+    ],
+    "share_negative_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "C_minus_B": {
+    "n": 90,
+    "companies": 53,
+    "mean_pct": 8.02,
+    "median_pct": 0.12,
+    "share_negative_pct": 50.0,
+    "mean_ci95": [
+     -1.88,
+     19.21
+    ],
+    "share_negative_ci95": [
+     37.3,
+     62.5
+    ]
+   },
+   "D_minus_A": {
+    "n": 90,
+    "companies": 53,
+    "mean_pct": -4.09,
+    "median_pct": 1.95,
+    "share_negative_pct": 43.3,
+    "mean_ci95": [
+     -11.65,
+     2.36
+    ],
+    "share_negative_ci95": [
+     32.4,
+     54.6
+    ]
+   },
+   "wait_cost": {
+    "n": 90,
+    "companies": 53,
+    "mean_pct": 3.92,
+    "median_pct": -0.25,
+    "share_negative_pct": 51.1,
+    "mean_ci95": [
+     -1.56,
+     8.91
+    ],
+    "share_negative_ci95": [
+     39.6,
+     62.6
+    ]
+   }
+  }
+ },
+ "baseline182": {
+  "with PARA/train": {
+   "n": 1236,
+   "base_rate": {
+    "bullish": 32.8,
+    "bearish": 44.9,
+    "neutral": 22.2
+   },
+   "bear_calls": 103,
+   "bear_hit": 60.2,
+   "bear_edge": 15.29,
+   "bull_edge": 3.62,
+   "neut_edge": -0.07,
+   "gap": 2.48
+  },
+  "with PARA/tune": {
+   "n": 1168,
+   "base_rate": {
+    "bullish": 32.8,
+    "bearish": 48.4,
+    "neutral": 18.8
+   },
+   "bear_calls": 84,
+   "bear_hit": 59.5,
+   "bear_edge": 11.15,
+   "bull_edge": 5.24,
+   "neut_edge": 0.09,
+   "gap": 2.64
+  },
+  "with PARA/pooled": {
+   "n": 2404,
+   "base_rate": {
+    "bullish": 32.8,
+    "bearish": 46.6,
+    "neutral": 20.6
+   },
+   "bear_calls": 187,
+   "bear_hit": 59.9,
+   "bear_edge": 13.3,
+   "bull_edge": 4.41,
+   "neut_edge": -0.02,
+   "gap": 2.53
+  },
+  "without PARA/train": {
+   "n": 1217,
+   "base_rate": {
+    "bullish": 33.2,
+    "bearish": 44.7,
+    "neutral": 22.1
+   },
+   "bear_calls": 93,
+   "bear_hit": 58.1,
+   "bear_edge": 13.36,
+   "bull_edge": 3.62,
+   "neut_edge": -0.06,
+   "gap": 2.24
+  },
+  "without PARA/tune": {
+   "n": 1168,
+   "base_rate": {
+    "bullish": 32.8,
+    "bearish": 48.4,
+    "neutral": 18.8
+   },
+   "bear_calls": 84,
+   "bear_hit": 59.5,
+   "bear_edge": 11.15,
+   "bull_edge": 5.24,
+   "neut_edge": 0.09,
+   "gap": 2.64
+  },
+  "without PARA/pooled": {
+   "n": 2385,
+   "base_rate": {
+    "bullish": 33.0,
+    "bearish": 46.5,
+    "neutral": 20.5
+   },
+   "bear_calls": 177,
+   "bear_hit": 58.8,
+   "bear_edge": 12.26,
+   "bull_edge": 4.41,
+   "neut_edge": 0.0,
+   "gap": 2.42
+  }
+ }
+}

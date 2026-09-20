@@ -212,5 +212,26 @@ def cmd_nopara():
     (RUN / "nopara.json").write_text(json.dumps({"strategies": out, "baseline182": base}, indent=1))
 
 
+def cmd_r4check():
+    """Does the corrupt PARA series move R4/R4b's train bearish edges? Arm A = call-date entry, arm B = strictly-after entry
+    (R4b definitions), horizons 10, 30, 90, 182, train and tune, with vs without PARA. Uses r4b_tradeable_entry_driver functions."""
+    import r4b_tradeable_entry_driver as r4b
+    prices = PriceCache(r4.PRICE_CACHE)
+    res = {}
+    for sp in ("train", "tune"):
+        calls = r4.load_calls(sp)
+        for h in (10, 30, 90, 182):
+            for arm in ("A", "B"):
+                row = {}
+                for label, excl in (("with", set()), ("without", {"PARA"})):
+                    per, ng = r4b.per_ticker([c for c in calls if c[0] not in excl], prices, arm, h)
+                    M = sum(per.values())
+                    st = r4.stats_from(M)
+                    row[label] = {"n": st["n"], "bear_calls": st["bearish"]["calls"], "bear_edge": st["bearish"]["edge_pts"], "bear_base": st["base_rate_pct"]["bearish"]}
+                res[f"{sp}/{h}/{arm}"] = row
+                print(f"{sp} {h:>3}d arm {arm}: bearish edge with PARA {row['with']['bear_edge']:+.1f} (n_bear {row['with']['bear_calls']}, base {row['with']['bear_base']}) -> without {row['without']['bear_edge']:+.1f} (n_bear {row['without']['bear_calls']}, base {row['without']['bear_base']})")
+    (RUN / "r4check.json").write_text(json.dumps(res, indent=1))
+
+
 if __name__ == "__main__":
-    {"run": cmd_run, "extra": cmd_extra, "nopara": cmd_nopara}.get((sys.argv[1:] or [""])[0], lambda: print(__doc__))()
+    {"run": cmd_run, "extra": cmd_extra, "nopara": cmd_nopara, "r4check": cmd_r4check}.get((sys.argv[1:] or [""])[0], lambda: print(__doc__))()
