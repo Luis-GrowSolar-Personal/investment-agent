@@ -1,0 +1,1 @@
+{"run_id":"disaster-profile-test","prompt_sha256":"ed67f4e037c1de21c4f1a045af0772c4c0a59f7c0d01480a5fcfb65ea45738ca","driver_commit":null,"steps":{"premise":"pending","driver":"pending","prereg":"pending","compute":"pending","report":"pending"},"next_action":"read Q2 wrap-up, verify 46/187/-61.5 premise incl PARA","notes":["$0 run; version guard skipped: no scoring calls"]}
