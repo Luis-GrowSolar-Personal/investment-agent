@@ -18,3 +18,5 @@ Definitions fixed before computing (mine, not the prompt's):
 - Timing threshold: gap on D if |move on D| >= 2 x |move on D+1| and >= 2% absolute; gap on D+1 the reverse; else ambiguous. Moves are benchmark-relative (stock minus SPY). Sensitivity reported at min-abs 1% and 4%, and ratio 1x and 4x.
 - Gate: arm A at 182/30/60/90 must reproduce R4 cell matrices exactly (stricter than the prompt's rounded figures). Failure = stop.
 - Version guard skipped: no scoring calls.
+
+- 2026-09-20: gate passed (exact matrices). A-B (train bearish edge) 12.1/10.9/11.9 at 2/3/5d, 9.9 at 10d, 4.5 at 30d, 0.8 at 182d. Arm B train flat ~14-19 from 10d to 182d; +18.7 at 30d retained on train, +0.3 on tune. 1-day arm B degenerate (zero-length). 182d: A/B train 15.3/14.5, tune 11.2/6.0, pooled 13.3/10.6; agree under registered rule. Timing: gap on D+1 27.3%, gap on D 30.9%, ambiguous 41.7% (sensitive to rule); contamination visible in gap-on-D+1 group (1d A +38.6/+26.7 vs B 0).

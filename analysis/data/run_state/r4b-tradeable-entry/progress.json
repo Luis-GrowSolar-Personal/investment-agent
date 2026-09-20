@@ -1,1 +1,17 @@
-{"run_id":"r4b-tradeable-entry","prompt_sha256":"09765b7b9a135b29977248f010a39d72b5ad6dc0ed6128a90c7d8ec76d1f2eac","driver_commit":null,"steps":{"prereg":"pending","driver":"pending","gate182":"pending","sweep":"pending","timing":"pending","report":"pending"},"next_action":"write driver, commit, pre-register, run gate","notes":["$0 run; version guard skipped: no scoring calls"]}
+{
+ "run_id": "r4b-tradeable-entry",
+ "prompt_sha256": "09765b7b9a135b29977248f010a39d72b5ad6dc0ed6128a90c7d8ec76d1f2eac",
+ "driver_commit": null,
+ "steps": {
+  "prereg": "done",
+  "driver": "done",
+  "gate182": "done",
+  "sweep": "done",
+  "timing": "done",
+  "report": "done"
+ },
+ "next_action": "none; complete",
+ "notes": [
+  "$0 run; version guard skipped: no scoring calls"
+ ]
+}
