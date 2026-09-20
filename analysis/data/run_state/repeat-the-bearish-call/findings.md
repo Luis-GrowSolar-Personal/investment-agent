@@ -25,3 +25,5 @@ Definitions fixed here (mine):
 - Spend cap $20; request cap 400 (354 planned).
 
 - 2026-09-20: batch ended 352/352 succeeded; 354 readings, all end_turn, 0 unreadable. Spend $15.07 (cap $20). Groups: 3-of-3 = 101 (57.1%), 2-of-3 = 34 (19.2%), 1-of-3 = 42 (23.7%). Only 66.7% of re-runs came back bearish (236 of 354; 116 neutral, 2 bullish) vs ~87% implied by the prompt's 12.8% pairwise disagreement. Sanity gate PASS (50-95%). Likely selection effect: calls chosen BECAUSE the cached draw was bearish. Outcomes not yet computed at this point.
+
+- 2026-09-20: OUTCOMES. Tail (<-25%) 3of3 29/101 = 28.7% vs 1of3 7/42 = 16.7% pooled (+12.0, range -7.1..+30.6); train 34.0 vs 22.7; tune 22.9 vs 10.0. Direction as predicted on both splits; falsifier NOT triggered; ranges include zero. Mean return: 3of3 -8.6% vs 1of3 +13.7% (pooled diff range -43.0..-3.0; tune spans zero). Money gap vs accuracy gap: tail 12.0 vs acc 14.2 (no), worst-quarter 26.9 and mean 22.3 (yes). Concentration: SUNW (train) and SEDG (tune) each cut their split's gap to ~4.5 points. Spend $15.07.

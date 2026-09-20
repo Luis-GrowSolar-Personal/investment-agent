@@ -12,11 +12,11 @@
     "pilot": "done",
     "submit": "done",
     "collect": "done",
-    "groups_sanity": "done_pass",
-    "outcomes": "pending",
-    "report": "pending"
+    "groups_sanity": "done",
+    "outcomes": "done",
+    "report": "done"
   },
-  "next_action": "analyze (money + accuracy + concentration), then report",
+  "next_action": "none; complete",
   "notes": [
     "spends real money ~$14, cap $20; prompt states the cost; queued by Luis",
     "prompt text = promoted v6, guard vs promoted hash, no candidate"
