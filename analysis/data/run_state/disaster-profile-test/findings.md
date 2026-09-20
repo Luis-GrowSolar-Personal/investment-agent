@@ -18,3 +18,5 @@ Definitions fixed here, in the driver, before outcomes were tabulated (mine, not
 - LOCO (5d): strongest analyst feature (F2-F7) by pooled call-level T1 difference, plus any feature meeting all four; 21 drop-one-company recomputations with the T1 cut held fixed.
 - PARA: scorer_price_cache_v1.json carries a corrupt PARA/VIAC series (found in confirmation-rule-test). Everything is reported BOTH as the prompt specifies (PARA included) and with PARA excluded. Prediction: the prompt's PARA-driven "disasters" are largely a data artifact; the without-PARA run is the better guide.
 - Version guard skipped: no scoring calls.
+
+- 2026-09-20: premise reproduced (46 calls, 21 companies, 19 from PARA/SUNW/SEDG, 40 in 2023-25, 33/13; mean -61.3% vs prompt -61.5%). PARA supplies 8 of 46 and is a corrupt series. NO feature passes all four conditions, with or without PARA. F1 stratum S4 rests on FRC+SUNW (8 of 8 disasters), no tune calls. F3 Structural: train +32.6, tune -8.3. F9 prior-90d does NOT separate (prediction contradicted); F7 does not separate (bet lost). Falsified-if condition met.

@@ -1,0 +1,39 @@
+{
+ "n": 187,
+ "T1": {
+  "n": 46,
+  "cut": -0.2946856979424247,
+  "mean": -0.613262612555874,
+  "companies": 21,
+  "by_company": {
+   "BMY": 1,
+   "DOW": 2,
+   "ELV": 2,
+   "EOSE": 3,
+   "FRC": 2,
+   "INTC": 1,
+   "JKS": 2,
+   "OXY": 2,
+   "PARA": 8,
+   "SIRI": 2,
+   "SUNW": 6,
+   "TTD": 1,
+   "UPS": 1,
+   "BLDP": 1,
+   "ENVX": 2,
+   "GIS": 1,
+   "KHC": 1,
+   "MCHP": 1,
+   "SBUX": 1,
+   "SEDG": 5,
+   "VZ": 1
+  }
+ },
+ "T2": {
+  "n": 50
+ },
+ "info": {
+  "median_recommendedSize": 8.0,
+  "median_prior90": -0.0824726795178462
+ }
+}

@@ -1,0 +1,4 @@
+[with_PARA] LOCO F1 (stratum S4): full 78.8 | range 78.0 (drop INTC) to 82.2 (drop PARA) over 21 companies
+[with_PARA] LOCO F3 (stumbleType Structural): full 22.4 | range 16.0 (drop PARA) to 27.1 (drop BLDP) over 21 companies
+[without_PARA] LOCO F1 (stratum S4): full 78.7 | range 77.8 (drop INTC) to 80.6 (drop SEDG) over 21 companies
+[without_PARA] LOCO F3 (stumbleType Structural): full 15.3 | range 11.3 (drop DOW) to 21.2 (drop BLDP) over 21 companies

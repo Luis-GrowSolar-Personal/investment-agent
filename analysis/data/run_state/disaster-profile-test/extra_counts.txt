@@ -1,0 +1,14 @@
+with_PARA n 187 T1 46 T1 cut -29.5 T1 mean -61.3 T2 50
+   train calls 103 T1 33 T2 35 S4 calls 8 S4 in T1 8
+   tune calls 84 T1 13 T2 15 S4 calls 0 S4 in T1 0
+   S4 calls 8 companies 2 ['FRC', 'SUNW'] T1 among S4 8 | non-S4 calls 179 T1 among non-S4 38 rate 21.2%
+   T1 by stratum Counter({'S3': 19, 'S2': 9, 'S4': 8, 'S5': 6, 'S1': 4})
+   T1 by year [(2020, 2), (2021, 2), (2022, 2), (2023, 15), (2024, 15), (2025, 10)] | all bearish by year [(2020, 12), (2021, 6), (2022, 31), (2023, 44), (2024, 53), (2025, 41)]
+   T1 companies 21 top3 share [5, 6, 8]
+without_PARA n 177 T1 44 T1 cut -23.8 T1 mean -51.1 T2 42
+   train calls 93 T1 28 T2 27 S4 calls 8 S4 in T1 8
+   tune calls 84 T1 16 T2 15 S4 calls 0 S4 in T1 0
+   S4 calls 8 companies 2 ['FRC', 'SUNW'] T1 among S4 8 | non-S4 calls 169 T1 among non-S4 36 rate 21.3%
+   T1 by stratum Counter({'S3': 15, 'S2': 11, 'S4': 8, 'S5': 6, 'S1': 4})
+   T1 by year [(2020, 2), (2021, 2), (2022, 3), (2023, 13), (2024, 15), (2025, 9)] | all bearish by year [(2020, 12), (2021, 6), (2022, 31), (2023, 40), (2024, 49), (2025, 39)]
+   T1 companies 21 top3 share [4, 5, 6]
