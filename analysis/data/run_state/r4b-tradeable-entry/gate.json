@@ -1,0 +1,18 @@
+{
+ "passes": true,
+ "cells": {
+  "train_182": true,
+  "train_30": true,
+  "train_60": true,
+  "train_90": true,
+  "tune_182": true,
+  "tune_30": true,
+  "tune_60": true,
+  "tune_90": true
+ },
+ "pooled182_edges": [
+  4.4,
+  13.3,
+  -0.0
+ ]
+}

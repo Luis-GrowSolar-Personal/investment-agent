@@ -1,0 +1,32 @@
+{
+ "registered (2x, 2%)": {
+  "gap_on_D": 744,
+  "ambiguous": 1003,
+  "gap_on_D1": 657,
+  "unclassifiable": 4
+ },
+ "min-abs halved (2x, 1%)": {
+  "gap_on_D": 847,
+  "gap_on_D1": 749,
+  "ambiguous": 808,
+  "unclassifiable": 4
+ },
+ "min-abs doubled (2x, 4%)": {
+  "gap_on_D": 459,
+  "ambiguous": 1489,
+  "gap_on_D1": 456,
+  "unclassifiable": 4
+ },
+ "ratio halved (1x, 2%)": {
+  "gap_on_D": 986,
+  "ambiguous": 596,
+  "gap_on_D1": 822,
+  "unclassifiable": 4
+ },
+ "ratio doubled (4x, 2%)": {
+  "ambiguous": 1512,
+  "gap_on_D": 450,
+  "gap_on_D1": 442,
+  "unclassifiable": 4
+ }
+}
