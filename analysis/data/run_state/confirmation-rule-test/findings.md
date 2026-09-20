@@ -17,3 +17,5 @@ Definitions fixed before computing (mine):
 - Next call = next chronological eval file by the same company in the same split. If X falls after END the exit is clipped to END and counted.
 - "Distinct companies" reported per arm. Ranges: ticker-block bootstrap, seed 11, 2,000 resamples, of the mean; paired differences use the same resampled companies.
 - Version guard skipped: no scoring calls.
+
+- 2026-09-20: PARA price series corrupt (100,000 -> 1). Pooled hold return -4.1 with PARA, 0.0 without; loss avoided by selling now +4.1 / 0.0; C -2.1 / +0.5; wait cost -3.6 / -1.2. All ranges span zero. Confirmed vs neutral A: train -42.3 [-64.4,-21.6], tune -2.9 [-26.8,29.6]. C between A and B on pooled/train only. Collapses (FRC, SUNW, SEDG) are the case for acting at once. v6 182d pooled bearish edge +13.3 -> +12.3 without PARA.
