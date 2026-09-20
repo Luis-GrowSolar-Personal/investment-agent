@@ -1,0 +1,32 @@
+companies 108; with zero quarters returned: ['FRC', 'SUNW']
+quarters 424; estimate populated 424 (100.0%); actual 424 (100.0%); surprise 424 (100.0%)
+quarters per company: {} distribution: {0: 2, 1: 0, 2: 0, 3: 0, 4: 106, 5: 0}
+period range across companies: 2000-09-30 to 2026-09-30
+by stratum (companies, with any quarters, quarters, est populated):
+  S1: 30 companies, 30 with data, 120 quarters, estimate populated 120 (100.0%)
+  S2: 20 companies, 20 with data, 80 quarters, estimate populated 80 (100.0%)
+  S3: 46 companies, 46 with data, 184 quarters, estimate populated 184 (100.0%)
+  S4: 2 companies, 0 with data, 0 quarters, estimate populated 0 (None%)
+  S5: 10 companies, 10 with data, 40 quarters, estimate populated 40 (100.0%)
+call-outs:
+  INTC  via INTC  stratum S1 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  VZ    via VZ    stratum S1 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  KHC   via KHC   stratum S3 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  SBUX  via SBUX  stratum S1 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  UPS   via UPS   stratum S1 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  SEDG  via SEDG  stratum S2 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  EOSE  via EOSE  stratum S5 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  ENVX  via ENVX  stratum S5 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  BLDP  via BLDP  stratum S2 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  AMPX  via AMPX  stratum S5 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  QS    via QS    stratum S5 quarters 4 est 4 act 4 sur 4 periods 2025-09-30..2026-06-30
+  SUNW  via SUNW  stratum S4 quarters 0 est 0 act 0 sur 0 periods None..None
+alias ('ANTM', 'ELV') {'ANTM': 0, 'ELV': 4}
+alias ('GOOGL', 'GOOG') {'GOOGL': 4, 'GOOG': 4}
+alias ('BK', 'BNY') {'BK': 0, 'BNY': 4}
+alias ('MAXN', 'MAXNQ') {'MAXN': 4, 'MAXNQ': 4}
+surprise == actual - estimate on 432 of 432 rows
+overlapping corpus calls (on/after 2025-09-20, train+tune): 106; matched to a Finnhub quarter ending 0-120 days earlier: 96; lag 10-75 days: 93; fiscal (year, quarter) labels identical: 92 of 96
+   lag days (call date minus period end): median 30.0 range 14 79
+   label mismatches sample: [{'ticker': 'COST', 'call_date': '2025-12-11', 'our_label': [2026, 1], 'lag_days': 72, 'their_label': [2025, 4], 'period': '2025-09-30'}, {'ticker': 'ACN', 'call_date': '2025-12-18', 'our_label': [2026, 1], 'lag_days': 79, 'their_label': [2025, 4], 'period': '2025-09-30'}, {'ticker': 'MU', 'call_date': '2025-12-17', 'our_label': [2026, 1], 'lag_days': 78, 'their_label': [2025, 4], 'period': '2025-09-30'}, {'ticker': 'GIS', 'call_date': '2025-12-17', 'our_label': [2026, 2], 'lag_days': 78, 'their_label': [2026, 1], 'period': '2025-09-30'}]
+stability re-fetch (MSFT, later in run, live=True): identical to first fetch: True

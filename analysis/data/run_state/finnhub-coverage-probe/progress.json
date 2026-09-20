@@ -2,16 +2,16 @@
   "run_id": "finnhub-coverage-probe",
   "prompt_sha256": "a41a084b04afa28e35ba030af61dcd9706b34a7c3fdac9e7ac0521e328fd81bb",
   "driver_commit": null,
-  "calls_used": 120,
+  "calls_used": 121,
   "call_cap": 600,
   "steps": {
-    "driver": "pending",
-    "step1_endpoints": "pending",
-    "step2_coverage": "pending",
-    "step3_point_in_time": "pending",
-    "report": "pending"
+    "driver": "done",
+    "step1_endpoints": "done",
+    "step2_coverage": "done",
+    "step3_point_in_time": "done_not_established",
+    "report": "done"
   },
-  "next_action": "write driver, commit, run step 1",
+  "next_action": "none; complete",
   "notes": [
     "no Anthropic calls; key read from env only, sent in a header, never in a URL; version guard skipped: no scoring calls"
   ],
@@ -1214,6 +1214,16 @@
       },
       "note": "step2",
       "at": "2026-09-20T20:49:26Z"
+    },
+    {
+      "n": 121,
+      "path": "stock/earnings",
+      "params": {
+        "symbol": "MSFT",
+        "limit": "4"
+      },
+      "note": "stability re-fetch",
+      "at": "2026-09-20T20:50:08Z"
     }
   ]
 }

@@ -1,0 +1,7 @@
+corpus calls (train+tune, WOLF/SPWR excluded) on/after 2025-09-20: 106 | bearish among them: 6
+rows with |surprise| > 100% of the estimate, by stratum (count, of rows): {'S1': (2, 120), 'S2': (4, 80), 'S3': (2, 184), 'S5': (7, 40)}
+rows with a NEGATIVE (expected-loss) estimate, by stratum: {'S1': (2, 120), 'S2': (18, 80), 'S3': (4, 184), 'S5': (18, 40)}
+largest surprises: [(2620.3252, 'RUN', '2026-03-31', -0.0246, 0.62), (2480.9524, 'SEDG', '2026-06-30', -0.0021, 0.05), (2200, 'INTC', '2025-09-30', 0.01, 0.23), (2038.5017, 'EOSE', '2025-09-30', -0.2296, -4.91), (1971.4286, 'INTC', '2026-03-31', 0.014, 0.29), (812.9456, 'RUN', '2025-12-31', -0.0533, 0.38), (491.427, 'EOSE', '2026-06-30', -0.1843, -1.09), (381.6639, 'EOSE', '2025-12-31', -0.1827, -0.88)]
+rows dated after 2026-06-30: 6 symbols ['BOX', 'CRM', 'HRL', 'ORCL', 'SNOW', 'WDAY']
+rows before 2025-09-30: [('SLB', '2000-09-30'), ('MAXN', '2024-12-31'), ('MAXN', '2024-09-30'), ('MAXN', '2024-06-30'), ('MAXN', '2024-03-31'), ('MAXN', '2024-12-31'), ('MAXN', '2024-09-30'), ('MAXN', '2024-06-30'), ('MAXN', '2024-03-31')]
+call count 121
