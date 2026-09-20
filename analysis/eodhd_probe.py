@@ -156,6 +156,44 @@ def cmd_analyze1():
     (RUN / "step1_price_comparison.json").write_text(json.dumps(out, indent=1))
 
 
+# ---------------------------------------------------------------- step 2: earnings calendar
+def universe():
+    """{probe_symbol: {"original": orig, "stratum": S?, "split": train|tune}} -- train + tune, PARA/VIAC, WOLF, SPWR excluded.
+    For aliased companies BOTH the original and the working symbol are probed (same batch, no extra calls)."""
+    sys.path.insert(0, str(REPO / "analysis"))
+    import r4_horizon_driver as r4
+    sp = json.loads(r4.SPLIT.read_text())
+    a = r4.alias_map()
+    strat = {}
+    for st, d in sp["per_stratum"].items():
+        for split in ("train", "tune"):
+            for t in d[split]:
+                strat[t] = (st, split)
+    skip = {"PARA", "VIAC", "WOLF", "SPWR"}
+    out = {}
+    for t, (st, split) in strat.items():
+        if t in skip:
+            continue
+        for sym in {t, a.get(t, t)} - skip:
+            out[sym] = {"original": t, "stratum": st, "split": split, "aliased": sym != t or a.get(t, t) != t}
+    return out
+
+
+def cmd_calendar(batch="12", frm="2020-01-01", to="2026-01-01"):
+    u = universe()
+    syms = sorted(u)
+    n = int(batch)
+    batches = [syms[i:i + n] for i in range(0, len(syms), n)]
+    print(f"{len(syms)} probe symbols -> {len(batches)} batches of <= {n}")
+    for b in batches:
+        st, body, cached = get("calendar/earnings", {"symbols": ",".join(x + ".US" for x in b), "from": frm, "to": to, "fmt": "json"}, f"calendar batch {b[0]}..{b[-1]}")
+        ev = body.get("earnings") if isinstance(body, dict) else None
+        print(f"{b[0]}..{b[-1]} status {st} {'cached' if cached else 'live'} events {len(ev) if ev is not None else 'n/a'} calls_used={progress()['calls_used']}")
+        if st != 200:
+            print("   body:", str(body)[:200])
+            break
+
+
 if __name__ == "__main__":
     c = sys.argv[1] if len(sys.argv) > 1 else ""
-    {"user": cmd_user, "get": cmd_get, "step1": cmd_step1, "analyze1": cmd_analyze1}.get(c, lambda *a: print(__doc__))(*sys.argv[2:])
+    {"user": cmd_user, "get": cmd_get, "step1": cmd_step1, "analyze1": cmd_analyze1, "calendar": cmd_calendar}.get(c, lambda *a: print(__doc__))(*sys.argv[2:])

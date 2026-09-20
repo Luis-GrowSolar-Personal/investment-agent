@@ -1,0 +1,159 @@
+{
+ "MSFT": {
+  "vendor_rows": 246,
+  "vendor_first": "2025-09-22",
+  "vendor_last": "2026-09-14",
+  "our_rows": 1831,
+  "shared_dates": 246,
+  "close": {
+   "within_1pct": 246,
+   "of": 246,
+   "share_pct": 100.0,
+   "worst_pct": 0.0,
+   "worst_date": "2026-09-14",
+   "worst_vendor": 505.41,
+   "worst_ours": 505.41
+  },
+  "adjusted_close": {
+   "within_1pct": 246,
+   "of": 246,
+   "share_pct": 100.0,
+   "worst_pct": 0.82,
+   "worst_date": "2025-10-23",
+   "worst_vendor": 516.3119,
+   "worst_ours": 520.56
+  }
+ },
+ "INTC": {
+  "vendor_rows": 246,
+  "vendor_first": "2025-09-22",
+  "vendor_last": "2026-09-14",
+  "our_rows": 1831,
+  "shared_dates": 246,
+  "close": {
+   "within_1pct": 246,
+   "of": 246,
+   "share_pct": 100.0,
+   "worst_pct": 0.0,
+   "worst_date": "2026-09-14",
+   "worst_vendor": 97.19,
+   "worst_ours": 97.19
+  },
+  "adjusted_close": {
+   "within_1pct": 246,
+   "of": 246,
+   "share_pct": 100.0,
+   "worst_pct": 0.0,
+   "worst_date": "2026-09-14",
+   "worst_vendor": 97.19,
+   "worst_ours": 97.19
+  }
+ },
+ "DUK": {
+  "vendor_rows": 246,
+  "vendor_first": "2025-09-22",
+  "vendor_last": "2026-09-14",
+  "our_rows": 1831,
+  "shared_dates": 246,
+  "close": {
+   "within_1pct": 246,
+   "of": 246,
+   "share_pct": 100.0,
+   "worst_pct": 0.0,
+   "worst_date": "2026-09-14",
+   "worst_vendor": 119.02,
+   "worst_ours": 119.02
+  },
+  "adjusted_close": {
+   "within_1pct": 83,
+   "of": 246,
+   "share_pct": 33.74,
+   "worst_pct": 3.39,
+   "worst_date": "2025-11-13",
+   "worst_vendor": 119.3996,
+   "worst_ours": 123.59
+  }
+ },
+ "ENPH": {
+  "vendor_rows": 246,
+  "vendor_first": "2025-09-22",
+  "vendor_last": "2026-09-14",
+  "our_rows": 0,
+  "shared_dates": 0
+ },
+ "EOSE": {
+  "vendor_rows": 246,
+  "vendor_first": "2025-09-22",
+  "vendor_last": "2026-09-14",
+  "our_rows": 1472,
+  "shared_dates": 246,
+  "close": {
+   "within_1pct": 246,
+   "of": 246,
+   "share_pct": 100.0,
+   "worst_pct": 0.0,
+   "worst_date": "2026-09-14",
+   "worst_vendor": 3.82,
+   "worst_ours": 3.82
+  },
+  "adjusted_close": {
+   "within_1pct": 246,
+   "of": 246,
+   "share_pct": 100.0,
+   "worst_pct": 0.0,
+   "worst_date": "2026-09-14",
+   "worst_vendor": 3.82,
+   "worst_ours": 3.82
+  }
+ },
+ "JKS": {
+  "vendor_rows": 246,
+  "vendor_first": "2025-09-22",
+  "vendor_last": "2026-09-14",
+  "our_rows": 1831,
+  "shared_dates": 246,
+  "close": {
+   "within_1pct": 246,
+   "of": 246,
+   "share_pct": 100.0,
+   "worst_pct": 0.0,
+   "worst_date": "2026-09-14",
+   "worst_vendor": 11.35,
+   "worst_ours": 11.35
+  },
+  "adjusted_close": {
+   "within_1pct": 59,
+   "of": 246,
+   "share_pct": 23.98,
+   "worst_pct": 8.35,
+   "worst_date": "2025-10-22",
+   "worst_vendor": 19.6778,
+   "worst_ours": 21.47
+  }
+ },
+ "PARA": {
+  "vendor_rows": 246,
+  "vendor_first": "2025-09-22",
+  "vendor_last": "2026-09-14",
+  "our_rows": 1402,
+  "shared_dates": 246,
+  "close": {
+   "within_1pct": 88,
+   "of": 246,
+   "share_pct": 35.77,
+   "worst_pct": 95.01,
+   "worst_date": "2026-05-07",
+   "worst_vendor": 0.3185,
+   "worst_ours": 6.38
+  },
+  "adjusted_close": {
+   "within_1pct": 184,
+   "of": 246,
+   "share_pct": 74.8,
+   "worst_pct": 4.39,
+   "worst_date": "2025-12-02",
+   "worst_vendor": 24.8596,
+   "worst_ours": 26.0
+  }
+ }
+}
