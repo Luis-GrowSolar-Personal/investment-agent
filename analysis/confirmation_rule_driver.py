@@ -135,5 +135,49 @@ def cmd_run():
                   f"C-B {r['C_minus_B']['mean_pct']:+.1f} {r['C_minus_B']['mean_ci95']}")
 
 
+def cmd_extra():
+    """Added AFTER the point estimates were seen (flag in report): (1) ticker-block range on
+    confirmed-minus-neutral for A, wait cost and C; (2) concentration: how much the worst cases drive means."""
+    cases = json.loads((RUN / "cases.json").read_text())
+    out = {}
+    for split in ("train", "tune", "pooled"):
+        sub = cases if split == "pooled" else [c for c in cases if c["split"] == split]
+        conf = [c for c in sub if c["next"] == "bearish"]
+        neut = [c for c in sub if c["next"] == "neutral"]
+        tks = sorted({c["ticker"] for c in sub})
+        rng = np.random.default_rng(SEED)
+        res = {"A": [], "C": [], "wait_cost": [], "after_X": []}
+        def m(g, key):
+            if not g:
+                return np.nan
+            return np.mean([(c["A"] - c["D"]) if key == "after_X" else c[key] for c in g])
+        for _ in range(B):
+            pick = rng.choice(len(tks), size=len(tks))
+            names = [tks[i] for i in pick]
+            cnt = {}
+            for n_ in names:
+                cnt[n_] = cnt.get(n_, 0) + 1
+            cf = [c for c in conf for _ in range(cnt.get(c["ticker"], 0))]
+            nt = [c for c in neut for _ in range(cnt.get(c["ticker"], 0))]
+            for k in res:
+                res[k].append(m(cf, k) - m(nt, k))
+        o = {}
+        for k, v in res.items():
+            v = np.array(v); v = v[np.isfinite(v)]
+            pt = 100 * (m(conf, k) - m(neut, k))
+            o[k] = {"point_pts": round(float(pt), 2), "ci95": [round(100 * float(np.percentile(v, 2.5)), 2), round(100 * float(np.percentile(v, 97.5)), 2)]}
+        o["n_confirmed"], o["n_neutral"] = len(conf), len(neut)
+        # concentration
+        A = sorted([(c["A"], c["ticker"], c["call_date"]) for c in sub])
+        tot = sum(a for a, _, _ in A)
+        o["worst5_A"] = [(round(100 * a, 1), t, d) for a, t, d in A[:5]]
+        o["mean_A_pct"] = round(100 * tot / len(A), 2)
+        o["mean_A_excl_worst5_pct"] = round(100 * (tot - sum(a for a, _, _ in A[:5])) / (len(A) - 5), 2)
+        o["median_A_pct"] = round(100 * float(np.median([a for a, _, _ in A])), 2)
+        out[split] = o
+        print(split, json.dumps(o))
+    (RUN / "extra.json").write_text(json.dumps(out, indent=1))
+
+
 if __name__ == "__main__":
-    cmd_run() if (sys.argv[1:] or [""])[0] == "run" else print(__doc__)
+    {"run": cmd_run, "extra": cmd_extra}.get((sys.argv[1:] or [""])[0], lambda: print(__doc__))()
