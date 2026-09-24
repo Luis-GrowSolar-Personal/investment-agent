@@ -1,90 +1,95 @@
 {
-  "run_id": "p6b-tune-confirmation",
-  "prompt_sha256": "0128e05c759d39cdda352ea033db49265fe835d8d2f8a91e8a27f6e749e51747",
-  "driver_commit": "545599c31b9a62e4a6de39792487164f7dc594cb",
-  "prompt_commit": "d33806edc98ba9cf81a989c1d5168b105f4e6505",
-  "luis_approved_usd": 60,
-  "approval_source": "stated in prompts/P6B-tune-confirmation.md header; /execute-prompt invoked by Luis",
-  "steps": {
-    "0a": "done",
-    "0b": "done",
-    "0f": "done",
-    "0g": "done",
-    "protocol": "done",
-    "select": "done",
-    "5a": "in_progress",
-    "4b": "in_progress",
-    "5c": "in_progress",
-    "calls": "pending",
-    "tests": "pending",
-    "report": "pending"
+ "run_id": "p6b-tune-confirmation",
+ "prompt_sha256": "0128e05c759d39cdda352ea033db49265fe835d8d2f8a91e8a27f6e749e51747",
+ "driver_commit": "545599c31b9a62e4a6de39792487164f7dc594cb",
+ "prompt_commit": "d33806edc98ba9cf81a989c1d5168b105f4e6505",
+ "luis_approved_usd": 60,
+ "approval_source": "stated in prompts/P6B-tune-confirmation.md header; /execute-prompt invoked by Luis",
+ "steps": {
+  "0a": "done",
+  "0b": "done",
+  "0f": "done",
+  "0g": "done",
+  "protocol": "done",
+  "select": "done",
+  "5a": "done",
+  "4b": "done",
+  "5c": "done",
+  "calls": "done",
+  "tests": "done",
+  "report": "done"
+ },
+ "batch_id_preflight": "msgbatch_018XTJ34zVRHdxs9wnJGiaGr",
+ "batch_id_arm_b": "msgbatch_019eJhCbSJ3VSM8RnQyfBgJf",
+ "batch_id_noise": "msgbatch_01CpSHVNMRZmAwBeKp6oZoom",
+ "next_action": "none - run complete; design session interprets wrap-ups/P6B-tune-confirmation-out.md",
+ "notes": [
+  "0f tune: 1,207 files / 1,207 v6 evals mapped; WOLF/SPWR excluded; BNY (BK) 0 transcripts, documented vendor gap, expected-empty (assert loosened in its own driver commit, before any output). After exclusion: 1,169 calls / 51 companies. 0g: v6 tune reference reproduces exactly (1,168 / 28.3 / +2.64 / 84 / 59.5)."
+ ],
+ "guards": {
+  "batch_id_preflight": {
+   "B": {
+    "ok": true,
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+    "candidate_used": "P6B-minimal",
+    "branch": "sweep/db-corpus-baseline"
+   },
+   "A_noise": {
+    "ok": true,
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "candidate_used": null,
+    "branch": "sweep/db-corpus-baseline"
+   }
   },
-  "batch_id_preflight": "msgbatch_018XTJ34zVRHdxs9wnJGiaGr",
-  "batch_id_arm_b": "msgbatch_019eJhCbSJ3VSM8RnQyfBgJf",
-  "batch_id_noise": "msgbatch_01CpSHVNMRZmAwBeKp6oZoom",
-  "next_action": "poll-noise",
-  "notes": [
-    "0f tune: 1,207 files / 1,207 v6 evals mapped; WOLF/SPWR excluded; BNY (BK) 0 transcripts, documented vendor gap, expected-empty (assert loosened in its own driver commit, before any output). After exclusion: 1,169 calls / 51 companies. 0g: v6 tune reference reproduces exactly (1,168 / 28.3 / +2.64 / 84 / 59.5)."
-  ],
-  "guards": {
-    "batch_id_preflight": {
-      "B": {
-        "ok": true,
-        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
-        "candidate_used": "P6B-minimal",
-        "branch": "sweep/db-corpus-baseline"
-      },
-      "A_noise": {
-        "ok": true,
-        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "candidate_used": null,
-        "branch": "sweep/db-corpus-baseline"
-      }
-    },
-    "batch_id_arm_b": {
-      "B": {
-        "ok": true,
-        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
-        "candidate_used": "P6B-minimal",
-        "branch": "sweep/db-corpus-baseline"
-      },
-      "A_noise": {
-        "ok": true,
-        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "candidate_used": null,
-        "branch": "sweep/db-corpus-baseline"
-      }
-    },
-    "batch_id_noise": {
-      "B": {
-        "ok": true,
-        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
-        "candidate_used": "P6B-minimal",
-        "branch": "sweep/db-corpus-baseline"
-      },
-      "A_noise": {
-        "ok": true,
-        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "candidate_used": null,
-        "branch": "sweep/db-corpus-baseline"
-      }
-    }
+  "batch_id_arm_b": {
+   "B": {
+    "ok": true,
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+    "candidate_used": "P6B-minimal",
+    "branch": "sweep/db-corpus-baseline"
+   },
+   "A_noise": {
+    "ok": true,
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "candidate_used": null,
+    "branch": "sweep/db-corpus-baseline"
+   }
   },
-  "committed_usd_by_batch": {
-    "batch_id_preflight": 1.18,
-    "batch_id_arm_b": 28.14,
-    "batch_id_noise": 10.05
-  },
-  "batch_id_preflight_submitted_at": "2026-09-24T02:20:12Z",
-  "batch_id_preflight_requests": 50,
-  "batch_id_arm_b_submitted_at": "2026-09-24T02:24:29Z",
-  "batch_id_arm_b_requests": 1119,
-  "batch_id_noise_submitted_at": "2026-09-24T02:24:53Z",
-  "batch_id_noise_requests": 250
+  "batch_id_noise": {
+   "B": {
+    "ok": true,
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+    "candidate_used": "P6B-minimal",
+    "branch": "sweep/db-corpus-baseline"
+   },
+   "A_noise": {
+    "ok": true,
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "candidate_used": null,
+    "branch": "sweep/db-corpus-baseline"
+   }
+  }
+ },
+ "committed_usd_by_batch": {
+  "batch_id_preflight": 1.18,
+  "batch_id_arm_b": 28.14,
+  "batch_id_noise": 10.05
+ },
+ "batch_id_preflight_submitted_at": "2026-09-24T02:20:12Z",
+ "batch_id_preflight_requests": 50,
+ "batch_id_arm_b_submitted_at": "2026-09-24T02:24:29Z",
+ "batch_id_arm_b_requests": 1119,
+ "batch_id_noise_submitted_at": "2026-09-24T02:24:53Z",
+ "batch_id_noise_requests": 250,
+ "actual_spend_usd": {
+  "arm_b_incl_preflight": 27.52,
+  "noise": 10.62,
+  "total": 38.14
+ }
 }
