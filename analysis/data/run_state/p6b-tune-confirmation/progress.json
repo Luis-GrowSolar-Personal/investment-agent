@@ -13,7 +13,7 @@
     "protocol": "done",
     "select": "done",
     "5a": "in_progress",
-    "4b": "pending",
+    "4b": "in_progress",
     "5c": "in_progress",
     "calls": "pending",
     "tests": "pending",
@@ -21,8 +21,8 @@
   },
   "batch_id_preflight": "msgbatch_018XTJ34zVRHdxs9wnJGiaGr",
   "batch_id_arm_b": "msgbatch_019eJhCbSJ3VSM8RnQyfBgJf",
-  "batch_id_noise": null,
-  "next_action": "poll-b; then submit-c",
+  "batch_id_noise": "msgbatch_01CpSHVNMRZmAwBeKp6oZoom",
+  "next_action": "poll-noise",
   "notes": [
     "0f tune: 1,207 files / 1,207 v6 evals mapped; WOLF/SPWR excluded; BNY (BK) 0 transcripts, documented vendor gap, expected-empty (assert loosened in its own driver commit, before any output). After exclusion: 1,169 calls / 51 companies. 0g: v6 tune reference reproduces exactly (1,168 / 28.3 / +2.64 / 84 / 59.5)."
   ],
@@ -58,14 +58,33 @@
         "candidate_used": null,
         "branch": "sweep/db-corpus-baseline"
       }
+    },
+    "batch_id_noise": {
+      "B": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+        "candidate_used": "P6B-minimal",
+        "branch": "sweep/db-corpus-baseline"
+      },
+      "A_noise": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "candidate_used": null,
+        "branch": "sweep/db-corpus-baseline"
+      }
     }
   },
   "committed_usd_by_batch": {
     "batch_id_preflight": 1.18,
-    "batch_id_arm_b": 28.14
+    "batch_id_arm_b": 28.14,
+    "batch_id_noise": 10.05
   },
   "batch_id_preflight_submitted_at": "2026-09-24T02:20:12Z",
   "batch_id_preflight_requests": 50,
   "batch_id_arm_b_submitted_at": "2026-09-24T02:24:29Z",
-  "batch_id_arm_b_requests": 1119
+  "batch_id_arm_b_requests": 1119,
+  "batch_id_noise_submitted_at": "2026-09-24T02:24:53Z",
+  "batch_id_noise_requests": 250
 }
