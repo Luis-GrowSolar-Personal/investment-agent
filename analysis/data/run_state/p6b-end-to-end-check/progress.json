@@ -1,70 +1,71 @@
 {
-  "run_id": "p6b-end-to-end-check",
-  "prompt_sha256": "92e935ee1853b25e215944b7b0432285e2a74d25174484aaafc4d146e4943be2",
-  "driver_commit": "fc9a6086b9acf4fece451d0bf15d634a120b4a2b",
-  "prompt_commit": "ac070d188544c4d1bb1048b4b8ba1324e2a9edd4",
-  "luis_approved_usd": 15,
-  "approval_source": "stated in prompts/P6B-end-to-end-check.md header ('Hard cap $15'); /execute-prompt invoked by Luis",
-  "steps": {
-    "0a": "done",
-    "0b_driver": "done",
-    "0_repro": "done",
-    "events_transcripts": "done",
-    "guards": "pending",
-    "submit_b": "pending",
-    "submit_noise": "pending",
-    "score_collect": "pending",
-    "cells_A0_B3_B2_N": "pending",
-    "seeds_1_2": "pending",
-    "diagnostics": "pending",
-    "report": "pending"
+ "run_id": "p6b-end-to-end-check",
+ "prompt_sha256": "92e935ee1853b25e215944b7b0432285e2a74d25174484aaafc4d146e4943be2",
+ "driver_commit": "d5323055c06d82d7f3afff1b177cb5c6b5766d8f",
+ "prompt_commit": "ac070d188544c4d1bb1048b4b8ba1324e2a9edd4",
+ "luis_approved_usd": 15,
+ "approval_source": "stated in prompts/P6B-end-to-end-check.md header ('Hard cap $15'); /execute-prompt invoked by Luis",
+ "steps": {
+  "0a": "done",
+  "0b_driver": "done",
+  "0_repro": "done",
+  "events_transcripts": "done",
+  "guards": "pending",
+  "submit_b": "pending",
+  "submit_noise": "pending",
+  "score_collect": "pending",
+  "cells_A0_B3_B2_N": "pending",
+  "seeds_1_2": "pending",
+  "diagnostics": "pending",
+  "report": "pending"
+ },
+ "batch_id_arm_b": "msgbatch_01CU2VGtLN9D47rkf2wyhYqV",
+ "batch_id_noise": "msgbatch_01LsvRcyPUy9yHEzWbyfH4v8",
+ "next_action": "guards, submit-b, submit-noise",
+ "notes": [
+  "Step 0 reproduction bit-exact; 195 events; 195 transcripts fetched (DB, readonly session).",
+  "Cells first run on the prior driver commit as a smoke check (27 runs, ~7s); cells.jsonl/logs deleted and regenerated against the final driver commit so every cell records the driver that produced it."
+ ],
+ "guards": {
+  "batch_id_arm_b": {
+   "B": {
+    "ok": true,
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+    "candidate_used": "P6B-minimal",
+    "branch": "sweep/db-corpus-baseline"
+   },
+   "A_noise": {
+    "ok": true,
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "candidate_used": null,
+    "branch": "sweep/db-corpus-baseline"
+   }
   },
-  "batch_id_arm_b": "msgbatch_01CU2VGtLN9D47rkf2wyhYqV",
-  "batch_id_noise": "msgbatch_01LsvRcyPUy9yHEzWbyfH4v8",
-  "next_action": "guards, submit-b, submit-noise",
-  "notes": [
-    "Step 0 reproduction bit-exact; 195 events; 195 transcripts fetched (DB, readonly session)."
-  ],
-  "guards": {
-    "batch_id_arm_b": {
-      "B": {
-        "ok": true,
-        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
-        "candidate_used": "P6B-minimal",
-        "branch": "sweep/db-corpus-baseline"
-      },
-      "A_noise": {
-        "ok": true,
-        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "candidate_used": null,
-        "branch": "sweep/db-corpus-baseline"
-      }
-    },
-    "batch_id_noise": {
-      "B": {
-        "ok": true,
-        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
-        "candidate_used": "P6B-minimal",
-        "branch": "sweep/db-corpus-baseline"
-      },
-      "A_noise": {
-        "ok": true,
-        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
-        "candidate_used": null,
-        "branch": "sweep/db-corpus-baseline"
-      }
-    }
-  },
-  "committed_usd_by_batch": {
-    "batch_id_arm_b": 4.6,
-    "batch_id_noise": 4.02
-  },
-  "batch_id_arm_b_submitted_at": "2026-09-24T03:01:05Z",
-  "batch_id_arm_b_requests": 195,
-  "batch_id_noise_submitted_at": "2026-09-24T03:01:30Z",
-  "batch_id_noise_requests": 100
+  "batch_id_noise": {
+   "B": {
+    "ok": true,
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+    "candidate_used": "P6B-minimal",
+    "branch": "sweep/db-corpus-baseline"
+   },
+   "A_noise": {
+    "ok": true,
+    "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+    "candidate_used": null,
+    "branch": "sweep/db-corpus-baseline"
+   }
+  }
+ },
+ "committed_usd_by_batch": {
+  "batch_id_arm_b": 4.6,
+  "batch_id_noise": 4.02
+ },
+ "batch_id_arm_b_submitted_at": "2026-09-24T03:01:05Z",
+ "batch_id_arm_b_requests": 195,
+ "batch_id_noise_submitted_at": "2026-09-24T03:01:30Z",
+ "batch_id_noise_requests": 100
 }
