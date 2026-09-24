@@ -10,18 +10,18 @@
   "0b_driver": "done",
   "0_repro": "done",
   "events_transcripts": "done",
-  "guards": "pending",
-  "submit_b": "pending",
-  "submit_noise": "pending",
-  "score_collect": "pending",
-  "cells_A0_B3_B2_N": "pending",
-  "seeds_1_2": "pending",
-  "diagnostics": "pending",
+  "guards": "done",
+  "submit_b": "done",
+  "submit_noise": "done",
+  "score_collect": "done",
+  "cells_A0_B3_B2_N": "done",
+  "seeds_1_2": "done",
+  "diagnostics": "done",
   "report": "pending"
  },
  "batch_id_arm_b": "msgbatch_01CU2VGtLN9D47rkf2wyhYqV",
  "batch_id_noise": "msgbatch_01LsvRcyPUy9yHEzWbyfH4v8",
- "next_action": "guards, submit-b, submit-noise",
+ "next_action": "write wrap-ups/P6B-end-to-end-check-out (.md, .docx, artifact); commit",
  "notes": [
   "Step 0 reproduction bit-exact; 195 events; 195 transcripts fetched (DB, readonly session).",
   "Cells first run on the prior driver commit as a smoke check (27 runs, ~7s); cells.jsonl/logs deleted and regenerated against the final driver commit so every cell records the driver that produced it."
@@ -67,5 +67,10 @@
  "batch_id_arm_b_submitted_at": "2026-09-24T03:01:05Z",
  "batch_id_arm_b_requests": 195,
  "batch_id_noise_submitted_at": "2026-09-24T03:01:30Z",
- "batch_id_noise_requests": 100
+ "batch_id_noise_requests": 100,
+ "actual_spend_usd": {
+  "arm_b": 4.19,
+  "noise": 3.56,
+  "total": 7.75
+ }
 }
