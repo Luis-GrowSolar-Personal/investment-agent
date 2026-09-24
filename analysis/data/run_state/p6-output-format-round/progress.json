@@ -1,32 +1,35 @@
 {
- "run_id": "p6-output-format-round",
- "prompt_sha256": "c1daf3521b94c83b0ae1e66e5300749bcfb7266c8c85234f855a14e9cd2d96e5",
- "driver_commit": null,
- "prompt_commit": "647bae97e6228fc4f3696adc3e6f36e0b67c6350",
- "luis_approved_usd": 130,
- "approval_source": "stated in prompts/P6-output-format-round.md header; /execute-prompt invoked by Luis 2026-09-23",
- "steps": {
-  "0a": "done",
-  "0b": "pending",
-  "0c": "done",
-  "0d": "pending",
-  "0e": "pending",
-  "0f": "pending",
-  "0g": "pending",
-  "5a": "pending",
-  "5b": "pending",
-  "5c": "pending",
-  "5d": "pending",
-  "6": "pending",
-  "report": "pending"
- },
- "batch_id_preflight": null,
- "batch_id_arm_b": null,
- "batch_id_arm_c": null,
- "batch_id_noise": null,
- "next_action": "read specs, then write driver (0b)",
- "notes": [
-  "0c: P6 block present in PROMPT_ARCHITECTURE.md (commit aee70da). Prompt says registered 2026-09-24; today is 2026-09-23 - date premise off by a day, harmless.",
-  "0g: PROMPT_ARCHITECTURE.md last touched aee70da (P6 registration); flip-count correction from state-of-play 4.2 has NOT landed."
- ]
+  "run_id": "p6-output-format-round",
+  "prompt_sha256": "c1daf3521b94c83b0ae1e66e5300749bcfb7266c8c85234f855a14e9cd2d96e5",
+  "driver_commit": "15c8331ba95b843ab9f72cb2b0dd6db1f014248e",
+  "prompt_commit": "647bae97e6228fc4f3696adc3e6f36e0b67c6350",
+  "luis_approved_usd": 130,
+  "approval_source": "stated in prompts/P6-output-format-round.md header; /execute-prompt invoked by Luis 2026-09-23",
+  "steps": {
+    "0a": "done",
+    "0b": "done",
+    "0c": "done",
+    "0d": "done",
+    "0e": "done",
+    "0f": "done",
+    "0g": "done",
+    "5a": "pending",
+    "5b": "pending",
+    "5c": "pending",
+    "5d": "pending",
+    "6": "pending",
+    "report": "pending"
+  },
+  "batch_id_preflight": null,
+  "batch_id_arm_b": null,
+  "batch_id_arm_c": null,
+  "batch_id_noise": null,
+  "next_action": "write analysis script (commit), then preflight-submit",
+  "notes": [
+    "0c: P6 block present in PROMPT_ARCHITECTURE.md (commit aee70da). Prompt says registered 2026-09-24; today is 2026-09-23 - date premise off by a day, harmless.",
+    "0g: PROMPT_ARCHITECTURE.md last touched aee70da (P6 registration); flip-count correction from state-of-play 4.2 has NOT landed.",
+    "0f: asserts pass (1,240 files/56 cos/1,240 evals/1,184 pred-bearing, MAXNQ empty). PARA excluded -> 1,217 calls / 55 cos / 1,162 pred-bearing (23 PARA calls).",
+    "PREMISE FLAGS: (1) prompt 0f says '1,194 transcripts'; 1,194 is the UNRESOLVED count - resolved is 1,240 (P3 driver assert). (2) 5b/5d: stratum_map() returns corpus strata S1-S5, not the four-way megacap/large/mid/small_micro; that four-way split is a hardcoded 15-ticker list (6 in train, 0 large) per P3 5f. 21a therefore drawn proportional to S1-S5 (120: S1 35/S2 19/S3 53/S4 2/S5 11), exactly as P3 5f specifies; per-stratum reporting uses S1-S5. (3) v6 train reference 30.3%/+2.48 comes from wrap-ups/scorer-price-cache-backfill-out.md (post backfill); baseline-v6-train-batch-out.md reports the pre-backfill 22.8%/-1.64. (4) Registration date in prompt is 2026-09-24; today 2026-09-23.",
+    "DEVIATION: preflight scores (100 tx x B and C) are reused as arm results; full-arm batches submit only the remaining transcripts (skip-present-ids per Step -1). Saves ~$7."
+  ]
 }

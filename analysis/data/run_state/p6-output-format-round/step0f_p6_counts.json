@@ -1,0 +1,12 @@
+{
+ "resolved_files_with_PARA": 1240,
+ "para_files": 23,
+ "resolved_files_p6": 1217,
+ "companies_p6": 55,
+ "exclusion": [
+  "PARA",
+  "SPWR",
+  "WOLF"
+ ],
+ "predecessor_bearing_p6": 1162
+}
