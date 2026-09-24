@@ -13,23 +13,53 @@
     "0e": "done",
     "0f": "done",
     "0g": "done",
-    "5a": "pending",
+    "5a": "in_progress",
     "5b": "pending",
     "5c": "pending",
     "5d": "pending",
     "6": "pending",
     "report": "pending"
   },
-  "batch_id_preflight": null,
+  "batch_id_preflight": "msgbatch_01JzNethSpNvQqFe4KJ2JCKq",
   "batch_id_arm_b": null,
   "batch_id_arm_c": null,
   "batch_id_noise": null,
-  "next_action": "write analysis script (commit), then preflight-submit",
+  "next_action": "poll preflight batch",
   "notes": [
     "0c: P6 block present in PROMPT_ARCHITECTURE.md (commit aee70da). Prompt says registered 2026-09-24; today is 2026-09-23 - date premise off by a day, harmless.",
     "0g: PROMPT_ARCHITECTURE.md last touched aee70da (P6 registration); flip-count correction from state-of-play 4.2 has NOT landed.",
     "0f: asserts pass (1,240 files/56 cos/1,240 evals/1,184 pred-bearing, MAXNQ empty). PARA excluded -> 1,217 calls / 55 cos / 1,162 pred-bearing (23 PARA calls).",
     "PREMISE FLAGS: (1) prompt 0f says '1,194 transcripts'; 1,194 is the UNRESOLVED count - resolved is 1,240 (P3 driver assert). (2) 5b/5d: stratum_map() returns corpus strata S1-S5, not the four-way megacap/large/mid/small_micro; that four-way split is a hardcoded 15-ticker list (6 in train, 0 large) per P3 5f. 21a therefore drawn proportional to S1-S5 (120: S1 35/S2 19/S3 53/S4 2/S5 11), exactly as P3 5f specifies; per-stratum reporting uses S1-S5. (3) v6 train reference 30.3%/+2.48 comes from wrap-ups/scorer-price-cache-backfill-out.md (post backfill); baseline-v6-train-batch-out.md reports the pre-backfill 22.8%/-1.64. (4) Registration date in prompt is 2026-09-24; today 2026-09-23.",
     "DEVIATION: preflight scores (100 tx x B and C) are reused as arm results; full-arm batches submit only the remaining transcripts (skip-present-ids per Step -1). Saves ~$7."
-  ]
+  ],
+  "guards": {
+    "batch_id_preflight": {
+      "B": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+        "candidate_used": "P6B-minimal",
+        "branch": "sweep/db-corpus-baseline"
+      },
+      "C": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "da5edc6fbc69cfa2e63e11d957bf71b801b28a4b3ee9c591dfabac1929090dad",
+        "candidate_used": "P6C-score",
+        "branch": "sweep/db-corpus-baseline"
+      },
+      "A_noise": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "candidate_used": null,
+        "branch": "sweep/db-corpus-baseline"
+      }
+    }
+  },
+  "committed_usd_by_batch": {
+    "batch_id_preflight": 7.6
+  },
+  "batch_id_preflight_submitted_at": "2026-09-24T01:35:47Z",
+  "batch_id_preflight_requests": 200
 }
