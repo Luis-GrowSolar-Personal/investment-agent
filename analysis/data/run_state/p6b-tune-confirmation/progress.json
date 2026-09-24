@@ -1,17 +1,17 @@
 {
  "run_id": "p6b-tune-confirmation",
  "prompt_sha256": "0128e05c759d39cdda352ea033db49265fe835d8d2f8a91e8a27f6e749e51747",
- "driver_commit": "67303459e9121bb7a3e334ffb11103dff5ec450c",
+ "driver_commit": "545599c31b9a62e4a6de39792487164f7dc594cb",
  "prompt_commit": "d33806edc98ba9cf81a989c1d5168b105f4e6505",
  "luis_approved_usd": 60,
  "approval_source": "stated in prompts/P6B-tune-confirmation.md header; /execute-prompt invoked by Luis",
  "steps": {
   "0a": "done",
   "0b": "done",
-  "0f": "pending",
-  "0g": "pending",
-  "protocol": "pending",
-  "select": "pending",
+  "0f": "done",
+  "0g": "done",
+  "protocol": "done",
+  "select": "done",
   "5a": "pending",
   "4b": "pending",
   "5c": "pending",
@@ -22,6 +22,8 @@
  "batch_id_preflight": null,
  "batch_id_arm_b": null,
  "batch_id_noise": null,
- "next_action": "0f alias asserts (driver --split tune check0f), then analysis ref (0g)",
- "notes": []
+ "next_action": "preflight-submit (50 calls, arm B)",
+ "notes": [
+  "0f tune: 1,207 files / 1,207 v6 evals mapped; WOLF/SPWR excluded; BNY (BK) 0 transcripts, documented vendor gap, expected-empty (assert loosened in its own driver commit, before any output). After exclusion: 1,169 calls / 51 companies. 0g: v6 tune reference reproduces exactly (1,168 / 28.3 / +2.64 / 84 / 59.5)."
+ ]
 }

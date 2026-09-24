@@ -1,0 +1,19 @@
+{
+ "n_gradable": 1168,
+ "accuracy_pct": 28.3,
+ "gap_pp": 2.64,
+ "bearish_calls": 84,
+ "bearish_precision_pct": 59.5,
+ "reference": {
+  "n_gradable": 1168,
+  "accuracy_pct": 28.3,
+  "gap_pp": 2.64,
+  "bearish_calls": 84,
+  "bearish_precision_pct": 59.5
+ },
+ "reference_sources": {
+  "28.3/+2.64/1168": "wrap-ups/baseline-v6-tune-batch-out.md (post-backfill)",
+  "84/59.5": "wrap-ups/q2-bearish-strength-separation-out.md s5b"
+ },
+ "match": true
+}

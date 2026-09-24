@@ -19,5 +19,8 @@
  "companies_after_exclusion": 51,
  "disjoint_train": true,
  "disjoint_holdout": true,
- "asserts_pass": false
+ "expected_empty": {
+  "BNY": "BK/BNY pre-rebrand history not carried by the vendor; 0 transcripts; analogue of MAXN on train"
+ },
+ "asserts_pass": true
 }
