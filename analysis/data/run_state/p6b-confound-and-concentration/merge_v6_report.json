@@ -1,0 +1,10 @@
+{
+ "rows": 195,
+ "from_noise_arm": 100,
+ "new": 95,
+ "unparsed_or_no_direction": [],
+ "stop_reasons": {
+  "end_turn": 195
+ },
+ "cost_new_usd": 3.561
+}
