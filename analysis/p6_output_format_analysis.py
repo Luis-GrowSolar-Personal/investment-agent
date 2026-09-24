@@ -828,7 +828,7 @@ def cmd_tests_tune():
                    "swap_median_v6": [swap_a(ppool), *boot(ppool, swap_a)[:2]],
                    "swap_mean_v6": [swap_a_mean(ppool), *boot(ppool, swap_a_mean)[:2]]}
     pr_ = R["pooled"]
-    P(f"{pr_['n']} calls ({pr_['n_priced']} with a return) from {pr_['n_companies']} companies. The prompt's 2,385-call figure is train+tune including PARA-era and ungradable calls; this pool excludes PARA (train) and WOLF/SPWR, so it is smaller.\n")
+    P(f"{pr_['n']} calls ({pr_['n_priced']} with a tradeable-entry return) from {pr_['n_companies']} companies: train 1,217 (PARA excluded) + tune {len(rows)}. The state of play's 2,385 equals 1,217 + 1,168, the old-ruler-gradable tune count; this pool is one call larger because one tune call has a tradeable-entry return but no old-ruler truth.\n")
     P("| pooled figure | value | 95% range |\n|---|---|---|")
     P(f"| B rank correlation (Spearman) | {pr_['rho'][0]:.3f} | {pr_['rho'][1]:.3f} to {pr_['rho'][2]:.3f} |")
     P(f"| B swap median, score <= -2 / >= +3 | {pr_['swap_median_B_plus3'][0]:.2f} | {pr_['swap_median_B_plus3'][1]:.2f} to {pr_['swap_median_B_plus3'][2]:.2f} |")
