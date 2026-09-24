@@ -25,7 +25,8 @@ from analyst_direct_scorer import (PriceCache, parse_structured, direction_from_
 from r4b_tradeable_entry_driver import rel_ret, truth  # noqa: E402
 
 STATE = d.STATE
-CALLS = STATE / "calls.csv"
+CALLS = STATE / ("calls_tune.csv" if d.TUNE else "calls.csv")
+TRAIN_STATE = REPO / "analysis/data/run_state/p6-output-format-round"
 BOOT_B, SEED = 2000, 11
 BASE = {"bearish": 46.6, "bullish": 32.8, "neutral": 20.6}     # P3a block, prompt section 8
 V6_REF = {"accuracy_pct": 30.3, "gap_pp": 2.48, "bearish_calls": 103, "bearish_precision_pct": 60.2}
@@ -133,16 +134,19 @@ def cmd_calls():
 
 
 # ------------------------------------------------------------------------------------------ stats helpers
-def load_calls():
+def load_calls(path=None):
     out = []
-    with CALLS.open() as f:
+    with (path or CALLS).open() as f:
         for r in csv.DictReader(f):
             for k in ("fwd_rel_ret_tradeable", "b_score", "c_score"):
-                r[k] = float(r[k]) if r[k] != "" else None
+                if k in r:
+                    r[k] = float(r[k]) if r[k] != "" else None
             for k in ("b_score", "c_score"):
-                r[k] = None if r[k] is None else int(r[k])
+                if k in r:
+                    r[k] = None if r[k] is None else int(r[k])
             for k in ("b_noRead", "c_noRead"):
-                r[k] = None if r[k] == "" else (r[k] == "True")
+                if k in r:
+                    r[k] = None if r[k] == "" else (r[k] == "True")
             out.append(r)
     return out
 
@@ -548,6 +552,303 @@ def cmd_tests():
     print("\n".join(L))
 
 
+# ------------------------------------------------------------------------------------------ tune (prompts/P6B-tune-confirmation.md)
+def thr3(s):
+    """pre-registered tune mapping: <= -2 bearish, >= +3 bullish, else neutral (bullish cut moved from +2, decided 2026-09-24)."""
+    if s is None:
+        return None
+    return "bearish" if s <= -2 else "bullish" if s >= 3 else "neutral"
+
+
+def cmd_ref():
+    """0g: reproduce v6's tune reference from the v6 tune cache before anything is scored."""
+    prices = PriceCache(REPO / d.PRICE_CACHE_REL)
+    tick = sorted({r["ticker"] for r in d.universe()})
+    recs = score_eval_dir(d.V6_EVAL_DIR, prices, tickers=tick)
+    sc = [r for r in recs if r.ground_truth is not None]
+    m = compute_luck_corrected_metrics(sc)
+    bear = [r for r in sc if r.predicted == "bearish"]
+    out = {"n_gradable": len(sc), "accuracy_pct": m["observed_accuracy_pct"], "gap_pp": m["luck_corrected_gap_pp"],
+           "bearish_calls": len(bear), "bearish_precision_pct": round(100 * sum(r.hit for r in bear) / max(len(bear), 1), 1),
+           "reference": {"n_gradable": 1168, "accuracy_pct": 28.3, "gap_pp": 2.64, "bearish_calls": 84, "bearish_precision_pct": 59.5},
+           "reference_sources": {"28.3/+2.64/1168": "wrap-ups/baseline-v6-tune-batch-out.md (post-backfill)", "84/59.5": "wrap-ups/q2-bearish-strength-separation-out.md s5b"}}
+    ok = (out["n_gradable"] == 1168 and out["accuracy_pct"] == 28.3 and abs(out["gap_pp"] - 2.64) < 0.006
+          and out["bearish_calls"] == 84 and abs(out["bearish_precision_pct"] - 59.5) < 0.06)
+    out["match"] = ok
+    (STATE / "v6_reference_repro_tune.json").write_text(json.dumps(out, indent=1))
+    print(json.dumps(out, indent=1))
+    if not ok:
+        raise SystemExit("HARD STOP 0g: v6 tune reference does not reproduce -- report")
+
+
+def build_rows_tune():
+    smap = p3.stratum_map()
+    prices = PriceCache(REPO / d.PRICE_CACHE_REL)
+    sc_b = {(r["ticker"], r["date"]): r for r in p3.read_jsonl(d.scores_path("B"))}
+    rows = []
+    for rec in d.universe():
+        tk, dt = rec["ticker"], rec["date"]
+        d0 = date.fromisoformat(dt)
+        fwd = rel_ret(prices, tk, d0, "B", 182)
+        gt = truth(rel_ret(prices, tk, d0, "A", 182))
+        v6s = parse_structured((d.V6_EVAL_DIR / f"{tk}_{dt}.txt").read_text())
+        v6d = direction_from_score(v6s)
+        r = {"ticker": tk, "call_date": dt, "stratum": smap[tk], "tier": "NA",
+             "fwd_rel_ret_tradeable": num(None if fwd is None else round(fwd * 100, 4)), "gt_old_ruler": num(gt),
+             "v6_rec": v6s.get("recommendation", ""), "v6_dir": num(v6d), "v6_hit": num(None if not (v6d and gt) else int(v6d == gt))}
+        row = sc_b.get((tk, dt))
+        if row:
+            sc, sco, nr = parse_score(row["content"])
+            d2, d3 = thr(sco), thr3(sco)
+            r.update({"b_score": num(sco), "b_noRead": num(nr), "b_dir_plus2": num(d2), "b_dir_plus3": num(d3), "b_dir": num(d3),
+                      "b_hit_plus2": num(None if not (d2 and gt) else int(d2 == gt)), "b_hit_plus3": num(None if not (d3 and gt) else int(d3 == gt)),
+                      "b_completion_tokens": row["usage"]["output_tokens"], "b_stop": row["stop_reason"]})
+            for k, v in sc.items():
+                if k not in ("score", "noRead"):
+                    r[f"b_{k}"] = json.dumps(v) if isinstance(v, (list, dict)) else v
+        rows.append(r)
+    return rows
+
+
+def cmd_calls_tune():
+    rows = build_rows_tune()
+    cols = ["ticker", "call_date", "stratum", "tier", "fwd_rel_ret_tradeable", "gt_old_ruler", "v6_rec", "v6_dir", "v6_hit",
+            "b_score", "b_noRead", "b_dir_plus2", "b_dir_plus3", "b_dir", "b_hit_plus2", "b_hit_plus3", "b_completion_tokens", "b_stop"]
+    extra = []
+    for r in rows:
+        for k in r:
+            if k not in cols and k not in extra:
+                extra.append(k)
+    with CALLS.open("w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=cols + extra)
+        w.writeheader()
+        for r in rows:
+            w.writerow({k: r.get(k, "") for k in cols + extra})
+    print("wrote", CALLS, len(rows), "rows;", sum(1 for r in rows if r["b_score"] != ""), "scored;",
+          sum(1 for r in rows if r["fwd_rel_ret_tradeable"] != ""), "with a return")
+
+
+def sign_test_p(a, b):
+    from math import comb
+    n = a + b
+    if n == 0:
+        return 1.0
+    k = min(a, b)
+    return min(1.0, 2 * sum(comb(n, i) for i in range(k + 1)) / 2 ** n)
+
+
+def cmd_tests_tune():
+    rows = [r for r in load_calls() if r.get("b_score") is not None]
+    for r in rows:
+        r["b_dir"] = r["b_dir_plus3"]
+    rows2 = [dict(r, b_dir=r["b_dir_plus2"]) for r in rows]
+    R, L = {"n_calls": len(rows)}, []
+    P = L.append
+    priced = [r for r in rows if r["fwd_rel_ret_tradeable"] is not None]
+    R["n_priced"] = len(priced)
+    P(f"# P6B on tune: tests report ($0). Tune, WOLF/SPWR excluded. {len(rows)} calls scored, {len(priced)} with a 182-day tradeable-entry return, {len({r['ticker'] for r in rows})} companies.\n")
+    # ---------------- the four pre-registered conditions
+    st = rank_stats(rows, "b")
+    R["rank"] = st
+
+    def swap(rs, dirkey="b_dir"):
+        h = [r["fwd_rel_ret_tradeable"] for r in rs if r["b_score"] >= 3 and r["fwd_rel_ret_tradeable"] is not None]
+        l = [r["fwd_rel_ret_tradeable"] for r in rs if r["b_score"] <= -2 and r["fwd_rel_ret_tradeable"] is not None]
+        return med(h) - med(l) if h and l else float("nan")
+    sw = swap(rows)
+    swr = boot(rows, swap)
+    def swap2(rs):
+        h = [r["fwd_rel_ret_tradeable"] for r in rs if r["b_score"] >= 2 and r["fwd_rel_ret_tradeable"] is not None]
+        l = [r["fwd_rel_ret_tradeable"] for r in rs if r["b_score"] <= -2 and r["fwd_rel_ret_tradeable"] is not None]
+        return med(h) - med(l) if h and l else float("nan")
+    sw2, swr2 = swap2(rows), boot(rows, swap2)
+    g_ = [r for r in rows if r["gt_old_ruler"]]
+    bear_b = [r for r in g_ if r["b_dir"] == "bearish"]
+    bear_a = [r for r in g_ if r["v6_dir"] == "bearish"]
+    pb = 100 * sum(r["gt_old_ruler"] == "bearish" for r in bear_b) / max(len(bear_b), 1)
+    pa = 100 * sum(r["gt_old_ruler"] == "bearish" for r in bear_a) / max(len(bear_a), 1)
+    ratio = len(bear_b) / max(len(bear_a), 1)
+    m3 = compute_luck_corrected_metrics(records(rows, "B"))
+    mA = compute_luck_corrected_metrics(records(rows, "A"))
+    m2 = compute_luck_corrected_metrics(records(rows2, "B"))
+    c1 = st["rho_range"][0] > 0
+    c2 = ratio >= 1.5 and pb >= pa - 5
+    c3 = swr[0] > 0
+    c4 = m3["luck_corrected_gap_pp"] >= 0.21
+    R["conditions"] = {"1_rank": {"rho": st["rho"], "range": st["rho_range"], "held": c1},
+                       "2_coverage": {"b_bearish": len(bear_b), "v6_bearish": len(bear_a), "ratio": ratio, "b_precision": pb, "v6_precision": pa,
+                                      "precision_diff": pb - pa, "held": c2},
+                       "3_money": {"swap_median_plus3": sw, "range": swr[:2], "held": c3},
+                       "4_old_ruler": {"b_gap_plus3": m3["luck_corrected_gap_pp"], "v6_gap": mA["luck_corrected_gap_pp"], "bar": 0.21, "held": c4}}
+    n_held = sum([c1, c2, c3, c4])
+    R["n_held"] = n_held
+    R["verdict"] = "HELD" if (c1 and c2 and c3) else "FALSIFIED"
+    P("## The four pre-registered conditions\n")
+    P(f"1. **Rank-ordering: {'HELD' if c1 else 'NOT held'}.** Spearman {st['rho']:.3f}, range {st['rho_range'][0]:.3f} to {st['rho_range'][1]:.3f} (train 0.130, 0.051-0.208; prediction 0.08-0.16), n={st['n']}.")
+    P(f"2. **Bearish coverage without precision loss: {'HELD' if c2 else 'NOT held'}.** B {len(bear_b)} bearish calls vs v6 {len(bear_a)} = {ratio:.2f}x (needs >= 1.5x); B precision {pb:.1f}% vs v6 {pa:.1f}% = {pb-pa:+.1f} points (needs >= -5). Base rate on these calls: {100*sum(r['gt_old_ruler']=='bearish' for r in g_)/len(g_):.1f}%.")
+    P(f"3. **Money: {'HELD' if c3 else 'NOT held'}.** Swap median at score <= -2 / >= +3: {sw:.2f} points, range {swr[0]:.2f} to {swr[1]:.2f} (train at +2: 8.92, 4.12-15.34; prediction 6-12). Labelled train mapping (>= +2): {sw2:.2f}, range {swr2[0]:.2f} to {swr2[1]:.2f}.")
+    P(f"4. **Old ruler, +3 mapping (non-gating): {'HELD' if c4 else 'NOT held, a finding not a failure'}.** B gap {m3['luck_corrected_gap_pp']:+.2f} vs v6 {mA['luck_corrected_gap_pp']:+.2f} (bar +0.21, the lower end of v6's own range).")
+    P(f"\n**{n_held} of 4 held. Pre-registered rule: falsified if any of 1-3 fails -> B {'HELD' if R['verdict']=='HELD' else 'WAS FALSIFIED'} on tune.**\n")
+    # ---------------- 6.1 tables
+    P("## Diagnostics: score buckets and rank-ordering\n")
+    tab = bucket_table(rows, "b")
+    R["buckets"] = tab
+    P("| bucket | n | median | mean | beat >5 % | lag >5 % |\n|---|---|---|---|---|---|")
+    for b in tab:
+        P(f"| {b['bucket']} | {b['n']} | {f(b['median'])} | {f(b['mean'])} | {f(b['beat_gt5_pct'],1)} | {f(b['lag_gt5_pct'],1)} |")
+    ab = a_buckets(rows)
+    R["A_buckets"] = ab
+    P("\n**v6 (A) three buckets on the same calls:**\n\n| bucket | n | median | mean | beat >5 % | lag >5 % |\n|---|---|---|---|---|---|")
+    for k in ("bearish", "neutral", "bullish"):
+        b = ab[k]
+        P(f"| {k} | {b['n']} | {f(b['median'])} | {f(b['mean'])} | {f(b['beat_gt5_pct'],1)} | {f(b['lag_gt5_pct'],1)} |")
+    P(f"\nSpread (median score >= +3 minus median score <= -3): {f(st['spread'])} points (range {f(st['spread_range'][0])} to {f(st['spread_range'][1])}); n(>=+3)={st['n_ge3']}, n(<=-3)={st['n_le_m3']}. v6 best-minus-worst {f(ab['spread_bullish_minus_bearish_median'])} (range {f(ab['spread_range'][0])} to {f(ab['spread_range'][1])}).")
+    code = {"bearish": -1, "neutral": 0, "bullish": 1}
+    ra = lambda rs: spearman([code[r["v6_dir"]] for r in rs if r["v6_dir"]], [r["fwd_rel_ret_tradeable"] for r in rs if r["v6_dir"]])
+    rba = lambda rs: spearman([r["b_score"] for r in rs], [r["fwd_rel_ret_tradeable"] for r in rs]) - ra(rs)
+    R["A_ordinal_rho"] = [ra(priced), *boot(priced, ra)[:2]]
+    R["B_minus_A_rho"] = [rba(priced), *boot(priced, rba)[:2]]
+    P(f"\nPost-hoc comparators (not pre-registered): v6's three answers coded -1/0/+1 give Spearman {R['A_ordinal_rho'][0]:.3f} ({R['A_ordinal_rho'][1]:.3f} to {R['A_ordinal_rho'][2]:.3f}); B minus v6, paired: {R['B_minus_A_rho'][0]:+.3f} ({R['B_minus_A_rho'][1]:+.3f} to {R['B_minus_A_rho'][2]:+.3f}).\n")
+    # ---------------- 6.2
+    P("## Diagnostics: neutral pile and noRead\n")
+    g = [r for r in rows if r["b_dir"]]
+    sh3 = 100 * sum(r["b_dir"] == "neutral" for r in g) / len(g)
+    sh2 = 100 * sum(r["b_dir_plus2"] == "neutral" for r in g) / len(g)
+    shA = 100 * sum(r["v6_dir"] == "neutral" for r in rows if r["v6_dir"]) / len([r for r in rows if r["v6_dir"]])
+    nr = 100 * sum(r["b_noRead"] is True for r in g) / len(g)
+    R["neutral"] = {"A": shA, "B_plus3": sh3, "B_plus2": sh2, "noRead": nr}
+    P(f"Neutral share: v6 {shA:.1f}%; B at the +3 mapping {sh3:.1f}%; B at the train run's +2 mapping {sh2:.1f}%. noRead share {nr:.1f}% (train: 0.2%).\n")
+    # ---------------- 6.3 old ruler
+    P("## Diagnostics: old ruler at both mappings\n")
+    P("| arm / mapping | n graded | accuracy % | luck % | gap (points) | bearish calls | bearish precision % | bullish calls | bullish precision % |\n|---|---|---|---|---|---|---|---|---|")
+    R["old_ruler"] = {}
+    for nm, rs, arm in (("v6 (A)", rows, "A"), ("B, +3 mapping (pre-registered)", rows, "B"), ("B, +2 mapping (train run's original)", rows2, "B")):
+        rc = records(rs, arm)
+        m = compute_luck_corrected_metrics(rc)
+        pbr, pu = precision(rs, arm, "bearish"), precision(rs, arm, "bullish")
+        R["old_ruler"][nm] = {"n": len(rc), **m, "bear": pbr, "bull": pu}
+        P(f"| {nm} | {len(rc)} | {m['observed_accuracy_pct']} | {m['expected_by_luck_pct']} | {m['luck_corrected_gap_pp']:+} | {pbr[1] if pbr else 0} | {f(pbr[0],1) if pbr else 'n/a'} | {pu[1] if pu else 0} | {f(pu[0],1) if pu else 'n/a'} |")
+    # ---------------- noise arm
+    noise = noise_arm(rows)
+    R["noise"] = {k: v for k, v in noise.items() if k != "pairs"}
+    P(f"\n**Noise arm (tune, v6 re-scored vs its cached call):** n={noise['n']}, disagreement {noise['flips']} ({noise['rate_pct']:.1f}%, Wilson {noise['rate_wilson'][0]:.1f} to {noise['rate_wilson'][1]:.1f}).\n")
+    P("| stratum | n | flips | rate % | Wilson |\n|---|---|---|---|---|")
+    for sk, v in noise["per_stratum"].items():
+        P(f"| {sk} | {v['n']} | {v['flips']} | {v['rate_pct']:.1f} | {v['wilson'][0]:.1f} to {v['wilson'][1]:.1f} |")
+    outl = [sk for sk, v in noise["per_stratum"].items() if v["wilson"][1] < noise["rate_pct"] or v["wilson"][0] > noise["rate_pct"]]
+    P(f"\nStrata whose range excludes the overall rate: {outl or 'none'}.\n")
+    def decisive(pairs):
+        gp = [p for p in pairs if p["gt"]]
+        return {"graded": len(gp), "cached_right": sum(p["old"] == p["gt"] for p in gp if p["old"] != p["fresh"]),
+                "fresh_right": sum(p["fresh"] == p["gt"] for p in gp if p["old"] != p["fresh"]),
+                "both_wrong": sum(p["old"] != p["gt"] and p["fresh"] != p["gt"] for p in gp if p["old"] != p["fresh"])}
+    tune_dec = decisive([p for p in noise["pairs"]])
+    # train noise pairs, from the train run's committed files
+    trows = {(r["ticker"], r["call_date"]): r for r in load_calls(TRAIN_STATE / "calls.csv")}
+    tp = []
+    for x in p3.read_jsonl(TRAIN_STATE / "scores_noise.jsonl"):
+        k = (x["ticker"], x["date"])
+        fresh = direction_from_score(parse_structured(x["content"]))
+        if k in trows and fresh and trows[k]["v6_dir"]:
+            tp.append({"old": trows[k]["v6_dir"], "fresh": fresh, "gt": trows[k]["gt_old_ruler"]})
+    train_dec = decisive(tp)
+    pooled = {k: tune_dec[k] + train_dec[k] for k in tune_dec}
+    R["noise_luck"] = {"tune": tune_dec, "train": train_dec, "pooled": pooled,
+                       "p_tune": sign_test_p(tune_dec["cached_right"], tune_dec["fresh_right"]),
+                       "p_pooled": sign_test_p(pooled["cached_right"], pooled["fresh_right"])}
+    P("**Cached vs fresh, graded noise flips (a flip where exactly one of the two calls matched the truth is decisive):**\n")
+    P("| set | graded flips | cached call right | fresh call right | both wrong | sign-test p (cached vs fresh) |\n|---|---|---|---|---|---|")
+    for nm, dd_, pv in (("tune (this run)", tune_dec, R["noise_luck"]["p_tune"]), ("train (P6 run)", train_dec, sign_test_p(train_dec["cached_right"], train_dec["fresh_right"])), ("pooled", pooled, R["noise_luck"]["p_pooled"])):
+        P(f"| {nm} | {dd_['graded_flips'] if False else dd_['cached_right']+dd_['fresh_right']+dd_['both_wrong']} | {dd_['cached_right']} | {dd_['fresh_right']} | {dd_['both_wrong']} | {pv:.3f} |")
+    # ---------------- flips
+    P("\n## Diagnostics: flips against v6, raw and net (P6 section 7 netting rule, tune noise arm)\n")
+    P("| mapping | shared calls | raw flips | expected noise flips (S1-S5 re-weighted) | net | noise-count range | raw win rate % | noise win rate % | netted win rate |\n|---|---|---|---|---|---|---|---|---|")
+    R["flips"] = {}
+    for nm, rs in (("+3 (pre-registered)", rows), ("+2 (train run's)", rows2)):
+        nc = net_count(rs, "B", noise)
+        fl = flips(rs, "B")
+        R["flips"][nm] = {**nc, "wins": fl["wins"], "losses": fl["losses"], "both_wrong": fl["both_wrong"]}
+        P(f"| {nm} | {nc['n_shared']} | {nc['raw']} | {nc['expected_noise_flips_reweighted']:.0f} | {nc['net']:.0f} | {nc['noise_count_range'][0]:.0f} to {nc['noise_count_range'][1]:.0f} | {nc['raw_win_rate_pct']:.1f} (wins {fl['wins']}, losses {fl['losses']}, both wrong {fl['both_wrong']}) | {nc['noise_win_rate_pct']:.1f} | {f(nc['netted_win_rate_pct'],1)} ({nc['netted_win_rate_label']}) |")
+    P("\nCaveat (netting rule): noise flips and real flips are not disjoint; the subtraction assumes independence and no overlap.\n")
+    # ---------------- B vs v6 disagreement
+    P("## Diagnostics: B vs v6 disagreement (+3 mapping)\n")
+    P("| v6 answer -> B answer | n | B right % | v6 right % | median return |\n|---|---|---|---|---|")
+    R["xtab"] = {}
+    for a_ in ("bearish", "neutral", "bullish"):
+        for b_ in ("bearish", "neutral", "bullish"):
+            xs = [r for r in rows if r["v6_dir"] == a_ and r["b_dir"] == b_]
+            if not xs:
+                continue
+            gx = [r for r in xs if r["gt_old_ruler"]]
+            fw = [r["fwd_rel_ret_tradeable"] for r in xs if r["fwd_rel_ret_tradeable"] is not None]
+            R["xtab"][f"{a_}->{b_}"] = {"n": len(xs)}
+            P(f"| {a_} -> {b_} | {len(xs)} | {100*sum(r['gt_old_ruler']==b_ for r in gx)/max(len(gx),1):.1f} | {100*sum(r['gt_old_ruler']==a_ for r in gx)/max(len(gx),1):.1f} | {f(med(fw))} |")
+    # ---------------- money
+    P("\n## Diagnostics: money (tradeable entry, 182 days, points vs S&P)\n")
+    P("| mapping | arm | bearish share % | bearish mean | bearish median | bullish share % | bullish mean | bullish median | swap mean | swap median |\n|---|---|---|---|---|---|---|---|---|---|")
+    R["money"] = {}
+    for nm, rs, arm in (("v6", rows, "A"), ("+3", rows, "B"), ("+2", rows2, "B")):
+        m = money(rs, arm)
+        R["money"][f"{nm}"] = {"all": m}
+        P(f"| {nm} | {arm} | {m['bear_share_pct']:.1f} | {f(m['bear_mean'])} | {f(m['bear_median'])} | {m['bull_share_pct']:.1f} | {f(m['bull_mean'])} | {f(m['bull_median'])} | {f(m['swap_mean'])} | {f(m['swap_median'])} |")
+    P("\n**By stratum (S1-S5) and year, +3 mapping vs v6:**\n\n| slice | arm | n | bearish n | bearish median | bullish n | bullish median | swap median |\n|---|---|---|---|---|---|---|---|")
+    slices = [(sk, [r for r in rows if r["stratum"] == sk]) for sk in sorted({r["stratum"] for r in rows})]
+    slices += [("2020", [r for r in rows if r["call_date"][:4] == "2020"]), ("ex-2020", [r for r in rows if r["call_date"][:4] != "2020"])]
+    for nm, rs in slices:
+        for arm in ("A", "B"):
+            m = money(rs, arm)
+            R["money"].setdefault(nm, {})[arm] = m
+            P(f"| {nm} | {arm} | {m['n_calls']} | {m['n_bear']} | {f(m['bear_median'])} | {m['n_bull']} | {f(m['bull_median'])} | {f(m['swap_median'])} |")
+    tokB = [int(r["b_completion_tokens"]) for r in rows if r.get("b_completion_tokens") not in ("", None)]
+    R["tokens"] = {"B_median": med(tokB), "v6_noise_median": med([p["tokens"] for p in noise["pairs"]])}
+    P(f"\nMedian completion tokens: B {med(tokB):.0f}; v6 (noise re-scores) {R['tokens']['v6_noise_median']:.0f}. Score distribution: " + ", ".join(f"{b['bucket']}: {b['n']}" for b in tab) + ".")
+    # ---------------- pooled train + tune
+    P("\n## Pooled train + tune\n")
+    tr = [r for r in load_calls(TRAIN_STATE / "calls.csv") if r.get("b_score") is not None]
+    for r in tr:
+        r["b_dir_plus2"] = thr(r["b_score"])
+        r["b_dir"] = thr3(r["b_score"])
+    pool = tr + rows
+    ppool = [r for r in pool if r["fwd_rel_ret_tradeable"] is not None]
+    rho_p = lambda rs: spearman([r["b_score"] for r in rs], [r["fwd_rel_ret_tradeable"] for r in rs])
+    swp = lambda rs: swap(rs)
+    swp2 = lambda rs: swap2(rs)
+    def swap_a(rs):
+        h = [r["fwd_rel_ret_tradeable"] for r in rs if r["v6_dir"] == "bullish" and r["fwd_rel_ret_tradeable"] is not None]
+        l = [r["fwd_rel_ret_tradeable"] for r in rs if r["v6_dir"] == "bearish" and r["fwd_rel_ret_tradeable"] is not None]
+        return med(h) - med(l)
+    def swap_a_mean(rs):
+        h = [r["fwd_rel_ret_tradeable"] for r in rs if r["v6_dir"] == "bullish" and r["fwd_rel_ret_tradeable"] is not None]
+        l = [r["fwd_rel_ret_tradeable"] for r in rs if r["v6_dir"] == "bearish" and r["fwd_rel_ret_tradeable"] is not None]
+        return mean(h) - mean(l)
+    R["pooled"] = {"n": len(pool), "n_priced": len(ppool), "n_companies": len({r["ticker"] for r in pool}),
+                   "rho": [rho_p(ppool), *boot(ppool, rho_p)[:2]],
+                   "swap_median_B_plus3": [swp(ppool), *boot(ppool, swp)[:2]],
+                   "swap_median_B_plus2": [swp2(ppool), *boot(ppool, swp2)[:2]],
+                   "swap_median_v6": [swap_a(ppool), *boot(ppool, swap_a)[:2]],
+                   "swap_mean_v6": [swap_a_mean(ppool), *boot(ppool, swap_a_mean)[:2]]}
+    pr_ = R["pooled"]
+    P(f"{pr_['n']} calls ({pr_['n_priced']} with a return) from {pr_['n_companies']} companies. The prompt's 2,385-call figure is train+tune including PARA-era and ungradable calls; this pool excludes PARA (train) and WOLF/SPWR, so it is smaller.\n")
+    P("| pooled figure | value | 95% range |\n|---|---|---|")
+    P(f"| B rank correlation (Spearman) | {pr_['rho'][0]:.3f} | {pr_['rho'][1]:.3f} to {pr_['rho'][2]:.3f} |")
+    P(f"| B swap median, score <= -2 / >= +3 | {pr_['swap_median_B_plus3'][0]:.2f} | {pr_['swap_median_B_plus3'][1]:.2f} to {pr_['swap_median_B_plus3'][2]:.2f} |")
+    P(f"| B swap median, score <= -2 / >= +2 (train run's mapping) | {pr_['swap_median_B_plus2'][0]:.2f} | {pr_['swap_median_B_plus2'][1]:.2f} to {pr_['swap_median_B_plus2'][2]:.2f} |")
+    P(f"| v6 swap median (state of play: +8.7) | {pr_['swap_median_v6'][0]:.2f} | {pr_['swap_median_v6'][1]:.2f} to {pr_['swap_median_v6'][2]:.2f} |")
+    P(f"| v6 swap mean (state of play: +2.4) | {pr_['swap_mean_v6'][0]:.2f} | {pr_['swap_mean_v6'][1]:.2f} to {pr_['swap_mean_v6'][2]:.2f} |")
+    with (STATE / "per_call_diffs_tune.csv").open("w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["ticker", "call_date", "stratum", "v6_dir", "b_score", "b_dir_plus3", "gt_old_ruler", "fwd_rel_ret_tradeable"])
+        for r in rows:
+            if r["v6_dir"] != r["b_dir"]:
+                w.writerow([r["ticker"], r["call_date"], r["stratum"], r["v6_dir"], num(r["b_score"]), r["b_dir"], r["gt_old_ruler"], num(r["fwd_rel_ret_tradeable"])])
+    (STATE / "results_tune.json").write_text(json.dumps(R, indent=1, default=str))
+    (STATE / "tests_report_tune.md").write_text("\n".join(L) + "\n")
+    print("\n".join(L))
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
-    {"calls": cmd_calls, "tests": cmd_tests}.get(cmd, lambda: print(__doc__))()
+    if d.TUNE:
+        {"ref": cmd_ref, "calls": cmd_calls_tune, "tests": cmd_tests_tune}.get(cmd, lambda: print(__doc__))()
+    else:
+        {"calls": cmd_calls, "tests": cmd_tests}.get(cmd, lambda: print(__doc__))()
