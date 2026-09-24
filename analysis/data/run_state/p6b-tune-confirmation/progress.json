@@ -22,7 +22,7 @@
   "batch_id_preflight": "msgbatch_018XTJ34zVRHdxs9wnJGiaGr",
   "batch_id_arm_b": null,
   "batch_id_noise": null,
-  "next_action": "poll preflight batch",
+  "next_action": "run preflight-report",
   "notes": [
     "0f tune: 1,207 files / 1,207 v6 evals mapped; WOLF/SPWR excluded; BNY (BK) 0 transcripts, documented vendor gap, expected-empty (assert loosened in its own driver commit, before any output). After exclusion: 1,169 calls / 51 companies. 0g: v6 tune reference reproduces exactly (1,168 / 28.3 / +2.64 / 84 / 59.5)."
   ],
