@@ -8,7 +8,7 @@
  "steps": {
   "0a": "done",
   "0b_driver": "done",
-  "0_repro_R": "pending",
+  "0_repro_R": "done",
   "guard": "pending",
   "score_remainder": "pending",
   "merge_195": "pending",
@@ -18,6 +18,8 @@
   "report": "pending"
  },
  "batch_id_v6": null,
- "next_action": "run repro (R) with the extended driver, then guard + submit v6",
- "notes": []
+ "next_action": "submit-v6",
+ "notes": [
+  "R reproduced bit-exactly with the extended driver ($184,819.42 / 17.324% session / 23.458% daily; per-phase finals equal resolve-open-four cells 1a-phase0/10/20)."
+ ]
 }
