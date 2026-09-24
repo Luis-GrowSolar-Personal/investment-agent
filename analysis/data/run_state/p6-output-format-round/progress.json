@@ -13,7 +13,7 @@
     "0e": "done",
     "0f": "done",
     "0g": "done",
-    "5a": "in_progress",
+    "5a": "done",
     "5b": "pending",
     "5c": "pending",
     "5d": "pending",
@@ -24,13 +24,14 @@
   "batch_id_arm_b": null,
   "batch_id_arm_c": null,
   "batch_id_noise": null,
-  "next_action": "poll preflight batch",
+  "next_action": "submit-b, then submit-c",
   "notes": [
     "0c: P6 block present in PROMPT_ARCHITECTURE.md (commit aee70da). Prompt says registered 2026-09-24; today is 2026-09-23 - date premise off by a day, harmless.",
     "0g: PROMPT_ARCHITECTURE.md last touched aee70da (P6 registration); flip-count correction from state-of-play 4.2 has NOT landed.",
     "0f: asserts pass (1,240 files/56 cos/1,240 evals/1,184 pred-bearing, MAXNQ empty). PARA excluded -> 1,217 calls / 55 cos / 1,162 pred-bearing (23 PARA calls).",
     "PREMISE FLAGS: (1) prompt 0f says '1,194 transcripts'; 1,194 is the UNRESOLVED count - resolved is 1,240 (P3 driver assert). (2) 5b/5d: stratum_map() returns corpus strata S1-S5, not the four-way megacap/large/mid/small_micro; that four-way split is a hardcoded 15-ticker list (6 in train, 0 large) per P3 5f. 21a therefore drawn proportional to S1-S5 (120: S1 35/S2 19/S3 53/S4 2/S5 11), exactly as P3 5f specifies; per-stratum reporting uses S1-S5. (3) v6 train reference 30.3%/+2.48 comes from wrap-ups/scorer-price-cache-backfill-out.md (post backfill); baseline-v6-train-batch-out.md reports the pre-backfill 22.8%/-1.64. (4) Registration date in prompt is 2026-09-24; today 2026-09-23.",
-    "DEVIATION: preflight scores (100 tx x B and C) are reused as arm results; full-arm batches submit only the remaining transcripts (skip-present-ids per Step -1). Saves ~$7."
+    "DEVIATION: preflight scores (100 tx x B and C) are reused as arm results; full-arm batches submit only the remaining transcripts (skip-present-ids per Step -1). Saves ~$7.",
+    "5a preflight PASS: B 0 parse fails/0 max_tokens/0% noRead, $0.02364/call (proj $28.77); C 0/0/4% noRead, $0.04142/call (proj $50.41). Neither over $55."
   ],
   "guards": {
     "batch_id_preflight": {
