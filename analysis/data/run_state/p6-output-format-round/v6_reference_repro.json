@@ -1,0 +1,30 @@
+{
+ "published_reference": {
+  "accuracy_pct": 30.3,
+  "gap_pp": 2.48,
+  "bearish_calls": 103,
+  "bearish_precision_pct": 60.2
+ },
+ "reproduced_with_PARA": {
+  "population": "resolved train incl. PARA, excl. WOLF/SPWR",
+  "n_gradable": 1236,
+  "accuracy_pct": 30.3,
+  "gap_pp": 2.48,
+  "bearish_calls": 103,
+  "bearish_precision_pct": 60.2
+ },
+ "adjusted_ex_PARA": {
+  "population": "PARA excluded (this run)",
+  "n_gradable": 1217,
+  "accuracy_pct": 29.9,
+  "gap_pp": 2.24,
+  "bearish_calls": 93,
+  "bearish_precision_pct": 58.1,
+  "n_para_gradable_removed": 19
+ },
+ "calls_csv_v6_accuracy_ex_PARA_pct": 29.9,
+ "calls_csv_n": 1217,
+ "source_of_reference": "wrap-ups/scorer-price-cache-backfill-out.md (30.3% / +2.48); bearish 103 / 60.2% from the same corpus",
+ "match_with_PARA": true,
+ "calls_csv_matches_scorer_ex_PARA": true
+}
