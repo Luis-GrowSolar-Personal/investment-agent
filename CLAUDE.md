@@ -48,10 +48,10 @@ registry-build run wired up.
 
 **"Read the state of play" means this file, and only this file:**
 
-    docs/handoffs/2026-09-23-state-of-play.md
+    docs/handoffs/2026-09-24-state-of-play.md
 
 Reading version (renders correctly anywhere, including on a phone):
-<https://claude.ai/artifact/TtBzBoVTTQoKobmXfTS4h9>
+<https://claude.ai/artifact/CW96Nyoxsx4kM4B2JF1Q8r>
 
 It carries the defined terms (§0), the evidence carried forward (§2), the six
 untried prompt-iteration candidates (§3), the next action (§5), and what is
