@@ -1,0 +1,23 @@
+{
+ "run_id": "p6b-confound-and-concentration",
+ "prompt_sha256": "d62b8782cac1fc5cf92426b0c5405032c1a7b3d240c2b1091fc3f6cb7deebbbc",
+ "driver_commit": null,
+ "prompt_commit": "b40516024f3bba19eda8920c165869af750b2b5c",
+ "luis_approved_usd": 12,
+ "approval_source": "stated in prompts/P6B-confound-and-concentration.md header ('Hard cap $12'); /execute-prompt invoked by Luis",
+ "steps": {
+  "0a": "pending",
+  "0b_driver": "pending",
+  "0_repro_R": "pending",
+  "guard": "pending",
+  "score_remainder": "pending",
+  "merge_195": "pending",
+  "cells_A0p": "pending",
+  "LOO_144": "pending",
+  "diagnostics": "pending",
+  "report": "pending"
+ },
+ "batch_id_v6": null,
+ "next_action": "stash user's uncommitted state-of-play edits, extend driver (--run confound), commit, reproduce R",
+ "notes": []
+}
