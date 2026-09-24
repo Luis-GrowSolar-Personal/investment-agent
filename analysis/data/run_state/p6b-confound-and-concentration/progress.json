@@ -1,25 +1,39 @@
 {
- "run_id": "p6b-confound-and-concentration",
- "prompt_sha256": "d62b8782cac1fc5cf92426b0c5405032c1a7b3d240c2b1091fc3f6cb7deebbbc",
- "driver_commit": "8ebc89e91d89746c9069277c957ef9b1d3a23e3e",
- "prompt_commit": "b40516024f3bba19eda8920c165869af750b2b5c",
- "luis_approved_usd": 12,
- "approval_source": "stated in prompts/P6B-confound-and-concentration.md header ('Hard cap $12'); /execute-prompt invoked by Luis",
- "steps": {
-  "0a": "done",
-  "0b_driver": "done",
-  "0_repro_R": "done",
-  "guard": "pending",
-  "score_remainder": "pending",
-  "merge_195": "pending",
-  "cells_A0p": "pending",
-  "LOO_144": "pending",
-  "diagnostics": "pending",
-  "report": "pending"
- },
- "batch_id_v6": null,
- "next_action": "submit-v6",
- "notes": [
-  "R reproduced bit-exactly with the extended driver ($184,819.42 / 17.324% session / 23.458% daily; per-phase finals equal resolve-open-four cells 1a-phase0/10/20)."
- ]
+  "run_id": "p6b-confound-and-concentration",
+  "prompt_sha256": "d62b8782cac1fc5cf92426b0c5405032c1a7b3d240c2b1091fc3f6cb7deebbbc",
+  "driver_commit": "8ebc89e91d89746c9069277c957ef9b1d3a23e3e",
+  "prompt_commit": "b40516024f3bba19eda8920c165869af750b2b5c",
+  "luis_approved_usd": 12,
+  "approval_source": "stated in prompts/P6B-confound-and-concentration.md header ('Hard cap $12'); /execute-prompt invoked by Luis",
+  "steps": {
+    "0a": "done",
+    "0b_driver": "done",
+    "0_repro_R": "done",
+    "guard": "pending",
+    "score_remainder": "pending",
+    "merge_195": "pending",
+    "cells_A0p": "pending",
+    "LOO_144": "pending",
+    "diagnostics": "pending",
+    "report": "pending"
+  },
+  "batch_id_v6": "msgbatch_01U4EhvqUxVVZKCV1uPRPqNu",
+  "next_action": "submit-v6",
+  "notes": [
+    "R reproduced bit-exactly with the extended driver ($184,819.42 / 17.324% session / 23.458% daily; per-phase finals equal resolve-open-four cells 1a-phase0/10/20)."
+  ],
+  "guards": {
+    "A_promoted_v6": {
+      "ok": true,
+      "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+      "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+      "candidate_used": null,
+      "branch": "sweep/db-corpus-baseline"
+    }
+  },
+  "committed_usd_by_batch": {
+    "batch_id_v6": 3.82
+  },
+  "batch_id_v6_submitted_at": "2026-09-24T12:17:58Z",
+  "batch_id_v6_requests": 95
 }
