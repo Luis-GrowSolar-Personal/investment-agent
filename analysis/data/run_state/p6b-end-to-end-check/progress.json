@@ -8,8 +8,8 @@
  "steps": {
   "0a": "done",
   "0b_driver": "done",
-  "0_repro": "pending",
-  "events_transcripts": "pending",
+  "0_repro": "done",
+  "events_transcripts": "done",
   "guards": "pending",
   "submit_b": "pending",
   "submit_noise": "pending",
@@ -21,6 +21,8 @@
  },
  "batch_id_arm_b": null,
  "batch_id_noise": null,
- "next_action": "run repro (Step 0 hard stop)",
- "notes": []
+ "next_action": "guards, submit-b, submit-noise",
+ "notes": [
+  "Step 0 reproduction bit-exact; 195 events; 195 transcripts fetched (DB, readonly session)."
+ ]
 }

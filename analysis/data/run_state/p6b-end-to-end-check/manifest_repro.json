@@ -1,0 +1,116 @@
+{
+ "run_id": "p6b-end-to-end-check",
+ "manifest": "repro",
+ "timestamp_utc": "2026-09-24T03:00:11Z",
+ "git_commit": "1c540f318946ff7bf24f4926f1ee07fc743521cd",
+ "git_branch": "sweep/db-corpus-baseline",
+ "git_dirty": false,
+ "driver_file": "analysis/p6b_e2e.py",
+ "driver_contains_file_at_commit": true,
+ "corpus": {
+  "n_events": 195,
+  "tickers": [
+   "AAPL",
+   "AMD",
+   "AMPX",
+   "AVGO",
+   "ENVX",
+   "EOSE",
+   "FSLR",
+   "GOOGL",
+   "MSFT",
+   "NVDA",
+   "ORCL",
+   "QS",
+   "RUN",
+   "SPWR",
+   "TSLA",
+   "TTD"
+  ],
+  "event_list_sha256": "724bba0965554aaac332c2311ec8bcab6818b2300483103e77a889e450b785dd",
+  "window": [
+   "2022-01-01",
+   "2024-06-12"
+  ]
+ },
+ "checksums": {
+  "type_classifications.json": "da600f9b0594fb44311b27df6f6934051fe367d1517740ed414c8614cdc8d5ee",
+  "price_cache.json": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+  "fundamentals_cache.json": "3962a882100616c459b048229f4186fd4e5794bfff4845eae4a948d722a2123e"
+ },
+ "params": {
+  "cell": {
+   "cadence": "30",
+   "scope": "new_calls_only",
+   "funding_mode": "swap_funding",
+   "limit_pp": 2.5,
+   "execution_order": "pooled",
+   "trim_budget_scope": "per_event_date",
+   "veto_p": 0.0
+  },
+  "phases": [
+   0,
+   10,
+   20
+  ],
+  "seed": 0
+ },
+ "results": {
+  "match": true,
+  "bit_exact_vs_reference_cells": true,
+  "phase_avg_final": 184819.42046907792,
+  "dd_session_avg_pct": 17.324420119247744,
+  "dd_daily_avg_pct": 23.457628114592776,
+  "per_phase": [
+   {
+    "phase": 0,
+    "final": 179944.90608455567,
+    "dd_session": 0.20852310359539084,
+    "dd_daily": 0.22780142269323028,
+    "reference_cell": "1a-phase0",
+    "reference": {
+     "final": 179944.90608455567,
+     "dd_session": 0.20852310359539084,
+     "dd_daily": 0.2278014226932305,
+     "n_sessions": 31,
+     "n_days": 894
+    }
+   },
+   {
+    "phase": 10,
+    "final": 189914.19260420668,
+    "dd_session": 0.15957769786493864,
+    "dd_daily": 0.24203954703773126,
+    "reference_cell": "1a-phase10",
+    "reference": {
+     "final": 189914.19260420668,
+     "dd_session": 0.15957769786493864,
+     "dd_daily": 0.24203954703773117,
+     "n_sessions": 31,
+     "n_days": 884
+    }
+   },
+   {
+    "phase": 20,
+    "final": 184599.16271847137,
+    "dd_session": 0.1516318021171028,
+    "dd_daily": 0.23388787370682168,
+    "reference_cell": "1a-phase20",
+    "reference": {
+     "final": 184599.16271847137,
+     "dd_session": 0.1516318021171028,
+     "dd_daily": 0.2338878737068218,
+     "n_sessions": 31,
+     "n_days": 874
+    }
+   }
+  ],
+  "reference_provenance": {
+   "published": "docs/handoffs/2026-09-05-state-of-play.md s5.1 ($184,819 / 17.32% / 23.46%)",
+   "cells": "analysis/data/run_state/resolve-open-four/cells.jsonl keys 1a-phase0/1a-phase10/1a-phase20 -> results.final, results.dd_session, results.dd_daily"
+  },
+  "n_events": 195,
+  "event_list_sha256": "724bba0965554aaac332c2311ec8bcab6818b2300483103e77a889e450b785dd",
+  "trade_wrapper_active": true
+ }
+}

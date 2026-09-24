@@ -1,0 +1,1397 @@
+{
+ "n_events": 195,
+ "event_list_sha256": "724bba0965554aaac332c2311ec8bcab6818b2300483103e77a889e450b785dd",
+ "per_ticker": {
+  "ORCL": 16,
+  "MSFT": 15,
+  "AAPL": 14,
+  "NVDA": 14,
+  "TSLA": 13,
+  "AMD": 13,
+  "GOOGL": 13,
+  "FSLR": 13,
+  "RUN": 13,
+  "TTD": 13,
+  "QS": 13,
+  "EOSE": 13,
+  "AVGO": 13,
+  "ENVX": 12,
+  "AMPX": 6,
+  "SPWR": 1
+ },
+ "transcripts": [
+  {
+   "ticker": "AAPL",
+   "call_date": "2021-01-27",
+   "transcript_id": 162,
+   "chars": 48711,
+   "sha256": "be1d89fa6f62abcaf339a97bf35cc22095a9adc5e46ba888ebb417f4361599f0"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2021-04-28",
+   "transcript_id": 161,
+   "chars": 48662,
+   "sha256": "cf47fbad935695f128fd76a254010d736108fe25803c914121ac963e8ffc5688"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2021-07-27",
+   "transcript_id": 160,
+   "chars": 49914,
+   "sha256": "66b9e75a6300a3caa23ede4a0ec0be6ede9c8ae86c16ab9316707c11fecb99f9"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2021-10-28",
+   "transcript_id": 159,
+   "chars": 49771,
+   "sha256": "3e00b990b4f9aa678e7dfc9de08d4618bb0a1bdb40fc948b70263984b7cc793b"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2022-01-27",
+   "transcript_id": 156,
+   "chars": 45710,
+   "sha256": "73c86817393acfdbd1c4e65f85191581649f51d4b5211c1e61c01bfae16b5d1a"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2022-04-28",
+   "transcript_id": 155,
+   "chars": 48272,
+   "sha256": "11bdb77825a096eea56c77c1a155ff1e380c499632d471d695ac45d30b91b9e1"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2022-07-28",
+   "transcript_id": 157,
+   "chars": 47377,
+   "sha256": "a71e04c589334c0069b3760e4206f9ec682956e1d4c60b642615615eb2a1ca11"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2022-10-27",
+   "transcript_id": 158,
+   "chars": 47983,
+   "sha256": "fce5c1cf9cfb316bf38b12a1032493244b7f3f9ff8e7b5ce7ab96aaeb379dab2"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2023-02-02",
+   "transcript_id": 154,
+   "chars": 46469,
+   "sha256": "a1cb152d473e6c2522f663cc2394cb001d2a010614b35e331dfa8b28fb73cb89"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2023-05-04",
+   "transcript_id": 153,
+   "chars": 47458,
+   "sha256": "c027dc6a35adc4d8a3bec1f7eb95e05ec08511b9b6e3f85e1bee5fe4e9cb772a"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2023-08-03",
+   "transcript_id": 152,
+   "chars": 47671,
+   "sha256": "6b1d8befacd6399340872fb1b3fb955575d26bba44bd5078250bc5caae11c407"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2023-11-02",
+   "transcript_id": 151,
+   "chars": 50340,
+   "sha256": "59f212fed66edb1b8fd56f1724d98fcfcd62a4b9b6cd6f3121613c5a1bbcbace"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2024-02-01",
+   "transcript_id": 150,
+   "chars": 45725,
+   "sha256": "342ee2e13f762eb98fefd00bff15136798a8359f016293a9d3483ae03c8254f2"
+  },
+  {
+   "ticker": "AAPL",
+   "call_date": "2024-05-02",
+   "transcript_id": 149,
+   "chars": 48032,
+   "sha256": "6c4a1dcb8393d38e85f2b3337878526bcf85b5ee779b0d2f7cf97c7c9c8fe9bd"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2021-04-27",
+   "transcript_id": 253,
+   "chars": 53142,
+   "sha256": "e9419e95685991bb9b0f35e0f61eaae316b49a476cf9569ee1b58dd7b78d72a3"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2021-07-27",
+   "transcript_id": 252,
+   "chars": 45786,
+   "sha256": "56e73d3830732a915e95a7b702964c22672f7cb418b6dfec58ae63ba80b0c3d1"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2021-10-26",
+   "transcript_id": 251,
+   "chars": 46510,
+   "sha256": "65b76ebf56225c9b75b3d58fe8db1070c5bab944ef09501868f4f3ad1a7cea80"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2022-02-01",
+   "transcript_id": 250,
+   "chars": 48271,
+   "sha256": "7538f83c32ec512bbef3a507c8d5b7faad7fc27ef807de19eedb563121732007"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2022-05-03",
+   "transcript_id": 248,
+   "chars": 57217,
+   "sha256": "457912daa70669a2990f755c89c43f8942dfdf6064b61733061b98666d0a5827"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2022-08-02",
+   "transcript_id": 249,
+   "chars": 50870,
+   "sha256": "676bfb51f952a1766684f1e17adf9dcea13d1fe4491f26653cb55d84295f3e8d"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2022-11-01",
+   "transcript_id": 247,
+   "chars": 56817,
+   "sha256": "bd09075a4074b7c48fee6f0b5eeebb77398bbdf6de7cac5c8fd957661d5919c0"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2023-01-31",
+   "transcript_id": 246,
+   "chars": 54328,
+   "sha256": "23cc2a5bd38aeba0469e8f2146cda8663c1250a07ea34b82ef39683983891d97"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2023-05-02",
+   "transcript_id": 245,
+   "chars": 52806,
+   "sha256": "a57d7112e7728ae51d858b52148f372cf1db22da6d4fdeefa36cedb9f8b334e3"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2023-08-01",
+   "transcript_id": 244,
+   "chars": 55009,
+   "sha256": "1e55725ae2e5b2faa3a4f7924cb751e47c19ed5840c57dee0a0eb8a9fd58e5f1"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2023-10-31",
+   "transcript_id": 240,
+   "chars": 54976,
+   "sha256": "5b1f52fc74688666e122e2c68cd3112bee5bc41c7dd910f0c2e6e638a89a1b55"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2024-01-30",
+   "transcript_id": 242,
+   "chars": 54523,
+   "sha256": "aac5956e730151f93b77b23165fd1aec64799fad923ddd24c21518c1fec1795d"
+  },
+  {
+   "ticker": "AMD",
+   "call_date": "2024-04-30",
+   "transcript_id": 241,
+   "chars": 53242,
+   "sha256": "dbed64cd369f10656a44260f28dd0422cadaa4aa8e97698951d673e66ab21f2c"
+  },
+  {
+   "ticker": "AMPX",
+   "call_date": "2023-03-23",
+   "transcript_id": 169,
+   "chars": 29728,
+   "sha256": "f99a5b562db772c6dc5bd379bde7c636dfab35181245400ee221ee85574e9c96"
+  },
+  {
+   "ticker": "AMPX",
+   "call_date": "2023-05-10",
+   "transcript_id": 168,
+   "chars": 30149,
+   "sha256": "aeef20ddf08d75a0c7c944a8033bf21b572fa7d5e05ff4a07740d918d6574b7d"
+  },
+  {
+   "ticker": "AMPX",
+   "call_date": "2023-08-10",
+   "transcript_id": 166,
+   "chars": 32839,
+   "sha256": "e7244b85f33721316b7a8545c09076ce4787ce22962e42b554257fb3658076c5"
+  },
+  {
+   "ticker": "AMPX",
+   "call_date": "2023-11-09",
+   "transcript_id": 165,
+   "chars": 29819,
+   "sha256": "81a61813179dd51ccc9b1b0d509904f04d9b3b158911a1a05f83b741b126b496"
+  },
+  {
+   "ticker": "AMPX",
+   "call_date": "2024-03-21",
+   "transcript_id": 164,
+   "chars": 35255,
+   "sha256": "b1efb36bbad4f49786b821d470a3f843c19dd42d48bca21e1507acffdb26136d"
+  },
+  {
+   "ticker": "AMPX",
+   "call_date": "2024-05-09",
+   "transcript_id": 163,
+   "chars": 34390,
+   "sha256": "d62f2552ff2c5a8927d2d8028753f7ea1ecd106daea619dbb31fa347fa332bfc"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2021-06-03",
+   "transcript_id": 267,
+   "chars": 36120,
+   "sha256": "f5b5d6ad8dc0e9da8101f501c9ba0d5b99a54f5724648fe433990adc3f7365f5"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2021-09-02",
+   "transcript_id": 266,
+   "chars": 35323,
+   "sha256": "d06b57c4b180593db7595b2b73aa257991c8020b0896163d006c3c999b4c756a"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2021-12-09",
+   "transcript_id": 265,
+   "chars": 44636,
+   "sha256": "ba55559348ee78220ffff2fe413c7d01abd9becda9bff907816618bbadc93be3"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2022-03-03",
+   "transcript_id": 264,
+   "chars": 41703,
+   "sha256": "82e623ff96f5f0051afa798a93eb062fd20304af6cad53daeedb38bffb9bc2c3"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2022-05-26",
+   "transcript_id": 263,
+   "chars": 47039,
+   "sha256": "03802c44160d886ac3064dd3c67ba274d8a522bcc530b166cce5f18b0746027b"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2022-09-01",
+   "transcript_id": 262,
+   "chars": 36993,
+   "sha256": "c5fac5d9ebc27cc0a66496f90dafb10e3de0a531b36c9afb6dd53f4ac1c872bf"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2022-12-08",
+   "transcript_id": 261,
+   "chars": 39894,
+   "sha256": "5d3c690b961178ea588fa963fad36047511b96edc53f1581b25bb05b67d912f8"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2023-03-02",
+   "transcript_id": 259,
+   "chars": 40254,
+   "sha256": "908bfaeb1b072c6b99be2040248040879462e4d5dfad876af6a1ad3a53192c43"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2023-06-01",
+   "transcript_id": 258,
+   "chars": 39460,
+   "sha256": "66188c741c255db06ea6c837d4ecc25eac80fb7ff0e8111dca13df2937c37327"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2023-08-31",
+   "transcript_id": 260,
+   "chars": 40133,
+   "sha256": "d78a1c8bb4133068c179d03ac9145f0db716385a667ee10de256f5ca422cc60d"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2023-12-07",
+   "transcript_id": 257,
+   "chars": 39871,
+   "sha256": "06b74236286ba6ef459cb7666f972d612f5ee2931319776975f8bffb9aafd62b"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2024-03-07",
+   "transcript_id": 256,
+   "chars": 41266,
+   "sha256": "289044864c0ea9a4c957361413a295e05ae32dda9dd92692a47a3c94c718caaa"
+  },
+  {
+   "ticker": "AVGO",
+   "call_date": "2024-06-12",
+   "transcript_id": 255,
+   "chars": 42516,
+   "sha256": "30f0834a74d6b91f92e9f2a56c1d7af04f4a7e4be090c3e9601546866c9b9a99"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2021-08-10",
+   "transcript_id": 181,
+   "chars": 24971,
+   "sha256": "2e3fb4b47ca1ab0bfbb15d79e7e4216a356a728df9a8dd9da268741c4b7f5677"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2021-11-08",
+   "transcript_id": 180,
+   "chars": 28417,
+   "sha256": "272812173e7c6a38f3fa7ed665afaf4dd5a3f6a75826037212429cbec12cf5a3"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2022-03-03",
+   "transcript_id": 179,
+   "chars": 30990,
+   "sha256": "5d366a508627f822fc1ea6960a62c3f1b4d789a077391c72c2e9a7a5f80302ca"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2022-05-11",
+   "transcript_id": 178,
+   "chars": 36643,
+   "sha256": "8412e2996f89803b928a51a747b621c3ff8fddb2cdef0f3e29953f7bdb3bfda3"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2022-08-10",
+   "transcript_id": 177,
+   "chars": 47916,
+   "sha256": "fa6e456be5507d1a173f99dd8c86a34c814dc8946d15444d9422b32cce48e1c1"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2022-11-01",
+   "transcript_id": 176,
+   "chars": 44371,
+   "sha256": "ffadacf11169431d71a9d80ab9b20794e99ac2fb9ff3da8488961fd35dd005c1"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2023-02-22",
+   "transcript_id": 175,
+   "chars": 53967,
+   "sha256": "351f6f6cc313dcf6ad88248b5ae510288fcb760ca58f0cf926c1659e79148196"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2023-04-26",
+   "transcript_id": 174,
+   "chars": 50565,
+   "sha256": "f451a5f533d0017171a756100a784cdabd1a1daf19aecb485d3332c4df0c43bf"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2023-07-26",
+   "transcript_id": 173,
+   "chars": 62195,
+   "sha256": "2ebed73c03457aa74b66d08de631624cd4ad511e83a643c0e649414ee12196f4"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2023-11-07",
+   "transcript_id": 172,
+   "chars": 42355,
+   "sha256": "bad1728862ff6eadba2932b4b57f47f39288ce9073329d495fae5739082e47cf"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2024-02-20",
+   "transcript_id": 171,
+   "chars": 51554,
+   "sha256": "4fa008e1b41182492744ebc6dafc62d5a337a7a9be1081da669baad593a53980"
+  },
+  {
+   "ticker": "ENVX",
+   "call_date": "2024-05-01",
+   "transcript_id": 170,
+   "chars": 48124,
+   "sha256": "a6ad7f49f4d2401572820567c69f6c46b08c3876eae90c5c2d8fba695e4450c4"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2021-05-12",
+   "transcript_id": 196,
+   "chars": 54944,
+   "sha256": "d98a8ba178c4125b4e6ca441727b8697de9bd9f81bdae577bff8bc6140499099"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2021-08-11",
+   "transcript_id": 195,
+   "chars": 46213,
+   "sha256": "d8c2b650705cfc7a0046f324a1c2f7482971a25c89c8bada51602759626ceb43"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2021-11-10",
+   "transcript_id": 194,
+   "chars": 51146,
+   "sha256": "e3412f02fc82361fd21b05a8847d388390b41ff4af6d36737c4c93daf80d1fa1"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2022-02-25",
+   "transcript_id": 193,
+   "chars": 56379,
+   "sha256": "b5aaa270e52306e34c1c047f29107f41285e49e391373d12aab0a03d94f94a4a"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2022-05-10",
+   "transcript_id": 192,
+   "chars": 51810,
+   "sha256": "6df432a04379bee03207c9be99abc127b629190b49c630ee1c35f4be43fb3882"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2022-08-02",
+   "transcript_id": 191,
+   "chars": 44874,
+   "sha256": "f9558542bf20133e7c1bbadf35da1b7df5a8602b594f59b6475f32d1fb946520"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2022-11-08",
+   "transcript_id": 190,
+   "chars": 50821,
+   "sha256": "006abb6bdc1b27e032d5fd48b49e1da25cdf8ba2005626fbe35c5bdd8909d006"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2023-03-01",
+   "transcript_id": 189,
+   "chars": 60823,
+   "sha256": "9c6b6baae4ad10c8b32cfebdee150c6a4eeafdf78b2f410a266af707bb36cf59"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2023-05-10",
+   "transcript_id": 188,
+   "chars": 39331,
+   "sha256": "c934662d9784103b69d290b15885b58d31dd8cb25bdec4674080dca32cd455e9"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2023-08-15",
+   "transcript_id": 187,
+   "chars": 53683,
+   "sha256": "ba1ad9d0a6b69a0781779eb09e1109857a306853b4bb4e5378f53a984bfb169b"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2023-11-07",
+   "transcript_id": 186,
+   "chars": 74176,
+   "sha256": "5afe11721b173140b2ce56531d10bb95f1b3fd717dc2def8cb342346a5f6f9c4"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2024-03-05",
+   "transcript_id": 184,
+   "chars": 59781,
+   "sha256": "cff647b643d44e4857753592e2ca5c7cd1fe7620e9af2225d12efba66af4269c"
+  },
+  {
+   "ticker": "EOSE",
+   "call_date": "2024-05-15",
+   "transcript_id": 183,
+   "chars": 58160,
+   "sha256": "859221a32284ffb2165ceee073a8027ab63688de8e5d5b5f7222df2ae8afa25b"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2021-04-29",
+   "transcript_id": 295,
+   "chars": 54843,
+   "sha256": "9e395741e8b1f7573f000a4fdd917d53f13de1a2b2fed6d2a5f8e60bef9fd40f"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2021-07-29",
+   "transcript_id": 294,
+   "chars": 57460,
+   "sha256": "3e0ffac0c393ac60cb56b2ee39ce663511d5279c302988053afe81b7bed5e9fb"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2021-11-04",
+   "transcript_id": 293,
+   "chars": 58732,
+   "sha256": "c98e6bd98e4178ec16a6757dbbb4819d981ff8ff9f1be7eedfa77f2ef9ff724d"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2022-03-01",
+   "transcript_id": 292,
+   "chars": 67882,
+   "sha256": "f22007a3f96dcea45aeb590460fa147bbbafbb2aed77d518e9344d6a8a9af924"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2022-04-28",
+   "transcript_id": 291,
+   "chars": 60771,
+   "sha256": "e4fcafb9b81f3bb967b4337cd8e4520e914fba14e663b82664b28bf5148efc3b"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2022-07-28",
+   "transcript_id": 290,
+   "chars": 59760,
+   "sha256": "d8f5afa7e328a347d815d68c1685d0b6973e8e5797a409aa0e5d130506f8476f"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2022-10-27",
+   "transcript_id": 289,
+   "chars": 57110,
+   "sha256": "b6048671416244e5a177afefbd3a3d563866c1067c4d94f985efdb8fe7b537a5"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2023-02-28",
+   "transcript_id": 287,
+   "chars": 58765,
+   "sha256": "47ad2130a1e3f9d1d3da7dc08f5fee7997916e820954b553b9b0a8b0e89f92aa"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2023-04-27",
+   "transcript_id": 286,
+   "chars": 55159,
+   "sha256": "cdb37d10eae13b826d0c183226bcf0d958b86ff169ef4f86d7bfcb510f109dc1"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2023-07-27",
+   "transcript_id": 285,
+   "chars": 52684,
+   "sha256": "60a2fab248a31e253e12e407e72baba5a48fa76d7ae5c89fb074eb882b5a5a33"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2023-10-31",
+   "transcript_id": 288,
+   "chars": 56012,
+   "sha256": "307dad6faf552a9819308849226cc0a862ded73d5898655b6cec16809996f3c0"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2024-02-27",
+   "transcript_id": 280,
+   "chars": 57254,
+   "sha256": "b2e5ae7b217ad5235bbc20232a955421842e9c7790a346ed1fc9db7527a01a5d"
+  },
+  {
+   "ticker": "FSLR",
+   "call_date": "2024-05-01",
+   "transcript_id": 279,
+   "chars": 60980,
+   "sha256": "3f4dfee679226b377d6c4ce4d635e0d51307df8bca97215b8fa2a7e87bc79ff5"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2021-04-27",
+   "transcript_id": 309,
+   "chars": 45487,
+   "sha256": "245d5e6f6f4aebbfc26e7d76776f065139cf9297694c24739e8f388bf89d2337"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2021-07-27",
+   "transcript_id": 308,
+   "chars": 48631,
+   "sha256": "b3ec33a1f2a53b1d162eda1f7cf481aeedd99faa02010ed53b1198fe1650f5cd"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2021-10-26",
+   "transcript_id": 307,
+   "chars": 50594,
+   "sha256": "fccf7721b3695eab9abea903fb506602be379bb82c6c0ec8d3e78af9a1596559"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2022-02-01",
+   "transcript_id": 306,
+   "chars": 54267,
+   "sha256": "efe937837dc82a7e3610f45cfb36f33a0132c7d64c206a6cd57112c5544dfbcf"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2022-04-26",
+   "transcript_id": 305,
+   "chars": 47164,
+   "sha256": "d00d8af6868b9ad957621a892bd2e69fb6ad2f6f103038dd336630d47ab94542"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2022-07-26",
+   "transcript_id": 304,
+   "chars": 47992,
+   "sha256": "fdfd30aca7e755d01ec3f2c6993ca3e718dc209ccf36aaa28353015552de0c65"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2022-10-25",
+   "transcript_id": 303,
+   "chars": 50111,
+   "sha256": "a77108951985563ab700cf46ca5ba4f77fdd0389eb394590739f4a1e41c865db"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2023-02-02",
+   "transcript_id": 302,
+   "chars": 48863,
+   "sha256": "892f57b334aaf67288c54987a3366f1a6be1570ccbaac3dade4c9f80bdbb47ff"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2023-04-25",
+   "transcript_id": 301,
+   "chars": 52420,
+   "sha256": "e87bbaafcf9876e47c9e73448d520510e6dce8f2f8524babf0afe553e59cce54"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2023-07-25",
+   "transcript_id": 300,
+   "chars": 50758,
+   "sha256": "ffff4f1c82d8ade5b0e25adc3c1b243a02bf7cedae3daf23d0c0254a8028c17b"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2023-10-24",
+   "transcript_id": 296,
+   "chars": 47262,
+   "sha256": "c0c1b14b180b6c5190e2951a90fb52ca590b3b2b3f27928cce8e653cb1b6f06d"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2024-01-30",
+   "transcript_id": 297,
+   "chars": 51333,
+   "sha256": "f4116ed36aaf1c4ac2e6570be2e9be0a433f66eda6d5f369e1b32f24a41eb0ae"
+  },
+  {
+   "ticker": "GOOGL",
+   "call_date": "2024-04-25",
+   "transcript_id": 298,
+   "chars": 51821,
+   "sha256": "041a4c64d2c500228c0549b01cfa4beacf0480fac2feeba2bb56b4750ec313ca"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2020-10-27",
+   "transcript_id": 212,
+   "chars": 56150,
+   "sha256": "aa3edcaacaa64bfdb9b665e137fba811d965a0e078ddbeaf29835069881c1236"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2021-01-26",
+   "transcript_id": 211,
+   "chars": 52842,
+   "sha256": "41dfa0bd6fec888edbf887bd647744a3eb85dc72508faf7316973716d53bd72b"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2021-04-27",
+   "transcript_id": 210,
+   "chars": 55639,
+   "sha256": "26c6aa5863ff5d1ddb8d270eabf35a082b9d3bba72fecd7068a1ce9abb16fcb2"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2021-07-27",
+   "transcript_id": 209,
+   "chars": 52496,
+   "sha256": "4e1c02a0f2d222ebb0ec904ba76c3c3bfc8c7dfb3717603f051ac4609e1438d8"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2021-10-26",
+   "transcript_id": 205,
+   "chars": 55305,
+   "sha256": "2111db4abd17d1cdbfc2cb268b68a5b75e2cd30a3e33ed81d55e353841fc2931"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2022-01-25",
+   "transcript_id": 206,
+   "chars": 55545,
+   "sha256": "4c5184d752246a758119e66054c05c9ed419a3c900e567024892bf3e65f7d4e2"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2022-04-26",
+   "transcript_id": 207,
+   "chars": 58083,
+   "sha256": "c3efbedfa651610c0c8af27695858059b189b3dd1c0ccc4b91c1b40f904509f7"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2022-07-26",
+   "transcript_id": 208,
+   "chars": 55529,
+   "sha256": "a6796bab3339c83cbbfb02f8a0da9ff327e7ea5065d23af0afbe60efca3bb3ed"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2022-10-25",
+   "transcript_id": 201,
+   "chars": 56957,
+   "sha256": "86fb9efa8c6b1eada5e7d85577e8fd084589006d1a78362e05f159a471ffc180"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2023-01-24",
+   "transcript_id": 204,
+   "chars": 54830,
+   "sha256": "86cea6b2e6b0825bb6383d050f71e13e7174ca6d77b4f9594bbb64a6f442187c"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2023-04-25",
+   "transcript_id": 203,
+   "chars": 55210,
+   "sha256": "cb11be96a0778f8032677798fc125358720222bacb6e6b1dce8e0ccba541fb3b"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2023-07-25",
+   "transcript_id": 202,
+   "chars": 58126,
+   "sha256": "e14eadca3db3c38ff2894b61dab2697b223b7e6d506f982557534422c1b3dcba"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2023-10-24",
+   "transcript_id": 200,
+   "chars": 54964,
+   "sha256": "900a3704e8adda9e87acbd5dca17a88ff17b3e45f6b13f8be3bb91e8bbe0232a"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2024-01-30",
+   "transcript_id": 199,
+   "chars": 56940,
+   "sha256": "100f0d3414a69b27bd1308b73d0e934d7e64c33167fc87bb5234c19dd1bf4184"
+  },
+  {
+   "ticker": "MSFT",
+   "call_date": "2024-04-25",
+   "transcript_id": 198,
+   "chars": 56270,
+   "sha256": "c8d9289656498d4e9d16a832b15dbefaec642b8e911fe42f4b103c22294093d3"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2021-02-24",
+   "transcript_id": 323,
+   "chars": 51854,
+   "sha256": "c0952c4a3d778331b36173e7cd56db28b3e9550f4507ee369ab9ebc7b8cb6473"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2021-05-26",
+   "transcript_id": 324,
+   "chars": 50832,
+   "sha256": "de75920d67c8d485f995991c5931a46d73503bff27f320ce6046108da726e756"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2021-08-18",
+   "transcript_id": 325,
+   "chars": 54028,
+   "sha256": "21ff4417235339c06460797c9691aa28aad5fa66e68075dc9eb7b0305a59245a"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2021-11-18",
+   "transcript_id": 725,
+   "chars": 50393,
+   "sha256": "e2a33c1a21cc1ad35b660c5a0062ceb73149165be0bf57d45e50ba72fdb68444"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2022-02-16",
+   "transcript_id": 316,
+   "chars": 47806,
+   "sha256": "19ad324f437533cd2d4a905be6bc0d00ce234884f762685aa718171919f49633"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2022-05-25",
+   "transcript_id": 315,
+   "chars": 50705,
+   "sha256": "802dd5055a669d37123b8cdf7f26cecc7eb992b3b910120bb66b7b3e9bdbc02d"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2022-08-24",
+   "transcript_id": 314,
+   "chars": 48429,
+   "sha256": "42d6c1b4551d09e691706291900dbea0c089035dcc363cbd58e6580810139f6c"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2022-11-16",
+   "transcript_id": 313,
+   "chars": 47900,
+   "sha256": "ac9db9f0cb090b133f3658f48d20d3211c2315112324a1438e411312ca9a865e"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2023-02-22",
+   "transcript_id": 312,
+   "chars": 47332,
+   "sha256": "7939fd9a686484466765e6caf03a33dd4de196e401a614bb167d62eb5ad20c10"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2023-05-24",
+   "transcript_id": 311,
+   "chars": 55178,
+   "sha256": "dbfdafd317b205d16ff8a4d491819eb72df72a04d0937b470b12f814f3b49a82"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2023-08-23",
+   "transcript_id": 310,
+   "chars": 50911,
+   "sha256": "90d41e9e6046f7ebcbd69094d1be0ab9d03a07ddf41bfd7e333b3b3371a4db37"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2023-11-21",
+   "transcript_id": 318,
+   "chars": 55161,
+   "sha256": "f77a9d8fed34c5f70e9039174786dc6a8e4b21215bdc21147a3c480ddc258d28"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2024-02-21",
+   "transcript_id": 319,
+   "chars": 49443,
+   "sha256": "c95533e626d12f26226f5b2b808d6799dc91b26c145a0c99c417005c17a3559c"
+  },
+  {
+   "ticker": "NVDA",
+   "call_date": "2024-05-22",
+   "transcript_id": 320,
+   "chars": 50757,
+   "sha256": "d4a7c512f7e0c9ab80bf48d16df4daf04d6f9159a1e977117045ebc6a23e98c7"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2020-09-10",
+   "transcript_id": 346,
+   "chars": 34036,
+   "sha256": "48880b6ee28281f03d2cb2d8daeedb9ee07d6944abe37d241619dd689bc45678"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2020-12-10",
+   "transcript_id": 345,
+   "chars": 30146,
+   "sha256": "e1c6e9bacbbebdaaa83009dbc3393552b78127f79316eacb703a9c98157bd595"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2021-03-10",
+   "transcript_id": 344,
+   "chars": 33302,
+   "sha256": "17fe827b593d7dcd377d1e1a4b9ca747213e971540fde25159592e40660ee82d"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2021-06-15",
+   "transcript_id": 342,
+   "chars": 28364,
+   "sha256": "b53df1654ff074c5b327d2876fc549d46faa9a09628d6c1d1d7193210569c43e"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2021-09-13",
+   "transcript_id": 343,
+   "chars": 28547,
+   "sha256": "c94e190104038538fc8d7898a65a6fcc4c1ebb9e30ac47d5a7aa6514e6aef930"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2021-12-09",
+   "transcript_id": 341,
+   "chars": 44614,
+   "sha256": "fb0a82c72302368ee04d3d09e11bff06c28e88799c7c25fcfc3584dad1e8d3d4"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2022-03-10",
+   "transcript_id": 340,
+   "chars": 40216,
+   "sha256": "07d34894a0ea40f3fa736e49719977c42877079877275251c8f727d5fa354ceb"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2022-06-13",
+   "transcript_id": 339,
+   "chars": 37330,
+   "sha256": "eb262d909c1342acef24230f45a36c13bd09aa076ff22fb7ec0456e7a2345a3b"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2022-09-12",
+   "transcript_id": 338,
+   "chars": 36302,
+   "sha256": "fdc03a56ac836deb33efbadbf093f6db5c3fa0a65645ca7a9338c57cbdff19bc"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2022-12-12",
+   "transcript_id": 337,
+   "chars": 42596,
+   "sha256": "3b002f200f3aba4911d5136fe9fed5ea3dca00a34a539e6236a0915c9251755d"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2023-03-09",
+   "transcript_id": 336,
+   "chars": 39582,
+   "sha256": "bab8fb9fea49245840ed081991070a78abf8f800a22553fe951e519b57c9ac6e"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2023-06-12",
+   "transcript_id": 335,
+   "chars": 39407,
+   "sha256": "516123f74488764fa521e023caa26a4fded334c462cab6deb6f1da1b1b7dd519"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2023-09-11",
+   "transcript_id": 334,
+   "chars": 31515,
+   "sha256": "946b98367f3079077e7254af82cce241139de64485ae066b6a6505cb8b676d5e"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2023-12-11",
+   "transcript_id": 330,
+   "chars": 41553,
+   "sha256": "305a819e149868c1b1580f7e163db7ffb0330d5f5099948e888e412f999b1700"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2024-03-11",
+   "transcript_id": 332,
+   "chars": 37181,
+   "sha256": "9162cb1851f6dc72c548e7516286bfc938141685d3093f9b343334b54e568c93"
+  },
+  {
+   "ticker": "ORCL",
+   "call_date": "2024-06-11",
+   "transcript_id": 331,
+   "chars": 35735,
+   "sha256": "cf35b64b246df321ee06eb61cd5a501dfcf562dbaedd5df14d697a5e10b4a8fd"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2021-05-11",
+   "transcript_id": 361,
+   "chars": 56193,
+   "sha256": "e1608c58e458ac78d70a1903706789b53b2af0c0b9ad2d40fc34681867f8264a"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2021-07-27",
+   "transcript_id": 360,
+   "chars": 55184,
+   "sha256": "137700f9193afab745b43c82e34d584e22f0bf5632a221bdb09e84308b8d1fb7"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2021-10-26",
+   "transcript_id": 359,
+   "chars": 38751,
+   "sha256": "50ae6d6361b0a4682ad1005e7aa76a5cc03e7219d911c39374a6c5c6906f7dfb"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2022-02-16",
+   "transcript_id": 358,
+   "chars": 46434,
+   "sha256": "6918534d813e70a7a29728e9427c5eb203fb2cd9c91f38c6239f03297d261096"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2022-04-26",
+   "transcript_id": 357,
+   "chars": 49105,
+   "sha256": "e435c3d202330307a45d4507c8e6aeb3d358fe79b140993391af650acbb4537e"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2022-07-27",
+   "transcript_id": 356,
+   "chars": 38715,
+   "sha256": "384f52132d0cc6edb07fe0852b4382ee8e829fe52c64749b7c879fed8b4e9373"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2022-10-26",
+   "transcript_id": 355,
+   "chars": 28816,
+   "sha256": "197f9cb618c18ab42b523041a23635d9eb267771a9c3e7d44b837ffafdb088f3"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2023-02-15",
+   "transcript_id": 354,
+   "chars": 41578,
+   "sha256": "621ac6e2e2e3cc8e5b6a70f7fd91547d21b61d776adf485c5db41405d059a1d5"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2023-04-26",
+   "transcript_id": 353,
+   "chars": 41104,
+   "sha256": "c9355114712fcc07a988b97c3eb5d49e3ed99d3a296f9c075c3ff842aed75022"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2023-07-26",
+   "transcript_id": 347,
+   "chars": 35701,
+   "sha256": "53153f48256f39550c677dbe3329a792ef639599a1fd9de4f09934550d3de946"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2023-10-25",
+   "transcript_id": 350,
+   "chars": 46093,
+   "sha256": "fbf4a6dacd7c6585285f1c8bc9dbcadcedc30fde25c1c9de84e8e958620c7734"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2024-02-14",
+   "transcript_id": 349,
+   "chars": 40413,
+   "sha256": "54673cceb8b0e632e259c411d5667d9e6b5b9c9cf45a24c59b36f0b78913d702"
+  },
+  {
+   "ticker": "QS",
+   "call_date": "2024-04-24",
+   "transcript_id": 348,
+   "chars": 26454,
+   "sha256": "07a68139cea279eca1180a8221d4be1390d5e957759fa55d5918fae0f96bfda0"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2021-05-05",
+   "transcript_id": 375,
+   "chars": 58226,
+   "sha256": "626cb29770fd279a708a35e5cbb0cdfe6b3e15cc0d7ce3dfebc6c464cb2a9b29"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2021-08-05",
+   "transcript_id": 374,
+   "chars": 60492,
+   "sha256": "061538624a9576d22f815c9ffbdb5c1ef4cb4073781c8fc45c79d58e372584e9"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2021-11-04",
+   "transcript_id": 373,
+   "chars": 51419,
+   "sha256": "4b1354478268df83d347cbeaaacb072e9b96c7bf6a88f4969941b154c154b408"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2022-02-17",
+   "transcript_id": 372,
+   "chars": 58195,
+   "sha256": "eaacb059821bb7d8c509f10392c2837e88c13b8fac3bc5035a61ebf496e394cb"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2022-05-04",
+   "transcript_id": 367,
+   "chars": 58315,
+   "sha256": "03dc8e77fcaed58310e9f5e26d656fa3bb37ab48c865b937b1ae316d3b5a6ddb"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2022-08-03",
+   "transcript_id": 368,
+   "chars": 67685,
+   "sha256": "bdcb7a9007f7cf9909898b251dbc52c7a37717545135f27c671e166896f38c19"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2022-11-02",
+   "transcript_id": 370,
+   "chars": 63577,
+   "sha256": "a31986043a7b979b7799e09d2c5e2ba7b2075031ac7b5c862b4ea94f53d5e3c3"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2023-02-22",
+   "transcript_id": 371,
+   "chars": 67703,
+   "sha256": "9515fda80f1585f9152d164e56cc7059d3cca2a82194821520b7f4a09d91d0f7"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2023-05-03",
+   "transcript_id": 369,
+   "chars": 56896,
+   "sha256": "3657185f196b94f4a05dd0afc0c51fc3df983955bc7734a66e2f8899c91d97b0"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2023-08-02",
+   "transcript_id": 362,
+   "chars": 56331,
+   "sha256": "8c2e3d71056a51cb8193ada019529c955a2c9346b3d40777ed30d545a6da3192"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2023-11-01",
+   "transcript_id": 366,
+   "chars": 64809,
+   "sha256": "a16082a46bd43ef056ef96f9b7a3ed1153572c0bc299a1f33890bc229e1d9705"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2024-02-21",
+   "transcript_id": 365,
+   "chars": 55195,
+   "sha256": "6ea4d14f4ac0bb4924054bc5964ab1ef07baa4e4f4a45fbceb6af2eb683080c1"
+  },
+  {
+   "ticker": "RUN",
+   "call_date": "2024-05-08",
+   "transcript_id": 364,
+   "chars": 62867,
+   "sha256": "aaeb1bb73fa3267d1fdeb021682a00c4dc7f1c377ca8bab1eacdabfbcb1b5ce7"
+  },
+  {
+   "ticker": "SPWR",
+   "call_date": "2024-05-02",
+   "transcript_id": 213,
+   "chars": 53896,
+   "sha256": "dc9c7eaeb592e4ef1312d5005d20b45e419e88b87a58cbb0faaa14e90705b7f1"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2021-04-26",
+   "transcript_id": 226,
+   "chars": 49640,
+   "sha256": "7d4fa4cfe6ca63a199c1855620cb3e69af23ce50cd2a0f28eeb3e798ae3f17e5"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2021-07-26",
+   "transcript_id": 225,
+   "chars": 46020,
+   "sha256": "bd07cd019a635d7ee38def4be92352bd36ed94f4fde19a31413359c4fc7b6ab7"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2021-10-20",
+   "transcript_id": 224,
+   "chars": 53165,
+   "sha256": "07af873150bd8938e87d7c4d10203baa8ca1c5ed68c1276a5211b3b167618299"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2022-01-26",
+   "transcript_id": 223,
+   "chars": 45003,
+   "sha256": "084abc5f4b4ba56540f58b14ec0ebb0458f9a5bc7f24f9fce730b788f9dd0acb"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2022-04-20",
+   "transcript_id": 222,
+   "chars": 52203,
+   "sha256": "f6f673cb647e82a6921b50d69e60209d93bcbc7be615da38be3791b0a5461440"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2022-07-20",
+   "transcript_id": 218,
+   "chars": 51907,
+   "sha256": "993fd1a159f14c4de0cc7e9374cd84948279bc59d1a21c1c95b2cf89be6b5218"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2022-10-19",
+   "transcript_id": 220,
+   "chars": 45867,
+   "sha256": "865975b7a8d5323ee90a1cdda0f98df190707a0f85da570694759dc2d94d0601"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2023-01-25",
+   "transcript_id": 219,
+   "chars": 49572,
+   "sha256": "86d6254ae93d574717909062374540942c1e0a7862e3a6a8ce6beab27e3387bb"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2023-04-19",
+   "transcript_id": 221,
+   "chars": 52795,
+   "sha256": "854da85548f1d854521b9948dc2e5a8194689122289ffd91f37b44a920166231"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2023-07-19",
+   "transcript_id": 217,
+   "chars": 50837,
+   "sha256": "f57416f3728a90f33f4ca4b27aa9d5c85b8ae42950927d3307074793f2883fff"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2023-10-18",
+   "transcript_id": 216,
+   "chars": 44524,
+   "sha256": "643403d3fdde1a086652a48e38b5f1dc708e453ab2510e6783befd8af5d7dd33"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2024-01-24",
+   "transcript_id": 215,
+   "chars": 50485,
+   "sha256": "bd84ae4140d4604596667537660e3c61bd3dde3c4b2feb57c21ee5c08ba32f91"
+  },
+  {
+   "ticker": "TSLA",
+   "call_date": "2024-04-23",
+   "transcript_id": 214,
+   "chars": 57773,
+   "sha256": "4db26c4e48cb8ba91929acdb1299228d6c17f020599986cf1ed31fbcd182fe17"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2021-05-10",
+   "transcript_id": 238,
+   "chars": 65687,
+   "sha256": "674cb5165274c1d022a6864914b1b2f50bbcf67ea8aac5e3090329e2f255d72c"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2021-08-09",
+   "transcript_id": 234,
+   "chars": 67527,
+   "sha256": "cd18dfce7427760c7a9532497bb9127729117a29d34b7e76c16014214959cee7"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2021-11-08",
+   "transcript_id": 237,
+   "chars": 69920,
+   "sha256": "19d8deb3818f2f5b3208061a0712388757b8282f76f344a94003927fa47127a0"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2022-02-16",
+   "transcript_id": 236,
+   "chars": 73474,
+   "sha256": "c888a1c4b0ef508cff740178a911f75c9f98dfefad46e0ea4147cff39255b548"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2022-05-10",
+   "transcript_id": 235,
+   "chars": 65246,
+   "sha256": "0891c5608279972060aa7bd99bcd3e818b6684d1e3a6129783d7303e255dca76"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2022-08-09",
+   "transcript_id": 233,
+   "chars": 65444,
+   "sha256": "e8a48bc0c6c5bd30616c72fb9a2c12c7677eb185d912184f82af95ad9da74a10"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2022-11-09",
+   "transcript_id": 239,
+   "chars": 67971,
+   "sha256": "45efc5ee321d2eb109a50f4513528b439fe2b408b31f2c0be174bd3105442a32"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2023-02-15",
+   "transcript_id": 232,
+   "chars": 70152,
+   "sha256": "1917c31f1d1a1e6262094675cd6a772cc752af4ece7449ff2e83764366837d21"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2023-05-10",
+   "transcript_id": 231,
+   "chars": 69286,
+   "sha256": "d11ddff98111856686bd56eedd7ae1eeef928319d717a64673cac0d1e4710075"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2023-08-09",
+   "transcript_id": 230,
+   "chars": 63477,
+   "sha256": "6dd7ff0f4e3d10871ae3717e96ccef933a4eb30a702436f6c01350c325d5e5e8"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2023-11-09",
+   "transcript_id": 229,
+   "chars": 65361,
+   "sha256": "257474d209bdab7b111e334538a0579688dbbc2a0a62b2b89306c17e3e612f42"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2024-02-15",
+   "transcript_id": 228,
+   "chars": 68385,
+   "sha256": "8c1112ddb93504de111f30b9476d1f95d848ccc980c7a1028b941e0ac668e74e"
+  },
+  {
+   "ticker": "TTD",
+   "call_date": "2024-05-08",
+   "transcript_id": 227,
+   "chars": 62710,
+   "sha256": "dc2f8279d80fc1188f6af50de549955f246c1e934b208a6a1ebefc23700ea758"
+  }
+ ],
+ "on_disk_cross_check": {
+  "n_on_disk": 195,
+  "identical": 194,
+  "differs": {
+   "NVDA_2021-11-18": "differs (disk 50290 chars, db 50290)"
+  }
+ },
+ "empty_transcripts": []
+}
