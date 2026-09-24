@@ -114,20 +114,28 @@ def cmd_check0f():
 def cmd_register():
     from analysis.version_guard import assert_prompt_hash
     regp = REPO / "docs/architecture/VERSION_REGISTRY.json"
-    reg = json.loads(regp.read_text())
-    cands = reg["artifacts"]["evaluation_prompt"]["candidates"]
-    have = {c["version"] for c in cands}
+    text = regp.read_text()
+    reg = json.loads(text)
+    have = {c["version"] for c in reg["artifacts"]["evaluation_prompt"]["candidates"]}
     date = "2026-09-23"
     spec = {"P6B-minimal": ("B", "none", "Arm B, the control: no rubric; objective, constraint, -5..+5 score with noRead, 3-5 sentence read. Not a v6 derivative."),
             "P6C-score": ("C", "v6", "Arm C: v6 with only the RECOMMENDATION section replaced by a SCORE section; recommendation replaced by score/noRead/wrongIf in the structured block.")}
+    lines = []
     for v, (arm, parent, detail) in spec.items():
         if v in have:
             continue
-        cands.append({"version": v, "status": "candidate", "parent": parent, "registered": date,
-                      "path": str(PROMPTS[arm].relative_to(REPO)), "sha256": sha(PROMPTS[arm]),
-                      "detail": detail + " prompts/P6-output-format-round.md. Not gated, not promoted. "
-                                "version_guard checks the candidate NAME only; the driver asserts the sha256 itself."})
-    regp.write_text(json.dumps(reg, indent=2) + "\n")
+        entry = {"version": v, "status": "candidate", "parent": parent, "registered": date,
+                 "path": str(PROMPTS[arm].relative_to(REPO)), "sha256": sha(PROMPTS[arm]),
+                 "detail": detail + " prompts/P6-output-format-round.md. Not gated, not promoted. "
+                           "version_guard checks the candidate NAME only; the driver asserts the sha256 itself."}
+        lines.append("        " + json.dumps(entry))
+    if lines:
+        # textual insert after the last candidate line: keeps the file's hand-formatted layout (no re-dump)
+        m = re.search(r'(\{"version": "v6\+P3a".*\})\n(\s*\]\n)', text)
+        assert m, "anchor for insertion not found"
+        text = text[:m.end(1)] + ",\n" + ",\n".join(lines) + "\n" + text[m.start(2):]
+        json.loads(text)
+        regp.write_text(text)
     for arm in ("B", "C"):
         r = assert_prompt_hash(PROMPTS[arm].read_text(), candidate=CAND_NAME[arm], path_in_repo=str(PROMPTS[arm].relative_to(REPO)))
         print(arm, json.dumps(r))
