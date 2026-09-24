@@ -483,9 +483,28 @@ def first_divergence(a, b):
     return n if len(a) != len(b) else None
 
 
+CARRIERS = ("AVGO", "NVDA", "ORCL", "TTD")
+SPECULATIVES = ("AMPX", "ENVX", "EOSE", "FSLR", "QS", "RUN", "SPWR")
+
+
+def phase_mean(cells, name, seed, fn):
+    rs = [c["results"] for c in cells if c["params"]["cell"] == name and c["params"]["seed"] == seed]
+    vals = [fn(r) for r in rs]
+    vals = [v for v in vals if v is not None]
+    return sum(vals) / len(vals) if vals else None
+
+
+def fwd_ret(prices, tk, d, days):
+    p0, p1 = prices.price_on(tk, d), prices.price_on(tk, min(d + timedelta(days=days), S.C))
+    return None if not p0 or not p1 else p1 / p0 - 1
+
+
 def cmd_summary():
     cells = load_cells()
-    S_ = {"cells": {}}
+    events, _, _, _, prices = load_world()
+    scores_b, _ = parse_scores("B")
+    fresh, _ = parse_scores("N")
+    S_ = {"cells": {}, "diag": {}}
     for name in ("R", "A0", "B3", "B2", "N"):
         a = agg(cells, name, 0)
         if a:
@@ -495,20 +514,54 @@ def cmd_summary():
             a = agg(cells, name, sd)
             if a:
                 S_["cells"][f"{name}_seed{sd}"] = a
+    # draw spread: seeds 0/1/2 phase finals identical?
+    S_["draw_spread"] = {n: max(abs(x - y) for x, y in zip(S_["cells"][n]["finals"], S_["cells"][f"{n}_seed{sd}"]["finals"]))
+                         for n in ("B3", "A0") for sd in (1, 2) if f"{n}_seed{sd}" in S_["cells"]}
     # decision-stream diff B3 vs A0, per phase, seed 0
     diffs = []
     for ph in PHASES:
-        la = json.load(gzip.open(LOGS / f"A0-s0-ph{ph}.json.gz", "rt"))["trades"]
-        lb = json.load(gzip.open(LOGS / f"B3-s0-ph{ph}.json.gz", "rt"))["trades"]
-        la, lb = [tuple(x) for x in la], [tuple(x) for x in lb]
+        la = [tuple(x) for x in json.load(gzip.open(LOGS / f"A0-s0-ph{ph}.json.gz", "rt"))["trades"]]
+        lb = [tuple(x) for x in json.load(gzip.open(LOGS / f"B3-s0-ph{ph}.json.gz", "rt"))["trades"]]
         i = first_divergence(la, lb)
         diffs.append({"phase": ph, "n_A0": len(la), "n_B3": len(lb), "first_divergence_index": i, "matched_before_divergence": i,
                       "first_A0": la[i] if i is not None and i < len(la) else None, "first_B3": lb[i] if i is not None and i < len(lb) else None,
-                      "n_identical_rows_total": len(set(la) & set(lb))})
+                      "n_identical_rows": len(set(la) & set(lb))})
     S_["decision_stream_diff_B3_vs_A0"] = diffs
+    # per-cell diagnostics, phase-averaged (seed 0)
+    keys = ["add_total", "fully_funded", "partial", "unfunded", "sessions_with_cash_bound", "n_displacements", "avg_cash_pct_sessions",
+            "days_to_cash_below_5pct", "days_to_cash_below_10pct", "ending_cash_pct", "n_buy_trades", "n_sell_trades", "buy_dollars", "sale_dollars",
+            "turnover_buys_plus_sells_over_avg_nav", "distinct_tickers", "realized_gains", "total_shortfall"]
+    for name in ("R", "A0", "B3", "B2", "N"):
+        S_["diag"][name] = {k: phase_mean(cells, name, 0, lambda r, k=k: r.get(k)) for k in keys}
+        rc = [c["results"]["rec_counts_fed"] for c in cells if c["params"]["cell"] == name and c["params"]["seed"] == 0][0]
+        S_["diag"][name]["rec_counts_fed"] = rc
+        S_["diag"][name]["binding_counts_ph0"] = [c["results"]["binding_counts"] for c in cells if c["params"]["cell"] == name and c["params"]["seed"] == 0][0]
+        tickers = sorted({t for c in cells if c["params"]["cell"] == name and c["params"]["seed"] == 0 for t in c["results"]["ending_weights"]})
+        S_["diag"][name]["ending_weights_pct"] = {t: 100 * phase_mean(cells, name, 0, lambda r, t=t: r["ending_weights"].get(t, 0.0)) for t in tickers}
+        w = S_["diag"][name]["ending_weights_pct"]
+        S_["diag"][name]["carriers_share_pct"] = sum(w.get(t, 0) for t in CARRIERS)
+        S_["diag"][name]["speculatives_share_pct"] = sum(w.get(t, 0) for t in SPECULATIVES)
+        fin = sum(c["results"]["final"] for c in cells if c["params"]["cell"] == name and c["params"]["seed"] == 0) / 3
+        S_["diag"][name]["ending_dollars"] = {t: fin * v / 100 for t, v in w.items()}
+    # v6 archive rec -> B3 rec crosstab and Add-quality on the events themselves
+    ct = Counter((e.per_call_rec, OV.map_score(scores_b[(e.ticker, e.call_date)], 3)) for e in events)
+    S_["crosstab_v6_to_B3"] = {f"{a}->{b}": n for (a, b), n in sorted(ct.items())}
+    qual = {}
+    for label, recfn in (("v6 archive", lambda e: e.per_call_rec), ("B3", lambda e: OV.map_score(scores_b[(e.ticker, e.call_date)], 3)),
+                         ("B2", lambda e: OV.map_score(scores_b[(e.ticker, e.call_date)], 2))):
+        for grp, tks in (("all", None), ("carriers", CARRIERS), ("speculatives", SPECULATIVES)):
+            for rec in ("Add", "Hold", "Trim", "Exit"):
+                xs = [fwd_ret(prices, e.ticker, e.call_date, 182) for e in events if recfn(e) == rec and (tks is None or e.ticker in tks)]
+                xs = [x for x in xs if x is not None]
+                if xs:
+                    qual[f"{label}|{grp}|{rec}"] = {"n": len(xs), "median_182d_raw_return_pct": 100 * statistics.median(xs), "mean_182d_raw_return_pct": 100 * statistics.mean(xs),
+                                                    "share_up_pct": 100 * sum(x > 0 for x in xs) / len(xs)}
+    S_["add_hold_trim_quality_182d"] = qual
     (STATE / "summary.json").write_text(json.dumps(S_, indent=1, default=str))
     for k, v in S_["cells"].items():
         print(f"{k:10} final ${v['final_avg']:,.0f} phases {[round(x) for x in v['finals']]} spread ${v['phase_spread']:,.0f} dd session {v['dd_session_avg']:.2f}% daily {v['dd_daily_avg']:.2f}%")
+    print("draw spread (max abs $ diff of phase finals vs seed 0):", S_["draw_spread"])
+    print(json.dumps({k: {kk: vv for kk, vv in v.items() if kk not in ("ending_weights_pct", "ending_dollars", "binding_counts_ph0")} for k, v in S_["diag"].items()}, indent=1, default=str))
     print(json.dumps(diffs, indent=1, default=str))
 
 
