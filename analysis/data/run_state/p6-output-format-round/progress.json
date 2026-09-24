@@ -14,17 +14,17 @@
     "0f": "done",
     "0g": "done",
     "5a": "done",
-    "5b": "pending",
-    "5c": "in_progress",
-    "5d": "pending",
-    "6": "pending",
-    "report": "pending"
+    "5b": "done",
+    "5c": "done",
+    "5d": "done",
+    "6": "done",
+    "report": "done"
   },
   "batch_id_preflight": "msgbatch_01JzNethSpNvQqFe4KJ2JCKq",
   "batch_id_arm_b": "msgbatch_01BoqzqFAgjC6oV9NSCe6fGZ",
   "batch_id_arm_c": "msgbatch_01BVc5EtKqYEVtv6K9YZwmJP",
   "batch_id_noise": null,
-  "next_action": "poll-c",
+  "next_action": "none - run complete; design session interprets wrap-ups/P6-output-format-round-out.md",
   "notes": [
     "0c: P6 block present in PROMPT_ARCHITECTURE.md (commit aee70da). Prompt says registered 2026-09-24; today is 2026-09-23 - date premise off by a day, harmless.",
     "0g: PROMPT_ARCHITECTURE.md last touched aee70da (P6 registration); flip-count correction from state-of-play 4.2 has NOT landed.",
@@ -116,5 +116,13 @@
   "batch_id_arm_b_requests": 1117,
   "batch_id_arm_c_submitted_at": "2026-09-24T01:46:04Z",
   "batch_id_arm_c_requests": 1237,
-  "orphan_batch_cancelled": "msgbatch_01XBKE7mSMWe9S8xiwArCd46"
+  "orphan_batch_cancelled": "msgbatch_01XBKE7mSMWe9S8xiwArCd46",
+  "actual_spend_usd": {
+    "preflight": 6.51,
+    "arm_b": 28.72,
+    "arm_c": 47.86,
+    "noise": 4.82,
+    "total": 87.91,
+    "orphan_batch": "cancelled, billed amount unconfirmed"
+  }
 }
