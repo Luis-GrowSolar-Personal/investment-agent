@@ -479,7 +479,8 @@ def _check0f_tune():
            "excluded": sorted(EXCLUDE), "calls_after_exclusion": len(recs), "companies_after_exclusion": len(kept_cos),
            "disjoint_train": not (set(sp["tune"]) & set(sp["train"])), "disjoint_holdout": not (set(sp["tune"]) & set(sp["holdout"]))}
     ok = (len(evs) == n_files_all and not unmapped and out["disjoint_train"] and out["disjoint_holdout"]
-          and not (set(no_files) - EXCLUDE))
+          and not (set(no_files) - EXCLUDE - {"BNY"}))      # BK->BNY: 0 transcripts, documented vendor gap (baseline-v6-tune-batch-out.md s2); expected, recorded
+    out["expected_empty"] = {"BNY": "BK/BNY pre-rebrand history not carried by the vendor; 0 transcripts; analogue of MAXN on train"}
     out["asserts_pass"] = ok
     (STATE / "step0f_tune_alias_asserts.json").write_text(json.dumps(out, indent=1))
     print(json.dumps(out, indent=1))
