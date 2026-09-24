@@ -17,3 +17,6 @@
   > **Caveat:** noise flips and real flips are not disjoint - a call can be one the ledger moved and one resampling would have moved. The subtraction assumes independence and no overlap; the net count is an estimate with a known simplification.
   >
   > Applies to counts only. The rank-ordering test (6.1) is not a flip count and is not netted (P6 prompt section 7).
+
+- Q2 axis prediction, written BEFORE any arm-C result is read (discovery only, no gate): within arm C's bearish bucket (score <= -2), the more negative half of scores has HIGHER bearish precision than the less negative half, by at least 5 points; and the within-bucket Spearman of score vs tradeable return is positive (more negative score, lower return). A result the other way, or inside noise, is a finding, not a failure.
+- Analysis script (p6_output_format_analysis.py) committed before any scores exist. Definitions fixed in it: flip = A-vs-arm direction difference on shared calls; flip "win" = the arm's direction matches the old-ruler truth (so the arm was right and A wrong); noise win rate = fresh v6 call right among graded 21a flips; netting subtracts sum over S1-S5 of (21a stratum rate x stratum call count); tier column is "NA" (no per-company established/speculative field exists for the train companies - type_classifications.json covers 32 other tickers).
