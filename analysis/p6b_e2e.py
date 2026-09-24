@@ -31,7 +31,17 @@ import p6b_overlay as OV                                # noqa: E402
 from analysis.simulator.data import PriceLookup         # noqa: E402
 from analysis.simulator import accounts as ACC          # noqa: E402
 
-RUN_ID = "p6b-end-to-end-check"
+# --run confound (prompts/P6B-confound-and-concentration.md): same driver, extended. B and noise scores are READ from the
+# end-to-end run's committed files; new outputs go to this run's own state directory.
+RUN_MODE = "e2e"
+if "--run" in sys.argv:
+    _i = sys.argv.index("--run")
+    RUN_MODE = sys.argv[_i + 1]
+    del sys.argv[_i:_i + 2]
+CONFOUND = RUN_MODE == "confound"
+PRIOR_ID = "p6b-end-to-end-check"
+PRIOR = REPO / "analysis/data/run_state" / PRIOR_ID
+RUN_ID = "p6b-confound-and-concentration" if CONFOUND else PRIOR_ID
 STATE = REPO / "analysis/data/run_state" / RUN_ID
 PROGRESS, FINDINGS = STATE / "progress.json", STATE / "findings.md"
 CELLS = STATE / "cells.jsonl"
@@ -40,7 +50,7 @@ DRIVER_FILE = "analysis/p6b_e2e.py"
 PRICE_CACHE = REPO / "analysis/data/price_cache.json"
 FUND_CACHE = REPO / "analysis/data/fundamentals_cache.json"
 TYPE_JSON = REPO / "analysis/data/type_classifications.json"
-CAP_USD = 15.0
+CAP_USD = 12.0 if CONFOUND else 15.0
 EST_B, EST_N = 0.0236, 0.0402
 NOISE_N = 100
 MODEL, MAX_TOKENS = p6.MODEL, p6.MAX_TOKENS
@@ -305,7 +315,7 @@ def sysblock(text):
 def make_request(arm, key, text):
     from anthropic.types.messages.batch_create_params import Request
     from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
-    prompt = p6.PROMPTS["B" if arm == "B" else "A"].read_text()
+    prompt = p6.PROMPTS["B" if arm == "B" else "A"].read_text()      # N and V both run unmodified v6
     c = f"{arm}__{key[0]}_{key[1].isoformat()}"
     assert len(c) <= 64
     return Request(custom_id=c, params=MessageCreateParamsNonStreaming(
@@ -313,7 +323,14 @@ def make_request(arm, key, text):
 
 
 def scores_path(arm):
-    return STATE / {"B": "scores_b_all16.jsonl", "N": "scores_noise_all16.jsonl"}[arm]
+    base = PRIOR if CONFOUND else STATE           # B and the noise arm are read from the end-to-end run in confound mode
+    if arm == "V":
+        return STATE / "scores_v6_sonnet46_all16.jsonl"      # merged 195 rows (reused noise rows + new rows)
+    return base / {"B": "scores_b_all16.jsonl", "N": "scores_noise_all16.jsonl"}[arm]
+
+
+def new_rows_path():
+    return STATE / "scores_v6_sonnet46_new_rows.jsonl"
 
 
 def noise_keys(events):
@@ -349,8 +366,16 @@ def submit(arm, key_name, est_per_call):
     print("COMMIT progress.json NOW (batch id written)")
 
 
+def guards_v6():
+    """Confound run: only the promoted v6 hash is asserted (no candidate); B is not re-scored."""
+    from analysis.version_guard import assert_prompt_hash
+    g = assert_prompt_hash(p6.PROMPTS["A"].read_text())
+    assert g["candidate_used"] is None
+    return {"A_promoted_v6": g}
+
+
 def cmd_guards():
-    print(json.dumps(guards(), indent=1))
+    print(json.dumps(guards_v6() if CONFOUND else guards(), indent=1))
 
 
 def cmd_submit_b():
@@ -366,9 +391,10 @@ def route(raw):
     for r in p3.read_jsonl(raw):
         arm, rest = r["custom_id"].split("__", 1)
         tk, dt = rest.rsplit("_", 1)
-        if (tk, dt) in {(x["ticker"], x["date"]) for x in p3.read_jsonl(scores_path(arm))}:
+        dest = new_rows_path() if arm == "V" else scores_path(arm)
+        if (tk, dt) in {(x["ticker"], x["date"]) for x in p3.read_jsonl(dest)}:
             continue
-        p3.append_jsonl(scores_path(arm), {"custom_id": r["custom_id"], "arm": arm, "ticker": tk, "date": dt, "content": r["content"], "usage": r["usage"],
+        p3.append_jsonl(dest, {"custom_id": r["custom_id"], "arm": arm, "ticker": tk, "date": dt, "content": r["content"], "usage": r["usage"],
                                             "stop_reason": r["stop_reason"], "cost_usd": r["cost_usd"], "batch_id": r["batch_id"], "fetched_at": r["fetched_at"]})
         n += 1
     return n
@@ -564,6 +590,233 @@ def cmd_summary():
     print(json.dumps({k: {kk: vv for kk, vv in v.items() if kk not in ("ending_weights_pct", "ending_dollars", "binding_counts_ph0")} for k, v in S_["diag"].items()}, indent=1, default=str))
     print(json.dumps(diffs, indent=1, default=str))
 
+
+# ------------------------------------------------------------------------------------------ confound run: v6 on claude-sonnet-4-6
+def cmd_submit_v6():
+    p = load_progress()
+    if p.get("batch_id_v6"):
+        print(f"batch_id_v6 already recorded: {p['batch_id_v6']} -- NOT submitting")
+        return
+    g = guards_v6()
+    events = S.load_events_dedup_on()[0]
+    tr = fetch_transcripts(with_text=True)
+    have = {(r["ticker"], date.fromisoformat(r["date"])) for r in p3.read_jsonl(scores_path("N"))}       # reused verbatim
+    keys = sorted((e.ticker, e.call_date) for e in events)
+    assert len(keys) == 195 and have <= set(keys)
+    rest = [k for k in keys if k not in have]
+    reqs = [make_request("V", k, tr[k]["raw_text"]) for k in rest]
+    est = round(len(reqs) * EST_N, 2)
+    print(f"batch_id_v6: {len(reqs)} requests (reusing {len(have)} noise-arm rows) x ${EST_N:.4f} = ${est:.2f} (cap ${CAP_USD})")
+    if est > CAP_USD:
+        raise SystemExit("HARD CAP reached. Stop and report.")
+    p["guards"] = g
+    p["committed_usd_by_batch"] = {"batch_id_v6": est}
+    save_progress(p)
+    p3.submit_batch(reqs, "batch_id_v6")
+    print("COMMIT progress.json NOW (batch id written)")
+
+
+def cmd_poll_v6():
+    poll("batch_id_v6", "raw_v6.jsonl")
+
+
+def cmd_merge_v6():
+    """195 rows: the noise arm's 100 rows verbatim + the new rows. Asserts full coverage and reports parse / stop-reason status."""
+    from analyst_direct_scorer import parse_structured
+    events = S.load_events_dedup_on()[0]
+    keys = {(e.ticker, e.call_date.isoformat()) for e in events}
+    rows = {}
+    for r in p3.read_jsonl(scores_path("N")):
+        rows[(r["ticker"], r["date"])] = {**r, "source": "noise_arm_reused_verbatim"}
+    for r in p3.read_jsonl(new_rows_path()):
+        rows[(r["ticker"], r["date"])] = {**r, "source": "this_run"}
+    assert set(rows) == keys and len(rows) == 195, f"coverage: {len(rows)} rows, missing {sorted(keys - set(rows))[:5]}, extra {sorted(set(rows) - keys)[:5]}"
+    out = scores_path("V")
+    out.write_text("")
+    bad, stops = [], Counter()
+    for k in sorted(rows):
+        r = rows[k]
+        rec = (parse_structured(r["content"]).get("recommendation") or "").strip().title()
+        stops[r["stop_reason"]] += 1
+        if rec not in ("Hold", "Add", "Trim", "Exit"):
+            bad.append({"key": list(k), "stop_reason": r["stop_reason"], "recommendation": rec})
+        p3.append_jsonl(out, r)
+    res = {"rows": len(rows), "from_noise_arm": sum(r["source"].startswith("noise") for r in rows.values()), "new": sum(r["source"] == "this_run" for r in rows.values()),
+           "unparsed_or_no_direction": bad, "stop_reasons": dict(stops), "cost_new_usd": round(sum(r["cost_usd"] for r in rows.values() if r["source"] == "this_run"), 4)}
+    (STATE / "merge_v6_report.json").write_text(json.dumps(res, indent=1))
+    print(json.dumps(res, indent=1))
+
+
+# ------------------------------------------------------------------------------------------ confound run: cells
+LOO_TICKERS = S.ALL16
+
+
+def _cell_events(name, events, scores_b, fresh):
+    if name == "A0p":
+        return OV.overlay_a0(events, rec_override=fresh), []
+    return cell_events(name, events, scores_b, fresh)
+
+
+def cmd_full():
+    """R, A0, A0' (fresh v6 on claude-sonnet-4-6, all 195), B3: full universe, seed 0, phases 0/10/20. Logs kept for the decision-stream diff."""
+    commit = assert_clean()
+    world = load_world()
+    events = world[0]
+    scores_b, _ = parse_scores("B")
+    fresh, bad = parse_scores("V")
+    assert len(fresh) + len(bad) == 195
+    LOGS.mkdir(exist_ok=True)
+    have = {json.loads(l)["config_hash"] for l in CELLS.read_text().splitlines()} if CELLS.exists() else set()
+    for name in ("A0p", "A0", "B3"):
+        evs, dropped = _cell_events(name, events, scores_b, fresh)
+        osha = overlay_sha(evs)
+        for ph in PHASES:
+            params = {"cell": name, "seed": 0, "phase": ph, "universe": "full", **CELL}
+            ch = hashlib.sha256((commit + json.dumps(params, sort_keys=True) + osha).encode()).hexdigest()[:16]
+            if ch in have:
+                print("reuse", name, ph)
+                continue
+            res, logs = run_one(evs, world, ph, 0)
+            res.update({"rec_counts_fed": rec_counts(evs), "n_events_fed": len(evs), "n_dropped_no_score": len(dropped)})
+            with gzip.open(LOGS / f"{name}-s0-ph{ph}.json.gz", "wt") as f:
+                json.dump(logs, f, default=str)
+            p3.append_jsonl(CELLS, {"cell_key": f"{name}-full-s0-ph{ph}", "params": params, "config_hash": ch, "driver_commit": commit, "overlay_sha256": osha, "results": res})
+            have.add(ch)
+            print(f"{name} phase {ph}: final ${res['final']:,.0f} dd session {100*res['dd_session']:.2f}% daily {100*res['dd_daily']:.2f}% adds {res['add_total']}")
+
+
+def cmd_loo():
+    """Leave-one-ticker-out: drop each name's events entirely (no starter, no Adds, no donor role) from A0, A0' and B3; seed 0, three phases."""
+    commit = assert_clean()
+    world = load_world()
+    events = world[0]
+    scores_b, _ = parse_scores("B")
+    fresh, _ = parse_scores("V")
+    have = {json.loads(l)["config_hash"] for l in CELLS.read_text().splitlines()} if CELLS.exists() else set()
+    base = {name: _cell_events(name, events, scores_b, fresh)[0] for name in ("A0", "A0p", "B3")}
+    n_new = 0
+    for tk in LOO_TICKERS:
+        for name in ("A0", "A0p", "B3"):
+            evs = [e for e in base[name] if e.ticker != tk]
+            osha = overlay_sha(evs)
+            for ph in PHASES:
+                params = {"cell": name, "seed": 0, "phase": ph, "universe": f"minus_{tk}", **CELL}
+                ch = hashlib.sha256((commit + json.dumps(params, sort_keys=True) + osha).encode()).hexdigest()[:16]
+                if ch in have:
+                    continue
+                res, _ = run_one(evs, world, ph, 0)
+                keep = {k: res[k] for k in ("final", "dd_session", "dd_daily", "add_total", "n_events", "distinct_tickers", "skipped_events")}
+                keep["n_events_fed"] = len(evs)
+                p3.append_jsonl(CELLS, {"cell_key": f"LOO-{tk}-{name}-s0-ph{ph}", "params": params, "config_hash": ch, "driver_commit": commit, "overlay_sha256": osha, "results": keep})
+                have.add(ch)
+                n_new += 1
+    print("LOO runs written:", n_new)
+
+
+def _full(cells, name):
+    rs = sorted([c for c in cells if c["params"].get("universe") == "full" and c["params"]["cell"] == name], key=lambda c: c["params"]["phase"])
+    if len(rs) != 3:
+        return None
+    f = [c["results"]["final"] for c in rs]
+    return {"finals": f, "final_avg": sum(f) / 3, "phase_min": min(f), "phase_max": max(f), "spread": max(f) - min(f),
+            "dd_daily_avg": 100 * sum(c["results"]["dd_daily"] for c in rs) / 3, "dd_session_avg": 100 * sum(c["results"]["dd_session"] for c in rs) / 3,
+            "dd_daily_by_phase": [100 * c["results"]["dd_daily"] for c in rs], "runs": [c["results"] for c in rs]}
+
+
+def _ending_dollars(runs, final_avg):
+    tks = sorted({t for r in runs for t in r["ending_weights"]})
+    return {t: final_avg * sum(r["ending_weights"].get(t, 0.0) for r in runs) / len(runs) for t in tks}
+
+
+def cmd_summary_confound():
+    cells = load_cells()
+    prior = [json.loads(l) for l in (PRIOR / "cells.jsonl").read_text().splitlines()]
+    events = S.load_events_dedup_on()[0]
+    scores_b, _ = parse_scores("B")
+    fresh, bad = parse_scores("V")
+    out = {"cells": {}}
+    for name in ("A0", "A0p", "B3"):
+        out["cells"][name] = _full(cells, name)
+    # R (from the reproduction) and the prior run's R / B2 / N for the side-by-side table
+    rep = json.loads((STATE / "repro.json").read_text())
+    out["R_reproduction"] = {"phase_avg_final": rep["phase_avg_final"], "dd_daily_avg_pct": rep["dd_daily_avg_pct"], "match": rep["match"]}
+    pa = lambda nm: agg(prior, nm, 0)
+    out["prior"] = {nm: pa(nm) for nm in ("R", "A0", "B3", "B2", "N")}
+    out["consistency_vs_prior_run"] = {nm: {"final_diff_usd": out["cells"][nm]["final_avg"] - out["prior"][nm]["final_avg"],
+                                            "dd_daily_diff_pts": out["cells"][nm]["dd_daily_avg"] - out["prior"][nm]["dd_daily_avg"]} for nm in ("A0", "B3")}
+    a0, a0p, b3 = out["cells"]["A0"], out["cells"]["A0p"], out["cells"]["B3"]
+    model_share, prompt_share = a0p["final_avg"] - a0["final_avg"], b3["final_avg"] - a0p["final_avg"]
+    if b3["final_avg"] > a0p["phase_max"] and b3["phase_min"] > a0p["phase_max"]:
+        branch = "B3 ABOVE A0' phase range -> the prompt is the cause"
+    elif a0p["final_avg"] >= b3["phase_min"]:
+        branch = "A0' RISES INTO OR ABOVE B3's phase range -> the model is the cause"
+    else:
+        branch = "IN BETWEEN -> report both contributions"
+    out["reading"] = {"A0p_final": a0p["final_avg"], "A0p_phase_range": [a0p["phase_min"], a0p["phase_max"]], "A0p_dd_daily": a0p["dd_daily_avg"],
+                      "model_share_A0p_minus_A0": model_share, "prompt_share_B3_minus_A0p": prompt_share, "total_B3_minus_A0": b3["final_avg"] - a0["final_avg"],
+                      "branch": branch, "B3_phase_range": [b3["phase_min"], b3["phase_max"]],
+                      "B3_lowest_phase_minus_A0p_highest_phase": b3["phase_min"] - a0p["phase_max"]}
+    # verdict mix and agreement, all 195
+    arch = {(e.ticker, e.call_date): e.per_call_rec for e in events}
+    mix_a, mix_f = Counter(arch.values()), Counter(fresh.get(k) for k in arch)
+    ct = Counter((arch[k], fresh[k]) for k in arch)
+    srcs = {(r["ticker"], date.fromisoformat(r["date"])): r["source"] for r in p3.read_jsonl(scores_path("V"))}
+    out["verdict_mix"] = {"archived_v6": dict(mix_a), "fresh_v6_sonnet46": dict(mix_f), "crosstab_archived_to_fresh": {f"{a}->{b}": n for (a, b), n in sorted(ct.items())},
+                          "agreement_n": sum(n for (a, b), n in ct.items() if a == b), "n": len(arch),
+                          "by_source": {src: {"archived": dict(Counter(arch[k] for k in arch if srcs[k] == src)), "fresh": dict(Counter(fresh[k] for k in arch if srcs[k] == src))}
+                                        for src in sorted(set(srcs.values()))},
+                          "unparsed": bad}
+    # the four carrying names: archived v6 vs fresh v6 vs B, event by event
+    out["carriers"] = [{"ticker": e.ticker, "call_date": e.call_date.isoformat(), "archived_v6": e.per_call_rec, "fresh_v6": fresh[(e.ticker, e.call_date)],
+                        "B_score": scores_b[(e.ticker, e.call_date)], "B3": OV.map_score(scores_b[(e.ticker, e.call_date)], 3)}
+                       for e in sorted(events, key=lambda e: (e.ticker, e.call_date)) if e.ticker in CARRIERS]
+    # ending value by stock, A0' beside R / A0 / B3 / B2 (phase-averaged, seed 0)
+    ed = {}
+    for nm, src in (("R", out["prior"]["R"]), ("A0", a0), ("A0p", a0p), ("B3", b3), ("B2", out["prior"]["B2"])):
+        runs = src["runs"]
+        ed[nm] = _ending_dollars(runs, src["final_avg"])
+    out["ending_dollars"] = ed
+    # decision-stream diff A0 -> A0'
+    diffs = []
+    for ph in PHASES:
+        la = [tuple(x) for x in json.load(gzip.open(LOGS / f"A0-s0-ph{ph}.json.gz", "rt"))["trades"]]
+        lb = [tuple(x) for x in json.load(gzip.open(LOGS / f"A0p-s0-ph{ph}.json.gz", "rt"))["trades"]]
+        i = first_divergence(la, lb)
+        diffs.append({"phase": ph, "n_A0": len(la), "n_A0p": len(lb), "first_divergence_index": i, "matched_before_divergence": i,
+                      "first_A0": la[i] if i is not None and i < len(la) else None, "first_A0p": lb[i] if i is not None and i < len(lb) else None,
+                      "n_identical_rows": len(set(la) & set(lb)), "share_of_A0_rows_also_in_A0p": len(set(la) & set(lb)) / len(set(la))})
+    out["decision_stream_diff_A0_vs_A0p"] = diffs
+    # leave-one-out
+    loo = {}
+    for c in cells:
+        u = c["params"].get("universe", "")
+        if u.startswith("minus_"):
+            loo.setdefault(u[6:], {}).setdefault(c["params"]["cell"], []).append(c["results"])
+    rows = []
+    for tk, d in loo.items():
+        if not all(len(d.get(n, [])) == 3 for n in ("A0", "A0p", "B3")):
+            continue
+        av = lambda n, k: sum(r[k] for r in d[n]) / 3
+        rows.append({"dropped": tk, "A0": av("A0", "final"), "A0p": av("A0p", "final"), "B3": av("B3", "final"), "gap": av("B3", "final") - av("A0p", "final"),
+                     "gap_pct_of_A0p": 100 * (av("B3", "final") - av("A0p", "final")) / av("A0p", "final"), "gap_vs_A0": av("B3", "final") - av("A0", "final"),
+                     "B3_dd_daily": 100 * av("B3", "dd_daily"), "A0p_dd_daily": 100 * av("A0p", "dd_daily"), "A0_dd_daily": 100 * av("A0", "dd_daily"),
+                     "B3_phase_min": min(r["final"] for r in d["B3"]), "A0p_phase_max": max(r["final"] for r in d["A0p"])})
+    order = ["NVDA"] + [r["dropped"] for r in sorted([r for r in rows if r["dropped"] != "NVDA"], key=lambda r: r["gap"])]
+    rows = sorted(rows, key=lambda r: order.index(r["dropped"]))
+    ref = {"dropped": "none (full universe)", "A0": a0["final_avg"], "A0p": a0p["final_avg"], "B3": b3["final_avg"], "gap": prompt_share,
+           "gap_pct_of_A0p": 100 * prompt_share / a0p["final_avg"], "gap_vs_A0": b3["final_avg"] - a0["final_avg"], "B3_dd_daily": b3["dd_daily_avg"],
+           "A0p_dd_daily": a0p["dd_daily_avg"], "A0_dd_daily": a0["dd_daily_avg"], "B3_phase_min": b3["phase_min"], "A0p_phase_max": a0p["phase_max"]}
+    out["loo"] = {"reference": ref, "rows": rows, "n_rows": len(rows),
+                  "gap_positive_in": sum(r["gap"] > 0 for r in rows), "gap_flips_on": [r["dropped"] for r in rows if r["gap"] <= 0],
+                  "smallest_gap": min((r["gap"], r["dropped"]) for r in rows) if rows else None,
+                  "gap_without_NVDA": next((r["gap"] for r in rows if r["dropped"] == "NVDA"), None),
+                  "B3_dd_better_than_A0p_in": sum(r["B3_dd_daily"] < r["A0p_dd_daily"] for r in rows), "B3_dd_worse_rows": [r["dropped"] for r in rows if r["B3_dd_daily"] >= r["A0p_dd_daily"]],
+                  "B3_lowest_phase_above_A0p_highest_in": sum(r["B3_phase_min"] > r["A0p_phase_max"] for r in rows)}
+    (STATE / "summary.json").write_text(json.dumps(out, indent=1, default=str))
+    print(json.dumps({k: out[k] for k in ("reading", "verdict_mix", "consistency_vs_prior_run", "decision_stream_diff_A0_vs_A0p")}, indent=1, default=str))
+    print("LOO", json.dumps({k: v for k, v in out["loo"].items() if k != "rows"}, default=str))
+    for r in [out["loo"]["reference"]] + out["loo"]["rows"]:
+        print(f"{r['dropped']:20} A0 {r['A0']:>9,.0f}  A0' {r['A0p']:>9,.0f}  B3 {r['B3']:>9,.0f}  gap {r['gap']:>9,.0f} ({r['gap_pct_of_A0p']:5.1f}%)  dd B3 {r['B3_dd_daily']:5.2f} A0' {r['A0p_dd_daily']:5.2f}")
 
 if __name__ == "__main__":
     cmd = (sys.argv[1] if len(sys.argv) > 1 else "").replace("-", "_")
