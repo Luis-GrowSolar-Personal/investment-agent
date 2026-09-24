@@ -22,7 +22,7 @@
   },
   "batch_id_preflight": "msgbatch_01JzNethSpNvQqFe4KJ2JCKq",
   "batch_id_arm_b": "msgbatch_01BoqzqFAgjC6oV9NSCe6fGZ",
-  "batch_id_arm_c": "msgbatch_01XBKE7mSMWe9S8xiwArCd46",
+  "batch_id_arm_c": "msgbatch_01BVc5EtKqYEVtv6K9YZwmJP",
   "batch_id_noise": null,
   "next_action": "poll-c",
   "notes": [
@@ -31,7 +31,8 @@
     "0f: asserts pass (1,240 files/56 cos/1,240 evals/1,184 pred-bearing, MAXNQ empty). PARA excluded -> 1,217 calls / 55 cos / 1,162 pred-bearing (23 PARA calls).",
     "PREMISE FLAGS: (1) prompt 0f says '1,194 transcripts'; 1,194 is the UNRESOLVED count - resolved is 1,240 (P3 driver assert). (2) 5b/5d: stratum_map() returns corpus strata S1-S5, not the four-way megacap/large/mid/small_micro; that four-way split is a hardcoded 15-ticker list (6 in train, 0 large) per P3 5f. 21a therefore drawn proportional to S1-S5 (120: S1 35/S2 19/S3 53/S4 2/S5 11), exactly as P3 5f specifies; per-stratum reporting uses S1-S5. (3) v6 train reference 30.3%/+2.48 comes from wrap-ups/scorer-price-cache-backfill-out.md (post backfill); baseline-v6-train-batch-out.md reports the pre-backfill 22.8%/-1.64. (4) Registration date in prompt is 2026-09-24; today 2026-09-23.",
     "DEVIATION: preflight scores (100 tx x B and C) are reused as arm results; full-arm batches submit only the remaining transcripts (skip-present-ids per Step -1). Saves ~$7.",
-    "5a preflight PASS: B 0 parse fails/0 max_tokens/0% noRead, $0.02364/call (proj $28.77); C 0/0/4% noRead, $0.04142/call (proj $50.41). Neither over $55."
+    "5a preflight PASS: B 0 parse fails/0 max_tokens/0% noRead, $0.02364/call (proj $28.77); C 0/0/4% noRead, $0.04142/call (proj $50.41). Neither over $55.",
+    "INCIDENT: first submit-c created batch msgbatch_01XBKE7m... (01:45:44Z) whose id was not persisted (I piped output to tail and ran a concurrent background poller; progress.json was left without batch_id_arm_c). Retry created the recorded batch msgbatch_01BVc5Et... (01:46:04Z). The orphan was cancelled at first sight. Its spend, if any, is billed for whatever processed before cancel; not counted in committed_usd. Also fixed: commit_spend double-counted a retried key."
   ],
   "guards": {
     "batch_id_preflight": {
@@ -113,6 +114,7 @@
   "batch_id_preflight_requests": 200,
   "batch_id_arm_b_submitted_at": "2026-09-24T01:44:07Z",
   "batch_id_arm_b_requests": 1117,
-  "batch_id_arm_c_submitted_at": "2026-09-24T01:45:44Z",
-  "batch_id_arm_c_requests": 1237
+  "batch_id_arm_c_submitted_at": "2026-09-24T01:46:04Z",
+  "batch_id_arm_c_requests": 1237,
+  "orphan_batch_cancelled": "msgbatch_01XBKE7mSMWe9S8xiwArCd46"
 }
