@@ -49,6 +49,42 @@ PREFLIGHT_N = 100
 NOISE_N = 120
 THRESHOLDS = {"bearish_lte": -2, "bullish_gte": 2, "neutral": [-1, 0, 1]}
 
+# --split tune (prompts/P6B-tune-confirmation.md): same driver, tune companies, arm B + a larger noise arm only.
+SPLIT_NAME = "train"
+if "--split" in sys.argv:
+    _i = sys.argv.index("--split")
+    SPLIT_NAME = sys.argv[_i + 1]
+    del sys.argv[_i:_i + 2]
+assert SPLIT_NAME in ("train", "tune"), SPLIT_NAME
+TUNE = SPLIT_NAME == "tune"
+if TUNE:
+    RUN_ID = "p6b-tune-confirmation"
+    STATE = REPO / "analysis/data/run_state" / RUN_ID
+    PROGRESS, FINDINGS = STATE / "progress.json", STATE / "findings.md"
+    V6_EVAL_DIR = REPO / "analysis/data/evals/v6_claude-sonnet-4-6_tune"
+    EVAL_DIR = {"B": REPO / "analysis/data/evals/P6B-minimal_claude-sonnet-4-6_tune"}
+    EXCLUDE = {"WOLF", "SPWR"}
+    CAP_USD, PREFLIGHT_N, NOISE_N = 60.0, 50, 250
+    EST_PER_CALL = 0.0236
+    NOISE_PER_CALL = 0.0402       # train noise arm measured: $4.82 / 120
+    THRESHOLDS = {"bearish_lte": -2, "bullish_gte": 3, "neutral": [-1, 0, 1, 2],
+                  "train_run_original_mapping_labelled": {"bullish_gte": 2, "neutral": [-1, 0, 1]}}
+
+    def _tune_resolved():
+        amap = p3.alias_map()
+        return [(t, amap.get(t, t)) for t in json.loads(p3.SPLIT.read_text())["tune"]]
+
+    def _tune_strata():
+        amap = p3.alias_map()
+        m = {}
+        for st, dd in json.loads(p3.SPLIT.read_text())["per_stratum"].items():
+            for t in dd["tune"]:
+                m[amap.get(t, t)] = st
+        return m
+    p3.resolved_train = _tune_resolved
+    p3.stratum_map = _tune_strata
+    p3.V6_EVAL_DIR = V6_EVAL_DIR
+
 # re-point the imported machinery at THIS run
 p3.STATE, p3.PROGRESS, p3.FINDINGS = STATE, PROGRESS, FINDINGS
 p3.EXCLUDE = set(EXCLUDE)
@@ -90,6 +126,8 @@ def git(*a):
 
 # --------------------------------------------------------------------------- 0f
 def cmd_check0f():
+    if TUNE:
+        return _check0f_tune()
     """p3's assertions (1,240 files / 56 companies / 1,240 evals / 1,184 predecessor-bearing, MAXN empty),
     run with p3's own exclusion set (WOLF, SPWR); then the PARA-excluded population this run uses."""
     p3.EXCLUDE = {"WOLF", "SPWR"}
@@ -149,7 +187,7 @@ def guards():
     from analysis.version_guard import assert_prompt_hash
     reg = json.loads((REPO / "docs/architecture/VERSION_REGISTRY.json").read_text())["artifacts"]["evaluation_prompt"]
     out = {}
-    for arm in ("B", "C"):
+    for arm in (("B",) if TUNE else ("B", "C")):
         t = PROMPTS[arm].read_text()
         rs = next(c["sha256"] for c in reg["candidates"] if c["version"] == CAND_NAME[arm])
         assert hashlib.sha256(t.encode()).hexdigest() == rs, f"arm {arm} hash != registry"
@@ -161,6 +199,8 @@ def guards():
 
 # --------------------------------------------------------------------------- 0e
 def cmd_protocol():
+    if TUNE:
+        return _protocol_tune()
     sp = json.loads(p3.SPLIT.read_text())
     rt = p3.resolved_train()
     reg = json.loads((REPO / "docs/architecture/VERSION_REGISTRY.json").read_text())
@@ -208,7 +248,7 @@ def cmd_select():
         by_s.setdefault(smap.get(r["ticker"], "?"), []).append(r)
     assert "?" not in by_s, "unmapped stratum"
     counts = {s: len(v) for s, v in by_s.items()}
-    rng = random.Random("p6-preflight-11")
+    rng = random.Random("p6b-tune-preflight-11" if TUNE else "p6-preflight-11")
     alloc = p3.stratum_alloc(PREFLIGHT_N, counts)
     pre = []
     for s in sorted(alloc):
@@ -220,7 +260,7 @@ def cmd_select():
     for r in pool:
         pn.setdefault(smap[r["ticker"]], []).append(r)
     nalloc = p3.stratum_alloc(NOISE_N, {s: len(v) for s, v in pn.items()})
-    rng2 = random.Random("p6-noise-11")
+    rng2 = random.Random("p6b-tune-noise-11" if TUNE else "p6-noise-11")
     noise = []
     for s in sorted(nalloc):
         noise += [(r["ticker"], r["date"]) for r in rng2.sample(sorted(pn[s], key=lambda r: (r["ticker"], r["date"])), nalloc[s])]
@@ -255,7 +295,8 @@ def make_request(arm, w, d):
 
 
 def scores_path(arm):
-    return STATE / {"B": "scores_b.jsonl", "C": "scores_c.jsonl", "N": "scores_noise.jsonl"}[arm]
+    sfx = "_tune" if TUNE else ""
+    return STATE / {"B": f"scores_b{sfx}.jsonl", "C": f"scores_c{sfx}.jsonl", "N": f"scores_noise{sfx}.jsonl"}[arm]
 
 
 def have_ids(arm):
@@ -295,8 +336,9 @@ def submit(key, reqs, per_call):
 # --------------------------------------------------------------------------- pre-flight
 def cmd_preflight_submit():
     sel = json.loads((STATE / "selection.json").read_text())
-    reqs = [make_request(a, w, d) for w, d in sel["preflight"] for a in ("B", "C")]
-    assert len(reqs) == 2 * PREFLIGHT_N
+    arms = ("B",) if TUNE else ("B", "C")
+    reqs = [make_request(a, w, d) for w, d in sel["preflight"] for a in arms]
+    assert len(reqs) == len(arms) * PREFLIGHT_N
     submit("batch_id_preflight", reqs, EST_PER_CALL)
     step("5a", "in_progress", "poll preflight batch")
 
@@ -337,7 +379,8 @@ def cmd_preflight_report():
     sel = json.loads((STATE / "selection.json").read_text())
     want = {tuple(x) for x in sel["preflight"]}
     res = {}
-    for arm in ("B", "C"):
+    ARMS = ("B",) if TUNE else ("B", "C")
+    for arm in ARMS:
         rows = [r for r in p3.read_jsonl(scores_path(arm)) if (r["ticker"], r["date"]) in want]
         bad_parse = bad_score = bad_nr = maxtok = nr_true = 0
         cost = 0.0
@@ -365,16 +408,18 @@ def cmd_preflight_report():
                     "cost_usd": round(cost, 4), "cost_per_call": round(per, 5),
                     "median_completion_tokens": sorted(toks)[len(toks) // 2] if toks else None}
     n_full = len(universe())
-    for arm in ("B", "C"):
+    for arm in ARMS:
         res[arm]["projected_full_arm_usd"] = round(res[arm]["cost_per_call"] * n_full, 2)
-    res["stop_projection_over_55"] = any(res[a]["projected_full_arm_usd"] > 55 for a in "BC")
+    lim = 32 if TUNE else 55
+    res["stop_projection_over_55"] = any(res[a]["projected_full_arm_usd"] > lim for a in ARMS)
+    res["projection_limit_usd"] = lim
     res["control_defaulting_to_abstention"] = res["B"]["noRead_share_pct"] > 100 / 3
     (STATE / "preflight_report.json").write_text(json.dumps(res, indent=1))
     print(json.dumps(res, indent=1))
     ok = all(res[a]["unparseable"] == 0 and res[a]["bad_score"] == 0 and res[a]["bad_noRead"] == 0
-             and res[a]["stop_max_tokens"] == 0 for a in "BC")
+             and res[a]["stop_max_tokens"] == 0 for a in ARMS)
     print("PREFLIGHT FORMAT CHECKS", "PASS" if ok else "FAIL -- stop and report")
-    print("PROJECTION", "STOP (>$55)" if res["stop_projection_over_55"] else "ok")
+    print("PROJECTION", f"STOP (>${lim})" if res["stop_projection_over_55"] else "ok")
 
 
 # --------------------------------------------------------------------------- full arms
@@ -410,6 +455,79 @@ def cmd_poll_b():
 
 def cmd_poll_c():
     poll("batch_id_arm_c", "raw_arm_c.jsonl")
+
+
+# --------------------------------------------------------------------------- tune-side (P6B-tune-confirmation)
+def _check0f_tune():
+    """Tune-side alias hard stop: every tune symbol resolved; every file in the v6 tune cache maps to a resolved symbol."""
+    sp = json.loads(p3.SPLIT.read_text())
+    amap = p3.alias_map()
+    rt = p3.resolved_train()                      # patched: tune list
+    resolved = {w for _, w in rt}
+    files_all = {w: sorted(glob.glob(str(p3.TRANSCRIPTS / w / "*.json"))) for _, w in rt}
+    n_files_all = sum(len(v) for v in files_all.values())
+    unresolved_files = sum(len(glob.glob(str(p3.TRANSCRIPTS / t / "*.json"))) for t in sp["tune"])
+    evs = sorted(glob.glob(str(V6_EVAL_DIR / "*.txt")))
+    ev_tk = {Path(e).stem.rsplit("_", 1)[0] for e in evs}
+    unmapped = sorted(ev_tk - resolved)
+    recs = p3.all_train_records()                 # WOLF/SPWR excluded
+    kept_cos = {r["ticker"] for r in recs}
+    no_files = [w for w, v in files_all.items() if not v]
+    out = {"tune_symbols": len(sp["tune"]), "resolved_files_incl_excluded": n_files_all,
+           "unresolved_files": unresolved_files, "aliases_applied": {t: amap[t] for t in sp["tune"] if t in amap},
+           "v6_tune_eval_files": len(evs), "eval_unmapped_symbols": unmapped, "symbols_with_no_files": no_files,
+           "excluded": sorted(EXCLUDE), "calls_after_exclusion": len(recs), "companies_after_exclusion": len(kept_cos),
+           "disjoint_train": not (set(sp["tune"]) & set(sp["train"])), "disjoint_holdout": not (set(sp["tune"]) & set(sp["holdout"]))}
+    ok = (len(evs) == n_files_all and not unmapped and out["disjoint_train"] and out["disjoint_holdout"]
+          and not (set(no_files) - EXCLUDE))
+    out["asserts_pass"] = ok
+    (STATE / "step0f_tune_alias_asserts.json").write_text(json.dumps(out, indent=1))
+    print(json.dumps(out, indent=1))
+    if not ok:
+        raise SystemExit("0f HARD STOP (tune): alias/count assertion failed")
+
+
+def _protocol_tune():
+    sp = json.loads(p3.SPLIT.read_text())
+    proto = {
+        "run_id": RUN_ID, "registered_at": now(), "split_scored": "tune",
+        "company_list_original": sp["tune"], "company_list_resolved": [w for _, w in p3.resolved_train()],
+        "aliases_applied": {t: p3.alias_map()[t] for t in sp["tune"] if t in p3.alias_map()},
+        "excluded_entirely": sorted(EXCLUDE), "excluded_note": "WOLF, SPWR ungradable (2026-09-19 state of play s6); every call excluded, not only unscoreable ones",
+        "manifest_source": "analysis/data/corpus_v2/CORPUS_MANIFEST_V7.json", "manifest_sha256": sha(C2 / "CORPUS_MANIFEST_V7.json"),
+        "split_source": "analysis/data/corpus_v2/SPLIT_V7_RESERVE_REPLACEMENTS.json", "split_sha256": sha(p3.SPLIT),
+        "prompts": {a: {"path": str(PROMPTS[a].relative_to(REPO)), "sha256": sha(PROMPTS[a])} for a in "AB"},
+        "candidate": "P6B-minimal (registered in VERSION_REGISTRY.json; not a promotion)",
+        "model_version_pinned": MODEL, "model_matches_baselines": True,
+        "price_cache_path": PRICE_CACHE_REL,
+        "entry_for_money": "rel_ret arm B (first close strictly after the call date), 182 days, SPY",
+        "thresholds_fixed_before_any_result": {
+            "primary_pre_registered_2026-09-24": {"bearish": "score <= -2", "bullish": "score >= +3", "neutral": "-1, 0, +1, +2"},
+            "train_run_original_mapping_reported_alongside": {"bearish": "score <= -2", "bullish": "score >= +2", "neutral": "-1, 0, +1"}},
+        "request_caps": {"preflight": PREFLIGHT_N, "arm_b": 1300, "noise": NOISE_N},
+        "spend_caps_usd": {"total": CAP_USD, "full_arm_projection_stop": 32},
+        "max_tokens_scoring": MAX_TOKENS, "eval_cache": str(EVAL_DIR["B"].relative_to(REPO)) + "/",
+        "seeds": {"preflight": "random.Random('p6b-tune-preflight-11')", "noise": "random.Random('p6b-tune-noise-11')"},
+        "disjointness": {"tune_train": not (set(sp["tune"]) & set(sp["train"])), "tune_holdout": not (set(sp["tune"]) & set(sp["holdout"]))},
+        "holdout": "untouched",
+    }
+    assert proto["disjointness"]["tune_train"] and proto["disjointness"]["tune_holdout"]
+    assert PRICE_CACHE_REL == str(p3.PRICE_CACHE)
+    (C2 / "SCORING_PROTOCOL_P6B_TUNE.json").write_text(json.dumps(proto, indent=1))
+    print("wrote", C2 / "SCORING_PROTOCOL_P6B_TUNE.json")
+
+
+def cmd_submit_noise():
+    sel = json.loads((STATE / "selection.json").read_text())
+    done = have_ids("N")
+    reqs = [make_request("N", w, d) for w, d in sel["noise"] if (w, d) not in done]
+    assert len(reqs) <= NOISE_N
+    submit("batch_id_noise", reqs, NOISE_PER_CALL)
+    step("4b", "in_progress", "poll-noise")
+
+
+def cmd_poll_noise():
+    poll("batch_id_noise", "raw_noise.jsonl")
 
 
 if __name__ == "__main__":
