@@ -1,0 +1,26 @@
+{
+ "run_id": "p6b-end-to-end-check",
+ "prompt_sha256": "92e935ee1853b25e215944b7b0432285e2a74d25174484aaafc4d146e4943be2",
+ "driver_commit": null,
+ "prompt_commit": "ac070d188544c4d1bb1048b4b8ba1324e2a9edd4",
+ "luis_approved_usd": 15,
+ "approval_source": "stated in prompts/P6B-end-to-end-check.md header ('Hard cap $15'); /execute-prompt invoked by Luis",
+ "steps": {
+  "0a": "done",
+  "0b_driver": "pending",
+  "0_repro": "pending",
+  "events_transcripts": "pending",
+  "guards": "pending",
+  "submit_b": "pending",
+  "submit_noise": "pending",
+  "score_collect": "pending",
+  "cells_A0_B3_B2_N": "pending",
+  "seeds_1_2": "pending",
+  "diagnostics": "pending",
+  "report": "pending"
+ },
+ "batch_id_arm_b": null,
+ "batch_id_noise": null,
+ "next_action": "write overlay + driver, commit, then Step 0 reproduction (hard stop) BEFORE any spend",
+ "notes": []
+}

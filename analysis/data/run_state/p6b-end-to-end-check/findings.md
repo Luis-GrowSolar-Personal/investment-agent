@@ -1,0 +1,7 @@
+# findings (append-only) - p6b-end-to-end-check
+
+- PREMISE FLAGS at read time:
+  1. The 2026-09-24 state of play s5 says "~660 transcripts, ~$16"; this prompt says "~150-200 events, ~$5". `load_events_dedup_on()` returns **195 events across 16 tickers** (AAPL 14, AMD 13, AVGO 13, GOOGL 13, MSFT 15, NVDA 14, ORCL 16, TSLA 13, AMPX 6, ENVX 12, EOSE 13, FSLR 13, QS 13, RUN 13, SPWR 1, TTD 13). The prompt is right; the state of play's 660 is wrong. Cost ~ $4.6 + noise.
+  2. **Model confound (not in the prompt).** The harness's "v6" events are DB `Analysis` rows created 2026-05-02..2026-06-27 (`load_call_events` defaults), i.e. v6 run by the analyst model then in production - NOT `claude-sonnet-4-6` (promoted 2026-06-27; the earlier model `claude-sonnet-4-20250514` was retired 2026-06-15). So R and A0 carry the old model's archived calls; B3/B2 carry `claude-sonnet-4-6`. A0-vs-B3 therefore differs in model as well as prompt. The N arm (v6 re-scored on claude-sonnet-4-6) is the only cell that measures the model swap plus re-roll on v6's own prompt; the noise arm is NOT a pure re-roll here.
+  3. The events loader does not carry transcript ids; they are re-queried with the loader's own filters (SELECT only) and the lowest id per (ticker, call_date) is kept, as the loader does.
+  4. Reference cells: `analysis/data/run_state/resolve-open-four/cells.jsonl` keys `1a-phase0` / `1a-phase10` / `1a-phase20` (results.final, results.dd_session, results.dd_daily).
