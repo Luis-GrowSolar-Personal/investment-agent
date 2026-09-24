@@ -121,6 +121,9 @@ several hours.
 | P3 | Thesis / guidance ledger — score QN−1's promises at QN | none (transcripts on disk) | — | ready |
 | P4 | Tier-conditioned reading of financial facts | XBRL build | P3 | not started |
 | P5 | Peer read-through across cohort members | none (transcripts) | — | not started |
+| **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **registered 2026-09-24 — run next** |
+| P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed) | none | P6 | named, not run |
+| P8 | Auto-iterate loop as hypothesis generator (§2.6, with the 2026-09-24 constraints) | none (eval files) | P6 | named, not built |
 
 P2 is blocked on a free decision (R3's grading-window rule), not on work. P1 and
 P3 can both run today against the existing corpus — no vendor fetching, no new
@@ -185,6 +188,93 @@ can back its next candidate out of those diffs and call it design. Same
 discipline section 2.6 imposes on the auto-iterate loop. **Prohibition:** any
 candidate other than P3b derived from reading P3a's diffs must go through the
 section 2.6 split-half screen before it may touch tune.
+
+**P6 — output-format round, registered 2026-09-24.** Three arms, one round,
+named before any runs. Decided in conversation 2026-09-24 against the
+2026-09-23 state of play; the reasoning is recorded here so it is not
+re-derived.
+
+*Why this and not another input.* Every candidate to date added information
+to the prompt (prior-call ledger, market reaction) and none paid. The one
+lever never pulled is the prompt's own shape. Two observations drive the
+round: (1) the neutral pile — 58% of answers, zero edge on both halves — is a
+**rule artifact**: the decision matrix maps *Intact + no stumble → Hold* after
+the model has read the call, so whatever it read is compressed to nothing
+before it reaches the score; (2) the v6 rubric was built to encode investing
+discipline and cut run-to-run variance, never because any section improved
+the six-month call, and it has never had a control.
+
+- **Arm A — v6 incumbent.** Unchanged.
+- **Arm B — minimal prompt (the control).** No rubric. Carries only: the
+  objective (beat or lag the S&P over the next two quarters), the constraint
+  (this transcript only), the output (score −5..+5, an explicit `no read`
+  option, three-sentence rationale citing evidence), and one framing question
+  — *what in this call should change what a well-informed holder believes?*
+  Expected to lose to v6. If it matches v6, the rubric is not where the signal
+  is and future iteration starts from the minimal prompt.
+- **Arm C — v6 with the decision matrix replaced by a continuous score.** The
+  rubric is kept; the matrix is removed as the output. The analyst emits the
+  −5..+5 score plus `no read`; Add/Hold/Trim/Exit become thresholds applied
+  allocator-side, tunable without re-scoring. Firewall preserved.
+- **Ruler.** Money (2026-09-20 state of play), with accuracy alongside. For
+  arms B and C the primary test is **rank-ordering across all ~2,385 calls**
+  — do the +5s beat the +2s, do the −4s lag the −1s — which uses every call
+  rather than 177 bearish ones and sidesteps the resolution limit in the
+  2026-09-23 state of play §4.4. Severity grading (§3.3 there) is subsumed.
+- **Expected to move.** Arm C: neutral share falls well below 58%; the calls
+  that leave neutral show a non-zero edge; score deciles order forward
+  returns monotonically. Arm B: unknown — that is the point of a control.
+- **Predicted.** Arm C beats arm A on rank-ordering. Arm B lands between them
+  or matches A. Written down so it can be wrong.
+- **Falsified if.** Arm C's score deciles do not order forward returns (rank
+  correlation indistinguishable from zero on train); **or** the neutral share
+  does not fall; **or** the net flip count sits below the corrected noise
+  floor. Arm B cannot be falsified — it is a control — but a B ≥ A result is
+  the finding that redirects the queue.
+- **Noise.** Every arm carries the paired v6 re-score noise arm from
+  `prompts/P3-guidance-ledger.md` §5f (21a), per stratum, and the corrected
+  flip-count rules from the 2026-09-23 state of play §4.2 **must land before
+  this round runs.**
+- **Runs on.** Train. Tune only for an arm that clears, and only once.
+- **Cost.** ~$45 per arm plus the noise arm; ~$100–110 total.
+
+**P7 — three-voices rubric. Named, NOT run.** A short rubric with a mechanism:
+tabulate what the CFO's numbers say, what the CEO claims beyond them, and what
+the analysts actually pressed on (not the pleasantries — the question asked
+three ways, the deflected answer), then score the gap between the first and
+the other two. This is the expectations-gap question asked of the transcript
+alone, without consensus data. Named now so it is committed before P6's diffs
+exist. Runs only after P6, and starts from whichever of arm B or arm C P6
+favours.
+
+**P8 — auto-iterate loop. Named, NOT built. Generator, never judge (§2.6),
+with four constraints added 2026-09-24:**
+
+1. **The iterating model already knows how these stocks did.** Trained on
+   2020–2025, it knows the outcomes; shown wrong calls plus outcomes, its path
+   of least resistance is a rule that proxies memorized results. Therefore:
+   **every proposed rule must be stated as a mechanism a human can read and
+   reject** — "companies giving segment-level guidance are more credible" is
+   admissible; "weight paragraph 4 sentiment" is not. Luis vets the list. A
+   rule that cannot be explained is treated as recall, not insight. Ticker
+   names and dates are stripped from what the generator sees; this reduces
+   the easiest route and removes none of the rest (`DESIGN_PRINCIPLES.md` §4).
+2. **Split time-forward, not company-wise.** More tickers in one window are
+   correlated draws from one regime, not independent evidence. Iterate on
+   2020–2022, screen on 2023–2024, holdout 2025 locked. The question is
+   regime transfer, and only a time split asks it.
+3. **Fixed candidate budget per round, all logged in the ledger, survivors or
+   not.** The stopping rule is the budget, never a target accuracy — "continue
+   until X%" guarantees that noise eventually delivers X%. The honest result
+   of a round may be that nothing survived.
+4. **Screen on the P6 continuous ruler and require the survivor to beat the
+   noise floor on the screening period**, not the iteration period. A 300-call
+   subset carries a ±4-point noise band; greedy iteration on it climbs noise.
+
+Cost: the generator is nearly free (eval files on disk, no scoring); each
+surviving candidate costs one scoring round (~$45) to screen. Budget three
+survivors per cycle. Sequenced after P6 because P6 decides whether the loop
+iterates on the rubric or on the minimal prompt.
 
 ### 2.3 Pre-registration — required before any candidate is run
 
