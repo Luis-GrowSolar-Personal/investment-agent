@@ -269,7 +269,7 @@ def committed_usd(p):
 def commit_spend(key, n, per_call):
     p = load_progress()
     est = round(n * per_call, 2)
-    total = committed_usd(p) + est
+    total = committed_usd({"committed_usd_by_batch": {k: v for k, v in p.get("committed_usd_by_batch", {}).items() if k != key}}) + est
     print(f"{key}: {n} requests x ${per_call:.4f} = ${est:.2f}; committed after = ${total:.2f} (cap ${CAP_USD})")
     if total > CAP_USD:
         raise SystemExit(f"HARD CAP: ${total:.2f} > ${CAP_USD}. Stop and report.")
