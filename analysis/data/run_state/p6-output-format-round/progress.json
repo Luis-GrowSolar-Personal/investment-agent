@@ -1,0 +1,32 @@
+{
+ "run_id": "p6-output-format-round",
+ "prompt_sha256": "c1daf3521b94c83b0ae1e66e5300749bcfb7266c8c85234f855a14e9cd2d96e5",
+ "driver_commit": null,
+ "prompt_commit": "647bae97e6228fc4f3696adc3e6f36e0b67c6350",
+ "luis_approved_usd": 130,
+ "approval_source": "stated in prompts/P6-output-format-round.md header; /execute-prompt invoked by Luis 2026-09-23",
+ "steps": {
+  "0a": "done",
+  "0b": "pending",
+  "0c": "done",
+  "0d": "pending",
+  "0e": "pending",
+  "0f": "pending",
+  "0g": "pending",
+  "5a": "pending",
+  "5b": "pending",
+  "5c": "pending",
+  "5d": "pending",
+  "6": "pending",
+  "report": "pending"
+ },
+ "batch_id_preflight": null,
+ "batch_id_arm_b": null,
+ "batch_id_arm_c": null,
+ "batch_id_noise": null,
+ "next_action": "read specs, then write driver (0b)",
+ "notes": [
+  "0c: P6 block present in PROMPT_ARCHITECTURE.md (commit aee70da). Prompt says registered 2026-09-24; today is 2026-09-23 - date premise off by a day, harmless.",
+  "0g: PROMPT_ARCHITECTURE.md last touched aee70da (P6 registration); flip-count correction from state-of-play 4.2 has NOT landed."
+ ]
+}
