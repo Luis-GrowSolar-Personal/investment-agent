@@ -12,13 +12,13 @@
   "guard": "done",
   "score_remainder": "done",
   "merge_195": "done",
-  "cells_A0p": "pending",
-  "LOO_144": "pending",
-  "diagnostics": "pending",
-  "report": "pending"
+  "cells_A0p": "done",
+  "LOO_144": "done",
+  "diagnostics": "done",
+  "report": "done"
  },
  "batch_id_v6": "msgbatch_01U4EhvqUxVVZKCV1uPRPqNu",
- "next_action": "run full cells (R,A0,A0',B3) then LOO",
+ "next_action": "none - run complete; design session interprets wrap-ups/P6B-confound-and-concentration-out.md",
  "notes": [
   "R reproduced bit-exactly with the extended driver ($184,819.42 / 17.324% session / 23.458% daily; per-phase finals equal resolve-open-four cells 1a-phase0/10/20)."
  ],
@@ -37,6 +37,7 @@
  "batch_id_v6_submitted_at": "2026-09-24T12:17:58Z",
  "batch_id_v6_requests": 95,
  "actual_spend_usd": {
-  "v6_remainder_95": 3.561
+  "v6_remainder_95": 3.561,
+  "total": 3.561
  }
 }
