@@ -15,16 +15,16 @@
     "0g": "done",
     "5a": "done",
     "5b": "pending",
-    "5c": "pending",
+    "5c": "in_progress",
     "5d": "pending",
     "6": "pending",
     "report": "pending"
   },
   "batch_id_preflight": "msgbatch_01JzNethSpNvQqFe4KJ2JCKq",
-  "batch_id_arm_b": null,
+  "batch_id_arm_b": "msgbatch_01BoqzqFAgjC6oV9NSCe6fGZ",
   "batch_id_arm_c": null,
   "batch_id_noise": null,
-  "next_action": "submit-b, then submit-c",
+  "next_action": "poll-b; then submit-c",
   "notes": [
     "0c: P6 block present in PROMPT_ARCHITECTURE.md (commit aee70da). Prompt says registered 2026-09-24; today is 2026-09-23 - date premise off by a day, harmless.",
     "0g: PROMPT_ARCHITECTURE.md last touched aee70da (P6 registration); flip-count correction from state-of-play 4.2 has NOT landed.",
@@ -56,11 +56,37 @@
         "candidate_used": null,
         "branch": "sweep/db-corpus-baseline"
       }
+    },
+    "batch_id_arm_b": {
+      "B": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+        "candidate_used": "P6B-minimal",
+        "branch": "sweep/db-corpus-baseline"
+      },
+      "C": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "da5edc6fbc69cfa2e63e11d957bf71b801b28a4b3ee9c591dfabac1929090dad",
+        "candidate_used": "P6C-score",
+        "branch": "sweep/db-corpus-baseline"
+      },
+      "A_noise": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "candidate_used": null,
+        "branch": "sweep/db-corpus-baseline"
+      }
     }
   },
   "committed_usd_by_batch": {
-    "batch_id_preflight": 7.6
+    "batch_id_preflight": 7.6,
+    "batch_id_arm_b": 26.41
   },
   "batch_id_preflight_submitted_at": "2026-09-24T01:35:47Z",
-  "batch_id_preflight_requests": 200
+  "batch_id_preflight_requests": 200,
+  "batch_id_arm_b_submitted_at": "2026-09-24T01:44:07Z",
+  "batch_id_arm_b_requests": 1117
 }
