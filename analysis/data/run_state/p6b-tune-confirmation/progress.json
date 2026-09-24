@@ -1,13 +1,13 @@
 {
  "run_id": "p6b-tune-confirmation",
  "prompt_sha256": "0128e05c759d39cdda352ea033db49265fe835d8d2f8a91e8a27f6e749e51747",
- "driver_commit": null,
+ "driver_commit": "67303459e9121bb7a3e334ffb11103dff5ec450c",
  "prompt_commit": "d33806edc98ba9cf81a989c1d5168b105f4e6505",
  "luis_approved_usd": 60,
  "approval_source": "stated in prompts/P6B-tune-confirmation.md header; /execute-prompt invoked by Luis",
  "steps": {
-  "0a": "pending",
-  "0b": "pending",
+  "0a": "done",
+  "0b": "done",
   "0f": "pending",
   "0g": "pending",
   "protocol": "pending",
@@ -22,6 +22,6 @@
  "batch_id_preflight": null,
  "batch_id_arm_b": null,
  "batch_id_noise": null,
- "next_action": "commit driver (--split tune), then 0f/0g",
+ "next_action": "0f alias asserts (driver --split tune check0f), then analysis ref (0g)",
  "notes": []
 }

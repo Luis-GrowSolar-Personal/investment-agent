@@ -1,0 +1,23 @@
+{
+ "tune_symbols": 54,
+ "resolved_files_incl_excluded": 1207,
+ "unresolved_files": 1183,
+ "aliases_applied": {
+  "BK": "BNY",
+  "GOOGL": "GOOG"
+ },
+ "v6_tune_eval_files": 1207,
+ "eval_unmapped_symbols": [],
+ "symbols_with_no_files": [
+  "BNY"
+ ],
+ "excluded": [
+  "SPWR",
+  "WOLF"
+ ],
+ "calls_after_exclusion": 1169,
+ "companies_after_exclusion": 51,
+ "disjoint_train": true,
+ "disjoint_holdout": true,
+ "asserts_pass": false
+}
