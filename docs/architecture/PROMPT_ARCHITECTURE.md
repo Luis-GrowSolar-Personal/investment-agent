@@ -122,7 +122,7 @@ several hours.
 | P4 | Tier-conditioned reading of financial facts | XBRL build | P3 | not started |
 | P5 | Peer read-through across cohort members | none (transcripts) | — | not started |
 | **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **done — B held on tune (2026-09-25); research champion.** Arm C **closed** (same signal, 66% more cost) |
-| P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **next** |
+| P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **registered 2026-09-26 — running** (run `p7-three-voices-train`) |
 | P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | named, not run |
 | — | Model gate on B: newer or larger model on the unchanged minimal prompt (`PROMOTION_GATE.md` §2.2b equivalence hurdle) | none | P7 and P9 | named, **last** |
 | P8 | Auto-iterate loop as hypothesis generator (§2.6, with the 2026-09-24 constraints) | none (eval files) | after P7/P9 | named, not built |
@@ -250,6 +250,18 @@ three ways, the deflected answer), then score the gap between the first and
 the other two. This is the expectations-gap question asked of the transcript
 alone, without consensus data. Named now so it is committed before P6's diffs
 exist. Runs only after P6, and starts from B.
+
+**P7 — pre-registration, registered 2026-09-26** (copied from `prompts/P7-three-voices.md` §4 before any scoring; candidate `docs/prompts/candidates/EVALUATION_PROMPT_P7_three_voices.md`, sha256 `0a34f5a9…bcaf`, parent P6B-minimal)
+
+- **Change.** Add a three-voices section (numbers / claims / pressure / gap) to B before its READ, plus structured fields `gap` and `pressure`. Everything else is unchanged.
+- **Expected to move.** The bullish side: the top 235 by score get more hits and a higher median return. Ranking strength rises slightly. The bearish side is roughly unchanged.
+- **Predicted flip count.** P7 against B draw 1, direction under ≤ −2 / ≥ +3: **250–400 raw**, i.e. **~100–250 net** of B's 152 noise changes.
+- **Pre-flight stop rule (§2.5).** 150 train calls, stratified by `stratum_map()` (S1–S5, proportional, at least one S4 call). If P7 and B draw 1 disagree on direction on **under 20% of them**, **stop.** Also stop on any parse failure, `max_tokens` stop, `gap` or `pressure` value outside its three allowed values, or a projected full cost over $40.
+- **Gates (all three on train, each against BOTH B draws, §2.3a rule 3) for P7 to earn one look at tune.** (1) Top 235 by score (ties by the seeded rule, seed 11) right on **at least 47.0%** (B: 39.6% / 36.2%). (2) Paired rank-correlation difference (P7 minus B, ticker-block bootstrap, 2,000 draws, seed 11) has its range's lower end **no worse than −0.03**. (3) Bottom 191 by score right on **at least 57.0%**.
+- **Falsified** if gate 1 fails. If gate 1 holds and gate 2 or 3 fails, the bullish gain was bought elsewhere; P7 does not go to tune.
+- **Ambiguity rule.** Gate 1 within 43.6–50.4%, or gate 2's lower end within −0.06 to 0.00: a single draw cannot settle it. Report as ambiguous; a second P7 draw (~$33) is recommended but NOT approved and NOT run.
+- **Predictions, not gates.** Top-235 median return above +1.28 on both comparisons. Rank correlation 0.12–0.17. `gap` shares: claims_ahead 30–45%, aligned 35–50%, numbers_ahead 10–25%. `pressure` `answered` 40–60%. P7 costs 10–25% more per call than B. `numbers_ahead` + `answered` is the cell that carries the bullish edge.
+- **Runs on.** Train only. Cost ~$38, hard cap $45.
 
 **P8 — auto-iterate loop. Named, NOT built. Generator, never judge (§2.6),
 with four constraints added 2026-09-24:**

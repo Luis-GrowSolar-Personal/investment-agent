@@ -15,9 +15,12 @@ or lag the S&P 500, and how confident are you? Use only what is in the
 transcript. Ignore anything you may recall about this company outside
 of it.
 
-A call has three voices. Read them separately before you judge.
+What in this call should change what a well-informed holder believes?
+Say what it is and why it matters.
 
 ## VOICES
+
+A call has three voices. Read them separately before you judge.
 
 **Numbers.** In 2 to 3 sentences: what do the reported results and the
 formal guidance actually show? Use figures. This is usually the CFO.
