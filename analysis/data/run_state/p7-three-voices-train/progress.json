@@ -11,9 +11,12 @@
     "5a": "in_progress",
     "step5b": "done (1217 rows)",
     "5b": "in_progress",
-    "step5c": "in_progress"
+    "step5c": "done",
+    "step5d": "done",
+    "step5e": "done",
+    "report": "in_progress"
   },
-  "next_action": "poll-p7",
+  "next_action": "wrap-up",
   "notes": [
     "candidate as found replaced B's 'What in this call should change...' two lines; Luis chose to restore them (AskUserQuestion)."
   ],
