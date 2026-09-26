@@ -1,0 +1,17 @@
+{
+  "run_id": "p9-second-draw",
+  "prompt_sha256": "bc0a641883071c326e4587c3389d8e91400a84e8518b65ef0f1b6f0395b6c98d",
+  "driver_commit": null,
+  "luis_approved_usd": 36,
+  "cap_usd": 36,
+  "approval_source": "AskUserQuestion answer 'Approve $36 cap', 2026-09-26",
+  "steps": {
+    "step0": "in_progress",
+    "step1": "pending",
+    "step2": "pending",
+    "step3": "pending",
+    "report": "pending"
+  },
+  "next_action": "P9 row edit commit, then driver --p9r extension",
+  "notes": []
+}

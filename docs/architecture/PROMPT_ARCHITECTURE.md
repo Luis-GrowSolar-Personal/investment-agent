@@ -123,7 +123,7 @@ several hours.
 | P5 | Peer read-through across cohort members | none (transcripts) | — | not started |
 | **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **done — B held on tune (2026-09-25); research champion.** Arm C **closed** (same signal, 66% more cost) |
 | P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **falsified 2026-09-26 (train; gate 1 31.5% vs 47%)** |
-| P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **registered 2026-09-26 — running** (run `p9-expected-return-train`) |
+| P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **draw 1 ambiguous (gate 2 lower end −0.016 vs draw 1); second draw running** (`prompts/P9-second-draw.md`) |
 | — | Model gate on B: newer or larger model on the unchanged minimal prompt (`PROMOTION_GATE.md` §2.2b equivalence hurdle) | none | P7 and P9 | named, **last** |
 | P8 | Auto-iterate loop as hypothesis generator (§2.6, with the 2026-09-24 constraints) | none (eval files) | after P7/P9 | named, not built |
 | P6D | B plus the structured fields the allocator needs | none | allocator rebuild | **deferred to the allocator rebuild** |

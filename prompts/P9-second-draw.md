@@ -62,7 +62,13 @@ reason to stop.
 ## Step −1 / Step 0
 
 State in `analysis/data/run_state/p9-second-draw/`. `progress.json` is the
-very first action. It records the prompt sha, driver commit, step status,
+very first action. **Then, before the clean-tree check:** if this prompt
+file is untracked or modified, commit it as its own commit
+(`prompt: P9 second draw`). Do the same for any review file for it in
+`prompts/`. **This run only:** `CLAUDE.md` carries one uncommitted
+addition, standing rule 9 "Git bookends". Commit it as its own commit
+(`CLAUDE.md: git bookends rule for CLI prompts`) after checking that the
+diff is only that rule. Anything else modified → stop and report. It records the prompt sha, driver commit, step status,
 `next_action`, `notes[]`, and the approved cap. `batch_id_full` is
 committed the instant `create()` returns. One process, output to the
 terminal, no pipe to `tail`, no background poller. Clean tree; hard stop
@@ -169,5 +175,7 @@ Plain-language discipline is binding.
 
 `python3`, zsh, macOS Tahoe. No cache refresh. `sweep/db-corpus-baseline`.
 Provenance for every figure (file and key). One prompt in, one wrap-up
-out. **Budget stop:** one batch, all or nothing. If the projection
+out. **Finish with `git push`** of `sweep/db-corpus-baseline` after the
+wrap-up commit, and report the pushed hash. If the push fails, say so;
+do not retry with force. **Budget stop:** one batch, all or nothing. If the projection
 breaches $36, stop and report, and do not score a subset.
