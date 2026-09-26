@@ -12,9 +12,9 @@
     "step1": "done",
     "step2": "done",
     "step3": "done",
-    "report": "in_progress"
+    "report": "done"
   },
-  "next_action": "wrap-up, push",
+  "next_action": "none; run complete",
   "notes": [],
   "luis_approved_usd": 3
 }
