@@ -72,3 +72,6 @@ Claude outputs/
 !analysis/data/gate_ledger.json
 
 !analysis/data/gate_ledger.json
+
+# P5 phase 0: vendor transcripts fetched as peer-input probes; never committed (prompts/P5-phase0-probes.md Step 3.3). Must come after the run_state negations.
+analysis/data/run_state/p5-phase0/peer_probe/
