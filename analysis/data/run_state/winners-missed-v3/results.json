@@ -1,0 +1,444 @@
+{
+ "n": 1217,
+ "2a": {
+  "distribution": {
+   "balance": {
+    "outweighs": 677,
+    "balanced": 135,
+    "outweighed": 405
+   },
+   "raised": {
+    "yes": 345,
+    "no": 872
+   },
+   "beat": {
+    "no": 998,
+    "yes": 219
+   }
+  },
+  "max_single_value_share_pct": {
+   "balance": 55.6,
+   "raised": 71.7,
+   "beat": 82.0
+  },
+  "fields_over_85": [],
+  "STOP": false,
+  "v2_preflight_60": {
+   "balance": {
+    "outweighs": 32,
+    "balanced": 7,
+    "outweighed": 21
+   },
+   "raised": {
+    "yes": 16,
+    "no": 44
+   },
+   "beat": {
+    "yes": 10,
+    "no": 50
+   }
+  }
+ },
+ "2b": {
+  "n_nonbullish": 982,
+  "winners": 118,
+  "others": 864,
+  "i_balance_outweighs": {
+   "winners": {
+    "k": 42,
+    "n": 118,
+    "pct": 35.6,
+    "wilson": [
+     27.5,
+     44.6
+    ]
+   },
+   "others": {
+    "k": 400,
+    "n": 864,
+    "pct": 46.3,
+    "wilson": [
+     43.0,
+     49.6
+    ]
+   },
+   "diff_pts": -10.7,
+   "diff_range": [
+    -22.08,
+    0.84
+   ],
+   "excludes_zero_higher_for_winners": false
+  },
+  "ii_raised_yes": {
+   "winners": {
+    "k": 21,
+    "n": 118,
+    "pct": 17.8,
+    "wilson": [
+     11.9,
+     25.7
+    ]
+   },
+   "others": {
+    "k": 201,
+    "n": 864,
+    "pct": 23.3,
+    "wilson": [
+     20.6,
+     26.2
+    ]
+   },
+   "diff_pts": -5.47,
+   "diff_range": [
+    -12.41,
+    1.88
+   ],
+   "excludes_zero_higher_for_winners": false
+  },
+  "iii_beat_yes": {
+   "winners": {
+    "k": 17,
+    "n": 118,
+    "pct": 14.4,
+    "wilson": [
+     9.2,
+     21.9
+    ]
+   },
+   "others": {
+    "k": 122,
+    "n": 864,
+    "pct": 14.1,
+    "wilson": [
+     12.0,
+     16.6
+    ]
+   },
+   "diff_pts": 0.29,
+   "diff_range": [
+    -6.08,
+    7.98
+   ],
+   "excludes_zero_higher_for_winners": false
+  },
+  "iv_beat_and_raise": {
+   "winners": {
+    "k": 8,
+    "n": 118,
+    "pct": 6.8,
+    "wilson": [
+     3.5,
+     12.8
+    ]
+   },
+   "others": {
+    "k": 52,
+    "n": 864,
+    "pct": 6.0,
+    "wilson": [
+     4.6,
+     7.8
+    ]
+   },
+   "diff_pts": 0.76,
+   "diff_range": [
+    -3.58,
+    6.04
+   ],
+   "excludes_zero_higher_for_winners": false
+  },
+  "reading": "not seen"
+ },
+ "2c": {
+  "beat_and_raise": {
+   "n": 116,
+   "big_winner": {
+    "k": 13,
+    "n": 116,
+    "pct": 11.2,
+    "wilson": [
+     6.7,
+     18.2
+    ]
+   },
+   "big_loser": {
+    "k": 10,
+    "n": 116,
+    "pct": 8.6,
+    "wilson": [
+     4.7,
+     15.1
+    ]
+   },
+   "median_ret": -2.12,
+   "median_range": [
+    -6.35,
+    1.92
+   ],
+   "B1_score_dist": {
+    "-1": 5,
+    "1": 9,
+    "2": 46,
+    "3": 56
+   },
+   "B2_score_dist": {
+    "-2": 1,
+    "-1": 6,
+    "1": 6,
+    "2": 43,
+    "3": 59,
+    "4": 1
+   },
+   "B1_below_plus3": {
+    "k": 60,
+    "n": 116,
+    "pct": 51.7,
+    "wilson": [
+     42.7,
+     60.6
+    ]
+   },
+   "B2_below_plus3": {
+    "k": 56,
+    "n": 116,
+    "pct": 48.3,
+    "wilson": [
+     39.4,
+     57.3
+    ]
+   }
+  },
+  "raised_only": {
+   "n": 229,
+   "big_winner": {
+    "k": 24,
+    "n": 229,
+    "pct": 10.5,
+    "wilson": [
+     7.1,
+     15.1
+    ]
+   },
+   "big_loser": {
+    "k": 25,
+    "n": 229,
+    "pct": 10.9,
+    "wilson": [
+     7.5,
+     15.6
+    ]
+   },
+   "median_ret": -0.54,
+   "median_range": [
+    -2.28,
+    1.71
+   ],
+   "B1_score_dist": {
+    "-2": 6,
+    "-1": 23,
+    "1": 23,
+    "2": 110,
+    "3": 62,
+    "4": 5
+   },
+   "B2_score_dist": {
+    "-2": 6,
+    "-1": 15,
+    "0": 1,
+    "1": 35,
+    "2": 108,
+    "3": 60,
+    "4": 4
+   },
+   "B1_below_plus3": {
+    "k": 162,
+    "n": 229,
+    "pct": 70.7,
+    "wilson": [
+     64.5,
+     76.3
+    ]
+   },
+   "B2_below_plus3": {
+    "k": 165,
+    "n": 229,
+    "pct": 72.1,
+    "wilson": [
+     65.9,
+     77.5
+    ]
+   }
+  },
+  "beat_only": {
+   "n": 103,
+   "big_winner": {
+    "k": 15,
+    "n": 103,
+    "pct": 14.6,
+    "wilson": [
+     9.0,
+     22.6
+    ]
+   },
+   "big_loser": {
+    "k": 19,
+    "n": 103,
+    "pct": 18.4,
+    "wilson": [
+     12.1,
+     27.0
+    ]
+   },
+   "median_ret": -2.0,
+   "median_range": [
+    -5.94,
+    3.01
+   ],
+   "B1_score_dist": {
+    "-3": 1,
+    "-2": 8,
+    "-1": 16,
+    "0": 1,
+    "1": 13,
+    "2": 40,
+    "3": 22,
+    "4": 2
+   },
+   "B2_score_dist": {
+    "-3": 3,
+    "-2": 7,
+    "-1": 14,
+    "1": 11,
+    "2": 44,
+    "3": 23,
+    "4": 1
+   },
+   "B1_below_plus3": {
+    "k": 79,
+    "n": 103,
+    "pct": 76.7,
+    "wilson": [
+     67.7,
+     83.8
+    ]
+   },
+   "B2_below_plus3": {
+    "k": 79,
+    "n": 103,
+    "pct": 76.7,
+    "wilson": [
+     67.7,
+     83.8
+    ]
+   }
+  },
+  "neither": {
+   "n": 769,
+   "big_winner": {
+    "k": 101,
+    "n": 769,
+    "pct": 13.1,
+    "wilson": [
+     10.9,
+     15.7
+    ]
+   },
+   "big_loser": {
+    "k": 147,
+    "n": 769,
+    "pct": 19.1,
+    "wilson": [
+     16.5,
+     22.0
+    ]
+   },
+   "median_ret": -4.27,
+   "median_range": [
+    -6.18,
+    -2.16
+   ],
+   "B1_score_dist": {
+    "-5": 1,
+    "-4": 2,
+    "-3": 26,
+    "-2": 147,
+    "-1": 139,
+    "0": 2,
+    "1": 122,
+    "2": 242,
+    "3": 86,
+    "4": 2
+   },
+   "B2_score_dist": {
+    "-5": 1,
+    "-4": 3,
+    "-3": 26,
+    "-2": 136,
+    "-1": 154,
+    "0": 3,
+    "1": 122,
+    "2": 237,
+    "3": 87
+   },
+   "B1_below_plus3": {
+    "k": 681,
+    "n": 769,
+    "pct": 88.6,
+    "wilson": [
+     86.1,
+     90.6
+    ]
+   },
+   "B2_below_plus3": {
+    "k": 682,
+    "n": 769,
+    "pct": 88.7,
+    "wilson": [
+     86.3,
+     90.7
+    ]
+   }
+  },
+  "all_calls": {
+   "B1_below_plus3_pct": 80.7,
+   "B2_below_plus3_pct": 80.7,
+   "big_winner_pct": 12.6
+  },
+  "beat_and_raise_minus_neither_big_winner_rate": {
+   "diff_pts": -1.93,
+   "range": [
+    -7.89,
+    3.58
+   ],
+   "valid_draws": 2000,
+   "excludes_zero_higher": false
+  },
+  "median_return_beat_and_raise_minus_neither": {
+   "diff": 2.15,
+   "range": [
+    -2.04,
+    6.74
+   ]
+  },
+  "B_held_back_on_beat_and_raise": {
+   "B1_below_plus3_pct": 51.7,
+   "all_calls_pct": 80.7,
+   "more_often_than_overall": false
+  },
+  "reading": "not worth building on this evidence"
+ },
+ "2d": {
+  "right_pick_pairs_winner_side": {
+   "n": 18,
+   "winner_side_raised_or_beat": 6,
+   "raised": 5,
+   "beat": 2
+  },
+  "wrong_pick_pairs_chosen_call": {
+   "n": 12,
+   "chosen_raised_or_beat": 5,
+   "raised": 5,
+   "beat": 1
+  }
+ }
+}

@@ -1,1 +1,6 @@
 # findings (append-only)
+- Full batch (read_labels_v3.jsonl): 1,217 parsed, 0 out-of-set, 0 max_tokens; real cost $1.83. Classifier v3 sha fe58344f...c307c; diff vs v2 is only the header, the `discounted` line/comma and its definition.
+- 2a stop rule: NOT tripped. balance outweighs 677 / balanced 135 / outweighed 405 (max 55.6%); raised yes 345 / no 872 (max 71.7%); beat yes 219 / no 998 (max 82.0%, close to the 85% line).
+- 2b (non-bullish, 118 winners vs 864 others): balance=outweighs 35.6% vs 46.3% (diff -10.7, range -22.1 to +0.8); raised 17.8% vs 23.3% (-5.5, -12.4 to +1.9); beat 14.4% vs 14.1% (+0.3, -6.1 to +8.0); beat-and-raise 6.8% vs 6.0% (+0.8, -3.6 to +6.0). None higher for winners with range above zero -> "not seen".
+- 2c: beat-and-raise 116 calls: big-winner 11.2% (6.7-18.2) vs neither 13.1% (10.9-15.7), diff -1.9 (-7.9 to +3.6) -> "not worth building on this evidence". Median return -2.12 vs -4.27 (diff +2.15, range -2.04 to +6.74). B scored 51.7% of beat-and-raise below +3 (all calls 80.7%; neither 88.6%): B commits MORE often on them, not less. big-loser rates: BR 8.6%, raised-only 10.9%, beat-only 18.4%, neither 19.1%.
+- 2d: v2 right-pick pairs: 6 of 18 winner-side calls tagged raised or beat (raised 5, beat 2); wrong-pick chosen calls: 5 of 12 (raised 5, beat 1).

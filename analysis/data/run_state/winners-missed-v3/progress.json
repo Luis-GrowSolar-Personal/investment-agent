@@ -7,12 +7,12 @@
   "approval_source": "AskUserQuestion 'Approve $4 cap', 2026-09-26",
   "steps": {
     "step0": "done",
-    "step1": "in_progress",
-    "step2": "pending",
-    "report": "pending",
+    "step1": "done",
+    "step2": "done",
+    "report": "in_progress",
     "2c": "in_progress"
   },
-  "next_action": "w-poll-full",
+  "next_action": "wrap-up, push",
   "notes": [
     "diff v3 vs v2: header lines, the \"discounted\" line in the block (and the comma on \"beat\"), the discounted definition bullet; nothing else"
   ],
@@ -24,5 +24,6 @@
   },
   "batch_id_full": "msgbatch_01Yb27nsxYyRtLuawpg48WLG",
   "batch_id_full_submitted_at": "2026-09-26T18:02:40Z",
-  "batch_id_full_requests": 1217
+  "batch_id_full_requests": 1217,
+  "spent_usd": 1.83
 }
