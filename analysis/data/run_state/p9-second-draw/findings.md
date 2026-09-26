@@ -1,1 +1,6 @@
 # findings (append-only)
+- Draw 2 (results_draw2.json, results_verdict.json): 1,217 parsed, 0 max_tokens, 0 range-order violations. Rank 0.111 (0.028-0.189). Gate 1 clipped slope 0.481 (0.132-0.804) held. Gate 3 bottom-191 61.8% held. Gate 2 FAILED against both B draws: vs B1 -0.020 (-0.071 to +0.032), vs B2 +0.011 (-0.039 to +0.059); both lower ends < -0.03.
+- Verdict per pre-registered rule: 5 of 6 gate checks held (draw1 all 3; draw2 gates 1 and 3, not 2) -> P9 FALSIFIED on train. No further ambiguity rule.
+- Severity: draw 2 (a) within-bottom-191 rho 0.184 (0.046-0.312) excludes zero; (b) lowest fifth -8.27 < second -4.09. Both draws meet both conditions -> "better information" by the pre-registered reading, although the gate verdict is FALSIFIED. Draw 2 fifths are not ordered at the top (-1.82 in the top fifth).
+- P9 own noise floor: group change 17.0% (15.0-19.2) vs B 12.5%; expectedReturn moves >=3 on 28.4%, >=5 on 13.3%; noise win rate 56.0% (47.8-64.0); paired rank diff draw1-draw2 0.060 (0.024-0.097), half-width 0.037 (inherited tolerance -0.04) vs B 0.031/0.027: P9 is shakier than B on both. Clipped slope 0.662 vs 0.481.
+- Averaged draws (diagnostic, not a gate/candidate): rho 0.140 (0.055-0.223), clipped slope 0.629 (0.268-0.959), bottom-191 hit 62.8%.

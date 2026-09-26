@@ -8,12 +8,12 @@
   "steps": {
     "step0": "done",
     "step1": "done (1217 rows)",
-    "step2": "in_progress",
-    "step3": "pending",
-    "report": "pending",
+    "step2": "done",
+    "step3": "done",
+    "report": "in_progress",
     "5b": "in_progress"
   },
-  "next_action": "poll-p9",
+  "next_action": "wrap-up, push",
   "notes": [],
   "guards": {
     "batch_id_full": {
