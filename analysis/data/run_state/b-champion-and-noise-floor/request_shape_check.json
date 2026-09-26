@@ -1,0 +1,10 @@
+{
+ "universe": 1217,
+ "equal_to_original_scores_b": true,
+ "prompt_sha": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+ "model": "claude-sonnet-4-6",
+ "max_tokens": 4096,
+ "temperature_param": "absent",
+ "sample_checked": 25,
+ "note": "raw_arm_b.jsonl stores responses, not request params; shape is asserted against the unchanged make_request() code path, prompt sha, and presence of each sampled call's original custom_id in raw_arm_b.jsonl or raw_preflight.jsonl"
+}

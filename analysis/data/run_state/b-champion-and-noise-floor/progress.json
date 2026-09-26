@@ -1,13 +1,13 @@
 {
   "run_id": "b-champion-and-noise-floor",
   "prompt_sha256": "705dbac465cd9c737f0ab9afe01a25665e64d1e3951aed052654e4474cb47492",
-  "driver_commit": null,
+  "driver_commit": "19c865392b8fd252842dc4d3a69d636a8ff59789",
   "approved_cap_usd": 35,
   "approval_source": "prompts/B-champion-and-noise-floor.md header: 'Luis has approved $35'",
   "steps": {
     "step0": "done (tree clean, 4 handoff docs read)",
     "step1": "done",
-    "step2a": "pending",
+    "step2a": "in_progress",
     "step2b": "pending",
     "step2c": "pending",
     "step2d": "pending",
@@ -15,9 +15,11 @@
   },
   "batch_id_preflight": null,
   "batch_id_rerun": null,
-  "next_action": "Step 2a: extend analysis/p6_output_format_driver.py with --rerun path (own commit), then 30-call pre-flight",
+  "next_action": "preflight-submit (30 calls) then preflight-poll, preflight-report",
   "notes": [
     "gate_ledger.json is gitignored (analysis/data/*) and untracked; entry 2 written to disk, not committed",
-    "whats_live.py prints no research_champion line; it checks promoted hashes only"
-  ]
+    "whats_live.py prints no research_champion line; it checks promoted hashes only",
+    "pre-flight selection: proportional allocation gave S4 zero; moved one call from S3 to S4. train strata are S1-S5 (prompt says S1-S4)."
+  ],
+  "luis_approved_usd": 35
 }
