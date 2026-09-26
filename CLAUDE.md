@@ -143,6 +143,15 @@ last five, regardless of how well the task is understood.
 8. **Standing rules** — `python3`/zsh, no cache refresh, work on the sweep
    branch, provenance for every figure, one prompt in and one wrap-up out to
    `wrap-ups/<prompt-basename>-out.md`.
+9. **Git bookends** — the run commits its own inputs and pushes its own
+   output. At Step −1, right after `progress.json` and before the clean-tree
+   check, commit the prompt file (and any review file for it in `prompts/`)
+   if untracked or modified, as its own commit. After the wrap-up commit,
+   `git push` the branch and report the pushed hash; on failure, report it
+   and never force. Luis does not hand-commit prompts before a run or push
+   after one. (Cowork sessions still never run git themselves — the Dropbox
+   mount leaves stale `.git/index.lock` files; they write the prompt and
+   stop.)
 
 ### The six guardrails — each one paid for by a wasted run
 
