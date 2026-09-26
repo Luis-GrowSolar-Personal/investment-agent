@@ -1,0 +1,44 @@
+{
+ "B_mean_rho": 0.13,
+ "opus_rho": 0.27,
+ "paired_gain_all": {
+  "n": 300,
+  "gain": 0.139,
+  "range": [
+   0.072,
+   0.212
+  ]
+ },
+ "megacap_S1": {
+  "n": 88,
+  "gain": 0.123,
+  "range": [
+   0.013,
+   0.282
+  ]
+ },
+ "rest_not_S1": {
+  "n": 212,
+  "gain": 0.145,
+  "range": [
+   0.06,
+   0.233
+  ]
+ },
+ "excluding_abs20": {
+  "n": 198,
+  "gain": 0.09,
+  "range": [
+   -0.017,
+   0.197
+  ]
+ },
+ "mean_score_opus_minus_B": {
+  "big_losers_n": 59,
+  "vs_mean_of_B1B2": -1.25,
+  "vs_B1": -1.27,
+  "big_winners_n": 43,
+  "winners_vs_mean_of_B1B2": -0.55,
+  "winners_vs_B1": -0.58
+ }
+}

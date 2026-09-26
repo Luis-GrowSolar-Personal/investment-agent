@@ -502,5 +502,113 @@
     },
     "cost_usd": 60.31,
     "cost_note": "draw 1 $30.17 + draw 2 $30.14 (wrap-ups/P9-expected-return-train-out.md, wrap-ups/P9-second-draw-out.md)"
+  },
+  {
+    "date": "2026-09-26",
+    "label": "model screen: P6B-minimal on claude-opus-5-5 vs claude-sonnet-4-6, 300 train calls",
+    "change_class": "analyst",
+    "change_class_detail": "model_screen",
+    "hurdle": "screen (not the 2.2b model gate)",
+    "primary_metric": "direction disagreement of one Opus draw with Sonnet's two draws, minus Sonnet-vs-Sonnet (prompts/opus-screen.md)",
+    "champion": "P6B-minimal on claude-sonnet-4-6 (two draws)",
+    "challenger": "P6B-minimal on claude-opus-5-5 (one draw, 300 train calls)",
+    "split": "train (300-call stratified subset, seed opus-screen-11)",
+    "built_by": "hand (sop-2026-09-26-bookkeeping); scores from run opus-screen",
+    "holdout": "locked \u2014 not yet looked at",
+    "tune": "not run",
+    "metrics": {
+      "direction_disagreement": {
+        "opus_vs_B1_pct": 33.3,
+        "opus_vs_B2_pct": 35.0,
+        "B1_vs_B2_pct": 15.0,
+        "source": "wrap-ups/opus-screen-out.md; analysis/data/run_state/opus-screen/results.json -> 1_direction_disagreement"
+      },
+      "screen_figure": {
+        "difference_pts": 19.2,
+        "range": [
+          12.4,
+          25.9
+        ],
+        "reading": "reads differently \u2014 worth a full test",
+        "source": "analysis/data/run_state/opus-screen/results.json -> 2_screen_figure"
+      },
+      "rank_correlation_300": {
+        "opus": 0.27,
+        "opus_range": [
+          0.137,
+          0.381
+        ],
+        "B_draw1": 0.138,
+        "B_draw2": 0.123,
+        "note": "reported, not read as evidence at N=300 (~\u00b10.11)",
+        "source": "analysis/data/run_state/opus-screen/results.json -> 5_rank_correlation"
+      },
+      "bottom47_bearish_hit_pct": {
+        "opus": 70.2,
+        "B_draw1": 66.0,
+        "B_draw2": 74.5,
+        "source": "analysis/data/run_state/opus-screen/results.json -> 5_matched_hits_bottom47_top58"
+      },
+      "top58_hit_pct": {
+        "opus": 48.3,
+        "B_draw1": 39.7,
+        "B_draw2": 32.8,
+        "source": "analysis/data/run_state/opus-screen/results.json -> 5_matched_hits_bottom47_top58"
+      },
+      "calls_scored_ge_plus3": {
+        "opus": 8,
+        "B_draw1": 70,
+        "B_draw2": 70,
+        "of": 300,
+        "source": "analysis/data/run_state/opus-screen/results.json -> 5_direction_counts_all_300"
+      },
+      "cost_per_call_usd": {
+        "opus": 0.0469,
+        "sonnet_B": 0.0236,
+        "source": "analysis/data/run_state/opus-screen/results.json -> 6_cost_tokens"
+      }
+    },
+    "post_hoc_diagnostics": {
+      "label": "computed in Cowork after the run, not pre-registered",
+      "source": "docs/handoffs/2026-09-26-state-of-play.md section 2.4",
+      "quoted_in_state_of_play": {
+        "paired_ranking_gain": {
+          "value": 0.14,
+          "range": [
+            0.07,
+            0.22
+          ]
+        },
+        "megacaps": {
+          "value": 0.13,
+          "range": [
+            0.02,
+            0.28
+          ]
+        },
+        "rest": {
+          "value": 0.15,
+          "range": [
+            0.06,
+            0.23
+          ]
+        },
+        "excluding_abs20_moves": {
+          "value": 0.09,
+          "range": [
+            -0.02,
+            0.19
+          ]
+        },
+        "mean_score_vs_B": {
+          "big_losers": -1.25,
+          "big_winners": -0.55
+        }
+      },
+      "reproduction": "REPRODUCED from committed score files by analysis/opus_posthoc_repro.py -> analysis/data/run_state/sop-2026-09-26-bookkeeping/posthoc_repro.json: paired gain +0.139 (+0.072 to +0.212); S1 (assumed = 'megacaps') +0.123 (+0.013 to +0.282); rest +0.145 (+0.060 to +0.233); excluding |return| >= 20: +0.090 (-0.017 to +0.197); mean score Opus minus mean(B1,B2): big losers -1.25 (n=59), big winners -0.55 (n=43). All within 0.01 of the quoted figures (megacap point 0.123 vs quoted 0.13 and paired upper end 0.212 vs 0.22 are the largest differences). 'Megacap' = stratum S1 is my assumption."
+    },
+    "final_verdict": "FINDING \u2014 not a candidate",
+    "final_reason": "Opus reads calls differently and is sharper on the downside; kept as a finding under PROMPT_ARCHITECTURE.md 2.3a rule 8, not as a candidate or champion.",
+    "cost_usd": 14.06
   }
 ]

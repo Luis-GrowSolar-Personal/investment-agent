@@ -129,7 +129,7 @@ several hours.
 | P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **falsified 2026-09-26 (train; gate 1 31.5% vs 47%)** |
 | P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **falsified 2026-09-26 (train, two draws; ranking non-inferiority failed on draw 2; severity confirmed on both)** |
 | P9-avg | **P9 averaged (score twice, average) — eligible for one tune look, parked 2026-09-26.** Reason: it passed the fixed reading by 0.0002, three of four alternate bootstrap seeds fell below the line, and its benefit (severity) serves the deferred allocator rebuild; the tune look is reserved for a bullish candidate if one emerges. See `wrap-ups/P9-close-and-averaged-comparison-out.md`. | none | — | **parked** |
-| — | Model gate on B: newer or larger model on the unchanged minimal prompt (`PROMOTION_GATE.md` §2.2b equivalence hurdle) | none | P7 and P9 | named, **last** |
+| — | Model gate on B: newer or larger model on the unchanged minimal prompt (`PROMOTION_GATE.md` §2.2b equivalence hurdle) | none | P7 and P9 | named, **last**; screen run 2026-09-26 (`wrap-ups/opus-screen-out.md`); full test deferred under §2.3a rule 8 |
 | P8 | Auto-iterate loop as hypothesis generator (§2.6, with the 2026-09-24 constraints) | none (eval files) | after P7/P9 | named, not built |
 | P6D | B plus the structured fields the allocator needs | none | allocator rebuild | **deferred to the allocator rebuild** |
 
@@ -364,6 +364,16 @@ these, stated in its own words with its own numbers.
    prompt candidate runs two draws on train. Single draws landed in the
    ambiguity band on P6B/B, P9 and P9-averaged; a second draw was needed each
    time.
+8. **Model policy (decided 2026-09-26).** Research iterates on Sonnet
+   (`claude-sonnet-4-6`). Larger models (Opus, Fable) are used sparingly:
+   **once**, to confirm a finished Sonnet candidate. It is kept if it's better
+   and dropped if not. A larger model is never made the research incumbent, so
+   future candidates are not forced onto the costlier model. A model step is
+   judged **by ranking strength and same-size groups (bottom N / top N), never
+   by the fixed cut-offs** (≤ −2 / ≥ +3), because those were fitted to
+   Sonnet's scale. Opus scored only 8 of 300 calls +3 or higher, against
+   Sonnet's 70. The research incumbent and the production model are separate
+   decisions. Source: `docs/handoffs/2026-09-26-state-of-play.md` §3.
 
 ### 2.4 Required diagnostics after every round — all free, no model calls
 

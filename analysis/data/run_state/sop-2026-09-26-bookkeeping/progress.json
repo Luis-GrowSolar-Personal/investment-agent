@@ -1,0 +1,14 @@
+{
+  "run_id": "sop-2026-09-26-bookkeeping",
+  "prompt_sha256": "37071f93ae20f98fd8b8d6b5a0894a942bf6f20d2cb9a880dee16d2bd598e456",
+  "cost_usd": 0,
+  "steps": {
+    "step0": "done",
+    "step1": "done",
+    "step2": "done",
+    "step3": "in_progress",
+    "report": "pending"
+  },
+  "next_action": "propagation grep, wrap-up, push",
+  "notes": []
+}
