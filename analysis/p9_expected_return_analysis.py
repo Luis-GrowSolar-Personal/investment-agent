@@ -19,6 +19,15 @@ ORIG, B2, STATE = RS / "p6-output-format-round", RS / "b-champion-and-noise-floo
 NB, NL = 235, 191
 B_NOISE_WIN = 0.554        # b-champion-and-noise-floor results.json pooled.noise_win_rate.pct
 CLIP = 50.0
+# --draw2 (prompts/P9-second-draw.md): same computation on the second P9 draw; outputs go to the p9-second-draw run state.
+DRAW2 = "--draw2" in sys.argv
+if DRAW2:
+    STATE = RS / "p9-second-draw"
+    SCORES = STATE / "scores_p9_rerun1.jsonl"
+    RESULTS, DIFFS = STATE / "results_draw2.json", STATE / "per_call_diffs_draw2.csv"
+else:
+    SCORES = STATE / "scores_p9.jsonl"
+    RESULTS, DIFFS = STATE / "results.json", STATE / "per_call_diffs.csv"
 
 
 def d3(s):
@@ -44,7 +53,7 @@ def main():
     calls = A.load_calls(ORIG / "calls.csv")
     b2 = {(r["ticker"], r["date"]): A.parse_score(r["content"])[1] for r in p3.read_jsonl(B2 / "scores_rerun1.jsonl".replace("scores_rerun1", "scores_b_rerun1"))}
     p9 = {}
-    for r in p3.read_jsonl(STATE / "scores_p9.jsonl"):
+    for r in p3.read_jsonl(SCORES):
         st = A.parse_structured(r["content"])
         p9[(r["ticker"], r["date"])] = {"er": num(st.get("expectedReturn")), "lo": num(st.get("rangeLow")), "hi": num(st.get("rangeHigh")),
                                         "nr": st.get("noRead"), "tok": r["usage"]["output_tokens"], "cost": r["cost_usd"], "stop": r["stop_reason"]}
@@ -176,11 +185,11 @@ def main():
                           "slope_clipped_0.2_0.6": [sl_c, 0.2 <= sl_c <= 0.6], "coverage_50_70": [out["range_coverage"]["inside_pct"], 50 <= out["range_coverage"]["inside_pct"] <= 70],
                           "rho_0.10_0.15": [cov["P9"]["rho"], 0.10 <= cov["P9"]["rho"] <= 0.15],
                           "cost_within_15pct_of_B": [out["tokens_cost"]["P9_cost_per_call"], abs(out["tokens_cost"]["P9_cost_per_call"] / 0.0236 - 1) <= 0.15]}
-    with (STATE / "per_call_diffs.csv").open("w", newline="") as f:
+    with DIFFS.open("w", newline="") as f:
         w = csv.writer(f); w.writerow(["ticker", "call_date", "stratum", "ret", "gt", "b1", "b2", "expectedReturn", "rangeLow", "rangeHigh", "p9_group", "b1_dir", "b2_dir"])
         for r in priced:
             w.writerow([r["ticker"], r["call_date"], r["stratum"], ret(r), r["gt_old_ruler"], r["b1"], r["b2"], r["er"], r["lo"], r["hi"], grp9[(r["ticker"], r["call_date"])], d3(r["b1"]), d3(r["b2"])])
-    (STATE / "results.json").write_text(json.dumps(out, indent=1, default=float))
+    RESULTS.write_text(json.dumps(out, indent=1, default=float))
     print(json.dumps(out, indent=1, default=float))
 
 
