@@ -10,10 +10,10 @@
     "step1": "done",
     "step2": "stopped at 2b (discounted 91.7% yes)",
     "step3": "done",
-    "report": "in_progress",
+    "report": "done (partial: step 2 stopped by rule)",
     "2b": "in_progress"
   },
-  "next_action": "wrap-up, push",
+  "next_action": "design session: narrow classifier or run pre-registered candidate",
   "notes": [
     "driver_commit advanced to the step 3 extension; step 2 pre-flight ran on the earlier driver commit (unchanged step 2 code)"
   ],
