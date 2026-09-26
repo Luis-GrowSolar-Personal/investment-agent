@@ -255,5 +255,97 @@
       },
       "note": "Second baseline draw registered in VERSION_REGISTRY.json research_champion.baseline_draws."
     }
+  },
+  {
+    "date": "2026-09-26",
+    "label": "prompt: P7-three-voices vs P6B-minimal (two draws), train only",
+    "change_class": "analyst",
+    "change_class_detail": "prompt",
+    "hurdle": "improvement",
+    "primary_metric": "top-235 bullish hit rate at matched coverage, plus rank correlation non-inferiority and bottom-191 hit rate (PROMPT_ARCHITECTURE.md 2.2 P7 pre-registration)",
+    "champion": "P6B-minimal (two draws)",
+    "challenger": "P7-three-voices",
+    "split": "train",
+    "built_by": "hand (p7-bookkeeping); scores from run p7-three-voices-train",
+    "holdout": "locked \u2014 not yet looked at",
+    "tune": "not run \u2014 falsified on train",
+    "gates": {
+      "gate1_top235_bullish_hit": {
+        "value_pct": 31.5,
+        "range": [
+          25.9,
+          37.7
+        ],
+        "target": ">= 47.0%",
+        "B_draw1_pct": 39.6,
+        "B_draw2_pct": 36.2,
+        "vs_draw1": "failed",
+        "vs_draw2": "failed",
+        "held_against_both": false,
+        "source": "analysis/data/run_state/p7-three-voices-train/results.json -> gates.gate1_top235_hit_pct; matched_coverage.P7.top235"
+      },
+      "gate2_rank_non_inferiority": {
+        "target": "lower end of paired range >= -0.03",
+        "vs_draw1": {
+          "value": -0.0175,
+          "range": [
+            -0.0499,
+            0.0158
+          ],
+          "result": "failed"
+        },
+        "vs_draw2": {
+          "value": 0.0136,
+          "range": [
+            -0.017,
+            0.0457
+          ],
+          "result": "held"
+        },
+        "held_against_both": false,
+        "P7_rho": 0.1128,
+        "P7_rho_range": [
+          0.0331,
+          0.1891
+        ],
+        "source": "analysis/data/run_state/p7-three-voices-train/results.json -> gates.gate2; matched_coverage.P7"
+      },
+      "gate3_bottom191_bearish_hit": {
+        "value_pct": 58.6,
+        "range": [
+          51.6,
+          65.4
+        ],
+        "target": ">= 57.0%",
+        "B_draw1_pct": 62.3,
+        "B_draw2_pct": 61.3,
+        "held_against_both": true,
+        "source": "analysis/data/run_state/p7-three-voices-train/results.json -> gates.gate3_bottom191_hit_pct; matched_coverage.P7.bottom191"
+      },
+      "n_gates_held_against_both": 1
+    },
+    "final_verdict": "FALSIFIED",
+    "final_reason": "Gate 1 failed (31.5% vs 47.0%, below both B draws): the three-voices mechanism did not find winners in the transcript on train (source: wrap-ups/P7-three-voices-train-out.md What this means).",
+    "diagnostics_of_record": {
+      "gap_shares_pct": {
+        "claims_ahead": 78.8,
+        "aligned": 14.1,
+        "numbers_ahead": 7.1
+      },
+      "pressure_shares_pct": {
+        "avoided": 79.7,
+        "answered": 20.0,
+        "none": 0.3
+      },
+      "predicted_carrier_cell": {
+        "cell": "numbers_ahead + answered",
+        "calls": 55,
+        "bullish_hit_pct": 25.5,
+        "bullish_base_rate_pct": 33.2
+      },
+      "why_no_reword_queued": "the labels put ~80% of calls in one cell, and the groups they did form showed no bullish edge",
+      "source": "analysis/data/run_state/p7-three-voices-train/results.json -> shares_pct, gap_x_pressure, base_rates_pct"
+    },
+    "cost_usd": 34.07
   }
 ]

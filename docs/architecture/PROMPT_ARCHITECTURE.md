@@ -122,8 +122,8 @@ several hours.
 | P4 | Tier-conditioned reading of financial facts | XBRL build | P3 | not started |
 | P5 | Peer read-through across cohort members | none (transcripts) | — | not started |
 | **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **done — B held on tune (2026-09-25); research champion.** Arm C **closed** (same signal, 66% more cost) |
-| P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **registered 2026-09-26 — running** (run `p7-three-voices-train`) |
-| P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | named, not run |
+| P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **falsified 2026-09-26 (train; gate 1 31.5% vs 47%)** |
+| P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **next (draft under review)** |
 | — | Model gate on B: newer or larger model on the unchanged minimal prompt (`PROMOTION_GATE.md` §2.2b equivalence hurdle) | none | P7 and P9 | named, **last** |
 | P8 | Auto-iterate loop as hypothesis generator (§2.6, with the 2026-09-24 constraints) | none (eval files) | after P7/P9 | named, not built |
 | P6D | B plus the structured fields the allocator needs | none | allocator rebuild | **deferred to the allocator rebuild** |
@@ -263,6 +263,9 @@ exist. Runs only after P6, and starts from B.
 - **Predictions, not gates.** Top-235 median return above +1.28 on both comparisons. Rank correlation 0.12–0.17. `gap` shares: claims_ahead 30–45%, aligned 35–50%, numbers_ahead 10–25%. `pressure` `answered` 40–60%. P7 costs 10–25% more per call than B. `numbers_ahead` + `answered` is the cell that carries the bullish edge.
 - **Runs on.** Train only. Cost ~$38, hard cap $45.
 
+**P7 — Result, 2026-09-26 (train; `wrap-ups/P7-three-voices-train-out.md`, `p7-three-voices-train/results.json`).** Gate 1 failed: top 235 right 31.5% vs the 47.0% target and B's 39.6% / 36.2% (`matched_coverage.P7.top235`); gate 2 failed against draw 1 (−0.017, range −0.050 to +0.016) and held against draw 2; gate 3 held (58.6% vs 57.0%). The model labelled 78.8% of calls `claims_ahead` and 79.7% `avoided` (`shares_pct`), so the labels could not separate companies; the predicted carrier cell (`numbers_ahead` + `answered`, 55 calls) was right 25.5% against a 33.2% base rate (`gap_x_pressure`). Gate ledger entry 3, cost $34.07.
+**A reworded three-voices prompt is not queued: the groups the labels did form showed no bullish edge.**
+
 **P8 — auto-iterate loop. Named, NOT built. Generator, never judge (§2.6),
 with four constraints added 2026-09-24:**
 
@@ -376,6 +379,8 @@ Score ~150 calls (~$6) and count disagreements with the incumbent. If the
 implied corpus-wide **net** flip count (raw minus the incumbent's own noise
 flips; amended 2026-09-26) is under ~100, **do not run the full round.** The
 change cannot clear the noise floor whatever the reasoning behind it.
+
+P7 passed its pre-flight at 20.7% disagreement against a 20% threshold and then failed; disagreement is not improvement. Pre-flights for candidates with new output fields also stop when those fields behave far outside their predictions (see the P9 draft). *(added 2026-09-26)*
 
 ### 2.6 Automated iteration — generator, never judge
 
