@@ -14,9 +14,9 @@
     "step5c": "done",
     "step5d": "done",
     "step5e": "done",
-    "report": "in_progress"
+    "report": "done"
   },
-  "next_action": "wrap-up",
+  "next_action": "none; run complete",
   "notes": [
     "candidate as found replaced B's 'What in this call should change...' two lines; Luis chose to restore them (AskUserQuestion)."
   ],
