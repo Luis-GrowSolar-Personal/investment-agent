@@ -1,0 +1,27 @@
+{
+ "n": 150,
+ "disagree_vs_B_draw1": 31,
+ "disagree_vs_B_draw1_pct": 20.7,
+ "disagree_vs_B_draw2_pct": 19.3,
+ "stop_threshold_pct": 20.0,
+ "unparseable": 0,
+ "bad_score": 0,
+ "bad_noRead": 0,
+ "bad_gap": 0,
+ "bad_pressure": 0,
+ "max_tokens": 0,
+ "gap_counts": {
+  "claims_ahead": 126,
+  "aligned": 16,
+  "numbers_ahead": 8
+ },
+ "pressure_counts": {
+  "avoided": 130,
+  "answered": 20
+ },
+ "cost_usd": 4.1292,
+ "cost_per_call": 0.02753,
+ "projected_full_usd": 33.5,
+ "median_completion_tokens": 1039,
+ "STOP": false
+}
