@@ -10,8 +10,33 @@
     "step1": "in_progress",
     "step2": "pending",
     "step3": "pending",
-    "report": "pending"
+    "report": "pending",
+    "5b": "in_progress"
   },
-  "next_action": "submit-p9",
-  "notes": []
+  "next_action": "poll-p9",
+  "notes": [],
+  "guards": {
+    "batch_id_full": {
+      "P9": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "a752e6b1b2a00b755396a526bfe3007e788ebfb6a93b32076754cd0e078c06a5",
+        "candidate_used": "P9-expected-return",
+        "branch": "sweep/db-corpus-baseline"
+      },
+      "A_noise": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "candidate_used": null,
+        "branch": "sweep/db-corpus-baseline"
+      }
+    }
+  },
+  "committed_usd_by_batch": {
+    "batch_id_full": 30.18
+  },
+  "batch_id_full": "msgbatch_018P74suPvhTF6bQJsCgx58t",
+  "batch_id_full_submitted_at": "2026-09-26T16:32:29Z",
+  "batch_id_full_requests": 1217
 }
