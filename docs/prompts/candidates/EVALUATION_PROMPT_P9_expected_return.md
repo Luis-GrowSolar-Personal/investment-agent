@@ -1,5 +1,5 @@
 # Earnings Call Evaluation Prompt — candidate P9 (expected return)
-# Version: P9-expected-return (candidate — DRAFT, pending review)
+# Version: P9-expected-return (candidate — review closed 2026-09-26)
 # Parent: P6B-minimal (research champion). Identical to B through READ.
 # Replaces only B's SCORE section and structured score field with an
 # expected six-month return versus the S&P 500, in points, with a range.
@@ -34,9 +34,8 @@ stock to beat the S&P by 15 points; -20 means you expect it to lag by
 Then give a range: a low and a high such that you would expect the
 actual outcome to land inside it about 8 times in 10.
 
-Most stocks land within 20 points of the S&P over six months, and a
-typical call does not move the odds much. Size your number to how much
-this call actually tells you: a weak read belongs close to 0, and a
+Most stocks land within 20 points of the S&P over six months. Size your
+number to how much this call actually tells you: a weak read belongs close to 0, and a
 large number needs strong evidence. If the call gives you no basis for a
 view at all, say so and give 0.
 

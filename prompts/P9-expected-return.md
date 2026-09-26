@@ -11,8 +11,8 @@ length should be close to B's). **Hard cap $40**, counted before every
 `progress.json` or stop and ask. **A second P9 draw is NOT approved
 here.**
 
-**Status of this file: DRAFT for review.** Do not run until Luis says the
-review is closed. Run `prompts/P7-bookkeeping.md` first.
+**Status: review closed 2026-09-26** (`prompts/P9-expected-return-review.md`:
+three changes, applied). P7 bookkeeping is done. Clear to run.
 
 ---
 
@@ -74,12 +74,13 @@ SCORE section with EXPECTED RETURN. The structured block replaces
 refer to the estimate.
 
 **One sentence in EXPECTED RETURN adds information B does not carry:**
-"Most stocks land within 20 points of the S&P over six months, and a
-typical call does not move the odds much." It is a general market fact,
-true of this corpus (71%, above), and it is there to stop the model
-defaulting to ±30 on every call. It is **not** company-specific and is
-not an outcome of any call. Reviewers: keep it or cut it before the run.
-It cannot be changed after.
+"Most stocks land within 20 points of the S&P over six months." It is a
+general market fact, true of this corpus (71%, above), and it is there to
+stop the model defaulting to ±30 on every call. It is **not**
+company-specific and is not an outcome of any call. Decided in review:
+the base rate is kept. A second clause ("a typical call does not move the
+odds much") was cut, because it pushed every estimate toward 0, the
+failure the bunched stop rule exists to catch.
 
 ---
 
@@ -145,9 +146,15 @@ pre-registration.
 tune.** Gates 2 and 3 are computed against **both** B draws.
 
 1. **Calibration sign (§2.3a rule 5).** Fit the slope of realized return
-   on predicted `expectedReturn`, across all calls. Its ticker-block range
-   (2,000 draws, seed 11) must be **entirely above zero**. This rejects a
-   number that points the wrong way, and nothing else.
+   on predicted `expectedReturn`, across all calls, with realized returns
+   **clipped at ±50 points** (values beyond are set to ±50, not dropped).
+   Its ticker-block range (2,000 draws, seed 11) must be **entirely above
+   zero**. This rejects a number that points the wrong way, and nothing
+   else. The clip level is fixed here and cannot move. Why: a few −100%
+   wipeouts or multi-baggers would otherwise set the slope's sign by
+   themselves, and resampling companies keeps the same outliers in most
+   draws. Report the unclipped slope beside it; the gate is on the
+   clipped figure.
 2. **Ranking, non-inferiority (§2.3a rule 2).** The paired difference in
    rank correlation (P9 minus B, same calls) must have its range's lower
    end **no worse than −0.03**, against each B draw.
@@ -167,14 +174,16 @@ second draw (~$30). **Do not run it.**
 pre-registered reading.** Two numbers answer "does P9 grade how bad a bad
 call is?":
 - **(a) Within the bearish group:** the rank correlation between
-  predicted and realized return inside P9's bottom 191, beside the same
-  figure inside B's bottom 191 on each draw (B's scores are heavily tied
-  there, so expect near zero).
+  predicted and realized return inside P9's bottom 191, with its
+  ticker-block range. Beside it, for context, the same figure inside B's
+  bottom 191 on each draw (B's scores are heavily tied there, so expect
+  near zero). On 191 calls the range is roughly ±0.14 wide, so beating
+  B's near-zero figure means nothing by itself.
 - **(b) Across fifths:** realized median return for each fifth of
   `expectedReturn`, lowest to highest. Beside it, B's median for each
   fifth of `score`, both draws.
 
-**Reading.** P9 grades severity if (a) is above both B figures **and**
+**Reading.** P9 grades severity if (a)'s range **excludes zero** **and**
 the lowest fifth's realized median is below the second fifth's. If
 neither holds, P9 is "same information, better units". If only one
 holds, say so and do not characterize it further.
@@ -184,7 +193,7 @@ holds, say so and do not characterize it further.
   positive). 55–75% of calls positive.
 - The middle half of `expectedReturn` spans 6–15 points. Realized spans
   24.
-- Slope 0.2–0.6.
+- Slope 0.2–0.6 (clipped); unclipped may differ.
 - 50–70% of outcomes land inside the stated range, against the 80% asked
   for. The model's ranges will be too narrow.
 - Rank correlation 0.10–0.15.
@@ -206,8 +215,8 @@ comparative.
 
 **5d. Diagnostics, all $0 (§2.4 in full).**
 - The severity check (a) and (b), and its reading.
-- The slope's value and range. This becomes the allocator-side scale
-  factor.
+- The slope's value and range, clipped and unclipped. The clipped value
+  becomes the allocator-side scale factor.
 - Range coverage: the share of outcomes inside [rangeLow, rangeHigh].
   Also: do wider ranges go with bigger misses? Report the rank
   correlation of range width with the absolute error.
