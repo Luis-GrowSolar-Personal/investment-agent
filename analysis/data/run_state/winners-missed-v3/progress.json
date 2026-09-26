@@ -9,13 +9,20 @@
     "step0": "done",
     "step1": "in_progress",
     "step2": "pending",
-    "report": "pending"
+    "report": "pending",
+    "2c": "in_progress"
   },
-  "next_action": "w-submit-full",
+  "next_action": "w-poll-full",
   "notes": [
     "diff v3 vs v2: header lines, the \"discounted\" line in the block (and the comma on \"beat\"), the discounted definition bullet; nothing else"
   ],
   "classifier_sha256": "fe58344fe270d691190a03008465d004bbb1f3c01dabfe2889f218497c7c307c",
   "classifier_path": "docs/prompts/diagnostics/READ_CLASSIFIER_v3.md",
-  "classifier_v3_sha256": "fe58344fe270d691190a03008465d004bbb1f3c01dabfe2889f218497c7c307c"
+  "classifier_v3_sha256": "fe58344fe270d691190a03008465d004bbb1f3c01dabfe2889f218497c7c307c",
+  "committed_usd_by_batch": {
+    "batch_id_full": 2.03
+  },
+  "batch_id_full": "msgbatch_01Yb27nsxYyRtLuawpg48WLG",
+  "batch_id_full_submitted_at": "2026-09-26T18:02:40Z",
+  "batch_id_full_requests": 1217
 }
