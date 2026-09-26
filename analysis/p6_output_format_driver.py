@@ -827,6 +827,117 @@ def cmd_w_poll_full():
         w_route("raw_full.jsonl")
 
 
+# ---- winners step 3: same-company contrastive pairs (prompts/winners-missed-analysis.md Step 3, run by winners-missed-v2)
+PAIR_SYSTEM = """You will be shown two earnings call transcripts from the same company, labelled Call A and Call B. The company name, ticker and dates have been removed where possible.
+
+One of the two calls was followed by a much better six months for the stock than the other (more than 20 points better than the S&P 500). Neither the date order nor the outcome is given. Do not say which company this is, and do not rely on anything you remember about how this company's stock did. If your reason is something you can only recall rather than something you can point to in the two transcripts, say so.
+
+Decide which call you think was followed by the much better six months. Then state the ONE concrete difference between the two transcripts that drove your pick, as a mechanism a person could check by reading them. Example of the right kind of answer: "Call A raised full-year guidance while Call B only reaffirmed it."
+
+Return only this block:
+
+---STRUCTURED---
+{
+  "pick": "",
+  "mechanism": "",
+  "kind": "",
+  "raiseOrBeat": ""
+}
+---END STRUCTURED---
+
+- pick: "A" or "B".
+- mechanism: one sentence, the single checkable difference.
+- kind: exactly one of "guidance", "results_vs_expectations", "margins", "demand_or_bookings", "product_or_launch", "balance_sheet_or_cash", "management_tone_or_qna", "external_or_macro", "recall_not_in_text", "other".
+- raiseOrBeat: "raise" if the mechanism is that one call raised guidance or outlook and the other did not; "beat" if it is that one call's results beat the company's own prior guidance or targets and the other's did not; "both" if it is both; "neither" otherwise.
+"""
+_MONTHS = r"(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)"
+
+
+W3_ALIASES = {
+    "AEP": ["American Electric Power", "AEP"], "AIG": ["American International Group", "AIG"],
+    "AMPX": ["Amprius Technologies", "Amperius Technologies", "Ambrius Technologie", "Amprius", "Amperius", "Ambrius", "AMPX"],
+    "BOX": ["Box, Inc.", "Box Inc", "Box"], "CMCSA": ["Comcast", "NBCUniversal"], "CMI": ["Cummins"], "COF": ["Capital One"],
+    "COST": ["Costco"], "DIOD": ["Diodes Incorporated", "Diodes", "Diode's", "Diode"], "EOSE": ["Eos Energy", "EOS Energy", "Eos", "EOS"],
+    "IBM": ["International Business Machines", "IBM"], "INTC": ["Intel"], "JKS": ["JinkoSolar", "Jinko Solar", "Jinko"],
+    "JPM": ["JPMorgan Chase", "JPMorgan", "JP Morgan", "Chase"], "LLY": ["Eli Lilly", "Lilly"], "MRK": ["Merck"],
+    "MS": ["Morgan Stanley"], "MU": ["Micron"], "NEM": ["Newmont"], "NXPI": ["NXP Semiconductors", "NXP Semiconductor", "NXP"],
+    "PH": ["Parker Hannifin", "Parker"], "PSX": ["Phillips 66"], "QCOM": ["Qualcomm"], "QS": ["QuantumScape"],
+    "SLAB": ["Silicon Laboratories", "Silicon Labs", "Silicon Lab"], "TEAM": ["Atlassian"], "TFC": ["Truist Financial", "Truist"],
+    "TTD": ["The Trade Desk", "Trade Desk"], "UPS": ["United Parcel Service", "UPS"], "WMB": ["Williams Companies", "Williams"],
+}
+
+
+def w3_strip(text, ticker):
+    """Mechanical redaction: company names (fixed alias list per ticker, case-sensitive whole words), ticker, years and months. Returns (text, info)."""
+    names = sorted(set(W3_ALIASES.get(ticker, []) + [ticker]), key=len, reverse=True)
+    out = text
+    for nm in names:
+        out = re.sub(r"(?<![A-Za-z])" + re.escape(nm) + r"(?:[\u2019']s)?(?![A-Za-z])", "[COMPANY]", out)
+    out = re.sub(r"\b(?:19|20)\d{2}\b", "[YEAR]", out)
+    out = re.sub(r"\b" + _MONTHS + r"\b\.?(?:\s+\d{1,2}(?:st|nd|rd|th)?)?", "[MONTH]", out)
+    residual = [nm for nm in names if re.search(r"(?<![A-Za-z])" + re.escape(nm) + r"(?![A-Za-z])", out)]
+    return out, {"aliases_used": names, "name_removed": ticker in W3_ALIASES, "ticker_residual": ticker in residual, "name_residual": bool(set(residual) - {ticker}),
+                 "n_replaced": len(re.findall(r"\[COMPANY\]", out))}
+
+
+def cmd_w3_build():
+    """Seeded selection of up to 30 same-company pairs (one big-winner call, that company's nearest middle call), redacted transcripts, A/B order seeded."""
+    assert WIN
+    import csv as _csv
+    from datetime import date as _date
+    rows = list(_csv.DictReader(open(REPO / "analysis/data/run_state/p6-output-format-round/calls.csv")))
+    by = {}
+    for r in rows:
+        if r["fwd_rel_ret_tradeable"] == "": continue
+        v = float(r["fwd_rel_ret_tradeable"])
+        cls = "winner" if v >= 20 else "loser" if v <= -20 else "middle"
+        by.setdefault(r["ticker"], []).append({"ticker": r["ticker"], "date": r["call_date"], "ret": v, "cls": cls})
+    elig = sorted(t for t, xs in by.items() if any(x["cls"] == "winner" for x in xs) and any(x["cls"] == "middle" for x in xs))
+    rng = random.Random("winners-pairs-11")
+    pick = rng.sample(elig, min(30, len(elig)))
+    pairs, i = [], 0
+    for t in sorted(pick):
+        xs = by[t]; w = rng.choice(sorted([x for x in xs if x["cls"] == "winner"], key=lambda x: x["date"]))
+        d0 = _date.fromisoformat(w["date"])
+        m = min([x for x in xs if x["cls"] == "middle"], key=lambda x: (abs((_date.fromisoformat(x["date"]) - d0).days), x["date"]))
+        a_is_winner = rng.random() < 0.5
+        wt, wi = w3_strip(transcript(t, w["date"]), t); mt, mi = w3_strip(transcript(t, m["date"]), t)
+        pairs.append({"pair": i, "ticker": t, "winner": w, "middle": m, "days_apart": abs((_date.fromisoformat(m["date"]) - d0).days),
+                      "A_is_winner": a_is_winner, "A_text": wt if a_is_winner else mt, "B_text": mt if a_is_winner else wt,
+                      "redaction": {"winner": wi, "middle": mi}})
+        i += 1
+    TX = REPO / "analysis/data/evals/winners-missed-v2_pairs"; TX.mkdir(parents=True, exist_ok=True)      # redacted texts: gitignored, rebuildable from the seed
+    (TX / "pairs_texts.json").write_text(json.dumps({p["pair"]: {"A": p["A_text"], "B": p["B_text"]} for p in pairs}))
+    meta = [{k: v for k, v in p.items() if k not in ("A_text", "B_text")} for p in pairs]
+    (STATE / "pairs.json").write_text(json.dumps({"eligible_companies": len(elig), "seed": "winners-pairs-11", "pairs": meta}, indent=1))
+    leak = sum(1 for p in pairs for k in ("winner", "middle") if p["redaction"][k]["ticker_residual"] or p["redaction"][k]["name_residual"] or not p["redaction"][k]["name_removed"])
+    print(json.dumps({"eligible_companies": len(elig), "pairs": len(pairs), "transcripts_with_leak_or_no_name_extracted": leak, "of": 2 * len(pairs),
+                      "median_chars": sorted(len(p["A_text"]) for p in pairs)[len(pairs) // 2]}))
+
+
+def cmd_w3_submit():
+    assert WIN
+    from anthropic.types.messages.batch_create_params import Request
+    from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+    P = json.loads((STATE / "pairs.json").read_text())["pairs"]
+    TXT = json.loads((REPO / "analysis/data/evals/winners-missed-v2_pairs/pairs_texts.json").read_text())
+    for p in P: p["A_text"], p["B_text"] = TXT[str(p["pair"])]["A"], TXT[str(p["pair"])]["B"]
+    pr = load_progress()
+    if pr.get("batch_id_pairs"):
+        print("already", pr["batch_id_pairs"]); return
+    reqs = [Request(custom_id=f"PAIR__{p['pair']:02d}", params=MessageCreateParamsNonStreaming(
+        model=MODEL, max_tokens=500, system=[{"type": "text", "text": PAIR_SYSTEM}],
+        messages=[{"role": "user", "content": f"=== Call A ===\n{p['A_text']}\n\n=== Call B ===\n{p['B_text']}"}])) for p in P]
+    pr["pair_system_sha256"] = hashlib.sha256(PAIR_SYSTEM.encode()).hexdigest(); save_progress(pr)
+    commit_spend("batch_id_pairs", len(reqs), 0.075)
+    p3.submit_batch(reqs, "batch_id_pairs")
+
+
+def cmd_w3_poll():
+    if p3.poll_batch("batch_id_pairs", "raw_pairs.jsonl", "batch_id_pairs"):
+        print("pairs collected")
+
+
 # --------------------------------------------------------------------------- P9-side (prompts/P9-expected-return.md)
 def cmd_p9_select():
     """150 train calls, proportional across S1-S5, at least one S4 call, fixed seed."""
