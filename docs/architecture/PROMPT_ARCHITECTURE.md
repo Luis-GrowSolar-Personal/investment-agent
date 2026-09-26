@@ -123,7 +123,7 @@ several hours.
 | P5 | Peer read-through across cohort members | none (transcripts) | — | not started |
 | **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **done — B held on tune (2026-09-25); research champion.** Arm C **closed** (same signal, 66% more cost) |
 | P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **falsified 2026-09-26 (train; gate 1 31.5% vs 47%)** |
-| P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **draw 1 ambiguous (gate 2 lower end −0.016 vs draw 1); second draw running** (`prompts/P9-second-draw.md`) |
+| P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **falsified 2026-09-26 (train, two draws; ranking non-inferiority failed on draw 2; severity confirmed on both)** |
 | — | Model gate on B: newer or larger model on the unchanged minimal prompt (`PROMOTION_GATE.md` §2.2b equivalence hurdle) | none | P7 and P9 | named, **last** |
 | P8 | Auto-iterate loop as hypothesis generator (§2.6, with the 2026-09-24 constraints) | none (eval files) | after P7/P9 | named, not built |
 | P6D | B plus the structured fields the allocator needs | none | allocator rebuild | **deferred to the allocator rebuild** |
@@ -278,6 +278,8 @@ exist. Runs only after P6, and starts from B.
 - **Severity, reported not gated.** (a) rank correlation of predicted vs realized inside P9's bottom 191, ticker-block range, beside B's on each draw; (b) realized median return by fifth of `expectedReturn`, beside B's by fifth of `score`. **Reading:** P9 grades severity if (a)'s range excludes zero **and** the lowest fifth's median is below the second fifth's; if neither, "same information, better units"; if only one, say so and do not characterize further.
 - **Predictions, not gates.** Median `expectedReturn` +2 to +8, 55–75% positive; middle half spans 6–15 points (realized 24); clipped slope 0.2–0.6; 50–70% of outcomes inside the stated range; rank correlation 0.10–0.15; cost within ±15% of B's per call.
 - **Runs on.** Train only. Cost ~$32, hard cap $40; a second draw is not approved.
+
+**P9 — Result, 2026-09-26 (train, two draws; `wrap-ups/P9-expected-return-train-out.md`, `wrap-ups/P9-second-draw-out.md`).** **Falsified:** draw 1 held all three gates but was ambiguous (gate 2 lower end −0.016 vs B draw 1); on draw 2 gate 2 failed against both B draws (−0.020, range −0.071 to +0.032; +0.011, range −0.039 to +0.059), so 5 of 6 checks held. **Severity is confirmed on two draws**: rank correlation inside the bottom 191 was 0.257 and 0.184, both ranges above zero, and the lowest fifth's median was below the second's on both; B's within-bearish ranges include zero. Cause: P9 wobbles more than B between identical runs (17.0% group changes vs 12.5%; rank difference 0.060 vs 0.031; ledger entry 4, cost $60.31). Averaged B vs averaged P9 is in `wrap-ups/P9-close-and-averaged-comparison-out.md` (Step 2).
 
 **P8 — auto-iterate loop. Named, NOT built. Generator, never judge (§2.6),
 with four constraints added 2026-09-24:**

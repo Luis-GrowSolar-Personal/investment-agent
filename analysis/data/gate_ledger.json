@@ -347,5 +347,160 @@
       "source": "analysis/data/run_state/p7-three-voices-train/results.json -> shares_pct, gap_x_pressure, base_rates_pct"
     },
     "cost_usd": 34.07
+  },
+  {
+    "date": "2026-09-26",
+    "label": "prompt: P9-expected-return vs P6B-minimal (two draws each), train only",
+    "change_class": "analyst",
+    "change_class_detail": "prompt",
+    "hurdle": "improvement",
+    "primary_metric": "calibration sign, rank-correlation non-inferiority, and bottom-191 hit rate at matched coverage (PROMPT_ARCHITECTURE.md 2.2 P9 pre-registration)",
+    "champion": "P6B-minimal (two draws)",
+    "challenger": "P9-expected-return (two draws)",
+    "split": "train",
+    "built_by": "hand (p9-close-and-averaged); scores from runs p9-expected-return-train and p9-second-draw",
+    "holdout": "locked \u2014 not yet looked at",
+    "tune": "not run \u2014 falsified on train",
+    "gates_2x3": {
+      "P9_draw1": {
+        "gate1_clipped_slope": {
+          "value": 0.6618,
+          "range": [
+            0.3325,
+            0.9592
+          ],
+          "target": "range entirely above 0",
+          "held": true
+        },
+        "gate2_rank_non_inferiority": {
+          "draw1": {
+            "value": 0.0404,
+            "range": [
+              -0.0158,
+              0.0975
+            ],
+            "target": "lower end >= -0.03",
+            "held": true
+          },
+          "draw2": {
+            "value": 0.0715,
+            "range": [
+              0.0164,
+              0.1264
+            ],
+            "target": "lower end >= -0.03",
+            "held": true
+          }
+        },
+        "gate3_bottom191_hit": {
+          "value_pct": 62.8,
+          "target": ">= 57.0%",
+          "held": true
+        },
+        "rank_rho": 0.1707
+      },
+      "P9_draw2": {
+        "gate1_clipped_slope": {
+          "value": 0.4808,
+          "range": [
+            0.1319,
+            0.8044
+          ],
+          "target": "range entirely above 0",
+          "held": true
+        },
+        "gate2_rank_non_inferiority": {
+          "draw1": {
+            "value": -0.0197,
+            "range": [
+              -0.0708,
+              0.0315
+            ],
+            "target": "lower end >= -0.03",
+            "held": false
+          },
+          "draw2": {
+            "value": 0.0113,
+            "range": [
+              -0.0386,
+              0.0589
+            ],
+            "target": "lower end >= -0.03",
+            "held": false
+          }
+        },
+        "gate3_bottom191_hit": {
+          "value_pct": 61.8,
+          "target": ">= 57.0%",
+          "held": true
+        },
+        "rank_rho": 0.1106
+      },
+      "n_of_6_held": 5,
+      "sources": [
+        "analysis/data/run_state/p9-expected-return-train/results.json -> calibration, gates, rank",
+        "analysis/data/run_state/p9-second-draw/results_draw2.json -> calibration, gates, rank",
+        "wrap-ups/P9-second-draw-out.md (2x3 table)"
+      ]
+    },
+    "final_verdict": "FALSIFIED",
+    "final_reason": "Ranking non-inferiority failed on draw 2 against both B draws; P9 swings between identical runs by 0.060 in rank correlation, against B's 0.031 (wrap-ups/P9-second-draw-out.md; analysis/data/run_state/p9-second-draw/results_verdict.json -> noise_floor.rank).",
+    "findings_of_record": {
+      "severity_confirmed_on_two_draws": {
+        "within_bottom191_rho": {
+          "draw1": {
+            "value": 0.2566,
+            "range": [
+              0.094,
+              0.3731
+            ]
+          },
+          "draw2": {
+            "value": 0.1837,
+            "range": [
+              0.0464,
+              0.312
+            ]
+          }
+        },
+        "lowest_fifth_below_second": {
+          "draw1": "-9.76 vs -5.52",
+          "draw2": "-8.27 vs -4.09"
+        },
+        "B_within_bottom191_ranges_include_zero": {
+          "draw1": [
+            -0.0945,
+            0.3012
+          ],
+          "draw2": [
+            -0.0188,
+            0.2881
+          ]
+        },
+        "source": "analysis/data/run_state/p9-second-draw/results_verdict.json -> severity; results.json/results_draw2.json -> severity"
+      },
+      "P9_own_noise_floor": {
+        "group_change_pct": 17.01,
+        "wilson": [
+          15.0,
+          19.22
+        ],
+        "rank_diff_draw1_minus_draw2": 0.0601,
+        "range": [
+          0.0239,
+          0.0974
+        ],
+        "half_width": 0.0368,
+        "inherited_tolerance": -0.04,
+        "B_reference": {
+          "group_change_pct": 12.5,
+          "rank_diff": 0.031,
+          "half_width": 0.027
+        },
+        "source": "analysis/data/run_state/p9-second-draw/results_verdict.json -> noise_floor"
+      }
+    },
+    "cost_usd": 60.31,
+    "cost_note": "draw 1 $30.17 + draw 2 $30.14 (wrap-ups/P9-expected-return-train-out.md, wrap-ups/P9-second-draw-out.md)"
   }
 ]

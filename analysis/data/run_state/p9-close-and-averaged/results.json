@@ -1,0 +1,110 @@
+{
+ "n": 1217,
+ "distinct_values": {
+  "avg_B": 18,
+  "avg_P9": 55
+ },
+ "avg_B": {
+  "rho": 0.1205297710754951,
+  "rho_range": [
+   0.04332361766526969,
+   0.19410713011062905
+  ],
+  "bottom191": {
+   "n": 191,
+   "hit_pct": 61.3,
+   "wilson": [
+    54.2,
+    67.9
+   ],
+   "median_ret": -10.08
+  },
+  "top235": {
+   "n": 235,
+   "hit_pct": 38.3,
+   "wilson": [
+    32.3,
+    44.7
+   ],
+   "median_ret": 0.69
+  },
+  "severity_rho_within_bottom191": 0.14091494749568784,
+  "severity_range": [
+   -0.014343263843934398,
+   0.28578481241041737
+  ],
+  "fifths_realized_median": [
+   -7.88,
+   -5.32,
+   -1.81,
+   -0.81,
+   -0.65
+  ],
+  "distinct_scores_in_bottom191": 7,
+  "slope_on_avg_score_clipped_NOT_COMPARABLE_IN_UNITS": 1.3629237872856634
+ },
+ "avg_P9": {
+  "rho": 0.1400964975794906,
+  "rho_range": [
+   0.055476916111675025,
+   0.2226782639384971
+  ],
+  "bottom191": {
+   "n": 191,
+   "hit_pct": 62.8,
+   "wilson": [
+    55.8,
+    69.4
+   ],
+   "median_ret": -10.75
+  },
+  "top235": {
+   "n": 235,
+   "hit_pct": 37.9,
+   "wilson": [
+    31.9,
+    44.2
+   ],
+   "median_ret": -1.36
+  },
+  "severity_rho_within_bottom191": 0.2223737807602131,
+  "severity_range": [
+   0.06676064343741857,
+   0.3452107203580547
+  ],
+  "fifths_realized_median": [
+   -9.06,
+   -5.32,
+   0.04,
+   -1.9,
+   0.19
+  ],
+  "distinct_scores_in_bottom191": 20,
+  "clipped_slope": 0.6286530493516722,
+  "clipped_slope_range": [
+   0.26814424243392154,
+   0.958739753836829
+  ]
+ },
+ "paired_avgP9_minus_avgB": {
+  "value": 0.019566726503995505,
+  "range": [
+   -0.029760214169176055,
+   0.06920281288276642
+  ],
+  "valid_draws": 2000,
+  "lower_end_ge_-0.03": true,
+  "excludes_zero": false
+ },
+ "reading": "worth a tune test \u2014 equal ranking, plus severity",
+ "single_draw_rho": {
+  "b1": 0.13031526626544512,
+  "b2": 0.09924451368604857,
+  "p1": 0.1707085960075231,
+  "p2": 0.11057405484955989
+ },
+ "averaging_help": {
+  "B": 0.0057498810997482636,
+  "P9": -0.0005448278490508829
+ }
+}

@@ -4,11 +4,11 @@
   "driver_commit": null,
   "cost_usd": 0,
   "steps": {
-    "step0": "in_progress",
-    "step1": "pending",
-    "step2": "pending",
-    "report": "pending"
+    "step0": "done",
+    "step1": "done",
+    "step2": "done",
+    "report": "in_progress"
   },
-  "next_action": "verify CLAUDE.md diff, commit prompt and CLAUDE.md",
+  "next_action": "wrap-up, push",
   "notes": []
 }

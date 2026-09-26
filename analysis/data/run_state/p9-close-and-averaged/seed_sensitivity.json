@@ -1,0 +1,25 @@
+{
+ "note": "DIAGNOSTIC ONLY, not a condition: lower end of paired range under other bootstrap seeds (pre-registered seed is 11)",
+ "lower_upper_by_seed": {
+  "11": [
+   -0.0298,
+   0.0692
+  ],
+  "1": [
+   -0.0335,
+   0.0703
+  ],
+  "2": [
+   -0.0286,
+   0.0681
+  ],
+  "3": [
+   -0.0322,
+   0.0692
+  ],
+  "4": [
+   -0.0308,
+   0.07
+  ]
+ }
+}
