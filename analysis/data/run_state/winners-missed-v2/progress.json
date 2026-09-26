@@ -20,10 +20,15 @@
   "classifier_sha256": "60e76ff5da9ef8781b0e926a8881524951ec0514f73bd026242223051f7763c4",
   "classifier_path": "docs/prompts/diagnostics/READ_CLASSIFIER_v2.md",
   "committed_usd_by_batch": {
-    "batch_id_preflight": 0.24
+    "batch_id_preflight": 0.24,
+    "batch_id_pairs": 2.25
   },
   "batch_id_preflight": "msgbatch_01V865mefnfhnQFhmbt3PDu1",
   "batch_id_preflight_submitted_at": "2026-09-26T17:39:55Z",
   "batch_id_preflight_requests": 60,
-  "spent_usd": 0.1
+  "spent_usd": 0.1,
+  "pair_system_sha256": "5ef4c8742e070db811540c1d82458bf531f9a063e6fab7bdcbc5de60963e7788",
+  "batch_id_pairs": "msgbatch_01VigGuioaVTDShjmH5i5SEA",
+  "batch_id_pairs_submitted_at": "2026-09-26T17:44:40Z",
+  "batch_id_pairs_requests": 30
 }
