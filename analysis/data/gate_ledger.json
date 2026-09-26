@@ -1,0 +1,259 @@
+[
+  {
+    "date": "2026-05-23T19:55:18",
+    "label": "model_pin: sonnet-4-20250514 vs sonnet-4-6",
+    "change_class": "analyst",
+    "change_class_detail": "model_version",
+    "hurdle": "equivalence",
+    "primary_metric": "analyst_direct_lift_pp",
+    "champion": "v6_sonnet-4-20250514",
+    "challenger": "v6_sonnet-4-6",
+    "holdout_start": "2024-11-01",
+    "tickers_scoped": [
+      "ENPH",
+      "TTD",
+      "AMPX",
+      "ENVX",
+      "EOSE",
+      "QS",
+      "SPWR"
+    ],
+    "training": {
+      "n_champion": 81,
+      "n_challenger": 80,
+      "champion_lift_pp": 4.94,
+      "challenger_lift_pp": -2.5,
+      "delta_pp": -7.44,
+      "noise_std_pp": 4.2,
+      "pct_tickers_improved": 28.6,
+      "robustness_ok": false,
+      "verdict": "HOLD"
+    },
+    "holdout": {
+      "n_champion": 0,
+      "n_challenger": 0,
+      "champion_lift_pp": null,
+      "challenger_lift_pp": null,
+      "verdict": null,
+      "reason": null
+    },
+    "final_verdict": "HOLD",
+    "final_reason": "challenger clearly regresses (\u0394=-7.4pp < \u22124.2pp noise floor) \u2014 keep incumbent"
+  },
+  {
+    "date": "2026-09-26",
+    "label": "prompt: P6B-minimal vs v6 (both claude-sonnet-4-6)",
+    "change_class": "analyst",
+    "change_class_detail": "prompt",
+    "hurdle": "improvement",
+    "primary_metric": "Spearman rank correlation of score against the 182-day tradeable-entry return vs SPY (ticker-block bootstrap, 2,000 draws)",
+    "champion": "v6 (claude-sonnet-4-6)",
+    "challenger": "P6B-minimal",
+    "built_by": "hand (b-champion-and-noise-floor step 1); the analyst gate, which measures the old metric, was not run",
+    "delta": {
+      "kind": "paired rank-correlation difference, challenger minus v6 (v6 three answers coded -1/0/+1), same calls; range is the 95% ticker-block bootstrap",
+      "train": {
+        "value": 0.0606,
+        "range": [
+          0.0049,
+          0.1187
+        ],
+        "source": "analysis/data/run_state/p6-output-format-round/posthoc.json -> B_minus_A_rho_paired (also wrap-ups/P6-output-format-round-out.md 6.1)"
+      },
+      "tune": {
+        "value": 0.0592,
+        "range": [
+          0.0105,
+          0.107
+        ],
+        "source": "analysis/data/run_state/p6b-tune-confirmation/results_tune.json -> B_minus_A_rho"
+      },
+      "pooled": "not computed as a paired difference in any prior run",
+      "noise_basis": "the ticker-block range above; B's own run-to-run band is measured in step 2 and filled into amend_after"
+    },
+    "metrics": {
+      "rank_correlation_B": {
+        "train": {
+          "value": 0.13,
+          "range": [
+            0.051,
+            0.208
+          ],
+          "n": 1217,
+          "source": "wrap-ups/P6-output-format-round-out.md 6.1 (summary table, arm B)"
+        },
+        "tune": {
+          "value": 0.13952,
+          "range": [
+            0.07206,
+            0.19801
+          ],
+          "n": 1169,
+          "source": "results_tune.json -> rank.rho, rank.rho_range"
+        },
+        "pooled": {
+          "value": 0.13453,
+          "range": [
+            0.08689,
+            0.18435
+          ],
+          "n": 2386,
+          "source": "results_tune.json -> pooled.rho"
+        }
+      },
+      "rank_correlation_v6_coded": {
+        "train": {
+          "value": 0.0698,
+          "range": [
+            -0.0045,
+            0.1444
+          ],
+          "source": "posthoc.json -> A_ordinal_rho"
+        },
+        "tune": {
+          "value": 0.0803,
+          "range": [
+            0.0063,
+            0.1487
+          ],
+          "source": "results_tune.json -> A_ordinal_rho"
+        }
+      },
+      "bearish": {
+        "train": {
+          "B_calls": 191,
+          "B_precision_pct": 62.3,
+          "v6_calls": 93,
+          "v6_precision_pct": 58.1,
+          "source": "wrap-ups/P6-output-format-round-out.md 6.3"
+        },
+        "tune": {
+          "B_calls": 161,
+          "B_precision_pct": 60.87,
+          "v6_calls": 84,
+          "v6_precision_pct": 59.52,
+          "coverage_ratio": 1.917,
+          "source": "results_tune.json -> conditions.2_coverage"
+        }
+      },
+      "swap_median_points": {
+        "train": {
+          "B_ge3_vs_le-2": 11.67,
+          "range": [
+            4.99,
+            18.05
+          ],
+          "source": "posthoc.json -> b_spread_ge3_vs_le-2",
+          "v6": 8.12,
+          "v6_range": [
+            -2.41,
+            17.96
+          ],
+          "v6_source": "wrap-ups/P6-output-format-round-out.md headline"
+        },
+        "tune": {
+          "B_plus3": 8.339,
+          "range": [
+            1.465,
+            12.883
+          ],
+          "v6": 7.747,
+          "v6_range": [
+            -5.508,
+            10.945
+          ],
+          "source": "results_tune.json -> conditions.3_money; A_buckets.spread_bullish_minus_bearish_median"
+        },
+        "pooled": {
+          "B_plus3": 10.5,
+          "range": [
+            6.3,
+            13.64
+          ],
+          "v6": 7.7,
+          "v6_range": [
+            0.51,
+            12.31
+          ],
+          "source": "results_tune.json -> pooled.swap_median_B_plus3, pooled.swap_median_v6",
+          "note": "v6 pooled median 7.70 is unreconciled with the state of play's 8.7"
+        }
+      },
+      "end_to_end_B3_vs_A0prime": {
+        "comparator": "A0' = v6 on claude-sonnet-4-6 through the overlay",
+        "final_value": {
+          "B3": 210351,
+          "A0prime": 200214,
+          "gap": 10137,
+          "phase_ranges": {
+            "B3": [
+              207495,
+              214227
+            ],
+            "A0prime": [
+              194407,
+              206925
+            ]
+          },
+          "source": "wrap-ups/P6B-confound-and-concentration-out.md Step 1 results; analysis/data/run_state/p6b-confound-and-concentration/summary.json -> cells.A0p, cells.B3"
+        },
+        "daily_drawdown_pct": {
+          "B3": 16.97,
+          "A0prime": 20.12,
+          "source": "same"
+        },
+        "gain_per_point_of_drawdown_usd": {
+          "B3": 6503,
+          "A0prime": 4981,
+          "source": "docs/handoffs/2026-09-24-state-of-play.md 2.4 table; computed (final - 100000) / daily drawdown"
+        },
+        "leave_one_out": {
+          "drawdown_B3_better_in": "16 of 16",
+          "gain_per_point_B3_ahead_in": "16 of 16 (state of play 2.4: without FSLR $5,901 vs $4,783; without NVDA $4,120 vs $3,054)",
+          "final_value_gap_positive_in": "15 of 16",
+          "final_value_gap_without_FSLR": -2279,
+          "final_value_gap_without_NVDA": 2366,
+          "source": "wrap-ups/P6B-confound-and-concentration-out.md Step 2; summary.json -> loo"
+        }
+      }
+    },
+    "holdout": "locked \u2014 not yet looked at",
+    "final_verdict": "RESEARCH_CHAMPION",
+    "final_reason": "B is the incumbent for research rounds; NOT PROMOTE. Production stays on v6 (registry promoted_version unchanged); cut-over is a separate, later decision.",
+    "qualifiers": [
+      "The end-to-end final-value margin over A0' ($10,137, 5.1%) is thin and rests on FSLR: without FSLR the gap is -$2,279.",
+      "Gain per point of drawdown was not in the end-to-end run's pre-registration (which used final-value phase ranges), though it is PROMOTION_GATE.md 3.2's metric."
+    ],
+    "amend_after": {
+      "status": "filled 2026-09-26 by b-champion-and-noise-floor step 2d",
+      "b_direction_change_rate_train": {
+        "pooled_pct": 12.49,
+        "wilson": [
+          10.75,
+          14.47
+        ],
+        "per_stratum_pct": {
+          "S1": 16.57,
+          "S2": 11.98,
+          "S3": 10.54,
+          "S4": 0.0,
+          "S5": 11.61
+        },
+        "source": "analysis/data/run_state/b-champion-and-noise-floor/results.json -> pooled.direction_change, per_stratum"
+      },
+      "b_rank_correlation_two_runs": {
+        "original": 0.1303,
+        "rerun": 0.0992,
+        "paired_diff_original_minus_rerun": 0.0311,
+        "range": [
+          0.0048,
+          0.0585
+        ],
+        "half_width": 0.0268,
+        "tolerance": -0.03,
+        "source": "results.json -> rank"
+      },
+      "note": "Second baseline draw registered in VERSION_REGISTRY.json research_champion.baseline_draws."
+    }
+  }
+]

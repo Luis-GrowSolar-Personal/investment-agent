@@ -68,3 +68,5 @@ client/dist/
 testing/
 analysis/*/raw/
 Claude outputs/
+
+!analysis/data/gate_ledger.json
