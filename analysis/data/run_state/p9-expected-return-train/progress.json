@@ -11,9 +11,11 @@
     "5a": "in_progress",
     "step5b": "done (1217 rows)",
     "5b": "in_progress",
-    "step5c": "in_progress"
+    "step5c": "done",
+    "step5d": "done",
+    "report": "in_progress"
   },
-  "next_action": "poll-p9",
+  "next_action": "wrap-up",
   "notes": [
     "candidate diff vs B: identical through READ (verified); sha a752e6b1..."
   ],

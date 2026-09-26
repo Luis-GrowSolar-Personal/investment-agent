@@ -1,2 +1,8 @@
 # findings (append-only)
 - Pre-flight (150 calls, preflight_report.json): no stop rule tripped. 0 parse failures/max_tokens, range order broken 0, 18 distinct values, middle half [0.5, 8.0] span 7.5, 74.7% positive (24.0% negative), noRead 0%, projected full $29.82, median completion 636 tokens, median expectedReturn +5.0. All inside predictions.
+- Full round (results.json). Gate 1: clipped slope 0.662 (0.332 to 0.959), entirely above zero -> HELD; unclipped 0.957 (0.353 to 1.492); 76 realized returns clipped. Gate 2: paired rho diff P9 minus B: draw1 +0.040 (-0.016 to +0.097) held (lower end >= -0.03); draw2 +0.071 (+0.016 to +0.126) held. Gate 3: bottom-191 hit 62.8% (B 62.3/61.3) HELD. 3 of 3 held against both draws.
+- Ambiguity rule TRIGGERED: gates 1 and 3 hold and gate 2's lower end vs draw 1 is -0.016, inside -0.06..0.00. Report as ambiguous; a second draw (~$30) recommended, NOT run.
+- P9 rank correlation 0.171 (0.085 to 0.251) vs B 0.130 / 0.099. Prediction 0.10-0.15 missed (above).
+- Severity: (a) inside bottom 191 rho 0.257 (0.094 to 0.373), excludes zero; B draw1 0.081 (-0.094 to 0.301), draw2 0.145 (-0.019 to 0.288). (b) fifths median lowest to highest -9.76, -5.52, -0.95, -1.63, +1.54; lowest below second. Reading: grades severity.
+- Distribution: median +5.0, 75.3% positive (pred 55-75: just above), middle half [2, 8] span 6 (pred 6-15 held at edge), 25 distinct values, top values 8 (233), 5 (230), -5 (108). Range coverage 60.9% inside (pred 50-70 held; asked 80). Width vs abs error rho 0.326.
+- Flips vs B: raw 301 (24.7%) / 304; net ~149-152; netted win rate unstable under the guard. Cost $0.0248/call (+5% vs B). Total spend $30.17.
