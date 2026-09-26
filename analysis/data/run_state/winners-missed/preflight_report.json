@@ -1,0 +1,39 @@
+{
+ "n": 60,
+ "unparseable_or_out_of_set": 0,
+ "max_tokens": 0,
+ "distribution": {
+  "positive": {
+   "weak": 1,
+   "none": 0,
+   "strong": 59
+  },
+  "negative": {
+   "weak": 19,
+   "none": 0,
+   "strong": 41
+  },
+  "forwardPositive": {
+   "yes": 57,
+   "no": 3
+  },
+  "discounted": {
+   "yes": 35,
+   "no": 25
+  }
+ },
+ "max_single_value_share_pct": {
+  "positive": 98.3,
+  "negative": 68.3,
+  "forwardPositive": 95.0,
+  "discounted": 58.3
+ },
+ "stop_single_value_gt85": [
+  "positive",
+  "forwardPositive"
+ ],
+ "cost_usd": 0.0917,
+ "cost_per_call": 0.00153,
+ "projected_full_usd": 1.86,
+ "STOP": true
+}

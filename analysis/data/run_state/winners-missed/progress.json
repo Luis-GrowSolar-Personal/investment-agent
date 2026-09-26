@@ -8,12 +8,12 @@
   "steps": {
     "step0": "done",
     "step1": "done",
-    "step2": "in_progress",
-    "step3": "pending",
-    "report": "pending",
+    "step2": "stopped at 2b pre-flight (stop rule)",
+    "step3": "not run",
+    "report": "in_progress",
     "2b": "in_progress"
   },
-  "next_action": "w-preflight-poll",
+  "next_action": "wrap-up, push; design session to redefine classifier",
   "notes": [
     "B READ text passed verbatim contains company names (B wrote them); no ticker/date/return/score/group supplied. calls.csv tier is NA for every call."
   ],
@@ -24,5 +24,6 @@
   },
   "batch_id_preflight": "msgbatch_015EuGohNzM2mXmRU63p2Qj2",
   "batch_id_preflight_submitted_at": "2026-09-26T17:23:07Z",
-  "batch_id_preflight_requests": 60
+  "batch_id_preflight_requests": 60,
+  "spent_usd": 0.0917
 }
