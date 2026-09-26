@@ -1,0 +1,3078 @@
+{
+ "seed": "p5-0b-11",
+ "n_calls": 30,
+ "RAW_no_exclusions": {
+  "pooled": {
+   "calls": 30,
+   "name_at_least_one": 30,
+   "name_at_least_one_pct": 100.0,
+   "mean_distinct_per_call": 4.37
+  },
+  "note": "raw = every match, including analyst firms named by the operator (speaker headers are not searched); the first-pass version that also searched headers gave the same 100% and 4.37 per call"
+ },
+ "pooled": {
+  "calls": 30,
+  "name_at_least_one": 22,
+  "name_at_least_one_pct": 73.3,
+  "mean_distinct_per_call": 2.03
+ },
+ "by_sector": {
+  "semis": {
+   "calls": 4,
+   "name_at_least_one": 4,
+   "name_at_least_one_pct": 100.0,
+   "mean_distinct_per_call": 3.25
+  },
+  "solar": {
+   "calls": 4,
+   "name_at_least_one": 4,
+   "name_at_least_one_pct": 100.0,
+   "mean_distinct_per_call": 2.25
+  },
+  "other": {
+   "calls": 22,
+   "name_at_least_one": 14,
+   "name_at_least_one_pct": 63.6,
+   "mean_distinct_per_call": 1.77
+  }
+ },
+ "by_eye": {
+  "pooled": {
+   "calls": 30,
+   "name_at_least_one": 20,
+   "name_at_least_one_pct": 66.7,
+   "mean_distinct_per_call": 1.87
+  },
+  "by_sector": {
+   "semis": {
+    "calls": 4,
+    "name_at_least_one": 4,
+    "name_at_least_one_pct": 100.0,
+    "mean_distinct_per_call": 3.25
+   },
+   "solar": {
+    "calls": 4,
+    "name_at_least_one": 4,
+    "name_at_least_one_pct": 100.0,
+    "mean_distinct_per_call": 1.75
+   },
+   "other": {
+    "calls": 22,
+    "name_at_least_one": 12,
+    "name_at_least_one_pct": 54.5,
+    "mean_distinct_per_call": 1.64
+   }
+  },
+  "false_positives_removed": [
+   "ABBV:AMD",
+   "DD:Dell",
+   "PSX:Northern",
+   "QS:Exponent",
+   "QS:Lithium"
+  ],
+  "mentions_prepared_vs_qa_second_pass": {
+   "prepared": 44,
+   "qa": 72
+  }
+ },
+ "second_pass_exclusions": {
+  "analyst_firms": [
+   "BMO Capital",
+   "Bank of America",
+   "Barclays",
+   "Bernstein",
+   "Citi",
+   "Citigroup",
+   "Cowen",
+   "Credit Suisse",
+   "Deutsche Bank",
+   "Evercore",
+   "Goldman Sachs",
+   "Jefferies",
+   "KeyBanc",
+   "Mizuho",
+   "Morgan Stanley",
+   "Needham",
+   "Nomura",
+   "Northern Trust",
+   "Oppenheimer",
+   "Piper Sandler",
+   "RBC Capital",
+   "Raymond James",
+   "Samsara Capital",
+   "Stifel",
+   "Truist",
+   "UBS",
+   "Wells Fargo",
+   "Wolfe Research"
+  ],
+  "word_collisions": [
+   "Amplitude",
+   "Celsius",
+   "Eastern",
+   "Perfect",
+   "Verizon"
+  ],
+  "operator_turns": "all matches inside Operator turns"
+ },
+ "sector_lists": {
+  "semis": [
+   "DIOD",
+   "INTC",
+   "MU",
+   "NXPI",
+   "QCOM",
+   "SLAB"
+  ],
+  "solar": [
+   "AMPX",
+   "EOSE",
+   "JKS",
+   "QS",
+   "RUN",
+   "SUNW"
+  ]
+ },
+ "name_list": {
+  "total": 11477
+ },
+ "calls": [
+  {
+   "ticker": "RUN",
+   "date": "2022-08-03",
+   "sector": "solar",
+   "required": true,
+   "chars": 68782,
+   "qa_found": true,
+   "mentions_raw": 8,
+   "distinct_raw": [
+    "EVR",
+    "F",
+    "GLDI",
+    "MS",
+    "OPY",
+    "PERF"
+   ],
+   "n_distinct_raw": 6,
+   "distinct_companies": [
+    "F"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [
+    "F"
+   ],
+   "n_distinct_by_eye": 1,
+   "n_prepared": 1,
+   "n_qa": 2,
+   "matches": [
+    {
+     "name": "Ford",
+     "ticker": "F",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Our partnership with Ford has officially kicked off and is tremendously exciting.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Operator): Our next question is from Andrew Percoco with Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Operator): Our next question is from James West with Evercore.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Credit Suisse",
+     "ticker": "GLDI",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Operator): Our next question is from Mahib Manlal with Credit Suisse.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Oppenheimer",
+     "ticker": "OPY",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Operator): Our next question is from Colin Ruch with Oppenheimer.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Ford",
+     "ticker": "F",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And then the second question is the conversion rate of the referrals you're getting from Ford.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Perfect",
+     "ticker": "PERF",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "Colin Ruch (Analyst, Oppenheimer): Perfect.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Ford",
+     "ticker": "F",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Because fundamentally, the work we do and the work we're doing around, particularly like with Ford, with the bidirectional charger, with solar, with storage, we are in essence creating an opportunity for utilities to have access to smart, controllable load.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "MU",
+   "date": "2022-12-21",
+   "sector": "semis",
+   "required": true,
+   "chars": 47431,
+   "qa_found": true,
+   "mentions_raw": 5,
+   "distinct_raw": [
+    "AMD",
+    "BCS",
+    "EVR",
+    "GLDI",
+    "QCOM"
+   ],
+   "n_distinct_raw": 5,
+   "distinct_companies": [
+    "AMD",
+    "QCOM"
+   ],
+   "n_distinct": 2,
+   "distinct_by_eye": [
+    "AMD",
+    "QCOM"
+   ],
+   "n_distinct_by_eye": 2,
+   "n_prepared": 2,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "AMD",
+     "ticker": "AMD",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Building on our existing DeFi products, in fiscal Q1, we began qualifying one alpha 24 gigabit DeFi, and we announced availability of DeFi memory for the data center that is validated for the new AMD EPYC 9004 series processors.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Qualcomm",
+     "ticker": "QCOM",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "In fiscal Q1, our LP5X was validated for Qualcomm's latest platform and integrated into Snapdragon 8 Gen 2 reference designs.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "And that will come from the line of CJ Muse with Evercore ISI.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Credit Suisse",
+     "ticker": "GLDI",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "That will come from the line of Chris Caso with Credit Suisse.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Conference Moderator (Moderator): That will come from the line of Tom O'Malley with Barclays.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "INTC",
+   "date": "2022-10-27",
+   "sector": "semis",
+   "required": true,
+   "chars": 59803,
+   "qa_found": true,
+   "mentions_raw": 9,
+   "distinct_raw": [
+    "AMZN",
+    "EVR",
+    "GOOGL",
+    "IBM",
+    "META",
+    "MS",
+    "MSFT",
+    "NVDA",
+    "PERF"
+   ],
+   "n_distinct_raw": 9,
+   "distinct_companies": [
+    "AMZN",
+    "GOOGL",
+    "IBM",
+    "META",
+    "MSFT",
+    "NVDA"
+   ],
+   "n_distinct": 6,
+   "distinct_by_eye": [
+    "AMZN",
+    "GOOGL",
+    "IBM",
+    "META",
+    "MSFT",
+    "NVDA"
+   ],
+   "n_distinct_by_eye": 6,
+   "n_prepared": 4,
+   "n_qa": 2,
+   "matches": [
+    {
+     "name": "IBM",
+     "ticker": "IBM",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "The progress we are making on IBM 2.0, including our momentum on process and product roadmaps and our recent announcement that we are implementing an internal foundry model.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "NVIDIA",
+     "ticker": "NVDA",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We are excited to welcome NVIDIA to the RAMPC program, which enables both commercial foundry customers and the U.S.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Amazon",
+     "ticker": "AMZN",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Amazon will be accelerating large transform models with Gaudi instances in EC2.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Google",
+     "ticker": "GOOGL",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Google gave the first preview of its C3 instances showing Sapphire Rapids capabilities, as well as our leadership IPU, the E3200 or Mount Evans.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Microsoft",
+     "ticker": "MSFT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "You know, and as I noted in the earlier question, PC usage is high as seen by Microsoft and their metrics.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question comes from the line of Joseph Moore from Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question comes from the line of CJ Muse from Evercore ISI.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Perfect",
+     "ticker": "PERF",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "John Pitzer (Corporate Vice President of Investor Relations): Perfect.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Meta",
+     "ticker": "META",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We've got some, I think, relief from some of the commentary for Cloud CapEx during this earnings season in the last three days, and particularly from Meta last night, but the rest of the big guys as well.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "JKS",
+   "date": "2022-08-26",
+   "sector": "solar",
+   "required": true,
+   "chars": 43606,
+   "qa_found": true,
+   "mentions_raw": 3,
+   "distinct_raw": [
+    "CSIQ",
+    "GLDI",
+    "IOT"
+   ],
+   "n_distinct_raw": 3,
+   "distinct_companies": [
+    "CSIQ"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [
+    "CSIQ"
+   ],
+   "n_distinct_by_eye": 1,
+   "n_prepared": 0,
+   "n_qa": 1,
+   "matches": [
+    {
+     "name": "Samsara",
+     "ticker": "IOT",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "We have a question from Rajiv Chaudhary from Samsara Capital.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Canadian Solar",
+     "ticker": "CSIQ",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Canadian Solar has expressed an intention to get into the polysilicon business.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Credit Suisse",
+     "ticker": "GLDI",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Operator): Next, we have Gary Joe from Credit Suisse.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "QCOM",
+   "date": "2022-04-27",
+   "sector": "semis",
+   "required": true,
+   "chars": 44850,
+   "qa_found": true,
+   "mentions_raw": 24,
+   "distinct_raw": [
+    "AAPL",
+    "BCS",
+    "MS",
+    "MSFT",
+    "STLA",
+    "Samsung"
+   ],
+   "n_distinct_raw": 6,
+   "distinct_companies": [
+    "AAPL",
+    "MSFT",
+    "STLA",
+    "Samsung"
+   ],
+   "n_distinct": 4,
+   "distinct_by_eye": [
+    "AAPL",
+    "MSFT",
+    "STLA",
+    "Samsung"
+   ],
+   "n_distinct_by_eye": 4,
+   "n_prepared": 5,
+   "n_qa": 17,
+   "matches": [
+    {
+     "name": "Stellantis",
+     "ticker": "STLA",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We are also pleased with our multi-year contract technology collaboration with Stellantis, which will be utilizing our Snapdragon automotive cockpit platforms across the automaker's 14 brands.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Stellantis",
+     "ticker": "STLA",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Upcoming Stellantis vehicles will also be featuring 5G capabilities for telematic systems based on our Snapdragon Auto 5G modem RF platforms.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "In handsets, we had record revenues of $6.3 billion driven by continued traction with leading smartphone OEMs such as Samsung, Xiaomi, Oppo, Vivo, and Honor, where Snapdragon continues to be the mobile technology platform of choice for premium and high-tier Android.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Samsung's strategy to adopt Qualcomm for the majority of volume is significant and validates our platform leadership as well as consumer preference for the Snapdragon brand.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We gained share in Samsung's flagship device, the Galaxy S22, demonstrating leadership of our Snapdragon processor technology and our ability to compete with internal chipset initiatives.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Stellantis",
+     "ticker": "STLA",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Obviously, there's a lot going on with the arriver acquisition, the Stellantis deal, and you guys talking about a $1.16 billion pipeline now.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Matt Ramsey (Analyst at Cowan): the significant share expansion that you guys are highlighting at Samsung.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "So, Cristiano, are you thinking about the content and share expansion at Samsung as being sustainable? And how is the RF attached on that expansion and share at Samsung Trending? Thank you.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "So, Cristiano, are you thinking about the content and share expansion at Samsung as being sustainable? And how is the RF attached on that expansion and share at Samsung Trending? Thank you.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "You probably saw that in the making, it's a lot of the new form factor from Samsung, both the fold and the flip, was Qualcomm globally.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And it's a story of share gains with Samsung.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "So first is we talked about Samsung share increase, and so that has helped us at the premium tier.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "But also, we pointed out that, you know, in China, as represented 20% of the market, the premium tier devices, whether it's Vivo, Oppo, Xiaomi, Honor, Huawei, 4G, as well as, you know, devices such as Samsung, They all power by Qualcomm.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Apple",
+     "ticker": "AAPL",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "I guess I want to try to ask the visibility question again, maybe in a different way, which is how much of that revenue is committed? And I'm assuming this would be mainly high-end Android buyers that would be interested in shipping new units at the end of the year, given your prior commentary about Apple exposure and so on.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Apple",
+     "ticker": "AAPL",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Financial Officer): Yeah, Rod, the driver of the September quarter is typically consistent with what you would have seen in the past, right? So flagship launches that happen, not just in Android, but Apple as well, we see the benefit of that show up in our numbers in that quarter and then going into December quarter.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "But as you think about the moving parts that drove that, How much of, say, the $10 billion SAM opportunity you talked about in China will already have been addressed? And if you've gone from 40% to 75% penetration than the Samsung GS22, how much more is there? So really what I'm getting at is how long can you outgrow the handset market by content and market share gains if you're doing so well now?",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question is coming from Joe Moore with Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "I just want to go back to the Samsung commentary and the share gains that you've had there.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "In many of those markets that are now new markets to Qualcomm, Samsung is actively advertising Snapdragon as an ingredient brand with the Galaxy S22.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And as I said earlier, I think we're very confident that The Samsung relationship is going to continue to be an expanding relationship for us.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Microsoft",
+     "ticker": "MSFT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We have been working with Microsoft for many years.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Host): Our next question will come from the line of Blaine Curtis with Barclays.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We're also seeing the share that we picked up at Samsung that we've discussed, the strength in China, and the improving supply.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Apple",
+     "ticker": "AAPL",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Also, to keep in mind that typically the new Apple phone launch happens in the fall timeframe, and that would be a driver as well.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "NXPI",
+   "date": "2022-02-01",
+   "sector": "semis",
+   "required": true,
+   "chars": 48361,
+   "qa_found": true,
+   "mentions_raw": 6,
+   "distinct_raw": [
+    "EVR",
+    "F",
+    "GLDI",
+    "MS",
+    "PERF"
+   ],
+   "n_distinct_raw": 5,
+   "distinct_companies": [
+    "F"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [
+    "F"
+   ],
+   "n_distinct_by_eye": 1,
+   "n_prepared": 0,
+   "n_qa": 1,
+   "matches": [
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Before we start the call today, I'd like to highlight NXP will be attending the Morgan Stanley TMT Conference in San Francisco on March 7th and 8th.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question comes from CJ Muse with Evercore.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Ford Motor",
+     "ticker": "F",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "I'm actually proud to mention, because it's always difficult with OEM names in that particular industry, but I'm proud to mention or reflect on the announcement which we did, I think, in November with Ford Motor Company together, where we spoke about the fact that their new F-150 engine the Bronco, the Emacs, they will all be using, amongst others, this S32G platform for the gateway functionality.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Credit Suisse",
+     "ticker": "GLDI",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Catherine (Conference Call Operator/Moderator): Our next question comes from John Pitzer with Credit Suisse.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Perfect",
+     "ticker": "PERF",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "John Pitzer (Analyst, Credit Suisse): Perfect, guys.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "And our last question comes from Joe Moore with Morgan Stanley.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "ABBV",
+   "date": "2023-10-27",
+   "sector": "other",
+   "required": false,
+   "chars": 72309,
+   "qa_found": true,
+   "mentions_raw": 2,
+   "distinct_raw": [
+    "AMD",
+    "MS"
+   ],
+   "n_distinct_raw": 2,
+   "distinct_companies": [
+    "AMD"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [],
+   "n_distinct_by_eye": 0,
+   "n_prepared": 0,
+   "n_qa": 1,
+   "matches": [
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Operator): Yes, the next question comes from Terence Flynn with Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "AMD",
+     "ticker": "AMD",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "It's our Regenexx Bio program for both wet AMD and diabetic retinopathy.",
+     "by_eye_false_positive": true
+    }
+   ]
+  },
+  {
+   "ticker": "AIG",
+   "date": "2022-08-09",
+   "sector": "other",
+   "required": false,
+   "chars": 53862,
+   "qa_found": true,
+   "mentions_raw": 7,
+   "distinct_raw": [
+    "BLK",
+    "BX"
+   ],
+   "n_distinct_raw": 2,
+   "distinct_companies": [
+    "BLK",
+    "BX"
+   ],
+   "n_distinct": 2,
+   "distinct_by_eye": [
+    "BLK",
+    "BX"
+   ],
+   "n_distinct_by_eye": 2,
+   "n_prepared": 0,
+   "n_qa": 7,
+   "matches": [
+    {
+     "name": "Blackstone",
+     "ticker": "BX",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Life and Retirement has strong fixed annuity sales with over $1.3 billion in deposits for the second straight quarter, which benefited from the origination capabilities of Blackstone.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Blackstone",
+     "ticker": "BX",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "This includes our strategic partnership with Blackstone, announced in July of 2021, and our partnership with BlackRock, where we began moving assets under management in the second quarter of this year, pursuant to the arrangement we announced in late March.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "BlackRock",
+     "ticker": "BLK",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "This includes our strategic partnership with Blackstone, announced in July of 2021, and our partnership with BlackRock, where we began moving assets under management in the second quarter of this year, pursuant to the arrangement we announced in late March.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "BlackRock",
+     "ticker": "BLK",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And three, planning our transition to BlackRock's Aladdin platform, which will replace aging and end-of-life technology infrastructure and provide enhanced risk analytics and reporting.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Blackstone",
+     "ticker": "BX",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Within individual retirement, fixed annuity sales increased 48% year-over-year, aided by origination activity through the Blackstone relationship, and fixed index annuity had another solid quarter of sales.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Blackstone",
+     "ticker": "BX",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "As we previously disclosed, our agreement with Blackstone includes an exchange right put option, which is not exercisable until November of 2024, that gives Blackstone the right to exchange their stake in Corbridge for shares in AIG.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Blackstone",
+     "ticker": "BX",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "As we previously disclosed, our agreement with Blackstone includes an exchange right put option, which is not exercisable until November of 2024, that gives Blackstone the right to exchange their stake in Corbridge for shares in AIG.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "AMPX",
+   "date": "2023-11-09",
+   "sector": "solar",
+   "required": false,
+   "chars": 30850,
+   "qa_found": true,
+   "mentions_raw": 3,
+   "distinct_raw": [
+    "AVAV",
+    "CELH",
+    "OPY"
+   ],
+   "n_distinct_raw": 3,
+   "distinct_companies": [
+    "AVAV"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [
+    "AVAV"
+   ],
+   "n_distinct_by_eye": 1,
+   "n_prepared": 1,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Celsius",
+     "ticker": "CELH",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "Our battery performs up to 10C power capability, extremely fast charge rate of 0% to 80% state of charge in approximately six minutes, a wide operating temperature range of minus 30 degrees to 55 degrees Celsius, and the safety design feature that enable us to pass United States military benchmark nail penetration test.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "AeroVironment",
+     "ticker": "AVAV",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "This group include repeat customers who continue to place the orders, such as Otto, AeroVironment, Teledon FLIR, as well as 18 new accounts up from 10 last quarter.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Oppenheimer",
+     "ticker": "OPY",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our first question comes from Colin Ruch with Oppenheimer.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "CMI",
+   "date": "2023-08-03",
+   "sector": "other",
+   "required": false,
+   "chars": 53850,
+   "qa_found": true,
+   "mentions_raw": 6,
+   "distinct_raw": [
+    "C",
+    "EVR",
+    "GLDI",
+    "OPY",
+    "PERF",
+    "STLA"
+   ],
+   "n_distinct_raw": 6,
+   "distinct_companies": [
+    "STLA"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [
+    "STLA"
+   ],
+   "n_distinct_by_eye": 1,
+   "n_prepared": 1,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Stellantis",
+     "ticker": "STLA",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We shipped 38,000 engines to Stellantis for use in their RAM pickups in the second quarter of 2023, flat with the 2022 levels.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Credit Suisse",
+     "ticker": "GLDI",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our first question comes from Jamie Cook of Credit Suisse.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Citigroup",
+     "ticker": "C",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Your next question comes from Tim Thien with Citigroup.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Your next question comes from David Razzo with Evercore ISI.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Perfect",
+     "ticker": "PERF",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "Rob Wertheimer (Analyst, Melius Research): Perfect.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Oppenheimer",
+     "ticker": "OPY",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "with Oppenheimer.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "COF",
+   "date": "2023-07-20",
+   "sector": "other",
+   "required": false,
+   "chars": 55626,
+   "qa_found": true,
+   "mentions_raw": 2,
+   "distinct_raw": [
+    "MS",
+    "OPY"
+   ],
+   "n_distinct_raw": 2,
+   "distinct_companies": [],
+   "n_distinct": 0,
+   "distinct_by_eye": [],
+   "n_distinct_by_eye": 0,
+   "n_prepared": 0,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Amy (Conference Call Operator): Our next question comes from Betsy Gracek with Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Oppenheimer",
+     "ticker": "OPY",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Amy (Conference Call Operator): Our last question comes from Dominic Gabriel with Oppenheimer.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "COST",
+   "date": "2021-09-23",
+   "sector": "other",
+   "required": false,
+   "chars": 51179,
+   "qa_found": true,
+   "mentions_raw": 6,
+   "distinct_raw": [
+    "AMZN",
+    "BCS",
+    "GRPN",
+    "MS",
+    "OPY",
+    "WMT"
+   ],
+   "n_distinct_raw": 6,
+   "distinct_companies": [
+    "AMZN",
+    "GRPN",
+    "WMT"
+   ],
+   "n_distinct": 3,
+   "distinct_by_eye": [
+    "AMZN",
+    "GRPN",
+    "WMT"
+   ],
+   "n_distinct_by_eye": 3,
+   "n_prepared": 0,
+   "n_qa": 3,
+   "matches": [
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "We have our first question from the line of Simeon Goodman from Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Amazon",
+     "ticker": "AMZN",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Is it ancillary that hasn't recovered? What can you do on the top line given how big of a lap? And then you mentioned the wage increases, and I know you'll lap those in March, but you've seen I think Amazon and Walmart have moved up.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Walmart",
+     "ticker": "WMT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Is it ancillary that hasn't recovered? What can you do on the top line given how big of a lap? And then you mentioned the wage increases, and I know you'll lap those in March, but you've seen I think Amazon and Walmart have moved up.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Next question comes from the line of Karen Short from Barclays.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Groupon",
+     "ticker": "GRPN",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We've done some things with Groupon and with LivingSocial.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Oppenheimer",
+     "ticker": "OPY",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question comes from the line of Rupesh Parikh from Oppenheimer.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "DD",
+   "date": "2022-08-02",
+   "sector": "other",
+   "required": false,
+   "chars": 58232,
+   "qa_found": true,
+   "mentions_raw": 3,
+   "distinct_raw": [
+    "DELL",
+    "GLDI",
+    "MS"
+   ],
+   "n_distinct_raw": 3,
+   "distinct_companies": [
+    "DELL"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [],
+   "n_distinct_by_eye": 0,
+   "n_prepared": 1,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Dell",
+     "ticker": "DELL",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We also continue to move forward with plans to divest the Dell Rent business and affirm our expectation for completion around mid-year 2023.",
+     "by_eye_false_positive": true
+    },
+    {
+     "name": "Credit Suisse",
+     "ticker": "GLDI",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Conference Operator (Moderator): Your next question comes from John Walsh from Credit Suisse.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Conference Operator (Moderator): Your next question comes from Vincent Andrews from Morgan Stanley.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "DUK",
+   "date": "2023-05-09",
+   "sector": "other",
+   "required": false,
+   "chars": 31268,
+   "qa_found": true,
+   "mentions_raw": 1,
+   "distinct_raw": [
+    "MS"
+   ],
+   "n_distinct_raw": 1,
+   "distinct_companies": [],
+   "n_distinct": 0,
+   "distinct_by_eye": [],
+   "n_distinct_by_eye": 0,
+   "n_prepared": 0,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question goes to David Alcaro of Morgan Stanley.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "ELV",
+   "date": "2023-10-18",
+   "sector": "other",
+   "required": false,
+   "chars": 61633,
+   "qa_found": true,
+   "mentions_raw": 2,
+   "distinct_raw": [
+    "MS",
+    "VZ"
+   ],
+   "n_distinct_raw": 2,
+   "distinct_companies": [],
+   "n_distinct": 0,
+   "distinct_by_eye": [],
+   "n_distinct_by_eye": 0,
+   "n_prepared": 0,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Call Operator): Next, we'll go to the line of Michael Hoff from Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Verizon",
+     "ticker": "VZ",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Thank you for your participation and for using Verizon Conferencing.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "EMR",
+   "date": "2023-11-07",
+   "sector": "other",
+   "required": false,
+   "chars": 48965,
+   "qa_found": true,
+   "mentions_raw": 6,
+   "distinct_raw": [
+    "BCS",
+    "C",
+    "NEXT",
+    "OPY",
+    "Samsung",
+    "TSLA"
+   ],
+   "n_distinct_raw": 6,
+   "distinct_companies": [
+    "NEXT",
+    "Samsung",
+    "TSLA"
+   ],
+   "n_distinct": 3,
+   "distinct_by_eye": [
+    "NEXT",
+    "Samsung",
+    "TSLA"
+   ],
+   "n_distinct_by_eye": 3,
+   "n_prepared": 3,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Tesla",
+     "ticker": "TSLA",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Syzygy, a provider of electric catalyst reactor technology, Biogen, and Tesla, who discussed their automation challenges and partnership with Emerson.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "First, Emerson was selected to automate five different plants for Samsung Biologics as it standardizes on our Delta V automation platform.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "NextDecade",
+     "ticker": "NEXT",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "The Rio Grande LNG project from Bechtel Energy and NextDecade, located in Texas, will be capable of producing 17.6 million metric tons per annum of LNG across three liquefaction trains.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Call Operator): The next question comes from Julian Mitchell with Barclays.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Oppenheimer",
+     "ticker": "OPY",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Call Operator): Next question comes from Christopher Glenn with Oppenheimer.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Citigroup",
+     "ticker": "C",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Keplowitz with Citigroup.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "HON",
+   "date": "2022-02-03",
+   "sector": "other",
+   "required": false,
+   "chars": 71019,
+   "qa_found": true,
+   "mentions_raw": 2,
+   "distinct_raw": [
+    "C",
+    "GLDI"
+   ],
+   "n_distinct_raw": 2,
+   "distinct_companies": [],
+   "n_distinct": 0,
+   "distinct_by_eye": [],
+   "n_distinct_by_eye": 0,
+   "n_prepared": 0,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Credit Suisse",
+     "ticker": "GLDI",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question comes from John Walsh from Credit Suisse.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Citigroup",
+     "ticker": "C",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "We'll take our last question from Andrew Kaplowitz from Citigroup.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "KMB",
+   "date": "2022-10-25",
+   "sector": "other",
+   "required": false,
+   "chars": 56292,
+   "qa_found": true,
+   "mentions_raw": 4,
+   "distinct_raw": [
+    "BCS",
+    "EML",
+    "EVR"
+   ],
+   "n_distinct_raw": 3,
+   "distinct_companies": [],
+   "n_distinct": 0,
+   "distinct_by_eye": [],
+   "n_distinct_by_eye": 0,
+   "n_prepared": 0,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "We'll take our first question from Lauren Lieberman with Barclays.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Eastern",
+     "ticker": "EML",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "Most of that was concentrated, understandably, in Eastern Europe, given the conditions that are happening there.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question comes from Javier Escalante of Evercore.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question comes from Lauren Lieberman of Barclays.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "MRK",
+   "date": "2022-04-28",
+   "sector": "other",
+   "required": false,
+   "chars": 54823,
+   "qa_found": true,
+   "mentions_raw": 3,
+   "distinct_raw": [
+    "BCS",
+    "EVR",
+    "JNJ"
+   ],
+   "n_distinct_raw": 3,
+   "distinct_companies": [
+    "JNJ"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [
+    "JNJ"
+   ],
+   "n_distinct_by_eye": 1,
+   "n_prepared": 1,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Johnson & Johnson",
+     "ticker": "JNJ",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Finally, as a reminder, our other revenue line contains several items, including supply sales to Organon, which we began recording upon the completion of the spin-off last year, and to Johnson & Johnson for its COVID vaccine.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Your first question comes from the line of Carter Gold from Barclays.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Next, we have Umar Afad from Evercore Eyes Eye.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "MS",
+   "date": "2022-01-19",
+   "sector": "other",
+   "required": false,
+   "chars": 60664,
+   "qa_found": true,
+   "mentions_raw": 2,
+   "distinct_raw": [
+    "EVR",
+    "PERF"
+   ],
+   "n_distinct_raw": 2,
+   "distinct_companies": [],
+   "n_distinct": 0,
+   "distinct_by_eye": [],
+   "n_distinct_by_eye": 0,
+   "n_prepared": 0,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Call Moderator): The next question is from Glenn Shore with Evercore ISI Group.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Perfect",
+     "ticker": "PERF",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "Glenn Shore (Analyst, Evercore ISI Group): Perfect.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "MSFT",
+   "date": "2021-07-27",
+   "sector": "other",
+   "required": false,
+   "chars": 54195,
+   "qa_found": true,
+   "mentions_raw": 27,
+   "distinct_raw": [
+    "AAPL",
+    "ADBE",
+    "AXP",
+    "BCS",
+    "COLM",
+    "CRM",
+    "F",
+    "MDLZ",
+    "MS",
+    "MSI",
+    "NOW",
+    "SHOP",
+    "Samsung",
+    "T",
+    "TEAM",
+    "VWAGY",
+    "WDAY",
+    "WMT"
+   ],
+   "n_distinct_raw": 18,
+   "distinct_companies": [
+    "AAPL",
+    "ADBE",
+    "AXP",
+    "COLM",
+    "CRM",
+    "F",
+    "MDLZ",
+    "MSI",
+    "NOW",
+    "SHOP",
+    "Samsung",
+    "T",
+    "TEAM",
+    "VWAGY",
+    "WDAY",
+    "WMT"
+   ],
+   "n_distinct": 16,
+   "distinct_by_eye": [
+    "AAPL",
+    "ADBE",
+    "AXP",
+    "COLM",
+    "CRM",
+    "F",
+    "MDLZ",
+    "MSI",
+    "NOW",
+    "SHOP",
+    "Samsung",
+    "T",
+    "TEAM",
+    "VWAGY",
+    "WDAY",
+    "WMT"
+   ],
+   "n_distinct_by_eye": 16,
+   "n_prepared": 19,
+   "n_qa": 5,
+   "matches": [
+    {
+     "name": "AT&T",
+     "ticker": "T",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "AT&T chose Azure to power its 5G core network, making it the first tier one operator to move its existing customer traffic to the public cloud.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Mondelez International",
+     "ticker": "MDLZ",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Thousands of enterprises have migrated their ERP workloads to Azure, including Campbell Soup, L'Oreal, Mondelez International, ServiceNow, and even SAP.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "ServiceNow",
+     "ticker": "NOW",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Thousands of enterprises have migrated their ERP workloads to Azure, including Campbell Soup, L'Oreal, Mondelez International, ServiceNow, and even SAP.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "All this innovation is driving larger and more strategic Azure commitments from industry leaders, including MaaS in consumer goods, Morgan Stanley in financial services, and NEC in IT.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Walmart",
+     "ticker": "WMT",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Walmart is using Cosmos DB to handle billions of online requests daily and to ensure millions of customers receive the items they want when they need them.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Ford",
+     "ticker": "F",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Organizations like Ford, NASA, and Shopify are using new project planning capabilities to help developers better manage projects directly within their workflow.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Shopify",
+     "ticker": "SHOP",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Organizations like Ford, NASA, and Shopify are using new project planning capabilities to help developers better manage projects directly within their workflow.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Motorola Solutions",
+     "ticker": "MSI",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And Epic Games, Motorola Solutions, and Volkswagen Software Group all chose GitHub Advanced Security this quarter to help secure their code.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Volkswagen",
+     "ticker": "VWAGY",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And Epic Games, Motorola Solutions, and Volkswagen Software Group all chose GitHub Advanced Security this quarter to help secure their code.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Our new Azure applied AI services help organizations like Dow, Lufthansa, and Samsung apply AI to common business scenarios.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Columbia Sportswear",
+     "ticker": "COLM",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We are helping businesses to become digitally sovereign over their customer interactions with our customer insights product with organizations like Columbia Sportswear, GNC, and LA Clippers, all choosing to unify customer profiles and deliver more personalized experiences.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Adobe",
+     "ticker": "ADBE",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Leading third-party SaaS vendors, including Adobe, Atlassian, Salesforce, SAP, ServiceNow, and Workday, have now built apps that deeply integrate with Teams, bringing every business process and function directly into the flow of work.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Atlassian",
+     "ticker": "TEAM",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Leading third-party SaaS vendors, including Adobe, Atlassian, Salesforce, SAP, ServiceNow, and Workday, have now built apps that deeply integrate with Teams, bringing every business process and function directly into the flow of work.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Salesforce",
+     "ticker": "CRM",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Leading third-party SaaS vendors, including Adobe, Atlassian, Salesforce, SAP, ServiceNow, and Workday, have now built apps that deeply integrate with Teams, bringing every business process and function directly into the flow of work.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "ServiceNow",
+     "ticker": "NOW",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Leading third-party SaaS vendors, including Adobe, Atlassian, Salesforce, SAP, ServiceNow, and Workday, have now built apps that deeply integrate with Teams, bringing every business process and function directly into the flow of work.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Workday",
+     "ticker": "WDAY",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Leading third-party SaaS vendors, including Adobe, Atlassian, Salesforce, SAP, ServiceNow, and Workday, have now built apps that deeply integrate with Teams, bringing every business process and function directly into the flow of work.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "American Express",
+     "ticker": "AXP",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We are seeing strong interest in early adoption in every industry from American Express and Barclays to AT&T and Mars.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "We are seeing strong interest in early adoption in every industry from American Express and Barclays to AT&T and Mars.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "AT&T",
+     "ticker": "T",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We are seeing strong interest in early adoption in every industry from American Express and Barclays to AT&T and Mars.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Volkswagen",
+     "ticker": "VWAGY",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "This is reflected in our share gains with nearly 600,000 organizations, including FedEx, Nestle, NTT, and Volkswagen using our security offerings across Azure and Microsoft 365.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Apple",
+     "ticker": "AAPL",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Just last month, we made Xbox cloud gaming available on PCs as well as Apple phones and tablets via the browser in 22 countries with more to come.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our first question is coming from the line of Keith Weiss with Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "AT&T",
+     "ticker": "T",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And so to me, those new scenarios, or 5G, I mean, think about what AT&T is planning to do, which is a hybrid deployment in a completely new space where there is going to be compute that's located to be able to take core network traffic and use cloud economics.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Apple",
+     "ticker": "AAPL",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Is that driving, given the acceleration you're seeing in dynamics, can you talk to the fact, is that driving larger deals, new bites at the Apple, or how is that changing the landscape, and how do you think about that versus what your competitors are doing?",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Salesforce",
+     "ticker": "CRM",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "One is Teams has become a platform not just for dynamics, even for Salesforce, for SAP, for Adobe, for ServiceNow.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Adobe",
+     "ticker": "ADBE",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "One is Teams has become a platform not just for dynamics, even for Salesforce, for SAP, for Adobe, for ServiceNow.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "ServiceNow",
+     "ticker": "NOW",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "One is Teams has become a platform not just for dynamics, even for Salesforce, for SAP, for Adobe, for ServiceNow.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "NEM",
+   "date": "2022-02-24",
+   "sector": "other",
+   "required": false,
+   "chars": 55345,
+   "qa_found": true,
+   "mentions_raw": 7,
+   "distinct_raw": [
+    "CAT",
+    "GLDI"
+   ],
+   "n_distinct_raw": 2,
+   "distinct_companies": [
+    "CAT"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [
+    "CAT"
+   ],
+   "n_distinct_by_eye": 1,
+   "n_prepared": 3,
+   "n_qa": 3,
+   "matches": [
+    {
+     "name": "Caterpillar",
+     "ticker": "CAT",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And during the fourth quarter, we safely commissioned the gold industry's first autonomous haul fleet at Boddington and formed an industry-leading strategic alliance with Caterpillar to achieve zero-emissions mining and support Newmont's climate initiatives.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Caterpillar",
+     "ticker": "CAT",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Early in 2020, our Newmont team came together with our partners at Caterpillar to plan, construct, test and deploy the gold sector's first fully autonomous haul truck fleet.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Caterpillar",
+     "ticker": "CAT",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "announcing a revolutionary strategic alliance with Caterpillar to deliver first-of-a-kind battery electric autonomous vehicles at Tannemine and at CC&V as we make progress towards achieving zero-emissions mining.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Credit Suisse",
+     "ticker": "GLDI",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Conference Operator (Moderator): And our first question will come from Fahad Tariq of Credit Suisse.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Caterpillar",
+     "ticker": "CAT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "I think that's a terrific question for Rob, and he'll certainly make sure that he talks about our alliance with Caterpillar and Cripple Creek and Victor and Tanami as well as other things.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Caterpillar",
+     "ticker": "CAT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And, you know, with the analytics that we've got, and this is one of the key parts of the partnership with Caterpillar, is that, you know, we are sharing data like never been shared before, and we're doing that data analytics.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Caterpillar",
+     "ticker": "CAT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "In terms of other opportunities, as Tom mentioned, the partnership and the strategic alliance with Caterpillar is incredibly exciting.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "NOW",
+   "date": "2023-04-26",
+   "sector": "other",
+   "required": false,
+   "chars": 56771,
+   "qa_found": true,
+   "mentions_raw": 13,
+   "distinct_raw": [
+    "AMZN",
+    "BCS",
+    "EVR",
+    "MS",
+    "MSFT",
+    "NFLX",
+    "T"
+   ],
+   "n_distinct_raw": 7,
+   "distinct_companies": [
+    "AMZN",
+    "MSFT",
+    "NFLX",
+    "T"
+   ],
+   "n_distinct": 4,
+   "distinct_by_eye": [
+    "AMZN",
+    "MSFT",
+    "NFLX",
+    "T"
+   ],
+   "n_distinct_by_eye": 4,
+   "n_prepared": 2,
+   "n_qa": 8,
+   "matches": [
+    {
+     "name": "AT&T",
+     "ticker": "T",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "For example, ServiceNow and AT&T have created a global telecom product to help communication service providers manage 5G and fiber network inventory.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Netflix",
+     "ticker": "NFLX",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "I'd also like to extend a warm welcome to Deborah Black, Vice President, Engineering at Netflix, who is the newest member of ServiceNow's Board of Directors.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Call Operator): Our next question comes from the line of Keith Weiss from Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Call Operator): Our next question comes from the line of Kirk Maddern from Evercore ISI.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Microsoft",
+     "ticker": "MSFT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Bill, I wanted to ask about the Microsoft partnership and the CoSell agreement.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Microsoft",
+     "ticker": "MSFT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "As you know, we're very proud of our relationship with Microsoft.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Microsoft",
+     "ticker": "MSFT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Also, a big tip of the cap to Microsoft and Satya and his team for an outstanding quarter.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Microsoft",
+     "ticker": "MSFT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "So here's what I would say, Derek, is at the highest level, when we think about our partnership with Microsoft, certain products such as our ITOM product, which gives you visibility into Azure and overall our product set that allows you to consume public cloud services is going in the right direction.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Microsoft",
+     "ticker": "MSFT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "From a go-to-market standpoint, whether it's in US federal cloud with our IL5 certification just going live on Microsoft Azure cloud or the Australian government certification, We have had some recent wins in Australia and a few other geographies where our go-to market teams are working really well together.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Microsoft",
+     "ticker": "MSFT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We will share more on generative AI with Microsoft, but we absolutely plan to leverage OpenAI as well as Microsoft Azure capabilities when it comes to how ServiceNow use cases will work in conjunction with OpenAI and Microsoft Azure.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "AWS",
+     "ticker": "AMZN",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "In addition to that, our cloud discovery that happens via ITEM with Azure, AWS, GCP is also on the rise with number of customers using those capabilities.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Microsoft",
+     "ticker": "MSFT",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Bill McDermott (Chairman and Chief Executive Officer): And Sterling, the one build I would give on this just for you to know, Microsoft and ServiceNow understand each other and have like-minded ways of going to market.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Call Operator): Our next question comes from the line of Remo Lenshow from Barclays.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "OXY",
+   "date": "2021-08-04",
+   "sector": "other",
+   "required": false,
+   "chars": 53865,
+   "qa_found": true,
+   "mentions_raw": 2,
+   "distinct_raw": [
+    "HAL",
+    "UAL"
+   ],
+   "n_distinct_raw": 2,
+   "distinct_companies": [
+    "HAL",
+    "UAL"
+   ],
+   "n_distinct": 2,
+   "distinct_by_eye": [
+    "HAL",
+    "UAL"
+   ],
+   "n_distinct_by_eye": 2,
+   "n_prepared": 0,
+   "n_qa": 2,
+   "matches": [
+    {
+     "name": "Halliburton",
+     "ticker": "HAL",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "So you start doing the math on that and that's 10% better than our previous record and the vast western hemisphere record for the service provider that did that in Halliburton.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "United Airlines",
+     "ticker": "UAL",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "United Airlines has announced that they will be a part of our direct air capture facility, so they'll be not only contributing to the capital needed to build it, but they'll be taking the fuel from the facility.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "PG",
+   "date": "2021-01-21",
+   "sector": "other",
+   "required": false,
+   "chars": 55327,
+   "qa_found": true,
+   "mentions_raw": 4,
+   "distinct_raw": [
+    "BCS",
+    "EVR",
+    "GLDI",
+    "MS"
+   ],
+   "n_distinct_raw": 4,
+   "distinct_companies": [],
+   "n_distinct": 0,
+   "distinct_by_eye": [],
+   "n_distinct_by_eye": 0,
+   "n_prepared": 0,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Your first question comes from the line of Lauren Lieberman with Barclays.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Moderator (Conference Call Moderator): Your next question comes from the line of Dara Moussinian with Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Moderator (Conference Call Moderator): Your next question comes from the line of Rob Ottenstein with Evercore.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Credit Suisse",
+     "ticker": "GLDI",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Moderator (Conference Call Moderator): Your next question comes from the line of Komil Gajrawala with Credit Suisse.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "PSX",
+   "date": "2023-05-03",
+   "sector": "other",
+   "required": false,
+   "chars": 50128,
+   "qa_found": true,
+   "mentions_raw": 3,
+   "distinct_raw": [
+    "NTRS",
+    "NVX",
+    "PERF"
+   ],
+   "n_distinct_raw": 3,
+   "distinct_companies": [
+    "NTRS",
+    "NVX"
+   ],
+   "n_distinct": 2,
+   "distinct_by_eye": [
+    "NVX"
+   ],
+   "n_distinct_by_eye": 1,
+   "n_prepared": 0,
+   "n_qa": 2,
+   "matches": [
+    {
+     "name": "Novonix",
+     "ticker": "NVX",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "The $12 million decrease in the fair value of our investment in Novonix reduced earnings per share by two cents.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Perfect",
+     "ticker": "PERF",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "Manav Gupta (Analyst (UBS)): Perfect, guys.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Northern",
+     "ticker": "NTRS",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "We had a little bit of a similar phenomena going on on the West Coast as well, where we use an LA marker for the entire West Coast, which includes Northern California and the Pacific Northwest.",
+     "by_eye_false_positive": true
+    }
+   ]
+  },
+  {
+   "ticker": "QS",
+   "date": "2021-07-27",
+   "sector": "solar",
+   "required": false,
+   "chars": 58734,
+   "qa_found": true,
+   "mentions_raw": 15,
+   "distinct_raw": [
+    "CELH",
+    "EXPO",
+    "LTUM",
+    "MS",
+    "MU",
+    "Panasonic",
+    "TSLA",
+    "VWAGY"
+   ],
+   "n_distinct_raw": 8,
+   "distinct_companies": [
+    "EXPO",
+    "LTUM",
+    "MU",
+    "Panasonic",
+    "TSLA",
+    "VWAGY"
+   ],
+   "n_distinct": 6,
+   "distinct_by_eye": [
+    "MU",
+    "Panasonic",
+    "TSLA",
+    "VWAGY"
+   ],
+   "n_distinct_by_eye": 4,
+   "n_prepared": 0,
+   "n_qa": 13,
+   "matches": [
+    {
+     "name": "Panasonic",
+     "ticker": "Panasonic-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Among many others, we are pleased to welcome Celina Mikolajczak from Panasonic and Tesla as our VP of Manufacturing Engineering, and Clayton Patch from Micron Technology Inc.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Tesla",
+     "ticker": "TSLA",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Among many others, we are pleased to welcome Celina Mikolajczak from Panasonic and Tesla as our VP of Manufacturing Engineering, and Clayton Patch from Micron Technology Inc.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Micron Technology",
+     "ticker": "MU",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Among many others, we are pleased to welcome Celina Mikolajczak from Panasonic and Tesla as our VP of Manufacturing Engineering, and Clayton Patch from Micron Technology Inc.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Volkswagen",
+     "ticker": "VWAGY",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "In addition, we will continue working closely with Volkswagen and other customers as we push towards next year's customer sampling targets.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Volkswagen",
+     "ticker": "VWAGY",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "t add, as I mentioned on our last call, outside of satisfying tax obligations, I remain committed to not selling any shares until we've delivered a prototype in a commercially relevant form factor to Volkswagen.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Tesla",
+     "ticker": "TSLA",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "John Sager (Head of Investor Relations): Since Tesla's 4680 lithium-ion battery cell is advertised as having similar performance to your battery, and it's less likely to cause a fire versus an internal combustion engine, what's the real advantage of a solid-state cell?",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Panasonic",
+     "ticker": "Panasonic-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Can you talk a little bit about the background from Selena coming from Panasonic and Tesla and how she can help you industrialize the production and, you know, accelerate that transition to QS0 and QS1? Thank you.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Tesla",
+     "ticker": "TSLA",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Can you talk a little bit about the background from Selena coming from Panasonic and Tesla and how she can help you industrialize the production and, you know, accelerate that transition to QS0 and QS1? Thank you.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Panasonic",
+     "ticker": "Panasonic-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "I mean, she, as you know from her background, she ran the manufacturing engineering group at Panasonic at the Gigafactory in Reno, which we believe is one of the largest, if not the largest, operating battery facility in the world.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Panasonic",
+     "ticker": "Panasonic-none",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "But she's not just a manufacturing expert who's worked with super high volume production lines at Panasonic.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Exponent",
+     "ticker": "EXPO",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "She started out working at what's now called Exponent, what used to be called Failure Analysis Associates, which was one of the pioneers in battery safety analysis.",
+     "by_eye_false_positive": true
+    },
+    {
+     "name": "Tesla",
+     "ticker": "TSLA",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "She obviously went over to Tesla where she, during her tenure there, they introduced a you know, many of the key models that we associate with Tesla now.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Operator (Conference Operator): Our next question is from Adam Jonas of Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Celsius",
+     "ticker": "CELH",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "One hour charge and discharge, 25 to 30 degrees Celsius temperatures, three to four atmospheres of pressure as opposed to overly elevated temperatures and pressures, 100% depth of discharge.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Lithium",
+     "ticker": "LTUM",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Lithium has atomic number 7.",
+     "by_eye_false_positive": true
+    }
+   ]
+  },
+  {
+   "ticker": "SIRI",
+   "date": "2023-08-01",
+   "sector": "other",
+   "required": false,
+   "chars": 45879,
+   "qa_found": true,
+   "mentions_raw": 3,
+   "distinct_raw": [
+    "CRM",
+    "EVR",
+    "MS"
+   ],
+   "n_distinct_raw": 3,
+   "distinct_companies": [
+    "CRM"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [
+    "CRM"
+   ],
+   "n_distinct_by_eye": 1,
+   "n_prepared": 1,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Salesforce",
+     "ticker": "CRM",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Within AI, for example, we are both tapping into our own growing rich data environment, as well as utilizing Salesforce's marketing and data clouds to supercharge our MarTech, allowing us to engage current and potential trialers and subscribers with highly personalized campaigns that increase early engagement and strengthen listening habits.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question is from Cameron Manson Perrone with Morgan Stanley.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Evercore",
+     "ticker": "EVR",
+     "in": "Q&A",
+     "operator_turn": true,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question is from Cutgun Miral with Evercore ISI.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "TMO",
+   "date": "2021-02-01",
+   "sector": "other",
+   "required": false,
+   "chars": 59917,
+   "qa_found": true,
+   "mentions_raw": 4,
+   "distinct_raw": [
+    "AMPL",
+    "PERF"
+   ],
+   "n_distinct_raw": 2,
+   "distinct_companies": [],
+   "n_distinct": 0,
+   "distinct_by_eye": [],
+   "n_distinct_by_eye": 0,
+   "n_prepared": 0,
+   "n_qa": 0,
+   "matches": [
+    {
+     "name": "Amplitude",
+     "ticker": "AMPL",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "We also significantly expanded our portfolio of COVID-19-related products, including our Amplitude solution for high-throughput PCR-based testing and our TAC-Check PCR test for asymptomatic health surveillance.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Amplitude",
+     "ticker": "AMPL",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "Amplitude demand has been extraordinarily robust.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Perfect",
+     "ticker": "PERF",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "Derek DeBrown (Analyst at Bank of America): Perfect.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Perfect",
+     "ticker": "PERF",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "Doug Shanko (Analyst at Cowan): Perfect, thank you.",
+     "by_eye_false_positive": false
+    }
+   ]
+  },
+  {
+   "ticker": "UPS",
+   "date": "2022-04-26",
+   "sector": "other",
+   "required": false,
+   "chars": 52608,
+   "qa_found": true,
+   "mentions_raw": 10,
+   "distinct_raw": [
+    "AMZN",
+    "BCS",
+    "EML",
+    "MS",
+    "OPY"
+   ],
+   "n_distinct_raw": 5,
+   "distinct_companies": [
+    "AMZN"
+   ],
+   "n_distinct": 1,
+   "distinct_by_eye": [
+    "AMZN"
+   ],
+   "n_distinct_by_eye": 1,
+   "n_prepared": 0,
+   "n_qa": 5,
+   "matches": [
+    {
+     "name": "Eastern",
+     "ticker": "EML",
+     "in": "prepared",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "Putting the issues in Eastern Europe aside, as we discussed in February, we expected the macro environment to be dynamic.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Amazon",
+     "ticker": "AMZN",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And Carol, I was hoping you could talk about the recent Amazon brought by with Prime Initiative.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Amazon",
+     "ticker": "AMZN",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Just wanted to get your thoughts on that strategy that Amazon is pursuing and the implications for UPS and also UPS's relationship with Amazon as well.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Amazon",
+     "ticker": "AMZN",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Happy to break down the fuel piece, and then I'll turn it over to Carol for the Amazon question.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Amazon",
+     "ticker": "AMZN",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "Carol Tom\u00e9 (Chief Executive Officer (CEO)): I'm happy to take the Amazon question.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Amazon",
+     "ticker": "AMZN",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": false,
+     "analyst_firm_like": false,
+     "sentence": "And as we talked about at the end of the fourth quarter, we've reached agreement with Amazon about the packages that we will take into our network and the packages that they will deliver on their behalf.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Eastern",
+     "ticker": "EML",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": false,
+     "sentence": "It's a scary time for all of us, but we are leaning in From a cyber perspective, clearly if you think about the challenges coming out of Eastern Europe, we have taken every system down.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Barclays",
+     "ticker": "BCS",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Our next question will come from the line of Brandon Oklinski of Barclays.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Oppenheimer",
+     "ticker": "OPY",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Steven (Conference Facilitator): Our next question will come from the line of Scott Schneeberger of Oppenheimer.",
+     "by_eye_false_positive": false
+    },
+    {
+     "name": "Morgan Stanley",
+     "ticker": "MS",
+     "in": "Q&A",
+     "operator_turn": false,
+     "excluded_second_pass": true,
+     "analyst_firm_like": true,
+     "sentence": "Steven (Conference Facilitator): Our final question will come from the line of Ravi Shankar of Morgan Stanley.",
+     "by_eye_false_positive": false
+    }
+   ]
+  }
+ ],
+ "required_six_peer_usability": [
+  {
+   "call": "RUN 2022-08-03",
+   "peers": {
+    "F": {
+     "in_corpus_on_disk": false,
+     "splits": [],
+     "fetchable_verified_phase0": false
+    }
+   }
+  },
+  {
+   "call": "MU 2022-12-21",
+   "peers": {
+    "AMD": {
+     "in_corpus_on_disk": false,
+     "splits": [
+      "holdout"
+     ],
+     "fetchable_verified_phase0": true
+    },
+    "QCOM": {
+     "in_corpus_on_disk": true,
+     "splits": [
+      "train"
+     ],
+     "fetchable_verified_phase0": false
+    }
+   }
+  },
+  {
+   "call": "INTC 2022-10-27",
+   "peers": {
+    "IBM": {
+     "in_corpus_on_disk": true,
+     "splits": [
+      "train"
+     ],
+     "fetchable_verified_phase0": false
+    },
+    "NVDA": {
+     "in_corpus_on_disk": false,
+     "splits": [
+      "holdout"
+     ],
+     "fetchable_verified_phase0": true
+    },
+    "AMZN": {
+     "in_corpus_on_disk": false,
+     "splits": [],
+     "fetchable_verified_phase0": false
+    },
+    "GOOGL": {
+     "in_corpus_on_disk": false,
+     "splits": [
+      "tune"
+     ],
+     "fetchable_verified_phase0": false
+    },
+    "MSFT": {
+     "in_corpus_on_disk": true,
+     "splits": [
+      "train"
+     ],
+     "fetchable_verified_phase0": false
+    },
+    "META": {
+     "in_corpus_on_disk": false,
+     "splits": [],
+     "fetchable_verified_phase0": false
+    }
+   }
+  },
+  {
+   "call": "JKS 2022-08-26",
+   "peers": {
+    "CSIQ": {
+     "in_corpus_on_disk": false,
+     "splits": [
+      "holdout"
+     ],
+     "fetchable_verified_phase0": false
+    }
+   }
+  },
+  {
+   "call": "QCOM 2022-04-27",
+   "peers": {
+    "STLA": {
+     "in_corpus_on_disk": false,
+     "splits": [],
+     "fetchable_verified_phase0": false
+    },
+    "Samsung": {
+     "ticker": "Samsung-none",
+     "in_corpus": false,
+     "note": "not US-listed / no ticker",
+     "fetchable_verified_phase0": false
+    },
+    "AAPL": {
+     "in_corpus_on_disk": false,
+     "splits": [
+      "holdout"
+     ],
+     "fetchable_verified_phase0": false
+    },
+    "MSFT": {
+     "in_corpus_on_disk": true,
+     "splits": [
+      "train"
+     ],
+     "fetchable_verified_phase0": false
+    }
+   }
+  },
+  {
+   "call": "NXPI 2022-02-01",
+   "peers": {
+    "F": {
+     "in_corpus_on_disk": false,
+     "splits": [],
+     "fetchable_verified_phase0": false
+    }
+   }
+  }
+ ],
+ "vendor_symbol_list_saved_in_phase0": false
+}

@@ -10,11 +10,11 @@
   "steps": {
     "step0": "done",
     "step1": "done",
-    "step2": "in_progress",
+    "step2": "done",
     "step3": "pending",
     "report": "pending"
   },
-  "next_action": "step 2 transcript name matching",
+  "next_action": "step 3 link-type read (10 mentions)",
   "notes": [],
   "luis_approved_usd": 3
 }
