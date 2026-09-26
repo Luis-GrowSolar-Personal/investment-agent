@@ -27,5 +27,29 @@
   "next_action": "opus-preflight-submit",
   "notes": [
     "claude-api skill notes: on claude-opus-5-5 thinking cannot be disabled (default adaptive, effort default medium); B's request omits `thinking`, so Opus reasons by default and thinking tokens count against max_tokens 4096 and are billed. Sonnet 4.6 ran with no thinking. So the only-the-model-string change is not the only behavioural difference."
-  ]
+  ],
+  "guards": {
+    "batch_id_preflight": {
+      "B": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+        "candidate_used": "P6B-minimal",
+        "branch": "sweep/db-corpus-baseline"
+      },
+      "A_noise": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "candidate_used": null,
+        "branch": "sweep/db-corpus-baseline"
+      }
+    }
+  },
+  "committed_usd_by_batch": {
+    "batch_id_preflight": 0.96
+  },
+  "batch_id_preflight": "msgbatch_01KsK96zJqvCtZRcpYmG1Z7X",
+  "batch_id_preflight_submitted_at": "2026-09-26T18:23:40Z",
+  "batch_id_preflight_requests": 30
 }
