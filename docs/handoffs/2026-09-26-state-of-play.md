@@ -14,8 +14,9 @@ screen on Opus found it **sharper on the downside**, and no better on
 winners. **Decided:** research stays on Sonnet, B stays the incumbent,
 Opus and Fable are held back to confirm finished work, and each tune
 look is reserved for a candidate that finds winners. Next: a live
-forward test on Sonnet and Opus, and peer read-through (P5) as the next
-bullish candidate. Start at §3.
+forward test on Sonnet and Opus, two free diagnostics on where the
+winners sit (§4a), then peer read-through (P5) as the next bullish
+candidate. Start at §3.
 
 ---
 
@@ -131,6 +132,13 @@ two identical runs, against 47% by chance. Every candidate today kept it
   trim a flagged name whose call raised guidance.
 - **P7 failed.** The model labelled ~80% of CEOs as overselling and ~80%
   of answers as evasive, so the labels could not separate companies.
+- **Closed routes (added 2026-09-26, review).** Anything that re-reads the
+  target's own transcript for winners is now closed: v6's matrix, P7's
+  voices, P9's expected return, B's notes, beat-and-raise, and the
+  stock's own price history all came up empty. New bullish candidates
+  must bring information the transcript does not contain (a peer's call,
+  analyst expectations) or find out where the winners actually sit
+  before reading anything.
 
 ### 2.3 Severity can be graded
 
@@ -206,6 +214,30 @@ B's prompt, unchanged, on `claude-opus-5-5`, 300 train calls, one run:
 | 3 | **P5, peer read-through**, on Sonnet, two runs | ~$60 | the one untried transcript-based route to winners: a supplier's call can reveal its customer's next quarter |
 | 4 | **Consensus data** (restart the stalled vendor thread) | TBD | the documented bullish signal needs analyst expectations |
 | 5 | **Allocator rebuild around the downside skill** | TBD | index-like by default; trim what the analyst flags; P9 severity sizes the trim; "raised guidance" as a trim veto. P6D is its first task |
+
+### 4a Bullish strategies, ranked (added 2026-09-26, review)
+
+The order below is by expected information per dollar. Steps 3 and 4 in
+the table above stay where they are; this list says what to do
+**before** P5 spends money, and what not to do at all.
+
+| rank | strategy | cost | what it settles |
+|---|---|---|---|
+| 1 | **Where the winners sit.** Cross big winners by sector × calendar year on train. Then ask whether B ranks calls correctly **within** a sector-year, even though it does not across the whole corpus. | $0 (scores already on disk) | If winners cluster in a few sector-years, "no bullish skill" was partly a mis-scored test: B cannot know which year it is in. If B ranks within groups, the fix is a sector-relative reading of the score, not a new prompt. |
+| 2 | **Call-over-call score change.** For each company with consecutive scored calls, use the change in B's score (this call minus the last) as the signal, and grade it on the money ruler and rank correlation. | $0 | A company moving from −2 to +3 is a different event from one sitting at +3. If the change carries winner information the level does not, the trend layer gets a new input at no prompt cost. |
+| 3 | **P5, peer read-through** (table row 3), with the changes in `docs/handoffs/2026-09-26-p5-design-review.md` | ~$60–185 | The one transcript-based route that brings new information: a supplier's or customer's call dated before the target's. |
+| 4 | **Consensus data** (table row 4) | vendor TBD | The documented bullish signal keys on beating analyst expectations, which transcripts lack. |
+| 5 | **Model gate on B** (Opus or Fable, once) | ~$40 | Run last. It confirms whichever prompt wins; it does not find winners on its own (§2.4). |
+
+**Dropped, with reason.** Comparative reading of READ texts across
+calls, a "chance of a big move" field, and an acceleration section were
+considered and dropped. Each re-reads the target's own transcript, and
+§2.2 shows that transcript carries no winner signal at the level any of
+these could pick up.
+
+**Decision rule.** Run 1 and 2 before P5 phase 1. If either finds a
+within-group or change-based ranking of 0.10 or better on train, that
+becomes the bullish comparator P5 must beat, not B's flat 0.13.
 
 ---
 
