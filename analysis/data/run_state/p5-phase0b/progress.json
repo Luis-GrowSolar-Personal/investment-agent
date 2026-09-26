@@ -1,7 +1,7 @@
 {
   "run_id": "p5-phase0b",
   "prompt_sha256": "665cf5e4560938460dfdd845fa3c07f0429803f4d03339cbd2808615e7fae4ba",
-  "cost_usd": 0,
+  "cost_usd": 0.0197,
   "edgar_requests_used": 9,
   "caps": {
     "edgar": 15,
@@ -11,10 +11,10 @@
     "step0": "done",
     "step1": "done",
     "step2": "done",
-    "step3": "pending",
-    "report": "pending"
+    "step3": "done",
+    "report": "in_progress"
   },
-  "next_action": "step 3 link-type read (10 mentions)",
+  "next_action": "wrap-up, push",
   "notes": [],
   "luis_approved_usd": 3
 }
