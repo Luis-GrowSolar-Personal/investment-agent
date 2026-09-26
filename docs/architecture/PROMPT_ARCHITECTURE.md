@@ -306,8 +306,15 @@ these, stated in its own words with its own numbers.
    reported, labelled secondary.
 2. **Ranking tolerance.** The paired difference in rank correlation (candidate
    minus B, same calls) must have its range's lower end no worse than
-   **−0.03 (placeholder; step 2d of `b-champion-and-noise-floor` replaces it
-   with the measured tolerance)**.
+   **−0.03**. Measured 2026-09-26: B asked the same 1,217 train calls twice
+   ranked at 0.130 and 0.099, a paired difference (original minus re-run) of
+   +0.031 with a ticker-block range of 0.005 to 0.058; half-width 0.027, rounded
+   out to two decimals = 0.03, so the tolerance is −0.03 (the earlier
+   placeholder happens to equal it). Source:
+   `analysis/data/run_state/b-champion-and-noise-floor/results.json` →
+   `rank`; `findings.md`. Note the two identical runs already differ with a
+   range that excludes zero, so a candidate's range is read against B's spread,
+   not against zero.
 3. **Two baseline draws.** Every candidate is compared with **both** B runs
    (original and re-run) and both differences are reported. Beating one and not
    the other is a tie.
@@ -328,8 +335,12 @@ A round that reports only a headline has wasted most of what it bought.
    incumbent's own noise flips (amended 2026-09-26), never raw.** v6's noise
    floor is ~17% (tune 17.7%, train 16.7%). For a B-derived candidate the
    incumbent is B, and its floor is B's own, measured in
-   `b-champion-and-noise-floor` step 2: **[PLACEHOLDER — step 2d fills B's
-   direction-change rate per stratum here]**. A paired comparison lives entirely on the disagreements.
+   `b-champion-and-noise-floor` step 2: **direction changes under ≤ −2 / ≥ +3
+   on 1,217 train calls: 12.5% pooled (Wilson 10.8–14.5%); S1 16.6%, S2 12.0%,
+   S3 10.5%, S4 0.0% (n=16, too few), S5 11.6%** (rates across calls; source
+   `results.json` → `pooled.direction_change`, `per_stratum.*.direction_change`).
+   Score moved by ≥ 1 on 30.9% and by ≥ 2 on 8.9%. B's second draw is
+   `analysis/data/run_state/b-champion-and-noise-floor/scores_b_rerun1.jsonl`. A paired comparison lives entirely on the disagreements.
 2. **The confusion table** — did the neutral pile shrink, and did new bearish
    calls hold precision above the 45–48% base rate?
 3. **Per-call diffs written to disk**, so a later round can re-read them.

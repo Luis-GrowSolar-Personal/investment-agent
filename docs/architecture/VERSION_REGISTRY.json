@@ -26,7 +26,8 @@
           "note": "The archived v6 verdicts (R, A0) come from a retired model and are not a baseline for anything new."
         },
         "baseline_draws": [
-          {"draw": "original", "scores": "analysis/data/run_state/p6-output-format-round/scores_b.jsonl"}
+          {"draw": "original", "scores": "analysis/data/run_state/p6-output-format-round/scores_b.jsonl"},
+          {"draw": "rerun1", "scores": "analysis/data/run_state/b-champion-and-noise-floor/scores_b_rerun1.jsonl", "recorded": "2026-09-26", "note": "Second baseline draw: same prompt sha, model, max_tokens, no temperature; 1,217 train calls. Every candidate is compared with BOTH draws (PROMPT_ARCHITECTURE.md 2.3a rule 3). Noise floor: analysis/data/run_state/b-champion-and-noise-floor/results.json."}
         ]
       },
       "note": "Restored on this branch 2026-09-12 by cherry-picking c514ae1 (dev). Verified byte-identical to the pre-drift blob at 7063465. See docs/handoffs/2026-09-03-prompt-version-drift.md.",
