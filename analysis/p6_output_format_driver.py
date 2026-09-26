@@ -38,8 +38,9 @@ PROMPTS = {
     "B": REPO / "docs/prompts/candidates/EVALUATION_PROMPT_P6B_minimal.md",
     "C": REPO / "docs/prompts/candidates/EVALUATION_PROMPT_P6C_score.md",
     "P7": REPO / "docs/prompts/candidates/EVALUATION_PROMPT_P7_three_voices.md",
+    "P9": REPO / "docs/prompts/candidates/EVALUATION_PROMPT_P9_expected_return.md",
 }
-CAND_NAME = {"B": "P6B-minimal", "C": "P6C-score", "P7": "P7-three-voices"}
+CAND_NAME = {"B": "P6B-minimal", "C": "P6C-score", "P7": "P7-three-voices", "P9": "P9-expected-return"}
 EVAL_DIR = {a: REPO / f"analysis/data/evals/{n}_claude-sonnet-4-6" for a, n in CAND_NAME.items()}
 MODEL = "claude-sonnet-4-6"
 MAX_TOKENS = 4096
@@ -114,6 +115,20 @@ if P7:
     ORIGINAL_STATE = REPO / "analysis/data/run_state/p6-output-format-round"
     P7_SHA = "0a34f5a926f6be89400a8191cac5455f0b5cd11d2bef8a51d3a6b97510b2bcaf"
     ORIGINAL_STATE_B2 = REPO / "analysis/data/run_state/b-champion-and-noise-floor"
+
+# --p9 (prompts/P9-expected-return.md): candidate P9 on the same 1,217 train calls. Same request construction as B.
+P9 = "--p9" in sys.argv
+if P9:
+    sys.argv.remove("--p9")
+    assert not TUNE and not RERUN and not P7
+    RUN_ID = "p9-expected-return-train"
+    STATE = REPO / "analysis/data/run_state" / RUN_ID
+    PROGRESS, FINDINGS = STATE / "progress.json", STATE / "findings.md"
+    CAP_USD, PREFLIGHT_N = 40.0, 150
+    EST_PER_CALL = 0.0245
+    ORIGINAL_STATE = REPO / "analysis/data/run_state/p6-output-format-round"
+    ORIGINAL_STATE_B2 = REPO / "analysis/data/run_state/b-champion-and-noise-floor"
+    P9_SHA = "a752e6b1b2a00b755396a526bfe3007e788ebfb6a93b32076754cd0e078c06a5"
 
 # re-point the imported machinery at THIS run
 p3.STATE, p3.PROGRESS, p3.FINDINGS = STATE, PROGRESS, FINDINGS
@@ -217,7 +232,7 @@ def guards():
     from analysis.version_guard import assert_prompt_hash
     reg = json.loads((REPO / "docs/architecture/VERSION_REGISTRY.json").read_text())["artifacts"]["evaluation_prompt"]
     out = {}
-    for arm in (("P7",) if P7 else ("B",) if (TUNE or RERUN) else ("B", "C")):
+    for arm in (("P7",) if P7 else ("P9",) if P9 else ("B",) if (TUNE or RERUN) else ("B", "C")):
         t = PROMPTS[arm].read_text()
         rs = next(c["sha256"] for c in reg["candidates"] if c["version"] == CAND_NAME[arm])
         assert hashlib.sha256(t.encode()).hexdigest() == rs, f"arm {arm} hash != registry"
@@ -328,6 +343,8 @@ def scores_path(arm):
     sfx = "_tune" if TUNE else ""
     if P7:
         return STATE / {"P7": "scores_p7.jsonl"}[arm]
+    if P9:
+        return STATE / {"P9": "scores_p9.jsonl"}[arm]
     if RERUN:
         return STATE / {"B": "scores_b_rerun1.jsonl"}[arm]
     return STATE / {"B": f"scores_b{sfx}.jsonl", "C": f"scores_c{sfx}.jsonl", "N": f"scores_noise{sfx}.jsonl"}[arm]
@@ -370,7 +387,7 @@ def submit(key, reqs, per_call):
 # --------------------------------------------------------------------------- pre-flight
 def cmd_preflight_submit():
     sel = json.loads((STATE / "selection.json").read_text())
-    arms = ("P7",) if P7 else ("B",) if (TUNE or RERUN) else ("B", "C")
+    arms = ("P7",) if P7 else ("P9",) if P9 else ("B",) if (TUNE or RERUN) else ("B", "C")
     reqs = [make_request(a, w, d) for w, d in sel["preflight"] for a in arms]
     assert len(reqs) == len(arms) * PREFLIGHT_N
     submit("batch_id_preflight", reqs, EST_PER_CALL)
@@ -639,6 +656,104 @@ def cmd_submit_rerun():
 
 def cmd_poll_rerun():
     poll("batch_id_rerun", "raw_rerun.jsonl")
+
+
+# --------------------------------------------------------------------------- P9-side (prompts/P9-expected-return.md)
+def cmd_p9_select():
+    """150 train calls, proportional across S1-S5, at least one S4 call, fixed seed."""
+    assert P9
+    smap = p3.stratum_map()
+    by_s = {}
+    for r in universe():
+        by_s.setdefault(smap.get(r["ticker"], "?"), []).append(r)
+    assert "?" not in by_s
+    counts = {s_: len(v) for s_, v in by_s.items()}
+    alloc = p3.stratum_alloc(PREFLIGHT_N, counts)
+    if alloc.get("S4", 0) == 0:
+        big = max(alloc, key=alloc.get); alloc[big] -= 1; alloc["S4"] = 1
+    rng = random.Random("p9-preflight-11")
+    pre = []
+    for s_ in sorted(alloc):
+        pre += [(r["ticker"], r["date"]) for r in rng.sample(sorted(by_s[s_], key=lambda r: (r["ticker"], r["date"])), alloc[s_])]
+    assert len(pre) == PREFLIGHT_N and len(set(pre)) == PREFLIGHT_N
+    (STATE / "selection.json").write_text(json.dumps({"preflight": [list(k) for k in pre], "preflight_alloc": alloc,
+                                                      "universe_counts": counts, "seed": "p9-preflight-11"}, indent=1))
+    print(json.dumps({"alloc": alloc, "counts": counts}))
+
+
+def cmd_p9_check():
+    assert P9
+    recs = universe()
+    orig = {(r["ticker"], r["date"]) for r in p3.read_jsonl(ORIGINAL_STATE / "scores_b.jsonl")}
+    assert len(recs) == 1217 == len(orig) and {(r["ticker"], r["date"]) for r in recs} == orig
+    assert sha(PROMPTS["P9"]) == P9_SHA, "P9 candidate sha != registered"
+    reg = json.loads((REPO / "docs/architecture/VERSION_REGISTRY.json").read_text())["artifacts"]["evaluation_prompt"]["candidates"]
+    assert next(c["sha256"] for c in reg if c["version"] == "P9-expected-return") == P9_SHA
+    rng = random.Random("p9-shape-11")
+    for w, d in rng.sample(sorted(orig), 25):
+        a, b = dict(make_request("P9", w, d)["params"]), dict(make_request("B", w, d)["params"])
+        assert set(a) == set(b) == {"model", "max_tokens", "system", "messages"} and "temperature" not in a
+        assert a["model"] == b["model"] == MODEL and a["max_tokens"] == b["max_tokens"] == 4096
+        assert a["messages"] == b["messages"]
+        assert a["system"][0]["cache_control"] == b["system"][0]["cache_control"] and len(a["system"]) == len(b["system"]) == 1
+        assert a["system"][0]["text"] == PROMPTS["P9"].read_text() and b["system"][0]["text"] == PROMPTS["B"].read_text()
+        assert make_request("P9", w, d)["custom_id"] == f"P9__{w}_{d}"
+    rep = {"universe": 1217, "p9_sha": P9_SHA, "shape": "identical to B make_request() except system text", "sample": 25}
+    (STATE / "request_shape_check.json").write_text(json.dumps(rep, indent=1)); print(rep)
+
+
+def _num(x):
+    return float(x) if isinstance(x, (int, float)) and not isinstance(x, bool) else None
+
+
+def cmd_p9_preflight_report():
+    """Every section 4 stop figure. $0."""
+    assert P9
+    from analyst_direct_scorer import parse_structured
+    sel = json.loads((STATE / "selection.json").read_text())
+    want = {tuple(x) for x in sel["preflight"]}
+    rows = [r for r in p3.read_jsonl(scores_path("P9")) if (r["ticker"], r["date"]) in want]
+    bad = {"unparseable": 0, "non_numeric": 0, "max_tokens": 0, "bad_noRead": 0}
+    er, order_broken, nr, cost, toks = [], 0, 0, 0.0, []
+    for r in rows:
+        st = parse_structured(r["content"]); cost += r["cost_usd"]; toks.append(r["usage"]["output_tokens"])
+        if r["stop_reason"] == "max_tokens": bad["max_tokens"] += 1
+        if not st: bad["unparseable"] += 1; continue
+        e, lo, hi = _num(st.get("expectedReturn")), _num(st.get("rangeLow")), _num(st.get("rangeHigh"))
+        if None in (e, lo, hi): bad["non_numeric"] += 1; continue
+        er.append(e)
+        if not (lo <= e <= hi): order_broken += 1
+        if not isinstance(st.get("noRead"), bool): bad["bad_noRead"] += 1
+        elif st["noRead"]: nr += 1
+    import numpy as _np
+    n = max(len(er), 1)
+    q1, med_, q3 = (float(_np.percentile(er, q)) for q in (25, 50, 75)) if er else (0, 0, 0)
+    pos, neg = sum(e > 0 for e in er), sum(e < 0 for e in er)
+    per = cost / max(len(rows), 1)
+    rep = {"n": len(rows), **bad, "range_order_broken": order_broken, "distinct_values": len(set(er)),
+           "median": med_, "middle_half": [q1, q3], "middle_half_span": q3 - q1,
+           "share_positive_pct": round(100 * pos / n, 1), "share_negative_pct": round(100 * neg / n, 1),
+           "share_same_side_max_pct": round(100 * max(pos, neg) / n, 1),
+           "noRead_pct": round(100 * nr / max(len(rows), 1), 1), "cost_usd": round(cost, 4), "cost_per_call": round(per, 5),
+           "projected_full_usd": round(per * 1217, 2), "median_completion_tokens": sorted(toks)[len(toks) // 2] if toks else None}
+    stops = {"parse_or_max_tokens_or_nonnumeric": any(bad.values()), "range_order_broken_gt3": order_broken > 3,
+             "bunched": (q3 - q1) < 4 or len(set(er)) < 8, "one_sided_gt85": max(pos, neg) / n > 0.85,
+             "noRead_gt10": rep["noRead_pct"] > 10, "cost_gt36": rep["projected_full_usd"] > 36}
+    rep["stop_rules"] = stops; rep["STOP"] = any(stops.values())
+    (STATE / "preflight_report.json").write_text(json.dumps(rep, indent=1)); print(json.dumps(rep, indent=1))
+
+
+def cmd_submit_p9():
+    assert P9
+    reqs = [make_request("P9", r["ticker"], r["date"]) for r in pending("P9")]
+    print("pending after pre-flight reuse:", len(reqs))
+    assert len(reqs) + len(have_ids("P9")) == 1217
+    submit("batch_id_full", reqs, per_call_p7())
+    step("5b", "in_progress", "poll-p9")
+
+
+def cmd_poll_p9():
+    poll("batch_id_full", "raw_full.jsonl")
 
 
 # --------------------------------------------------------------------------- P7-side (prompts/P7-three-voices.md)
