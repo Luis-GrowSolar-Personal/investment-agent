@@ -1,0 +1,76 @@
+alias,ticker,note
+Google,GOOGL,Alphabet
+Alphabet,GOOGL,
+Facebook,META,
+Meta,META,Meta Platforms
+Amazon,AMZN,
+Amazon Web Services,AMZN,AWS
+AWS,AMZN,
+Microsoft,MSFT,
+Apple,AAPL,
+Nvidia,NVDA,
+NVIDIA,NVDA,
+AMD,AMD,Advanced Micro Devices
+Advanced Micro Devices,AMD,
+Intel,INTC,
+Micron,MU,
+Qualcomm,QCOM,
+Broadcom,AVGO,
+Texas Instruments,TXN,
+TSMC,TSM,Taiwan Semiconductor
+Taiwan Semiconductor,TSM,
+ASML,ASML,
+Applied Materials,AMAT,
+Lam Research,LRCX,
+KLA,KLAC,
+Analog Devices,ADI,
+NXP,NXPI,
+Marvell,MRVL,
+ON Semiconductor,ON,onsemi
+onsemi,ON,
+Microchip,MCHP,
+Sunrun,RUN,
+SunPower,SPWR,
+Sunnova,NOVA,
+First Solar,FSLR,
+Enphase,ENPH,
+SolarEdge,SEDG,
+JinkoSolar,JKS,
+Jinko,JKS,
+Canadian Solar,CSIQ,
+Trina,Trina-none,Trina Solar (not US listed)
+LONGi,LONGi-none,not US listed
+Hanwha,Hanwha-none,Qcells parent; not US listed
+Qcells,Hanwha-none,
+Tesla,TSLA,
+Fluence,FLNC,
+Eos,EOSE,Eos Energy
+QuantumScape,QS,
+Amprius,AMPX,
+Enovix,ENVX,
+Panasonic,Panasonic-none,not US listed
+LG Energy Solution,LGES-none,not US listed
+CATL,CATL-none,not US listed
+BYD,BYD-none,not US listed
+Samsung,Samsung-none,not US listed
+Ford,F,
+General Motors,GM,
+Volkswagen,VWAGY,
+Stellantis,STLA,
+Oracle,ORCL,
+Salesforce,CRM,
+ServiceNow,NOW,
+Adobe,ADBE,
+IBM,IBM,
+Workday,WDAY,
+Snowflake,SNOW,
+Atlassian,TEAM,
+Trade Desk,TTD,
+Cisco,CSCO,
+Dell,DELL,
+Walmart,WMT,
+Costco,COST,
+Verizon,VZ,
+AT&T,T,
+Comcast,CMCSA,
+Netflix,NFLX,
