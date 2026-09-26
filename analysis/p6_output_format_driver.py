@@ -933,6 +933,31 @@ def cmd_w3_submit():
     p3.submit_batch(reqs, "batch_id_pairs")
 
 
+def cmd_w3_retry():
+    """The 4 pairs whose first pass stopped at max_tokens=500 before finishing the block: same request, max_tokens 2000."""
+    assert WIN
+    from anthropic.types.messages.batch_create_params import Request
+    from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+    from analyst_direct_scorer import parse_structured
+    P = json.loads((STATE / "pairs.json").read_text())["pairs"]
+    TXT = json.loads((REPO / "analysis/data/evals/winners-missed-v2_pairs/pairs_texts.json").read_text())
+    failed = sorted(int(r["custom_id"].split("__")[1]) for r in p3.read_jsonl(STATE / "raw_pairs.jsonl") if not parse_structured(r["content"]).get("pick"))
+    pr = load_progress()
+    if pr.get("batch_id_pairs_retry"):
+        print("already", pr["batch_id_pairs_retry"]); return
+    reqs = [Request(custom_id=f"PAIR__{i:02d}", params=MessageCreateParamsNonStreaming(
+        model=MODEL, max_tokens=2000, system=[{"type": "text", "text": PAIR_SYSTEM}],
+        messages=[{"role": "user", "content": f"=== Call A ===\n{TXT[str(i)]['A']}\n\n=== Call B ===\n{TXT[str(i)]['B']}"}])) for i in failed]
+    pr["retry_pairs"] = failed; save_progress(pr)
+    commit_spend("batch_id_pairs_retry", len(reqs), 0.09)
+    p3.submit_batch(reqs, "batch_id_pairs_retry")
+
+
+def cmd_w3_retry_poll():
+    if p3.poll_batch("batch_id_pairs_retry", "raw_pairs_retry.jsonl", "batch_id_pairs_retry"):
+        print("retry collected")
+
+
 def cmd_w3_poll():
     if p3.poll_batch("batch_id_pairs", "raw_pairs.jsonl", "batch_id_pairs"):
         print("pairs collected")
