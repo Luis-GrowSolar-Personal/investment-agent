@@ -70,3 +70,5 @@ analysis/*/raw/
 Claude outputs/
 
 !analysis/data/gate_ledger.json
+
+!analysis/data/gate_ledger.json
