@@ -7,8 +7,8 @@
     "step0": "done",
     "step1": "done",
     "step2": "done",
-    "report": "in_progress"
+    "report": "done"
   },
-  "next_action": "wrap-up, push",
+  "next_action": "none; run complete",
   "notes": []
 }
