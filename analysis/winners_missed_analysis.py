@@ -115,5 +115,39 @@ def step1():
     (S / "results_step1.json").write_text(json.dumps(out, indent=1, default=float)); print(json.dumps(out, indent=1, default=float))
 
 
+def step3(state="winners-missed-v2"):
+    """Combine first pass (raw_pairs.jsonl) and the max_tokens retry (raw_pairs_retry.jsonl); a pair's retry row replaces an unparsed first-pass row."""
+    from collections import Counter
+    from analyst_direct_scorer import parse_structured
+    D = RS / state
+    P = {p["pair"]: p for p in json.loads((D / "pairs.json").read_text())["pairs"]}
+    got, cost, src = {}, 0.0, {}
+    for fn in ("raw_pairs.jsonl", "raw_pairs_retry.jsonl"):
+        f = D / fn
+        if not f.exists(): continue
+        for r in p3.read_jsonl(f):
+            i = int(r["custom_id"].split("__")[1]); cost += r["cost_usd"]
+            st = parse_structured(r["content"])
+            if st.get("pick") in ("A", "B"):
+                got[i] = st; src[i] = fn
+    rows = []
+    for i in sorted(P):
+        if i not in got: continue
+        st, p = got[i], P[i]
+        rows.append({"pair": i, "ticker": p["ticker"], "days_apart": p["days_apart"], "pick": st["pick"], "A_is_winner": p["A_is_winner"],
+                     "right": (st["pick"] == "A") == p["A_is_winner"], "kind": st.get("kind"), "raiseOrBeat": st.get("raiseOrBeat"), "mechanism": st.get("mechanism"), "source": src[i]})
+    k = sum(r["right"] for r in rows)
+    out = {"n_pairs_selected": len(P), "n_parsed": len(rows), "unparsed_pairs": sorted(set(P) - set(got)), "right": k, "chance": len(rows) / 2,
+           "right_wilson": [round(x, 3) for x in p3.wilson(k, len(rows))], "cost_usd": round(cost, 4),
+           "picked_A": sum(r["pick"] == "A" for r in rows), "A_was_winner": sum(r["A_is_winner"] for r in rows),
+           "kinds_all": dict(Counter(r["kind"] for r in rows)), "kinds_right": dict(Counter(r["kind"] for r in rows if r["right"])),
+           "kinds_wrong": dict(Counter(r["kind"] for r in rows if not r["right"])),
+           "raiseOrBeat_all": dict(Counter(r["raiseOrBeat"] for r in rows)), "raiseOrBeat_right": dict(Counter(r["raiseOrBeat"] for r in rows if r["right"])),
+           "right_picks_raise_beat_or_both": sum(1 for r in rows if r["right"] and r["raiseOrBeat"] in ("raise", "beat", "both")),
+           "recall_flagged": sum(1 for r in rows if r["kind"] == "recall_not_in_text"), "rows": rows}
+    (D / "results_step3.json").write_text(json.dumps(out, indent=1)); print(json.dumps({k_: v for k_, v in out.items() if k_ != "rows"}, indent=1))
+    for r in rows: print(r["pair"], r["ticker"], "RIGHT" if r["right"] else "wrong", r["kind"], r["raiseOrBeat"], "|", r["mechanism"])
+
+
 if __name__ == "__main__":
-    {"step1": step1}[sys.argv[1]]()
+    {"step1": step1, "step3": step3}[sys.argv[1]]()
