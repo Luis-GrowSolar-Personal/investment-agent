@@ -1,0 +1,32 @@
+{
+ "n": 150,
+ "unparseable": 0,
+ "non_numeric": 0,
+ "max_tokens": 0,
+ "bad_noRead": 0,
+ "range_order_broken": 0,
+ "distinct_values": 18,
+ "median": 5.0,
+ "middle_half": [
+  0.5,
+  8.0
+ ],
+ "middle_half_span": 7.5,
+ "share_positive_pct": 74.7,
+ "share_negative_pct": 24.0,
+ "share_same_side_max_pct": 74.7,
+ "noRead_pct": 0.0,
+ "cost_usd": 3.6752,
+ "cost_per_call": 0.0245,
+ "projected_full_usd": 29.82,
+ "median_completion_tokens": 636,
+ "stop_rules": {
+  "parse_or_max_tokens_or_nonnumeric": false,
+  "range_order_broken_gt3": false,
+  "bunched": false,
+  "one_sided_gt85": false,
+  "noRead_gt10": false,
+  "cost_gt36": false
+ },
+ "STOP": false
+}

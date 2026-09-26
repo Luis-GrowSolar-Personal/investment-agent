@@ -7,10 +7,12 @@
   "approval_source": "AskUserQuestion answer 'Approve $40 cap', 2026-09-26",
   "steps": {
     "step0": "done",
-    "step5a": "in_progress",
-    "5a": "in_progress"
+    "step5a": "done (no stop rule)",
+    "5a": "in_progress",
+    "step5b": "in_progress",
+    "5b": "in_progress"
   },
-  "next_action": "poll preflight batch",
+  "next_action": "poll-p9",
   "notes": [
     "candidate diff vs B: identical through READ (verified); sha a752e6b1..."
   ],
@@ -30,12 +32,32 @@
         "candidate_used": null,
         "branch": "sweep/db-corpus-baseline"
       }
+    },
+    "batch_id_full": {
+      "P9": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "a752e6b1b2a00b755396a526bfe3007e788ebfb6a93b32076754cd0e078c06a5",
+        "candidate_used": "P9-expected-return",
+        "branch": "sweep/db-corpus-baseline"
+      },
+      "A_noise": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "candidate_used": null,
+        "branch": "sweep/db-corpus-baseline"
+      }
     }
   },
   "committed_usd_by_batch": {
-    "batch_id_preflight": 3.68
+    "batch_id_preflight": 3.68,
+    "batch_id_full": 26.14
   },
   "batch_id_preflight": "msgbatch_01SFeXcY9T1v5D3qAd4wopLp",
   "batch_id_preflight_submitted_at": "2026-09-26T16:02:17Z",
-  "batch_id_preflight_requests": 150
+  "batch_id_preflight_requests": 150,
+  "batch_id_full": "msgbatch_01NCiZsivaiX6phgtTqpfGZm",
+  "batch_id_full_submitted_at": "2026-09-26T16:05:40Z",
+  "batch_id_full_requests": 1067
 }
