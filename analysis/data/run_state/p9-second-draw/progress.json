@@ -7,8 +7,8 @@
   "approval_source": "AskUserQuestion answer 'Approve $36 cap', 2026-09-26",
   "steps": {
     "step0": "done",
-    "step1": "in_progress",
-    "step2": "pending",
+    "step1": "done (1217 rows)",
+    "step2": "in_progress",
     "step3": "pending",
     "report": "pending",
     "5b": "in_progress"
