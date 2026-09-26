@@ -9,10 +9,10 @@
     "step0": "done",
     "step1": "done",
     "step2": "done",
-    "report": "in_progress",
+    "report": "done",
     "2c": "in_progress"
   },
-  "next_action": "wrap-up, push",
+  "next_action": "none; run complete",
   "notes": [
     "diff v3 vs v2: header lines, the \"discounted\" line in the block (and the comma on \"beat\"), the discounted definition bullet; nothing else"
   ],
