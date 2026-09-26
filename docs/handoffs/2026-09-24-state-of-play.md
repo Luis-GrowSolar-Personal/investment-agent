@@ -9,9 +9,19 @@ Branch: `sweep/db-corpus-baseline`. Layer 2 (analyst) work.
 **If you read one thing:** the first prompt change in this project's history
 that held on companies it had never seen is a 50-line prompt with no rubric.
 It ranks forward returns, doubles the analyst's bearish coverage at equal or
-better precision, and costs a fifth of v6 per call. It also emits nothing the
-allocator consumes. The next action is the gate's own end-to-end check, which
-has never been run on any candidate: about $16. Start at §2, then §5.
+better precision, and costs a fifth of v6 per call. Through the portfolio
+simulator, against v6 on the same model, it is close to a tie on final
+value and **30% better on the gate's own risk-adjusted metric, in every
+leave-one-ticker-out cut.** It has cleared both halves of the gate's test
+for an analyst change. **Decided 2026-09-25: the analyst is improved on its
+own from here, with B as the research champion and production untouched;
+the allocator is rebuilt afterwards around whatever the analyst turns out
+to be good at.** Start at §2.4, then §5.
+
+**Updated three times** — after the end-to-end check, after the same-model
+comparator and leave-one-out runs corrected it, and on 2026-09-25 when §5
+became a decided plan rather than a recommendation. The reading version is
+republished to the same link.
 
 ---
 
@@ -101,6 +111,18 @@ calls: v6, the minimal prompt, and v6-with-a-score. Registered 2026-09-24 in
 companies, with four pass/fail conditions fixed before the run.
 `wrap-ups/P6B-tune-confirmation-out.md`. **All four held.**
 
+**P6B end-to-end check ($7.75, simulator).** The gate's secondary test,
+never before run on any candidate: B's score fed through the settled
+allocator on the ALL16 corpus, against v6 and against v6 stripped to its
+per-call verdicts. `wrap-ups/P6B-end-to-end-check-out.md`. **B exceeded
+the check.** See §2.4.
+
+**P6B confound and concentration ($3.56).** v6 re-scored on the same
+model as B and fed through the same overlay (**A0′**), plus all sixteen
+leave-one-ticker-out cuts. `wrap-ups/P6B-confound-and-concentration-out.md`.
+**Corrects §2.4:** most of the end-to-end gap was the model, not the
+prompt; the prompt's share is thin on final value and robust on drawdown.
+
 **Also this week:** P7 (three-voices rubric) and P8 (auto-iterate loop, with
 four constraints against fitting to remembered outcomes) were registered as
 named follow-ons. The consensus-vendor thread is unchanged and still stalled.
@@ -163,11 +185,76 @@ calls — *larger* than v6's 59%. That is a consequence of the mapping, and it
 is the mapping under which the money range clears zero; the +2 cut's range
 touches zero (−0.16 to 10.33).
 
+### 2.4 The end-to-end check — B through the allocator, corrected
+
+Settled configuration, 195 events, seed 0, phase-averaged. Every drawdown
+names its ruler. **The fair comparator is A0′**: v6 re-scored on
+`claude-sonnet-4-6` (B's model) and fed through the same overlay. The
+archived v6 verdicts (R, A0) come from a retired model and cannot serve as
+a baseline for anything new.
+
+| cell | what it is | final value | phase range | drawdown, daily | **gain per point of drawdown** |
+|---|---|---|---|---|---|
+| R | v6 archive, the published reference | $184,819 | $179,945–$189,914 | 23.46% | $3,616 |
+| A0 | v6 archive through the overlay | $183,780 | $175,269–$192,981 | 23.91% | $3,504 |
+| **A0′** | **v6 on sonnet-4-6 through the overlay — the comparator** | **$200,214** | $194,407–$206,925 | **20.12%** | **$4,981** |
+| **B3** | **B's score, ≤ −2 Trim / ≥ +3 Add / else Hold** | **$210,351** | $207,495–$214,227 | **16.97%** | **$6,503** |
+| B2 | B's score, Add cut at +2 | $242,415 | $237,175–$249,799 | 19.77% | $7,204 |
+
+"Gain per point of drawdown" is `PROMOTION_GATE.md` §3.2's end-to-end
+metric — return per unit of max drawdown, locked 2026-05-23 — computed here
+as (final − $100,000) ÷ daily-marked drawdown. **It was not in the run's
+pre-registration**, which used final-value phase ranges; it is stated here
+because it is the metric the gate names, and the omission was mine.
+
+**The split of the original $26,570.** A0′ − A0 = **$16,433 is the model**
+(62%); B3 − A0′ = **$10,137 is the prompt** (38%). On final value B3 is
+formally above A0′'s phase range, by $569 at the closest phases — a thin
+margin.
+
+**Leave-one-ticker-out, sixteen cuts.** On final value the B3 − A0′ gap
+stays positive in 15 of 16 and **flips to −$2,279 without FSLR**; without
+NVDA it is +$2,366. **On daily drawdown B3 is better than A0′ in all
+sixteen** (15–17% against 19–21%). **On gain per point of drawdown B3 is
+ahead in all sixteen**: without FSLR $5,901 vs $4,783; without NVDA $4,120
+vs $3,054.
+
+**Reading.** On final value, B and v6-on-the-same-model are close to a tie,
+and the tie depends on one name. On risk, B wins in every cut. On the
+gate's own end-to-end metric, B is ~30% better and never behind. The
+mechanism is the one the first end-to-end run showed: B's 45 Trims landed
+on stocks that fell a median 24% (v6's: −6%), 35 of them speculatives; B
+made 7 speculative Adds (median +24%) where v6 made 29 (median −14%). B
+deploys more slowly — 61 funded Adds vs 97, 34% average cash — and is paid
+for it in drawdown.
+
+**Two findings that change the design.** The trend layer is worth
+**+$1,039** on this corpus (R minus A0), inside R's own phase spread.
+`recommended_size` was null in every overlaid cell at no visible cost.
+
+**Two things noted, not concluded.** v6 on the newer model is itself worth
+$16k on this window; both models post-date the window, so the run cannot
+separate "reads calls better" from recall the older model lacked, and the
+same caveat covers B. And FSLR — the diagnostic case in the 2026-09-05
+winners-runway thread, the name the allocator sized wrong — is the name B
+sized right ($23.5k held at the end vs A0′'s $12.5k). One name; a note.
+
+**What it does not show.** One window, one seed family; the band is the
+phase spread. Recall is the documented limitation of
+`DESIGN_PRINCIPLES.md` §4 and applies to every cell equally. **The
+analyst-direct evidence (§2.1–2.3) is untouched by the correction**: train,
+tune and pooled v6 baselines were already scored on `claude-sonnet-4-6`;
+the confound existed only on the simulator corpus.
+
 ## §3 What this changes
 
 1. **The working analyst candidate is the minimal prompt.** `P6B-minimal`,
    sha `d1fa5e53…`, registered as a candidate in `VERSION_REGISTRY.json`.
-   Not promoted; see §5.
+   Not promoted; see §5. It has cleared both halves of the gate's test
+   for an analyst change (`PROMOTION_GATE.md` §4): PROMOTE on the
+   analyst-direct metric on two splits, and no regression — an
+   improvement — on the end-to-end metric against the same-model
+   comparator.
 2. **P7 and P8 iterate from B, not from v6.** Fifty lines is the starting
    point. Any future rubric must earn its length against this control.
 3. **P1 is closed.** It pushed v6 toward bearish by lowering the evidence
@@ -200,64 +287,81 @@ touches zero (−0.16 to 10.33).
   transcripts) excluded on tune. Dividends ignored. Sector-relative grading
   unresolved.
 
-## §5 Next action — the end-to-end check, ~$16
+## §5 Decided 2026-09-25 — improve the analyst on its own; rebuild the allocator after
 
-**B cannot be promoted on §2 alone**, for a reason that is not about the
-evidence: it emits `score`, `noRead`, `summary` and `wrongIf`, and nothing
-else. The allocator consumes `recommendation`, `thesisHealth`,
-`recommendedSize` and `capPercent`; the trend layer consumes `thesisHealth`,
-`credibilityDelta`, `mitigationCapabilityTrackRecord`, `freshMoneyAllocation`.
-None of those exist in B's output. A candidate that improves the analyst's
-signal and disconnects the layers below it has not yet been shown to improve
-the portfolio.
+**The reasoning, in Luis's words.** The benchmark-beating result was mostly
+the allocator's; v6 is barely better than luck overall, with one real skill
+(bearish calls); the minimal prompt and the newer model have now shown the
+analyst *can* be improved, and by how much is unknown. Developing both
+layers at once for five months hid which one was adding value. So: improve
+the analyst alone, on its own ruler, and build the allocator around whatever
+it turns out to be good at.
 
-`PROMOTION_GATE.md` §4 already says what to do: **an analyst change is gated
-on the analyst-direct metric and checked for no-regress on the end-to-end
-portfolio metric.** The second half has never been run on any candidate.
+**5.1 Bookkeeping, $0, first.** Record the `data/gate_ledger.json` entry for
+`P6B-minimal` vs `v6` (§2.2a prompt change: analyst-direct PROMOTE on two
+splits; end-to-end no regression against A0′ in sixteen cuts, +30% on gain
+per point of drawdown). **Make B the research champion** — the incumbent
+every future candidate is compared against — in the registry. **Production
+stays on v6**; cut-over is a separate, later decision and is not on this
+list. Correct the flip-count rules (`PROMPT_ARCHITECTURE.md` §2.4/§2.5).
+Record that the portfolio-side comparator is A0′ from here on.
 
-**The run, in one paragraph.** Score the ALL16 simulator corpus (~660
-transcripts, on disk, the settled-configuration inputs) with B — about $16
-at B's measured cost. Map scores to actions with the pre-registered
-thresholds (≤ −2 Trim, ≥ +3 Add, else Hold). Run the settled configuration
-exactly as `resolve-open-four` did, phase-averaged, daily ruler, and compare
-final value and drawdown against **$184,819 / 23.46%** (state of play
-2026-09-05 §2). Also run the swapped-thresholds sensitivity (+2 bullish cut)
-as a second cell, and report the deployment rate: fewer Adds under the +3
-cut means slower deployment, which the 2026-09-05 document showed is the
-mechanism that governs this allocator.
+**5.2 B's noise floor, ~$15, before any B-derived candidate.** v6 disagrees
+with itself on one call in six. B's run-to-run consistency has never been
+measured. A paired re-score of B on train, per stratum, is the floor every
+P7/P8 flip count is netted against. Without it the first candidate result is
+unreadable.
 
-**Pre-registered reading.** B's portfolio result within Rule 2's overlap of
-v6's is a pass (no-regress); above it is a finding worth its own document;
-below it by more than the phase spread means the score does not translate to
-sizing under this allocator and the design question is how B's score and
-v6's structural fields coexist — which is the next candidate either way.
+**5.3 The campaign — three open questions, one candidate each, in this
+order.** Each runs train → tune on B's ruler (rank correlation across all
+calls; money; bearish and bullish precision against base rates), against B
+as incumbent, pre-registered in `PROMPT_ARCHITECTURE.md` §2.2 before it
+runs.
 
-**Two things to settle in the same session, both $0:**
+| question | candidate | what it changes |
+|---|---|---|
+| **Bullish discrimination** — no prompt has any | **P7, three voices, from B**: what the CFO's numbers say, what the CEO claims beyond them, what the analysts actually pressed on; score the gap | the expectations-gap question asked of the transcript alone |
+| **Magnitude below +1** — B's score is flat from −4 to +1 | **P9, expected return**: ask for an expected six-month return vs the S&P in percent, with a range, instead of a −5..+5 label | severity becomes a number; tested on rank correlation *and* calibration (do the −20% calls fall ~20%?) |
+| **The reader** — the model moved v6 by $16k, the prompt by $10k | **model gate on B** (§2.2b, equivalence hurdle): a newer or larger model on the unchanged minimal prompt | the second lever; recall exposure rises with newer models, so tune/holdout discipline matters more, not less |
 
-- Correct the flip-count rules (§4.2 of the 09-23 document). One edit.
-- Write the design note on which v6 fields the allocator actually needs
-  versus which it merely receives. The `recommendedSize` field is already
-  known to be inert at X=2.5pp; `ratchetTranche` is known to be
-  self-reported and unknowable per call. The list may be shorter than it
-  looks.
+Then **P8** (auto-iterate from B, generator never judge, the 2026-09-24
+constraints) as the hypothesis source, and **P4** (XBRL facts) last, once
+the prompt's shape has settled.
 
-## §6 Queue, after this week
+**5.4 One tether to the allocator, ~$8 per promoted candidate.** Not
+co-development: the end-to-end check run once per research promotion,
+against A0′, as a smoke test that the signal is still convertible to
+dollars by *some* allocator. The current allocator's preferences (it pays
+for bearish precision and slow deployment, ignores bullish ranking beyond
+the starter) are facts about the old allocator and are not design targets.
+
+**5.5 Holdout discipline.** B has had its one look at tune. Every
+B-derived candidate runs train → tune. **Holdout stays locked until the
+campaign produces a final candidate, and gets one look.**
+
+**P6D (the allocator fields) is deferred**, not dropped: it is the first
+task of the allocator rebuild, and the rebuild consumes a continuous score
+with thresholds on the allocator side.
+
+## §6 Queue, after 2026-09-25
 
 | # | candidate | status |
 |---|---|---|
-| — | **B end-to-end check** (§5) | **next, ~$16** |
-| P6D | B plus only the structured fields the allocator needs, tested for no change in rank correlation | named; depends on the §5 design note |
-| P7 | three-voices rubric, from B | named, not run |
-| P8 | auto-iterate as generator, from B, with the 2026-09-24 constraints | named, not built |
-| P4 | tier-conditioned financial facts (XBRL) | unblocked, not started |
+| — | ledger entry; B = research champion; flip-count rules; A0′ as comparator | **next, $0** (§5.1) |
+| — | B's noise floor (paired re-score, train, per stratum) | **next, ~$15** (§5.2) |
+| P7 | three-voices rubric, from B — bullish discrimination | next candidate (§5.3) |
+| P9 | expected-return output, from B — magnitude and calibration | named (§5.3) |
+| — | model gate on B, §2.2b equivalence hurdle | named (§5.3) |
+| P8 | auto-iterate as generator, from B, with the 2026-09-24 constraints | after P7/P9 |
+| P4 | tier-conditioned financial facts (XBRL) | after the prompt shape settles |
+| P6D | B plus the structured fields the allocator needs | **deferred to the allocator rebuild** |
 | P5 | peer read-through | not started |
 | P1 | commit to bearish | **closed** — superseded by B |
 | C | v6 with score | **closed** — same signal, 66% more cost |
-| P2 | post-call reaction | downgraded (09-23), still blocked on R3 |
+| P2 | post-call reaction | downgraded (09-23), blocked on R3 |
 
 ## §7 Open, not scheduled
 
-- Simulate the allocator with B's scores — now §5, no longer open.
 - A larger noise arm to settle the lucky-cached-draw question (35 decisive
   flips leave p=0.09; ~150 would decide it, ~$40).
 - The pooled v6 swap-median discrepancy (7.70 vs 8.7).
@@ -274,4 +378,6 @@ v6's structural fields coexist — which is the next candidate either way.
 
 `aee70da` P6/P7/P8 registered · `647bae9` P6 prompt and candidates ·
 `15c8331`…`58b33cc` P6 run, driver, analysis, wrap-up ·
-`f9cc43f`…`ea20466` P6B tune run and wrap-up.
+`f9cc43f`…`ea20466` P6B tune run and wrap-up ·
+`57f75d1`…`522763b` P6B end-to-end check and wrap-up ·
+`f7e1d98`…`16078ce` P6B confound and concentration.
