@@ -1,0 +1,16 @@
+{
+ "n": 30,
+ "unparseable_or_bad_score_or_noRead": 0,
+ "max_tokens_stops": 0,
+ "responses_not_opus": 0,
+ "models_seen": [
+  "claude-opus-5-5"
+ ],
+ "rows_with_thinking_blocks": 30,
+ "cost_usd": 1.3624,
+ "cost_per_call": 0.04541,
+ "median_output_tokens": 1151,
+ "projected_total_300_usd": 13.62,
+ "cap_usd": 50.0,
+ "STOP": false
+}
