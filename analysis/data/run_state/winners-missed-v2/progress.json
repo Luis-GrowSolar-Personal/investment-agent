@@ -1,17 +1,19 @@
 {
   "run_id": "winners-missed-v2",
   "prompt_sha256": "b4656e4fc9e3348d37824174307b89b629c79b590daeedf02a1593a592d5a32a",
-  "driver_commit": null,
+  "driver_commit": "729367f04acaba54bca2c7055eaec9113abc008c",
   "luis_approved_usd": 8,
   "cap_usd": 8,
   "approval_source": "AskUserQuestion 'Approve $8 cap', 2026-09-26",
   "steps": {
-    "step0": "in_progress",
+    "step0": "done",
     "step1": "done",
-    "step2": "pending",
+    "step2": "in_progress",
     "step3": "pending",
     "report": "pending"
   },
-  "next_action": "write classifier v2 and driver extension",
-  "notes": []
+  "next_action": "w-preflight-submit",
+  "notes": [],
+  "classifier_sha256": "60e76ff5da9ef8781b0e926a8881524951ec0514f73bd026242223051f7763c4",
+  "classifier_path": "docs/prompts/diagnostics/READ_CLASSIFIER_v2.md"
 }
