@@ -10,10 +10,10 @@
     "step1": "done",
     "step2": "stopped at 2b pre-flight (stop rule)",
     "step3": "not run",
-    "report": "in_progress",
+    "report": "done (partial run)",
     "2b": "in_progress"
   },
-  "next_action": "wrap-up, push; design session to redefine classifier",
+  "next_action": "design session: redefine classifier or run step 3",
   "notes": [
     "B READ text passed verbatim contains company names (B wrote them); no ticker/date/return/score/group supplied. calls.csv tier is NA for every call."
   ],
