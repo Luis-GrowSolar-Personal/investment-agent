@@ -1,0 +1,480 @@
+{
+ "n": 1217,
+ "big_winners": 153,
+ "big_losers": 201,
+ "winner_share_of_all_calls": {
+  "k": 153,
+  "n": 1217,
+  "pct": 12.6,
+  "wilson": [
+   10.8,
+   14.6
+  ]
+ },
+ "1a_cross_draw1": {
+  "-5": {
+   "n": 1,
+   "winner": 0,
+   "middle": 0,
+   "loser": 1,
+   "winner_row_pct": 0.0,
+   "middle_row_pct": 0.0,
+   "loser_row_pct": 100.0
+  },
+  "-4": {
+   "n": 2,
+   "winner": 1,
+   "middle": 0,
+   "loser": 1,
+   "winner_row_pct": 50.0,
+   "middle_row_pct": 0.0,
+   "loser_row_pct": 50.0
+  },
+  "-3": {
+   "n": 27,
+   "winner": 3,
+   "middle": 13,
+   "loser": 11,
+   "winner_row_pct": 11.1,
+   "middle_row_pct": 48.1,
+   "loser_row_pct": 40.7
+  },
+  "-2": {
+   "n": 161,
+   "winner": 22,
+   "middle": 85,
+   "loser": 54,
+   "winner_row_pct": 13.7,
+   "middle_row_pct": 52.8,
+   "loser_row_pct": 33.5
+  },
+  "-1": {
+   "n": 183,
+   "winner": 25,
+   "middle": 128,
+   "loser": 30,
+   "winner_row_pct": 13.7,
+   "middle_row_pct": 69.9,
+   "loser_row_pct": 16.4
+  },
+  "0": {
+   "n": 3,
+   "winner": 0,
+   "middle": 3,
+   "loser": 0,
+   "winner_row_pct": 0.0,
+   "middle_row_pct": 100.0,
+   "loser_row_pct": 0.0
+  },
+  "1": {
+   "n": 167,
+   "winner": 21,
+   "middle": 121,
+   "loser": 25,
+   "winner_row_pct": 12.6,
+   "middle_row_pct": 72.5,
+   "loser_row_pct": 15.0
+  },
+  "2": {
+   "n": 438,
+   "winner": 46,
+   "middle": 340,
+   "loser": 52,
+   "winner_row_pct": 10.5,
+   "middle_row_pct": 77.6,
+   "loser_row_pct": 11.9
+  },
+  "3": {
+   "n": 226,
+   "winner": 31,
+   "middle": 171,
+   "loser": 24,
+   "winner_row_pct": 13.7,
+   "middle_row_pct": 75.7,
+   "loser_row_pct": 10.6
+  },
+  "4": {
+   "n": 9,
+   "winner": 4,
+   "middle": 2,
+   "loser": 3,
+   "winner_row_pct": 44.4,
+   "middle_row_pct": 22.2,
+   "loser_row_pct": 33.3
+  }
+ },
+ "1b_piles_draw1": {
+  "bearish(<=-2)": {
+   "pile_n": 191,
+   "winners_in_pile": {
+    "k": 26,
+    "n": 191,
+    "pct": 13.6,
+    "wilson": [
+     9.5,
+     19.2
+    ]
+   },
+   "share_of_all_winners": {
+    "k": 26,
+    "n": 153,
+    "pct": 17.0,
+    "wilson": [
+     11.9,
+     23.7
+    ]
+   }
+  },
+  "neutral(-1..+2)": {
+   "pile_n": 791,
+   "winners_in_pile": {
+    "k": 92,
+    "n": 791,
+    "pct": 11.6,
+    "wilson": [
+     9.6,
+     14.1
+    ]
+   },
+   "share_of_all_winners": {
+    "k": 92,
+    "n": 153,
+    "pct": 60.1,
+    "wilson": [
+     52.2,
+     67.5
+    ]
+   }
+  },
+  "bullish(>=+3)": {
+   "pile_n": 235,
+   "winners_in_pile": {
+    "k": 35,
+    "n": 235,
+    "pct": 14.9,
+    "wilson": [
+     10.9,
+     20.0
+    ]
+   },
+   "share_of_all_winners": {
+    "k": 35,
+    "n": 153,
+    "pct": 22.9,
+    "wilson": [
+     16.9,
+     30.1
+    ]
+   }
+  }
+ },
+ "1a_cross_draw2": {
+  "-5": {
+   "n": 1,
+   "winner": 0,
+   "middle": 0,
+   "loser": 1,
+   "winner_row_pct": 0.0,
+   "middle_row_pct": 0.0,
+   "loser_row_pct": 100.0
+  },
+  "-4": {
+   "n": 3,
+   "winner": 0,
+   "middle": 1,
+   "loser": 2,
+   "winner_row_pct": 0.0,
+   "middle_row_pct": 33.3,
+   "loser_row_pct": 66.7
+  },
+  "-3": {
+   "n": 29,
+   "winner": 3,
+   "middle": 15,
+   "loser": 11,
+   "winner_row_pct": 10.3,
+   "middle_row_pct": 51.7,
+   "loser_row_pct": 37.9
+  },
+  "-2": {
+   "n": 150,
+   "winner": 23,
+   "middle": 75,
+   "loser": 52,
+   "winner_row_pct": 15.3,
+   "middle_row_pct": 50.0,
+   "loser_row_pct": 34.7
+  },
+  "-1": {
+   "n": 189,
+   "winner": 27,
+   "middle": 139,
+   "loser": 23,
+   "winner_row_pct": 14.3,
+   "middle_row_pct": 73.5,
+   "loser_row_pct": 12.2
+  },
+  "0": {
+   "n": 4,
+   "winner": 2,
+   "middle": 1,
+   "loser": 1,
+   "winner_row_pct": 50.0,
+   "middle_row_pct": 25.0,
+   "loser_row_pct": 25.0
+  },
+  "1": {
+   "n": 174,
+   "winner": 14,
+   "middle": 136,
+   "loser": 24,
+   "winner_row_pct": 8.0,
+   "middle_row_pct": 78.2,
+   "loser_row_pct": 13.8
+  },
+  "2": {
+   "n": 432,
+   "winner": 51,
+   "middle": 322,
+   "loser": 59,
+   "winner_row_pct": 11.8,
+   "middle_row_pct": 74.5,
+   "loser_row_pct": 13.7
+  },
+  "3": {
+   "n": 229,
+   "winner": 32,
+   "middle": 173,
+   "loser": 24,
+   "winner_row_pct": 14.0,
+   "middle_row_pct": 75.5,
+   "loser_row_pct": 10.5
+  },
+  "4": {
+   "n": 6,
+   "winner": 1,
+   "middle": 1,
+   "loser": 4,
+   "winner_row_pct": 16.7,
+   "middle_row_pct": 16.7,
+   "loser_row_pct": 66.7
+  }
+ },
+ "1b_piles_draw2": {
+  "bearish(<=-2)": {
+   "pile_n": 183,
+   "winners_in_pile": {
+    "k": 26,
+    "n": 183,
+    "pct": 14.2,
+    "wilson": [
+     9.9,
+     20.0
+    ]
+   },
+   "share_of_all_winners": {
+    "k": 26,
+    "n": 153,
+    "pct": 17.0,
+    "wilson": [
+     11.9,
+     23.7
+    ]
+   }
+  },
+  "neutral(-1..+2)": {
+   "pile_n": 799,
+   "winners_in_pile": {
+    "k": 94,
+    "n": 799,
+    "pct": 11.8,
+    "wilson": [
+     9.7,
+     14.2
+    ]
+   },
+   "share_of_all_winners": {
+    "k": 94,
+    "n": 153,
+    "pct": 61.4,
+    "wilson": [
+     53.5,
+     68.8
+    ]
+   }
+  },
+  "bullish(>=+3)": {
+   "pile_n": 235,
+   "winners_in_pile": {
+    "k": 33,
+    "n": 235,
+    "pct": 14.0,
+    "wilson": [
+     10.2,
+     19.1
+    ]
+   },
+   "share_of_all_winners": {
+    "k": 33,
+    "n": 153,
+    "pct": 21.6,
+    "wilson": [
+     15.8,
+     28.7
+    ]
+   }
+  }
+ },
+ "1c_by_stratum": {
+  "S1": {
+   "calls": 356,
+   "winners": 36,
+   "winners_scored_bullish_b1": 12,
+   "bullish_hit_rate_on_winners_pct": 33.3
+  },
+  "S2": {
+   "calls": 192,
+   "winners": 30,
+   "winners_scored_bullish_b1": 12,
+   "bullish_hit_rate_on_winners_pct": 40.0
+  },
+  "S3": {
+   "calls": 541,
+   "winners": 60,
+   "winners_scored_bullish_b1": 8,
+   "bullish_hit_rate_on_winners_pct": 13.3
+  },
+  "S4": {
+   "calls": 16,
+   "winners": 2,
+   "winners_scored_bullish_b1": 0,
+   "bullish_hit_rate_on_winners_pct": 0.0
+  },
+  "S5": {
+   "calls": 112,
+   "winners": 25,
+   "winners_scored_bullish_b1": 3,
+   "bullish_hit_rate_on_winners_pct": 12.0
+  }
+ },
+ "1c_by_tier": {
+  "NA": {
+   "calls": 1217,
+   "winners": 153,
+   "winners_scored_bullish_b1": 35,
+   "bullish_hit_rate_on_winners_pct": 22.9
+  }
+ },
+ "1c_by_year": {
+  "2020": {
+   "calls": 162,
+   "winners": 30,
+   "winners_scored_bullish_b1": 5,
+   "bullish_hit_rate_on_winners_pct": 16.7
+  },
+  "2021": {
+   "calls": 201,
+   "winners": 22,
+   "winners_scored_bullish_b1": 7,
+   "bullish_hit_rate_on_winners_pct": 31.8
+  },
+  "2022": {
+   "calls": 215,
+   "winners": 21,
+   "winners_scored_bullish_b1": 6,
+   "bullish_hit_rate_on_winners_pct": 28.6
+  },
+  "2023": {
+   "calls": 218,
+   "winners": 18,
+   "winners_scored_bullish_b1": 7,
+   "bullish_hit_rate_on_winners_pct": 38.9
+  },
+  "2024": {
+   "calls": 212,
+   "winners": 20,
+   "winners_scored_bullish_b1": 3,
+   "bullish_hit_rate_on_winners_pct": 15.0
+  },
+  "2025": {
+   "calls": 209,
+   "winners": 42,
+   "winners_scored_bullish_b1": 7,
+   "bullish_hit_rate_on_winners_pct": 16.7
+  }
+ },
+ "1d_coverage": {
+  "with_prior": 1215,
+  "missing": 2,
+  "winners_with_prior": 153
+ },
+ "1d_prior_by_outcome": {
+  "winner": {
+   "n": 153,
+   "median": -3.56,
+   "middle_half": [
+    -17.84,
+    13.56
+   ],
+   "median_range": [
+    -7.8,
+    2.18
+   ]
+  },
+  "middle": {
+   "n": 863,
+   "median": -2.19,
+   "middle_half": [
+    -12.23,
+    8.55
+   ],
+   "median_range": [
+    -3.78,
+    -0.39
+   ]
+  },
+  "loser": {
+   "n": 199,
+   "median": -4.91,
+   "middle_half": [
+    -22.4,
+    10.53
+   ],
+   "median_range": [
+    -8.38,
+    -0.73
+   ]
+  }
+ },
+ "1d_reading": {
+  "winner_minus_middle_median": -1.37,
+  "ranges_overlap": true,
+  "verdict": "no rebound pattern"
+ },
+ "1d_bearish_calls": {
+  "became_big_winner": {
+   "n": 26,
+   "median": -22.81,
+   "middle_half": [
+    -47.88,
+    -3.97
+   ],
+   "median_range": [
+    -46.05,
+    -6.95
+   ]
+  },
+  "did_not": {
+   "n": 163,
+   "median": -17.52,
+   "middle_half": [
+    -30.98,
+    -4.92
+   ],
+   "median_range": [
+    -21.46,
+    -12.23
+   ]
+  }
+ }
+}

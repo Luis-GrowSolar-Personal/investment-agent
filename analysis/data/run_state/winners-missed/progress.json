@@ -1,17 +1,21 @@
 {
   "run_id": "winners-missed",
   "prompt_sha256": "a70825e6dacefb3464c1079f85f3a7f788005d34184ec8af8661378370bed370",
-  "driver_commit": null,
+  "driver_commit": "fc1ec7e073fbd6108edca02c18ea7447bee695c7",
   "luis_approved_usd": 12,
   "cap_usd": 12,
   "approval_source": "AskUserQuestion 'Approve $12 cap', 2026-09-26",
   "steps": {
-    "step0": "in_progress",
-    "step1": "pending",
-    "step2": "pending",
+    "step0": "done",
+    "step1": "done",
+    "step2": "in_progress",
     "step3": "pending",
     "report": "pending"
   },
-  "next_action": "commit prompt; step 1 analysis",
-  "notes": []
+  "next_action": "w-preflight-submit",
+  "notes": [
+    "B READ text passed verbatim contains company names (B wrote them); no ticker/date/return/score/group supplied. calls.csv tier is NA for every call."
+  ],
+  "classifier_sha256": "99dd1107068f2a3ee23f4f9290706b1f4d97ee1c89dd5c20437fafeef36dda23",
+  "classifier_path": "docs/prompts/diagnostics/READ_CLASSIFIER_v1.md"
 }
