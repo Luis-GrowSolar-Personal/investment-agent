@@ -3,7 +3,7 @@
   "prompt_sha256": "75ff545fa4061d37535fed5888abcb0a0d79198eefbad802a118da135d57b8af",
   "cost_usd": 0,
   "edgar_requests_used": 29,
-  "vendor_calls_used": 0,
+  "vendor_calls_used": 11,
   "caps": {
     "edgar": 30,
     "vendor": 20
@@ -12,10 +12,11 @@
     "step0": "done",
     "step1": "done",
     "step2": "done (29 of 30 requests; RUN/MU full, JPM partial)",
-    "step3": "pending",
-    "step4": "pending",
-    "report": "pending"
+    "step3": "done",
+    "step4": "done",
+    "report": "in_progress"
   },
-  "next_action": "step 3 transcript probe",
-  "notes": []
+  "next_action": "wrap-up, push",
+  "notes": [],
+  "spacing_last_call_at": 1790453383.0706282
 }
