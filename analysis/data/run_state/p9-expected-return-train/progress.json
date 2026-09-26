@@ -9,8 +9,9 @@
     "step0": "done",
     "step5a": "done (no stop rule)",
     "5a": "in_progress",
-    "step5b": "in_progress",
-    "5b": "in_progress"
+    "step5b": "done (1217 rows)",
+    "5b": "in_progress",
+    "step5c": "in_progress"
   },
   "next_action": "poll-p9",
   "notes": [
