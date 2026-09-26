@@ -1,0 +1,21 @@
+{
+  "run_id": "p5-phase0",
+  "prompt_sha256": "75ff545fa4061d37535fed5888abcb0a0d79198eefbad802a118da135d57b8af",
+  "cost_usd": 0,
+  "edgar_requests_used": 0,
+  "vendor_calls_used": 0,
+  "caps": {
+    "edgar": 30,
+    "vendor": 20
+  },
+  "steps": {
+    "step0": "done",
+    "step1": "done",
+    "step2": "pending",
+    "step3": "pending",
+    "step4": "pending",
+    "report": "pending"
+  },
+  "next_action": "commit step 1; EDGAR probe script",
+  "notes": []
+}

@@ -67,6 +67,16 @@ No portfolio or position data reaches this layer. Non-transcript data *about the
 company* — filings, XBRL facts, its own price history — is not portfolio data and
 does not breach the firewall.
 
+**Amended 2026-09-26 (Luis):** peer transcripts, and factual digests of
+them, dated strictly before the target call may be given to the analyst.
+Portfolio membership, positions, sizes and any price data about other tickers
+may not. The firewall's purpose (no portfolio data, no hindsight) is unchanged.
+
+Peer text may cross the train / tune / holdout split **as input only**.
+Holdout calls are never scored until the final look. Links between companies
+come from filings dated before the call, not from judgement (P5 design §3).
+*(amended 2026-09-26, Luis)*
+
 ---
 
 ## 2. Candidate queue
@@ -124,7 +134,7 @@ several hours.
 | P2 | Post-call reaction at K≥1, three arms | none (price cache) | §3.1a R3 | blocked |
 | P3 | Thesis / guidance ledger — score QN−1's promises at QN | none (transcripts on disk) | — | ready (unchanged by this edit) |
 | P4 | Tier-conditioned reading of financial facts | XBRL build | P3 | not started |
-| P5 | Peer read-through across cohort members | none (transcripts) | — | not started |
+| P5 | Peer read-through across cohort members | none (transcripts) | — | design drafted 2026-09-26 (`docs/handoffs/2026-09-26-p5-peer-readthrough-design.md`), under review; phase 0 probes running |
 | **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **done — B held on tune (2026-09-25); research champion.** Arm C **closed** (same signal, 66% more cost) |
 | P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **falsified 2026-09-26 (train; gate 1 31.5% vs 47%)** |
 | P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **falsified 2026-09-26 (train, two draws; ranking non-inferiority failed on draw 2; severity confirmed on both)** |

@@ -14,6 +14,11 @@ The analyst and allocator are intentionally firewalled from each other.
   The analyst never receives portfolio composition, position sizes, 
   price history, or data about any other ticker.
 
+  (amended 2026-09-26, Luis) peer transcripts, and factual digests of
+  them, dated strictly before the target call may be given to the analyst.
+  Portfolio membership, positions, sizes and any price data about other tickers
+  may not. The firewall's purpose (no portfolio data, no hindsight) is unchanged.
+
 - The **allocator** (Layer 1) receives only scores and current portfolio 
   state — never transcripts. It applies mechanical rules (concentration 
   caps, tax-aware trim sequencing, account type priority) and produces 
