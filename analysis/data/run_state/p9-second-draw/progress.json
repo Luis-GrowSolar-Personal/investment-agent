@@ -10,10 +10,10 @@
     "step1": "done (1217 rows)",
     "step2": "done",
     "step3": "done",
-    "report": "in_progress",
+    "report": "done",
     "5b": "in_progress"
   },
-  "next_action": "wrap-up, push",
+  "next_action": "none; run complete",
   "notes": [],
   "guards": {
     "batch_id_full": {
