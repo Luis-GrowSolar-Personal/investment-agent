@@ -117,6 +117,9 @@ if P7:
     ORIGINAL_STATE_B2 = REPO / "analysis/data/run_state/b-champion-and-noise-floor"
 
 # --p9 (prompts/P9-expected-return.md): candidate P9 on the same 1,217 train calls. Same request construction as B.
+P9R = "--p9r" in sys.argv          # second P9 draw (prompts/P9-second-draw.md): same as --p9, custom ids __r1, outputs isolated
+if P9R:
+    sys.argv[sys.argv.index("--p9r")] = "--p9"
 P9 = "--p9" in sys.argv
 if P9:
     sys.argv.remove("--p9")
@@ -129,6 +132,14 @@ if P9:
     ORIGINAL_STATE = REPO / "analysis/data/run_state/p6-output-format-round"
     ORIGINAL_STATE_B2 = REPO / "analysis/data/run_state/b-champion-and-noise-floor"
     P9_SHA = "a752e6b1b2a00b755396a526bfe3007e788ebfb6a93b32076754cd0e078c06a5"
+    if P9R:
+        RUN_ID = "p9-second-draw"
+        STATE = REPO / "analysis/data/run_state" / RUN_ID
+        PROGRESS, FINDINGS = STATE / "progress.json", STATE / "findings.md"
+        CAP_USD = 36.0
+        EST_PER_CALL = 0.0248
+        EVAL_DIR = {"P9": REPO / "analysis/data/evals/P9-expected-return_claude-sonnet-4-6_rerun1"}
+        RERUN_SUFFIX = "__r1"
 
 # re-point the imported machinery at THIS run
 p3.STATE, p3.PROGRESS, p3.FINDINGS = STATE, PROGRESS, FINDINGS
@@ -317,7 +328,7 @@ def cmd_select():
 
 # --------------------------------------------------------------------------- requests
 def cid(arm, w, d):
-    c = f"{arm}__{w}_{d}" + (RERUN_SUFFIX if RERUN else "")
+    c = f"{arm}__{w}_{d}" + (RERUN_SUFFIX if (RERUN or P9R) else "")
     assert re.match(r"^[a-zA-Z0-9_-]{1,64}$", c), c
     return c
 
@@ -344,7 +355,7 @@ def scores_path(arm):
     if P7:
         return STATE / {"P7": "scores_p7.jsonl"}[arm]
     if P9:
-        return STATE / {"P9": "scores_p9.jsonl"}[arm]
+        return STATE / {"P9": "scores_p9_rerun1.jsonl" if P9R else "scores_p9.jsonl"}[arm]
     if RERUN:
         return STATE / {"B": "scores_b_rerun1.jsonl"}[arm]
     return STATE / {"B": f"scores_b{sfx}.jsonl", "C": f"scores_c{sfx}.jsonl", "N": f"scores_noise{sfx}.jsonl"}[arm]
@@ -399,7 +410,7 @@ def route(raw_path, default_arm=None):
     n = 0
     for r in p3.read_jsonl(raw_path):
         c = r["custom_id"]
-        if RERUN:
+        if RERUN or P9R:
             assert c.endswith(RERUN_SUFFIX), c
             c = c[:-len(RERUN_SUFFIX)]
         arm, rest = c.split("__", 1)
@@ -697,7 +708,7 @@ def cmd_p9_check():
         assert a["messages"] == b["messages"]
         assert a["system"][0]["cache_control"] == b["system"][0]["cache_control"] and len(a["system"]) == len(b["system"]) == 1
         assert a["system"][0]["text"] == PROMPTS["P9"].read_text() and b["system"][0]["text"] == PROMPTS["B"].read_text()
-        assert make_request("P9", w, d)["custom_id"] == f"P9__{w}_{d}"
+        assert make_request("P9", w, d)["custom_id"] == f"P9__{w}_{d}" + ("__r1" if P9R else "")
     rep = {"universe": 1217, "p9_sha": P9_SHA, "shape": "identical to B make_request() except system text", "sample": 25}
     (STATE / "request_shape_check.json").write_text(json.dumps(rep, indent=1)); print(rep)
 
@@ -748,7 +759,7 @@ def cmd_submit_p9():
     reqs = [make_request("P9", r["ticker"], r["date"]) for r in pending("P9")]
     print("pending after pre-flight reuse:", len(reqs))
     assert len(reqs) + len(have_ids("P9")) == 1217
-    submit("batch_id_full", reqs, per_call_p7())
+    submit("batch_id_full", reqs, EST_PER_CALL if P9R else per_call_p7())
     step("5b", "in_progress", "poll-p9")
 
 
