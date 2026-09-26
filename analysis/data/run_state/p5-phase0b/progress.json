@@ -1,0 +1,20 @@
+{
+  "run_id": "p5-phase0b",
+  "prompt_sha256": "665cf5e4560938460dfdd845fa3c07f0429803f4d03339cbd2808615e7fae4ba",
+  "cost_usd": 0,
+  "edgar_requests_used": 9,
+  "caps": {
+    "edgar": 15,
+    "usd": 3
+  },
+  "steps": {
+    "step0": "done",
+    "step1": "done",
+    "step2": "in_progress",
+    "step3": "pending",
+    "report": "pending"
+  },
+  "next_action": "step 2 transcript name matching",
+  "notes": [],
+  "luis_approved_usd": 3
+}

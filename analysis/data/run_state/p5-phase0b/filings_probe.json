@@ -1,0 +1,686 @@
+{
+ "requests": [
+  {
+   "n": 1,
+   "url": "https://www.sec.gov/files/company_tickers.json",
+   "status": 200,
+   "bytes": 798244,
+   "elapsed_s": 0.23
+  },
+  {
+   "n": 2,
+   "url": "https://data.sec.gov/submissions/CIK0000050863.json",
+   "status": 200,
+   "bytes": 159463,
+   "elapsed_s": 0.14
+  },
+  {
+   "n": 3,
+   "url": "https://data.sec.gov/submissions/CIK0001463101.json",
+   "status": 200,
+   "bytes": 168172,
+   "elapsed_s": 0.09
+  },
+  {
+   "n": 4,
+   "url": "https://data.sec.gov/submissions/CIK0001373715.json",
+   "status": 200,
+   "bytes": 159766,
+   "elapsed_s": 0.13
+  },
+  {
+   "n": 5,
+   "url": "https://data.sec.gov/submissions/CIK0001373715-submissions-001.json",
+   "status": 200,
+   "bytes": 244278,
+   "elapsed_s": 0.32
+  },
+  {
+   "n": 6,
+   "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312522000048/mu-20220901.htm",
+   "status": 200,
+   "bytes": 2851311,
+   "elapsed_s": 0.2
+  },
+  {
+   "n": 7,
+   "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086322000007/intc-20211225.htm",
+   "status": 200,
+   "bytes": 3934106,
+   "elapsed_s": 0.2
+  },
+  {
+   "n": 8,
+   "url": "https://www.sec.gov/Archives/edgar/data/1463101/000146310122000016/enph-20211231.htm",
+   "status": 200,
+   "bytes": 3805266,
+   "elapsed_s": 0.29
+  },
+  {
+   "n": 9,
+   "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371522000024/now-20211231.htm",
+   "status": 200,
+   "bytes": 2456457,
+   "elapsed_s": 0.24
+  }
+ ],
+ "companies": {
+  "MU": {
+   "item1_chars": 44711,
+   "sections": {
+    "Customers": {
+     "heading_hits_in_item1": 1,
+     "first_offsets": [
+      19651
+     ]
+    },
+    "Suppliers/Supply Chain": {
+     "heading_hits_in_item1": 2,
+     "first_offsets": [
+      24589,
+      28832
+     ]
+    },
+    "Competition": {
+     "heading_hits_in_item1": 0,
+     "first_offsets": []
+    }
+   },
+   "anonymous_customer_evidence": [],
+   "matches_in_sections": [
+    {
+     "name": "Intel",
+     "ticker": "INTC",
+     "src": "alias",
+     "offset": 22019,
+     "sentence": "Financial Statements and Supplementary Data \u2013 Notes to Consolidated Financial Statements \u2013 Certain Concentrations.\u201d Competitive Conditions We face intense competition in the semiconductor memory and storage markets from a number of companies, including Intel; Kioxia Holdings Corporation; Samsung Electronics Co., Ltd.; SK hynix Inc.; and Western Digital Corporation."
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "src": "alias",
+     "offset": 22055,
+     "sentence": "Financial Statements and Supplementary Data \u2013 Notes to Consolidated Financial Statements \u2013 Certain Concentrations.\u201d Competitive Conditions We face intense competition in the semiconductor memory and storage markets from a number of companies, including Intel; Kioxia Holdings Corporation; Samsung Electronics Co., Ltd.; SK hynix Inc.; and Western Digital Corporation."
+    },
+    {
+     "name": "SK hynix",
+     "ticker": "SKHY",
+     "src": "sec",
+     "offset": 22086,
+     "sentence": "Financial Statements and Supplementary Data \u2013 Notes to Consolidated Financial Statements \u2013 Certain Concentrations.\u201d Competitive Conditions We face intense competition in the semiconductor memory and storage markets from a number of companies, including Intel; Kioxia Holdings Corporation; Samsung Electronics Co., Ltd.; SK hynix Inc.; and Western Digital Corporation."
+    },
+    {
+     "name": "Western Digital",
+     "ticker": "WDC",
+     "src": "sec",
+     "offset": 22105,
+     "sentence": "Financial Statements and Supplementary Data \u2013 Notes to Consolidated Financial Statements \u2013 Certain Concentrations.\u201d Competitive Conditions We face intense competition in the semiconductor memory and storage markets from a number of companies, including Intel; Kioxia Holdings Corporation; Samsung Electronics Co., Ltd.; SK hynix Inc.; and Western Digital Corporation."
+    }
+   ],
+   "matches_in_item1": [
+    {
+     "name": "Intel",
+     "ticker": "INTC",
+     "src": "alias",
+     "offset": 22019,
+     "sentence": "Financial Statements and Supplementary Data \u2013 Notes to Consolidated Financial Statements \u2013 Certain Concentrations.\u201d Competitive Conditions We face intense competition in the semiconductor memory and storage markets from a number of companies, including Intel; Kioxia Holdings Corporation; Samsung Electronics Co., Ltd.; SK hynix Inc.; and Western Digital Corporation."
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "src": "alias",
+     "offset": 22055,
+     "sentence": "Financial Statements and Supplementary Data \u2013 Notes to Consolidated Financial Statements \u2013 Certain Concentrations.\u201d Competitive Conditions We face intense competition in the semiconductor memory and storage markets from a number of companies, including Intel; Kioxia Holdings Corporation; Samsung Electronics Co., Ltd.; SK hynix Inc.; and Western Digital Corporation."
+    },
+    {
+     "name": "SK hynix",
+     "ticker": "SKHY",
+     "src": "sec",
+     "offset": 22086,
+     "sentence": "Financial Statements and Supplementary Data \u2013 Notes to Consolidated Financial Statements \u2013 Certain Concentrations.\u201d Competitive Conditions We face intense competition in the semiconductor memory and storage markets from a number of companies, including Intel; Kioxia Holdings Corporation; Samsung Electronics Co., Ltd.; SK hynix Inc.; and Western Digital Corporation."
+    },
+    {
+     "name": "Western Digital",
+     "ticker": "WDC",
+     "src": "sec",
+     "offset": 22105,
+     "sentence": "Financial Statements and Supplementary Data \u2013 Notes to Consolidated Financial Statements \u2013 Certain Concentrations.\u201d Competitive Conditions We face intense competition in the semiconductor memory and storage markets from a number of companies, including Intel; Kioxia Holdings Corporation; Samsung Electronics Co., Ltd.; SK hynix Inc.; and Western Digital Corporation."
+    }
+   ],
+   "filed": "2022-10-07",
+   "accession": "0000723125-22-000048",
+   "primary_document": "mu-20220901.htm",
+   "status": 200,
+   "bytes": 2851311,
+   "text_chars": 344601,
+   "plan_source": "phase 0 edgar_probe.json"
+  },
+  "INTC": {
+   "item1_chars": 159,
+   "sections": {
+    "Customers": {
+     "heading_hits_in_item1": 0,
+     "first_offsets": []
+    },
+    "Suppliers/Supply Chain": {
+     "heading_hits_in_item1": 0,
+     "first_offsets": []
+    },
+    "Competition": {
+     "heading_hits_in_item1": 0,
+     "first_offsets": []
+    }
+   },
+   "anonymous_customer_evidence": [],
+   "matches_in_sections": [],
+   "matches_in_item1": [],
+   "filed": "2022-01-27",
+   "accession": "0000050863-22-000007",
+   "primary_document": "intc-20211225.htm",
+   "status": 200,
+   "bytes": 3934106,
+   "text_chars": 509119,
+   "plan_source": "submissions"
+  },
+  "ENPH": {
+   "item1_chars": 43486,
+   "sections": {
+    "Customers": {
+     "heading_hits_in_item1": 1,
+     "first_offsets": [
+      19698
+     ]
+    },
+    "Suppliers/Supply Chain": {
+     "heading_hits_in_item1": 3,
+     "first_offsets": [
+      20990,
+      21029,
+      21156
+     ]
+    },
+    "Competition": {
+     "heading_hits_in_item1": 1,
+     "first_offsets": [
+      35444
+     ]
+    }
+   },
+   "anonymous_customer_evidence": [
+    {
+     "offset": 20743,
+     "sentence": "In 2021, one customer accounted for approximately 34% of total net revenues."
+    },
+    {
+     "offset": 20885,
+     "sentence": "market have represented 80%, 82% and 84% of our total revenue for the annual period ending on December 31, 2021, 2020 and 2019, respectively."
+    }
+   ],
+   "matches_in_sections": [
+    {
+     "name": "SolarEdge",
+     "ticker": "SEDG",
+     "src": "alias",
+     "offset": 36807,
+     "sentence": "Competitors in the inverter market include, among others, SolarEdge Technologies, Inc., Fronius International GmbH, SMA Solar Technology AG, AP Systems, Generac, Tesla, Inc., Huawei Technologies Co."
+    },
+    {
+     "name": "Generac",
+     "ticker": "GNRC",
+     "src": "sec",
+     "offset": 36902,
+     "sentence": "Competitors in the inverter market include, among others, SolarEdge Technologies, Inc., Fronius International GmbH, SMA Solar Technology AG, AP Systems, Generac, Tesla, Inc., Huawei Technologies Co."
+    },
+    {
+     "name": "Tesla",
+     "ticker": "TSLA",
+     "src": "alias",
+     "offset": 36911,
+     "sentence": "Competitors in the inverter market include, among others, SolarEdge Technologies, Inc., Fronius International GmbH, SMA Solar Technology AG, AP Systems, Generac, Tesla, Inc., Huawei Technologies Co."
+    },
+    {
+     "name": "Tesla",
+     "ticker": "TSLA",
+     "src": "alias",
+     "offset": 37336,
+     "sentence": "Competitors in the storage market include Tesla, SolarEdge, LG Chem, Sonnen, Generac, Panasonic, BYD, E3/DC, Senec, Schneider, Goal Zero, SimpliPhi and other producers of battery cells and integrated storage systems."
+    },
+    {
+     "name": "SolarEdge",
+     "ticker": "SEDG",
+     "src": "alias",
+     "offset": 37343,
+     "sentence": "Competitors in the storage market include Tesla, SolarEdge, LG Chem, Sonnen, Generac, Panasonic, BYD, E3/DC, Senec, Schneider, Goal Zero, SimpliPhi and other producers of battery cells and integrated storage systems."
+    },
+    {
+     "name": "Generac",
+     "ticker": "GNRC",
+     "src": "sec",
+     "offset": 37371,
+     "sentence": "Competitors in the storage market include Tesla, SolarEdge, LG Chem, Sonnen, Generac, Panasonic, BYD, E3/DC, Senec, Schneider, Goal Zero, SimpliPhi and other producers of battery cells and integrated storage systems."
+    },
+    {
+     "name": "Panasonic",
+     "ticker": "Panasonic-none",
+     "src": "alias",
+     "offset": 37380,
+     "sentence": "Competitors in the storage market include Tesla, SolarEdge, LG Chem, Sonnen, Generac, Panasonic, BYD, E3/DC, Senec, Schneider, Goal Zero, SimpliPhi and other producers of battery cells and integrated storage systems."
+    },
+    {
+     "name": "BYD",
+     "ticker": "BYD-none",
+     "src": "alias",
+     "offset": 37391,
+     "sentence": "Competitors in the storage market include Tesla, SolarEdge, LG Chem, Sonnen, Generac, Panasonic, BYD, E3/DC, Senec, Schneider, Goal Zero, SimpliPhi and other producers of battery cells and integrated storage systems."
+    }
+   ],
+   "matches_in_item1": [
+    {
+     "name": "SunPower",
+     "ticker": "SPWR",
+     "src": "alias",
+     "offset": 10225,
+     "sentence": "We continue to make steady progress with our ACM partners, including SunPower Corporation, Panasonic Corporation of North America, LONGi Solar, Solaria Corporation, Hanwha Q CELLS, and Maxeon Solar Technologies, Sonnenstromfabrik (CS Wismar GmBH), and DMEGC Solar."
+    },
+    {
+     "name": "Panasonic",
+     "ticker": "Panasonic-none",
+     "src": "alias",
+     "offset": 10247,
+     "sentence": "We continue to make steady progress with our ACM partners, including SunPower Corporation, Panasonic Corporation of North America, LONGi Solar, Solaria Corporation, Hanwha Q CELLS, and Maxeon Solar Technologies, Sonnenstromfabrik (CS Wismar GmBH), and DMEGC Solar."
+    },
+    {
+     "name": "LONGi",
+     "ticker": "LONGi-none",
+     "src": "alias",
+     "offset": 10287,
+     "sentence": "We continue to make steady progress with our ACM partners, including SunPower Corporation, Panasonic Corporation of North America, LONGi Solar, Solaria Corporation, Hanwha Q CELLS, and Maxeon Solar Technologies, Sonnenstromfabrik (CS Wismar GmBH), and DMEGC Solar."
+    },
+    {
+     "name": "Hanwha",
+     "ticker": "Hanwha-none",
+     "src": "alias",
+     "offset": 10321,
+     "sentence": "We continue to make steady progress with our ACM partners, including SunPower Corporation, Panasonic Corporation of North America, LONGi Solar, Solaria Corporation, Hanwha Q CELLS, and Maxeon Solar Technologies, Sonnenstromfabrik (CS Wismar GmBH), and DMEGC Solar."
+    },
+    {
+     "name": "Maxeon Solar Technologies",
+     "ticker": "MAXNQ",
+     "src": "sec",
+     "offset": 10341,
+     "sentence": "We continue to make steady progress with our ACM partners, including SunPower Corporation, Panasonic Corporation of North America, LONGi Solar, Solaria Corporation, Hanwha Q CELLS, and Maxeon Solar Technologies, Sonnenstromfabrik (CS Wismar GmBH), and DMEGC Solar."
+    },
+    {
+     "name": "Strategy",
+     "ticker": "MSTR",
+     "src": "sec",
+     "offset": 16839,
+     "sentence": "Our Strategy Our objective is to build best-in-class home energy systems and deliver them to homeowners through our installer and distribution partners, enabled by a comprehensive digital platform."
+    },
+    {
+     "name": "SolarEdge",
+     "ticker": "SEDG",
+     "src": "alias",
+     "offset": 36807,
+     "sentence": "Competitors in the inverter market include, among others, SolarEdge Technologies, Inc., Fronius International GmbH, SMA Solar Technology AG, AP Systems, Generac, Tesla, Inc., Huawei Technologies Co."
+    },
+    {
+     "name": "Generac",
+     "ticker": "GNRC",
+     "src": "sec",
+     "offset": 36902,
+     "sentence": "Competitors in the inverter market include, among others, SolarEdge Technologies, Inc., Fronius International GmbH, SMA Solar Technology AG, AP Systems, Generac, Tesla, Inc., Huawei Technologies Co."
+    },
+    {
+     "name": "Tesla",
+     "ticker": "TSLA",
+     "src": "alias",
+     "offset": 36911,
+     "sentence": "Competitors in the inverter market include, among others, SolarEdge Technologies, Inc., Fronius International GmbH, SMA Solar Technology AG, AP Systems, Generac, Tesla, Inc., Huawei Technologies Co."
+    },
+    {
+     "name": "Tesla",
+     "ticker": "TSLA",
+     "src": "alias",
+     "offset": 37336,
+     "sentence": "Competitors in the storage market include Tesla, SolarEdge, LG Chem, Sonnen, Generac, Panasonic, BYD, E3/DC, Senec, Schneider, Goal Zero, SimpliPhi and other producers of battery cells and integrated storage systems."
+    },
+    {
+     "name": "SolarEdge",
+     "ticker": "SEDG",
+     "src": "alias",
+     "offset": 37343,
+     "sentence": "Competitors in the storage market include Tesla, SolarEdge, LG Chem, Sonnen, Generac, Panasonic, BYD, E3/DC, Senec, Schneider, Goal Zero, SimpliPhi and other producers of battery cells and integrated storage systems."
+    },
+    {
+     "name": "Generac",
+     "ticker": "GNRC",
+     "src": "sec",
+     "offset": 37371,
+     "sentence": "Competitors in the storage market include Tesla, SolarEdge, LG Chem, Sonnen, Generac, Panasonic, BYD, E3/DC, Senec, Schneider, Goal Zero, SimpliPhi and other producers of battery cells and integrated storage systems."
+    },
+    {
+     "name": "Panasonic",
+     "ticker": "Panasonic-none",
+     "src": "alias",
+     "offset": 37380,
+     "sentence": "Competitors in the storage market include Tesla, SolarEdge, LG Chem, Sonnen, Generac, Panasonic, BYD, E3/DC, Senec, Schneider, Goal Zero, SimpliPhi and other producers of battery cells and integrated storage systems."
+    },
+    {
+     "name": "BYD",
+     "ticker": "BYD-none",
+     "src": "alias",
+     "offset": 37391,
+     "sentence": "Competitors in the storage market include Tesla, SolarEdge, LG Chem, Sonnen, Generac, Panasonic, BYD, E3/DC, Senec, Schneider, Goal Zero, SimpliPhi and other producers of battery cells and integrated storage systems."
+    }
+   ],
+   "filed": "2022-02-11",
+   "accession": "0001463101-22-000016",
+   "primary_document": "enph-20211231.htm",
+   "status": 200,
+   "bytes": 3805266,
+   "text_chars": 562072,
+   "plan_source": "submissions"
+  },
+  "NOW": {
+   "item1_chars": 43442,
+   "sections": {
+    "Customers": {
+     "heading_hits_in_item1": 6,
+     "first_offsets": [
+      4704,
+      18732,
+      23006,
+      26725,
+      27114
+     ]
+    },
+    "Suppliers/Supply Chain": {
+     "heading_hits_in_item1": 1,
+     "first_offsets": [
+      17728
+     ]
+    },
+    "Competition": {
+     "heading_hits_in_item1": 1,
+     "first_offsets": [
+      25354
+     ]
+    }
+   },
+   "anonymous_customer_evidence": [],
+   "matches_in_sections": [
+    {
+     "name": "Oracle",
+     "ticker": "ORCL",
+     "src": "alias",
+     "offset": 26687,
+     "sentence": "We designed the Now Platform to quickly integrate with, and complement the performance of well-established, enterprise application software vendors, such as Oracle, SAP, Salesforce, and Workday."
+    },
+    {
+     "name": "Salesforce",
+     "ticker": "CRM",
+     "src": "alias",
+     "offset": 26700,
+     "sentence": "We designed the Now Platform to quickly integrate with, and complement the performance of well-established, enterprise application software vendors, such as Oracle, SAP, Salesforce, and Workday."
+    },
+    {
+     "name": "Workday",
+     "ticker": "WDAY",
+     "src": "alias",
+     "offset": 26716,
+     "sentence": "We designed the Now Platform to quickly integrate with, and complement the performance of well-established, enterprise application software vendors, such as Oracle, SAP, Salesforce, and Workday."
+    }
+   ],
+   "matches_in_item1": [
+    {
+     "name": "Oracle",
+     "ticker": "ORCL",
+     "src": "alias",
+     "offset": 26687,
+     "sentence": "We designed the Now Platform to quickly integrate with, and complement the performance of well-established, enterprise application software vendors, such as Oracle, SAP, Salesforce, and Workday."
+    },
+    {
+     "name": "Salesforce",
+     "ticker": "CRM",
+     "src": "alias",
+     "offset": 26700,
+     "sentence": "We designed the Now Platform to quickly integrate with, and complement the performance of well-established, enterprise application software vendors, such as Oracle, SAP, Salesforce, and Workday."
+    },
+    {
+     "name": "Workday",
+     "ticker": "WDAY",
+     "src": "alias",
+     "offset": 26716,
+     "sentence": "We designed the Now Platform to quickly integrate with, and complement the performance of well-established, enterprise application software vendors, such as Oracle, SAP, Salesforce, and Workday."
+    },
+    {
+     "name": "Strategy",
+     "ticker": "MSTR",
+     "src": "sec",
+     "offset": 31757,
+     "sentence": "Human Capital Management Our People Strategy Our People Strategy is pivotal to our goal of becoming the defining enterprise software company of the 21 st century."
+    },
+    {
+     "name": "Strategy",
+     "ticker": "MSTR",
+     "src": "sec",
+     "offset": 31895,
+     "sentence": "Our People Strategy is designed to help us execute against our business strategy, while living our best lives, doing our best work, and fulfilling our purpose together."
+    },
+    {
+     "name": "Strategy",
+     "ticker": "MSTR",
+     "src": "sec",
+     "offset": 32447,
+     "sentence": "Our People Strategy is based on two foundational principles and three key pillars."
+    },
+    {
+     "name": "Strategy",
+     "ticker": "MSTR",
+     "src": "sec",
+     "offset": 32666,
+     "sentence": "\u2022 We must ensure that our People Strategy is informed by data and insights as we strive to scale efficiently and make informed and unbiased decisions."
+    },
+    {
+     "name": "Strategy",
+     "ticker": "MSTR",
+     "src": "sec",
+     "offset": 33746,
+     "sentence": "As a result, growth and development\u2014from early-in-career talent to senior leaders\u2014are critical aspects of our People Strategy."
+    }
+   ],
+   "filed": "2022-02-03",
+   "accession": "0001373715-22-000024",
+   "primary_document": "now-20211231.htm",
+   "status": 200,
+   "bytes": 2456457,
+   "text_chars": 363464,
+   "plan_source": "submissions"
+  }
+ },
+ "name_list": {
+  "names": 11477,
+  "from_sec": 11402,
+  "from_aliases": 75
+ },
+ "requests_used": 9,
+ "cap": 15,
+ "offline_second_pass": {
+  "MU": {
+   "whole_doc_chars": 344601,
+   "customers_passages": []
+  },
+  "INTC": {
+   "whole_doc_chars": 509119,
+   "customers_passages": [
+    {
+     "offset": 212786,
+     "text": "Customers We sell our products primarily to OEMs, ODMs, and cloud service providers. ODMs provide design and manufacturing services to branded and unbranded private-label resellers. In addition, our customers include other manufacturers and service providers, such as industrial and communication equipment manufacturers and other cloud service providers, who buy our products through distributor, reseller, retail, and OEM channels throughout the world. For more information about our customers, inc"
+    },
+    {
+     "offset": 216637,
+     "text": "Customers may place orders directly with us or through distributors. We have several distribution warehouses that are located in proximity to key customers. Seasonal Trends Historically, our net revenue has typically been higher in the second half of the year than in the first half of the year, accelerating in the third quarter and peaking in the fourth quarter. In 2021, continued strong COVID-driven notebook demand in the first half of the year contributed to a flatter trend than we historicall"
+    }
+   ],
+   "heading_offsets_whole_doc": {
+    "Customers": [
+     212786,
+     216637
+    ],
+    "Suppliers/Supply Chain": [
+     81842,
+     85782,
+     100765,
+     102675,
+     102690,
+     103144,
+     119053,
+     235200
+    ],
+    "Competition": [
+     135027,
+     144834,
+     153944,
+     161561,
+     177445,
+     450831
+    ]
+   },
+   "matches_near_headings_whole_doc": [
+    {
+     "name": "Strategy",
+     "ticker": "MSTR",
+     "heading": "Suppliers/Supply Chain",
+     "sentence": "Capital Strategy Value Financial Leverage financial capital to invest in ourselves and drive our IDM 2.0 strategy, supplement and strengthen our capabilities through acquisitions, and provide returns to stockholders."
+    },
+    {
+     "name": "Strategy",
+     "ticker": "MSTR",
+     "heading": "Suppliers/Supply Chain",
+     "sentence": "2030 RISE Strategy and Corporate Responsibility Goals Our commitment to corporate responsibility and sustainability leadership is deeply integrated throughout our business."
+    },
+    {
+     "name": "Amazon Web Services",
+     "ticker": "AMZN",
+     "heading": "Suppliers/Supply Chain",
+     "sentence": "During the year we began shipping packaging units for our first IFS customer, Amazon Web Services."
+    },
+    {
+     "name": "TSMC",
+     "ticker": "TSM",
+     "heading": "Suppliers/Supply Chain",
+     "sentence": "(TSMC) or Samsung Electronics Co., Ltd., and subcontractors for manufacture and assembly and test of their semiconductor components and products."
+    },
+    {
+     "name": "Samsung",
+     "ticker": "Samsung-none",
+     "heading": "Suppliers/Supply Chain",
+     "sentence": "(TSMC) or Samsung Electronics Co., Ltd., and subcontractors for manufacture and assembly and test of their semiconductor components and products."
+    },
+    {
+     "name": "TSMC",
+     "ticker": "TSM",
+     "heading": "Suppliers/Supply Chain",
+     "sentence": "Manufacturing process improvements introduced by TSMC have contributed, and may continue to contribute, to increasingly competitive offerings by our competitors."
+    },
+    {
+     "name": "TSMC",
+     "ticker": "TSM",
+     "heading": "Suppliers/Supply Chain",
+     "sentence": "While we have set out a process technology roadmap to attain future process performance-per-watt parity and leadership relative to TSMC, our plans are subject to a number of risks and we could fail to realize our goals, including due to changes in competitor technology roadmaps, changes affecting our projections regarding our technology or competing technology, and the risks described in the section \"We are vulnerable to product and manufacturing-related risks.\" As an IDM, we have higher capital"
+    },
+    {
+     "name": "NVIDIA",
+     "ticker": "NVDA",
+     "heading": "Suppliers/Supply Chain",
+     "sentence": "For example, in 2020, NVIDIA announced an agreement to acquire ARM Holdings plc, and AMD announced an agreement to acquire Xilinx, Inc."
+    },
+    {
+     "name": "AMD",
+     "ticker": "AMD",
+     "heading": "Suppliers/Supply Chain",
+     "sentence": "For example, in 2020, NVIDIA announced an agreement to acquire ARM Holdings plc, and AMD announced an agreement to acquire Xilinx, Inc."
+    },
+    {
+     "name": "AMD",
+     "ticker": "AMD",
+     "heading": "Competition",
+     "sentence": "In processors, we compete with AMD and vendors who design applications processors based on ARM* architecture, such as Qualcomm Inc."
+    },
+    {
+     "name": "Qualcomm",
+     "ticker": "QCOM",
+     "heading": "Competition",
+     "sentence": "In processors, we compete with AMD and vendors who design applications processors based on ARM* architecture, such as Qualcomm Inc."
+    },
+    {
+     "name": "Qualcomm",
+     "ticker": "QCOM",
+     "heading": "Competition",
+     "sentence": "(Qualcomm), and, increasingly, Apple Inc., (Apple) with its most recent launch of M1 Max and M1 Pro."
+    },
+    {
+     "name": "Apple",
+     "ticker": "AAPL",
+     "heading": "Competition",
+     "sentence": "(Qualcomm), and, increasingly, Apple Inc., (Apple) with its most recent launch of M1 Max and M1 Pro."
+    },
+    {
+     "name": "Advanced Micro Devices",
+     "ticker": "AMD",
+     "heading": "Competition",
+     "sentence": "As a leading provider of data center platforms, we have competitors such as Advanced Micro Devices, Inc."
+    },
+    {
+     "name": "AMD",
+     "ticker": "AMD",
+     "heading": "Competition",
+     "sentence": "(AMD), providers of GPU products such as NVIDIA Corporation (NVIDIA), companies using ARM architecture, new entrants developing products customized for specific data center workloads, and internally developed solutions by cloud service providers and others."
+    },
+    {
+     "name": "NVIDIA",
+     "ticker": "NVDA",
+     "heading": "Competition",
+     "sentence": "(AMD), providers of GPU products such as NVIDIA Corporation (NVIDIA), companies using ARM architecture, new entrants developing products customized for specific data center workloads, and internally developed solutions by cloud service providers and others."
+    },
+    {
+     "name": "Google",
+     "ticker": "GOOGL",
+     "heading": "Competition",
+     "sentence": "Intel announced two types of IPUs, an FPGA-based IPU (Oak Springs Canyon) and an ASIC-based IPU co-developed with Google (Mount Evans)."
+    },
+    {
+     "name": "Advanced Micro Devices",
+     "ticker": "AMD",
+     "heading": "Competition",
+     "sentence": "Competition Matter In 2001, the EC commenced an investigation regarding claims by Advanced Micro Devices, Inc."
+    },
+    {
+     "name": "AMD",
+     "ticker": "AMD",
+     "heading": "Competition",
+     "sentence": "(AMD) that we used unfair business practices to persuade customers to buy our microprocessors."
+    }
+   ]
+  },
+  "ENPH": {
+   "whole_doc_chars": 562072,
+   "customers_passages": [
+    {
+     "offset": 74616,
+     "text": "Customers and Sales We currently offer solutions targeting the residential and commercial markets in the U.S., Canada, Mexico, Europe, Australia, New Zealand, India, Brazil, South Africa, and certain other Central American and Asian markets. We sell primarily to solar distributors who combine our products with others, including solar modules products and racking systems, and resell to installers in each target region. In addition to our solar distributors, we sell directly to select large instal"
+    }
+   ]
+  },
+  "NOW": {
+   "whole_doc_chars": 363464,
+   "customers_passages": [
+    {
+     "offset": 53094,
+     "text": "Customers We primarily sell our services to large enterprise customers, and we host and support large, enterprise-wide deployments for our customers. As of December 31, 2021, we had approximately 7,400 enterprise customers. Our customers operate in a wide variety of industries, including government, financial services, healthcare, manufacturing, IT services, technology, oil and gas, telco, education and consumer products. The portion of our revenues generated by sales to government customers has"
+    }
+   ]
+  }
+ }
+}
