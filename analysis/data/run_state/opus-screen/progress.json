@@ -21,10 +21,10 @@
     "step0": "done",
     "step1": "done",
     "step2": "done (passed, projected $13.62)",
-    "step3": "in_progress",
-    "report": "pending"
+    "step3": "done",
+    "report": "in_progress"
   },
-  "next_action": "opus-submit-rest",
+  "next_action": "wrap-up, push",
   "notes": [
     "claude-api skill notes: on claude-opus-5-5 thinking cannot be disabled (default adaptive, effort default medium); B's request omits `thinking`, so Opus reasons by default and thinking tokens count against max_tokens 4096 and are billed. Sonnet 4.6 ran with no thinking. So the only-the-model-string change is not the only behavioural difference."
   ],
@@ -71,5 +71,6 @@
   "batch_id_preflight_requests": 30,
   "batch_id_rest": "msgbatch_01L2BRfhQbE7NmaaN6mjyXQM",
   "batch_id_rest_submitted_at": "2026-09-26T18:26:29Z",
-  "batch_id_rest_requests": 270
+  "batch_id_rest_requests": 270,
+  "spent_usd": 14.06
 }
