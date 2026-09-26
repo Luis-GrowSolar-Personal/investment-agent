@@ -141,6 +141,19 @@ if P9:
         EVAL_DIR = {"P9": REPO / "analysis/data/evals/P9-expected-return_claude-sonnet-4-6_rerun1"}
         RERUN_SUFFIX = "__r1"
 
+# --winners (prompts/winners-missed-analysis.md): READ-text classifier over B draw 1's READs, plus (step 3) contrastive pairs. Not a candidate.
+WIN = "--winners" in sys.argv
+if WIN:
+    sys.argv.remove("--winners")
+    assert not (TUNE or RERUN or P7 or P9)
+    RUN_ID = "winners-missed"
+    STATE = REPO / "analysis/data/run_state" / RUN_ID
+    PROGRESS, FINDINGS = STATE / "progress.json", STATE / "findings.md"
+    CAP_USD, PREFLIGHT_N = 12.0, 60
+    CLASSIFIER = REPO / "docs/prompts/diagnostics/READ_CLASSIFIER_v1.md"
+    CLASSIFIER_MAX_TOKENS = 400
+    W_EST = 0.006
+
 # re-point the imported machinery at THIS run
 p3.STATE, p3.PROGRESS, p3.FINDINGS = STATE, PROGRESS, FINDINGS
 p3.EXCLUDE = set(EXCLUDE)
@@ -667,6 +680,131 @@ def cmd_submit_rerun():
 
 def cmd_poll_rerun():
     poll("batch_id_rerun", "raw_rerun.jsonl")
+
+
+# --------------------------------------------------------------------------- winners-side (prompts/winners-missed-analysis.md)
+def w_read_text(content):
+    """B's READ paragraph only: strip the SCORE section (score, rationale, wrongIf) and the structured block."""
+    m = re.search(r"## READ\s*(.*?)\s*(?:## SCORE|---STRUCTURED---|$)", content, re.S)
+    assert m and m.group(1).strip(), "no READ section"
+    return m.group(1).strip()
+
+
+def w_request(tk, d, read):
+    from anthropic.types.messages.batch_create_params import Request
+    from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+    return Request(custom_id=f"W__{tk}_{d}", params=MessageCreateParamsNonStreaming(
+        model=MODEL, max_tokens=CLASSIFIER_MAX_TOKENS, system=sysblock(CLASSIFIER.read_text()),
+        messages=[{"role": "user", "content": read}]))
+
+
+def w_reads():
+    b = {(r["ticker"], r["date"]): r for r in p3.read_jsonl(REPO / "analysis/data/run_state/p6-output-format-round/scores_b.jsonl")}
+    recs = universe()
+    assert len(recs) == 1217
+    return {(r["ticker"], r["date"]): w_read_text(b[(r["ticker"], r["date"])]["content"]) for r in recs}
+
+
+def w_scores_path():
+    return STATE / "read_labels.jsonl"
+
+
+def w_have():
+    return {(r["ticker"], r["date"]) for r in p3.read_jsonl(w_scores_path())}
+
+
+def cmd_w_check():
+    assert WIN
+    reads = w_reads()
+    bad = [k for k, v in reads.items() if re.search(r"\*\*[+-]?\d\*\*|---STRUCTURED", v)]
+    assert not bad, f"score or structured block leaked into READ text for {bad[:3]}"
+    p = load_progress(); p["classifier_sha256"] = sha(CLASSIFIER); p["classifier_path"] = str(CLASSIFIER.relative_to(REPO)); save_progress(p)
+    k = next(iter(reads)); req = w_request(*k, reads[k]); prm = dict(req["params"] if isinstance(req, dict) else req.params)
+    assert prm["model"] == MODEL and prm["max_tokens"] == 400 and "temperature" not in prm
+    print(json.dumps({"reads": len(reads), "classifier_sha256": p["classifier_sha256"], "median_read_chars": sorted(len(v) for v in reads.values())[len(reads) // 2]}))
+
+
+def cmd_w_select():
+    assert WIN
+    smap = p3.stratum_map(); by_s = {}
+    for r in universe(): by_s.setdefault(smap[r["ticker"]], []).append(r)
+    counts = {s_: len(v) for s_, v in by_s.items()}
+    alloc = p3.stratum_alloc(PREFLIGHT_N, counts)
+    if alloc.get("S4", 0) == 0:
+        big = max(alloc, key=alloc.get); alloc[big] -= 1; alloc["S4"] = 1
+    rng = random.Random("winners-preflight-11"); pre = []
+    for s_ in sorted(alloc):
+        pre += [(r["ticker"], r["date"]) for r in rng.sample(sorted(by_s[s_], key=lambda r: (r["ticker"], r["date"])), alloc[s_])]
+    rng.shuffle(pre)
+    (STATE / "selection.json").write_text(json.dumps({"preflight": [list(k) for k in pre], "alloc": alloc}, indent=1)); print(alloc)
+
+
+def w_submit(key, keys, per):
+    p = load_progress()
+    if p.get(key):
+        print(key, "already recorded", p[key]); return
+    reads = w_reads()
+    assert p.get("classifier_sha256") == sha(CLASSIFIER), "classifier sha not recorded / changed"
+    reqs = [w_request(tk, d, reads[(tk, d)]) for tk, d in keys]
+    commit_spend(key, len(reqs), per)
+    p3.submit_batch(reqs, key)
+
+
+def w_route(raw):
+    from analyst_direct_scorer import parse_structured
+    have, n = w_have(), 0
+    for r in p3.read_jsonl(STATE / raw):
+        tk, d = r["custom_id"][3:].rsplit("_", 1)
+        if (tk, d) in have: continue
+        p3.append_jsonl(w_scores_path(), {"ticker": tk, "date": d, "content": r["content"], "parsed": parse_structured(r["content"]),
+                                          "usage": r["usage"], "stop_reason": r["stop_reason"], "cost_usd": r["cost_usd"], "batch_id": r["batch_id"]})
+        n += 1
+    print("routed", n, "new rows")
+
+
+def cmd_w_preflight_submit():
+    assert WIN
+    sel = json.loads((STATE / "selection.json").read_text())
+    w_submit("batch_id_preflight", [tuple(x) for x in sel["preflight"]], W_EST)
+    step("2b", "in_progress", "w-preflight-poll")
+
+
+def cmd_w_preflight_poll():
+    if p3.poll_batch("batch_id_preflight", "raw_preflight.jsonl", "batch_id_preflight"):
+        w_route("raw_preflight.jsonl")
+
+
+W_ALLOWED = {"positive": {"none", "weak", "strong"}, "negative": {"none", "weak", "strong"}, "forwardPositive": {"yes", "no"}, "discounted": {"yes", "no"}}
+
+
+def cmd_w_preflight_report():
+    sel = json.loads((STATE / "selection.json").read_text()); want = {tuple(x) for x in sel["preflight"]}
+    rows = [r for r in p3.read_jsonl(w_scores_path()) if (r["ticker"], r["date"]) in want]
+    bad = sum(1 for r in rows if not r["parsed"] or any(r["parsed"].get(f) not in v for f, v in W_ALLOWED.items()))
+    mt = sum(r["stop_reason"] == "max_tokens" for r in rows)
+    dist = {f: {v: sum(1 for r in rows if r["parsed"].get(f) == v) for v in vals} for f, vals in W_ALLOWED.items()}
+    single = {f: round(100 * max(d.values()) / max(len(rows), 1), 1) for f, d in dist.items()}
+    cost = sum(r["cost_usd"] for r in rows); per = cost / max(len(rows), 1)
+    rep = {"n": len(rows), "unparseable_or_out_of_set": bad, "max_tokens": mt, "distribution": dist, "max_single_value_share_pct": single,
+           "stop_single_value_gt85": [f for f, v in single.items() if v > 85], "cost_usd": round(cost, 4), "cost_per_call": round(per, 5),
+           "projected_full_usd": round(per * 1217, 2)}
+    rep["STOP"] = bool(bad or mt or rep["stop_single_value_gt85"] or rep["projected_full_usd"] > 8)
+    (STATE / "preflight_report.json").write_text(json.dumps(rep, indent=1)); print(json.dumps(rep, indent=1))
+
+
+def cmd_w_submit_full():
+    assert WIN
+    have = w_have()
+    keys = [k for k in w_reads() if k not in have]
+    random.Random(11).shuffle(keys)
+    per = json.loads((STATE / "preflight_report.json").read_text())["cost_per_call"]
+    w_submit("batch_id_full", keys, per)
+    step("2c", "in_progress", "w-poll-full")
+
+
+def cmd_w_poll_full():
+    if p3.poll_batch("batch_id_full", "raw_full.jsonl", "batch_id_full"):
+        w_route("raw_full.jsonl")
 
 
 # --------------------------------------------------------------------------- P9-side (prompts/P9-expected-return.md)
