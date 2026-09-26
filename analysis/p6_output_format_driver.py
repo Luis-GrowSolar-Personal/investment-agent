@@ -102,6 +102,23 @@ if TUNE:
     p3.stratum_map = _tune_strata
     p3.V6_EVAL_DIR = V6_EVAL_DIR
 
+# --opus (prompts/opus-screen.md): arm B's prompt, byte for byte, on claude-opus-5-5 over a 300-call train subset. Screen override; no registry change.
+OPUS = "--opus" in sys.argv
+if OPUS:
+    sys.argv.remove("--opus")
+    assert not (TUNE or RERUN)
+    RUN_ID = "opus-screen"
+    STATE = REPO / "analysis/data/run_state" / RUN_ID
+    PROGRESS, FINDINGS = STATE / "progress.json", STATE / "findings.md"
+    EVAL_DIR = {"B": REPO / "analysis/data/evals/P6B-minimal_claude-opus-5-5_screen"}
+    CAP_USD = 50.0
+    SONNET_MODEL = MODEL
+    MODEL = "claude-opus-5-5"          # overrides MODEL on this path only
+    RERUN_SUFFIX = "__opus"
+    OPUS_PRICE = {"in": 4.0, "out": 20.0, "cr": 0.20, "cw": 5.0}      # $/MTok, standard; batch = x0.5
+    ORIGINAL_STATE = REPO / "analysis/data/run_state/p6-output-format-round"
+    ORIGINAL_STATE_B2 = REPO / "analysis/data/run_state/b-champion-and-noise-floor"
+
 # --p7 (prompts/P7-three-voices.md): candidate P7 on the same 1,217 train calls. Same request construction as B, prompt text differs only.
 P7 = "--p7" in sys.argv
 if P7:
@@ -276,7 +293,7 @@ def guards():
     from analysis.version_guard import assert_prompt_hash
     reg = json.loads((REPO / "docs/architecture/VERSION_REGISTRY.json").read_text())["artifacts"]["evaluation_prompt"]
     out = {}
-    for arm in (("P7",) if P7 else ("P9",) if P9 else ("B",) if (TUNE or RERUN) else ("B", "C")):
+    for arm in (("P7",) if P7 else ("P9",) if P9 else ("B",) if (TUNE or RERUN or OPUS) else ("B", "C")):
         t = PROMPTS[arm].read_text()
         rs = next(c["sha256"] for c in reg["candidates"] if c["version"] == CAND_NAME[arm])
         assert hashlib.sha256(t.encode()).hexdigest() == rs, f"arm {arm} hash != registry"
@@ -361,7 +378,7 @@ def cmd_select():
 
 # --------------------------------------------------------------------------- requests
 def cid(arm, w, d):
-    c = f"{arm}__{w}_{d}" + (RERUN_SUFFIX if (RERUN or P9R) else "")
+    c = f"{arm}__{w}_{d}" + (RERUN_SUFFIX if (RERUN or P9R or OPUS) else "")
     assert re.match(r"^[a-zA-Z0-9_-]{1,64}$", c), c
     return c
 
@@ -389,6 +406,8 @@ def scores_path(arm):
         return STATE / {"P7": "scores_p7.jsonl"}[arm]
     if P9:
         return STATE / {"P9": "scores_p9_rerun1.jsonl" if P9R else "scores_p9.jsonl"}[arm]
+    if OPUS:
+        return STATE / {"B": "scores_b_opus.jsonl"}[arm]
     if RERUN:
         return STATE / {"B": "scores_b_rerun1.jsonl"}[arm]
     return STATE / {"B": f"scores_b{sfx}.jsonl", "C": f"scores_c{sfx}.jsonl", "N": f"scores_noise{sfx}.jsonl"}[arm]
@@ -443,7 +462,7 @@ def route(raw_path, default_arm=None):
     n = 0
     for r in p3.read_jsonl(raw_path):
         c = r["custom_id"]
-        if RERUN or P9R:
+        if RERUN or P9R or OPUS:
             assert c.endswith(RERUN_SUFFIX), c
             c = c[:-len(RERUN_SUFFIX)]
         arm, rest = c.split("__", 1)
@@ -972,6 +991,134 @@ def cmd_w3_retry_poll():
 def cmd_w3_poll():
     if p3.poll_batch("batch_id_pairs", "raw_pairs.jsonl", "batch_id_pairs"):
         print("pairs collected")
+
+
+# --------------------------------------------------------------------------- opus-screen side
+def cmd_opus_select():
+    """300 train calls, proportional across S1-S5 (>=1 S4), seed opus-screen-11; 30-call pre-flight drawn from them (seed opus-screen-pre-11)."""
+    assert OPUS
+    import csv as _csv
+    smap = p3.stratum_map(); by_s = {}
+    for r in universe(): by_s.setdefault(smap[r["ticker"]], []).append(r)
+    counts = {s_: len(v) for s_, v in by_s.items()}
+    alloc = p3.stratum_alloc(300, counts)
+    if alloc.get("S4", 0) == 0:
+        big = max(alloc, key=alloc.get); alloc[big] -= 1; alloc["S4"] = 1
+    rng = random.Random("opus-screen-11"); sel = []
+    for s_ in sorted(alloc):
+        sel += [(r["ticker"], r["date"]) for r in rng.sample(sorted(by_s[s_], key=lambda r: (r["ticker"], r["date"])), alloc[s_])]
+    assert len(sel) == 300 and len(set(sel)) == 300
+    by_sel = {}
+    for k in sel: by_sel.setdefault(smap[k[0]], []).append(k)
+    palloc = p3.stratum_alloc(30, {s_: len(v) for s_, v in by_sel.items()})
+    rng2 = random.Random("opus-screen-pre-11"); pre = []
+    for s_ in sorted(palloc): pre += rng2.sample(sorted(by_sel[s_]), palloc[s_])
+    ret = {}
+    for r in _csv.DictReader(open(ORIGINAL_STATE / "calls.csv")):
+        if r["fwd_rel_ret_tradeable"] != "": ret[(r["ticker"], r["call_date"])] = float(r["fwd_rel_ret_tradeable"])
+    win = sum(ret[k] >= 20 for k in sel); los = sum(ret[k] <= -20 for k in sel)
+    (STATE / "selection.json").write_text(json.dumps({"selection": [list(k) for k in sel], "alloc": alloc, "preflight": [list(k) for k in pre], "preflight_alloc": palloc,
+                                                      "big_winners": win, "big_losers": los, "seed": "opus-screen-11"}, indent=1))
+    print(json.dumps({"alloc": alloc, "preflight_alloc": palloc, "big_winners": win, "big_losers": los}))
+
+
+def cmd_opus_check():
+    """B's prompt byte-for-byte (sha asserted); request identical to B's Sonnet request except the model string. $0."""
+    assert OPUS
+    assert sha(PROMPTS["B"]) == "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab"
+    sel = json.loads((STATE / "selection.json").read_text())["selection"]
+    for w, d in sel[:25]:
+        prm = dict(make_request("B", w, d)["params"])
+        assert prm["model"] == "claude-opus-5-5" and prm["max_tokens"] == 4096 and set(prm) == {"model", "max_tokens", "system", "messages"}, sorted(prm)
+        assert "temperature" not in prm and "thinking" not in prm
+        assert prm["system"][0]["text"] == PROMPTS["B"].read_text() and prm["system"][0]["cache_control"] == {"type": "ephemeral"}
+        assert prm["messages"] == [{"role": "user", "content": transcript(w, d)}]
+        assert make_request("B", w, d)["custom_id"] == f"B__{w}_{d}__opus"
+    orig = {(r["ticker"], r["date"]) for r in p3.read_jsonl(ORIGINAL_STATE / "scores_b.jsonl")}
+    assert all(tuple(k) in orig for k in sel)
+    print({"selection": len(sel), "in_original_B_draw1": True, "model": MODEL, "shape": "identical to B request except model string"})
+
+
+def o_cost(usage):
+    p = OPUS_PRICE
+    return round(0.5 * (usage["input_tokens"] * p["in"] + usage["output_tokens"] * p["out"] + usage["cache_read_input_tokens"] * p["cr"] + usage["cache_creation_input_tokens"] * p["cw"]) / 1e6, 5)
+
+
+def o_poll(key, raw_name):
+    cl = p3.client(); pr = load_progress(); bid = pr.get(key)
+    b = cl.messages.batches.retrieve(bid)
+    print(f"{bid}: {b.processing_status} {b.request_counts}")
+    if b.processing_status != "ended": return False
+    outp = STATE / raw_name; have = {r["custom_id"] for r in p3.read_jsonl(outp)}; n = err = 0
+    for e in cl.messages.batches.results(bid):
+        if e.custom_id in have: continue
+        if e.result.type == "succeeded":
+            m = e.result.message; u = m.usage
+            usage = {"input_tokens": u.input_tokens, "output_tokens": u.output_tokens, "cache_read_input_tokens": getattr(u, "cache_read_input_tokens", 0) or 0,
+                     "cache_creation_input_tokens": getattr(u, "cache_creation_input_tokens", 0) or 0}
+            p3.append_jsonl(outp, {"custom_id": e.custom_id, "content": "".join(b_.text for b_ in m.content if b_.type == "text"), "model": m.model,
+                                   "block_types": [b_.type for b_ in m.content], "usage": usage, "stop_reason": m.stop_reason, "cost_usd": o_cost(usage),
+                                   "batch_id": bid, "fetched_at": now()})
+            n += 1
+        else:
+            finding(f"{key} {e.result.type}: {e.custom_id}: {getattr(e.result, 'error', '')}"); err += 1
+    print(f"collected {n} not_succeeded={err}")
+    return True
+
+
+def o_route(raw_name):
+    have = {(r["ticker"], r["date"]) for r in p3.read_jsonl(scores_path("B"))}; n = 0
+    for r in p3.read_jsonl(STATE / raw_name):
+        c = r["custom_id"]; assert c.endswith("__opus"); c = c[:-len("__opus")]
+        _, rest = c.split("__", 1); w, d = rest.rsplit("_", 1)
+        if (w, d) in have: continue
+        p3.append_jsonl(scores_path("B"), {"custom_id": r["custom_id"], "arm": "B", "ticker": w, "date": d, "content": r["content"], "model": r["model"], "block_types": r["block_types"],
+                                          "usage": r["usage"], "stop_reason": r["stop_reason"], "cost_usd": r["cost_usd"], "batch_id": r["batch_id"], "fetched_at": r["fetched_at"]})
+        EVAL_DIR["B"].mkdir(parents=True, exist_ok=True); (EVAL_DIR["B"] / f"{w}_{d}.txt").write_text(r["content"]); n += 1
+    print("routed", n, "new rows")
+
+
+def cmd_opus_preflight_submit():
+    assert OPUS
+    sel = json.loads((STATE / "selection.json").read_text())
+    reqs = [make_request("B", w, d) for w, d in sel["preflight"]]
+    submit("batch_id_preflight", reqs, 0.032)
+
+
+def cmd_opus_preflight_poll():
+    if o_poll("batch_id_preflight", "raw_preflight.jsonl"): o_route("raw_preflight.jsonl")
+
+
+def cmd_opus_preflight_report():
+    from analyst_direct_scorer import parse_structured
+    sel = json.loads((STATE / "selection.json").read_text()); want = {tuple(x) for x in sel["preflight"]}
+    rows = [r for r in p3.read_jsonl(scores_path("B")) if (r["ticker"], r["date"]) in want]
+    bad = mt = notopus = 0; think = 0; cost = 0.0; outtok = []
+    for r in rows:
+        st = parse_structured(r["content"]); s_ = st.get("score")
+        if not st or not (isinstance(s_, int) and not isinstance(s_, bool) and -5 <= s_ <= 5) or not isinstance(st.get("noRead"), bool): bad += 1
+        mt += r["stop_reason"] == "max_tokens"; notopus += not r["model"].startswith("claude-opus"); cost += r["cost_usd"]
+        think += any(t in ("thinking", "redacted_thinking") for t in r["block_types"]); outtok.append(r["usage"]["output_tokens"])
+    per = cost / max(len(rows), 1); total = per * 300
+    rep = {"n": len(rows), "unparseable_or_bad_score_or_noRead": bad, "max_tokens_stops": mt, "responses_not_opus": notopus, "models_seen": sorted({r["model"] for r in rows}),
+           "rows_with_thinking_blocks": think, "cost_usd": round(cost, 4), "cost_per_call": round(per, 5), "median_output_tokens": sorted(outtok)[len(outtok) // 2] if outtok else None,
+           "projected_total_300_usd": round(total, 2), "cap_usd": 50.0}
+    rep["STOP"] = bool(bad or mt or notopus or total > 50)
+    (STATE / "preflight_report.json").write_text(json.dumps(rep, indent=1)); print(json.dumps(rep, indent=1))
+
+
+def cmd_opus_submit_rest():
+    assert OPUS
+    sel = json.loads((STATE / "selection.json").read_text())
+    have = {(r["ticker"], r["date"]) for r in p3.read_jsonl(scores_path("B"))}
+    reqs = [make_request("B", w, d) for w, d in sel["selection"] if (w, d) not in have]
+    print("remaining", len(reqs)); assert len(reqs) + len(have) == 300
+    per = json.loads((STATE / "preflight_report.json").read_text())["cost_per_call"]
+    submit("batch_id_rest", reqs, per)
+
+
+def cmd_opus_poll_rest():
+    if o_poll("batch_id_rest", "raw_rest.jsonl"): o_route("raw_rest.jsonl")
 
 
 # --------------------------------------------------------------------------- P9-side (prompts/P9-expected-return.md)
