@@ -142,6 +142,9 @@ if P9:
         RERUN_SUFFIX = "__r1"
 
 # --winners (prompts/winners-missed-analysis.md): READ-text classifier over B draw 1's READs, plus (step 3) contrastive pairs. Not a candidate.
+WV3 = "--wv3" in sys.argv          # winners-missed-v3: classifier v3 (v2 minus `discounted`), own state, cap 4
+if WV3:
+    sys.argv[sys.argv.index("--wv3")] = "--winners"
 WV2 = "--wv2" in sys.argv          # winners-missed-v2: classifier v2, own state, cap 8
 if WV2:
     sys.argv[sys.argv.index("--wv2")] = "--winners"
@@ -163,6 +166,13 @@ if WIN:
         CAP_USD, PREFLIGHT_N = 8.0, 60
         CLASSIFIER = REPO / "docs/prompts/diagnostics/READ_CLASSIFIER_v2.md"
         W_EST = 0.004
+    if WV3:
+        RUN_ID = "winners-missed-v3"
+        STATE = REPO / "analysis/data/run_state" / RUN_ID
+        PROGRESS, FINDINGS = STATE / "progress.json", STATE / "findings.md"
+        CAP_USD = 4.0
+        CLASSIFIER = REPO / "docs/prompts/diagnostics/READ_CLASSIFIER_v3.md"
+        W_EST = 0.00167          # v2 pre-flight measured $/call (same reads, near-identical prompt)
 
 # re-point the imported machinery at THIS run
 p3.STATE, p3.PROGRESS, p3.FINDINGS = STATE, PROGRESS, FINDINGS
@@ -716,7 +726,7 @@ def w_reads():
 
 
 def w_scores_path():
-    return STATE / ("read_labels_v2.jsonl" if WV2 else "read_labels.jsonl")
+    return STATE / ("read_labels_v3.jsonl" if WV3 else "read_labels_v2.jsonl" if WV2 else "read_labels.jsonl")
 
 
 def w_have():
@@ -787,7 +797,8 @@ def cmd_w_preflight_poll():
         w_route("raw_preflight.jsonl")
 
 
-W_ALLOWED = ({"balance": {"outweighs", "balanced", "outweighed"}, "raised": {"yes", "no"}, "beat": {"yes", "no"}, "discounted": {"yes", "no"}} if WV2 else
+W_ALLOWED = ({"balance": {"outweighs", "balanced", "outweighed"}, "raised": {"yes", "no"}, "beat": {"yes", "no"}} if WV3 else
+             {"balance": {"outweighs", "balanced", "outweighed"}, "raised": {"yes", "no"}, "beat": {"yes", "no"}, "discounted": {"yes", "no"}} if WV2 else
              {"positive": {"none", "weak", "strong"}, "negative": {"none", "weak", "strong"}, "forwardPositive": {"yes", "no"}, "discounted": {"yes", "no"}})
 
 
@@ -817,7 +828,7 @@ def cmd_w_submit_full():
     have = w_have()
     keys = [k for k in w_reads() if k not in have]
     random.Random(11).shuffle(keys)
-    per = json.loads((STATE / "preflight_report.json").read_text())["cost_per_call"]
+    per = W_EST if WV3 else json.loads((STATE / "preflight_report.json").read_text())["cost_per_call"]
     w_submit("batch_id_full", keys, per)
     step("2c", "in_progress", "w-poll-full")
 

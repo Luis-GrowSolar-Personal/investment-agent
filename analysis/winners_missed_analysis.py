@@ -149,5 +149,84 @@ def step3(state="winners-missed-v2"):
     for r in rows: print(r["pair"], r["ticker"], "RIGHT" if r["right"] else "wrong", r["kind"], r["raiseOrBeat"], "|", r["mechanism"])
 
 
+def v3():
+    """winners-missed-v3 steps 2a-2d ($0). Labels: winners-missed-v3/read_labels_v3.jsonl (balance, raised, beat)."""
+    from collections import Counter
+    D = RS / "winners-missed-v3"
+    rows = load_rows()
+    lab = {(r["ticker"], r["date"]): r["parsed"] for r in p3.read_jsonl(D / "read_labels_v3.jsonl")}
+    assert len(lab) == 1217
+    for r in rows:
+        q = lab[(r["ticker"], r["date"])]
+        r["balance"], r["raised"], r["beat"] = q.get("balance"), q.get("raised"), q.get("beat")
+        r["br"] = r["raised"] == "yes" and r["beat"] == "yes"
+        r["grp"] = "beat_and_raise" if r["br"] else "raised_only" if r["raised"] == "yes" else "beat_only" if r["beat"] == "yes" else "neither"
+    n = len(rows)
+    out = {"n": n}
+    dist = {f: dict(Counter(r[f] for r in rows)) for f in ("balance", "raised", "beat")}
+    mx = {f: round(100 * max(v.values()) / n, 1) for f, v in dist.items()}
+    stop = [f for f, v in mx.items() if v > 85]
+    out["2a"] = {"distribution": dist, "max_single_value_share_pct": mx, "fields_over_85": stop, "STOP": bool(stop),
+                 "v2_preflight_60": {"balance": {"outweighs": 32, "balanced": 7, "outweighed": 21}, "raised": {"yes": 16, "no": 44}, "beat": {"yes": 10, "no": 50}}}
+    if stop:
+        (D / "results.json").write_text(json.dumps(out, indent=1)); print(json.dumps(out, indent=1)); return
+    # 2b
+    nb = [r for r in rows if r["b1"] <= 2]
+    W_ = [r for r in nb if r["out"] == "winner"]; R_ = [r for r in nb if r["out"] != "winner"]
+    fx = {"i_balance_outweighs": lambda r: r["balance"] == "outweighs", "ii_raised_yes": lambda r: r["raised"] == "yes",
+          "iii_beat_yes": lambda r: r["beat"] == "yes", "iv_beat_and_raise": lambda r: r["br"]}
+    b2 = {"n_nonbullish": len(nb), "winners": len(W_), "others": len(R_)}
+    for k, f in fx.items():
+        def d(smp, f=f):
+            w = [r for r in smp if r["out"] == "winner"]; o_ = [r for r in smp if r["out"] != "winner"]
+            return 100 * (sum(map(f, w)) / len(w) - sum(map(f, o_)) / len(o_))
+        lo, hi, _ = A.boot(nb, d)
+        b2[k] = {"winners": wil(sum(map(f, W_)), len(W_)), "others": wil(sum(map(f, R_)), len(R_)), "diff_pts": round(d(nb), 2), "diff_range": [round(lo, 2), round(hi, 2)],
+                 "excludes_zero_higher_for_winners": lo > 0}
+    hits = [k for k in ("i_balance_outweighs", "ii_raised_yes", "iii_beat_yes") if b2[k]["excludes_zero_higher_for_winners"]]
+    b2["reading"] = "seen and not committed" if len(hits) >= 2 else f"suggestive: {hits[0]}" if len(hits) == 1 else "not seen"
+    out["2b"] = b2
+    # 2c
+    def gstats(g):
+        if not g: return {"n": 0}
+        return {"n": len(g), "big_winner": wil(sum(r["out"] == "winner" for r in g), len(g)), "big_loser": wil(sum(r["out"] == "loser" for r in g), len(g)),
+                "median_ret": round(float(np.median([r["ret"] for r in g])), 2), "median_range": boot_median(g, "ret") if len(g) > 2 else None,
+                "B1_score_dist": {str(k): v for k, v in sorted(Counter(r["b1"] for r in g).items())}, "B2_score_dist": {str(k): v for k, v in sorted(Counter(r["b2"] for r in g).items())},
+                "B1_below_plus3": wil(sum(r["b1"] < 3 for r in g), len(g)), "B2_below_plus3": wil(sum(r["b2"] < 3 for r in g), len(g))}
+    c = {gname: gstats([r for r in rows if r["grp"] == gname]) for gname in ("beat_and_raise", "raised_only", "beat_only", "neither")}
+    c["all_calls"] = {"B1_below_plus3_pct": round(100 * sum(r["b1"] < 3 for r in rows) / n, 1), "B2_below_plus3_pct": round(100 * sum(r["b2"] < 3 for r in rows) / n, 1),
+                      "big_winner_pct": round(100 * sum(r["out"] == "winner" for r in rows) / n, 1)}
+    def dgap(smp):
+        a = [r for r in smp if r["grp"] == "beat_and_raise"]; b = [r for r in smp if r["grp"] == "neither"]
+        return 100 * (sum(r["out"] == "winner" for r in a) / len(a) - sum(r["out"] == "winner" for r in b) / len(b))
+    lo, hi, nv = A.boot(rows, dgap)
+    c["beat_and_raise_minus_neither_big_winner_rate"] = {"diff_pts": round(dgap(rows), 2), "range": [round(lo, 2), round(hi, 2)], "valid_draws": nv, "excludes_zero_higher": lo > 0}
+    def dmed(smp):
+        a = [r["ret"] for r in smp if r["grp"] == "beat_and_raise"]; b = [r["ret"] for r in smp if r["grp"] == "neither"]
+        return float(np.median(a) - np.median(b))
+    mlo, mhi, _ = A.boot(rows, dmed)
+    c["median_return_beat_and_raise_minus_neither"] = {"diff": round(dmed(rows), 2), "range": [round(mlo, 2), round(mhi, 2)]}
+    br = c["beat_and_raise"]
+    c["B_held_back_on_beat_and_raise"] = {"B1_below_plus3_pct": br["B1_below_plus3"]["pct"], "all_calls_pct": c["all_calls"]["B1_below_plus3_pct"],
+                                          "more_often_than_overall": br["B1_below_plus3"]["pct"] > c["all_calls"]["B1_below_plus3_pct"]}
+    c["reading"] = "worth building" if c["beat_and_raise_minus_neither_big_winner_rate"]["excludes_zero_higher"] else "not worth building on this evidence"
+    out["2c"] = c
+    # 2d: v2 pairs
+    P = json.loads((RS / "winners-missed-v2/pairs.json").read_text())["pairs"]
+    R3 = {r["pair"]: r for r in json.loads((RS / "winners-missed-v2/results_step3.json").read_text())["rows"]}
+    tag = lambda t, d_: ("raised" if lab[(t, d_)].get("raised") == "yes" else None, "beat" if lab[(t, d_)].get("beat") == "yes" else None)
+    right, wrong = {"n": 0, "winner_side_raised_or_beat": 0, "raised": 0, "beat": 0}, {"n": 0, "chosen_raised_or_beat": 0, "raised": 0, "beat": 0}
+    for p in P:
+        if p["pair"] not in R3: continue
+        if R3[p["pair"]]["right"]:
+            t = tag(p["ticker"], p["winner"]["date"]); right["n"] += 1
+            right["raised"] += t[0] is not None; right["beat"] += t[1] is not None; right["winner_side_raised_or_beat"] += any(t)
+        else:
+            t = tag(p["ticker"], p["middle"]["date"]); wrong["n"] += 1      # the chosen call in a wrong pick is the middle call
+            wrong["raised"] += t[0] is not None; wrong["beat"] += t[1] is not None; wrong["chosen_raised_or_beat"] += any(t)
+    out["2d"] = {"right_pick_pairs_winner_side": right, "wrong_pick_pairs_chosen_call": wrong}
+    (D / "results.json").write_text(json.dumps(out, indent=1, default=float)); print(json.dumps(out, indent=1, default=float))
+
+
 if __name__ == "__main__":
-    {"step1": step1, "step3": step3}[sys.argv[1]]()
+    {"step1": step1, "step3": step3, "v3": v3}[sys.argv[1]]()
