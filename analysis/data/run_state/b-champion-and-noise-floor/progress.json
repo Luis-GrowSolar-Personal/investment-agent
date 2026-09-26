@@ -11,15 +11,39 @@
     "step2b": "pending",
     "step2c": "pending",
     "step2d": "pending",
-    "report": "pending"
+    "report": "pending",
+    "5a": "in_progress"
   },
-  "batch_id_preflight": null,
+  "batch_id_preflight": "msgbatch_01XyhxAYRuZNVk4yZgtq9vxC",
   "batch_id_rerun": null,
-  "next_action": "preflight-submit (30 calls) then preflight-poll, preflight-report",
+  "next_action": "poll preflight batch",
   "notes": [
     "gate_ledger.json is gitignored (analysis/data/*) and untracked; entry 2 written to disk, not committed",
     "whats_live.py prints no research_champion line; it checks promoted hashes only",
     "pre-flight selection: proportional allocation gave S4 zero; moved one call from S3 to S4. train strata are S1-S5 (prompt says S1-S4)."
   ],
-  "luis_approved_usd": 35
+  "luis_approved_usd": 35,
+  "guards": {
+    "batch_id_preflight": {
+      "B": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab",
+        "candidate_used": "P6B-minimal",
+        "branch": "sweep/db-corpus-baseline"
+      },
+      "A_noise": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "candidate_used": null,
+        "branch": "sweep/db-corpus-baseline"
+      }
+    }
+  },
+  "committed_usd_by_batch": {
+    "batch_id_preflight": 0.71
+  },
+  "batch_id_preflight_submitted_at": "2026-09-26T02:54:59Z",
+  "batch_id_preflight_requests": 30
 }
