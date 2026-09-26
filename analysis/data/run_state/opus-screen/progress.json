@@ -1,0 +1,31 @@
+{
+  "run_id": "opus-screen",
+  "prompt_sha256": "abfc7401ec0026d7f4a939a563ac62a62c7a024e234fabc3cc6cd347ac21c3f4",
+  "driver_commit": "20c0286468ab126a53ef9cee86f17a02595e0829",
+  "luis_approved_usd": 50,
+  "cap_usd": 50,
+  "approval_source": "AskUserQuestion 'Approve $50 cap', 2026-09-26",
+  "model_override": {
+    "model": "claude-opus-5-5",
+    "kind": "screen override for this run only; NOT a registry change (promoted model stays claude-sonnet-4-6)",
+    "prices_per_mtok_usd": {
+      "input": 4.0,
+      "output": 20.0,
+      "cache_read": 0.2,
+      "cache_write_assumed_1.25x": 5.0,
+      "batch_discount": 0.5
+    },
+    "price_source": "claude-api skill model table (cached 2026-06-24), 2026-09-26"
+  },
+  "steps": {
+    "step0": "done",
+    "step1": "done",
+    "step2": "in_progress",
+    "step3": "pending",
+    "report": "pending"
+  },
+  "next_action": "opus-preflight-submit",
+  "notes": [
+    "claude-api skill notes: on claude-opus-5-5 thinking cannot be disabled (default adaptive, effort default medium); B's request omits `thinking`, so Opus reasons by default and thinking tokens count against max_tokens 4096 and are billed. Sonnet 4.6 ran with no thinking. So the only-the-model-string change is not the only behavioural difference."
+  ]
+}
