@@ -1,0 +1,17 @@
+{
+  "run_id": "winners-missed",
+  "prompt_sha256": "a70825e6dacefb3464c1079f85f3a7f788005d34184ec8af8661378370bed370",
+  "driver_commit": null,
+  "luis_approved_usd": 12,
+  "cap_usd": 12,
+  "approval_source": "AskUserQuestion 'Approve $12 cap', 2026-09-26",
+  "steps": {
+    "step0": "in_progress",
+    "step1": "pending",
+    "step2": "pending",
+    "step3": "pending",
+    "report": "pending"
+  },
+  "next_action": "commit prompt; step 1 analysis",
+  "notes": []
+}
