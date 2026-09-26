@@ -142,6 +142,9 @@ if P9:
         RERUN_SUFFIX = "__r1"
 
 # --winners (prompts/winners-missed-analysis.md): READ-text classifier over B draw 1's READs, plus (step 3) contrastive pairs. Not a candidate.
+WV2 = "--wv2" in sys.argv          # winners-missed-v2: classifier v2, own state, cap 8
+if WV2:
+    sys.argv[sys.argv.index("--wv2")] = "--winners"
 WIN = "--winners" in sys.argv
 if WIN:
     sys.argv.remove("--winners")
@@ -153,6 +156,13 @@ if WIN:
     CLASSIFIER = REPO / "docs/prompts/diagnostics/READ_CLASSIFIER_v1.md"
     CLASSIFIER_MAX_TOKENS = 400
     W_EST = 0.006
+    if WV2:
+        RUN_ID = "winners-missed-v2"
+        STATE = REPO / "analysis/data/run_state" / RUN_ID
+        PROGRESS, FINDINGS = STATE / "progress.json", STATE / "findings.md"
+        CAP_USD, PREFLIGHT_N = 8.0, 60
+        CLASSIFIER = REPO / "docs/prompts/diagnostics/READ_CLASSIFIER_v2.md"
+        W_EST = 0.004
 
 # re-point the imported machinery at THIS run
 p3.STATE, p3.PROGRESS, p3.FINDINGS = STATE, PROGRESS, FINDINGS
@@ -706,7 +716,7 @@ def w_reads():
 
 
 def w_scores_path():
-    return STATE / "read_labels.jsonl"
+    return STATE / ("read_labels_v2.jsonl" if WV2 else "read_labels.jsonl")
 
 
 def w_have():
@@ -726,6 +736,9 @@ def cmd_w_check():
 
 def cmd_w_select():
     assert WIN
+    if WV2:                                     # the same 60 as v1's pre-flight
+        v1 = json.loads((REPO / "analysis/data/run_state/winners-missed/selection.json").read_text())
+        (STATE / "selection.json").write_text(json.dumps(v1, indent=1)); print("copied v1 selection", v1["alloc"]); return
     smap = p3.stratum_map(); by_s = {}
     for r in universe(): by_s.setdefault(smap[r["ticker"]], []).append(r)
     counts = {s_: len(v) for s_, v in by_s.items()}
@@ -774,7 +787,8 @@ def cmd_w_preflight_poll():
         w_route("raw_preflight.jsonl")
 
 
-W_ALLOWED = {"positive": {"none", "weak", "strong"}, "negative": {"none", "weak", "strong"}, "forwardPositive": {"yes", "no"}, "discounted": {"yes", "no"}}
+W_ALLOWED = ({"balance": {"outweighs", "balanced", "outweighed"}, "raised": {"yes", "no"}, "beat": {"yes", "no"}, "discounted": {"yes", "no"}} if WV2 else
+             {"positive": {"none", "weak", "strong"}, "negative": {"none", "weak", "strong"}, "forwardPositive": {"yes", "no"}, "discounted": {"yes", "no"}})
 
 
 def cmd_w_preflight_report():
@@ -788,6 +802,12 @@ def cmd_w_preflight_report():
     rep = {"n": len(rows), "unparseable_or_out_of_set": bad, "max_tokens": mt, "distribution": dist, "max_single_value_share_pct": single,
            "stop_single_value_gt85": [f for f, v in single.items() if v > 85], "cost_usd": round(cost, 4), "cost_per_call": round(per, 5),
            "projected_full_usd": round(per * 1217, 2)}
+    if WV2:
+        v1r = {(r["ticker"], r["date"]): r for r in p3.read_jsonl(REPO / "analysis/data/run_state/winners-missed/read_labels.jsonl")}
+        v1d = [v1r[(r["ticker"], r["date"])]["parsed"].get("discounted") for r in rows if (r["ticker"], r["date"]) in v1r]
+        rep["v1_discounted_same_60"] = {"yes": v1d.count("yes"), "no": v1d.count("no"), "n": len(v1d)}
+        rep["predictions"] = {"raised_yes_pct": dist["raised"]["yes"] / max(len(rows), 1) * 100, "beat_yes_pct": dist["beat"]["yes"] / max(len(rows), 1) * 100,
+                              "balance_max_share_pct": single["balance"]}
     rep["STOP"] = bool(bad or mt or rep["stop_single_value_gt85"] or rep["projected_full_usd"] > 8)
     (STATE / "preflight_report.json").write_text(json.dumps(rep, indent=1)); print(json.dumps(rep, indent=1))
 
