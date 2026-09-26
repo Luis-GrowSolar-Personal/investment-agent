@@ -11,8 +11,8 @@ than B's measured $0.0236). **Hard cap $45**, counted before every
 or stop and ask. **A second P7 draw (§5, ambiguity rule) is NOT approved
 here.** If it triggers, stop and ask.
 
-**Status of this file: DRAFT for review.** Do not run until Luis says the
-review is closed.
+**Status: review closed 2026-09-26** (`prompts/P7-three-voices-review.md`:
+one change, applied — `pressure` split out of `gap`). Clear to run.
 
 ---
 
@@ -57,8 +57,9 @@ block; `wrap-ups/B-champion-and-noise-floor-out.md` (all);
 
 `docs/prompts/candidates/EVALUATION_PROMPT_P7_three_voices.md`. It is B with
 one added section (VOICES: numbers, claims, pressure, gap) before READ, and
-one added structured field, `gap`, which takes one of `numbers_ahead`,
-`aligned` or `claims_ahead`. Objective, constraint, score scale, READ,
+two added structured fields: `gap` (`numbers_ahead`, `aligned` or
+`claims_ahead`; numbers versus claims only) and `pressure` (`answered`,
+`avoided` or `none`). Objective, constraint, score scale, READ,
 SCORE and the other fields are B's, word for word. **Verify that with a
 diff before registering, and report the diff.**
 
@@ -119,8 +120,8 @@ side is roughly unchanged.
 `stratum_map()` (S1–S5, proportional, at least one S4 call). If P7 and B
 draw 1 disagree on direction on **under 20% of them** (implying under ~250
 raw corpus-wide, under ~100 net), **stop. Do not run the full round.**
-Also stop on any parse failure, `max_tokens` stop, `gap` value outside the
-three allowed values, or a projected full cost over $40.
+Also stop on any parse failure, `max_tokens` stop, `gap` or `pressure` value
+outside its three allowed values, or a projected full cost over $40.
 
 **Gates. All three must hold on train for P7 to earn its one look at tune.**
 Each gate is computed against **both** B draws (§2.3a rule 3). A gate
@@ -144,7 +145,8 @@ bought elsewhere. Report which, and P7 does not go to tune.
 
 **Predictions, not gates.** Top-235 median return above +1.28 (B draw 1's)
 on both comparisons. Rank correlation 0.12–0.17. `gap` shares: claims_ahead
-30–45%, aligned 35–50%, numbers_ahead 10–25%. P7 costs 10–25% more per
+30–45%, aligned 35–50%, numbers_ahead 10–25%. `pressure` shares: answered
+40–60%. P7 costs 10–25% more per
 call than B.
 
 ---
@@ -179,6 +181,9 @@ must pass. **Do not run it.**
   made B the champion. Report its mirror too: B's top 235 that P7 dropped.
 - Hit rate and median return by `gap` value. Does `numbers_ahead` carry the
   bullish edge the mechanism predicts?
+- Hit rate and median return by `gap` × `pressure` (3×3, with counts).
+  Prediction: `numbers_ahead` + `answered` is the cell that carries the
+  bullish edge.
 - Fixed cuts (≥ +3, ≤ −2), labelled secondary. Score bucket table.
 - Per stratum; by year with 2020 separate; noRead share; tokens and cost
   per call.
@@ -201,7 +206,7 @@ do not score tune, do not run a second draw, do not write P9.
 > its look at tune / was falsified / is ambiguous under §5d].**
 
 Then the gates, one line each. Then the neutral-to-top-235 group. Then the
-`gap` breakdown. Then the rest.
+`gap` and `gap` × `pressure` breakdowns. Then the rest.
 
 **Close with what it means, both ways.** If P7 held: a tune prompt with the
 same gates at tune's N (242 / 161), one look. If it failed on gate 1: the

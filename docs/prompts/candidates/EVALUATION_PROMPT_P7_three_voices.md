@@ -2,7 +2,7 @@
 # Version: P7-three-voices (candidate — pending gate)
 # Parent: P6B-minimal (research champion). Identical objective, constraint,
 # score scale and output block; adds one section (VOICES) before READ and
-# one structured field (gap).
+# two structured fields (gap, pressure).
 # Registered: docs/architecture/PROMPT_ARCHITECTURE.md §2.2, P7, 2026-09-26.
 
 ---
@@ -63,6 +63,7 @@ deviations in formatting.
   "score": null,
   "noRead": null,
   "gap": "",
+  "pressure": "",
   "wrongIf": ""
 }
 ---END STRUCTURED---
@@ -73,6 +74,10 @@ Field definitions:
 - score: integer -5 to +5
 - noRead: true only if score is 0 because you have no basis for a view;
   false otherwise
-- gap: exactly one of "numbers_ahead", "aligned", "claims_ahead"
+- gap: exactly one of "numbers_ahead", "aligned", "claims_ahead" —
+  the numbers versus the claims only
+- pressure: exactly one of "answered", "avoided", "none" — were the
+  questions analysts pressed on answered with evidence; "none" if
+  nothing was pressed
 - wrongIf: one sentence — the evidence next quarter that would show
   this score was wrong
