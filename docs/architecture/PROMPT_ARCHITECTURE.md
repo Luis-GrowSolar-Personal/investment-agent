@@ -109,6 +109,10 @@ Not a corpus artifact: the bearish skew holds in every stratum (S1 megacap
 43.9%, S2 48.0%, S3 47.0%), and excluding the failures stratum moves the pooled
 figure from 46.6% to 46.2%. It is the ordinary right-skew of stock returns.
 
+**Two dated findings from `wrap-ups/winners-missed-analysis-out.md` step 1 (2026-09-26):**
+1. B's score carries no information about big winners (+20 points or more): about 14% of both its −2 and its +3 calls became big winners, against a 12.6% base.
+2. Big winners are not rebounds (prior six-month median −3.6 against −2.2 for the middle group), so the stock's own price history is not indicated as an input.
+
 ### 2.2 Queue
 
 Ranked by expected value per dollar, not by ambition. A round is ~$47 and
@@ -124,6 +128,7 @@ several hours.
 | **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **done — B held on tune (2026-09-25); research champion.** Arm C **closed** (same signal, 66% more cost) |
 | P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **falsified 2026-09-26 (train; gate 1 31.5% vs 47%)** |
 | P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **falsified 2026-09-26 (train, two draws; ranking non-inferiority failed on draw 2; severity confirmed on both)** |
+| P9-avg | **P9 averaged (score twice, average) — eligible for one tune look, parked 2026-09-26.** Reason: it passed the fixed reading by 0.0002, three of four alternate bootstrap seeds fell below the line, and its benefit (severity) serves the deferred allocator rebuild; the tune look is reserved for a bullish candidate if one emerges. See `wrap-ups/P9-close-and-averaged-comparison-out.md`. | none | — | **parked** |
 | — | Model gate on B: newer or larger model on the unchanged minimal prompt (`PROMOTION_GATE.md` §2.2b equivalence hurdle) | none | P7 and P9 | named, **last** |
 | P8 | Auto-iterate loop as hypothesis generator (§2.6, with the 2026-09-24 constraints) | none (eval files) | after P7/P9 | named, not built |
 | P6D | B plus the structured fields the allocator needs | none | allocator rebuild | **deferred to the allocator rebuild** |
@@ -355,6 +360,10 @@ these, stated in its own words with its own numbers.
    not gated. Predicted slope 0.2–0.6, written as a prediction.
 6. **The most-recent-year result** for the model gate is a diagnostic, not a
    gate (~170 calls).
+7. **Two draws on train, from the start (decided 2026-09-26).** Every new
+   prompt candidate runs two draws on train. Single draws landed in the
+   ambiguity band on P6B/B, P9 and P9-averaged; a second draw was needed each
+   time.
 
 ### 2.4 Required diagnostics after every round — all free, no model calls
 

@@ -1,0 +1,17 @@
+{
+  "run_id": "winners-missed-v2",
+  "prompt_sha256": "b4656e4fc9e3348d37824174307b89b629c79b590daeedf02a1593a592d5a32a",
+  "driver_commit": null,
+  "luis_approved_usd": 8,
+  "cap_usd": 8,
+  "approval_source": "AskUserQuestion 'Approve $8 cap', 2026-09-26",
+  "steps": {
+    "step0": "in_progress",
+    "step1": "done",
+    "step2": "pending",
+    "step3": "pending",
+    "report": "pending"
+  },
+  "next_action": "write classifier v2 and driver extension",
+  "notes": []
+}
