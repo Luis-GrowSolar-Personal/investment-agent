@@ -1,7 +1,7 @@
 {
   "run_id": "winners-missed-v2",
   "prompt_sha256": "b4656e4fc9e3348d37824174307b89b629c79b590daeedf02a1593a592d5a32a",
-  "driver_commit": "729367f04acaba54bca2c7055eaec9113abc008c",
+  "driver_commit": "932584342600ba1897a7150f025d35dbec767a9f",
   "luis_approved_usd": 8,
   "cap_usd": 8,
   "approval_source": "AskUserQuestion 'Approve $8 cap', 2026-09-26",
@@ -14,7 +14,9 @@
     "2b": "in_progress"
   },
   "next_action": "step 3: 30 same-company pairs",
-  "notes": [],
+  "notes": [
+    "driver_commit advanced to the step 3 extension; step 2 pre-flight ran on the earlier driver commit (unchanged step 2 code)"
+  ],
   "classifier_sha256": "60e76ff5da9ef8781b0e926a8881524951ec0514f73bd026242223051f7763c4",
   "classifier_path": "docs/prompts/diagnostics/READ_CLASSIFIER_v2.md",
   "committed_usd_by_batch": {

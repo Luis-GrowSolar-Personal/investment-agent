@@ -1,0 +1,1262 @@
+{
+ "eligible_companies": 46,
+ "seed": "winners-pairs-11",
+ "pairs": [
+  {
+   "pair": 0,
+   "ticker": "AEP",
+   "winner": {
+    "ticker": "AEP",
+    "date": "2021-10-28",
+    "ret": 27.7644,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "AEP",
+    "date": "2021-07-22",
+    "ret": 3.0345,
+    "cls": "middle"
+   },
+   "days_apart": 98,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "American Electric Power",
+      "AEP"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 14
+    },
+    "middle": {
+     "aliases_used": [
+      "American Electric Power",
+      "AEP"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 12
+    }
+   }
+  },
+  {
+   "pair": 1,
+   "ticker": "AIG",
+   "winner": {
+    "ticker": "AIG",
+    "date": "2020-05-05",
+    "ret": 22.8819,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "AIG",
+    "date": "2020-08-04",
+    "ret": 12.9132,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "American International Group",
+      "AIG"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 70
+    },
+    "middle": {
+     "aliases_used": [
+      "American International Group",
+      "AIG"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 39
+    }
+   }
+  },
+  {
+   "pair": 2,
+   "ticker": "AMPX",
+   "winner": {
+    "ticker": "AMPX",
+    "date": "2025-03-20",
+    "ret": 251.3841,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "AMPX",
+    "date": "2025-11-06",
+    "ret": 17.5183,
+    "cls": "middle"
+   },
+   "days_apart": 231,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Amperius Technologies",
+      "Amprius Technologies",
+      "Ambrius Technologie",
+      "Amperius",
+      "Amprius",
+      "Ambrius",
+      "AMPX"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 9
+    },
+    "middle": {
+     "aliases_used": [
+      "Amperius Technologies",
+      "Amprius Technologies",
+      "Ambrius Technologie",
+      "Amperius",
+      "Amprius",
+      "Ambrius",
+      "AMPX"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 14
+    }
+   }
+  },
+  {
+   "pair": 3,
+   "ticker": "BOX",
+   "winner": {
+    "ticker": "BOX",
+    "date": "2022-08-24",
+    "ret": 24.107,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "BOX",
+    "date": "2022-05-25",
+    "ret": 3.0412,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Box, Inc.",
+      "Box Inc",
+      "Box",
+      "BOX"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 52
+    },
+    "middle": {
+     "aliases_used": [
+      "Box, Inc.",
+      "Box Inc",
+      "Box",
+      "BOX"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 47
+    }
+   }
+  },
+  {
+   "pair": 4,
+   "ticker": "CMCSA",
+   "winner": {
+    "ticker": "CMCSA",
+    "date": "2022-10-27",
+    "ret": 20.0279,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "CMCSA",
+    "date": "2022-07-28",
+    "ret": 9.4598,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "NBCUniversal",
+      "Comcast",
+      "CMCSA"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 18
+    },
+    "middle": {
+     "aliases_used": [
+      "NBCUniversal",
+      "Comcast",
+      "CMCSA"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 10
+    }
+   }
+  },
+  {
+   "pair": 5,
+   "ticker": "CMI",
+   "winner": {
+    "ticker": "CMI",
+    "date": "2025-08-05",
+    "ret": 48.9362,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "CMI",
+    "date": "2025-02-04",
+    "ret": -3.0332,
+    "cls": "middle"
+   },
+   "days_apart": 182,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Cummins",
+      "CMI"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 11
+    },
+    "middle": {
+     "aliases_used": [
+      "Cummins",
+      "CMI"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 13
+    }
+   }
+  },
+  {
+   "pair": 6,
+   "ticker": "COF",
+   "winner": {
+    "ticker": "COF",
+    "date": "2020-10-22",
+    "ret": 51.3057,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "COF",
+    "date": "2020-04-23",
+    "ret": 14.9042,
+    "cls": "middle"
+   },
+   "days_apart": 182,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Capital One",
+      "COF"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 19
+    },
+    "middle": {
+     "aliases_used": [
+      "Capital One",
+      "COF"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 65
+    }
+   }
+  },
+  {
+   "pair": 7,
+   "ticker": "COST",
+   "winner": {
+    "ticker": "COST",
+    "date": "2021-03-04",
+    "ret": 27.1377,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "COST",
+    "date": "2020-12-10",
+    "ret": -13.5369,
+    "cls": "middle"
+   },
+   "days_apart": 84,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Costco",
+      "COST"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 7
+    },
+    "middle": {
+     "aliases_used": [
+      "Costco",
+      "COST"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 10
+    }
+   }
+  },
+  {
+   "pair": 8,
+   "ticker": "DIOD",
+   "winner": {
+    "ticker": "DIOD",
+    "date": "2021-05-06",
+    "ret": 30.2691,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "DIOD",
+    "date": "2021-02-16",
+    "ret": -5.8039,
+    "cls": "middle"
+   },
+   "days_apart": 79,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Diodes Incorporated",
+      "Diode's",
+      "Diodes",
+      "Diode",
+      "DIOD"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 2
+    },
+    "middle": {
+     "aliases_used": [
+      "Diodes Incorporated",
+      "Diode's",
+      "Diodes",
+      "Diode",
+      "DIOD"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 4
+    }
+   }
+  },
+  {
+   "pair": 9,
+   "ticker": "EOSE",
+   "winner": {
+    "ticker": "EOSE",
+    "date": "2024-05-15",
+    "ret": 214.2389,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "EOSE",
+    "date": "2022-05-10",
+    "ret": -5.2339,
+    "cls": "middle"
+   },
+   "days_apart": 736,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Eos Energy",
+      "EOS Energy",
+      "EOSE",
+      "Eos",
+      "EOS"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 17
+    },
+    "middle": {
+     "aliases_used": [
+      "Eos Energy",
+      "EOS Energy",
+      "EOSE",
+      "Eos",
+      "EOS"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 15
+    }
+   }
+  },
+  {
+   "pair": 10,
+   "ticker": "IBM",
+   "winner": {
+    "ticker": "IBM",
+    "date": "2024-04-24",
+    "ret": 22.9986,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "IBM",
+    "date": "2024-01-24",
+    "ret": -14.267,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "International Business Machines",
+      "IBM"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 43
+    },
+    "middle": {
+     "aliases_used": [
+      "International Business Machines",
+      "IBM"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 20
+    }
+   }
+  },
+  {
+   "pair": 11,
+   "ticker": "INTC",
+   "winner": {
+    "ticker": "INTC",
+    "date": "2023-07-27",
+    "ret": 27.7284,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "INTC",
+    "date": "2023-04-27",
+    "ret": 5.5132,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Intel",
+      "INTC"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 68
+    },
+    "middle": {
+     "aliases_used": [
+      "Intel",
+      "INTC"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 39
+    }
+   }
+  },
+  {
+   "pair": 12,
+   "ticker": "JKS",
+   "winner": {
+    "ticker": "JKS",
+    "date": "2022-03-23",
+    "ret": 21.8815,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "JKS",
+    "date": "2022-04-28",
+    "ret": 1.1195,
+    "cls": "middle"
+   },
+   "days_apart": 36,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Jinko Solar",
+      "JinkoSolar",
+      "Jinko",
+      "JKS"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 36
+    },
+    "middle": {
+     "aliases_used": [
+      "Jinko Solar",
+      "JinkoSolar",
+      "Jinko",
+      "JKS"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 4
+    }
+   }
+  },
+  {
+   "pair": 13,
+   "ticker": "JPM",
+   "winner": {
+    "ticker": "JPM",
+    "date": "2022-07-14",
+    "ret": 20.4254,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "JPM",
+    "date": "2022-04-13",
+    "ret": 0.7065,
+    "cls": "middle"
+   },
+   "days_apart": 92,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "JPMorgan Chase",
+      "JP Morgan",
+      "JPMorgan",
+      "Chase",
+      "JPM"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 4
+    },
+    "middle": {
+     "aliases_used": [
+      "JPMorgan Chase",
+      "JP Morgan",
+      "JPMorgan",
+      "Chase",
+      "JPM"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 6
+    }
+   }
+  },
+  {
+   "pair": 14,
+   "ticker": "LLY",
+   "winner": {
+    "ticker": "LLY",
+    "date": "2020-07-30",
+    "ret": 24.1568,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "LLY",
+    "date": "2020-10-27",
+    "ret": 10.9484,
+    "cls": "middle"
+   },
+   "days_apart": 89,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Eli Lilly",
+      "Lilly",
+      "LLY"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 32
+    },
+    "middle": {
+     "aliases_used": [
+      "Eli Lilly",
+      "Lilly",
+      "LLY"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 44
+    }
+   }
+  },
+  {
+   "pair": 15,
+   "ticker": "MRK",
+   "winner": {
+    "ticker": "MRK",
+    "date": "2025-10-30",
+    "ret": 21.6169,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "MRK",
+    "date": "2025-04-24",
+    "ret": -16.63,
+    "cls": "middle"
+   },
+   "days_apart": 189,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Merck",
+      "MRK"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 5
+    },
+    "middle": {
+     "aliases_used": [
+      "Merck",
+      "MRK"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 11
+    }
+   }
+  },
+  {
+   "pair": 16,
+   "ticker": "MS",
+   "winner": {
+    "ticker": "MS",
+    "date": "2020-07-16",
+    "ret": 28.2708,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "MS",
+    "date": "2020-04-16",
+    "ret": 10.0801,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Morgan Stanley",
+      "MS"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 12
+    },
+    "middle": {
+     "aliases_used": [
+      "Morgan Stanley",
+      "MS"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 8
+    }
+   }
+  },
+  {
+   "pair": 17,
+   "ticker": "MU",
+   "winner": {
+    "ticker": "MU",
+    "date": "2025-12-17",
+    "ret": 310.177,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "MU",
+    "date": "2024-09-25",
+    "ret": -15.5057,
+    "cls": "middle"
+   },
+   "days_apart": 448,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Micron",
+      "MU"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 35
+    },
+    "middle": {
+     "aliases_used": [
+      "Micron",
+      "MU"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 30
+    }
+   }
+  },
+  {
+   "pair": 18,
+   "ticker": "NEM",
+   "winner": {
+    "ticker": "NEM",
+    "date": "2024-02-22",
+    "ret": 54.8298,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "NEM",
+    "date": "2024-04-25",
+    "ret": 1.2933,
+    "cls": "middle"
+   },
+   "days_apart": 63,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Newmont",
+      "NEM"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 60
+    },
+    "middle": {
+     "aliases_used": [
+      "Newmont",
+      "NEM"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 14
+    }
+   }
+  },
+  {
+   "pair": 19,
+   "ticker": "NXPI",
+   "winner": {
+    "ticker": "NXPI",
+    "date": "2023-11-07",
+    "ret": 22.798,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "NXPI",
+    "date": "2024-02-06",
+    "ret": 2.1238,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "NXP Semiconductors",
+      "NXP Semiconductor",
+      "NXPI",
+      "NXP"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 13
+    },
+    "middle": {
+     "aliases_used": [
+      "NXP Semiconductors",
+      "NXP Semiconductor",
+      "NXPI",
+      "NXP"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 29
+    }
+   }
+  },
+  {
+   "pair": 20,
+   "ticker": "PH",
+   "winner": {
+    "ticker": "PH",
+    "date": "2025-08-07",
+    "ret": 26.6156,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "PH",
+    "date": "2025-11-06",
+    "ret": -3.9574,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Parker Hannifin",
+      "Parker",
+      "PH"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 15
+    },
+    "middle": {
+     "aliases_used": [
+      "Parker Hannifin",
+      "Parker",
+      "PH"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 0
+    }
+   }
+  },
+  {
+   "pair": 21,
+   "ticker": "PSX",
+   "winner": {
+    "ticker": "PSX",
+    "date": "2025-10-29",
+    "ret": 21.9001,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "PSX",
+    "date": "2025-07-25",
+    "ret": 2.637,
+    "cls": "middle"
+   },
+   "days_apart": 96,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Phillips 66",
+      "PSX"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 6
+    },
+    "middle": {
+     "aliases_used": [
+      "Phillips 66",
+      "PSX"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 11
+    }
+   }
+  },
+  {
+   "pair": 22,
+   "ticker": "QCOM",
+   "winner": {
+    "ticker": "QCOM",
+    "date": "2020-04-29",
+    "ret": 42.0891,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "QCOM",
+    "date": "2021-02-03",
+    "ret": -13.5005,
+    "cls": "middle"
+   },
+   "days_apart": 280,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Qualcomm",
+      "QCOM"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 9
+    },
+    "middle": {
+     "aliases_used": [
+      "Qualcomm",
+      "QCOM"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 12
+    }
+   }
+  },
+  {
+   "pair": 23,
+   "ticker": "QS",
+   "winner": {
+    "ticker": "QS",
+    "date": "2025-02-12",
+    "ret": 76.8254,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "QS",
+    "date": "2024-04-24",
+    "ret": -13.2281,
+    "cls": "middle"
+   },
+   "days_apart": 294,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "QuantumScape",
+      "QS"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 38
+    },
+    "middle": {
+     "aliases_used": [
+      "QuantumScape",
+      "QS"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 11
+    }
+   }
+  },
+  {
+   "pair": 24,
+   "ticker": "SLAB",
+   "winner": {
+    "ticker": "SLAB",
+    "date": "2025-11-04",
+    "ret": 61.7183,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "SLAB",
+    "date": "2025-08-05",
+    "ret": 1.4227,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Silicon Laboratories",
+      "Silicon Labs",
+      "Silicon Lab",
+      "SLAB"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 31
+    },
+    "middle": {
+     "aliases_used": [
+      "Silicon Laboratories",
+      "Silicon Labs",
+      "Silicon Lab",
+      "SLAB"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 9
+    }
+   }
+  },
+  {
+   "pair": 25,
+   "ticker": "TEAM",
+   "winner": {
+    "ticker": "TEAM",
+    "date": "2023-05-04",
+    "ret": 29.2539,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "TEAM",
+    "date": "2023-02-02",
+    "ret": -8.6425,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Atlassian",
+      "TEAM"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 23
+    },
+    "middle": {
+     "aliases_used": [
+      "Atlassian",
+      "TEAM"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 30
+    }
+   }
+  },
+  {
+   "pair": 26,
+   "ticker": "TFC",
+   "winner": {
+    "ticker": "TFC",
+    "date": "2020-07-16",
+    "ret": 28.7547,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "TFC",
+    "date": "2020-04-20",
+    "ret": -3.1031,
+    "cls": "middle"
+   },
+   "days_apart": 87,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Truist Financial",
+      "Truist",
+      "TFC"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 14
+    },
+    "middle": {
+     "aliases_used": [
+      "Truist Financial",
+      "Truist",
+      "TFC"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 16
+    }
+   }
+  },
+  {
+   "pair": 27,
+   "ticker": "TTD",
+   "winner": {
+    "ticker": "TTD",
+    "date": "2024-05-08",
+    "ret": 27.1335,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "TTD",
+    "date": "2024-02-15",
+    "ret": 2.2877,
+    "cls": "middle"
+   },
+   "days_apart": 83,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "The Trade Desk",
+      "Trade Desk",
+      "TTD"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 0
+    },
+    "middle": {
+     "aliases_used": [
+      "The Trade Desk",
+      "Trade Desk",
+      "TTD"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 10
+    }
+   }
+  },
+  {
+   "pair": 28,
+   "ticker": "UPS",
+   "winner": {
+    "ticker": "UPS",
+    "date": "2020-04-28",
+    "ret": 62.4039,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "UPS",
+    "date": "2020-07-30",
+    "ret": -5.489,
+    "cls": "middle"
+   },
+   "days_apart": 93,
+   "A_is_winner": true,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "United Parcel Service",
+      "UPS"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 53
+    },
+    "middle": {
+     "aliases_used": [
+      "United Parcel Service",
+      "UPS"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 30
+    }
+   }
+  },
+  {
+   "pair": 29,
+   "ticker": "WMB",
+   "winner": {
+    "ticker": "WMB",
+    "date": "2025-11-04",
+    "ret": 25.4737,
+    "cls": "winner"
+   },
+   "middle": {
+    "ticker": "WMB",
+    "date": "2025-08-05",
+    "ret": 7.8461,
+    "cls": "middle"
+   },
+   "days_apart": 91,
+   "A_is_winner": false,
+   "redaction": {
+    "winner": {
+     "aliases_used": [
+      "Williams Companies",
+      "Williams",
+      "WMB"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 15
+    },
+    "middle": {
+     "aliases_used": [
+      "Williams Companies",
+      "Williams",
+      "WMB"
+     ],
+     "name_removed": true,
+     "ticker_residual": false,
+     "name_residual": false,
+     "n_replaced": 13
+    }
+   }
+  }
+ ]
+}
