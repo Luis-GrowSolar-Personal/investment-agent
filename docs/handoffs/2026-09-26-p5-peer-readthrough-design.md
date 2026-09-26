@@ -271,3 +271,41 @@ under the tune-reservation decision (state of play §3.5).
 5. **Gate 1 form.** "Beat B's higher draw by one group-size sampling
    spread" is stricter than P7's fixed 47%. Is it too strict for a
    smaller sample?
+
+---
+
+## Addendum A — link sources after phase 0 (2026-09-26)
+
+**Finding (`wrap-ups/P5-phase0-probes-out.md`).** RUN's 2022 10-K names
+**no** suppliers and **no** competitor companies. It gives categories
+only ("a limited number of manufacturers and suppliers"; "traditional
+utilities"). Many filers also disclose big customers anonymously
+("Customer A"). A filings-only map would likely be thin, which pushes the
+load onto hand links: the hindsight risk this design exists to avoid.
+
+**Amended source hierarchy (Luis, 2026-09-26).** A link counts if it is
+named, with a verbatim quote, in either of these:
+
+1. **a 10-K** of either company, filed before the target call (§3,
+   unchanged); or
+2. **an earnings call of either company dated before the target call.**
+   Management or analysts name the other company as a customer,
+   supplier or competitor. Example: an inverter maker's call naming an
+   installer as a customer creates a link for **both** companies.
+
+**Hand links** stay a tagged supplement, tested separately (§3,
+unchanged).
+
+**Rules carried over:**
+- Every link needs a verbatim quote, checked by script.
+- A link is valid from its source date forward only.
+- Model use is extraction only: *who is named, and in what relation*.
+- A transcript-sourced link carries the source call's date. It is never
+  applied to a target call dated before it.
+
+**Why this keeps the firewall.** A call dated before the target is
+exactly as point-in-time as a filing. A company named on it is a fact of
+that date, not a judgement made with hindsight.
+
+**New stop point, before phase 1:** a $0–2 check of how often filings and
+calls actually name linked companies (`prompts/P5-phase0b-link-sources.md`).
