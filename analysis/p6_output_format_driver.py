@@ -37,8 +37,9 @@ PROMPTS = {
     "A": REPO / "docs/EVALUATION_PROMPT.md",
     "B": REPO / "docs/prompts/candidates/EVALUATION_PROMPT_P6B_minimal.md",
     "C": REPO / "docs/prompts/candidates/EVALUATION_PROMPT_P6C_score.md",
+    "P7": REPO / "docs/prompts/candidates/EVALUATION_PROMPT_P7_three_voices.md",
 }
-CAND_NAME = {"B": "P6B-minimal", "C": "P6C-score"}
+CAND_NAME = {"B": "P6B-minimal", "C": "P6C-score", "P7": "P7-three-voices"}
 EVAL_DIR = {a: REPO / f"analysis/data/evals/{n}_claude-sonnet-4-6" for a, n in CAND_NAME.items()}
 MODEL = "claude-sonnet-4-6"
 MAX_TOKENS = 4096
@@ -99,6 +100,20 @@ if TUNE:
     p3.resolved_train = _tune_resolved
     p3.stratum_map = _tune_strata
     p3.V6_EVAL_DIR = V6_EVAL_DIR
+
+# --p7 (prompts/P7-three-voices.md): candidate P7 on the same 1,217 train calls. Same request construction as B, prompt text differs only.
+P7 = "--p7" in sys.argv
+if P7:
+    sys.argv.remove("--p7")
+    assert not TUNE and not RERUN
+    RUN_ID = "p7-three-voices-train"
+    STATE = REPO / "analysis/data/run_state" / RUN_ID
+    PROGRESS, FINDINGS = STATE / "progress.json", STATE / "findings.md"
+    CAP_USD, PREFLIGHT_N = 45.0, 150
+    EST_PER_CALL = 0.027
+    ORIGINAL_STATE = REPO / "analysis/data/run_state/p6-output-format-round"
+    P7_SHA = "0a34f5a926f6be89400a8191cac5455f0b5cd11d2bef8a51d3a6b97510b2bcaf"
+    ORIGINAL_STATE_B2 = REPO / "analysis/data/run_state/b-champion-and-noise-floor"
 
 # re-point the imported machinery at THIS run
 p3.STATE, p3.PROGRESS, p3.FINDINGS = STATE, PROGRESS, FINDINGS
@@ -202,7 +217,7 @@ def guards():
     from analysis.version_guard import assert_prompt_hash
     reg = json.loads((REPO / "docs/architecture/VERSION_REGISTRY.json").read_text())["artifacts"]["evaluation_prompt"]
     out = {}
-    for arm in (("B",) if (TUNE or RERUN) else ("B", "C")):
+    for arm in (("P7",) if P7 else ("B",) if (TUNE or RERUN) else ("B", "C")):
         t = PROMPTS[arm].read_text()
         rs = next(c["sha256"] for c in reg["candidates"] if c["version"] == CAND_NAME[arm])
         assert hashlib.sha256(t.encode()).hexdigest() == rs, f"arm {arm} hash != registry"
@@ -311,6 +326,8 @@ def make_request(arm, w, d):
 
 def scores_path(arm):
     sfx = "_tune" if TUNE else ""
+    if P7:
+        return STATE / {"P7": "scores_p7.jsonl"}[arm]
     if RERUN:
         return STATE / {"B": "scores_b_rerun1.jsonl"}[arm]
     return STATE / {"B": f"scores_b{sfx}.jsonl", "C": f"scores_c{sfx}.jsonl", "N": f"scores_noise{sfx}.jsonl"}[arm]
@@ -353,7 +370,7 @@ def submit(key, reqs, per_call):
 # --------------------------------------------------------------------------- pre-flight
 def cmd_preflight_submit():
     sel = json.loads((STATE / "selection.json").read_text())
-    arms = ("B",) if (TUNE or RERUN) else ("B", "C")
+    arms = ("P7",) if P7 else ("B",) if (TUNE or RERUN) else ("B", "C")
     reqs = [make_request(a, w, d) for w, d in sel["preflight"] for a in arms]
     assert len(reqs) == len(arms) * PREFLIGHT_N
     submit("batch_id_preflight", reqs, EST_PER_CALL)
@@ -622,6 +639,118 @@ def cmd_submit_rerun():
 
 def cmd_poll_rerun():
     poll("batch_id_rerun", "raw_rerun.jsonl")
+
+
+# --------------------------------------------------------------------------- P7-side (prompts/P7-three-voices.md)
+GAP_OK, PRESSURE_OK = {"numbers_ahead", "aligned", "claims_ahead"}, {"answered", "avoided", "none"}
+
+
+def _b_dir(s):
+    return None if s is None else "bearish" if s <= -2 else "bullish" if s >= 3 else "neutral"
+
+
+def cmd_p7_select():
+    """150 train calls, proportional across S1-S5, at least one S4 call, fixed seed."""
+    assert P7
+    smap = p3.stratum_map()
+    by_s = {}
+    for r in universe():
+        by_s.setdefault(smap.get(r["ticker"], "?"), []).append(r)
+    assert "?" not in by_s
+    counts = {s: len(v) for s, v in by_s.items()}
+    alloc = p3.stratum_alloc(PREFLIGHT_N, counts)
+    if alloc.get("S4", 0) == 0:
+        big = max(alloc, key=alloc.get); alloc[big] -= 1; alloc["S4"] = 1
+    rng = random.Random("p7-preflight-11")
+    pre = []
+    for s in sorted(alloc):
+        pre += [(r["ticker"], r["date"]) for r in rng.sample(sorted(by_s[s], key=lambda r: (r["ticker"], r["date"])), alloc[s])]
+    assert len(pre) == PREFLIGHT_N and len(set(pre)) == PREFLIGHT_N
+    (STATE / "selection.json").write_text(json.dumps({"preflight": [list(k) for k in pre], "preflight_alloc": alloc,
+                                                      "universe_counts": counts, "seed": "p7-preflight-11"}, indent=1))
+    print(json.dumps({"alloc": alloc, "counts": counts}))
+
+
+def cmd_p7_check():
+    """Universe equals B's; prompt sha; request shape identical to B's make_request() except the system text. $0."""
+    assert P7
+    recs = universe()
+    orig = {(r["ticker"], r["date"]) for r in p3.read_jsonl(ORIGINAL_STATE / "scores_b.jsonl")}
+    assert len(recs) == 1217 == len(orig) and {(r["ticker"], r["date"]) for r in recs} == orig
+    assert sha(PROMPTS["P7"]) == P7_SHA, "P7 candidate sha != registered"
+    reg = json.loads((REPO / "docs/architecture/VERSION_REGISTRY.json").read_text())["artifacts"]["evaluation_prompt"]["candidates"]
+    assert next(c["sha256"] for c in reg if c["version"] == "P7-three-voices") == P7_SHA
+    rng = random.Random("p7-shape-11")
+    for w, d in rng.sample(sorted(orig), 25):
+        a, b = dict(make_request("P7", w, d)["params"]), dict(make_request("B", w, d)["params"])
+        assert set(a) == set(b) == {"model", "max_tokens", "system", "messages"} and "temperature" not in a
+        assert a["model"] == b["model"] == MODEL and a["max_tokens"] == b["max_tokens"] == 4096
+        assert a["messages"] == b["messages"]
+        assert a["system"][0]["cache_control"] == b["system"][0]["cache_control"] and len(a["system"]) == len(b["system"]) == 1
+        assert a["system"][0]["text"] == PROMPTS["P7"].read_text() and b["system"][0]["text"] == PROMPTS["B"].read_text()
+        assert make_request("P7", w, d)["custom_id"] == f"P7__{w}_{d}"
+    rep = {"universe": 1217, "p7_sha": P7_SHA, "shape": "identical to B make_request() except system text", "sample": 25}
+    (STATE / "request_shape_check.json").write_text(json.dumps(rep, indent=1)); print(rep)
+
+
+def cmd_p7_preflight_report():
+    """Stop-rule figures first: direction disagreement vs B draw 1 (and draw 2 for reference), parse/enum/max_tokens, cost projection."""
+    assert P7
+    from analyst_direct_scorer import parse_structured
+    sel = json.loads((STATE / "selection.json").read_text())
+    want = {tuple(x) for x in sel["preflight"]}
+    b1 = {(r["ticker"], r["date"]): r for r in p3.read_jsonl(ORIGINAL_STATE / "scores_b.jsonl")}
+    b2 = {(r["ticker"], r["date"]): r for r in p3.read_jsonl(ORIGINAL_STATE_B2 / "scores_b_rerun1.jsonl")}
+    rows = [r for r in p3.read_jsonl(scores_path("P7")) if (r["ticker"], r["date"]) in want]
+
+    def sc(r):
+        s = parse_structured(r["content"]).get("score")
+        return s if isinstance(s, int) and not isinstance(s, bool) and -5 <= s <= 5 else None
+    bad = {"unparseable": 0, "bad_score": 0, "bad_noRead": 0, "bad_gap": 0, "bad_pressure": 0, "max_tokens": 0}
+    dis1 = dis2 = n = 0
+    gaps, press, cost, toks = {}, {}, 0.0, []
+    for r in rows:
+        st = parse_structured(r["content"]); cost += r["cost_usd"]; toks.append(r["usage"]["output_tokens"])
+        if r["stop_reason"] == "max_tokens": bad["max_tokens"] += 1
+        if not st: bad["unparseable"] += 1; continue
+        s = sc(r)
+        if s is None: bad["bad_score"] += 1
+        if not isinstance(st.get("noRead"), bool): bad["bad_noRead"] += 1
+        g, pr = st.get("gap"), st.get("pressure")
+        if g not in GAP_OK: bad["bad_gap"] += 1
+        if pr not in PRESSURE_OK: bad["bad_pressure"] += 1
+        gaps[g] = gaps.get(g, 0) + 1; press[pr] = press.get(pr, 0) + 1
+        k = (r["ticker"], r["date"])
+        sb1 = parse_structured(json.dumps({}) if False else b1[k]["content"]).get("score") if k in b1 else None
+        sb2 = parse_structured(b2[k]["content"]).get("score") if k in b2 else None
+        if s is not None and sb1 is not None:
+            n += 1
+            dis1 += _b_dir(s) != _b_dir(sb1)
+            dis2 += (sb2 is not None and _b_dir(s) != _b_dir(sb2))
+    per = cost / max(len(rows), 1)
+    rep = {"n": len(rows), "disagree_vs_B_draw1": dis1, "disagree_vs_B_draw1_pct": round(100 * dis1 / max(n, 1), 1),
+           "disagree_vs_B_draw2_pct": round(100 * dis2 / max(n, 1), 1), "stop_threshold_pct": 20.0, **bad,
+           "gap_counts": gaps, "pressure_counts": press, "cost_usd": round(cost, 4), "cost_per_call": round(per, 5),
+           "projected_full_usd": round(per * 1217, 2), "median_completion_tokens": sorted(toks)[len(toks) // 2] if toks else None}
+    rep["STOP"] = (100 * dis1 / max(n, 1) < 20.0 or any(bad.values()) or rep["projected_full_usd"] > 40)
+    (STATE / "preflight_report.json").write_text(json.dumps(rep, indent=1)); print(json.dumps(rep, indent=1))
+
+
+def cmd_submit_p7():
+    assert P7
+    reqs = [make_request("P7", r["ticker"], r["date"]) for r in pending("P7")]
+    print("pending after pre-flight reuse:", len(reqs))
+    assert len(reqs) + len(have_ids("P7")) == 1217
+    submit("batch_id_full", reqs, per_call_p7())
+    step("5b", "in_progress", "poll-p7")
+
+
+def per_call_p7():
+    return json.loads((STATE / "preflight_report.json").read_text())["cost_per_call"]
+
+
+def cmd_poll_p7():
+    poll("batch_id_full", "raw_full.jsonl")
 
 
 if __name__ == "__main__":
