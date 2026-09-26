@@ -1,0 +1,23 @@
+{
+  "run_id": "b-champion-and-noise-floor",
+  "prompt_sha256": "705dbac465cd9c737f0ab9afe01a25665e64d1e3951aed052654e4474cb47492",
+  "driver_commit": null,
+  "approved_cap_usd": 35,
+  "approval_source": "prompts/B-champion-and-noise-floor.md header: 'Luis has approved $35'",
+  "steps": {
+    "step0": "done (tree clean, 4 handoff docs read)",
+    "step1": "done",
+    "step2a": "pending",
+    "step2b": "pending",
+    "step2c": "pending",
+    "step2d": "pending",
+    "report": "pending"
+  },
+  "batch_id_preflight": null,
+  "batch_id_rerun": null,
+  "next_action": "Step 2a: extend analysis/p6_output_format_driver.py with --rerun path (own commit), then 30-call pre-flight",
+  "notes": [
+    "gate_ledger.json is gitignored (analysis/data/*) and untracked; entry 2 written to disk, not committed",
+    "whats_live.py prints no research_champion line; it checks promoted hashes only"
+  ]
+}

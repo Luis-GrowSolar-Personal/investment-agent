@@ -116,18 +116,23 @@ several hours.
 
 | # | Candidate | New data? | Blocked by | Status |
 |---|---|---|---|---|
-| P1 | **Commit to bearish when the evidence supports it** | none | — | **ready — run first** |
+| P1 | **Commit to bearish when the evidence supports it** | none | — | **closed 2026-09-25 — superseded by B** |
 | P2 | Post-call reaction at K≥1, three arms | none (price cache) | §3.1a R3 | blocked |
-| P3 | Thesis / guidance ledger — score QN−1's promises at QN | none (transcripts on disk) | — | ready |
+| P3 | Thesis / guidance ledger — score QN−1's promises at QN | none (transcripts on disk) | — | ready (unchanged by this edit) |
 | P4 | Tier-conditioned reading of financial facts | XBRL build | P3 | not started |
 | P5 | Peer read-through across cohort members | none (transcripts) | — | not started |
-| **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **registered 2026-09-24 — run next** |
-| P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed) | none | P6 | named, not run |
-| P8 | Auto-iterate loop as hypothesis generator (§2.6, with the 2026-09-24 constraints) | none (eval files) | P6 | named, not built |
+| **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **done — B held on tune (2026-09-25); research champion.** Arm C **closed** (same signal, 66% more cost) |
+| P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **next** |
+| P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | named, not run |
+| — | Model gate on B: newer or larger model on the unchanged minimal prompt (`PROMOTION_GATE.md` §2.2b equivalence hurdle) | none | P7 and P9 | named, **last** |
+| P8 | Auto-iterate loop as hypothesis generator (§2.6, with the 2026-09-24 constraints) | none (eval files) | after P7/P9 | named, not built |
+| P6D | B plus the structured fields the allocator needs | none | allocator rebuild | **deferred to the allocator rebuild** |
 
-P2 is blocked on a free decision (R3's grading-window rule), not on work. P1 and
-P3 can both run today against the existing corpus — no vendor fetching, no new
-transcripts.
+P2 is blocked on a free decision (R3's grading-window rule), not on work. P3
+can run today against the existing corpus — no vendor fetching, no new
+transcripts. **The incumbent for every new candidate is B (`P6B-minimal`), the
+research champion since 2026-09-25 (`VERSION_REGISTRY.json` →
+`artifacts.evaluation_prompt.research_champion`). Production stays on v6.**
 
 **P1 — pre-registration, registered 2026-09-17**
 
@@ -244,8 +249,7 @@ the analysts actually pressed on (not the pleasantries — the question asked
 three ways, the deflected answer), then score the gap between the first and
 the other two. This is the expectations-gap question asked of the transcript
 alone, without consensus data. Named now so it is committed before P6's diffs
-exist. Runs only after P6, and starts from whichever of arm B or arm C P6
-favours.
+exist. Runs only after P6, and starts from B.
 
 **P8 — auto-iterate loop. Named, NOT built. Generator, never judge (§2.6),
 with four constraints added 2026-09-24:**
@@ -289,12 +293,43 @@ falsify it · which split it runs on · the date it was registered.
 
 Name the two or three candidates to be tried **before running any of them.**
 
+### 2.3a Rules every B-derived pre-registration follows
+
+Decided 2026-09-26 (`docs/handoffs/2026-09-26-next-steps-review-reply.md` is the
+source). Every P7 / P9 / model-gate pre-registration written into §2.3 carries
+these, stated in its own words with its own numbers.
+
+1. **Matched coverage, both sides.** Bullish: the candidate's top N calls by
+   score against B's top N, N = B's bullish count at ≥ +3 on the same split
+   (train 235, tune 242). Bearish: the bottom N, N = B's bearish count at ≤ −2
+   (train 191, tune 161). Ties broken by the seeded rule. The fixed cuts are
+   reported, labelled secondary.
+2. **Ranking tolerance.** The paired difference in rank correlation (candidate
+   minus B, same calls) must have its range's lower end no worse than
+   **−0.03 (placeholder; step 2d of `b-champion-and-noise-floor` replaces it
+   with the measured tolerance)**.
+3. **Two baseline draws.** Every candidate is compared with **both** B runs
+   (original and re-run) and both differences are reported. Beating one and not
+   the other is a tie.
+4. **The end-to-end check vetoes, never picks.**
+5. **For P9 (expected return):** the gate is a positive slope of realized on
+   predicted return, with its range excluding zero. The slope's value (the
+   allocator-side scale factor) and realized medians by fifths are reported,
+   not gated. Predicted slope 0.2–0.6, written as a prediction.
+6. **The most-recent-year result** for the model gate is a diagnostic, not a
+   gate (~170 calls).
+
 ### 2.4 Required diagnostics after every round — all free, no model calls
 
 A round that reports only a headline has wasted most of what it bought.
 
 1. **Flip count** against the incumbent on the shared calls, and the win rate
-   among flips. A paired comparison lives entirely on the disagreements.
+   among flips. **The count that is read is the NET count: raw flips minus the
+   incumbent's own noise flips (amended 2026-09-26), never raw.** v6's noise
+   floor is ~17% (tune 17.7%, train 16.7%). For a B-derived candidate the
+   incumbent is B, and its floor is B's own, measured in
+   `b-champion-and-noise-floor` step 2: **[PLACEHOLDER — step 2d fills B's
+   direction-change rate per stratum here]**. A paired comparison lives entirely on the disagreements.
 2. **The confusion table** — did the neutral pile shrink, and did new bearish
    calls hold precision above the 45–48% base rate?
 3. **Per-call diffs written to disk**, so a later round can re-read them.
@@ -315,7 +350,8 @@ the headline cannot tell them apart.**
 ### 2.5 Pre-flight screen — run before committing a full round
 
 Score ~150 calls (~$6) and count disagreements with the incumbent. If the
-implied corpus-wide flip count is under ~100, **do not run the full round.** The
+implied corpus-wide **net** flip count (raw minus the incumbent's own noise
+flips; amended 2026-09-26) is under ~100, **do not run the full round.** The
 change cannot clear the noise floor whatever the reasoning behind it.
 
 ### 2.6 Automated iteration — generator, never judge
@@ -330,6 +366,11 @@ Design that keeps it honest: **split train in half** — the loop iterates freel
 on train-A, survivors are screened on train-B, and only what survives both
 reaches tune. Tune evaluations stay hand-counted and pre-registered. Holdout
 stays locked.
+
+**Amended 2026-09-26.** The time split (iterate 2020–2022, screen 2023–2024, on
+train companies only) constrains P8's generator. The company split is the
+promotion gate for its survivors. "Holdout 2025" is dropped; the 53-company
+holdout is the holdout.
 
 ---
 

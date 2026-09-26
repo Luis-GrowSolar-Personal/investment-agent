@@ -335,6 +335,8 @@ dollars by *some* allocator. The current allocator's preferences (it pays
 for bearish precision and slow deployment, ignores bullish ranking beyond
 the starter) are facts about the old allocator and are not design targets.
 
+**The end-to-end check can veto a candidate; it never picks one.** (amended 2026-09-26)
+
 **5.5 Holdout discipline.** B has had its one look at tune. Every
 B-derived candidate runs train → tune. **Holdout stays locked until the
 campaign produces a final candidate, and gets one look.**
@@ -362,8 +364,6 @@ with thresholds on the allocator side.
 
 ## §7 Open, not scheduled
 
-- A larger noise arm to settle the lucky-cached-draw question (35 decisive
-  flips leave p=0.09; ~150 would decide it, ~$40).
 - The pooled v6 swap-median discrepancy (7.70 vs 8.7).
 - Bullish-side signal: none of B, C or v6 has any. P7 is the first candidate
   aimed at it (the gap between what the CFO reported and what the CEO
@@ -373,6 +373,8 @@ with thresholds on the allocator side.
 - Settle §3.1a R3; consensus vendors (stalled); ratchetTranche null on 26%
   of bearish calls; terminal-value grading; BK/BNY history; trend-layer
   override rate; Rule 3 guard; the state dashboard.
+
+**Closed (amended 2026-09-26).** The lucky-cached-draw question (35 decisive flips, p=0.09; ~150 would decide it, ~$40) is closed: v6 is no longer the comparator, and its only consequence (B's result is conservative) is already recorded.
 
 ## §8 Commits this week
 
