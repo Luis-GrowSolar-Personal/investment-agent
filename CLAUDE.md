@@ -48,15 +48,15 @@ registry-build run wired up.
 
 **"Read the state of play" means this file, and only this file:**
 
-    docs/handoffs/2026-09-24-state-of-play.md
+    docs/handoffs/2026-09-26-state-of-play.md
 
 Reading version (renders correctly anywhere, including on a phone):
-<https://claude.ai/artifact/CW96Nyoxsx4kM4B2JF1Q8r>
+<https://claude.ai/artifact/UgtKzgxJzdXRKGA8o8u5NW>
 
-It carries the defined terms (§0), the evidence carried forward (§2), the six
-untried prompt-iteration candidates (§3), the next action (§5), and what is
-open (§6). Read §0 before anything else — several parameter names read as their
-own opposite.
+It carries the defined terms (§0), what ran (§1), what is now known (§2),
+the decisions of 2026-09-26 including the model policy (§3), the next steps
+(§4), and what is open (§5). Read §0 before anything else — several
+parameter names read as their own opposite.
 
 Earlier state-of-play documents in `docs/handoffs/` are **superseded**; they are
 kept for provenance, not for orientation. Do not read them for current state.
