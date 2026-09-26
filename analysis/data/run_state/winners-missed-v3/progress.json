@@ -1,0 +1,21 @@
+{
+  "run_id": "winners-missed-v3",
+  "prompt_sha256": "bb5de0448397513aa97b7cd1f71e8b2bb1a351672978666136557a51aabd76f0",
+  "driver_commit": "55e98883825bdce4b0fea541602b8f5c80bb0864",
+  "luis_approved_usd": 4,
+  "cap_usd": 4,
+  "approval_source": "AskUserQuestion 'Approve $4 cap', 2026-09-26",
+  "steps": {
+    "step0": "done",
+    "step1": "in_progress",
+    "step2": "pending",
+    "report": "pending"
+  },
+  "next_action": "w-submit-full",
+  "notes": [
+    "diff v3 vs v2: header lines, the \"discounted\" line in the block (and the comma on \"beat\"), the discounted definition bullet; nothing else"
+  ],
+  "classifier_sha256": "fe58344fe270d691190a03008465d004bbb1f3c01dabfe2889f218497c7c307c",
+  "classifier_path": "docs/prompts/diagnostics/READ_CLASSIFIER_v3.md",
+  "classifier_v3_sha256": "fe58344fe270d691190a03008465d004bbb1f3c01dabfe2889f218497c7c307c"
+}
