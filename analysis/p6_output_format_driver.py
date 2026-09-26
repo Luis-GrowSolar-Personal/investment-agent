@@ -57,6 +57,21 @@ if "--split" in sys.argv:
     del sys.argv[_i:_i + 2]
 assert SPLIT_NAME in ("train", "tune"), SPLIT_NAME
 TUNE = SPLIT_NAME == "tune"
+
+# --rerun (prompts/B-champion-and-noise-floor.md): arm B on the same 1,217 train calls, a second time.
+# Same prompt, model, max_tokens, request construction; custom ids suffixed __r1; outputs never touch the originals.
+RERUN = "--rerun" in sys.argv
+if RERUN:
+    sys.argv.remove("--rerun")
+    assert not TUNE, "--rerun is train only"
+    RUN_ID = "b-champion-and-noise-floor"
+    STATE = REPO / "analysis/data/run_state" / RUN_ID
+    PROGRESS, FINDINGS = STATE / "progress.json", STATE / "findings.md"
+    EVAL_DIR = {"B": REPO / "analysis/data/evals/P6B-minimal_claude-sonnet-4-6_rerun1"}
+    CAP_USD, PREFLIGHT_N = 35.0, 30
+    EST_PER_CALL = 0.0236
+    RERUN_SUFFIX = "__r1"
+    ORIGINAL_STATE = REPO / "analysis/data/run_state/p6-output-format-round"
 if TUNE:
     RUN_ID = "p6b-tune-confirmation"
     STATE = REPO / "analysis/data/run_state" / RUN_ID
@@ -187,7 +202,7 @@ def guards():
     from analysis.version_guard import assert_prompt_hash
     reg = json.loads((REPO / "docs/architecture/VERSION_REGISTRY.json").read_text())["artifacts"]["evaluation_prompt"]
     out = {}
-    for arm in (("B",) if TUNE else ("B", "C")):
+    for arm in (("B",) if (TUNE or RERUN) else ("B", "C")):
         t = PROMPTS[arm].read_text()
         rs = next(c["sha256"] for c in reg["candidates"] if c["version"] == CAND_NAME[arm])
         assert hashlib.sha256(t.encode()).hexdigest() == rs, f"arm {arm} hash != registry"
@@ -272,7 +287,7 @@ def cmd_select():
 
 # --------------------------------------------------------------------------- requests
 def cid(arm, w, d):
-    c = f"{arm}__{w}_{d}"
+    c = f"{arm}__{w}_{d}" + (RERUN_SUFFIX if RERUN else "")
     assert re.match(r"^[a-zA-Z0-9_-]{1,64}$", c), c
     return c
 
@@ -296,6 +311,8 @@ def make_request(arm, w, d):
 
 def scores_path(arm):
     sfx = "_tune" if TUNE else ""
+    if RERUN:
+        return STATE / {"B": "scores_b_rerun1.jsonl"}[arm]
     return STATE / {"B": f"scores_b{sfx}.jsonl", "C": f"scores_c{sfx}.jsonl", "N": f"scores_noise{sfx}.jsonl"}[arm]
 
 
@@ -336,7 +353,7 @@ def submit(key, reqs, per_call):
 # --------------------------------------------------------------------------- pre-flight
 def cmd_preflight_submit():
     sel = json.loads((STATE / "selection.json").read_text())
-    arms = ("B",) if TUNE else ("B", "C")
+    arms = ("B",) if (TUNE or RERUN) else ("B", "C")
     reqs = [make_request(a, w, d) for w, d in sel["preflight"] for a in arms]
     assert len(reqs) == len(arms) * PREFLIGHT_N
     submit("batch_id_preflight", reqs, EST_PER_CALL)
@@ -347,7 +364,11 @@ def route(raw_path, default_arm=None):
     """Split raw batch rows by custom_id prefix into scores_{b,c,noise}.jsonl and write eval-cache .txt files."""
     n = 0
     for r in p3.read_jsonl(raw_path):
-        arm, rest = r["custom_id"].split("__", 1)
+        c = r["custom_id"]
+        if RERUN:
+            assert c.endswith(RERUN_SUFFIX), c
+            c = c[:-len(RERUN_SUFFIX)]
+        arm, rest = c.split("__", 1)
         w, d = rest.rsplit("_", 1)
         if (w, d) in have_ids(arm):
             continue
@@ -379,7 +400,7 @@ def cmd_preflight_report():
     sel = json.loads((STATE / "selection.json").read_text())
     want = {tuple(x) for x in sel["preflight"]}
     res = {}
-    ARMS = ("B",) if TUNE else ("B", "C")
+    ARMS = ("B",) if (TUNE or RERUN) else ("B", "C")
     for arm in ARMS:
         rows = [r for r in p3.read_jsonl(scores_path(arm)) if (r["ticker"], r["date"]) in want]
         bad_parse = bad_score = bad_nr = maxtok = nr_true = 0
@@ -410,7 +431,7 @@ def cmd_preflight_report():
     n_full = len(universe())
     for arm in ARMS:
         res[arm]["projected_full_arm_usd"] = round(res[arm]["cost_per_call"] * n_full, 2)
-    lim = 32 if TUNE else 55
+    lim = 32 if (TUNE or RERUN) else 55
     res["stop_projection_over_55"] = any(res[a]["projected_full_arm_usd"] > lim for a in ARMS)
     res["projection_limit_usd"] = lim
     res["control_defaulting_to_abstention"] = res["B"]["noRead_share_pct"] > 100 / 3
@@ -529,6 +550,78 @@ def cmd_submit_noise():
 
 def cmd_poll_noise():
     poll("batch_id_noise", "raw_noise.jsonl")
+
+
+# --------------------------------------------------------------------------- rerun-side (prompts/B-champion-and-noise-floor.md)
+def cmd_rerun_select():
+    """30 stratified train calls for the pre-flight, fixed seed (all strata present in train, via stratum_map())."""
+    assert RERUN
+    smap = p3.stratum_map()
+    by_s = {}
+    for r in universe():
+        by_s.setdefault(smap.get(r["ticker"], "?"), []).append(r)
+    assert "?" not in by_s, "unmapped stratum"
+    counts = {s: len(v) for s, v in by_s.items()}
+    alloc = p3.stratum_alloc(PREFLIGHT_N, counts)
+    if alloc.get("S4", 0) == 0:          # prompt 2a: stratified across the strata; proportional gives S4 zero, so take one from the largest
+        big = max(alloc, key=alloc.get)
+        alloc[big] -= 1
+        alloc["S4"] = 1
+    rng = random.Random("b-rerun-preflight-11")
+    pre = []
+    for s in sorted(alloc):
+        pre += [(r["ticker"], r["date"]) for r in rng.sample(sorted(by_s[s], key=lambda r: (r["ticker"], r["date"])), alloc[s])]
+    assert len(pre) == PREFLIGHT_N
+    (STATE / "selection.json").write_text(json.dumps({"preflight": [list(k) for k in pre], "preflight_alloc": alloc,
+                                                      "universe_counts": counts, "seed": "b-rerun-preflight-11"}, indent=1))
+    print(json.dumps({"alloc": alloc, "counts": counts, "n_universe": sum(counts.values())}))
+
+
+def cmd_rerun_check():
+    """Request-shape equality with the original run, and the 1,217-call universe assert. $0."""
+    assert RERUN
+    from analysis.version_guard import assert_prompt_hash  # noqa: F401 (guards() below runs it)
+    recs = universe()
+    orig = {(r["ticker"], r["date"]) for r in p3.read_jsonl(ORIGINAL_STATE / "scores_b.jsonl")}
+    assert len(recs) == 1217 == len(orig), (len(recs), len(orig))
+    assert {(r["ticker"], r["date"]) for r in recs} == orig, "universe != original scores_b.jsonl"
+    B_SHA = "d1fa5e53fd743412503a0ba316d21b49a061e1ccf3e2064478bb83dfe9b430ab"
+    assert sha(PROMPTS["B"]) == B_SHA
+    rng = random.Random("b-rerun-shape-11")
+    sample = rng.sample(sorted(orig), 25)
+    raw_ids = {r["custom_id"] for f in ("raw_arm_b.jsonl", "raw_preflight.jsonl") for r in p3.read_jsonl(ORIGINAL_STATE / f)
+               if r["custom_id"].startswith("B__")}
+    for w, d in sample:
+        req = make_request("B", w, d)
+        prm = req["params"] if isinstance(req, dict) else req.params
+        prm = dict(prm)
+        assert prm["model"] == MODEL == "claude-sonnet-4-6" and prm["max_tokens"] == 4096 == MAX_TOKENS
+        assert "temperature" not in prm and set(prm) == {"model", "max_tokens", "system", "messages"}, sorted(prm)
+        sysb = prm["system"]
+        assert len(sysb) == 1 and sysb[0]["text"] == PROMPTS["B"].read_text() and sysb[0]["cache_control"] == {"type": "ephemeral"}
+        assert prm["messages"] == [{"role": "user", "content": transcript(w, d)}]
+        cidv = req["custom_id"] if isinstance(req, dict) else req.custom_id
+        assert cidv == f"B__{w}_{d}__r1"
+        assert f"B__{w}_{d}" in raw_ids, f"original raw_arm_b/raw_preflight has no row for {w} {d}"
+    rep = {"universe": len(recs), "equal_to_original_scores_b": True, "prompt_sha": B_SHA, "model": MODEL,
+           "max_tokens": MAX_TOKENS, "temperature_param": "absent", "sample_checked": len(sample),
+           "note": "raw_arm_b.jsonl stores responses, not request params; shape is asserted against the unchanged make_request() "
+                   "code path, prompt sha, and presence of each sampled call's original custom_id in raw_arm_b.jsonl or raw_preflight.jsonl"}
+    (STATE / "request_shape_check.json").write_text(json.dumps(rep, indent=1))
+    print(json.dumps(rep, indent=1))
+
+
+def cmd_submit_rerun():
+    assert RERUN
+    reqs = [make_request("B", r["ticker"], r["date"]) for r in pending("B")]
+    print("pending (after pre-flight reuse):", len(reqs))
+    assert len(reqs) + len(have_ids("B")) == 1217
+    submit("batch_id_rerun", reqs, per_call("B"))
+    step("2b", "in_progress", "poll-rerun")
+
+
+def cmd_poll_rerun():
+    poll("batch_id_rerun", "raw_rerun.jsonl")
 
 
 if __name__ == "__main__":
