@@ -1,0 +1,18 @@
+{
+ "B": {
+  "n": 30,
+  "unparseable": 0,
+  "bad_score": 0,
+  "bad_noRead": 0,
+  "stop_max_tokens": 0,
+  "noRead_true": 1,
+  "noRead_share_pct": 3.3,
+  "cost_usd": 0.7518,
+  "cost_per_call": 0.02506,
+  "median_completion_tokens": 522,
+  "projected_full_arm_usd": 30.5
+ },
+ "stop_projection_over_55": false,
+ "projection_limit_usd": 32,
+ "control_defaulting_to_abstention": false
+}
