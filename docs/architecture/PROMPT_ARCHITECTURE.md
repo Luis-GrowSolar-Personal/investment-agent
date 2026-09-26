@@ -123,7 +123,7 @@ several hours.
 | P5 | Peer read-through across cohort members | none (transcripts) | — | not started |
 | **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **done — B held on tune (2026-09-25); research champion.** Arm C **closed** (same signal, 66% more cost) |
 | P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **falsified 2026-09-26 (train; gate 1 31.5% vs 47%)** |
-| P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **next (draft under review)** |
+| P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **registered 2026-09-26 — running** (run `p9-expected-return-train`) |
 | — | Model gate on B: newer or larger model on the unchanged minimal prompt (`PROMOTION_GATE.md` §2.2b equivalence hurdle) | none | P7 and P9 | named, **last** |
 | P8 | Auto-iterate loop as hypothesis generator (§2.6, with the 2026-09-24 constraints) | none (eval files) | after P7/P9 | named, not built |
 | P6D | B plus the structured fields the allocator needs | none | allocator rebuild | **deferred to the allocator rebuild** |
@@ -265,6 +265,19 @@ exist. Runs only after P6, and starts from B.
 
 **P7 — Result, 2026-09-26 (train; `wrap-ups/P7-three-voices-train-out.md`, `p7-three-voices-train/results.json`).** Gate 1 failed: top 235 right 31.5% vs the 47.0% target and B's 39.6% / 36.2% (`matched_coverage.P7.top235`); gate 2 failed against draw 1 (−0.017, range −0.050 to +0.016) and held against draw 2; gate 3 held (58.6% vs 57.0%). The model labelled 78.8% of calls `claims_ahead` and 79.7% `avoided` (`shares_pct`), so the labels could not separate companies; the predicted carrier cell (`numbers_ahead` + `answered`, 55 calls) was right 25.5% against a 33.2% base rate (`gap_x_pressure`). Gate ledger entry 3, cost $34.07.
 **A reworded three-voices prompt is not queued: the groups the labels did form showed no bullish edge.**
+
+**P9 — pre-registration, registered 2026-09-26** (copied from `prompts/P9-expected-return.md` §4 before any scoring; candidate `docs/prompts/candidates/EVALUATION_PROMPT_P9_expected_return.md`, sha256 `a752e6b1…06a5`, parent P6B-minimal)
+
+- **Change.** B's final answer, a −5..+5 score, becomes an expected six-month return versus the S&P in points, with a low–high range. The reading (B's text through READ) is unchanged.
+- **Groups.** P9 has no thresholds. Its **bottom 191** by `expectedReturn` are "bearish", its **top 235** "bullish", the rest "neutral" (§2.3a rule 1, matched to B draw 1's counts); ties by the seeded rule, seed 11. Every comparison with B uses these groups.
+- **Pre-flight stop rules (150 train calls, stratified by `stratum_map()`, at least one S4).** Stop if any: parse failure or `max_tokens` stop; `rangeLow ≤ expectedReturn ≤ rangeHigh` broken on more than 3 calls; **bunched** (middle half of `expectedReturn` spans under 4 points, or fewer than 8 distinct values); **one-sided** (more than 85% on the same side of 0); `noRead` on more than 10% of calls; projected full cost over $36.
+- **No disagreement threshold.** §2.5's "fewer than ~100 flips, stop" rule does not apply: P9's value can come from its units even if it orders calls exactly as B does (arm C is the precedent).
+- **Gates (all three on train for one look at tune; 2 and 3 against both B draws).** (1) **Calibration sign:** slope of realized return on `expectedReturn`, realized clipped at ±50 (set to ±50, not dropped), ticker-block range (2,000 draws, seed 11) entirely above zero; unclipped slope reported beside it; clip level fixed. (2) **Ranking non-inferiority:** paired rank-correlation difference (P9 minus B) lower end no worse than −0.03 against each draw. (3) **Bearish hits:** P9's bottom 191 right on at least 57.0%.
+- **Falsified** if gate 1 fails. If gate 1 holds and gate 2 or 3 fails, the new unit cost information B had. P9 does not go to tune.
+- **Ambiguity rule.** If gates 1 and 3 hold and gate 2's lower end lands between −0.06 and 0.00 against either draw: report ambiguous, recommend a second draw (~$30), do not run it.
+- **Severity, reported not gated.** (a) rank correlation of predicted vs realized inside P9's bottom 191, ticker-block range, beside B's on each draw; (b) realized median return by fifth of `expectedReturn`, beside B's by fifth of `score`. **Reading:** P9 grades severity if (a)'s range excludes zero **and** the lowest fifth's median is below the second fifth's; if neither, "same information, better units"; if only one, say so and do not characterize further.
+- **Predictions, not gates.** Median `expectedReturn` +2 to +8, 55–75% positive; middle half spans 6–15 points (realized 24); clipped slope 0.2–0.6; 50–70% of outcomes inside the stated range; rank correlation 0.10–0.15; cost within ±15% of B's per call.
+- **Runs on.** Train only. Cost ~$32, hard cap $40; a second draw is not approved.
 
 **P8 — auto-iterate loop. Named, NOT built. Generator, never judge (§2.6),
 with four constraints added 2026-09-24:**

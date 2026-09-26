@@ -1,0 +1,15 @@
+{
+  "run_id": "p9-expected-return-train",
+  "prompt_sha256": "0cb3e5b8b45737a2c9ab9d82dbe5a6bddc8623f15cd30b54e003814912cf56ba",
+  "driver_commit": null,
+  "luis_approved_usd": 40,
+  "cap_usd": 40,
+  "approval_source": "AskUserQuestion answer 'Approve $40 cap', 2026-09-26",
+  "steps": {
+    "step0": "done"
+  },
+  "next_action": "driver --p9 extension",
+  "notes": [
+    "candidate diff vs B: identical through READ (verified); sha a752e6b1..."
+  ]
+}
