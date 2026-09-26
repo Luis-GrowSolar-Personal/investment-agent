@@ -1,0 +1,47 @@
+{
+ "n": 60,
+ "unparseable_or_out_of_set": 0,
+ "max_tokens": 0,
+ "distribution": {
+  "balance": {
+   "outweighs": 32,
+   "balanced": 7,
+   "outweighed": 21
+  },
+  "raised": {
+   "no": 44,
+   "yes": 16
+  },
+  "beat": {
+   "no": 50,
+   "yes": 10
+  },
+  "discounted": {
+   "no": 5,
+   "yes": 55
+  }
+ },
+ "max_single_value_share_pct": {
+  "balance": 53.3,
+  "raised": 73.3,
+  "beat": 83.3,
+  "discounted": 91.7
+ },
+ "stop_single_value_gt85": [
+  "discounted"
+ ],
+ "cost_usd": 0.1003,
+ "cost_per_call": 0.00167,
+ "projected_full_usd": 2.03,
+ "v1_discounted_same_60": {
+  "yes": 35,
+  "no": 25,
+  "n": 60
+ },
+ "predictions": {
+  "raised_yes_pct": 26.666666666666668,
+  "beat_yes_pct": 16.666666666666664,
+  "balance_max_share_pct": 53.3
+ },
+ "STOP": true
+}

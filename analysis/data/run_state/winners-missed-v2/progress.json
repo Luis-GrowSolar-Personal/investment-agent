@@ -8,12 +8,12 @@
   "steps": {
     "step0": "done",
     "step1": "done",
-    "step2": "in_progress",
-    "step3": "pending",
+    "step2": "stopped at 2b (discounted 91.7% yes)",
+    "step3": "in_progress",
     "report": "pending",
     "2b": "in_progress"
   },
-  "next_action": "w-preflight-poll",
+  "next_action": "step 3: 30 same-company pairs",
   "notes": [],
   "classifier_sha256": "60e76ff5da9ef8781b0e926a8881524951ec0514f73bd026242223051f7763c4",
   "classifier_path": "docs/prompts/diagnostics/READ_CLASSIFIER_v2.md",
@@ -22,5 +22,6 @@
   },
   "batch_id_preflight": "msgbatch_01V865mefnfhnQFhmbt3PDu1",
   "batch_id_preflight_submitted_at": "2026-09-26T17:39:55Z",
-  "batch_id_preflight_requests": 60
+  "batch_id_preflight_requests": 60,
+  "spent_usd": 0.1
 }
