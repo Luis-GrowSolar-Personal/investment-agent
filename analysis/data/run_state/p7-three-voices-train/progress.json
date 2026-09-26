@@ -1,14 +1,15 @@
 {
   "run_id": "p7-three-voices-train",
   "prompt_sha256": "3cc5bad9e113435aa6cef3ffb2c759ebd7a99a1278832c3f5f7f0cf3b9ba6a1e",
-  "driver_commit": null,
+  "driver_commit": "6ccba7efa0c44e3e2fabd6f7329790f240447756",
   "luis_approved_usd": 50,
   "cap_usd": 45,
   "cap_note": "prompt hard cap $45; Luis's chat approval 'up to $50'. Cap held at $45 per prompt.",
   "steps": {
-    "step0": "done"
+    "step0": "done",
+    "step5a": "in_progress"
   },
-  "next_action": "commit registry+preregistration; then driver extension (--p7)",
+  "next_action": "preflight-submit",
   "notes": [
     "candidate as found replaced B's 'What in this call should change...' two lines; Luis chose to restore them (AskUserQuestion)."
   ]
