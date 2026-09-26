@@ -7,10 +7,35 @@
   "cap_note": "prompt hard cap $45; Luis's chat approval 'up to $50'. Cap held at $45 per prompt.",
   "steps": {
     "step0": "done",
-    "step5a": "in_progress"
+    "step5a": "in_progress",
+    "5a": "in_progress"
   },
-  "next_action": "preflight-submit",
+  "next_action": "poll preflight batch",
   "notes": [
     "candidate as found replaced B's 'What in this call should change...' two lines; Luis chose to restore them (AskUserQuestion)."
-  ]
+  ],
+  "guards": {
+    "batch_id_preflight": {
+      "P7": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "0a34f5a926f6be89400a8191cac5455f0b5cd11d2bef8a51d3a6b97510b2bcaf",
+        "candidate_used": "P7-three-voices",
+        "branch": "sweep/db-corpus-baseline"
+      },
+      "A_noise": {
+        "ok": true,
+        "promoted_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "actual_hash": "357b6b0b8c2f33cc75d519ee9ad0a875ec632bb6dd18487a2a1935498b906e9b",
+        "candidate_used": null,
+        "branch": "sweep/db-corpus-baseline"
+      }
+    }
+  },
+  "committed_usd_by_batch": {
+    "batch_id_preflight": 4.05
+  },
+  "batch_id_preflight": "msgbatch_01Q4cN16FSjCeDgM3c9XsDw7",
+  "batch_id_preflight_submitted_at": "2026-09-26T03:29:32Z",
+  "batch_id_preflight_requests": 150
 }
