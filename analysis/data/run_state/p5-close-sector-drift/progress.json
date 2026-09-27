@@ -5,11 +5,11 @@
   "steps": {
     "step0": "in_progress",
     "step1": "done",
-    "step2": "pending",
-    "step3": "pending",
-    "step4": "pending",
-    "report": "pending"
+    "step2": "done",
+    "step3": "done",
+    "step4": "done",
+    "report": "done"
   },
-  "next_action": "step 2 sector score",
+  "next_action": "none; run complete",
   "notes": []
 }
