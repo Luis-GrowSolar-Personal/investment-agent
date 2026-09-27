@@ -1,0 +1,17 @@
+{
+  "run_id": "consensus-surprise",
+  "prompt_sha256": "da03d9e20fddc3ae217088b15612d053d6969671c4113e835249324abe3439ec",
+  "cost_usd": 0,
+  "steps": {
+    "step0": "done",
+    "step1": "pending",
+    "step2": "pending",
+    "step3": "pending",
+    "stepE_tune": "pending",
+    "report": "pending"
+  },
+  "next_action": "step1 fetch",
+  "notes": [
+    "verified: prompt's Full-test review amendments section (A-F) matches docs/handoffs/2026-09-27-consensus-full-test-review.md's 6 answers"
+  ]
+}
