@@ -109,6 +109,56 @@ def submit(kind, key, us):
     p = C.prog(); p[key] = b.id; p.setdefault("spend_by_batch", {})[key] = round(est, 2); p.setdefault("batches_n", {})[key] = len(us); C.save_prog(p); print("SUBMITTED", key, b.id, "-- COMMIT progress.json NOW")
 
 
+RETRY_MAXTOK = 6000
+DROP_GUARD_PCT = 2.0
+
+
+def cmd_retry(kind):
+    """Re-submit, once, every request whose result did not parse or hit max_tokens (from batch_{kind}_full), at max_tokens=6000. Same system/user text."""
+    from anthropic.types.messages.batch_create_params import Request
+    from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+    us = {u["id"]: u for u in units(kind)}
+    key = f"batch_{kind}_full"; raw = C.STATE / f"raw_{kind}_full.jsonl"
+    p = C.prog()
+    if p.get(f"batch_{kind}_retry"): print("already submitted", p[f"batch_{kind}_retry"]); return
+    bad = []
+    for l in open(raw):
+        r = json.loads(l)
+        if "error" in r or r.get("stop") == "max_tokens" or parse(r.get("content", "")) is None: bad.append(r["custom_id"])
+    print(f"{kind}: {len(bad)} to retry at max_tokens={RETRY_MAXTOK}")
+    if not bad: return
+    reqs = [Request(custom_id=us[i]["id"], params=MessageCreateParamsNonStreaming(model=MODEL, max_tokens=RETRY_MAXTOK,
+            system=[{"type": "text", "text": us[i]["system"], "cache_control": {"type": "ephemeral"}}], messages=[{"role": "user", "content": us[i]["user"]}])) for i in bad]
+    b = client().messages.batches.create(requests=reqs)
+    p = C.prog(); p[f"batch_{kind}_retry"] = b.id; p.setdefault("batches_n", {})[f"batch_{kind}_retry"] = len(reqs); C.save_prog(p)
+    print("SUBMITTED", f"batch_{kind}_retry", b.id, "-- COMMIT progress.json NOW")
+
+
+def cmd_retry_poll(kind):
+    poll(kind, f"batch_{kind}_retry", f"raw_{kind}_retry.jsonl")
+
+
+def final_report(kind):
+    """Merge batch_{kind}_full with batch_{kind}_retry (retry replaces its original row); apply the drop rule; return the report + dropped list."""
+    us = {u["id"]: u for u in units(kind)}
+    full = {json.loads(l)["custom_id"]: json.loads(l) for l in open(C.STATE / f"raw_{kind}_full.jsonl")}
+    rf = C.STATE / f"raw_{kind}_retry.jsonl"
+    if rf.exists():
+        for l in open(rf): r = json.loads(l); full[r["custom_id"]] = r
+    dropped, kept_links, lab, qfail, cost = [], 0, {}, 0, 0.0
+    for cid, r in full.items():
+        cost += r.get("cost", 0)
+        ok = "error" not in r and r.get("stop") != "max_tokens" and parse(r.get("content", "")) is not None
+        if not ok: dropped.append({"id": cid, "reason": r.get("error") or r.get("stop") or "unparsed"}); continue
+        for x in parse(r["content"]):
+            lab[x.get("relation")] = lab.get(x.get("relation"), 0) + 1
+            if quote_ok(x.get("quote"), us[cid]["text"]): kept_links += 1
+            else: qfail += 1
+    total = len(us); drop_pct = round(100 * len(dropped) / total, 2)
+    return {"total_requests": total, "dropped_after_retry": len(dropped), "dropped_pct": drop_pct, "dropped_ids": [d["id"] for d in dropped], "dropped_detail": dropped,
+            "kept_links": kept_links, "quote_fail_after_retry": qfail, "label_counts": lab, "cost": round(cost, 4), "STOP_over_2pct": drop_pct > DROP_GUARD_PCT}
+
+
 def poll(kind, key, raw):
     p = C.prog(); bid = p.get(key); cl = client(); b = cl.messages.batches.retrieve(bid); print(bid, b.processing_status, b.request_counts)
     if b.processing_status != "ended": return False

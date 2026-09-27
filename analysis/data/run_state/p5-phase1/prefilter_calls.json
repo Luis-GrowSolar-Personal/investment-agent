@@ -1,191 +1,163 @@
 {
  "calls_read": 2447,
- "passages": 11066,
+ "passages": 6374,
  "calls_with_>=1": 1662,
- "median_chars": 574,
+ "median_chars": 601,
  "top_names": [
   [
    "Amazon",
-   636
-  ],
-  [
-   "Google",
-   625
+   464
   ],
   [
    "Microsoft",
-   599
+   456
   ],
   [
-   "Slack",
-   470
+   "Google",
+   431
   ],
   [
    "Apple",
-   388
+   314
   ],
   [
    "Samsung",
-   355
+   283
   ],
   [
-   "Walmart",
-   298
-  ],
-  [
-   "Huawei",
-   293
+   "Slack",
+   237
   ],
   [
    "Verizon",
-   279
+   235
   ],
   [
    "AWS",
-   273
+   225
   ],
   [
-   "AT&T",
-   258
+   "Walmart",
+   223
   ],
   [
    "Salesforce",
-   256
+   219
+  ],
+  [
+   "AT&T",
+   209
+  ],
+  [
+   "Huawei",
+   197
   ],
   [
    "Disney",
-   212
+   169
   ],
   [
    "NVIDIA",
-   201
+   167
   ],
   [
    "Netflix",
-   181
-  ],
-  [
-   "Boeing",
-   155
+   136
   ],
   [
    "Ford",
-   154
+   125
   ],
   [
-   "Blackstone",
-   130
+   "Boeing",
+   122
   ],
   [
    "Zoom",
-   115
+   96
   ],
   [
    "Volkswagen",
-   109
-  ],
-  [
-   "Gartner",
-   103
+   91
   ],
   [
    "IBM",
-   103
+   90
   ],
   [
-   "BioNTech",
-   101
-  ],
-  [
-   "Waymo",
-   100
-  ],
-  [
-   "Siemens",
-   93
-  ],
-  [
-   "Tesla",
-   89
-  ],
-  [
-   "Intel",
+   "Gartner",
    85
   ],
   [
-   "Adobe",
+   "Blackstone",
+   84
+  ],
+  [
+   "Tesla",
    83
   ],
   [
-   "Meta",
-   78
+   "Adobe",
+   80
   ],
   [
-   "Visa",
-   78
+   "Siemens",
+   79
   ],
   [
-   "Uber",
-   78
+   "Intel",
+   75
   ],
   [
-   "Dell",
-   77
-  ],
-  [
-   "Oracle",
-   76
-  ],
-  [
-   "Snowflake",
-   76
-  ],
-  [
-   "BlackRock",
+   "BioNTech",
    71
   ],
   [
-   "Accenture",
+   "Dell",
    69
   ],
   [
-   "Home Depot",
-   69
+   "Uber",
+   67
   ],
   [
-   "ServiceNow",
-   66
-  ],
-  [
-   "Centene",
+   "Oracle",
    65
   ],
   [
-   "Bechtel",
-   64
+   "Meta",
+   63
   ],
   [
-   "Xiaomi",
+   "BlackRock",
    62
   ],
   [
-   "Cisco",
+   "ServiceNow",
    61
   ],
   [
-   "Foxconn",
-   60
+   "Accenture",
+   61
   ],
   [
-   "Pfizer",
-   59
+   "Xiaomi",
+   61
   ],
   [
-   "Nexera Energy",
-   59
+   "Visa",
+   58
   ],
   [
-   "Shell",
+   "Centene",
+   58
+  ],
+  [
+   "Waymo",
+   58
+  ],
+  [
+   "Cisco",
    57
   ],
   [
@@ -193,16 +165,44 @@
    57
   ],
   [
-   "Chevron",
-   56
+   "Snowflake",
+   55
+  ],
+  [
+   "Bechtel",
+   55
+  ],
+  [
+   "Pfizer",
+   54
+  ],
+  [
+   "AMD",
+   51
+  ],
+  [
+   "Shell",
+   51
   ],
   [
    "Facebook",
-   55
+   49
+  ],
+  [
+   "Chevron",
+   48
+  ],
+  [
+   "Home Depot",
+   46
+  ],
+  [
+   "Moderna",
+   46
   ],
   [
    "TSMC",
-   55
+   46
   ]
  ]
 }

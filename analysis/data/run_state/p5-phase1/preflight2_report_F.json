@@ -1,0 +1,18 @@
+{
+ "requests": 40,
+ "unparseable_or_error": 1,
+ "max_tokens": 1,
+ "links": 110,
+ "quote_fail": 0,
+ "quote_fail_pct": 0.0,
+ "label_counts": {
+  "COMPETITOR": 33,
+  "OTHER": 39,
+  "SUPPLIER": 5,
+  "PARTNER": 24,
+  "CUSTOMER": 9
+ },
+ "top_label_share_pct": 35.5,
+ "cost": 0.0898,
+ "STOP": true
+}
