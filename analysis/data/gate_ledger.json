@@ -689,5 +689,88 @@
     "final_reason": "The pre-registered lead-lag gate (x->y1, tight minus control, range above zero) failed; range includes zero. Per design \u00a73, P5 stops. Tight peer map kept as an allocator input, independent of whether it works as an analyst read-ahead signal.",
     "cost_usd": 19.26,
     "cost_note": "phase 1 extraction $19.24 (wrap-ups/P5-phase1-peer-map-out.md) plus phase 0b's link-type read $0.02 (wrap-ups/P5-phase0b-link-sources-out.md); phase 0 and phase 2a were $0 each; corrected from the prompt's suggested ~$19.35 (which I initially over-stated the phase 0b component of, at $0.11) after checking the source wrap-up"
+  },
+  {
+    "date": "2026-09-27",
+    "label": "CS1: consensus-surprise overlay on B's non-bearish train calls (full test)",
+    "change_class": "analyst",
+    "change_class_detail": "input_candidate",
+    "hurdle": "pre-registered primary (PROMPT_ARCHITECTURE.md 2.2, CS1; review docs/handoffs/2026-09-27-consensus-full-test-review.md)",
+    "primary_metric": "rank correlation of quarter-adjusted SUE_p (Alpha Vantage EARNINGS) with the 182-day tradeable-entry return vs SPY, among train calls B scored >=0 (mean of two draws)",
+    "champion": "none (input-candidate probe, not a champion comparison)",
+    "challenger": "CS1 (consensus-surprise overlay)",
+    "split": "train",
+    "built_by": "hand (consensus-surprise); figures from analysis/data/run_state/consensus-surprise/full_results.json",
+    "holdout": "locked \u2014 not touched",
+    "tune": "not run \u2014 train primary did not pass (per the review, the tune look is spent only on a clean train pass)",
+    "metrics": {
+      "primary": {
+        "n": 859,
+        "rho": 0.069,
+        "range": [
+          -0.013,
+          0.148
+        ],
+        "passes": false,
+        "source": "wrap-ups/consensus-surprise-test-out.md"
+      },
+      "condition_a_unscreened": {
+        "n": 542,
+        "rho": 0.01,
+        "range": [
+          -0.081,
+          0.115
+        ],
+        "positive_point_estimate": true
+      },
+      "condition_b_leave_one_year_out": {
+        "all_positive": true,
+        "min": 0.02,
+        "min_year_dropped": "2025"
+      },
+      "sector_quarter_adjusted": {
+        "rho": 0.058,
+        "range": [
+          -0.02,
+          0.136
+        ]
+      },
+      "reported_only_combined_with_B_all_matched": {
+        "rho": 0.113,
+        "range": [
+          0.054,
+          0.17
+        ],
+        "note": "not the pre-registered primary; the review named this exact reading as too easy to pass on the misses, and excluded it as the decision criterion"
+      },
+      "eps_scale_split": {
+        "ge1pct_price": {
+          "n": 558,
+          "rho": 0.073,
+          "range": [
+            -0.033,
+            0.178
+          ]
+        },
+        "lt1pct_price": {
+          "n": 301,
+          "rho": 0.044,
+          "range": [
+            -0.053,
+            0.14
+          ]
+        }
+      },
+      "coverage": {
+        "n_matched": 1171,
+        "n_train_calls": 1201,
+        "match_rate_pct": 97.5,
+        "n_companies": 53
+      }
+    },
+    "final_verdict": "FAIL (provisional, pending 8 point-in-time checks)",
+    "final_reason": "The pre-registered primary (surprise among B>=0 calls) does not clear zero (range -0.013 to +0.148), even though both individually-checked conditions (unscreened sign, leave-one-year-out) were met on their own terms. A reading that does not itself pass cannot be labelled clean, borderline, or 'one year's effect'.",
+    "provisional_note": "Per review section D, this verdict is PROVISIONAL pending 8 point-in-time spot-checks of the vendor's estimate (5 unflagged + 3 flagged rows, full_results.json). The CLI does not record this as final; Luis or Cowork records the final verdict in the state of play.",
+    "cost_usd": 0
   }
 ]
