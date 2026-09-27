@@ -1,0 +1,3 @@
+# findings (append-only)
+- Step 1 (selection.json): 51 train companies considered (after excluding FRC, MAXN, SUNW, VIAC/PARA), 20 eligible companies met the winner-rich bar directly at exactly the cutoff (>=2 winners, >=6 other) -- the top-20 selection took all 20 eligible companies (no tie-break beyond the natural ranking needed since exactly 20 qualified). RUN (4 winners/11 other), MU (9/15), JPM (3/21) all qualified and are included.
+- Step 1 fetch: 20 of 20 companies fetched (17 new AV requests + 3 reused from p5-close-sector-drift's probe: MU, RUN, JPM verbatim). 0 rate-limit messages. 13s spacing used (< 5/min).

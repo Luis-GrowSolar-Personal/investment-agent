@@ -1,0 +1,332 @@
+{
+ "n_train_companies_considered": 53,
+ "excluded": [
+  "FRC",
+  "MAXN",
+  "MAXNQ",
+  "PARA",
+  "SUNW",
+  "VIAC"
+ ],
+ "n_eligible": 35,
+ "eligible_all": {
+  "AMPX": {
+   "winners": 5,
+   "other": 8,
+   "total": 13
+  },
+  "BMY": {
+   "winners": 2,
+   "other": 22,
+   "total": 24
+  },
+  "BOX": {
+   "winners": 3,
+   "other": 18,
+   "total": 21
+  },
+  "CMI": {
+   "winners": 3,
+   "other": 20,
+   "total": 23
+  },
+  "COF": {
+   "winners": 6,
+   "other": 17,
+   "total": 23
+  },
+  "COST": {
+   "winners": 2,
+   "other": 22,
+   "total": 24
+  },
+  "DD": {
+   "winners": 3,
+   "other": 21,
+   "total": 24
+  },
+  "DIOD": {
+   "winners": 2,
+   "other": 18,
+   "total": 20
+  },
+  "ELV": {
+   "winners": 2,
+   "other": 21,
+   "total": 23
+  },
+  "EOSE": {
+   "winners": 9,
+   "other": 11,
+   "total": 20
+  },
+  "EQIX": {
+   "winners": 2,
+   "other": 22,
+   "total": 24
+  },
+  "HCA": {
+   "winners": 6,
+   "other": 17,
+   "total": 23
+  },
+  "INTC": {
+   "winners": 4,
+   "other": 19,
+   "total": 23
+  },
+  "JKS": {
+   "winners": 4,
+   "other": 17,
+   "total": 21
+  },
+  "JPM": {
+   "winners": 3,
+   "other": 21,
+   "total": 24
+  },
+  "LLY": {
+   "winners": 9,
+   "other": 15,
+   "total": 24
+  },
+  "MRK": {
+   "winners": 4,
+   "other": 20,
+   "total": 24
+  },
+  "MS": {
+   "winners": 2,
+   "other": 22,
+   "total": 24
+  },
+  "MU": {
+   "winners": 9,
+   "other": 15,
+   "total": 24
+  },
+  "NEM": {
+   "winners": 8,
+   "other": 16,
+   "total": 24
+  },
+  "NOW": {
+   "winners": 5,
+   "other": 19,
+   "total": 24
+  },
+  "NXPI": {
+   "winners": 2,
+   "other": 19,
+   "total": 21
+  },
+  "OXY": {
+   "winners": 6,
+   "other": 18,
+   "total": 24
+  },
+  "PH": {
+   "winners": 2,
+   "other": 22,
+   "total": 24
+  },
+  "PSX": {
+   "winners": 7,
+   "other": 16,
+   "total": 23
+  },
+  "QCOM": {
+   "winners": 4,
+   "other": 20,
+   "total": 24
+  },
+  "QS": {
+   "winners": 2,
+   "other": 18,
+   "total": 20
+  },
+  "ROK": {
+   "winners": 2,
+   "other": 22,
+   "total": 24
+  },
+  "RUN": {
+   "winners": 4,
+   "other": 11,
+   "total": 15
+  },
+  "TEAM": {
+   "winners": 3,
+   "other": 17,
+   "total": 20
+  },
+  "TMO": {
+   "winners": 4,
+   "other": 20,
+   "total": 24
+  },
+  "TMUS": {
+   "winners": 2,
+   "other": 19,
+   "total": 21
+  },
+  "TTD": {
+   "winners": 4,
+   "other": 16,
+   "total": 20
+  },
+  "UPS": {
+   "winners": 2,
+   "other": 22,
+   "total": 24
+  },
+  "WMB": {
+   "winners": 3,
+   "other": 21,
+   "total": 24
+  }
+ },
+ "selected": [
+  {
+   "ticker": "LLY",
+   "winners": 9,
+   "other": 15,
+   "total": 24
+  },
+  {
+   "ticker": "MU",
+   "winners": 9,
+   "other": 15,
+   "total": 24
+  },
+  {
+   "ticker": "EOSE",
+   "winners": 9,
+   "other": 11,
+   "total": 20
+  },
+  {
+   "ticker": "NEM",
+   "winners": 8,
+   "other": 16,
+   "total": 24
+  },
+  {
+   "ticker": "PSX",
+   "winners": 7,
+   "other": 16,
+   "total": 23
+  },
+  {
+   "ticker": "OXY",
+   "winners": 6,
+   "other": 18,
+   "total": 24
+  },
+  {
+   "ticker": "COF",
+   "winners": 6,
+   "other": 17,
+   "total": 23
+  },
+  {
+   "ticker": "HCA",
+   "winners": 6,
+   "other": 17,
+   "total": 23
+  },
+  {
+   "ticker": "NOW",
+   "winners": 5,
+   "other": 19,
+   "total": 24
+  },
+  {
+   "ticker": "AMPX",
+   "winners": 5,
+   "other": 8,
+   "total": 13
+  },
+  {
+   "ticker": "MRK",
+   "winners": 4,
+   "other": 20,
+   "total": 24
+  },
+  {
+   "ticker": "QCOM",
+   "winners": 4,
+   "other": 20,
+   "total": 24
+  },
+  {
+   "ticker": "TMO",
+   "winners": 4,
+   "other": 20,
+   "total": 24
+  },
+  {
+   "ticker": "INTC",
+   "winners": 4,
+   "other": 19,
+   "total": 23
+  },
+  {
+   "ticker": "JKS",
+   "winners": 4,
+   "other": 17,
+   "total": 21
+  },
+  {
+   "ticker": "TTD",
+   "winners": 4,
+   "other": 16,
+   "total": 20
+  },
+  {
+   "ticker": "RUN",
+   "winners": 4,
+   "other": 11,
+   "total": 15
+  },
+  {
+   "ticker": "DD",
+   "winners": 3,
+   "other": 21,
+   "total": 24
+  },
+  {
+   "ticker": "JPM",
+   "winners": 3,
+   "other": 21,
+   "total": 24
+  },
+  {
+   "ticker": "WMB",
+   "winners": 3,
+   "other": 21,
+   "total": 24
+  }
+ ],
+ "n_selected": 20,
+ "RUN_MU_JPM_status": {
+  "RUN": {
+   "winners": 4,
+   "other": 11,
+   "total": 15,
+   "selected": true
+  },
+  "MU": {
+   "winners": 9,
+   "other": 15,
+   "total": 24,
+   "selected": true
+  },
+  "JPM": {
+   "winners": 3,
+   "other": 21,
+   "total": 24,
+   "selected": true
+  }
+ }
+}
