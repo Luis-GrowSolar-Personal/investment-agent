@@ -1,0 +1,178 @@
+{
+ "fetch_order": [
+  {
+   "ticker": "ABBV"
+  },
+  {
+   "ticker": "AEP"
+  },
+  {
+   "ticker": "AIG"
+  },
+  {
+   "ticker": "AMPX"
+  },
+  {
+   "ticker": "BLK"
+  },
+  {
+   "ticker": "BMY"
+  },
+  {
+   "ticker": "BOX"
+  },
+  {
+   "ticker": "CMCSA"
+  },
+  {
+   "ticker": "CMI"
+  },
+  {
+   "ticker": "COF"
+  },
+  {
+   "ticker": "COST"
+  },
+  {
+   "ticker": "DD"
+  },
+  {
+   "ticker": "DIOD"
+  },
+  {
+   "ticker": "DOW"
+  },
+  {
+   "ticker": "DUK"
+  },
+  {
+   "ticker": "ELV"
+  },
+  {
+   "ticker": "EMR"
+  },
+  {
+   "ticker": "EOSE"
+  },
+  {
+   "ticker": "EQIX"
+  },
+  {
+   "ticker": "FRC"
+  },
+  {
+   "ticker": "HCA"
+  },
+  {
+   "ticker": "HON"
+  },
+  {
+   "ticker": "IBM"
+  },
+  {
+   "ticker": "INTC"
+  },
+  {
+   "ticker": "ITW"
+  },
+  {
+   "ticker": "JKS"
+  },
+  {
+   "ticker": "JPM"
+  },
+  {
+   "ticker": "KMB"
+  },
+  {
+   "ticker": "LLY"
+  },
+  {
+   "ticker": "MAXNQ"
+  },
+  {
+   "ticker": "MMM"
+  },
+  {
+   "ticker": "MRK"
+  },
+  {
+   "ticker": "MS"
+  },
+  {
+   "ticker": "MSFT"
+  },
+  {
+   "ticker": "MU"
+  },
+  {
+   "ticker": "NEM"
+  },
+  {
+   "ticker": "NOW"
+  },
+  {
+   "ticker": "NXPI"
+  },
+  {
+   "ticker": "OXY"
+  },
+  {
+   "ticker": "PARA"
+  },
+  {
+   "ticker": "PG"
+  },
+  {
+   "ticker": "PH"
+  },
+  {
+   "ticker": "PSX"
+  },
+  {
+   "ticker": "QCOM"
+  },
+  {
+   "ticker": "QS"
+  },
+  {
+   "ticker": "ROK"
+  },
+  {
+   "ticker": "RUN"
+  },
+  {
+   "ticker": "SIRI"
+  },
+  {
+   "ticker": "SLAB"
+  },
+  {
+   "ticker": "SUNW"
+  },
+  {
+   "ticker": "TEAM"
+  },
+  {
+   "ticker": "TFC"
+  },
+  {
+   "ticker": "TMO"
+  },
+  {
+   "ticker": "TMUS"
+  },
+  {
+   "ticker": "TTD"
+  },
+  {
+   "ticker": "UPS"
+  },
+  {
+   "ticker": "WMB"
+  }
+ ],
+ "n": 57,
+ "original_count": 57,
+ "note": "working symbols via TICKER_ALIASES.json; ANTM->ELV, VIAC->PARA etc; FRC/MAXNQ/SUNW/PARA tried once and recorded if empty"
+}
