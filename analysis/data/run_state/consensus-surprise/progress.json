@@ -4,13 +4,13 @@
   "cost_usd": 0,
   "steps": {
     "step0": "done",
-    "step1": "pending",
+    "step1": "done (57/57)",
     "step2": "pending",
     "step3": "pending",
     "stepE_tune": "pending",
     "report": "pending"
   },
-  "next_action": "step1 fetch",
+  "next_action": "step2-3 matching, primary reading, conditions B(a)(b), sector label, tune pre-registration check",
   "notes": [
     "verified: prompt's Full-test review amendments section (A-F) matches docs/handoffs/2026-09-27-consensus-full-test-review.md's 6 answers"
   ]

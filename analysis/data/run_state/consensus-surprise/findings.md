@@ -1,0 +1,2 @@
+# findings (append-only)
+- Step 1 (one session, premium key): 57 of 57 train companies fetched or cached (20 reused verbatim from the screen's saved files, 37 fetched fresh with AV_API_KEY_PREMIUM). 0 rate-limit messages, no retry needed. FRC, MAXNQ, SUNW returned empty quarterlyEarnings (as expected, tried once). PARA returned 86 quarters (not empty) but stays excluded from all analysis for corrupt prices, per ground rules.
