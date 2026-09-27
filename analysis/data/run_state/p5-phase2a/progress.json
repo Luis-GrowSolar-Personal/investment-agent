@@ -12,9 +12,9 @@
     "step2": "done (gate: P5 stops)",
     "step3": "skipped (gate failed)",
     "step4": "done",
-    "report": "in_progress"
+    "report": "done"
   },
-  "next_action": "wrap-up, push",
+  "next_action": "none; run complete",
   "notes": [
     "review verified: prompt Step 2 reflects both review changes (peer-sector control excluding all phase1 peers; lead-lag x->y1 gate replacing co-movement) and the cache-name fix; C2 mutual-competitor rule is a Luis addition not in the review file, noted",
     "correction: edgar_requests_used was mistakenly hand-set to 7 in an earlier note; the true total is 175 (173 from p5p2a_tight.py's SIC fetch, tight_report.json -> sec_requests_used; 2 from p5p2a_gaps.py's XOM fetch)"
