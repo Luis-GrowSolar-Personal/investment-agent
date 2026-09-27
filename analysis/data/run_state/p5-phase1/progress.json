@@ -7,12 +7,12 @@
     "edgar_requests": 1600,
     "vendor_calls": 150
   },
-  "edgar_requests_used": 182,
+  "edgar_requests_used": 1433,
   "vendor_calls_used": 0,
   "steps": {
     "step0": "done",
     "step1": "done",
-    "step2": "in_progress",
+    "step2": "2a done (1,120 10-K/10-K/A fetched); 2b prefilter next",
     "step3": "pending",
     "step4": "pending",
     "step5": "pending",
