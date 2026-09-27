@@ -1,0 +1,109 @@
+{
+ "n_calls": 1217,
+ "n_scored": 1217,
+ "no_price": 0,
+ "overlap_fail_dropped": 0,
+ "assert_no_overlap": "r0's end date (entry_d) equals the 182-day grading window's own start (tradeable entry); checked for every scored row, none failed after the drop rule",
+ "rho_r0": {
+  "value": -0.033046254406452195,
+  "range": [
+   -0.09811996301387677,
+   0.03493538317543103
+  ]
+ },
+ "rho_own": {
+  "value": 0.1205297710754951,
+  "range": [
+   0.04332361766526969,
+   0.19410713011062905
+  ]
+ },
+ "rho_combined": {
+  "value": 0.05095378411676643,
+  "range": [
+   -0.02142498946366836,
+   0.1201435937476322
+  ]
+ },
+ "combined_minus_own": {
+  "value": -0.06957598695872867,
+  "range": [
+   -0.11237441402024972,
+   -0.023151984142324243
+  ]
+ },
+ "top235_by_r0": {
+  "n": 235,
+  "graded": 235,
+  "hit_pct": 36.6,
+  "big_winner_n": 34,
+  "big_winner_pct": 14.5,
+  "big_winner_wilson": [
+   10.5,
+   19.5
+  ]
+ },
+ "top235_by_combined": {
+  "n": 235,
+  "graded": 235,
+  "hit_pct": 37.9,
+  "big_winner_n": 32,
+  "big_winner_pct": 13.6,
+  "big_winner_wilson": [
+   9.8,
+   18.6
+  ]
+ },
+ "base_big_winner_pct": 12.6,
+ "bottom191_by_r0": {
+  "n": 191,
+  "graded": 191,
+  "hit_pct": 53.4
+ },
+ "by_year": {
+  "2020": {
+   "n": 162,
+   "rho_r0": -0.01439960709099146
+  },
+  "2021": {
+   "n": 201,
+   "rho_r0": -0.20032658489729574
+  },
+  "2022": {
+   "n": 215,
+   "rho_r0": -0.05852713178294573
+  },
+  "2023": {
+   "n": 218,
+   "rho_r0": 0.05994953288673162
+  },
+  "2024": {
+   "n": 212,
+   "rho_r0": -0.03055442554279446
+  },
+  "2025": {
+   "n": 209,
+   "rho_r0": 0.01030416951469583
+  }
+ },
+ "by_year_2020_vs_rest": {
+  "2020": {
+   "n": 162,
+   "rho_r0": -0.01439960709099146
+  },
+  "ex_2020": {
+   "n": 1055,
+   "rho_r0": -0.036614082541468175
+  }
+ },
+ "within_sector_year_r0": {
+  "weighted_rho": -0.03882025097541328,
+  "n_cells_ge12": 55,
+  "share_of_calls_pct": 86.9
+ },
+ "readings": {
+  "drift_present": false,
+  "drift_finds_winners": false,
+  "drift_adds_to_B": false
+ }
+}
