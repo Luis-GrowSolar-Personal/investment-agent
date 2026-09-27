@@ -1,0 +1,70 @@
+{
+ "total_requests": 3838,
+ "dropped_after_retry": 10,
+ "dropped_pct": 0.26,
+ "dropped_ids": [
+  "F__ea475bfca1fd9bcf__CHTR",
+  "F__5d08404e1b61a9f4__CRM",
+  "F__2450212036ed1d70__WDAY",
+  "F__d54b91d143df7861__CRM",
+  "F__485193b8d4dc3115__SLAB",
+  "F__03caf6baa4290a3f__AAPL",
+  "F__89cc3b79d8f23dd5__DUK",
+  "F__1f8e42af1e92501b__CI",
+  "F__66e0c14814cef52c__DIOD",
+  "F__64e69493b441ddab__COF"
+ ],
+ "dropped_detail": [
+  {
+   "id": "F__ea475bfca1fd9bcf__CHTR",
+   "reason": "end_turn"
+  },
+  {
+   "id": "F__5d08404e1b61a9f4__CRM",
+   "reason": "end_turn"
+  },
+  {
+   "id": "F__2450212036ed1d70__WDAY",
+   "reason": "end_turn"
+  },
+  {
+   "id": "F__d54b91d143df7861__CRM",
+   "reason": "end_turn"
+  },
+  {
+   "id": "F__485193b8d4dc3115__SLAB",
+   "reason": "end_turn"
+  },
+  {
+   "id": "F__03caf6baa4290a3f__AAPL",
+   "reason": "end_turn"
+  },
+  {
+   "id": "F__89cc3b79d8f23dd5__DUK",
+   "reason": "end_turn"
+  },
+  {
+   "id": "F__1f8e42af1e92501b__CI",
+   "reason": "end_turn"
+  },
+  {
+   "id": "F__66e0c14814cef52c__DIOD",
+   "reason": "end_turn"
+  },
+  {
+   "id": "F__64e69493b441ddab__COF",
+   "reason": "end_turn"
+  }
+ ],
+ "kept_links": 13833,
+ "quote_fail_after_retry": 128,
+ "label_counts": {
+  "COMPETITOR": 5499,
+  "OTHER": 3676,
+  "SUPPLIER": 808,
+  "PARTNER": 2205,
+  "CUSTOMER": 1773
+ },
+ "cost": 8.7093,
+ "STOP_over_2pct": false
+}
