@@ -10,14 +10,15 @@
   "edgar_requests_used": 182,
   "vendor_calls_used": 0,
   "steps": {
-    "step0": "in_progress",
-    "step1": "pending",
-    "step2": "pending",
+    "step0": "done",
+    "step1": "done",
+    "step2": "in_progress",
     "step3": "pending",
     "step4": "pending",
     "step5": "pending",
     "report": "pending"
   },
-  "next_action": "commit prompt/review/hand map; validate hand map",
-  "notes": []
+  "next_action": "step 2a: list and fetch 10-Ks (selective overflow)",
+  "notes": [],
+  "luis_approved_usd": 20
 }

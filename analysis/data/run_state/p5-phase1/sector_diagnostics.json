@@ -1,0 +1,551 @@
+{
+ "sector_map_counts": {
+  "semis": 19,
+  "solar/storage/clean energy": 13,
+  "software/IT": 14,
+  "internet/media": 11,
+  "banks/financials": 21,
+  "pharma/health": 15,
+  "energy (oil & gas)": 10,
+  "utilities": 9,
+  "industrials": 19,
+  "consumer staples": 12,
+  "consumer discretionary/retail": 5,
+  "telecom": 3,
+  "REITs": 6,
+  "materials": 6,
+  "other": 1
+ },
+ "solar_moved": [
+  "ARRY",
+  "CSIQ",
+  "EOSE",
+  "FSLR",
+  "JKS",
+  "MAXNQ",
+  "NOVA",
+  "QS",
+  "RUN",
+  "SEDG",
+  "SHLS",
+  "SPWR",
+  "SUNW"
+ ],
+ "solar_not_moved_flagged": [
+  "AMPX",
+  "ENVX",
+  "AMSC",
+  "BLDP"
+ ],
+ "1b_winners_by_sector_year": {
+  "table": {
+   "semis": {
+    "2020": {
+     "calls": 12,
+     "big_winner_share_pct": 41.7,
+     "winners": 5
+    },
+    "2021": {
+     "calls": 21,
+     "big_winner_share_pct": 4.8,
+     "winners": 1
+    },
+    "2022": {
+     "calls": 24,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2023": {
+     "calls": 24,
+     "big_winner_share_pct": 25.0,
+     "winners": 6
+    },
+    "2024": {
+     "calls": 24,
+     "big_winner_share_pct": 4.2,
+     "winners": 1
+    },
+    "2025": {
+     "calls": 24,
+     "big_winner_share_pct": 37.5,
+     "winners": 9
+    }
+   },
+   "solar/storage/clean energy": {
+    "2020": {
+     "calls": 3,
+     "big_winner_share_pct": 33.3,
+     "winners": 1
+    },
+    "2021": {
+     "calls": 14,
+     "big_winner_share_pct": 14.3,
+     "winners": 2
+    },
+    "2022": {
+     "calls": 19,
+     "big_winner_share_pct": 21.1,
+     "winners": 4
+    },
+    "2023": {
+     "calls": 20,
+     "big_winner_share_pct": 5.0,
+     "winners": 1
+    },
+    "2024": {
+     "calls": 16,
+     "big_winner_share_pct": 31.2,
+     "winners": 5
+    },
+    "2025": {
+     "calls": 14,
+     "big_winner_share_pct": 57.1,
+     "winners": 8
+    }
+   },
+   "software/IT": {
+    "2020": {
+     "calls": 14,
+     "big_winner_share_pct": 21.4,
+     "winners": 3
+    },
+    "2021": {
+     "calls": 20,
+     "big_winner_share_pct": 10.0,
+     "winners": 2
+    },
+    "2022": {
+     "calls": 20,
+     "big_winner_share_pct": 5.0,
+     "winners": 1
+    },
+    "2023": {
+     "calls": 20,
+     "big_winner_share_pct": 15.0,
+     "winners": 3
+    },
+    "2024": {
+     "calls": 20,
+     "big_winner_share_pct": 20.0,
+     "winners": 4
+    },
+    "2025": {
+     "calls": 19,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    }
+   },
+   "internet/media": {
+    "2020": {
+     "calls": 4,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2021": {
+     "calls": 12,
+     "big_winner_share_pct": 8.3,
+     "winners": 1
+    },
+    "2022": {
+     "calls": 12,
+     "big_winner_share_pct": 16.7,
+     "winners": 2
+    },
+    "2023": {
+     "calls": 12,
+     "big_winner_share_pct": 8.3,
+     "winners": 1
+    },
+    "2024": {
+     "calls": 12,
+     "big_winner_share_pct": 8.3,
+     "winners": 1
+    },
+    "2025": {
+     "calls": 12,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    }
+   },
+   "banks/financials": {
+    "2020": {
+     "calls": 25,
+     "big_winner_share_pct": 32.0,
+     "winners": 8
+    },
+    "2021": {
+     "calls": 28,
+     "big_winner_share_pct": 7.1,
+     "winners": 2
+    },
+    "2022": {
+     "calls": 28,
+     "big_winner_share_pct": 7.1,
+     "winners": 2
+    },
+    "2023": {
+     "calls": 28,
+     "big_winner_share_pct": 3.6,
+     "winners": 1
+    },
+    "2024": {
+     "calls": 28,
+     "big_winner_share_pct": 7.1,
+     "winners": 2
+    },
+    "2025": {
+     "calls": 28,
+     "big_winner_share_pct": 3.6,
+     "winners": 1
+    }
+   },
+   "pharma/health": {
+    "2020": {
+     "calls": 22,
+     "big_winner_share_pct": 18.2,
+     "winners": 4
+    },
+    "2021": {
+     "calls": 25,
+     "big_winner_share_pct": 24.0,
+     "winners": 6
+    },
+    "2022": {
+     "calls": 24,
+     "big_winner_share_pct": 25.0,
+     "winners": 6
+    },
+    "2023": {
+     "calls": 24,
+     "big_winner_share_pct": 16.7,
+     "winners": 4
+    },
+    "2024": {
+     "calls": 24,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2025": {
+     "calls": 24,
+     "big_winner_share_pct": 25.0,
+     "winners": 6
+    }
+   },
+   "energy (oil & gas)": {
+    "2020": {
+     "calls": 12,
+     "big_winner_share_pct": 25.0,
+     "winners": 3
+    },
+    "2021": {
+     "calls": 11,
+     "big_winner_share_pct": 36.4,
+     "winners": 4
+    },
+    "2022": {
+     "calls": 12,
+     "big_winner_share_pct": 25.0,
+     "winners": 3
+    },
+    "2023": {
+     "calls": 12,
+     "big_winner_share_pct": 16.7,
+     "winners": 2
+    },
+    "2024": {
+     "calls": 12,
+     "big_winner_share_pct": 8.3,
+     "winners": 1
+    },
+    "2025": {
+     "calls": 12,
+     "big_winner_share_pct": 25.0,
+     "winners": 3
+    }
+   },
+   "utilities": {
+    "2020": {
+     "calls": 7,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2021": {
+     "calls": 7,
+     "big_winner_share_pct": 14.3,
+     "winners": 1
+    },
+    "2022": {
+     "calls": 8,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2023": {
+     "calls": 8,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2024": {
+     "calls": 8,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2025": {
+     "calls": 8,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    }
+   },
+   "industrials": {
+    "2020": {
+     "calls": 35,
+     "big_winner_share_pct": 8.6,
+     "winners": 3
+    },
+    "2021": {
+     "calls": 32,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2022": {
+     "calls": 32,
+     "big_winner_share_pct": 3.1,
+     "winners": 1
+    },
+    "2023": {
+     "calls": 36,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2024": {
+     "calls": 36,
+     "big_winner_share_pct": 8.3,
+     "winners": 3
+    },
+    "2025": {
+     "calls": 36,
+     "big_winner_share_pct": 22.2,
+     "winners": 8
+    }
+   },
+   "consumer staples": {
+    "2020": {
+     "calls": 11,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2021": {
+     "calls": 12,
+     "big_winner_share_pct": 16.7,
+     "winners": 2
+    },
+    "2022": {
+     "calls": 12,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2023": {
+     "calls": 12,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2024": {
+     "calls": 12,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2025": {
+     "calls": 12,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    }
+   },
+   "telecom": {
+    "2020": {
+     "calls": 1,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2021": {
+     "calls": 4,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2022": {
+     "calls": 4,
+     "big_winner_share_pct": 25.0,
+     "winners": 1
+    },
+    "2023": {
+     "calls": 4,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2024": {
+     "calls": 4,
+     "big_winner_share_pct": 25.0,
+     "winners": 1
+    },
+    "2025": {
+     "calls": 4,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    }
+   },
+   "REITs": {
+    "2020": {
+     "calls": 4,
+     "big_winner_share_pct": 25.0,
+     "winners": 1
+    },
+    "2021": {
+     "calls": 4,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2022": {
+     "calls": 4,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2023": {
+     "calls": 4,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2024": {
+     "calls": 4,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2025": {
+     "calls": 4,
+     "big_winner_share_pct": 25.0,
+     "winners": 1
+    }
+   },
+   "materials": {
+    "2020": {
+     "calls": 12,
+     "big_winner_share_pct": 16.7,
+     "winners": 2
+    },
+    "2021": {
+     "calls": 11,
+     "big_winner_share_pct": 9.1,
+     "winners": 1
+    },
+    "2022": {
+     "calls": 12,
+     "big_winner_share_pct": 8.3,
+     "winners": 1
+    },
+    "2023": {
+     "calls": 12,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2024": {
+     "calls": 12,
+     "big_winner_share_pct": 16.7,
+     "winners": 2
+    },
+    "2025": {
+     "calls": 12,
+     "big_winner_share_pct": 50.0,
+     "winners": 6
+    }
+   },
+   "other": {
+    "2022": {
+     "calls": 4,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    },
+    "2023": {
+     "calls": 2,
+     "big_winner_share_pct": 0.0,
+     "winners": 0
+    }
+   }
+  },
+  "overall_winner_share_pct": 12.6
+ },
+ "1b_top_cells_by_winner_share_min12": [
+  {
+   "sector": "solar/storage/clean energy",
+   "year": "2025",
+   "calls": 14,
+   "winner_share_pct": 57.1
+  },
+  {
+   "sector": "materials",
+   "year": "2025",
+   "calls": 12,
+   "winner_share_pct": 50.0
+  },
+  {
+   "sector": "semis",
+   "year": "2020",
+   "calls": 12,
+   "winner_share_pct": 41.7
+  },
+  {
+   "sector": "semis",
+   "year": "2025",
+   "calls": 24,
+   "winner_share_pct": 37.5
+  },
+  {
+   "sector": "banks/financials",
+   "year": "2020",
+   "calls": 25,
+   "winner_share_pct": 32.0
+  },
+  {
+   "sector": "solar/storage/clean energy",
+   "year": "2024",
+   "calls": 16,
+   "winner_share_pct": 31.2
+  }
+ ],
+ "1c_within_sector_year": {
+  "share_of_calls_in_cells_ge12_pct": 88.7,
+  "n_cells_ge12": 55,
+  "draw1": {
+   "weighted_within_cell_rho": 0.06973099335036168,
+   "range": [
+    -0.031699501527210454,
+    0.14015859513121615
+   ],
+   "valid_draws": 2000,
+   "overall_rho": 0.13031526626544512
+  },
+  "draw2": {
+   "weighted_within_cell_rho": 0.04622894792358807,
+   "range": [
+    -0.06334078719226283,
+    0.11056832374700601
+   ],
+   "valid_draws": 2000,
+   "overall_rho": 0.09924451368604857
+  }
+ },
+ "1c_reading": "B's ranking is mostly across sectors",
+ "1d_call_over_call": {
+  "n": 1162,
+  "draw1": {
+   "rho": 0.07486754693156744,
+   "range": [
+    0.03163530876507291,
+    0.12032703252823168
+   ]
+  },
+  "draw2": {
+   "rho": 0.01970798766285424,
+   "range": [
+    -0.0296921806775516,
+    0.06995403449152292
+   ]
+  }
+ }
+}
