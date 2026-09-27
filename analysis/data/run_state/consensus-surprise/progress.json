@@ -5,12 +5,12 @@
   "steps": {
     "step0": "done",
     "step1": "done (57/57)",
-    "step2": "pending",
-    "step3": "pending",
-    "stepE_tune": "pending",
-    "report": "pending"
+    "step2": "done",
+    "step3": "done",
+    "stepE_tune": "not run (train failed)",
+    "report": "done"
   },
-  "next_action": "step2-3 matching, primary reading, conditions B(a)(b), sector label, tune pre-registration check",
+  "next_action": "none; run complete; pending 8 point-in-time checks (Luis/Cowork)",
   "notes": [
     "verified: prompt's Full-test review amendments section (A-F) matches docs/handoffs/2026-09-27-consensus-full-test-review.md's 6 answers"
   ]
