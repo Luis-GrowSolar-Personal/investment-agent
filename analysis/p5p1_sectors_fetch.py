@@ -4,7 +4,7 @@ skips files already saved under analysis/data/evals/p5_filings/submissions/. Rec
 import sys, json
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 import p5p1_common as C
-KNOWN_CIK = {"NOVA": 1772695, "SUNW": 1120970}     # not in company_tickers.json; verified by entity name below
+KNOWN_CIK = {"NOVA": 1772695, "SUNW": 1172631}     # SUNW=Sunworks (CIK found via EDGAR company browse; the first guess 1120970 was Comstock Inc., discarded)     
 tk = C.tickers_json(); done = 0; unresolved = []; names = {}
 for orig, work, sp in C.universe():
     cik = int(tk[work]["cik_str"]) if work in tk else KNOWN_CIK.get(work)
