@@ -2,16 +2,16 @@
   "run_id": "consensus-surprise-screen",
   "prompt_sha256": "6a7495459a2f6cfc5a7f505e9b7dc0a0f12c52c366e52115ba6163604ebd488b",
   "cost_usd": 0,
-  "av_requests_used_today": 0,
+  "av_requests_used_today": 17,
   "av_daily_budget": 22,
   "steps": {
     "step0": "in_progress",
-    "step1": "pending",
-    "step2": "pending",
-    "step3": "pending",
-    "report": "pending"
+    "step1": "done",
+    "step2": "done",
+    "step3": "done",
+    "report": "done"
   },
-  "next_action": "commit prompt/full-test/review files; verify review reflected (done); step1 selection",
+  "next_action": "none; run complete",
   "notes": [
     "verified: consensus-surprise-screen.md and consensus-surprise-test.md share an identical 'Review amendments' block (diff empty), so the review is correctly reflected"
   ]
