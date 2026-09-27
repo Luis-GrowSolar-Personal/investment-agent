@@ -1,0 +1,396 @@
+{
+ "n_train_calls_in_selection": 445,
+ "n_matched": 439,
+ "match_rate_pct": 98.7,
+ "unmatched": [
+  {
+   "ticker": "JKS",
+   "date": "2020-06-20"
+  },
+  {
+   "ticker": "JKS",
+   "date": "2021-04-09"
+  },
+  {
+   "ticker": "JPM",
+   "date": "2020-06-24"
+  },
+  {
+   "ticker": "MRK",
+   "date": "2021-06-28"
+  },
+  {
+   "ticker": "OXY",
+   "date": "2020-10-09"
+  },
+  {
+   "ticker": "TMO",
+   "date": "2021-10-21"
+  }
+ ],
+ "n_unmatched": 6,
+ "quarter_medians_n": {
+  "2022Q3": 20,
+  "2022Q4": 20,
+  "2023Q1": 20,
+  "2023Q2": 20,
+  "2023Q3": 20,
+  "2023Q4": 20,
+  "2024Q1": 20,
+  "2024Q2": 20,
+  "2024Q3": 20,
+  "2024Q4": 19,
+  "2025Q1": 20,
+  "2025Q2": 19,
+  "2025Q3": 20,
+  "2020Q1": 14,
+  "2020Q2": 16,
+  "2020Q3": 14,
+  "2020Q4": 15,
+  "2021Q1": 18,
+  "2021Q2": 17,
+  "2021Q3": 18,
+  "2021Q4": 18,
+  "2022Q1": 19,
+  "2022Q2": 19,
+  "2019Q4": 12,
+  "2025Q4": 1
+ },
+ "screen_3groups_sue_p_adj": {
+  "winner_median": 0.009657754819472581,
+  "middle_median": 0.00046757945153277913,
+  "loser_median": -0.021521689402072622,
+  "n_winner": 104,
+  "n_middle": 245,
+  "n_loser": 90,
+  "winner_minus_middle": 0.009190175367939802,
+  "winner_minus_middle_range": [
+   -0.02358991680421035,
+   0.13406652261186164
+  ],
+  "loser_minus_middle": -0.0219892688536054,
+  "loser_minus_middle_range": [
+   -0.07652552450245413,
+   0.0637848830963782
+  ]
+ },
+ "screen_3groups_sue_p_raw": {
+  "winner_median": 0.13920532109250605,
+  "middle_median": 0.11184431271669847,
+  "loser_median": 0.06806502371826031,
+  "n_winner": 104,
+  "n_middle": 245,
+  "n_loser": 90,
+  "winner_minus_middle": 0.027361008375807586,
+  "winner_minus_middle_range": [
+   -0.03923400484824349,
+   0.14993090337464096
+  ],
+  "loser_minus_middle": -0.04377928899843815,
+  "loser_minus_middle_range": [
+   -0.1106389039214195,
+   0.05752513495079259
+  ]
+ },
+ "case_control_winner_vs_other": {
+  "beat_rate_winner_pct": 76.9,
+  "beat_rate_other_pct": 74.0,
+  "median_sue_p_adj_winner": 0.009657754819472581,
+  "median_sue_p_adj_other": -0.001024510445828887,
+  "diff": 0.010682265265301468,
+  "diff_range": [
+   -0.016931066002077083,
+   0.13833604066771543
+  ]
+ },
+ "within_company_share_winner_higher": {
+  "n_testable": 20,
+  "n_higher": 12,
+  "pct": 60.0,
+  "expected_pct": 50
+ },
+ "surprisePercentage_extreme_flag": {
+  "by_company": {
+   "AMPX": {
+    "n": 13,
+    "n_extreme_pct": 1,
+    "share_pct": 7.7
+   },
+   "COF": {
+    "n": 23,
+    "n_extreme_pct": 2,
+    "share_pct": 8.7
+   },
+   "DD": {
+    "n": 24,
+    "n_extreme_pct": 0,
+    "share_pct": 0.0
+   },
+   "EOSE": {
+    "n": 20,
+    "n_extreme_pct": 10,
+    "share_pct": 50.0
+   },
+   "HCA": {
+    "n": 23,
+    "n_extreme_pct": 1,
+    "share_pct": 4.3
+   },
+   "INTC": {
+    "n": 23,
+    "n_extreme_pct": 5,
+    "share_pct": 21.7
+   },
+   "JKS": {
+    "n": 19,
+    "n_extreme_pct": 10,
+    "share_pct": 52.6
+   },
+   "JPM": {
+    "n": 23,
+    "n_extreme_pct": 0,
+    "share_pct": 0.0
+   },
+   "LLY": {
+    "n": 24,
+    "n_extreme_pct": 1,
+    "share_pct": 4.2
+   },
+   "MRK": {
+    "n": 23,
+    "n_extreme_pct": 1,
+    "share_pct": 4.3
+   },
+   "MU": {
+    "n": 24,
+    "n_extreme_pct": 2,
+    "share_pct": 8.3
+   },
+   "NEM": {
+    "n": 24,
+    "n_extreme_pct": 0,
+    "share_pct": 0.0
+   },
+   "NOW": {
+    "n": 24,
+    "n_extreme_pct": 0,
+    "share_pct": 0.0
+   },
+   "OXY": {
+    "n": 23,
+    "n_extreme_pct": 1,
+    "share_pct": 4.3
+   },
+   "PSX": {
+    "n": 23,
+    "n_extreme_pct": 0,
+    "share_pct": 0.0
+   },
+   "QCOM": {
+    "n": 24,
+    "n_extreme_pct": 0,
+    "share_pct": 0.0
+   },
+   "RUN": {
+    "n": 15,
+    "n_extreme_pct": 11,
+    "share_pct": 73.3
+   },
+   "TMO": {
+    "n": 23,
+    "n_extreme_pct": 0,
+    "share_pct": 0.0
+   },
+   "TTD": {
+    "n": 20,
+    "n_extreme_pct": 0,
+    "share_pct": 0.0
+   },
+   "WMB": {
+    "n": 24,
+    "n_extreme_pct": 0,
+    "share_pct": 0.0
+   }
+  },
+  "flagged_ge50pct": [
+   "EOSE",
+   "JKS",
+   "RUN"
+  ]
+ },
+ "item1_with_flagged": {
+  "sue_p_adj": {
+   "value": 0.0737816946338404,
+   "range": [
+    -0.02175857095894481,
+    0.16123740403575934
+   ]
+  },
+  "own": {
+   "value": 0.09139518791338845,
+   "range": [
+    -0.006357604253219679,
+    0.20159004273357406
+   ]
+  },
+  "combined": {
+   "value": 0.13803468866669438,
+   "range": [
+    0.04929617248291173,
+    0.22404257944216166
+   ]
+  },
+  "combined_minus_own": {
+   "value": 0.04663950075330593,
+   "range": [
+    -0.034063361398721764,
+    0.1294511970419176
+   ]
+  },
+  "n": 439
+ },
+ "item1_excl_flagged": {
+  "sue_p_adj": {
+   "value": 0.09450161560135714,
+   "range": [
+    -0.009850235795489808,
+    0.1896123980010795
+   ]
+  },
+  "own": {
+   "value": 0.09097301917965084,
+   "range": [
+    -0.04255502610820612,
+    0.2337510523882984
+   ]
+  },
+  "combined": {
+   "value": 0.15395306675740758,
+   "range": [
+    0.042129531309847215,
+    0.25093463073315636
+   ]
+  },
+  "combined_minus_own": {
+   "value": 0.06298004757775674,
+   "range": [
+    -0.03545350811013711,
+    0.15942976092587066
+   ]
+  },
+  "n": 385
+ },
+ "item2_top19_by_sue_p_adj": {
+  "n": 83,
+  "hit_pct": 47.0,
+  "big_winner_pct": 33.7,
+  "big_winner_wilson": [
+   24.5,
+   44.4
+  ]
+ },
+ "item2_top19_by_combined": {
+  "n": 83,
+  "hit_pct": 50.6,
+  "big_winner_pct": 30.1,
+  "big_winner_wilson": [
+   21.3,
+   40.7
+  ]
+ },
+ "item3_bottom16_by_sue_p_adj": {
+  "n": 70,
+  "hit_pct": 47.1
+ },
+ "item4_persistence": {
+  "n_beat_twice": 260,
+  "n_not": 178,
+  "big_winner_pct_beat_twice": 22.7,
+  "big_winner_pct_others": 25.3,
+  "rho_beat_twice": 0.06195497346294639
+ },
+ "item5_by_year": {
+  "2020": {
+   "n": 56,
+   "rho": -0.03984962406015038
+  },
+  "2021": {
+   "n": 69,
+   "rho": 0.17840864458768174
+  },
+  "2022": {
+   "n": 76,
+   "rho": 0.10116268737548266
+  },
+  "2023": {
+   "n": 80,
+   "rho": 0.06371308016877637
+  },
+  "2024": {
+   "n": 80,
+   "rho": -0.22299578059071729
+  },
+  "2025": {
+   "n": 78,
+   "rho": 0.3660103444649779
+  }
+ },
+ "item5_within_sector_year": {
+  "weighted_rho": -0.0010022023019488231,
+  "n_cells_ge12": 17,
+  "n_in_cells": 225
+ },
+ "item6_sue_vs_r0": {
+  "n": 439,
+  "rho": 0.20263148115460428
+ },
+ "smallest_detectable_rho": 0.091,
+ "spotcheck_rows": [
+  {
+   "ticker": "JKS",
+   "date": "2023-08-14",
+   "reportedDate": "2023-08-14",
+   "sue_p_adj": 6.228,
+   "sue_p": 6.29,
+   "band": "top5%"
+  },
+  {
+   "ticker": "EOSE",
+   "date": "2024-03-05",
+   "reportedDate": "2024-03-04",
+   "sue_p_adj": 8.83,
+   "sue_p": 8.911,
+   "band": "top5%"
+  },
+  {
+   "ticker": "EOSE",
+   "date": "2023-03-01",
+   "reportedDate": "2023-02-28",
+   "sue_p_adj": 8.651,
+   "sue_p": 8.676,
+   "band": "top5%"
+  },
+  {
+   "ticker": "EOSE",
+   "date": "2022-02-25",
+   "reportedDate": "2022-02-25",
+   "sue_p_adj": -3.043,
+   "sue_p": -2.885,
+   "band": "bottom5%"
+  },
+  {
+   "ticker": "EOSE",
+   "date": "2021-02-25",
+   "reportedDate": "2021-02-25",
+   "sue_p_adj": -10.741,
+   "sue_p": -10.625,
+   "band": "bottom5%"
+  }
+ ],
+ "closing_rule": {
+  "screen_negative": true,
+  "rho_sue_r0": 0.20263148115460428,
+  "lead_closed": false
+ },
+ "screen_reading": "does not"
+}
