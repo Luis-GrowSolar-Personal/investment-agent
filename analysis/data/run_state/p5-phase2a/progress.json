@@ -2,19 +2,19 @@
   "run_id": "p5-phase2a",
   "prompt_sha256": "ab27a9741179e392e0bd71f8b584f37f5f90b79626b57385490051bbe1ca3ac2",
   "cost_usd": 0,
-  "edgar_requests_used": 173,
+  "edgar_requests_used": 7,
   "caps": {
     "edgar": 400
   },
   "steps": {
     "step0": "in_progress",
-    "step1": "pending",
-    "step2": "pending",
-    "step3": "pending",
-    "step4": "pending",
-    "report": "pending"
+    "step1": "done",
+    "step2": "done (gate: P5 stops)",
+    "step3": "skipped (gate failed)",
+    "step4": "done",
+    "report": "in_progress"
   },
-  "next_action": "commit prompt, review files, PEER_MAP_REVIEW.csv",
+  "next_action": "wrap-up, push",
   "notes": [
     "review verified: prompt Step 2 reflects both review changes (peer-sector control excluding all phase1 peers; lead-lag x->y1 gate replacing co-movement) and the cache-name fix; C2 mutual-competitor rule is a Luis addition not in the review file, noted"
   ]

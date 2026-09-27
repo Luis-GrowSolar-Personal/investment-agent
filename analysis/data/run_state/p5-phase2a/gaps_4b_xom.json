@@ -1,0 +1,21 @@
+{
+ "name": "EXXON MOBIL CORP",
+ "sic": "2911",
+ "cik": 34088,
+ "tenk_filed": [
+  "2025-02-19",
+  "2024-02-28",
+  "2023-02-22",
+  "2022-02-23",
+  "2021-02-24",
+  "2020-02-26"
+ ],
+ "latest_10k": {
+  "filed": "2025-02-19",
+  "heading_hits": {
+   "Customers": 2,
+   "Competition": 1,
+   "Supply/Manufacturing": 1
+  }
+ }
+}

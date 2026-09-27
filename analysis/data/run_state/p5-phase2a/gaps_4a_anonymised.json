@@ -1,0 +1,168 @@
+{
+ "filers_by_year": {
+  "2019": [
+   "AAPL",
+   "AMD",
+   "AVGO",
+   "CI",
+   "DIOD",
+   "FORM",
+   "FOXA",
+   "NVDA",
+   "PM",
+   "PYPL",
+   "SEDG",
+   "TMUS"
+  ],
+  "2020": [
+   "AMD",
+   "AVGO",
+   "DIOD",
+   "EQIX",
+   "FORM",
+   "FOXA",
+   "NVDA",
+   "PM",
+   "PYPL",
+   "SEDG",
+   "TMUS"
+  ],
+  "2021": [
+   "AMD",
+   "ARRY",
+   "AVGO",
+   "DIOD",
+   "ENTG",
+   "EQIX",
+   "FORM",
+   "FOXA",
+   "MPWR",
+   "NVDA",
+   "ON",
+   "PM",
+   "PYPL",
+   "SEDG",
+   "SHLS",
+   "SNOW",
+   "TMUS"
+  ],
+  "2022": [
+   "AAPL",
+   "AMD",
+   "ARRY",
+   "AVGO",
+   "DIOD",
+   "ENTG",
+   "EQIX",
+   "FORM",
+   "MPWR",
+   "NVDA",
+   "ON",
+   "PM",
+   "PYPL",
+   "SHLS",
+   "SNOW",
+   "SUNW",
+   "TMUS"
+  ],
+  "2023": [
+   "AAPL",
+   "AMD",
+   "ARRY",
+   "AVGO",
+   "DIOD",
+   "ENVX",
+   "EOSE",
+   "EQIX",
+   "FORM",
+   "FOXA",
+   "ON",
+   "PM",
+   "PYPL",
+   "SEDG",
+   "SHLS",
+   "SUNW",
+   "TMUS"
+  ],
+  "2024": [
+   "AMD",
+   "ARRY",
+   "AVGO",
+   "DIOD",
+   "ENVX",
+   "EOSE",
+   "EQIX",
+   "FORM",
+   "LRCX",
+   "MU",
+   "NVDA",
+   "ON",
+   "PM",
+   "PYPL",
+   "SHLS",
+   "SPWR",
+   "TMUS"
+  ],
+  "2025": [
+   "AAPL",
+   "AMD",
+   "ARRY",
+   "AVGO",
+   "DIOD",
+   "ENVX",
+   "EQIX",
+   "FORM",
+   "INTC",
+   "LRCX",
+   "MO",
+   "MPWR",
+   "MU",
+   "NVDA",
+   "ON",
+   "PARA",
+   "PM",
+   "SEDG",
+   "SHLS",
+   "SLAB",
+   "SPWR",
+   "TMUS"
+  ]
+ },
+ "n_filers_by_year": {
+  "2019": 12,
+  "2020": 11,
+  "2021": 17,
+  "2022": 17,
+  "2023": 17,
+  "2024": 17,
+  "2025": 22
+ },
+ "n_distinct_filers_any_year": 29,
+ "sample_quotes": [
+  {
+   "company": "AAPL",
+   "filed_year": "2019",
+   "quote": "one customer that represented 10%"
+  },
+  {
+   "company": "AAPL",
+   "filed_year": "2022",
+   "quote": "one customer that represented 10%"
+  },
+  {
+   "company": "AAPL",
+   "filed_year": "2023",
+   "quote": "one customer that represented 10%"
+  },
+  {
+   "company": "AAPL",
+   "filed_year": "2025",
+   "quote": "one customer that represented 10%"
+  },
+  {
+   "company": "AMD",
+   "filed_year": "2019",
+   "quote": "Customer A 19 %"
+  }
+ ]
+}
