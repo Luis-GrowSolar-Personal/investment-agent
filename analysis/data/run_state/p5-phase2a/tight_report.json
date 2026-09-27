@@ -1,0 +1,12 @@
+{
+ "input_rows": 19034,
+ "tight_links": 1201,
+ "by_rule": {
+  "S1": 606,
+  "S2": 302,
+  "C1": 278,
+  "C2": 15
+ },
+ "non_corpus_peers_sic_fetched": 178,
+ "sec_requests_used": 173
+}

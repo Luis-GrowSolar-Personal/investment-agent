@@ -1,0 +1,1202 @@
+company,peer,relation,rule,qualified_from,dual_role,n_filing,n_call,n_self_named,n_peer_named,n_total,sector_company,sector_peer,quote
+XYZ,GOOG,SUPPLIER,S1,2019-02-27,True,7,0,,,,,,"our visibility on third-party advertising platforms, such as Google, Twitter, or Facebook"
+XYZ,META,SUPPLIER,S1,2019-02-27,False,7,0,,,,,,"third-party advertising platforms, such as Google or Facebook"
+NXPI,ARM,SUPPLIER,S1,2020-02-27,False,6,1,,,,,,high performing Arm Cortex-M core
+AMGN,COR,CUSTOMER,S1,2019-02-13,False,7,0,,,,,,"Cencora, Inc. (formerly AmerisourceBergen)"
+AMGN,MCK,CUSTOMER,S1,2019-02-13,False,7,0,,,,,,"The substantial majority of our U.S. product sales is made to three pharmaceutical product wholesaler distributors: AmerisourceBergen, McKesson and Cardinal Health."
+AMGN,CAH,CUSTOMER,S1,2019-02-13,False,7,0,,,,,,"The substantial majority of our U.S. product sales is made to three pharmaceutical product wholesaler distributors: AmerisourceBergen, McKesson and Cardinal Health."
+AMPX,AVAV,CUSTOMER,S1,2023-03-30,False,3,4,,,,,,"our longtime partners such as AALTO Airbus, AeroVironment"
+HRL,WMT,CUSTOMER,S1,2019-12-06,False,7,1,,,,,,Walmart is a customer for all four segments of the Company.
+QCOM,AAPL,CUSTOMER,S1,2019-11-06,False,7,19,,,,,,share within Apple
+PFE,BNTX,CUSTOMER,S1,2023-02-23,False,2,0,,,,,,Comirnaty supply to BioNTech
+PFE,VTRS,CUSTOMER,S1,2021-02-25,False,3,0,,,,,,manufacturing of legacy Upjohn products for Viatris under manufacturing and supply agreements
+NWS,AMZN,CUSTOMER,S1,2020-08-11,False,6,0,,,,,,Amazon's reset of its inventory levels and rightsizing of its warehouse footprint
+SWKS,Huawei-none,CUSTOMER,S1,2019-11-14,False,4,10,,,,,,"HTC, Huawei"
+EOSE,DUK,CUSTOMER,S1,2021-02-26,False,2,0,,,,,,utilities companies such as Duke Energy Corporation
+GE,BA,CUSTOMER,S1,2020-02-24,False,3,0,,,,,,CFM is the exclusive engine for the Boeing 737 MAX
+NVDA,DELL,CUSTOMER,S1,2020-02-20,False,2,0,,,,,,"11% of our total revenue was from one customer, Dell"
+GE,BA,SUPPLIER,S1,2019-02-26,False,3,0,,,,,,"placed multiple-year orders for various Boeing, Airbus and other aircraft manufacturers"
+TTD,OMC,CUSTOMER,S1,2019-02-22,False,3,0,,,,,,Publicis Groupe and Omnicom Group Inc. would each represent more than 10% of our gross billings for 2018.
+AMD,GFS,SUPPLIER,S1,2019-02-08,False,7,0,,,,,,we purchase products manufactured by GF
+PEP,WMT,CUSTOMER,S1,2019-02-15,False,7,0,,,,,,"customers, including Walmart, to compete effectively"
+FSLR,SBE,CUSTOMER,S1,2022-03-01,False,1,0,,,,,,SB Energy accounted for more than 10% of our modules business net sales
+ABBV,MCK,CUSTOMER,S1,2019-02-27,False,7,0,,,,,,"three wholesale distributors (McKesson Corporation, Cardinal Health, Inc. and AmerisourceBergen Corporation) accounted for substantially all of AbbVie's sales in the United States"
+ABBV,CAH,CUSTOMER,S1,2019-02-27,False,7,0,,,,,,"three wholesale distributors (McKesson Corporation, Cardinal Health, Inc. and AmerisourceBergen Corporation) accounted for substantially all of AbbVie's sales in the United States"
+ABBV,COR,CUSTOMER,S1,2019-02-27,False,7,0,,,,,,"three wholesale distributors (McKesson Corporation, Cardinal Health, Inc. and AmerisourceBergen Corporation) accounted for substantially all of AbbVie's sales in the United States"
+AVGO,AAPL,CUSTOMER,S1,2019-12-20,False,5,0,,,,,,Apple is seeking indemnification from Broadcom
+QCOM,Huawei-none,CUSTOMER,S1,2019-11-06,False,6,17,,,,,,lower sales to Huawei
+ENTG,TSM,CUSTOMER,S1,2019-02-11,False,4,0,,,,,,"Taiwan Semiconductor Manufacturing Company Limited, accounted for $208 million, $187 million and $154 million of our net sales"
+ENTG,Samsung-none,CUSTOMER,S1,2019-02-11,False,4,0,,,,,,"Samsung Electronics Co. accounted for $164 million and $141 million of net sales, respectively"
+NXPI,AAPL,CUSTOMER,S1,2020-02-27,False,6,0,,,,,,"Our 10 largest OEM end customers, some of whom are supplied by distributors, in alphabetical order, are Apple, Bosch, Continental, Denso, Delphi, Ericsson, Huawei, LG, Samsung and ZTE."
+NXPI,GE,CUSTOMER,S1,2022-02-24,False,3,0,,,,,,"Our 10 largest OEM end customers, some of whom are supplied by distributors, in alphabetical order, are Apple, Aptiv, Bosch, Continental, Denso, Harman Auto, LGE, Samsung, Visteon, and Vitesco."
+NXPI,Samsung-none,CUSTOMER,S1,2020-02-27,False,6,2,,,,,,think about Samsung
+NXPI,VC,CUSTOMER,S1,2021-02-25,False,5,0,,,,,,"Our 10 largest OEM end customers, some of whom are supplied by distributors, in alphabetical order, are Apple, Aptiv, Bosch, Continental, Denso, Ericsson, Huawei, LG, Samsung and Visteon."
+GILD,COR,CUSTOMER,S1,2019-02-26,False,7,0,,,,,,"Cencora, Inc. (formerly known as AmerisourceBergen Corporation)"
+GILD,CAH,CUSTOMER,S1,2019-02-26,False,7,0,,,,,,"approximately 90% of our product sales in the U.S. have been to three wholesalers, Cardinal Health, Inc., Cencora, Inc., and McKesson Corporation"
+GILD,MCK,CUSTOMER,S1,2019-02-26,False,7,0,,,,,,"approximately 90% of our product sales in the U.S. have been to three wholesalers, Cardinal Health, Inc., Cencora, Inc., and McKesson Corporation"
+RTX,BA,CUSTOMER,S1,2019-02-07,False,7,19,,,,,,the Boeing OE rate
+NVDA,TSM,SUPPLIER,S1,2019-02-21,False,7,0,,,,,,"We utilize suppliers, such as Taiwan Semiconductor Manufacturing Company Limited and Samsung Electronics Co. Ltd, to produce our semiconductor wafers."
+NVDA,Samsung-none,SUPPLIER,S1,2019-02-21,False,7,0,,,,,,"memory from Micron Technology, Samsung Semiconductor, Inc., and SK Hynix"
+WOLF,Huawei-none,CUSTOMER,S1,2019-08-21,False,3,5,,,,,,Huawei is out of the numbers
+CI,CNC,CUSTOMER,S1,2023-02-23,True,3,9,,,,,,the Centene contract
+MCHP,ARW,CUSTOMER,S1,2019-05-30,False,7,0,,,,,,"Arrow Electronics, our largest distributor, which accounted for 10%"
+SO,CVX,CUSTOMER,S1,2019-02-20,False,7,0,,,,,,"Mississippi Power and its largest retail customer, Chevron Products Company (Chevron)"
+NWS,AMZN,SUPPLIER,S1,2022-08-12,False,4,0,,,,,,Akamai and Amazon Web Services (AWS) for content delivery networks (CDN) and hosting services
+PSA,GOOG,SUPPLIER,S1,2020-02-25,False,6,0,,,,,,increased reliance on Google as a customer acquisition channel
+NXPI,Huawei-none,CUSTOMER,S1,2020-02-27,False,6,3,,,,,,despite the ban on Huawei
+CHTR,DIS,SUPPLIER,S1,2024-02-02,True,2,0,,,,,,customer credits related to the temporary loss of Disney programming in 2023
+D,ENB,CUSTOMER,S1,2024-02-23,False,2,0,,,,,,Dominion Energy's gas distribution operations expected to be sold to Enbridge during 2024
+AVGO,TSM,SUPPLIER,S1,2019-12-20,False,7,0,,,,,,TSMC's supply of wafers to us
+TSLA,Panasonic-none,SUPPLIER,S1,2019-02-19,False,11,4,,,,,,"with Panasonic, and LG"
+CMCSA,VZ,SUPPLIER,S1,2019-01-31,True,7,2,,,,,,we've expanded our Verizon MVNO agreement
+NVDA,AMKR,SUPPLIER,S1,2019-02-21,False,5,0,,,,,,"We then utilize independent subcontractors and contract manufacturers, such as Amkor Technology, BYD Auto Co. Ltd."
+NVDA,BYD-none,SUPPLIER,S1,2019-02-21,False,4,0,,,,,,"utilize industry-leading contract manufacturers, or CMs, such as BYD"
+NVDA,FN,SUPPLIER,S1,2021-02-26,False,5,0,,,,,,Fabrinet to manufacture our cables
+NVDA,MU,SUPPLIER,S1,2019-02-21,False,7,11,,,,,,
+AMD,SONY,CUSTOMER,S1,2019-02-08,False,7,0,,,,,,AMD semi-custom SoC products power the Sony PlayStation ® 5
+AMD,MSFT,CUSTOMER,S1,2019-02-08,False,7,4,,,,,,"our support of the latest from AMD, Intel, NVIDIA"
+SWKS,AMZN,CUSTOMER,S1,2019-11-14,False,7,4,,,,,,Our key customers include Amazon
+SWKS,AAPL,CUSTOMER,S1,2019-11-14,False,7,4,,,,,,Apple broad markets piece
+SWKS,CSCO,CUSTOMER,S1,2019-11-14,False,7,7,,,,,,"Bose, Cisco"
+SWKS,GE,CUSTOMER,S1,2019-11-14,False,7,4,,,,,,Boston Scientific and GE
+SWKS,GOOG,CUSTOMER,S1,2019-11-14,False,7,17,,,,,,"Fibocom, Google"
+SWKS,HON,CUSTOMER,S1,2019-11-14,False,7,6,,,,,,"Google, Honeywell"
+SWKS,Lenovo-none,CUSTOMER,S1,2019-11-14,False,7,0,,,,,,"Itron, Lenovo"
+SWKS,MSFT,CUSTOMER,S1,2019-11-14,False,7,1,,,,,,"LG Electronics, Microsoft"
+SWKS,NTGR,CUSTOMER,S1,2019-11-14,False,7,8,,,,,,"Motorola, NETGEAR"
+SWKS,NOC,CUSTOMER,S1,2019-11-14,False,7,0,,,,,,"Nokia, Northrop Grumman"
+SWKS,Samsung-none,CUSTOMER,S1,2019-11-14,False,7,20,,,,,,Samsung Galaxy M
+SWKS,Schneider-none,CUSTOMER,S1,2023-11-17,False,3,1,,,,,,"Samsung, Schneider Electric"
+SWKS,SONO,CUSTOMER,S1,2019-11-14,False,7,2,,,,,,"Sierra Wireless, Sonos"
+SWKS,SONY,CUSTOMER,S1,2022-11-23,False,4,3,,,,,,"Sonos, Sony"
+SWKS,TSLA,CUSTOMER,S1,2023-11-17,False,3,1,,,,,,"Telit, Tesla"
+SWKS,Xiaomi-none,CUSTOMER,S1,2019-11-14,False,7,12,,,,,,"VIVO, Xiaomi"
+CMI,PCAR,CUSTOMER,S1,2019-02-11,False,7,3,,,,,,our agreement with PACCAR
+CMI,MBGAF,CUSTOMER,S1,2019-02-11,False,7,7,,,,,,great slide on Daimler
+CMI,STLA,CUSTOMER,S1,2021-02-10,False,5,11,,,,,,Stellantis N.V.
+GIS,WMT,CUSTOMER,S1,2019-06-28,False,3,0,,,,,,No customer other than Walmart accounted for 10 percent or more of our consolidated net sales.
+KMI,LNG,CUSTOMER,S1,2019-02-08,False,2,0,,,,,,"long-term firm transportation contracts with Cheniere Energy, Inc. at its Corpus Christi LNG facility"
+AVGO,Foxconn-none,SUPPLIER,S1,2019-12-20,False,7,0,,,,,,"Advanced Semiconductor Engineering, Inc., Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd."
+AVGO,AMKR,SUPPLIER,S1,2019-12-20,False,7,0,,,,,,"Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd."
+SLAB,ARW,CUSTOMER,S1,2019-01-30,False,7,0,,,,,,"Two of our distributors who sell directly to our customers, Arrow Electronics and Edom Technology, each"
+AMD,TSM,SUPPLIER,S1,2019-02-08,False,7,0,,,,,,we use Taiwan Semiconductor Manufacturing Company Limited (TSMC)
+MRK,MCK,CUSTOMER,S1,2019-02-27,False,7,0,,,,,,customers with the largest accounts receivable balances are: McKesson Corporation
+MRK,COR,CUSTOMER,S1,2019-02-27,False,7,0,,,,,,"The Company's customers with the largest accounts receivable balances are: McKesson Corporation, Cencora, Inc. and Cardinal Health, Inc."
+MRK,CAH,CUSTOMER,S1,2019-02-27,False,7,0,,,,,,"The Company's customers with the largest accounts receivable balances are: McKesson Corporation, Cencora, Inc. and Cardinal Health, Inc."
+KHC,WMT,CUSTOMER,S1,2019-06-07,False,7,0,,,,,,"Our largest customer, Walmart Inc., represented approximately 22% of our net sales in 2020"
+MU,Huawei-none,CUSTOMER,S1,2019-10-17,False,3,3,,,,,,write-down of Huawei inventory
+ECL,BP-none,CUSTOMER,S1,2019-03-01,False,2,0,,,,,,"continued to supply COREXIT, as requested by BP and government authorities"
+SEDG,RUN,CUSTOMER,S1,2021-02-19,False,4,2,,,,,,buys inverters from ENPH and SEDG
+SEDG,STLA,CUSTOMER,S1,2024-02-26,False,2,6,,,,,,You're continuing to ship to Stellantis.
+SNOW,AMZN,SUPPLIER,S1,2021-03-31,False,5,3,,,,,,your suppliers of public cloud capacity
+WOLF,ARW,CUSTOMER,S1,2019-08-21,False,3,0,,,,,,Arrow is a customer of our Wolfspeed and LED Products segments.
+PARA,BMY,CUSTOMER,S1,2025-04-15,False,1,0,,,,,,"OpenReel's enterprise customer base includes global organizations, such as Bristol Myers Squibb"
+PARA,INGM,CUSTOMER,S1,2025-04-15,False,1,0,,,,,,"OpenReel's enterprise customer base includes global organizations, such as Bristol Myers Squibb, Ingram Micro"
+PARA,DXC,CUSTOMER,S1,2025-04-15,False,1,0,,,,,,"OpenReel's enterprise customer base includes global organizations, such as Bristol Myers Squibb, Ingram Micro, DXC Technology"
+INTC,DELL,CUSTOMER,S1,2019-02-01,False,6,8,,,,,,Dell had said there was some weakness
+INTC,Lenovo-none,CUSTOMER,S1,2019-02-01,False,5,6,,,,,,"Lenovo Group Limited accounting for 12% ( 13% in 2017 , 13% in 2016 )"
+INTC,HPQ,CUSTOMER,S1,2019-02-01,False,6,6,,,,,,"Italian affiliates of customers Dell, HP, and HPE"
+INTC,NVDA,CUSTOMER,S1,2024-01-26,True,1,3,,,,,,clear customer wins like AWS and Meta and NVIDIA
+INTC,IBM,CUSTOMER,S1,2024-01-26,False,1,2,,,,,,We mentioned the IBM win
+INTC,MSFT,CUSTOMER,S1,2024-01-26,False,1,5,,,,,,"our support of the latest from AMD, Intel, NVIDIA"
+INTC,BA,CUSTOMER,S1,2024-01-26,False,1,0,,,,,,"customers such as Nvidia, IBM, Microsoft, Boeing, and Northrop Grumman"
+INTC,NOC,CUSTOMER,S1,2024-01-26,False,1,0,,,,,,"customers such as Nvidia, IBM, Microsoft, Boeing, and Northrop Grumman"
+LLY,MCK,CUSTOMER,S1,2019-02-19,False,7,0,,,,,,"three wholesale distributors in the U.S.—McKesson Corporation, Cencora, Inc., and Cardinal Health, Inc.—each accounted for a significant percentage of our consolidated revenue"
+LLY,COR,CUSTOMER,S1,2019-02-19,False,7,0,,,,,,"Cencora, Inc. (formerly AmerisourceBergen Corporation)"
+LLY,CAH,CUSTOMER,S1,2019-02-19,False,7,0,,,,,,"three wholesale distributors in the U.S.—McKesson Corporation, Cencora, Inc., and Cardinal Health, Inc.—each accounted for a significant percentage of our consolidated revenue"
+AVGO,Huawei-none,CUSTOMER,S1,2019-12-20,False,5,0,,,,,,"Huawei Technologies Co. Ltd., one of our customers, to its ""Entity List"""
+LOW,GE,SUPPLIER,S1,2019-04-02,False,4,0,,,,,,GE ®
+LOW,Samsung-none,SUPPLIER,S1,2019-04-02,False,4,0,,,,,,Samsung ® appliances
+LOW,META,SUPPLIER,S1,2020-03-23,False,3,0,,,,,,Metabo ® pneumatic tools
+LOW,OC,SUPPLIER,S1,2019-04-02,False,4,0,,,,,,Owens Corning ® insulation and roofing
+LOW,DE,SUPPLIER,S1,2019-04-02,False,9,0,,,,,,John Deere ® riding lawn mowers
+LRCX,MU,CUSTOMER,S1,2019-08-20,False,6,0,,,,,,"Kioxia Corporation; Micron Technology, Inc."
+LRCX,Samsung-none,CUSTOMER,S1,2019-08-20,False,7,0,,,,,,"Samsung Electronics Company, Ltd."
+LRCX,SKHY,CUSTOMER,S1,2019-08-20,False,6,0,,,,,,SK hynix Inc.
+LRCX,INTC,CUSTOMER,S1,2019-08-20,False,5,1,,,,,,now that Intel sold the main business to Hynix
+LRCX,TSM,CUSTOMER,S1,2019-08-20,False,7,4,,,,,,Taiwan Semiconductor Manufacturing Company
+BDX,EMBC,CUSTOMER,S1,2022-11-22,False,3,0,,,,,,the Company has continued to provide certain products and services to
+SO,Siemens-none,SUPPLIER,S1,2019-02-20,False,1,0,,,,,,"Southern Power purchased wind turbine equipment from Siemens Wind Power, Inc."
+INTC,AMZN,CUSTOMER,S1,2021-01-22,False,3,8,,,,,,initial revenue from Amazon and Cisco
+UPS,AMZN,CUSTOMER,S1,2020-02-20,False,6,15,,,,,,our Amazon activity
+WDAY,AMZN,SUPPLIER,S1,2019-03-18,False,7,0,,,,,,"we rely upon third-party hosted infrastructure partners globally, including AWS"
+WDAY,GOOG,SUPPLIER,S1,2021-03-02,False,5,0,,,,,,"we rely upon third-party hosted infrastructure partners globally, including AWS, Google LLC"
+WDAY,MSFT,SUPPLIER,S1,2021-03-02,True,4,0,,,,,,"we rely upon third-party hosted infrastructure partners globally, including AWS, Google LLC, and Microsoft Corporation"
+SEDG,Samsung-none,SUPPLIER,S1,2023-02-22,False,1,12,,,,,,"Samsung SDI, that provides"
+AMSC,TRGP,CUSTOMER,S1,2024-05-29,False,2,0,,,,,,"Capital Power Corp., Targa Resources Corp."
+AMSC,MU,CUSTOMER,S1,2024-05-29,False,2,0,,,,,,"Targa Resources Corp., Micron Technology Inc."
+CHTR,VZ,SUPPLIER,S1,2019-01-31,False,7,0,,,,,,runs on Verizon's mobile network
+NWS,GOOG,SUPPLIER,S1,2020-08-11,False,4,0,,,,,,Google to provide workspace and other enterprise services
+SRE,TTE,CUSTOMER,S1,2022-02-25,False,4,0,,,,,,definitive 20-year SPAs with an affiliate of TotalEnergies SE for approximately 1.7 Mtpa of LNG
+MRK,OGN,CUSTOMER,S1,2025-02-25,False,1,0,,,,,,Merck and Organon entered into a number of manufacturing and supply agreements (MSAs) with terms ranging from four years to ten years
+FOXA,DIS,CUSTOMER,S1,2019-08-09,False,7,0,,,,,,until 2026 will predominantly be Disney productions
+INTC,ASML,SUPPLIER,S1,2022-01-27,False,4,0,,,,,,ASML Holding N.V. (ASML) is currently the sole supplier of EUV lithography tools
+LRCX,Kioxia-none,CUSTOMER,S1,2020-08-18,False,4,0,,,,,,included Intel Corporation; Kioxia Corporation
+SRE,MPC,CUSTOMER,S1,2022-02-25,False,4,0,,,,,,counterparties including Marathon Petroleum Corporation and Valero Energy Corporation
+SRE,Shell-none,CUSTOMER,S1,2021-02-25,False,4,0,,,,,,"the two third-party capacity customers at the ECA Regas Facility, Shell Mexico and Gazprom"
+HRL,ORCL,SUPPLIER,S1,2019-12-06,False,6,2,,,,,,through the use of Oracle Cloud Solutions
+SRE,ELC,SUPPLIER,S1,2024-02-27,False,2,0,,,,,,"Entergy Louisiana, LLC, a subsidiary of Entergy Corporation, and Cameron LNG JV have an electricity service agreement (and related ancillary agreements) for the supply to Cameron LNG JV of up to 950 MW of power"
+PG,WMT,CUSTOMER,S1,2019-08-06,False,8,6,,,,,,the announcement with OpenAI and Walmart
+DE,HTHIY,SUPPLIER,S1,2021-12-16,True,5,0,,,,,,"Hitachi will continue to provide John Deere-branded excavators, components, and service parts"
+GS,SPGI,SUPPLIER,S1,2023-02-24,False,3,0,,,,,,"pricing data obtained from third parties (e.g., brokers or dealers, S&P Global Services, Bloomberg, ICE Data Services, Pricing Direct, TRACE)"
+QS,VWAGY,CUSTOMER,S1,2021-02-23,False,4,6,,,,,,as a potential customer
+SO,GPJA,CUSTOMER,S1,2019-02-20,False,7,0,,,,,,approximately 9.8% of Southern Power's revenues were derived from Georgia Power
+CMI,DE,CUSTOMER,S1,2019-02-11,False,5,1,,,,,,John Deere
+CMI,VWAGY,CUSTOMER,S1,2020-02-11,False,6,2,,,,,,Volkswagen Caminhões e Ônibus
+SLAB,TSM,SUPPLIER,S1,2019-01-30,False,8,1,,,,,,you are getting incremental capacity from TSMC
+DE,HD,CUSTOMER,S1,2021-12-16,False,5,0,,,,,,certain lawn and garden product lines are sold through The Home Depot and Lowe's
+DE,LOW,CUSTOMER,S1,2019-04-02,False,9,0,,,,,,John Deere ® riding lawn mowers
+FSLR,NEE,CUSTOMER,S1,2020-02-21,False,3,0,,,,,,"Longroad Energy , NextEra Energy, and Softbank each accounted for more than 10% of our modules business net sales"
+SO,SCE-PM,CUSTOMER,S1,2019-02-20,False,4,0,,,,,,"Southern Power's top three customers, Southern California Edison, Georgia Power, and Duke Energy Corporation accounted for 9.4%, 8.0%, and 6.7%, respectively, of Southern Power's total revenues"
+SO,DUK,CUSTOMER,S1,2019-02-20,False,2,0,,,,,,"Southern Power's top three customers, Southern California Edison, Georgia Power, and Duke Energy Corporation accounted for 9.4%, 8.0%, and 6.7%, respectively, of Southern Power's total revenues"
+COF,AMZN,SUPPLIER,S1,2019-02-20,False,5,0,,,,,,the substantial amount of our infrastructure that we outsource to AWS or to other third-party service providers
+RTX,LMT,CUSTOMER,S1,2025-02-03,False,1,0,,,,,,"produced by Lockheed Martin. F135 propulsion system configurations are used for the U.S. Air Force's F-35A, the U.S. Marine Corps' F-35B, and the U.S. Navy's F-35C jets."
+TMUS,DISH,CUSTOMER,S1,2021-02-23,False,4,2,,,,,,our revenues from DISH were under $2 billion
+MSFT,DELL,CUSTOMER,S1,2019-08-01,False,7,5,,,,,,"including Airbnb, Dell, and Scandinavian Airlines"
+MSFT,Lenovo-none,CUSTOMER,S1,2019-08-01,False,7,3,,,,,,"from La Liga and Lenovo to Swiss Re and Walgreens, unify their data using our tools"
+QCOM,Samsung-none,CUSTOMER,S1,2019-11-06,False,7,17,,,,,,the launch of the Samsung S24
+QCOM,Xiaomi-none,CUSTOMER,S1,2019-11-06,False,5,13,,,,,,"if Evo, Oppo, Xiaomi wins"
+SO,Bechtel-none,SUPPLIER,S1,2019-02-20,False,4,0,,,,,,Bechtel as primary contractor
+TTD,GOOG,SUPPLIER,S1,2019-02-22,False,7,1,,,,,,we are no longer buying from Google's so-called open bidding or OB product
+SWKS,Foxconn-none,CUSTOMER,S1,2019-11-14,False,3,0,,,,,,"Ericsson, Foxconn"
+MCHP,Huawei-none,CUSTOMER,S1,2020-05-22,False,4,3,,,,,,higher exposure to Huawei
+NEM,TD,CUSTOMER,S1,2021-02-18,False,3,0,,,,,,"Toronto Dominion Bank were $ 1,204 ( 12 %) of total gold sales"
+NWS,DIS,SUPPLIER,S1,2022-08-12,True,2,0,,,,,,"Disney removed its Disney-branded movie channel and kids channels, as well as certain non-branded content, from the Foxtel platform"
+DIOD,ON,CUSTOMER,S1,2021-02-22,True,1,0,,,,,,"We sold products to LSC totaling less than 1 % of our net sales for the years ended December 31, 2020, 2019 and 2018, respectively."
+LLY,AMPH,CUSTOMER,S1,2024-02-21,False,2,0,,,,,,"we sold the rights for Baqsimi to Amphastar Pharmaceuticals, Inc."
+NWS,AKAM,SUPPLIER,S1,2022-08-12,False,2,0,,,,,,Akamai and Amazon Web Services (AWS) for content delivery networks (CDN) and hosting services
+AMD,UMC,SUPPLIER,S1,2023-02-27,False,3,0,,,,,,"we utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for the production of our integrated circuits"
+AMD,Samsung-none,SUPPLIER,S1,2023-02-27,False,3,0,,,,,,"we utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for the production of our integrated circuits"
+NOVA,AMZN,SUPPLIER,S1,2020-02-25,False,6,0,,,,,,proprietary applications running on Amazon Web Services and Heroku
+NOVA,CRM,SUPPLIER,S1,2020-02-25,False,6,0,,,,,,Each completed quote is transferred into Salesforce for solar service agreement generation
+PARA,AMZN,SUPPLIER,S1,2024-04-01,False,2,0,,,,,,"cloud infrastructure services such as Amazon Web Services (""AWS"") and Google Cloud"
+PARA,GOOG,SUPPLIER,S1,2024-04-01,False,2,0,,,,,,visitors from paid ads such as Google ads
+ENTG,Huawei-none,CUSTOMER,S1,2022-02-04,False,1,0,,,,,,certain of our customers have made efforts to source products domestically in order to mitigate perceived risks to their supply chain
+BDX,MDT,SUPPLIER,S1,2019-11-27,False,3,0,,,,,,each a supplier of the Company
+SRE,CVX,CUSTOMER,S1,2022-02-25,False,2,0,,,,,,"counterparties including Chevron Corporation, Marathon Petroleum Corporation and Valero Energy Corporation"
+NFLX,AMZN,SUPPLIER,S1,2019-01-29,False,7,0,,,,,,"We have architected our software and computer systems so as to utilize data processing, storage capabilities and other services provided by AWS."
+WMB,NWN,CUSTOMER,S1,2025-02-25,False,1,0,,,,,,"NWP's three largest customers were Puget Sound Energy, Inc., Cascade Natural Gas Corporation, and Northwest Natural Gas Company"
+AMSC,VWSYF,CUSTOMER,S1,2019-06-05,False,5,0,,,,,,Vestas Wind Systems A/S in Denmark
+CMI,ZM,CUSTOMER,S1,2024-02-12,False,2,0,,,,,,"Komatsu, Zoomlion Heavy Industry Science & Technology Co., Ltd"
+SO,FSLR,SUPPLIER,S1,2024-02-15,False,1,0,,,,,,"actuators on trackers and inverters installed by First Solar under the engineering, procurement, and construction agreements associated with five solar projects owned by Southern Power"
+NVDA,AMZN,CUSTOMER,S1,2022-03-18,False,1,0,,,,,,"with robotaxis including Cruise, Amazon Zoox, Pony.ai and AutoX"
+MSFT,Samsung-none,CUSTOMER,S1,2019-08-01,False,2,2,,,,,,"organizations like Dow, Lufthansa, and Samsung apply AI to common business scenarios"
+FCX,XEL,SUPPLIER,S1,2023-02-15,False,3,0,,,,,,receive electrical power through long-term contracts with Xcel Energy
+CMCSA,AMZN,CUSTOMER,S1,2019-01-31,False,2,0,,,,,,"markets and distributes cable network programming to subscription video on demand services, such as those offered by Amazon"
+CMCSA,NFLX,CUSTOMER,S1,2019-01-31,True,2,0,,,,,,"subscription video on demand services, such as those offered by Amazon, Hulu and Netflix"
+AMPX,ARM,CUSTOMER,S1,2024-03-28,False,2,1,,,,,,Teledyne FLIR and the U.S. Army
+XYZ,DASH,CUSTOMER,S1,2025-02-24,False,1,0,,,,,,pay with a Cash App account at participating merchants like DoorDash
+XYZ,GOOG,CUSTOMER,S1,2025-02-24,True,1,0,,,,,,"DoorDash, Lyft, Google Play Store"
+MU,INTC,CUSTOMER,S1,2019-10-17,True,5,1,,,,,,excluding sales to Intel at prices approximating cost
+ZTS,PFE,SUPPLIER,S1,2019-02-14,False,1,0,,,,,,Pfizer continues to manufacture products for us at three Pfizer sites pursuant to a master manufacturing and supply agreement
+AMD,AMZN,CUSTOMER,S1,2021-01-29,False,1,0,,,,,,"Amazon Web Services announced and made available their new ""G4ad"" instance, designed for graphics intensive applications such as virtual workstations, game streaming and graphics rendering. G4ad utilizes both AMD EPYC processors and the AMD Radeon Pro V520 GPU."
+QCOM,Foxconn-none,CUSTOMER,S1,2019-11-06,False,1,0,,,,,,"Hon Hai Precision Industry Co., Ltd./Foxconn, its affiliates and other suppliers to Apple"
+NWS,AAPL,CUSTOMER,S1,2020-08-11,False,6,0,,,,,,"including Amazon, Apple, Barnes & Noble and Tesco"
+AEP,SRE,SUPPLIER,S1,2019-02-26,False,2,0,,,,,,724 MWs of wind generation and battery assets located in several states acquired from Sempra Renewables LLC
+MO,PFGC,CUSTOMER,S1,2022-02-25,False,3,0,,,,,,"PM USA, USSTC, Helix and Middleton's customer, Performance Food Group Company"
+CMI,BLBD,CUSTOMER,S1,2020-02-11,False,2,0,,,,,,Blue Bird for the school bus market in North America
+QCOM,Samsung-none,SUPPLIER,S1,2019-11-06,False,7,1,,,,,,"We have two strategic partners today, which is TSMC and Samsung."
+QCOM,TSM,SUPPLIER,S1,2019-11-06,False,7,4,,,,,,Taiwan Semiconductor Manufacturing Company (TSMC)
+QCOM,UMC,SUPPLIER,S1,2019-11-06,False,3,0,,,,,,United Microelectronics
+QCOM,AMKR,SUPPLIER,S1,2019-11-06,False,7,0,,,,,,"The primary semiconductor assembly and test suppliers are Advanced Semiconductor Engineering, Amkor Technology"
+NOVA,Hanwha-none,SUPPLIER,S1,2020-02-25,False,6,0,,,,,,Hanwha Q-Cells supplied approximately 68% of our solar photovoltaic panels installed
+NOVA,ENPH,SUPPLIER,S1,2020-02-25,False,6,0,,,,,,"Enphase Energy, Inc. and SolarEdge Technologies Inc. accounted for approximately 57% and 42%, respectively, of the inverters used in our solar energy system installations"
+NOVA,SEDG,SUPPLIER,S1,2020-02-25,False,6,0,,,,,,"Enphase Energy, Inc. and SolarEdge Technologies Inc. accounted for approximately 57% and 42%, respectively, of the inverters used in our solar energy system installations"
+NOVA,TSLA,SUPPLIER,S1,2020-02-25,False,5,0,,,,,,"Tesla, Inc. accounted for 100% of our energy storage systems purchases"
+WMB,D,CUSTOMER,S1,2025-02-25,False,1,1,,,,,,the Mid-Atlantic and the Southeast markets that we referenced with both Duke and Southern and Dominion
+ADBE,AAPL,SUPPLIER,S1,2023-01-17,True,1,0,,,,,,"utilize third-party distribution platforms, such as Apple's App Store"
+ADBE,GOOG,SUPPLIER,S1,2023-01-17,True,1,1,,,,,,"Google's Play Store, for the distribution of certain of our product offerings"
+INTC,MU,SUPPLIER,S1,2019-10-17,False,5,1,,,,,,excluding sales to Intel at prices approximating cost
+AMAT,UCTT,SUPPLIER,S1,2019-12-13,False,2,0,,,,,,"a supplier of critical subsystems for the semiconductor capital equipment, medical device, energy, research, and flat panel industries"
+INTC,TSM,SUPPLIER,S1,2024-01-26,True,2,2,,,,,,outsourcing more to TSMC for the year
+ORCL,INTC,SUPPLIER,S1,2019-06-21,False,2,1,,,,,,those using microprocessors from Intel Corporation
+AEP,BE,SUPPLIER,S1,2025-02-13,False,1,1,,,,,,initial 100 MWs purchase of fuel cells from Bloom Energy
+EQIX,VZ,CUSTOMER,S1,2019-02-22,False,2,4,,,,,,what's going on with the Verizon space and how all that policing is going
+NVDA,ATEYY,SUPPLIER,S1,2022-03-18,False,2,0,,,,,,perform incoming quality assurance and configuration using test equipment purchased from industry-leading suppliers such as Advantest America Inc.
+NVDA,BYD-none,CUSTOMER,S1,2022-03-18,False,2,0,,,,,,"ship the semiconductors to contract manufacturers, such as BYD Auto Co. Ltd."
+SRE,Bechtel-none,SUPPLIER,S1,2022-02-25,False,1,11,,,,,,the loss of three Bechtel employees
+EQIX,DLR,SUPPLIER,S1,2019-02-22,False,1,0,,,,,,"the Company completed the purchase of Digital Realty Trust, Inc.'s (""Digital Realty's"") operating business, including its real estate and facility, located in St. Denis, Paris, for cash consideration of approximately €193.8 million"
+SRE,COP,CUSTOMER,S1,2024-02-27,False,2,0,,,,,,definitive SPAs with an affiliate of ConocoPhillips for a 20-year term for 5 Mtpa of LNG
+RTX,TXT,CUSTOMER,S1,2024-02-05,False,1,0,,,,,,Textron Aviation announced that the PW545D engine was selected to power the new Cessna Citation Ascend business jet
+NOW,MSFT,SUPPLIER,S1,2023-01-31,True,2,4,,,,,,"to Coca-Cola and ServiceNow, expanding their footprints on Azure"
+TMUS,AAPL,SUPPLIER,S1,2019-02-07,False,1,2,,,,,,The phones underlying are a little bit more expensive from Apple.
+CL,WMT,CUSTOMER,S1,2022-02-17,False,4,1,,,,,,a 3PL distributor selling to Walmart
+MRK,JNJ,CUSTOMER,S1,2022-02-25,False,2,3,,,,,,to Johnson & Johnson for its COVID vaccine
+SO,MS,CUSTOMER,S1,2020-02-20,False,1,0,,,,,,"Southern Power's top three customers, Georgia Power, Southern California Edison, and Morgan Stanley Capital Group accounted for 9.0%, 6.8%, and 4.9%, respectively, of Southern Power's total revenues"
+AVGO,UMC,SUPPLIER,S1,2019-12-20,False,1,0,,,,,,"as well as United Microelectronics Corporation, GlobalFoundries, Silicon Manufacturing Partners Pte. Ltd., Tower Semiconductor Ltd. and WIN Semiconductors Corp."
+AVGO,GFS,SUPPLIER,S1,2019-12-20,True,1,0,,,,,,"United Microelectronics Corporation, GlobalFoundries, Silicon Manufacturing Partners Pte. Ltd., Tower Semiconductor Ltd. and WIN Semiconductors Corp."
+AVGO,TSEM,SUPPLIER,S1,2019-12-20,False,1,0,,,,,,"Silicon Manufacturing Partners Pte. Ltd., Tower Semiconductor Ltd. and WIN Semiconductors Corp."
+ON,Huawei-none,CUSTOMER,S1,2020-02-19,False,2,0,,,,,,"risks associated with the addition of Huawei Technologies Co., Ltd. and its non-U.S. affiliates and subsidiaries, and other customers, to the U.S. Departments of Commerce, Bureau of Industry Security Entity List"
+NOVA,CSIQ,SUPPLIER,S1,2024-02-22,False,2,0,,,,,,Hanwha Q-Cells and Canadian Solar supplied approximately 55% and 11% of our solar photovoltaic panels installed
+INTC,GOOG,CUSTOMER,S1,2023-01-27,False,1,5,,,,,,"started shipping to customers, including Amazon Web Services and Google Cloud"
+INTC,CRWD,SUPPLIER,S1,2025-01-31,False,1,0,,,,,,The CrowdStrike outage that occurred in 2024 is another example of the risks we face from utilizing products and components that are widely adopted in supply chains
+AMGN,PODD,SUPPLIER,S1,2019-02-13,False,1,0,,,,,,Insulet Corporation is our single-source of the on-body injector for our Neulasta ® Onpro ® kit
+WOLF,MTSI,CUSTOMER,S1,2023-08-23,False,1,0,,,,,,The Company will continue to operate the RTP Fab and supply MACOM with Epi-wafers and fabrication services pursuant to a Master Supply Agreement
+FSLR,META,CUSTOMER,S1,2019-02-22,False,2,0,,,,,,"are expected to provide energy for certain Facebook, Inc. data centers through PPAs"
+FSLR,AAPL,CUSTOMER,S1,2019-02-22,False,2,0,,,,,,"Since our first corporate related PPA with Apple Inc., we have contracted over 700 MW AC of PPAs associated with corporate customers"
+MMM,SOLV,CUSTOMER,S1,2025-02-05,False,1,2,,,,,,income from the transition services we are providing to Solventum increased margins by 50 basis points
+RTX,NOC,CUSTOMER,S1,2023-02-07,False,1,0,,,,,,"rollout ceremony for the Northrop Grumman B-21 Raider, powered by Pratt & Whitney engines"
+SNOW,MSFT,SUPPLIER,S1,2022-03-30,True,4,2,,,,,,"Snowflake, for example, will increase its Azure spend as it builds new integrations with Azure OpenAI"
+SNOW,GOOG,SUPPLIER,S1,2022-03-30,True,4,1,,,,,,your suppliers of public cloud capacity
+CMI,NSANY,CUSTOMER,S1,2019-02-11,False,1,0,,,,,,The principal customers of our pick-up on-highway engines are Fiat Chrysler and Nissan.
+CHTR,AAPL,SUPPLIER,S1,2021-01-29,False,5,0,,,,,,"new devices including 5G models from Apple, Google and Samsung"
+CHTR,GOOG,SUPPLIER,S1,2021-01-29,False,5,0,,,,,,"new devices including 5G models from Apple, Google and Samsung"
+CHTR,Samsung-none,SUPPLIER,S1,2021-01-29,False,5,0,,,,,,"new devices including 5G models from Apple, Google and Samsung"
+BOX,GOOG,SUPPLIER,S1,2024-03-11,True,2,0,,,,,,"We outsource a substantial majority of our cloud hosting to Google Cloud Platform (GCP), which hosts our products and platform."
+FSLR,MSFT,CUSTOMER,S1,2020-02-21,False,1,0,,,,,,our 150 MW AC Sun Streams 2 project is expected to provide energy for certain Microsoft Corporation data centers
+AMT,TMUS,CUSTOMER,S1,2022-02-25,False,4,0,,,,,,our top three customers by total revenue were T-Mobile (20%)
+AMT,T,CUSTOMER,S1,2022-02-25,False,4,0,,,,,,AT&T (19%)
+AMT,VZ,CUSTOMER,S1,2022-02-25,False,4,0,,,,,,Verizon Wireless (13%)
+NOVA,Trina-none,SUPPLIER,S1,2020-02-25,False,1,0,,,,,,"Hanwha Q-Cells and Trina Solar Limited supplied approximately 52% and 22% , respectively, of our solar photovoltaic panels installed"
+FSLR,BP-none,CUSTOMER,S1,2023-02-28,False,2,0,,,,,,Lightsource BP was the only customer that accounted for 10% or more of our modules business net sales
+INTC,Samsung-none,SUPPLIER,S1,2024-01-26,False,1,0,,,,,,"Most of our competitors rely on third-party foundries, such as TSMC or Samsung, for the manufacture and assembly and test of their semiconductor components and products."
+EQIX,AMZN,CUSTOMER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+EQIX,T,CUSTOMER,S1,2019-02-22,False,1,2,,,,,,a data center modernization project with AT&T
+EQIX,GOOG,CUSTOMER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+EQIX,MSFT,CUSTOMER,S1,2019-02-22,False,1,1,,,,,,demand that you are seeing from customers in inferencing
+EQIX,ORCL,CUSTOMER,S1,2019-02-22,False,1,1,,,,,,"Oracle, a top-five mobile software provider, deploying FastConnect Cloud on-ramps to support new regions in Singapore, Milan, and Stockholm, bringing their total number of on-ramps available at Equinix to 24"
+EQIX,SAP,CUSTOMER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+EQIX,CRM,CUSTOMER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+EQIX,IBM,CUSTOMER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+EQIX,VMW,CUSTOMER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+EQIX,Deloitte-none,CUSTOMER,S1,2019-02-22,False,1,0,,,,,,"in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+EQIX,F,CUSTOMER,S1,2019-02-22,False,1,0,,,,,,"in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+EQIX,PYPL,CUSTOMER,S1,2019-02-22,False,1,0,,,,,,"in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+SEDG,CLS,SUPPLIER,S1,2019-02-28,False,1,0,,,,,,"We currently contract to have our solar products manufactured by three of the world's leading global electronics manufacturing service providers, Jabil Circuit, Inc., Celestica LLC and Flextronics Industrial Ltd"
+CSCO,CMCSA,CUSTOMER,S1,2020-09-03,False,1,0,,,,,,"indemnify certain of our service provider customers that have been subject to patent infringement claims asserted by Chanbond, LLC"
+CSCO,CHTR,CUSTOMER,S1,2020-09-03,False,1,0,,,,,,"indemnify certain of our service provider customers that have been subject to patent infringement claims asserted by Chanbond, LLC"
+SRE,AEP,CUSTOMER,S1,2019-02-26,False,2,0,,,,,,724 MWs of wind generation and battery assets located in several states acquired from Sempra Renewables LLC
+KMB,WMT,CUSTOMER,S1,2023-02-09,False,3,0,,,,,,"Our largest customer, Walmart Inc., represented approximately 14 % in 2024 and 13 % in 2023 and 2022 of our consolidated net sales."
+XYZ,ON,SUPPLIER,S1,2019-02-27,False,6,0,,,,,,"ASIC Development and Supply Agreement by and between the Registrant, Semiconductor Components Industries, LLC (d/b/a ON Semiconductor) and ON Semiconductor Trading, Ltd."
+DUK,BE,SUPPLIER,S1,2021-02-25,False,1,0,,,,,,Duke Energy completed its acquisition of 70 distributed fuel cell projects from Bloom Energy Corporation
+SO,NEE,CUSTOMER,S1,2019-02-20,False,1,0,,,,,,"Southern Power also sold all of its equity interests in Plant Oleander and Plant Stanton Unit A (together, the Florida Plants) to NextEra Energy on December 4, 2018 for $203 million."
+TMUS,VZ,CUSTOMER,S1,2022-02-11,True,3,0,,,,,,the migration by Verizon of legacy TracFone customers off of the T-Mobile network
+BLK,MSFT,SUPPLIER,S1,2025-02-25,False,1,4,,,,,,"helping companies like BlackRock, Gap, and TaskRabbit source job candidates based on proven proficiencies"
+PM,MO,CUSTOMER,S1,2020-02-07,False,3,0,,,,,,"Revenues from shipments of Platform 1 devices, heated tobacco units and accessories to Altria Group, Inc. for sale under license in the United States"
+PNC,MSFT,SUPPLIER,S1,2025-02-21,False,1,0,,,,,,"vendor-issued security credentials from CISCO, Microsoft and F5"
+DIOD,HON,CUSTOMER,S1,2020-02-12,False,1,0,,,,,,"Delta Electronics, Honeywell"
+DIOD,STX,CUSTOMER,S1,2020-02-12,False,1,0,,,,,,"Quanta Computer, Seagate"
+DIOD,Samsung-none,CUSTOMER,S1,2020-02-12,False,1,0,,,,,,"Sagem Communication, and Samsung Electronics"
+DIOD,CLS,CUSTOMER,S1,2020-02-12,False,1,0,,,,,,"leading EMS providers, such as Celestica"
+DIOD,SANM,CUSTOMER,S1,2020-02-12,False,1,0,,,,,,"Jabil Circuit, and Sanmina-SCI"
+D,DUK,CUSTOMER,S1,2023-02-21,False,1,0,,,,,,"Subsidiaries and affiliates of Dominion Energy, Duke Energy and Southern had planned to be customers of the pipeline under 20 -year contracts."
+VZ,EQIX,CUSTOMER,S1,2019-02-15,False,2,0,,,,,,we agreed to sell 23 customer-facing data center sites in the U.S. and Latin America for approximately $3.6 billion
+SEDG,TM,CUSTOMER,S1,2020-02-27,False,4,0,,,,,,"major automotive manufacturers, such as Toyota, Honda, Tesla, General Motors, and Ford, have increased their investments in the electric and hybrid vehicle components"
+SEDG,HMC,CUSTOMER,S1,2020-02-27,False,4,0,,,,,,"major automotive manufacturers, such as Toyota, Honda, Tesla, General Motors, and Ford, have increased their investments in the electric and hybrid vehicle components"
+SEDG,TSLA,CUSTOMER,S1,2020-02-27,False,4,0,,,,,,"major automotive manufacturers, such as Toyota, Honda, Tesla, General Motors, and Ford, have increased their investments in the electric and hybrid vehicle components"
+SEDG,GM,CUSTOMER,S1,2020-02-27,False,4,0,,,,,,"major automotive manufacturers, such as Toyota, Honda, Tesla, General Motors, and Ford, have increased their investments in the electric and hybrid vehicle components"
+SEDG,F,CUSTOMER,S1,2020-02-27,False,4,0,,,,,,"major automotive manufacturers, such as Toyota, Honda, Tesla, General Motors, and Ford, have increased their investments in the electric and hybrid vehicle components"
+SIRI,BA,SUPPLIER,S1,2019-01-30,False,4,0,,,,,,"Boeing Satellite Systems International, Inc., the manufacturer of certain of our in-orbit satellites"
+UPS,BA,SUPPLIER,S1,2019-02-21,False,1,3,,,,,,our new Boeing 747-8s
+AMGN,OKTA,SUPPLIER,S1,2023-02-09,False,1,0,,,,,,"Okta, Inc., a provider of software that helps companies manage user authentication, disclosed that several hundred of its corporate customers were vulnerable to a security breach"
+PARA,AMZN,CUSTOMER,S1,2025-04-15,False,1,0,,,,,,"Our customers include Amazon, Dell, Salesforce, Aflac, Thermo Fisher Scientific"
+PARA,DELL,CUSTOMER,S1,2025-04-15,False,1,0,,,,,,"Our customers include Amazon, Dell, Salesforce, Aflac, Thermo Fisher Scientific"
+PARA,CRM,CUSTOMER,S1,2025-04-15,False,1,0,,,,,,"Our customers include Amazon, Dell, Salesforce, Aflac, Thermo Fisher Scientific"
+PARA,TMO,CUSTOMER,S1,2025-04-15,False,1,0,,,,,,"Our customers include Amazon, Dell, Salesforce, Aflac, Thermo Fisher Scientific"
+TSLA,CATL-none,SUPPLIER,S1,2023-01-31,False,1,4,,,,,,with CATL
+SRE,FTI,SUPPLIER,S1,2020-02-27,False,1,0,,,,,,"we expect to sign a lump-sum, turn-key EPC contract with TechnipFMC for the engineering, procurement and construction of a one-train natural gas liquefaction export facility"
+NVDA,HPQ,CUSTOMER,S1,2021-02-26,False,1,0,,,,,,five supercomputers backed by EuroHPC will use NVIDIA's data center accelerators or networking
+XYZ,AAPL,SUPPLIER,S1,2021-02-23,True,3,0,,,,,,"we rely on app marketplaces, such as the Apple App Store and Google Play, to drive downloads of our mobile apps"
+PPG,LOW,CUSTOMER,S1,2019-02-21,False,1,0,,,,,,PPG announced that Lowe's would discontinue the sale of OLYMPIC® brand paints and stains in its U.S. retail stores
+PPG,HD,CUSTOMER,S1,2019-02-21,False,1,10,,,,,,partnership with Home Depot
+SO,TVE,CUSTOMER,S1,2022-02-17,False,1,0,,,,,,"Southern Power's top three customers, Southern California Edison, Georgia Power, and Tennessee Valley Authority accounted for 7.4%, 6.3%, and 6.3%, respectively, of Southern Power's total revenues"
+AMAT,Huawei-none,CUSTOMER,S1,2020-12-11,False,1,0,,,,,,"could require certain of Applied's customers to obtain licenses for the export of wafers, chipsets and certain related items to Huawei or its affiliates that are the direct product of US-origin semiconductor manufacturing equipment and thus could potentially limit the demand for certain of Applied's products from such customers"
+WMB,EXE,CUSTOMER,S1,2025-02-25,False,1,0,,,,,,"Certain customers, including Expand Energy Corporation (formerly Chesapeake Energy Corporation or Chesapeake)"
+INTC,AAPL,CUSTOMER,S1,2021-01-22,False,1,4,,,,,,ramp down of modem and Apple Mac revenue
+ENTG,AMAT,CUSTOMER,S1,2023-02-23,False,1,0,,,,,,"receiving the ESG Supplier Award from Applied Materials, a major equipment customer"
+LOW,HTHIY,SUPPLIER,S1,2019-04-02,False,1,0,,,,,,Hitachi ® pneumatic tools
+PPG,BA,CUSTOMER,S2,2020-07-17,False,0,6,,,,,,our large OEM Airbus and Boeing customers
+SNOW,BLK,CUSTOMER,S2,2021-12-01,False,0,4,,,,,,"I talked about BlackRock in the script, I think, where I said they're creating a little bit of a customer 360"
+WEC,Foxconn-none,CUSTOMER,S2,2020-01-30,False,0,8,,,,,,follow up on Foxconn really briefly
+ORCL,NVDA,SUPPLIER,S2,2023-12-11,False,0,7,,,,,,we got enough NVIDIA GPUs
+ORCL,XAI-none,CUSTOMER,S2,2023-12-11,False,0,7,,,,,,XAI has signed a contract to do training in Oracle's Gen2 Cloud
+HON,BA,CUSTOMER,S2,2020-01-31,False,0,6,,,,,,our demand for Boeing hasn't changed
+WMB,CVX,CUSTOMER,S2,2020-05-05,False,0,10,,,,,,Chevron's Ballymore prospect
+PLD,AMZN,CUSTOMER,S2,2020-01-22,False,0,17,,,,,,So that's Amazon.
+NEM,Bechtel-none,SUPPLIER,S2,2022-04-22,False,0,3,,,,,,Bechtel is doing the Yanacocha work for you
+GOOG,NVDA,SUPPLIER,S2,2023-10-24,False,0,7,,,,,,"A3 Mega, powered by Nvidia H100 GPUs"
+CRM,Siemens-none,CUSTOMER,S2,2023-05-31,False,0,3,,,,,,"MuleSoft, again, delivered strong results with wins at Siemens, Synovo, and Vodafone."
+ORCL,ZM,CUSTOMER,S2,2020-12-10,False,0,4,,,,,,Zoom went live on ERP and SCM
+WEC,MSFT,CUSTOMER,S2,2023-08-01,False,0,11,,,,,,the Microsoft PAWS
+VZ,AAPL,SUPPLIER,S2,2025-10-29,False,0,3,,,,,,everyone knows Apple comes out with a new product
+SNOW,WU,CUSTOMER,S2,2024-08-21,False,0,3,,,,,,we have customers like Western Union who are starting whole businesses on top of Snowflake
+MPWR,INTC,CUSTOMER,S2,2021-11-28,False,0,4,,,,,,both Intel and AMD are positioned for political releases coming up here
+WEC,AMZN,CUSTOMER,S2,2020-08-04,False,0,7,,,,,,We've got Amazon.
+ORCL,META,CUSTOMER,S2,2024-12-09,False,0,5,,,,,,"We have signed significant cloud contracts with the who's who of AI, including OpenAI, XAI, Meta"
+MSFT,BLK,CUSTOMER,S1,2025-02-25,False,1,4,,,,,,"helping companies like BlackRock, Gap, and TaskRabbit source job candidates based on proven proficiencies"
+PYPL,BKNG,CUSTOMER,S2,2023-11-01,False,0,3,,,,,,"serving the largest enterprises such as Adobe, Booking.com, DoorDash, Ticketmaster, and Uber"
+PYPL,AMZN,CUSTOMER,S2,2022-08-02,False,0,4,,,,,,We look forward to launching Pay with Venmo on Amazon
+BLDP,Siemens-none,CUSTOMER,S2,2022-05-09,False,0,10,,,,,,with our Siemens order
+CRM,ZM,CUSTOMER,S2,2022-03-01,False,0,6,,,,,,"US Bank, Zoom, and so many more"
+SWKS,T,CUSTOMER,S2,2020-07-23,False,0,3,,,,,,Did some really good work with AT&T on Gateways.
+MPWR,Huawei-none,CUSTOMER,S2,2020-10-29,False,0,4,,,,,,you had them as a customer
+MSFT,TM,CUSTOMER,S2,2020-10-27,False,0,11,,,,,,from IKEA to Toyota
+MSFT,WMT,CUSTOMER,S2,2022-04-26,False,0,5,,,,,,Walmart is using Cosmos DB to handle billions of online requests daily
+MSFT,TMUS,CUSTOMER,S2,2022-04-26,False,0,4,,,,,,"Companies like BP, Canadian Tire, Marks & Spencer, and T-Mobile all rely on our end-to-end analytics"
+SWKS,VZ,CUSTOMER,S2,2022-08-04,False,0,4,,,,,,launched residential gateways at Verizon
+MSFT,ROK,CUSTOMER,S2,2023-04-25,False,0,6,,,,,,"our sales co-pilot helps sellers at more than 15,000 organizations, including Rockwell Automation"
+PARA,CMCSA,CUSTOMER,S2,2020-05-07,False,0,4,,,,,,we renewed our deal with Comcast
+PARA,VZ,CUSTOMER,S2,2020-08-06,False,0,4,,,,,,"Verizon, our first true cross-company, cross-portfolio MVPD deal."
+PPG,WMT,CUSTOMER,S2,2023-04-21,False,0,3,,,,,,our Walmart win
+GOOG,PYPL,CUSTOMER,S2,2023-10-24,False,0,4,,,,,,customers like PayPal and Kakao Brain are choosing our infrastructure
+CRM,PFE,CUSTOMER,S2,2025-05-28,False,0,3,,,,,,more than 40 global customers including Pfizer and Takeda
+MSFT,HRB,CUSTOMER,S2,2025-04-30,False,0,3,,,,,,"to H&R Block and LG Electronics, to design, customize, and manage their AI apps and agents"
+CRM,T,CUSTOMER,S2,2020-05-28,False,0,6,,,,,,the AT&T win
+CRM,SONO,CUSTOMER,S2,2021-05-27,False,0,4,,,,,,"Commerce Cloud wins at Ralph Lauren, Bose, Sonos"
+ORCL,UBER,CUSTOMER,S2,2023-09-11,False,0,8,,,,,,core OCI deals like Uber
+ETN,BA,CUSTOMER,S2,2023-05-02,False,0,6,,,,,,including Boeing's ramp
+MSFT,T,CUSTOMER,S2,2021-01-26,False,0,9,,,,,,AT&T chose Azure to power its 5G core network
+MU,NVDA,CUSTOMER,S1,2019-02-21,False,7,11,,,,,,
+PYPL,UBER,CUSTOMER,S2,2020-05-07,False,0,4,,,,,,accelerating others like Uber to come
+CL,AMZN,CUSTOMER,S2,2024-04-26,False,0,4,,,,,,marketing to a consumer on Amazon
+MSFT,RL,CUSTOMER,S2,2025-10-29,False,0,3,,,,,,Ralph Lauren used Foundry to build conversational shopping experience in its app
+SLB,XOM,CUSTOMER,S2,2021-10-22,False,0,3,,,,,,the first fully automated section drill offshore at the Hebron platform for ExxonMobil in Canada
+ORCL,NVDA,CUSTOMER,S2,2022-03-10,False,0,13,,,,,,NVIDIA themselves are doing that
+EMR,CVX,CUSTOMER,S2,2023-05-03,False,0,3,,,,,,"Some of the customers in petrochem, like Chevron or ExxonMobil, are under some pressure."
+IBM,Samsung-none,CUSTOMER,S2,2023-07-19,False,0,4,,,,,,"clients including BMW, Humana, Samsung Electronics, Ikea, and Costco"
+TSLA,NVDA,SUPPLIER,S2,2023-07-19,False,0,5,,,,,,version 2 was NVIDIA
+GOOG,W,CUSTOMER,S2,2021-02-02,False,0,6,,,,,,"as well as cloud native leaders, including Wayfair and Etsy"
+SPWR,TOL,CUSTOMER,S2,2023-11-01,False,0,3,,,,,,"Toll Brothers in Nevada, New York, and Massachusetts"
+SIRI,CRM,SUPPLIER,S2,2025-01-30,False,0,4,,,,,,use some of those capabilities of Salesforce
+ORCL,INTC,CUSTOMER,S2,2022-03-10,False,0,3,,,,,,Intel.
+CRM,PYPL,CUSTOMER,S2,2021-08-25,False,0,3,,,,,,customer wins like Ford and Geico and Mercedes-Benz and PayPal
+NEM,CAT,SUPPLIER,S2,2021-10-28,False,0,3,,,,,,we've cleaned it out with Caterpillar
+ORCL,C,CUSTOMER,S2,2022-12-12,False,0,3,,,,,,"JPMorgan Chase, Citigroup"
+ORCL,GLDI,CUSTOMER,S2,2022-03-10,False,0,4,,,,,,"Societe Generale, Credit Suisse"
+BLDP,MSFT,CUSTOMER,S2,2023-11-07,False,0,5,,,,,,"backup power for data centers, like the project underway with Cat and Microsoft"
+MSFT,AMD,SUPPLIER,S1,2019-02-08,False,7,4,,,,,,"our support of the latest from AMD, Intel, NVIDIA"
+MSFT,INTC,SUPPLIER,S1,2024-01-26,False,1,5,,,,,,"our support of the latest from AMD, Intel, NVIDIA"
+MSFT,NVDA,SUPPLIER,S2,2025-01-29,False,0,5,,,,,,"we buy one version of, say, NVIDIA"
+MSFT,HTHIY,CUSTOMER,S2,2025-01-29,False,0,3,,,,,,"over 19,000 paid customers from Hitachi to Johnson Controls to Schaeffler"
+TMO,MRNA,CUSTOMER,S2,2022-07-28,False,0,3,,,,,,the Moderna agreement
+MSFT,CVX,CUSTOMER,S2,2023-10-24,False,0,3,,,,,,"customers like Bridgestone, Chevron, and Equinor turning to our stack"
+MSFT,Siemens-none,CUSTOMER,S2,2021-10-26,False,0,7,,,,,,"Leading companies like Bayer, Siemens, Vodafone, all chose our premium EFI offerings"
+PH,BA,CUSTOMER,S2,2020-01-30,False,0,4,,,,,,an environment when you've got kind of Boeing strikes to contend with
+EOSE,TRIN,SUPPLIER,S2,2023-08-15,False,0,3,,,,,,the Equipment Financing Facility with Trinity Capital
+EMR,Bechtel-none,CUSTOMER,S2,2023-08-02,False,0,5,,,,,,we're very engaged in through engineering contractors such as Bechtel
+GOOG,VZ,CUSTOMER,S2,2024-07-23,False,0,4,,,,,,"Samsung, Walmart and Verizon partnered with creators to host shoppable holiday live stream events in the US"
+GOOG,Samsung-none,CUSTOMER,S2,2024-01-30,False,0,3,,,,,,DemandGen is already driving success for brands like Samsung and Toyota.
+MSFT,VWAGY,CUSTOMER,S2,2021-01-26,False,0,3,,,,,,"Epic Games, Motorola Solutions, and Volkswagen Software Group all chose GitHub Advanced Security this quarter"
+QCOM,META,CUSTOMER,S2,2025-11-05,False,0,3,,,,,,very strong demand for smart glasses from Meta
+NXPI,TSM,SUPPLIER,S2,2024-07-23,False,0,3,,,,,,front-end manufacturing being TSMC in Nanjing
+CRM,WDAY,CUSTOMER,S2,2024-08-28,False,0,3,,,,,,we're building the agents for Workday
+ORCL,T,CUSTOMER,S2,2021-12-09,False,0,3,,,,,,"our big customers, AT&T, Orange, MTN, Bardi Airtel, all around the world"
+TTD,HSY,CUSTOMER,S2,2023-05-10,False,0,3,,,,,,Hershey's sell more chocolate bars
+ORCL,MSFT,CUSTOMER,S2,2023-12-11,True,0,4,,,,,,Microsoft puts in an order for 20 cloud data
+NOW,NVDA,CUSTOMER,S2,2025-10-29,False,0,3,,,,,,NVIDIA runs ServiceNow
+NOW,ADBE,CUSTOMER,S2,2024-07-24,False,0,4,,,,,,Adobe works with ServiceNow to transform the way it serves employees.
+DUK,AMZN,CUSTOMER,S2,2025-08-05,False,0,3,,,,,,the Amazon deal is a big deal for us
+CRM,ACN,CUSTOMER,S2,2024-12-03,False,0,5,,,,,,we grew relationships with Accenture
+CRM,IBM,CUSTOMER,S2,2023-03-01,False,0,4,,,,,,IBM has built their entire Customer 360 on Salesforce
+MSFT,GE,CUSTOMER,S2,2024-04-25,False,0,3,,,,,,"making it possible for companies like FedEx, GE, and Marriott to use capabilities from both companies."
+INTC,META,CUSTOMER,S2,2022-07-28,False,0,3,,,,,,clear customer wins like AWS and Meta and NVIDIA
+SNOW,DIS,CUSTOMER,S2,2024-08-21,False,0,5,,,,,,our customers Hyatt and Disney do at scale
+MSFT,NVS,CUSTOMER,S2,2025-01-29,False,0,3,,,,,,"Novartis has added thousands of seats each quarter over the past year and now have 40,000 seats."
+MSFT,GM,CUSTOMER,S2,2023-01-24,False,0,3,,,,,,Cruise and GM chose Azure as their preferred cloud
+MSFT,LUMN,CUSTOMER,S2,2022-04-26,False,0,9,,,,,,"Etotude, and Lumen"
+AEP,INTC,CUSTOMER,S2,2022-07-27,False,0,4,,,,,,Intel has just been an enormous success
+MSFT,HPQ,CUSTOMER,S2,2024-10-30,True,0,5,,,,,,"world's largest enterprises like HP, HSBC, and KPMG"
+MSFT,BP-none,CUSTOMER,S2,2022-10-25,False,0,5,,,,,,both BP and Shell rely on our cloud to meet sustainability goals
+MSFT,Shell-none,CUSTOMER,S2,2022-07-26,False,0,5,,,,,,both BP and Shell rely on our cloud to meet sustainability goals
+MSFT,VZ,CUSTOMER,S2,2024-10-30,False,0,3,,,,,,"Verizon, for example, chose Dynamics 365 sales to improve the efficiency of its sellers"
+PLD,WMT,CUSTOMER,S2,2020-01-22,False,0,4,,,,,,we have Walmart credit on it
+ORCL,OpenAI-none,CUSTOMER,S2,2024-12-09,False,0,4,,,,,,"Our major AI customers include OpenAI, XAI, NVIDIA, Cohere, and most recently, Meta"
+MSFT,ACN,CUSTOMER,S2,2020-07-22,False,0,10,,,,,,we're the largest user of Teams by Microsoft in the world
+WDAY,LUV,CUSTOMER,S2,2024-08-22,False,0,3,,,,,,"HCM go-lives, including Cox Enterprises, Southwest Airlines"
+PYPL,GOOG,SUPPLIER,S2,2023-10-24,False,0,4,,,,,,customers like PayPal and Kakao Brain are choosing our infrastructure
+PYPL,MSFT,SUPPLIER,S2,2023-07-25,False,0,5,,,,,,both PayPal and Tata Digital built co-pilots to answer common employee queries
+MSFT,NOW,CUSTOMER,S1,2023-01-31,False,2,4,,,,,,"to Coca-Cola and ServiceNow, expanding their footprints on Azure"
+MSFT,MS,CUSTOMER,S2,2021-07-15,False,0,4,,,,,,"including MaaS in consumer goods, Morgan Stanley in financial services, and NEC in IT"
+CRM,Deloitte-none,CUSTOMER,S2,2025-05-28,False,0,3,,,,,,"how important data is to our customers like Box, Deloitte, and Boeing"
+ORCL,ENB,CUSTOMER,S2,2022-12-12,False,0,3,,,,,,"Vodafone, Deutsche Telekom, Enbridge, Kaiser, a huge healthcare company primarily in the United States."
+ORCL,VZ,CUSTOMER,S2,2022-06-13,False,0,4,,,,,,"We won a major expansion, ERP and EPM at Verizon"
+MSFT,KHC,CUSTOMER,S2,2022-07-26,False,0,3,,,,,,"Leaders in every industry, including Kraft Heinz, Fujitsu, and Unilever, have migrated ERP workloads to Azure"
+WOLF,GM,CUSTOMER,S2,2021-10-27,False,0,3,,,,,,it's a really great partnership that we have together with GM
+IBM,VZ,CUSTOMER,S2,2025-07-23,False,0,3,,,,,,"major Telco clients, including Verizon and Telefonica, have chosen IBM's hybrid cloud platform"
+GOOG,LOW,CUSTOMER,S2,2025-04-24,False,0,3,,,,,,helping customers like Lowe's integrate AI
+RUN,SEDG,SUPPLIER,S1,2021-02-19,False,4,2,,,,,,buys inverters from ENPH and SEDG
+EQIX,NOW,CUSTOMER,S2,2025-07-30,False,0,3,,,,,,"ServiceNow, expanding with Equinix in multiple locations globally, powering their continued growth"
+SWKS,F,CUSTOMER,S2,2024-01-30,False,0,4,,,,,,from a Cisco to a Ford
+MPWR,AMD,CUSTOMER,S2,2022-05-02,False,0,3,,,,,,both Intel and AMD are positioned for political releases coming up here
+MSFT,F,CUSTOMER,S2,2021-07-27,False,0,3,,,,,,"Organizations like Ford, NASA, and Shopify are using new project planning capabilities"
+MSFT,SHOP,CUSTOMER,S2,2022-10-25,False,0,4,,,,,,already being used by both digital natives like Shopify
+MSFT,UL,CUSTOMER,S2,2021-04-29,False,0,8,,,,,,Companies like Coca-Cola and Unilever will use Viva to help their employees thrive
+CRM,VWAGY,CUSTOMER,S2,2020-02-25,False,0,3,,,,,,"Keith mentioned a deal that we did this quarter, Volkswagen."
+CRM,HTHIY,CUSTOMER,S2,2023-03-01,False,0,5,,,,,,"Panasonic Corporation, and Hitachi"
+DD,TSM,CUSTOMER,S2,2023-11-01,False,0,3,,,,,,companies like TSMC are gaining share
+MSFT,DXC,CUSTOMER,S2,2024-01-30,False,0,3,,,,,,"companies across private and public sector, including Cerebrus, Chanel, DXC Technology, all rely on our premium E5 offerings"
+PYPL,ADBE,CUSTOMER,S2,2023-11-01,False,0,3,,,,,,"serving the largest enterprises such as Adobe, Booking.com, DoorDash, Ticketmaster, and Uber"
+PYPL,DASH,CUSTOMER,S2,2023-11-01,False,0,5,,,,,,we recently renewed our contract with DoorDash to expand how we work together
+MSFT,BCS,CUSTOMER,S2,2024-07-30,False,0,4,,,,,,"Barclays, Carrier Group, Pearson, and University of Miami all purchased 10,000 or more seats this quarter."
+CRM,Schneider-none,CUSTOMER,S2,2024-02-28,False,0,3,,,,,,"including customer wins at CDW, Zscaler, and Schneider Electric"
+MSFT,QCOM,CUSTOMER,S2,2022-10-25,False,0,3,,,,,,"Asahi, Expedia Group, and Qualcomm all chose our premium offerings to transform how employees work."
+MSFT,COLM,CUSTOMER,S2,2021-07-27,False,0,3,,,,,,enabling retailers like Columbia Sportswear to ship inventory from stores and offer contactless payment options
+MSFT,PYPL,CUSTOMER,S2,2023-07-25,False,0,5,,,,,,both PayPal and Tata Digital built co-pilots to answer common employee queries
+MSFT,Schneider-none,CUSTOMER,S2,2024-01-30,False,0,3,,,,,,Hundreds of paid customers from Accenture and EY to Schneider Electric are using it
+MCHP,TSM,SUPPLIER,S2,2025-11-06,False,0,3,,,,,,we also buy wafers from foundries outside
+QCOM,VZ,CUSTOMER,S2,2021-11-03,False,0,3,,,,,,"we have now, for example, Verizon with 35 CDs now live with ultra-wideband technology"
+QCOM,TMUS,CUSTOMER,S2,2021-11-03,False,0,3,,,,,,T-Mobile is leveraging their 5G network to target 7 to 8 million home broadband customers over the next five years
+AEP,AMZN,CUSTOMER,S2,2025-05-06,False,0,5,,,,,,both Amazon Web Services and Google have connected hyperscale data centers to our system in Indiana
+AEP,GOOG,CUSTOMER,S2,2025-02-13,False,0,4,,,,,,both Google and AWS have recently begun service in Indiana
+CRM,UBER,CUSTOMER,S2,2022-08-24,False,0,3,,,,,,Customers in the year like Gap and Sonos and even Uber Eats who use Service Cloud
+GOOG,BBY,CUSTOMER,S2,2024-07-23,False,0,4,,,,,,customers like Best Buy and Gordon Food Service
+GOOG,UL,CUSTOMER,S2,2024-01-30,False,0,3,,,,,,"enterprises like Groupo, Bucciario, Unilever, and Warner Music"
+WOLF,TSLA,CUSTOMER,S2,2021-04-28,False,0,4,,,,,,maybe we could lump Tesla in that group
+MSFT,PSO,CUSTOMER,S2,2024-07-30,False,0,4,,,,,,Pearson Vue and Vodafone both chose our security stack to protect their digital estate across clouds.
+WMB,Shell-none,CUSTOMER,S2,2020-02-20,False,0,9,,,,,,we had a reimbursable agreement with Shell
+MSFT,NFLX,CUSTOMER,S2,2022-07-26,False,0,3,,,,,,Netflix chose us as its exclusive technology and sales partner for its first ad-supported subscription offering
+GOOG,SHOP,CUSTOMER,S2,2023-04-26,False,0,3,,,,,,Shopify to bring better search results and personalization using AI
+SWKS,VWAGY,CUSTOMER,S2,2021-04-29,False,0,3,,,,,,accelerating connectivity content with leading brands including Volkswagen
+MSFT,SNOW,CUSTOMER,S1,2022-03-30,True,4,2,,,,,,"Snowflake, for example, will increase its Azure spend as it builds new integrations with Azure OpenAI"
+SNOW,KHC,CUSTOMER,S2,2025-05-21,False,0,3,,,,,,Kraft Heinz is leveraging Snowflake Cortex to empower its employees with innovative AI tools
+INTC,Samsung-none,CUSTOMER,S2,2022-07-28,False,0,3,,,,,,"OEM partners, Acer, Asus, Dell, HP, Lenovo, LG, MSI, Samsung Electronics, and others"
+WOLF,ABB-none,CUSTOMER,S2,2021-08-17,False,0,3,,,,,,the gentleman from ABB who – discussed the potential in some of their utility equipment
+QCOM,DELL,CUSTOMER,S2,2025-07-30,False,0,3,,,,,,Dell recently launched the Inspiron 14-inch laptop powered by the Snapdragon 8CX Gen2 compute platform.
+MSFT,HD,CUSTOMER,S2,2022-01-25,False,0,3,,,,,,"retailers like Home Depot, Kohl's and Kroger to build their own digital commerce and marketing channels"
+WDAY,XOM,CUSTOMER,S2,2023-05-25,False,0,3,,,,,,planning first wins at ExxonMobil and Ninja Bank
+MSFT,DUOL,CUSTOMER,S2,2022-10-25,False,0,3,,,,,,"help companies like AT&T, Duolingo, and Progressive build custom neural voices for their products"
+MSFT,BSY,CUSTOMER,S2,2021-04-29,False,0,3,,,,,,"organizations like Bentley Systems, Honeywell Industries, and Johnson Controls can bridge the digital and physical worlds"
+MSFT,V,CUSTOMER,S2,2023-04-25,False,0,4,,,,,,Visa switched to Dynamics 365 for both its sales and call center organizations.
+ACN,MSFT,SUPPLIER,S2,2020-07-22,False,0,10,,,,,,we're the largest user of Teams by Microsoft in the world
+GOOG,TM,CUSTOMER,S2,2025-04-24,False,0,3,,,,,,DemandGen is already driving success for brands like Samsung and Toyota.
+GOOG,WMT,CUSTOMER,S2,2024-04-25,False,0,3,,,,,,"global brands like Bayer, CentOS, Mercedes-Benz, Walmart, and many more"
+TTD,UL,CUSTOMER,S2,2024-02-15,False,0,3,,,,,,the work we're doing with Unilever in Thailand
+MSFT,MBGAF,CUSTOMER,S2,2021-04-29,False,0,3,,,,,,Daimler chose Power BI to surface insights across the organization
+MU,AMD,CUSTOMER,S2,2023-03-28,False,0,3,,,,,,
+CRM,OpenAI-none,CUSTOMER,S2,2024-02-28,False,0,3,,,,,,he was paying a Slack user fee and on and on. And he's a great Slack customer
+INTC,ORCL,CUSTOMER,S1,2019-06-21,False,2,1,,,,,,those using microprocessors from Intel Corporation
+WDAY,GE,CUSTOMER,S2,2024-08-22,False,0,3,,,,,,"several marquee wins, including GEMPAC Limited"
+VZ,CMCSA,CUSTOMER,S1,2019-01-31,True,7,2,,,,,,we've expanded our Verizon MVNO agreement
+NOW,DTEGY,CUSTOMER,S2,2022-01-26,False,0,3,,,,,,"wins at major brands, including SAS Institute, Deutsche Telekom, and Wellstar."
+GOOG,ADBE,CUSTOMER,S1,2023-01-17,False,1,1,,,,,,"Google's Play Store, for the distribution of certain of our product offerings"
+MS,MSFT,SUPPLIER,S2,2021-07-15,False,0,4,,,,,,"including MaaS in consumer goods, Morgan Stanley in financial services, and NEC in IT"
+GOOG,XYZ,CUSTOMER,S1,2019-02-27,False,7,0,,,,,,"our visibility on third-party advertising platforms, such as Google, Twitter, or Facebook"
+META,XYZ,CUSTOMER,S1,2019-02-27,False,7,0,,,,,,"third-party advertising platforms, such as Google or Facebook"
+ARM,NXPI,CUSTOMER,S1,2020-02-27,False,6,1,,,,,,high performing Arm Cortex-M core
+COR,AMGN,SUPPLIER,S1,2019-02-13,False,7,0,,,,,,"Cencora, Inc. (formerly AmerisourceBergen)"
+MCK,AMGN,SUPPLIER,S1,2019-02-13,False,7,0,,,,,,"The substantial majority of our U.S. product sales is made to three pharmaceutical product wholesaler distributors: AmerisourceBergen, McKesson and Cardinal Health."
+CAH,AMGN,SUPPLIER,S1,2019-02-13,False,7,0,,,,,,"The substantial majority of our U.S. product sales is made to three pharmaceutical product wholesaler distributors: AmerisourceBergen, McKesson and Cardinal Health."
+AVAV,AMPX,SUPPLIER,S1,2023-03-30,False,3,4,,,,,,"our longtime partners such as AALTO Airbus, AeroVironment"
+WMT,HRL,SUPPLIER,S1,2019-12-06,False,7,1,,,,,,Walmart is a customer for all four segments of the Company.
+AAPL,QCOM,SUPPLIER,S1,2019-11-06,False,7,19,,,,,,share within Apple
+BNTX,PFE,SUPPLIER,S1,2023-02-23,False,2,0,,,,,,Comirnaty supply to BioNTech
+VTRS,PFE,SUPPLIER,S1,2021-02-25,False,3,0,,,,,,manufacturing of legacy Upjohn products for Viatris under manufacturing and supply agreements
+AMZN,NWS,SUPPLIER,S1,2020-08-11,False,6,0,,,,,,Amazon's reset of its inventory levels and rightsizing of its warehouse footprint
+Huawei-none,SWKS,SUPPLIER,S1,2019-11-14,False,4,10,,,,,,"HTC, Huawei"
+DUK,EOSE,SUPPLIER,S1,2021-02-26,False,2,0,,,,,,utilities companies such as Duke Energy Corporation
+BA,GE,SUPPLIER,S1,2020-02-24,False,3,0,,,,,,CFM is the exclusive engine for the Boeing 737 MAX
+DELL,NVDA,SUPPLIER,S1,2020-02-20,False,2,0,,,,,,"11% of our total revenue was from one customer, Dell"
+BA,GE,CUSTOMER,S1,2019-02-26,False,3,0,,,,,,"placed multiple-year orders for various Boeing, Airbus and other aircraft manufacturers"
+OMC,TTD,SUPPLIER,S1,2019-02-22,False,3,0,,,,,,Publicis Groupe and Omnicom Group Inc. would each represent more than 10% of our gross billings for 2018.
+GFS,AMD,CUSTOMER,S1,2019-02-08,False,7,0,,,,,,we purchase products manufactured by GF
+WMT,PEP,SUPPLIER,S1,2019-02-15,False,7,0,,,,,,"customers, including Walmart, to compete effectively"
+SBE,FSLR,SUPPLIER,S1,2022-03-01,False,1,0,,,,,,SB Energy accounted for more than 10% of our modules business net sales
+MCK,ABBV,SUPPLIER,S1,2019-02-27,False,7,0,,,,,,"three wholesale distributors (McKesson Corporation, Cardinal Health, Inc. and AmerisourceBergen Corporation) accounted for substantially all of AbbVie's sales in the United States"
+CAH,ABBV,SUPPLIER,S1,2019-02-27,False,7,0,,,,,,"three wholesale distributors (McKesson Corporation, Cardinal Health, Inc. and AmerisourceBergen Corporation) accounted for substantially all of AbbVie's sales in the United States"
+COR,ABBV,SUPPLIER,S1,2019-02-27,False,7,0,,,,,,"three wholesale distributors (McKesson Corporation, Cardinal Health, Inc. and AmerisourceBergen Corporation) accounted for substantially all of AbbVie's sales in the United States"
+AAPL,AVGO,SUPPLIER,S1,2019-12-20,False,5,0,,,,,,Apple is seeking indemnification from Broadcom
+Huawei-none,QCOM,SUPPLIER,S1,2019-11-06,False,6,17,,,,,,lower sales to Huawei
+TSM,ENTG,SUPPLIER,S1,2019-02-11,False,4,0,,,,,,"Taiwan Semiconductor Manufacturing Company Limited, accounted for $208 million, $187 million and $154 million of our net sales"
+Samsung-none,ENTG,SUPPLIER,S1,2019-02-11,False,4,0,,,,,,"Samsung Electronics Co. accounted for $164 million and $141 million of net sales, respectively"
+AAPL,NXPI,SUPPLIER,S1,2020-02-27,False,6,0,,,,,,"Our 10 largest OEM end customers, some of whom are supplied by distributors, in alphabetical order, are Apple, Bosch, Continental, Denso, Delphi, Ericsson, Huawei, LG, Samsung and ZTE."
+GE,NXPI,SUPPLIER,S1,2022-02-24,False,3,0,,,,,,"Our 10 largest OEM end customers, some of whom are supplied by distributors, in alphabetical order, are Apple, Aptiv, Bosch, Continental, Denso, Harman Auto, LGE, Samsung, Visteon, and Vitesco."
+Samsung-none,NXPI,SUPPLIER,S1,2020-02-27,False,6,2,,,,,,think about Samsung
+VC,NXPI,SUPPLIER,S1,2021-02-25,False,5,0,,,,,,"Our 10 largest OEM end customers, some of whom are supplied by distributors, in alphabetical order, are Apple, Aptiv, Bosch, Continental, Denso, Ericsson, Huawei, LG, Samsung and Visteon."
+COR,GILD,SUPPLIER,S1,2019-02-26,False,7,0,,,,,,"Cencora, Inc. (formerly known as AmerisourceBergen Corporation)"
+CAH,GILD,SUPPLIER,S1,2019-02-26,False,7,0,,,,,,"approximately 90% of our product sales in the U.S. have been to three wholesalers, Cardinal Health, Inc., Cencora, Inc., and McKesson Corporation"
+MCK,GILD,SUPPLIER,S1,2019-02-26,False,7,0,,,,,,"approximately 90% of our product sales in the U.S. have been to three wholesalers, Cardinal Health, Inc., Cencora, Inc., and McKesson Corporation"
+BA,RTX,SUPPLIER,S1,2019-02-07,False,7,19,,,,,,the Boeing OE rate
+TSM,NVDA,CUSTOMER,S1,2019-02-21,False,7,0,,,,,,"We utilize suppliers, such as Taiwan Semiconductor Manufacturing Company Limited and Samsung Electronics Co. Ltd, to produce our semiconductor wafers."
+Samsung-none,NVDA,CUSTOMER,S1,2019-02-21,False,7,0,,,,,,"memory from Micron Technology, Samsung Semiconductor, Inc., and SK Hynix"
+Huawei-none,WOLF,SUPPLIER,S1,2019-08-21,False,3,5,,,,,,Huawei is out of the numbers
+CNC,CI,SUPPLIER,S1,2023-02-23,False,3,9,,,,,,the Centene contract
+ARW,MCHP,SUPPLIER,S1,2019-05-30,False,7,0,,,,,,"Arrow Electronics, our largest distributor, which accounted for 10%"
+CVX,SO,SUPPLIER,S1,2019-02-20,False,7,0,,,,,,"Mississippi Power and its largest retail customer, Chevron Products Company (Chevron)"
+AMZN,NWS,CUSTOMER,S1,2022-08-12,False,4,0,,,,,,Akamai and Amazon Web Services (AWS) for content delivery networks (CDN) and hosting services
+GOOG,PSA,CUSTOMER,S1,2020-02-25,False,6,0,,,,,,increased reliance on Google as a customer acquisition channel
+Huawei-none,NXPI,SUPPLIER,S1,2020-02-27,False,6,3,,,,,,despite the ban on Huawei
+DIS,CHTR,CUSTOMER,S1,2024-02-02,False,2,0,,,,,,customer credits related to the temporary loss of Disney programming in 2023
+ENB,D,SUPPLIER,S1,2024-02-23,False,2,0,,,,,,Dominion Energy's gas distribution operations expected to be sold to Enbridge during 2024
+TSM,AVGO,CUSTOMER,S1,2019-12-20,False,7,0,,,,,,TSMC's supply of wafers to us
+Panasonic-none,TSLA,CUSTOMER,S1,2019-02-19,False,11,4,,,,,,"with Panasonic, and LG"
+AMKR,NVDA,CUSTOMER,S1,2019-02-21,False,5,0,,,,,,"We then utilize independent subcontractors and contract manufacturers, such as Amkor Technology, BYD Auto Co. Ltd."
+BYD-none,NVDA,CUSTOMER,S1,2019-02-21,False,4,0,,,,,,"utilize industry-leading contract manufacturers, or CMs, such as BYD"
+FN,NVDA,CUSTOMER,S1,2021-02-26,False,5,0,,,,,,Fabrinet to manufacture our cables
+SONY,AMD,SUPPLIER,S1,2019-02-08,False,7,0,,,,,,AMD semi-custom SoC products power the Sony PlayStation ® 5
+AMZN,SWKS,SUPPLIER,S1,2019-11-14,False,7,4,,,,,,Our key customers include Amazon
+AAPL,SWKS,SUPPLIER,S1,2019-11-14,False,7,4,,,,,,Apple broad markets piece
+CSCO,SWKS,SUPPLIER,S1,2019-11-14,False,7,7,,,,,,"Bose, Cisco"
+GE,SWKS,SUPPLIER,S1,2019-11-14,False,7,4,,,,,,Boston Scientific and GE
+GOOG,SWKS,SUPPLIER,S1,2019-11-14,False,7,17,,,,,,"Fibocom, Google"
+HON,SWKS,SUPPLIER,S1,2019-11-14,False,7,6,,,,,,"Google, Honeywell"
+Lenovo-none,SWKS,SUPPLIER,S1,2019-11-14,False,7,0,,,,,,"Itron, Lenovo"
+MSFT,SWKS,SUPPLIER,S1,2019-11-14,False,7,1,,,,,,"LG Electronics, Microsoft"
+NTGR,SWKS,SUPPLIER,S1,2019-11-14,False,7,8,,,,,,"Motorola, NETGEAR"
+NOC,SWKS,SUPPLIER,S1,2019-11-14,False,7,0,,,,,,"Nokia, Northrop Grumman"
+Samsung-none,SWKS,SUPPLIER,S1,2019-11-14,False,7,20,,,,,,Samsung Galaxy M
+Schneider-none,SWKS,SUPPLIER,S1,2023-11-17,False,3,1,,,,,,"Samsung, Schneider Electric"
+SONO,SWKS,SUPPLIER,S1,2019-11-14,False,7,2,,,,,,"Sierra Wireless, Sonos"
+SONY,SWKS,SUPPLIER,S1,2022-11-23,False,4,3,,,,,,"Sonos, Sony"
+TSLA,SWKS,SUPPLIER,S1,2023-11-17,False,3,1,,,,,,"Telit, Tesla"
+Xiaomi-none,SWKS,SUPPLIER,S1,2019-11-14,False,7,12,,,,,,"VIVO, Xiaomi"
+PCAR,CMI,SUPPLIER,S1,2019-02-11,False,7,3,,,,,,our agreement with PACCAR
+MBGAF,CMI,SUPPLIER,S1,2019-02-11,False,7,7,,,,,,great slide on Daimler
+STLA,CMI,SUPPLIER,S1,2021-02-10,False,5,11,,,,,,Stellantis N.V.
+WMT,GIS,SUPPLIER,S1,2019-06-28,False,3,0,,,,,,No customer other than Walmart accounted for 10 percent or more of our consolidated net sales.
+LNG,KMI,SUPPLIER,S1,2019-02-08,False,2,0,,,,,,"long-term firm transportation contracts with Cheniere Energy, Inc. at its Corpus Christi LNG facility"
+Foxconn-none,AVGO,CUSTOMER,S1,2019-12-20,False,7,0,,,,,,"Advanced Semiconductor Engineering, Inc., Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd."
+AMKR,AVGO,CUSTOMER,S1,2019-12-20,False,7,0,,,,,,"Foxconn Technology Group, Amkor Technology, Inc. and Siliconware Precision Industries Co., Ltd."
+ARW,SLAB,SUPPLIER,S1,2019-01-30,False,7,0,,,,,,"Two of our distributors who sell directly to our customers, Arrow Electronics and Edom Technology, each"
+TSM,AMD,CUSTOMER,S1,2019-02-08,False,7,0,,,,,,we use Taiwan Semiconductor Manufacturing Company Limited (TSMC)
+MCK,MRK,SUPPLIER,S1,2019-02-27,False,7,0,,,,,,customers with the largest accounts receivable balances are: McKesson Corporation
+COR,MRK,SUPPLIER,S1,2019-02-27,False,7,0,,,,,,"The Company's customers with the largest accounts receivable balances are: McKesson Corporation, Cencora, Inc. and Cardinal Health, Inc."
+CAH,MRK,SUPPLIER,S1,2019-02-27,False,7,0,,,,,,"The Company's customers with the largest accounts receivable balances are: McKesson Corporation, Cencora, Inc. and Cardinal Health, Inc."
+WMT,KHC,SUPPLIER,S1,2019-06-07,False,7,0,,,,,,"Our largest customer, Walmart Inc., represented approximately 22% of our net sales in 2020"
+Huawei-none,MU,SUPPLIER,S1,2019-10-17,False,3,3,,,,,,write-down of Huawei inventory
+BP-none,ECL,SUPPLIER,S1,2019-03-01,False,2,0,,,,,,"continued to supply COREXIT, as requested by BP and government authorities"
+STLA,SEDG,SUPPLIER,S1,2024-02-26,False,2,6,,,,,,You're continuing to ship to Stellantis.
+AMZN,SNOW,CUSTOMER,S1,2021-03-31,False,5,3,,,,,,your suppliers of public cloud capacity
+ARW,WOLF,SUPPLIER,S1,2019-08-21,False,3,0,,,,,,Arrow is a customer of our Wolfspeed and LED Products segments.
+BMY,PARA,SUPPLIER,S1,2025-04-15,False,1,0,,,,,,"OpenReel's enterprise customer base includes global organizations, such as Bristol Myers Squibb"
+INGM,PARA,SUPPLIER,S1,2025-04-15,False,1,0,,,,,,"OpenReel's enterprise customer base includes global organizations, such as Bristol Myers Squibb, Ingram Micro"
+DXC,PARA,SUPPLIER,S1,2025-04-15,False,1,0,,,,,,"OpenReel's enterprise customer base includes global organizations, such as Bristol Myers Squibb, Ingram Micro, DXC Technology"
+DELL,INTC,SUPPLIER,S1,2019-02-01,False,6,8,,,,,,Dell had said there was some weakness
+Lenovo-none,INTC,SUPPLIER,S1,2019-02-01,False,5,6,,,,,,"Lenovo Group Limited accounting for 12% ( 13% in 2017 , 13% in 2016 )"
+HPQ,INTC,SUPPLIER,S1,2019-02-01,False,6,6,,,,,,"Italian affiliates of customers Dell, HP, and HPE"
+NVDA,INTC,SUPPLIER,S1,2024-01-26,True,1,3,,,,,,clear customer wins like AWS and Meta and NVIDIA
+IBM,INTC,SUPPLIER,S1,2024-01-26,False,1,2,,,,,,We mentioned the IBM win
+BA,INTC,SUPPLIER,S1,2024-01-26,False,1,0,,,,,,"customers such as Nvidia, IBM, Microsoft, Boeing, and Northrop Grumman"
+NOC,INTC,SUPPLIER,S1,2024-01-26,False,1,0,,,,,,"customers such as Nvidia, IBM, Microsoft, Boeing, and Northrop Grumman"
+MCK,LLY,SUPPLIER,S1,2019-02-19,False,7,0,,,,,,"three wholesale distributors in the U.S.—McKesson Corporation, Cencora, Inc., and Cardinal Health, Inc.—each accounted for a significant percentage of our consolidated revenue"
+COR,LLY,SUPPLIER,S1,2019-02-19,False,7,0,,,,,,"Cencora, Inc. (formerly AmerisourceBergen Corporation)"
+CAH,LLY,SUPPLIER,S1,2019-02-19,False,7,0,,,,,,"three wholesale distributors in the U.S.—McKesson Corporation, Cencora, Inc., and Cardinal Health, Inc.—each accounted for a significant percentage of our consolidated revenue"
+Huawei-none,AVGO,SUPPLIER,S1,2019-12-20,False,5,0,,,,,,"Huawei Technologies Co. Ltd., one of our customers, to its ""Entity List"""
+GE,LOW,CUSTOMER,S1,2019-04-02,False,4,0,,,,,,GE ®
+Samsung-none,LOW,CUSTOMER,S1,2019-04-02,False,4,0,,,,,,Samsung ® appliances
+META,LOW,CUSTOMER,S1,2020-03-23,False,3,0,,,,,,Metabo ® pneumatic tools
+OC,LOW,CUSTOMER,S1,2019-04-02,False,4,0,,,,,,Owens Corning ® insulation and roofing
+MU,LRCX,SUPPLIER,S1,2019-08-20,False,6,0,,,,,,"Kioxia Corporation; Micron Technology, Inc."
+Samsung-none,LRCX,SUPPLIER,S1,2019-08-20,False,7,0,,,,,,"Samsung Electronics Company, Ltd."
+SKHY,LRCX,SUPPLIER,S1,2019-08-20,False,6,0,,,,,,SK hynix Inc.
+INTC,LRCX,SUPPLIER,S1,2019-08-20,False,5,1,,,,,,now that Intel sold the main business to Hynix
+TSM,LRCX,SUPPLIER,S1,2019-08-20,False,7,4,,,,,,Taiwan Semiconductor Manufacturing Company
+EMBC,BDX,SUPPLIER,S1,2022-11-22,False,3,0,,,,,,the Company has continued to provide certain products and services to
+Siemens-none,SO,CUSTOMER,S1,2019-02-20,False,1,0,,,,,,"Southern Power purchased wind turbine equipment from Siemens Wind Power, Inc."
+AMZN,INTC,SUPPLIER,S1,2021-01-22,False,3,8,,,,,,initial revenue from Amazon and Cisco
+AMZN,UPS,SUPPLIER,S1,2020-02-20,False,6,15,,,,,,our Amazon activity
+AMZN,WDAY,CUSTOMER,S1,2019-03-18,False,7,0,,,,,,"we rely upon third-party hosted infrastructure partners globally, including AWS"
+GOOG,WDAY,CUSTOMER,S1,2021-03-02,False,5,0,,,,,,"we rely upon third-party hosted infrastructure partners globally, including AWS, Google LLC"
+MSFT,WDAY,CUSTOMER,S1,2021-03-02,False,4,0,,,,,,"we rely upon third-party hosted infrastructure partners globally, including AWS, Google LLC, and Microsoft Corporation"
+Samsung-none,SEDG,CUSTOMER,S1,2023-02-22,False,1,12,,,,,,"Samsung SDI, that provides"
+TRGP,AMSC,SUPPLIER,S1,2024-05-29,False,2,0,,,,,,"Capital Power Corp., Targa Resources Corp."
+MU,AMSC,SUPPLIER,S1,2024-05-29,False,2,0,,,,,,"Targa Resources Corp., Micron Technology Inc."
+VZ,CHTR,CUSTOMER,S1,2019-01-31,False,7,0,,,,,,runs on Verizon's mobile network
+GOOG,NWS,CUSTOMER,S1,2020-08-11,False,4,0,,,,,,Google to provide workspace and other enterprise services
+TTE,SRE,SUPPLIER,S1,2022-02-25,False,4,0,,,,,,definitive 20-year SPAs with an affiliate of TotalEnergies SE for approximately 1.7 Mtpa of LNG
+OGN,MRK,SUPPLIER,S1,2025-02-25,False,1,0,,,,,,Merck and Organon entered into a number of manufacturing and supply agreements (MSAs) with terms ranging from four years to ten years
+DIS,FOXA,SUPPLIER,S1,2019-08-09,False,7,0,,,,,,until 2026 will predominantly be Disney productions
+ASML,INTC,CUSTOMER,S1,2022-01-27,False,4,0,,,,,,ASML Holding N.V. (ASML) is currently the sole supplier of EUV lithography tools
+Kioxia-none,LRCX,SUPPLIER,S1,2020-08-18,False,4,0,,,,,,included Intel Corporation; Kioxia Corporation
+MPC,SRE,SUPPLIER,S1,2022-02-25,False,4,0,,,,,,counterparties including Marathon Petroleum Corporation and Valero Energy Corporation
+Shell-none,SRE,SUPPLIER,S1,2021-02-25,False,4,0,,,,,,"the two third-party capacity customers at the ECA Regas Facility, Shell Mexico and Gazprom"
+ORCL,HRL,CUSTOMER,S1,2019-12-06,False,6,2,,,,,,through the use of Oracle Cloud Solutions
+ELC,SRE,CUSTOMER,S1,2024-02-27,False,2,0,,,,,,"Entergy Louisiana, LLC, a subsidiary of Entergy Corporation, and Cameron LNG JV have an electricity service agreement (and related ancillary agreements) for the supply to Cameron LNG JV of up to 950 MW of power"
+WMT,PG,SUPPLIER,S1,2019-08-06,False,8,6,,,,,,the announcement with OpenAI and Walmart
+HTHIY,DE,CUSTOMER,S1,2021-12-16,False,5,0,,,,,,"Hitachi will continue to provide John Deere-branded excavators, components, and service parts"
+SPGI,GS,CUSTOMER,S1,2023-02-24,False,3,0,,,,,,"pricing data obtained from third parties (e.g., brokers or dealers, S&P Global Services, Bloomberg, ICE Data Services, Pricing Direct, TRACE)"
+VWAGY,QS,SUPPLIER,S1,2021-02-23,False,4,6,,,,,,as a potential customer
+GPJA,SO,SUPPLIER,S1,2019-02-20,False,7,0,,,,,,approximately 9.8% of Southern Power's revenues were derived from Georgia Power
+DE,CMI,SUPPLIER,S1,2019-02-11,False,5,1,,,,,,John Deere
+VWAGY,CMI,SUPPLIER,S1,2020-02-11,False,6,2,,,,,,Volkswagen Caminhões e Ônibus
+TSM,SLAB,CUSTOMER,S1,2019-01-30,False,8,1,,,,,,you are getting incremental capacity from TSMC
+HD,DE,SUPPLIER,S1,2021-12-16,False,5,0,,,,,,certain lawn and garden product lines are sold through The Home Depot and Lowe's
+NEE,FSLR,SUPPLIER,S1,2020-02-21,False,3,0,,,,,,"Longroad Energy , NextEra Energy, and Softbank each accounted for more than 10% of our modules business net sales"
+SCE-PM,SO,SUPPLIER,S1,2019-02-20,False,4,0,,,,,,"Southern Power's top three customers, Southern California Edison, Georgia Power, and Duke Energy Corporation accounted for 9.4%, 8.0%, and 6.7%, respectively, of Southern Power's total revenues"
+DUK,SO,SUPPLIER,S1,2019-02-20,False,2,0,,,,,,"Southern Power's top three customers, Southern California Edison, Georgia Power, and Duke Energy Corporation accounted for 9.4%, 8.0%, and 6.7%, respectively, of Southern Power's total revenues"
+AMZN,COF,CUSTOMER,S1,2019-02-20,False,5,0,,,,,,the substantial amount of our infrastructure that we outsource to AWS or to other third-party service providers
+LMT,RTX,SUPPLIER,S1,2025-02-03,True,1,0,,,,,,"produced by Lockheed Martin. F135 propulsion system configurations are used for the U.S. Air Force's F-35A, the U.S. Marine Corps' F-35B, and the U.S. Navy's F-35C jets."
+DISH,TMUS,SUPPLIER,S1,2021-02-23,False,4,2,,,,,,our revenues from DISH were under $2 billion
+DELL,MSFT,SUPPLIER,S1,2019-08-01,False,7,5,,,,,,"including Airbnb, Dell, and Scandinavian Airlines"
+Lenovo-none,MSFT,SUPPLIER,S1,2019-08-01,False,7,3,,,,,,"from La Liga and Lenovo to Swiss Re and Walgreens, unify their data using our tools"
+Samsung-none,QCOM,SUPPLIER,S1,2019-11-06,False,7,17,,,,,,the launch of the Samsung S24
+Xiaomi-none,QCOM,SUPPLIER,S1,2019-11-06,False,5,13,,,,,,"if Evo, Oppo, Xiaomi wins"
+Bechtel-none,SO,CUSTOMER,S1,2019-02-20,False,4,0,,,,,,Bechtel as primary contractor
+GOOG,TTD,CUSTOMER,S1,2019-02-22,False,7,1,,,,,,we are no longer buying from Google's so-called open bidding or OB product
+Foxconn-none,SWKS,SUPPLIER,S1,2019-11-14,False,3,0,,,,,,"Ericsson, Foxconn"
+Huawei-none,MCHP,SUPPLIER,S1,2020-05-22,False,4,3,,,,,,higher exposure to Huawei
+TD,NEM,SUPPLIER,S1,2021-02-18,False,3,0,,,,,,"Toronto Dominion Bank were $ 1,204 ( 12 %) of total gold sales"
+DIS,NWS,CUSTOMER,S1,2022-08-12,False,2,0,,,,,,"Disney removed its Disney-branded movie channel and kids channels, as well as certain non-branded content, from the Foxtel platform"
+ON,DIOD,SUPPLIER,S1,2021-02-22,False,1,0,,,,,,"We sold products to LSC totaling less than 1 % of our net sales for the years ended December 31, 2020, 2019 and 2018, respectively."
+AMPH,LLY,SUPPLIER,S1,2024-02-21,False,2,0,,,,,,"we sold the rights for Baqsimi to Amphastar Pharmaceuticals, Inc."
+AKAM,NWS,CUSTOMER,S1,2022-08-12,False,2,0,,,,,,Akamai and Amazon Web Services (AWS) for content delivery networks (CDN) and hosting services
+UMC,AMD,CUSTOMER,S1,2023-02-27,False,3,0,,,,,,"we utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for the production of our integrated circuits"
+Samsung-none,AMD,CUSTOMER,S1,2023-02-27,False,3,0,,,,,,"we utilize TSMC, United Microelectronics Corporation (UMC) and Samsung Electronics Co., Ltd. for the production of our integrated circuits"
+AMZN,NOVA,CUSTOMER,S1,2020-02-25,False,6,0,,,,,,proprietary applications running on Amazon Web Services and Heroku
+CRM,NOVA,CUSTOMER,S1,2020-02-25,False,6,0,,,,,,Each completed quote is transferred into Salesforce for solar service agreement generation
+AMZN,PARA,CUSTOMER,S1,2024-04-01,False,2,0,,,,,,"cloud infrastructure services such as Amazon Web Services (""AWS"") and Google Cloud"
+GOOG,PARA,CUSTOMER,S1,2024-04-01,False,2,0,,,,,,visitors from paid ads such as Google ads
+Huawei-none,ENTG,SUPPLIER,S1,2022-02-04,False,1,0,,,,,,certain of our customers have made efforts to source products domestically in order to mitigate perceived risks to their supply chain
+MDT,BDX,CUSTOMER,S1,2019-11-27,False,3,0,,,,,,each a supplier of the Company
+CVX,SRE,SUPPLIER,S1,2022-02-25,False,2,0,,,,,,"counterparties including Chevron Corporation, Marathon Petroleum Corporation and Valero Energy Corporation"
+AMZN,NFLX,CUSTOMER,S1,2019-01-29,False,7,0,,,,,,"We have architected our software and computer systems so as to utilize data processing, storage capabilities and other services provided by AWS."
+NWN,WMB,SUPPLIER,S1,2025-02-25,False,1,0,,,,,,"NWP's three largest customers were Puget Sound Energy, Inc., Cascade Natural Gas Corporation, and Northwest Natural Gas Company"
+VWSYF,AMSC,SUPPLIER,S1,2019-06-05,False,5,0,,,,,,Vestas Wind Systems A/S in Denmark
+ZM,CMI,SUPPLIER,S1,2024-02-12,False,2,0,,,,,,"Komatsu, Zoomlion Heavy Industry Science & Technology Co., Ltd"
+FSLR,SO,CUSTOMER,S1,2024-02-15,False,1,0,,,,,,"actuators on trackers and inverters installed by First Solar under the engineering, procurement, and construction agreements associated with five solar projects owned by Southern Power"
+AMZN,NVDA,SUPPLIER,S1,2022-03-18,False,1,0,,,,,,"with robotaxis including Cruise, Amazon Zoox, Pony.ai and AutoX"
+Samsung-none,MSFT,SUPPLIER,S1,2019-08-01,False,2,2,,,,,,"organizations like Dow, Lufthansa, and Samsung apply AI to common business scenarios"
+XEL,FCX,CUSTOMER,S1,2023-02-15,False,3,0,,,,,,receive electrical power through long-term contracts with Xcel Energy
+AMZN,CMCSA,SUPPLIER,S1,2019-01-31,False,2,0,,,,,,"markets and distributes cable network programming to subscription video on demand services, such as those offered by Amazon"
+NFLX,CMCSA,SUPPLIER,S1,2019-01-31,False,2,0,,,,,,"subscription video on demand services, such as those offered by Amazon, Hulu and Netflix"
+ARM,AMPX,SUPPLIER,S1,2024-03-28,False,2,1,,,,,,Teledyne FLIR and the U.S. Army
+DASH,XYZ,SUPPLIER,S1,2025-02-24,False,1,0,,,,,,pay with a Cash App account at participating merchants like DoorDash
+GOOG,XYZ,SUPPLIER,S1,2025-02-24,False,1,0,,,,,,"DoorDash, Lyft, Google Play Store"
+PFE,ZTS,CUSTOMER,S1,2019-02-14,False,1,0,,,,,,Pfizer continues to manufacture products for us at three Pfizer sites pursuant to a master manufacturing and supply agreement
+AMZN,AMD,SUPPLIER,S1,2021-01-29,False,1,0,,,,,,"Amazon Web Services announced and made available their new ""G4ad"" instance, designed for graphics intensive applications such as virtual workstations, game streaming and graphics rendering. G4ad utilizes both AMD EPYC processors and the AMD Radeon Pro V520 GPU."
+Foxconn-none,QCOM,SUPPLIER,S1,2019-11-06,False,1,0,,,,,,"Hon Hai Precision Industry Co., Ltd./Foxconn, its affiliates and other suppliers to Apple"
+AAPL,NWS,SUPPLIER,S1,2020-08-11,False,6,0,,,,,,"including Amazon, Apple, Barnes & Noble and Tesco"
+PFGC,MO,SUPPLIER,S1,2022-02-25,False,3,0,,,,,,"PM USA, USSTC, Helix and Middleton's customer, Performance Food Group Company"
+BLBD,CMI,SUPPLIER,S1,2020-02-11,False,2,0,,,,,,Blue Bird for the school bus market in North America
+Samsung-none,QCOM,CUSTOMER,S1,2019-11-06,False,7,1,,,,,,"We have two strategic partners today, which is TSMC and Samsung."
+TSM,QCOM,CUSTOMER,S1,2019-11-06,False,7,4,,,,,,Taiwan Semiconductor Manufacturing Company (TSMC)
+UMC,QCOM,CUSTOMER,S1,2019-11-06,False,3,0,,,,,,United Microelectronics
+AMKR,QCOM,CUSTOMER,S1,2019-11-06,False,7,0,,,,,,"The primary semiconductor assembly and test suppliers are Advanced Semiconductor Engineering, Amkor Technology"
+Hanwha-none,NOVA,CUSTOMER,S1,2020-02-25,False,6,0,,,,,,Hanwha Q-Cells supplied approximately 68% of our solar photovoltaic panels installed
+ENPH,NOVA,CUSTOMER,S1,2020-02-25,False,6,0,,,,,,"Enphase Energy, Inc. and SolarEdge Technologies Inc. accounted for approximately 57% and 42%, respectively, of the inverters used in our solar energy system installations"
+SEDG,NOVA,CUSTOMER,S1,2020-02-25,False,6,0,,,,,,"Enphase Energy, Inc. and SolarEdge Technologies Inc. accounted for approximately 57% and 42%, respectively, of the inverters used in our solar energy system installations"
+TSLA,NOVA,CUSTOMER,S1,2020-02-25,False,5,0,,,,,,"Tesla, Inc. accounted for 100% of our energy storage systems purchases"
+D,WMB,SUPPLIER,S1,2025-02-25,False,1,1,,,,,,the Mid-Atlantic and the Southeast markets that we referenced with both Duke and Southern and Dominion
+AAPL,ADBE,CUSTOMER,S1,2023-01-17,False,1,0,,,,,,"utilize third-party distribution platforms, such as Apple's App Store"
+UCTT,AMAT,CUSTOMER,S1,2019-12-13,False,2,0,,,,,,"a supplier of critical subsystems for the semiconductor capital equipment, medical device, energy, research, and flat panel industries"
+TSM,INTC,CUSTOMER,S1,2024-01-26,False,2,2,,,,,,outsourcing more to TSMC for the year
+BE,AEP,CUSTOMER,S1,2025-02-13,False,1,1,,,,,,initial 100 MWs purchase of fuel cells from Bloom Energy
+VZ,EQIX,SUPPLIER,S1,2019-02-22,False,2,4,,,,,,what's going on with the Verizon space and how all that policing is going
+ATEYY,NVDA,CUSTOMER,S1,2022-03-18,False,2,0,,,,,,perform incoming quality assurance and configuration using test equipment purchased from industry-leading suppliers such as Advantest America Inc.
+BYD-none,NVDA,SUPPLIER,S1,2022-03-18,False,2,0,,,,,,"ship the semiconductors to contract manufacturers, such as BYD Auto Co. Ltd."
+Bechtel-none,SRE,CUSTOMER,S1,2022-02-25,False,1,11,,,,,,the loss of three Bechtel employees
+DLR,EQIX,CUSTOMER,S1,2019-02-22,False,1,0,,,,,,"the Company completed the purchase of Digital Realty Trust, Inc.'s (""Digital Realty's"") operating business, including its real estate and facility, located in St. Denis, Paris, for cash consideration of approximately €193.8 million"
+COP,SRE,SUPPLIER,S1,2024-02-27,False,2,0,,,,,,definitive SPAs with an affiliate of ConocoPhillips for a 20-year term for 5 Mtpa of LNG
+TXT,RTX,SUPPLIER,S1,2024-02-05,False,1,0,,,,,,Textron Aviation announced that the PW545D engine was selected to power the new Cessna Citation Ascend business jet
+AAPL,TMUS,CUSTOMER,S1,2019-02-07,False,1,2,,,,,,The phones underlying are a little bit more expensive from Apple.
+WMT,CL,SUPPLIER,S1,2022-02-17,False,4,1,,,,,,a 3PL distributor selling to Walmart
+JNJ,MRK,SUPPLIER,S1,2022-02-25,False,2,3,,,,,,to Johnson & Johnson for its COVID vaccine
+MS,SO,SUPPLIER,S1,2020-02-20,False,1,0,,,,,,"Southern Power's top three customers, Georgia Power, Southern California Edison, and Morgan Stanley Capital Group accounted for 9.0%, 6.8%, and 4.9%, respectively, of Southern Power's total revenues"
+UMC,AVGO,CUSTOMER,S1,2019-12-20,False,1,0,,,,,,"as well as United Microelectronics Corporation, GlobalFoundries, Silicon Manufacturing Partners Pte. Ltd., Tower Semiconductor Ltd. and WIN Semiconductors Corp."
+GFS,AVGO,CUSTOMER,S1,2019-12-20,False,1,0,,,,,,"United Microelectronics Corporation, GlobalFoundries, Silicon Manufacturing Partners Pte. Ltd., Tower Semiconductor Ltd. and WIN Semiconductors Corp."
+TSEM,AVGO,CUSTOMER,S1,2019-12-20,False,1,0,,,,,,"Silicon Manufacturing Partners Pte. Ltd., Tower Semiconductor Ltd. and WIN Semiconductors Corp."
+Huawei-none,ON,SUPPLIER,S1,2020-02-19,False,2,0,,,,,,"risks associated with the addition of Huawei Technologies Co., Ltd. and its non-U.S. affiliates and subsidiaries, and other customers, to the U.S. Departments of Commerce, Bureau of Industry Security Entity List"
+CSIQ,NOVA,CUSTOMER,S1,2024-02-22,False,2,0,,,,,,Hanwha Q-Cells and Canadian Solar supplied approximately 55% and 11% of our solar photovoltaic panels installed
+GOOG,INTC,SUPPLIER,S1,2023-01-27,False,1,5,,,,,,"started shipping to customers, including Amazon Web Services and Google Cloud"
+CRWD,INTC,CUSTOMER,S1,2025-01-31,False,1,0,,,,,,The CrowdStrike outage that occurred in 2024 is another example of the risks we face from utilizing products and components that are widely adopted in supply chains
+PODD,AMGN,CUSTOMER,S1,2019-02-13,False,1,0,,,,,,Insulet Corporation is our single-source of the on-body injector for our Neulasta ® Onpro ® kit
+MTSI,WOLF,SUPPLIER,S1,2023-08-23,False,1,0,,,,,,The Company will continue to operate the RTP Fab and supply MACOM with Epi-wafers and fabrication services pursuant to a Master Supply Agreement
+META,FSLR,SUPPLIER,S1,2019-02-22,False,2,0,,,,,,"are expected to provide energy for certain Facebook, Inc. data centers through PPAs"
+AAPL,FSLR,SUPPLIER,S1,2019-02-22,False,2,0,,,,,,"Since our first corporate related PPA with Apple Inc., we have contracted over 700 MW AC of PPAs associated with corporate customers"
+SOLV,MMM,SUPPLIER,S1,2025-02-05,False,1,2,,,,,,income from the transition services we are providing to Solventum increased margins by 50 basis points
+NOC,RTX,SUPPLIER,S1,2023-02-07,False,1,0,,,,,,"rollout ceremony for the Northrop Grumman B-21 Raider, powered by Pratt & Whitney engines"
+GOOG,SNOW,CUSTOMER,S1,2022-03-30,False,4,1,,,,,,your suppliers of public cloud capacity
+NSANY,CMI,SUPPLIER,S1,2019-02-11,False,1,0,,,,,,The principal customers of our pick-up on-highway engines are Fiat Chrysler and Nissan.
+AAPL,CHTR,CUSTOMER,S1,2021-01-29,False,5,0,,,,,,"new devices including 5G models from Apple, Google and Samsung"
+GOOG,CHTR,CUSTOMER,S1,2021-01-29,False,5,0,,,,,,"new devices including 5G models from Apple, Google and Samsung"
+Samsung-none,CHTR,CUSTOMER,S1,2021-01-29,False,5,0,,,,,,"new devices including 5G models from Apple, Google and Samsung"
+GOOG,BOX,CUSTOMER,S1,2024-03-11,False,2,0,,,,,,"We outsource a substantial majority of our cloud hosting to Google Cloud Platform (GCP), which hosts our products and platform."
+MSFT,FSLR,SUPPLIER,S1,2020-02-21,False,1,0,,,,,,our 150 MW AC Sun Streams 2 project is expected to provide energy for certain Microsoft Corporation data centers
+TMUS,AMT,SUPPLIER,S1,2022-02-25,False,4,0,,,,,,our top three customers by total revenue were T-Mobile (20%)
+T,AMT,SUPPLIER,S1,2022-02-25,False,4,0,,,,,,AT&T (19%)
+VZ,AMT,SUPPLIER,S1,2022-02-25,False,4,0,,,,,,Verizon Wireless (13%)
+Trina-none,NOVA,CUSTOMER,S1,2020-02-25,False,1,0,,,,,,"Hanwha Q-Cells and Trina Solar Limited supplied approximately 52% and 22% , respectively, of our solar photovoltaic panels installed"
+BP-none,FSLR,SUPPLIER,S1,2023-02-28,False,2,0,,,,,,Lightsource BP was the only customer that accounted for 10% or more of our modules business net sales
+Samsung-none,INTC,CUSTOMER,S1,2024-01-26,False,1,0,,,,,,"Most of our competitors rely on third-party foundries, such as TSMC or Samsung, for the manufacture and assembly and test of their semiconductor components and products."
+AMZN,EQIX,SUPPLIER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+T,EQIX,SUPPLIER,S1,2019-02-22,False,1,2,,,,,,a data center modernization project with AT&T
+GOOG,EQIX,SUPPLIER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+MSFT,EQIX,SUPPLIER,S1,2019-02-22,False,1,1,,,,,,demand that you are seeing from customers in inferencing
+ORCL,EQIX,SUPPLIER,S1,2019-02-22,False,1,1,,,,,,"Oracle, a top-five mobile software provider, deploying FastConnect Cloud on-ramps to support new regions in Singapore, Milan, and Stockholm, bringing their total number of on-ramps available at Equinix to 24"
+SAP,EQIX,SUPPLIER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+CRM,EQIX,SUPPLIER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+IBM,EQIX,SUPPLIER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+VMW,EQIX,SUPPLIER,S1,2019-02-22,False,1,0,,,,,,"We have a growing mass of key players in cloud and IT services (Amazon Web Services, AT&T, Google Cloud Platform, Microsoft Azure and Office 365, Oracle Cloud Infrastructure, SAP HANA Enterprise Cloud and SAP Cloud Platform, Salesforce.com, IBM Cloud and VMware Cloud), and in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+Deloitte-none,EQIX,SUPPLIER,S1,2019-02-22,False,1,0,,,,,,"in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+F,EQIX,SUPPLIER,S1,2019-02-22,False,1,0,,,,,,"in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+PYPL,EQIX,SUPPLIER,S1,2019-02-22,False,1,0,,,,,,"in the enterprise and financial/insurance sectors (Anheuser-Busch, Aon, Bloomberg, Deloitte, Ericsson, Ford Motors, NASDAQ, PayPal, Sysco Foods and The Society of Lloyd's) as customers."
+CLS,SEDG,CUSTOMER,S1,2019-02-28,False,1,0,,,,,,"We currently contract to have our solar products manufactured by three of the world's leading global electronics manufacturing service providers, Jabil Circuit, Inc., Celestica LLC and Flextronics Industrial Ltd"
+CMCSA,CSCO,SUPPLIER,S1,2020-09-03,False,1,0,,,,,,"indemnify certain of our service provider customers that have been subject to patent infringement claims asserted by Chanbond, LLC"
+CHTR,CSCO,SUPPLIER,S1,2020-09-03,False,1,0,,,,,,"indemnify certain of our service provider customers that have been subject to patent infringement claims asserted by Chanbond, LLC"
+WMT,KMB,SUPPLIER,S1,2023-02-09,False,3,0,,,,,,"Our largest customer, Walmart Inc., represented approximately 14 % in 2024 and 13 % in 2023 and 2022 of our consolidated net sales."
+ON,XYZ,CUSTOMER,S1,2019-02-27,False,6,0,,,,,,"ASIC Development and Supply Agreement by and between the Registrant, Semiconductor Components Industries, LLC (d/b/a ON Semiconductor) and ON Semiconductor Trading, Ltd."
+BE,DUK,CUSTOMER,S1,2021-02-25,False,1,0,,,,,,Duke Energy completed its acquisition of 70 distributed fuel cell projects from Bloom Energy Corporation
+NEE,SO,SUPPLIER,S1,2019-02-20,False,1,0,,,,,,"Southern Power also sold all of its equity interests in Plant Oleander and Plant Stanton Unit A (together, the Florida Plants) to NextEra Energy on December 4, 2018 for $203 million."
+VZ,TMUS,SUPPLIER,S1,2022-02-11,True,3,0,,,,,,the migration by Verizon of legacy TracFone customers off of the T-Mobile network
+MO,PM,SUPPLIER,S1,2020-02-07,False,3,0,,,,,,"Revenues from shipments of Platform 1 devices, heated tobacco units and accessories to Altria Group, Inc. for sale under license in the United States"
+MSFT,PNC,CUSTOMER,S1,2025-02-21,False,1,0,,,,,,"vendor-issued security credentials from CISCO, Microsoft and F5"
+HON,DIOD,SUPPLIER,S1,2020-02-12,False,1,0,,,,,,"Delta Electronics, Honeywell"
+STX,DIOD,SUPPLIER,S1,2020-02-12,False,1,0,,,,,,"Quanta Computer, Seagate"
+Samsung-none,DIOD,SUPPLIER,S1,2020-02-12,False,1,0,,,,,,"Sagem Communication, and Samsung Electronics"
+CLS,DIOD,SUPPLIER,S1,2020-02-12,False,1,0,,,,,,"leading EMS providers, such as Celestica"
+SANM,DIOD,SUPPLIER,S1,2020-02-12,False,1,0,,,,,,"Jabil Circuit, and Sanmina-SCI"
+DUK,D,SUPPLIER,S1,2023-02-21,False,1,0,,,,,,"Subsidiaries and affiliates of Dominion Energy, Duke Energy and Southern had planned to be customers of the pipeline under 20 -year contracts."
+EQIX,VZ,SUPPLIER,S1,2019-02-15,False,2,0,,,,,,we agreed to sell 23 customer-facing data center sites in the U.S. and Latin America for approximately $3.6 billion
+TM,SEDG,SUPPLIER,S1,2020-02-27,False,4,0,,,,,,"major automotive manufacturers, such as Toyota, Honda, Tesla, General Motors, and Ford, have increased their investments in the electric and hybrid vehicle components"
+HMC,SEDG,SUPPLIER,S1,2020-02-27,False,4,0,,,,,,"major automotive manufacturers, such as Toyota, Honda, Tesla, General Motors, and Ford, have increased their investments in the electric and hybrid vehicle components"
+TSLA,SEDG,SUPPLIER,S1,2020-02-27,False,4,0,,,,,,"major automotive manufacturers, such as Toyota, Honda, Tesla, General Motors, and Ford, have increased their investments in the electric and hybrid vehicle components"
+GM,SEDG,SUPPLIER,S1,2020-02-27,False,4,0,,,,,,"major automotive manufacturers, such as Toyota, Honda, Tesla, General Motors, and Ford, have increased their investments in the electric and hybrid vehicle components"
+F,SEDG,SUPPLIER,S1,2020-02-27,False,4,0,,,,,,"major automotive manufacturers, such as Toyota, Honda, Tesla, General Motors, and Ford, have increased their investments in the electric and hybrid vehicle components"
+BA,SIRI,CUSTOMER,S1,2019-01-30,False,4,0,,,,,,"Boeing Satellite Systems International, Inc., the manufacturer of certain of our in-orbit satellites"
+BA,UPS,CUSTOMER,S1,2019-02-21,False,1,3,,,,,,our new Boeing 747-8s
+OKTA,AMGN,CUSTOMER,S1,2023-02-09,False,1,0,,,,,,"Okta, Inc., a provider of software that helps companies manage user authentication, disclosed that several hundred of its corporate customers were vulnerable to a security breach"
+AMZN,PARA,SUPPLIER,S1,2025-04-15,False,1,0,,,,,,"Our customers include Amazon, Dell, Salesforce, Aflac, Thermo Fisher Scientific"
+DELL,PARA,SUPPLIER,S1,2025-04-15,False,1,0,,,,,,"Our customers include Amazon, Dell, Salesforce, Aflac, Thermo Fisher Scientific"
+CRM,PARA,SUPPLIER,S1,2025-04-15,False,1,0,,,,,,"Our customers include Amazon, Dell, Salesforce, Aflac, Thermo Fisher Scientific"
+TMO,PARA,SUPPLIER,S1,2025-04-15,False,1,0,,,,,,"Our customers include Amazon, Dell, Salesforce, Aflac, Thermo Fisher Scientific"
+CATL-none,TSLA,CUSTOMER,S1,2023-01-31,False,1,4,,,,,,with CATL
+FTI,SRE,CUSTOMER,S1,2020-02-27,False,1,0,,,,,,"we expect to sign a lump-sum, turn-key EPC contract with TechnipFMC for the engineering, procurement and construction of a one-train natural gas liquefaction export facility"
+HPQ,NVDA,SUPPLIER,S1,2021-02-26,False,1,0,,,,,,five supercomputers backed by EuroHPC will use NVIDIA's data center accelerators or networking
+AAPL,XYZ,CUSTOMER,S1,2021-02-23,False,3,0,,,,,,"we rely on app marketplaces, such as the Apple App Store and Google Play, to drive downloads of our mobile apps"
+LOW,PPG,SUPPLIER,S1,2019-02-21,False,1,0,,,,,,PPG announced that Lowe's would discontinue the sale of OLYMPIC® brand paints and stains in its U.S. retail stores
+HD,PPG,SUPPLIER,S1,2019-02-21,False,1,10,,,,,,partnership with Home Depot
+TVE,SO,SUPPLIER,S1,2022-02-17,False,1,0,,,,,,"Southern Power's top three customers, Southern California Edison, Georgia Power, and Tennessee Valley Authority accounted for 7.4%, 6.3%, and 6.3%, respectively, of Southern Power's total revenues"
+Huawei-none,AMAT,SUPPLIER,S1,2020-12-11,False,1,0,,,,,,"could require certain of Applied's customers to obtain licenses for the export of wafers, chipsets and certain related items to Huawei or its affiliates that are the direct product of US-origin semiconductor manufacturing equipment and thus could potentially limit the demand for certain of Applied's products from such customers"
+EXE,WMB,SUPPLIER,S1,2025-02-25,False,1,0,,,,,,"Certain customers, including Expand Energy Corporation (formerly Chesapeake Energy Corporation or Chesapeake)"
+AAPL,INTC,SUPPLIER,S1,2021-01-22,False,1,4,,,,,,ramp down of modem and Apple Mac revenue
+AMAT,ENTG,SUPPLIER,S1,2023-02-23,False,1,0,,,,,,"receiving the ESG Supplier Award from Applied Materials, a major equipment customer"
+HTHIY,LOW,CUSTOMER,S1,2019-04-02,False,1,0,,,,,,Hitachi ® pneumatic tools
+BA,PPG,SUPPLIER,S2,2020-07-17,False,0,6,,,,,,our large OEM Airbus and Boeing customers
+BLK,SNOW,SUPPLIER,S2,2021-12-01,False,0,4,,,,,,"I talked about BlackRock in the script, I think, where I said they're creating a little bit of a customer 360"
+Foxconn-none,WEC,SUPPLIER,S2,2020-01-30,False,0,8,,,,,,follow up on Foxconn really briefly
+NVDA,ORCL,CUSTOMER,S2,2023-12-11,False,0,7,,,,,,we got enough NVIDIA GPUs
+XAI-none,ORCL,SUPPLIER,S2,2023-12-11,False,0,7,,,,,,XAI has signed a contract to do training in Oracle's Gen2 Cloud
+BA,HON,SUPPLIER,S2,2020-01-31,False,0,6,,,,,,our demand for Boeing hasn't changed
+CVX,WMB,SUPPLIER,S2,2020-05-05,False,0,10,,,,,,Chevron's Ballymore prospect
+AMZN,PLD,SUPPLIER,S2,2020-01-22,False,0,17,,,,,,So that's Amazon.
+Bechtel-none,NEM,CUSTOMER,S2,2022-04-22,False,0,3,,,,,,Bechtel is doing the Yanacocha work for you
+NVDA,GOOG,CUSTOMER,S2,2023-10-24,False,0,7,,,,,,"A3 Mega, powered by Nvidia H100 GPUs"
+Siemens-none,CRM,SUPPLIER,S2,2023-05-31,False,0,3,,,,,,"MuleSoft, again, delivered strong results with wins at Siemens, Synovo, and Vodafone."
+ZM,ORCL,SUPPLIER,S2,2020-12-10,False,0,4,,,,,,Zoom went live on ERP and SCM
+MSFT,WEC,SUPPLIER,S2,2023-08-01,False,0,11,,,,,,the Microsoft PAWS
+AAPL,VZ,CUSTOMER,S2,2025-10-29,False,0,3,,,,,,everyone knows Apple comes out with a new product
+WU,SNOW,SUPPLIER,S2,2024-08-21,False,0,3,,,,,,we have customers like Western Union who are starting whole businesses on top of Snowflake
+INTC,MPWR,SUPPLIER,S2,2021-11-28,False,0,4,,,,,,both Intel and AMD are positioned for political releases coming up here
+AMZN,WEC,SUPPLIER,S2,2020-08-04,False,0,7,,,,,,We've got Amazon.
+META,ORCL,SUPPLIER,S2,2024-12-09,False,0,5,,,,,,"We have signed significant cloud contracts with the who's who of AI, including OpenAI, XAI, Meta"
+BKNG,PYPL,SUPPLIER,S2,2023-11-01,False,0,3,,,,,,"serving the largest enterprises such as Adobe, Booking.com, DoorDash, Ticketmaster, and Uber"
+AMZN,PYPL,SUPPLIER,S2,2022-08-02,False,0,4,,,,,,We look forward to launching Pay with Venmo on Amazon
+Siemens-none,BLDP,SUPPLIER,S2,2022-05-09,False,0,10,,,,,,with our Siemens order
+ZM,CRM,SUPPLIER,S2,2022-03-01,False,0,6,,,,,,"US Bank, Zoom, and so many more"
+T,SWKS,SUPPLIER,S2,2020-07-23,False,0,3,,,,,,Did some really good work with AT&T on Gateways.
+Huawei-none,MPWR,SUPPLIER,S2,2020-10-29,False,0,4,,,,,,you had them as a customer
+TM,MSFT,SUPPLIER,S2,2020-10-27,False,0,11,,,,,,from IKEA to Toyota
+WMT,MSFT,SUPPLIER,S2,2022-04-26,False,0,5,,,,,,Walmart is using Cosmos DB to handle billions of online requests daily
+TMUS,MSFT,SUPPLIER,S2,2022-04-26,False,0,4,,,,,,"Companies like BP, Canadian Tire, Marks & Spencer, and T-Mobile all rely on our end-to-end analytics"
+VZ,SWKS,SUPPLIER,S2,2022-08-04,False,0,4,,,,,,launched residential gateways at Verizon
+ROK,MSFT,SUPPLIER,S2,2023-04-25,False,0,6,,,,,,"our sales co-pilot helps sellers at more than 15,000 organizations, including Rockwell Automation"
+CMCSA,PARA,SUPPLIER,S2,2020-05-07,False,0,4,,,,,,we renewed our deal with Comcast
+VZ,PARA,SUPPLIER,S2,2020-08-06,False,0,4,,,,,,"Verizon, our first true cross-company, cross-portfolio MVPD deal."
+WMT,PPG,SUPPLIER,S2,2023-04-21,False,0,3,,,,,,our Walmart win
+PFE,CRM,SUPPLIER,S2,2025-05-28,False,0,3,,,,,,more than 40 global customers including Pfizer and Takeda
+HRB,MSFT,SUPPLIER,S2,2025-04-30,False,0,3,,,,,,"to H&R Block and LG Electronics, to design, customize, and manage their AI apps and agents"
+T,CRM,SUPPLIER,S2,2020-05-28,False,0,6,,,,,,the AT&T win
+SONO,CRM,SUPPLIER,S2,2021-05-27,False,0,4,,,,,,"Commerce Cloud wins at Ralph Lauren, Bose, Sonos"
+UBER,ORCL,SUPPLIER,S2,2023-09-11,False,0,8,,,,,,core OCI deals like Uber
+BA,ETN,SUPPLIER,S2,2023-05-02,False,0,6,,,,,,including Boeing's ramp
+T,MSFT,SUPPLIER,S2,2021-01-26,False,0,9,,,,,,AT&T chose Azure to power its 5G core network
+UBER,PYPL,SUPPLIER,S2,2020-05-07,False,0,4,,,,,,accelerating others like Uber to come
+AMZN,CL,SUPPLIER,S2,2024-04-26,False,0,4,,,,,,marketing to a consumer on Amazon
+RL,MSFT,SUPPLIER,S2,2025-10-29,False,0,3,,,,,,Ralph Lauren used Foundry to build conversational shopping experience in its app
+XOM,SLB,SUPPLIER,S2,2021-10-22,False,0,3,,,,,,the first fully automated section drill offshore at the Hebron platform for ExxonMobil in Canada
+NVDA,ORCL,SUPPLIER,S2,2022-03-10,False,0,13,,,,,,NVIDIA themselves are doing that
+CVX,EMR,SUPPLIER,S2,2023-05-03,False,0,3,,,,,,"Some of the customers in petrochem, like Chevron or ExxonMobil, are under some pressure."
+Samsung-none,IBM,SUPPLIER,S2,2023-07-19,False,0,4,,,,,,"clients including BMW, Humana, Samsung Electronics, Ikea, and Costco"
+NVDA,TSLA,CUSTOMER,S2,2023-07-19,True,0,5,,,,,,version 2 was NVIDIA
+W,GOOG,SUPPLIER,S2,2021-02-02,False,0,6,,,,,,"as well as cloud native leaders, including Wayfair and Etsy"
+TOL,SPWR,SUPPLIER,S2,2023-11-01,False,0,3,,,,,,"Toll Brothers in Nevada, New York, and Massachusetts"
+CRM,SIRI,CUSTOMER,S2,2025-01-30,False,0,4,,,,,,use some of those capabilities of Salesforce
+INTC,ORCL,SUPPLIER,S2,2022-03-10,False,0,3,,,,,,Intel.
+PYPL,CRM,SUPPLIER,S2,2021-08-25,False,0,3,,,,,,customer wins like Ford and Geico and Mercedes-Benz and PayPal
+CAT,NEM,CUSTOMER,S2,2021-10-28,False,0,3,,,,,,we've cleaned it out with Caterpillar
+C,ORCL,SUPPLIER,S2,2022-12-12,False,0,3,,,,,,"JPMorgan Chase, Citigroup"
+GLDI,ORCL,SUPPLIER,S2,2022-03-10,False,0,4,,,,,,"Societe Generale, Credit Suisse"
+MSFT,BLDP,SUPPLIER,S2,2023-11-07,False,0,5,,,,,,"backup power for data centers, like the project underway with Cat and Microsoft"
+NVDA,MSFT,CUSTOMER,S2,2025-01-29,False,0,5,,,,,,"we buy one version of, say, NVIDIA"
+HTHIY,MSFT,SUPPLIER,S2,2025-01-29,False,0,3,,,,,,"over 19,000 paid customers from Hitachi to Johnson Controls to Schaeffler"
+MRNA,TMO,SUPPLIER,S2,2022-07-28,False,0,3,,,,,,the Moderna agreement
+CVX,MSFT,SUPPLIER,S2,2023-10-24,False,0,3,,,,,,"customers like Bridgestone, Chevron, and Equinor turning to our stack"
+Siemens-none,MSFT,SUPPLIER,S2,2021-10-26,False,0,7,,,,,,"Leading companies like Bayer, Siemens, Vodafone, all chose our premium EFI offerings"
+BA,PH,SUPPLIER,S2,2020-01-30,False,0,4,,,,,,an environment when you've got kind of Boeing strikes to contend with
+TRIN,EOSE,CUSTOMER,S2,2023-08-15,False,0,3,,,,,,the Equipment Financing Facility with Trinity Capital
+Bechtel-none,EMR,SUPPLIER,S2,2023-08-02,False,0,5,,,,,,we're very engaged in through engineering contractors such as Bechtel
+VZ,GOOG,SUPPLIER,S2,2024-07-23,False,0,4,,,,,,"Samsung, Walmart and Verizon partnered with creators to host shoppable holiday live stream events in the US"
+Samsung-none,GOOG,SUPPLIER,S2,2024-01-30,False,0,3,,,,,,DemandGen is already driving success for brands like Samsung and Toyota.
+VWAGY,MSFT,SUPPLIER,S2,2021-01-26,False,0,3,,,,,,"Epic Games, Motorola Solutions, and Volkswagen Software Group all chose GitHub Advanced Security this quarter"
+META,QCOM,SUPPLIER,S2,2025-11-05,False,0,3,,,,,,very strong demand for smart glasses from Meta
+TSM,NXPI,CUSTOMER,S2,2024-07-23,False,0,3,,,,,,front-end manufacturing being TSMC in Nanjing
+WDAY,CRM,SUPPLIER,S2,2024-08-28,False,0,3,,,,,,we're building the agents for Workday
+T,ORCL,SUPPLIER,S2,2021-12-09,False,0,3,,,,,,"our big customers, AT&T, Orange, MTN, Bardi Airtel, all around the world"
+HSY,TTD,SUPPLIER,S2,2023-05-10,False,0,3,,,,,,Hershey's sell more chocolate bars
+MSFT,ORCL,SUPPLIER,S2,2023-12-11,True,0,4,,,,,,Microsoft puts in an order for 20 cloud data
+NVDA,NOW,SUPPLIER,S2,2025-10-29,False,0,3,,,,,,NVIDIA runs ServiceNow
+ADBE,NOW,SUPPLIER,S2,2024-07-24,False,0,4,,,,,,Adobe works with ServiceNow to transform the way it serves employees.
+AMZN,DUK,SUPPLIER,S2,2025-08-05,False,0,3,,,,,,the Amazon deal is a big deal for us
+ACN,CRM,SUPPLIER,S2,2024-12-03,False,0,5,,,,,,we grew relationships with Accenture
+IBM,CRM,SUPPLIER,S2,2023-03-01,True,0,4,,,,,,IBM has built their entire Customer 360 on Salesforce
+GE,MSFT,SUPPLIER,S2,2024-04-25,False,0,3,,,,,,"making it possible for companies like FedEx, GE, and Marriott to use capabilities from both companies."
+META,INTC,SUPPLIER,S2,2022-07-28,False,0,3,,,,,,clear customer wins like AWS and Meta and NVIDIA
+DIS,SNOW,SUPPLIER,S2,2024-08-21,False,0,5,,,,,,our customers Hyatt and Disney do at scale
+NVS,MSFT,SUPPLIER,S2,2025-01-29,False,0,3,,,,,,"Novartis has added thousands of seats each quarter over the past year and now have 40,000 seats."
+GM,MSFT,SUPPLIER,S2,2023-01-24,False,0,3,,,,,,Cruise and GM chose Azure as their preferred cloud
+LUMN,MSFT,SUPPLIER,S2,2022-04-26,False,0,9,,,,,,"Etotude, and Lumen"
+INTC,AEP,SUPPLIER,S2,2022-07-27,False,0,4,,,,,,Intel has just been an enormous success
+HPQ,MSFT,SUPPLIER,S2,2024-10-30,False,0,5,,,,,,"world's largest enterprises like HP, HSBC, and KPMG"
+BP-none,MSFT,SUPPLIER,S2,2022-10-25,False,0,5,,,,,,both BP and Shell rely on our cloud to meet sustainability goals
+Shell-none,MSFT,SUPPLIER,S2,2022-07-26,False,0,5,,,,,,both BP and Shell rely on our cloud to meet sustainability goals
+VZ,MSFT,SUPPLIER,S2,2024-10-30,False,0,3,,,,,,"Verizon, for example, chose Dynamics 365 sales to improve the efficiency of its sellers"
+WMT,PLD,SUPPLIER,S2,2020-01-22,False,0,4,,,,,,we have Walmart credit on it
+OpenAI-none,ORCL,SUPPLIER,S2,2024-12-09,False,0,4,,,,,,"Our major AI customers include OpenAI, XAI, NVIDIA, Cohere, and most recently, Meta"
+LUV,WDAY,SUPPLIER,S2,2024-08-22,False,0,3,,,,,,"HCM go-lives, including Cox Enterprises, Southwest Airlines"
+Deloitte-none,CRM,SUPPLIER,S2,2025-05-28,False,0,3,,,,,,"how important data is to our customers like Box, Deloitte, and Boeing"
+ENB,ORCL,SUPPLIER,S2,2022-12-12,False,0,3,,,,,,"Vodafone, Deutsche Telekom, Enbridge, Kaiser, a huge healthcare company primarily in the United States."
+VZ,ORCL,SUPPLIER,S2,2022-06-13,False,0,4,,,,,,"We won a major expansion, ERP and EPM at Verizon"
+KHC,MSFT,SUPPLIER,S2,2022-07-26,False,0,3,,,,,,"Leaders in every industry, including Kraft Heinz, Fujitsu, and Unilever, have migrated ERP workloads to Azure"
+GM,WOLF,SUPPLIER,S2,2021-10-27,False,0,3,,,,,,it's a really great partnership that we have together with GM
+VZ,IBM,SUPPLIER,S2,2025-07-23,False,0,3,,,,,,"major Telco clients, including Verizon and Telefonica, have chosen IBM's hybrid cloud platform"
+LOW,GOOG,SUPPLIER,S2,2025-04-24,False,0,3,,,,,,helping customers like Lowe's integrate AI
+NOW,EQIX,SUPPLIER,S2,2025-07-30,False,0,3,,,,,,"ServiceNow, expanding with Equinix in multiple locations globally, powering their continued growth"
+F,SWKS,SUPPLIER,S2,2024-01-30,False,0,4,,,,,,from a Cisco to a Ford
+AMD,MPWR,SUPPLIER,S2,2022-05-02,False,0,3,,,,,,both Intel and AMD are positioned for political releases coming up here
+F,MSFT,SUPPLIER,S2,2021-07-27,False,0,3,,,,,,"Organizations like Ford, NASA, and Shopify are using new project planning capabilities"
+SHOP,MSFT,SUPPLIER,S2,2022-10-25,False,0,4,,,,,,already being used by both digital natives like Shopify
+UL,MSFT,SUPPLIER,S2,2021-04-29,False,0,8,,,,,,Companies like Coca-Cola and Unilever will use Viva to help their employees thrive
+VWAGY,CRM,SUPPLIER,S2,2020-02-25,False,0,3,,,,,,"Keith mentioned a deal that we did this quarter, Volkswagen."
+HTHIY,CRM,SUPPLIER,S2,2023-03-01,False,0,5,,,,,,"Panasonic Corporation, and Hitachi"
+TSM,DD,SUPPLIER,S2,2023-11-01,False,0,3,,,,,,companies like TSMC are gaining share
+DXC,MSFT,SUPPLIER,S2,2024-01-30,False,0,3,,,,,,"companies across private and public sector, including Cerebrus, Chanel, DXC Technology, all rely on our premium E5 offerings"
+ADBE,PYPL,SUPPLIER,S2,2023-11-01,False,0,3,,,,,,"serving the largest enterprises such as Adobe, Booking.com, DoorDash, Ticketmaster, and Uber"
+DASH,PYPL,SUPPLIER,S2,2023-11-01,False,0,5,,,,,,we recently renewed our contract with DoorDash to expand how we work together
+BCS,MSFT,SUPPLIER,S2,2024-07-30,False,0,4,,,,,,"Barclays, Carrier Group, Pearson, and University of Miami all purchased 10,000 or more seats this quarter."
+Schneider-none,CRM,SUPPLIER,S2,2024-02-28,False,0,3,,,,,,"including customer wins at CDW, Zscaler, and Schneider Electric"
+QCOM,MSFT,SUPPLIER,S2,2022-10-25,False,0,3,,,,,,"Asahi, Expedia Group, and Qualcomm all chose our premium offerings to transform how employees work."
+COLM,MSFT,SUPPLIER,S2,2021-07-27,False,0,3,,,,,,enabling retailers like Columbia Sportswear to ship inventory from stores and offer contactless payment options
+Schneider-none,MSFT,SUPPLIER,S2,2024-01-30,False,0,3,,,,,,Hundreds of paid customers from Accenture and EY to Schneider Electric are using it
+TSM,MCHP,CUSTOMER,S2,2025-11-06,False,0,3,,,,,,we also buy wafers from foundries outside
+VZ,QCOM,SUPPLIER,S2,2021-11-03,False,0,3,,,,,,"we have now, for example, Verizon with 35 CDs now live with ultra-wideband technology"
+TMUS,QCOM,SUPPLIER,S2,2021-11-03,False,0,3,,,,,,T-Mobile is leveraging their 5G network to target 7 to 8 million home broadband customers over the next five years
+AMZN,AEP,SUPPLIER,S2,2025-05-06,False,0,5,,,,,,both Amazon Web Services and Google have connected hyperscale data centers to our system in Indiana
+GOOG,AEP,SUPPLIER,S2,2025-02-13,False,0,4,,,,,,both Google and AWS have recently begun service in Indiana
+UBER,CRM,SUPPLIER,S2,2022-08-24,False,0,3,,,,,,Customers in the year like Gap and Sonos and even Uber Eats who use Service Cloud
+BBY,GOOG,SUPPLIER,S2,2024-07-23,False,0,4,,,,,,customers like Best Buy and Gordon Food Service
+UL,GOOG,SUPPLIER,S2,2024-01-30,False,0,3,,,,,,"enterprises like Groupo, Bucciario, Unilever, and Warner Music"
+TSLA,WOLF,SUPPLIER,S2,2021-04-28,False,0,4,,,,,,maybe we could lump Tesla in that group
+PSO,MSFT,SUPPLIER,S2,2024-07-30,False,0,4,,,,,,Pearson Vue and Vodafone both chose our security stack to protect their digital estate across clouds.
+Shell-none,WMB,SUPPLIER,S2,2020-02-20,False,0,9,,,,,,we had a reimbursable agreement with Shell
+NFLX,MSFT,SUPPLIER,S2,2022-07-26,False,0,3,,,,,,Netflix chose us as its exclusive technology and sales partner for its first ad-supported subscription offering
+SHOP,GOOG,SUPPLIER,S2,2023-04-26,False,0,3,,,,,,Shopify to bring better search results and personalization using AI
+VWAGY,SWKS,SUPPLIER,S2,2021-04-29,False,0,3,,,,,,accelerating connectivity content with leading brands including Volkswagen
+KHC,SNOW,SUPPLIER,S2,2025-05-21,False,0,3,,,,,,Kraft Heinz is leveraging Snowflake Cortex to empower its employees with innovative AI tools
+Samsung-none,INTC,SUPPLIER,S2,2022-07-28,False,0,3,,,,,,"OEM partners, Acer, Asus, Dell, HP, Lenovo, LG, MSI, Samsung Electronics, and others"
+ABB-none,WOLF,SUPPLIER,S2,2021-08-17,False,0,3,,,,,,the gentleman from ABB who – discussed the potential in some of their utility equipment
+DELL,QCOM,SUPPLIER,S2,2025-07-30,False,0,3,,,,,,Dell recently launched the Inspiron 14-inch laptop powered by the Snapdragon 8CX Gen2 compute platform.
+HD,MSFT,SUPPLIER,S2,2022-01-25,False,0,3,,,,,,"retailers like Home Depot, Kohl's and Kroger to build their own digital commerce and marketing channels"
+XOM,WDAY,SUPPLIER,S2,2023-05-25,False,0,3,,,,,,planning first wins at ExxonMobil and Ninja Bank
+DUOL,MSFT,SUPPLIER,S2,2022-10-25,False,0,3,,,,,,"help companies like AT&T, Duolingo, and Progressive build custom neural voices for their products"
+BSY,MSFT,SUPPLIER,S2,2021-04-29,False,0,3,,,,,,"organizations like Bentley Systems, Honeywell Industries, and Johnson Controls can bridge the digital and physical worlds"
+V,MSFT,SUPPLIER,S2,2023-04-25,False,0,4,,,,,,Visa switched to Dynamics 365 for both its sales and call center organizations.
+TM,GOOG,SUPPLIER,S2,2025-04-24,False,0,3,,,,,,DemandGen is already driving success for brands like Samsung and Toyota.
+WMT,GOOG,SUPPLIER,S2,2024-04-25,False,0,3,,,,,,"global brands like Bayer, CentOS, Mercedes-Benz, Walmart, and many more"
+UL,TTD,SUPPLIER,S2,2024-02-15,False,0,3,,,,,,the work we're doing with Unilever in Thailand
+MBGAF,MSFT,SUPPLIER,S2,2021-04-29,False,0,3,,,,,,Daimler chose Power BI to surface insights across the organization
+AMD,MU,SUPPLIER,S2,2023-03-28,False,0,3,,,,,,
+OpenAI-none,CRM,SUPPLIER,S2,2024-02-28,False,0,3,,,,,,he was paying a Slack user fee and on and on. And he's a great Slack customer
+GE,WDAY,SUPPLIER,S2,2024-08-22,False,0,3,,,,,,"several marquee wins, including GEMPAC Limited"
+DTEGY,NOW,SUPPLIER,S2,2022-01-26,False,0,3,,,,,,"wins at major brands, including SAS Institute, Deutsche Telekom, and Wellstar."
+AMD,INTC,COMPETITOR,C2,2025-07-24,False,,,7,2,17,semis,semis,our microprocessors are not designed to function with motherboards and chipsets designed to work with Intel microprocessors
+COST,WMT,COMPETITOR,C1,2020-10-07,False,,,10,0,10,consumer staples,consumer staples,"Walmart, Target, Kroger, and Amazon are among our significant general merchandise retail competitors in the U.S."
+COST,TGT,COMPETITOR,C1,2020-10-07,False,,,7,0,7,consumer staples,consumer staples,"Walmart, Target, Kroger, and Amazon are among our significant general merchandise retail competitors in the U.S."
+COST,BJ,COMPETITOR,C1,2020-10-07,False,,,7,0,7,consumer staples,consumer staples,"We also compete with other warehouse clubs, including Walmart's Sam's Club and BJ's Wholesale Club in the U.S."
+TMUS,T,COMPETITOR,C2,2022-10-20,False,,,26,4,30,telecom,telecom,"Our competitors include other carriers, such as AT&T Inc. (""AT&T"")"
+TMUS,CMCSA,COMPETITOR,C2,2025-10-30,False,,,16,2,22,telecom,internet/media,"our competitors include numerous smaller and regional providers, including Comcast Corporation"
+ADBE,META,COMPETITOR,C1,2020-01-21,False,,,3,0,3,software/IT,software/IT,"social networking platforms such as Facebook (including Instagram), Snapchat, Twitter, TikTok and Pinterest are yet another direct means to post, edit and share digital media"
+ADBE,PINS,COMPETITOR,C1,2020-01-21,False,,,3,0,3,software/IT,software/IT,"social networking platforms such as Facebook (including Instagram), Snapchat, Twitter, TikTok and Pinterest are yet another direct means to post, edit and share digital media"
+SWKS,ADI,COMPETITOR,C1,2020-11-17,False,,,7,0,7,semis,semis,"international and United States semiconductor manufacturers of all sizes in terms of resources and market share, including, but not limited to, Analog Devices"
+SWKS,AVGO,COMPETITOR,C1,2019-12-20,False,,,8,0,14,semis,semis,"Analog Devices, Broadcom, Cirrus Logic, Murata Manufacturing, NXP Semiconductors, Qorvo, Qualcomm, and Texas Instruments"
+SWKS,CRUS,COMPETITOR,C1,2020-11-17,False,,,7,0,7,semis,semis,"Broadcom, Cirrus Logic, Murata Manufacturing, NXP Semiconductors, Qorvo, Qualcomm, and Texas Instruments"
+SWKS,NXPI,COMPETITOR,C1,2020-11-17,False,,,7,0,7,semis,semis,"Murata Manufacturing, NXP Semiconductors, Qorvo, Qualcomm, and Texas Instruments"
+SWKS,QRVO,COMPETITOR,C1,2020-11-17,False,,,7,0,7,semis,semis,"NXP Semiconductors, Qorvo, Qualcomm, and Texas Instruments"
+SWKS,QCOM,COMPETITOR,C1,2020-05-04,False,,,15,0,15,semis,semis,"Qorvo, Qualcomm, and Texas Instruments"
+SWKS,TXN,COMPETITOR,C1,2023-11-17,False,,,4,0,4,semis,semis,"Qorvo, Qualcomm, and Texas Instruments"
+CAT,DE,COMPETITOR,C1,2019-12-19,False,,,7,0,14,industrials,industrials,"many of our manufacturing competitors own financial subsidiaries, such as John Deere Capital Corporation"
+NOW,ORCL,COMPETITOR,C2,2025-09-09,False,,,5,2,7,software/IT,software/IT,"enterprise application software vendors, such as Oracle, SAP, Salesforce and Workday"
+NOW,SAP,COMPETITOR,C1,2022-10-26,False,,,6,0,6,software/IT,software/IT,"enterprise application software vendors, such as Oracle, SAP, Salesforce and Workday"
+NOW,CRM,COMPETITOR,C1,2023-01-31,False,,,6,0,6,software/IT,software/IT,"enterprise application software vendors, such as Oracle, SAP, Salesforce and Workday"
+NOW,WDAY,COMPETITOR,C1,2023-01-31,False,,,5,0,5,software/IT,software/IT,"enterprise application software vendors, such as Oracle, SAP, Salesforce and Workday"
+KO,KDP,COMPETITOR,C1,2020-02-24,False,,,7,0,7,consumer staples,consumer staples,"Nestlé S.A., Keurig Dr Pepper Inc., Groupe Danone"
+KO,KHC,COMPETITOR,C1,2020-02-24,False,,,3,0,3,consumer staples,consumer staples,"Groupe Danone, The Kraft Heinz Company, Suntory Beverage & Food Limited"
+KO,UL,COMPETITOR,C1,2020-02-24,False,,,5,0,5,consumer staples,consumer staples,Suntory Beverage & Food Limited and Unilever
+SIRI,SPOT,COMPETITOR,C1,2021-02-02,False,,,11,0,11,internet/media,internet/media,"obtain similar content for free through terrestrial radio stations, Spotify, YouTube and other internet services"
+PEP,CAG,COMPETITOR,C1,2020-02-13,False,,,6,0,6,consumer staples,consumer staples,"Campbell Soup Company, Conagra Brands, Inc."
+PEP,KDP,COMPETITOR,C1,2020-02-13,False,,,6,0,6,consumer staples,consumer staples,"Kellogg Company, Keurig Dr Pepper Inc."
+PEP,KHC,COMPETITOR,C1,2020-02-13,False,,,6,0,6,consumer staples,consumer staples,"Keurig Dr Pepper Inc., The Kraft Heinz Company"
+PEP,MNST,COMPETITOR,C1,2020-02-13,False,,,6,0,6,consumer staples,consumer staples,"Mondelēz International, Inc., Monster Beverage Corporation"
+MSFT,GOOG,COMPETITOR,C1,2001-01-01,False,,,6,1,9,software/IT,software/IT,"Azure faces diverse competition from companies such as Amazon, Broadcom, Google, IBM, Oracle, and open source offerings."
+MSFT,IBM,COMPETITOR,C1,2019-08-01,False,,,6,1,14,software/IT,software/IT,"Azure faces diverse competition from companies such as Amazon, Broadcom, Google, IBM, Oracle, and open source offerings."
+MSFT,META,COMPETITOR,C1,2020-07-30,False,,,6,0,6,software/IT,software/IT,"products from other emerging competitors, including Anthropic, OpenAI, Meta, and other open source offerings, many of which are also current or potential partners."
+MSFT,CSCO,COMPETITOR,C1,2019-09-05,False,,,6,0,13,software/IT,software/IT,compete with companies such as Palo Alto Networks and Cisco.
+CAT,HTHIY,COMPETITOR,C1,2020-02-19,False,,,7,0,7,industrials,industrials,"Hitachi Construction Machinery Co., Ltd."
+MPWR,ADI,COMPETITOR,C1,2020-02-28,False,,,7,0,7,semis,semis,"We consider our primary competitors to include Analog Devices, Infineon Technologies, NXP Semiconductors, ON Semiconductor, Power Integrations, Renesas Electronics, ROHM Semiconductor, Semtech, STMicroelectronics and Texas Instruments."
+MPWR,IFNNY,COMPETITOR,C1,2020-02-28,False,,,7,0,7,semis,semis,"We consider our primary competitors to include Analog Devices, Infineon Technologies, NXP Semiconductors, ON Semiconductor, Power Integrations, Renesas Electronics, ROHM Semiconductor, Semtech, STMicroelectronics and Texas Instruments."
+MPWR,NXPI,COMPETITOR,C1,2020-02-28,False,,,7,0,7,semis,semis,"We consider our primary competitors to include Analog Devices, Infineon Technologies, NXP Semiconductors, ON Semiconductor, Power Integrations, Renesas Electronics, ROHM Semiconductor, Semtech, STMicroelectronics and Texas Instruments."
+MPWR,ON,COMPETITOR,C1,2020-02-28,False,,,7,0,8,semis,semis,"We consider our primary competitors to include Analog Devices, Infineon Technologies, NXP Semiconductors, ON Semiconductor, Power Integrations, Renesas Electronics, ROHM Semiconductor, Semtech, STMicroelectronics and Texas Instruments."
+MPWR,POWI,COMPETITOR,C1,2020-02-28,False,,,7,0,7,semis,semis,"We consider our primary competitors to include Analog Devices, Infineon Technologies, NXP Semiconductors, ON Semiconductor, Power Integrations, Renesas Electronics, ROHM Semiconductor, Semtech, STMicroelectronics and Texas Instruments."
+MPWR,SMTC,COMPETITOR,C1,2020-02-28,False,,,7,0,7,semis,semis,"We consider our primary competitors to include Analog Devices, Infineon Technologies, NXP Semiconductors, ON Semiconductor, Power Integrations, Renesas Electronics, ROHM Semiconductor, Semtech, STMicroelectronics and Texas Instruments."
+MPWR,TXN,COMPETITOR,C1,2020-02-28,False,,,9,0,9,semis,semis,"We consider our primary competitors to include Analog Devices, Infineon Technologies, NXP Semiconductors, ON Semiconductor, Power Integrations, Renesas Electronics, ROHM Semiconductor, Semtech, STMicroelectronics and Texas Instruments."
+BOX,MSFT,COMPETITOR,C1,2020-03-19,False,,,12,0,12,software/IT,software/IT,Our primary competitors in the cloud content management market include Microsoft and OpenText (Documentum).
+BOX,DBX,COMPETITOR,C1,2020-03-19,False,,,7,0,7,software/IT,software/IT,"our primary competitors include Microsoft, Google and, to a lesser extent, Dropbox."
+WOLF,IFNNY,COMPETITOR,C1,2022-08-22,False,,,5,0,5,semis,semis,Our Silicon Carbide power devices compete with Silicon Carbide power semiconductor solutions offered by Infineon Technologies AG
+WOLF,ON,COMPETITOR,C1,2020-08-19,False,,,7,0,10,semis,semis,"compete with Silicon Carbide power semiconductor solutions offered by Infineon Technologies AG, ON Semiconductor Corporation"
+INTC,UMC,COMPETITOR,C1,2024-01-26,False,,,3,0,3,semis,semis,"we will face intense competition from well-established competitors such as TSMC, Samsung, Global Foundries (GF), United Microelectronics Corporation (UMC), and Semiconductor Manufacturing International Corporation (SMIC)"
+INTC,AMD,COMPETITOR,C1,2019-02-01,False,,,9,0,17,semis,semis,"In processors, we compete with AMD"
+INTC,QCOM,COMPETITOR,C2,2025-11-05,False,,,6,2,10,semis,semis,"vendors who design applications processors based on ARM architecture, such as Qualcomm Inc. (Qualcomm)"
+NVDA,AMD,COMPETITOR,C1,2001-01-01,False,,,7,0,16,semis,semis,"high-end discrete GPUs offered by Intel and AMD, may be cheaper or provide better functionality or features than ours"
+AMSC,HTHIY,COMPETITOR,C1,2025-05-21,False,,,2,0,2,industrials,industrials,"STATCOMs produced by ABB, Hitachi, Ingeteam, Mitsubishi, RXHK and Siemens"
+LOW,HD,COMPETITOR,C1,2019-04-02,False,,,7,0,8,consumer discretionary/retail,consumer discretionary/retail,"Senior Vice President, Merchandising, The Home Depot, Inc. (a home improvement retailer), 2006 – 2012"
+QCOM,NVDA,COMPETITOR,C1,2001-01-01,False,,,7,0,16,semis,semis,"Icera, Inc. (subsequently acquired by Nvidia Corporation)"
+COF,AXP,COMPETITOR,C1,2020-02-20,False,,,10,0,10,banks/financials,banks/financials,as well as with American Express ®
+NKE,DECK,COMPETITOR,C1,2020-07-24,False,,,6,0,6,consumer discretionary/retail,consumer discretionary/retail,"The Dow Jones U.S. Footwear Index consists of NIKE, Deckers Outdoor Corporation and Skechers U.S.A., Inc."
+NXPI,ADI,COMPETITOR,C1,2021-02-25,False,,,6,0,6,semis,semis,"Our key competitors in alphabetical order include Analog Devices, Inc"
+NXPI,IFNNY,COMPETITOR,C1,2021-02-25,False,,,6,0,6,semis,semis,Infineon Technologies AG
+NXPI,MCHP,COMPETITOR,C1,2021-02-25,False,,,6,1,7,semis,semis,Microchip Technology Inc.
+NXPI,POWI,COMPETITOR,C1,2021-02-25,False,,,2,0,2,semis,semis,Power Integrations Inc
+NXPI,QCOM,COMPETITOR,C1,2020-02-27,False,,,6,0,13,semis,semis,"Qualcomm, Inc"
+NXPI,SLAB,COMPETITOR,C1,2001-01-01,False,,,2,0,12,semis,semis,Silicon Laboratories
+NXPI,TXN,COMPETITOR,C1,2021-02-25,False,,,6,0,6,semis,semis,Texas Instruments Incorporated
+ITW,LECO,COMPETITOR,C1,2020-02-14,False,,,7,0,7,industrials,industrials,"the Welding segment competes globally with Lincoln Electric Holdings, Inc. and ESAB Corporation"
+AMD,NVDA,COMPETITOR,C1,2001-01-01,False,,,7,0,16,semis,semis,our principal competitor in the supply of discrete graphics is NVIDIA
+IBM,CSCO,COMPETITOR,C1,2020-02-25,False,,,5,0,5,software/IT,software/IT,Global Financing competes with three types of companies in providing financial services to IT customers: other captive financing entities of IT companies such as Cisco and HPE
+IBM,HPQ,COMPETITOR,C1,2020-02-25,False,,,7,0,7,software/IT,software/IT,other captive financing entities of IT companies such as Cisco and HPE
+ROK,EMR,COMPETITOR,C1,2020-11-10,False,,,8,0,8,industrials,industrials,"Major competitors include Siemens AG, ABB Ltd, Schneider Electric SA, Emerson Electric Co., Mitsubishi Electric Corp., Honeywell International Inc., AVEVA Group plc, Dassault Systemes, and Aspen Technology, Inc."
+ROK,HON,COMPETITOR,C1,2020-11-10,False,,,8,0,8,industrials,industrials,"Major competitors include Siemens AG, ABB Ltd, Schneider Electric SA, Emerson Electric Co., Mitsubishi Electric Corp., Honeywell International Inc., AVEVA Group plc, Dassault Systemes, and Aspen Technology, Inc."
+WOLF,NXPI,COMPETITOR,C1,2020-08-19,False,,,6,0,6,semis,semis,"Mitsubishi Electric Corporation, NXP Semiconductor N.V."
+WOLF,QRVO,COMPETITOR,C1,2020-08-19,False,,,5,0,5,semis,semis,"RFHIC, Qorvo, Inc."
+MSFT,AAPL,COMPETITOR,C1,2019-08-01,False,,,6,0,7,software/IT,software/IT,"Competitors to Office include software and global application vendors, such as Apple, Cisco Systems, Facebook, Google, IBM, Okta, Proofpoint, Slack, Symantec, Zoom"
+MSFT,OKTA,COMPETITOR,C1,2020-07-30,False,,,5,0,5,software/IT,software/IT,"Okta, Proofpoint, and Symantec provide security solutions across email security, information protection, identity, and governance."
+MSFT,ZM,COMPETITOR,C1,2020-07-30,False,,,6,0,6,software/IT,software/IT,Zoom offers videoconferencing and cloud phone solutions.
+TEAM,MSFT,COMPETITOR,C1,2024-08-16,False,,,2,0,2,software/IT,software/IT,"Our competitors range from large technology vendors, including Microsoft and Alphabet, that offer a suite of products"
+TEAM,GOOG,COMPETITOR,C1,2024-08-16,False,,,2,0,2,software/IT,software/IT,"Our competitors range from large technology vendors, including Microsoft and Alphabet, that offer a suite of products"
+ZTS,MRK,COMPETITOR,C1,2020-02-13,False,,,7,0,7,pharma/health,pharma/health,"Merck Animal Health, the animal health division of Merck & Co., Inc."
+ZTS,ELAN,COMPETITOR,C1,2020-02-13,False,,,7,0,7,pharma/health,pharma/health,"Elanco Animal Health, an independent animal health company as of September 2018"
+VZ,T,COMPETITOR,C2,2021-07-22,False,,,14,7,24,telecom,telecom,"we compete against other national wireless service providers, including AT&T Inc. and T-Mobile US, Inc."
+SLAB,AVGO,COMPETITOR,C1,2019-05-03,False,,,8,0,8,semis,semis,"We compete with Broadcom, Espressif, Infineon, MediaTek, Microchip, Nordic Semiconductor, NXP, Qualcomm, Renesas, STMicroelectronics, Synaptics, Telink, Texas Instruments and others."
+SLAB,MCHP,COMPETITOR,C1,2019-05-03,False,,,8,0,8,semis,semis,"We compete with Broadcom, Espressif, Infineon, MediaTek, Microchip, Nordic Semiconductor, NXP, Qualcomm, Renesas, STMicroelectronics, Synaptics, Telink, Texas Instruments and others."
+SLAB,NXPI,COMPETITOR,C1,2001-01-01,False,,,8,0,12,semis,semis,"We compete with Broadcom, Espressif, Infineon, MediaTek, Microchip, Nordic Semiconductor, NXP, Qualcomm, Renesas, STMicroelectronics, Synaptics, Telink, Texas Instruments and others."
+SLAB,QCOM,COMPETITOR,C1,2019-01-30,False,,,8,0,9,semis,semis,"We compete with Broadcom, Espressif, Infineon, MediaTek, Microchip, Nordic Semiconductor, NXP, Qualcomm, Renesas, STMicroelectronics, Synaptics, Telink, Texas Instruments and others."
+SLAB,SYNA,COMPETITOR,C1,2019-05-03,False,,,9,0,9,semis,semis,"We compete with Broadcom, Espressif, Infineon, MediaTek, Microchip, Nordic Semiconductor, NXP, Qualcomm, Renesas, STMicroelectronics, Synaptics, Telink, Texas Instruments and others."
+SLAB,TXN,COMPETITOR,C1,2019-01-30,False,,,8,0,9,semis,semis,"We compete with Broadcom, Espressif, Infineon, MediaTek, Microchip, Nordic Semiconductor, NXP, Qualcomm, Renesas, STMicroelectronics, Synaptics, Telink, Texas Instruments and others."
+IBM,GOOG,COMPETITOR,C1,2020-02-25,False,,,8,0,8,software/IT,software/IT,"The principal competitors in this segment include: Alphabet (Google), Amazon, BMC, Broadcom, Cisco Systems, Informatica, Microsoft, Oracle, Palo Alto Networks, Salesforce, SAP, Splunk and VMware."
+IBM,MSFT,COMPETITOR,C1,2019-08-01,False,,,8,0,14,software/IT,software/IT,"The principal competitors in this segment include: Alphabet (Google), Amazon, BMC, Broadcom, Cisco Systems, Informatica, Microsoft, Oracle, Palo Alto Networks, Salesforce, SAP, Splunk and VMware."
+IBM,ORCL,COMPETITOR,C1,2019-06-21,False,,,8,1,16,software/IT,software/IT,"The principal competitors in this segment include: Alphabet (Google), Amazon, BMC, Broadcom, Cisco Systems, Informatica, Microsoft, Oracle, Palo Alto Networks, Salesforce, SAP, Splunk and VMware."
+IBM,PANW,COMPETITOR,C1,2023-02-28,False,,,3,0,3,software/IT,software/IT,"The principal competitors in this segment include: Alphabet (Google), Amazon, BMC, Broadcom, Cisco Systems, Informatica, Microsoft, Oracle, Palo Alto Networks, Salesforce, SAP, Splunk and VMware."
+IBM,SAP,COMPETITOR,C1,2020-02-25,False,,,8,0,8,software/IT,software/IT,"The principal competitors in this segment include: Alphabet (Google), Amazon, BMC, Broadcom, Cisco Systems, Informatica, Microsoft, Oracle, Palo Alto Networks, Salesforce, SAP, Splunk and VMware."
+PSX,DK,COMPETITOR,C1,2020-02-21,False,,,5,0,5,energy (oil & gas),energy (oil & gas),"The New Peer Group consists of Delek US Holdings, Inc."
+PSX,MPC,COMPETITOR,C1,2020-02-21,False,,,5,0,5,energy (oil & gas),energy (oil & gas),Marathon Petroleum Corporation
+PSX,PBF,COMPETITOR,C1,2020-02-21,False,,,5,0,5,energy (oil & gas),energy (oil & gas),PBF Energy Inc.
+PSX,TRGP,COMPETITOR,C1,2020-02-21,False,,,5,0,5,energy (oil & gas),energy (oil & gas),Targa Resources Corp.
+PSX,WMB,COMPETITOR,C1,2022-02-18,False,,,3,0,3,energy (oil & gas),energy (oil & gas),"The Williams Companies, Inc."
+CMI,PH,COMPETITOR,C1,2022-02-08,False,,,5,0,5,industrials,industrials,"Robert Bosch GmbH, Parker-Hannifin Corporation, Garrett Motion, Inc."
+IBM,ACN,COMPETITOR,C1,2020-02-25,False,,,9,0,9,software/IT,software/IT,"Consulting competes in consulting, systems integration, application management and business process outsourcing services. We compete with broad-based competitors including: Accenture"
+ADBE,ADSK,COMPETITOR,C1,2020-01-21,False,,,3,0,3,software/IT,software/IT,"Our competition includes offerings from companies such as Apple, Autodesk, Avid, Corel, Microsoft, Affinity and others"
+ADBE,MSFT,COMPETITOR,C1,2019-08-01,False,,,3,0,9,software/IT,software/IT,"Our competition includes offerings from companies such as Apple, Autodesk, Avid, Corel, Microsoft, Affinity and others"
+PH,HON,COMPETITOR,C1,2020-08-26,False,,,8,0,8,industrials,industrials,"Eaton Corporation plc, Honeywell International, Inc., Moog Inc."
+PH,RTX,COMPETITOR,C1,2021-08-25,False,,,4,0,4,industrials,industrials,"Senior plc., Raytheon Collins Aerospace, Woodward, Inc."
+PH,WWD,COMPETITOR,C1,2020-08-26,False,,,7,0,7,industrials,industrials,"Raytheon Collins Aerospace, Woodward, Inc. and Safran S.A."
+VLO,COP,COMPETITOR,C1,2022-02-22,False,,,5,0,5,energy (oil & gas),energy (oil & gas),Our selected peer group comprises the following eleven members: ConocoPhillips
+VLO,DK,COMPETITOR,C1,2022-02-22,False,,,5,0,5,energy (oil & gas),energy (oil & gas),"CVR Energy, Inc.; Delek US Holdings, Inc."
+VLO,DINO,COMPETITOR,C1,2024-02-22,False,,,3,0,3,energy (oil & gas),energy (oil & gas),"EOG Resources, Inc.; HF Sinclair Corporation"
+VLO,MPC,COMPETITOR,C1,2022-02-22,False,,,5,0,5,energy (oil & gas),energy (oil & gas),Marathon Petroleum Corporation; Occidental Petroleum Corporation
+VLO,OXY,COMPETITOR,C1,2022-02-22,False,,,5,0,5,energy (oil & gas),energy (oil & gas),Marathon Petroleum Corporation; Occidental Petroleum Corporation
+VLO,PBF,COMPETITOR,C1,2022-02-22,False,,,5,0,5,energy (oil & gas),energy (oil & gas),PBF Energy Inc.; and Phillips 66
+VLO,PSX,COMPETITOR,C1,2022-02-22,False,,,6,0,6,energy (oil & gas),energy (oil & gas),PBF Energy Inc.; and Phillips 66
+TEAM,NOW,COMPETITOR,C1,2022-04-28,False,,,4,1,5,software/IT,software/IT,"Our competitors range from cloud vendors, including ServiceNow, PagerDuty, and Freshworks"
+TEAM,PD,COMPETITOR,C1,2024-08-16,False,,,2,0,2,software/IT,software/IT,"Our competitors range from cloud vendors, including ServiceNow, PagerDuty, and Freshworks"
+TEAM,FRSH,COMPETITOR,C1,2024-08-16,False,,,2,0,2,software/IT,software/IT,"Our competitors range from cloud vendors, including ServiceNow, PagerDuty, and Freshworks"
+KMB,PG,COMPETITOR,C1,2021-02-11,False,,,3,1,4,consumer staples,consumer staples,"Mr. Ghory joined SmarterChains from The Procter & Gamble Company, where he served in multiple roles of increasing responsibility"
+GOOG,META,COMPETITOR,C1,2020-02-03,False,,,6,0,6,software/IT,software/IT,"Other online advertising platforms and networks, such as Amazon, AppNexus, Criteo, and Meta, that compete for advertisers that use Google Ads"
+NVDA,AMBA,COMPETITOR,C1,2020-02-20,False,,,7,0,7,semis,semis,"suppliers of SoC products that are embedded into automobiles, autonomous machines, and gaming devices, such as Ambarella, Inc."
+NVDA,AVGO,COMPETITOR,C1,2001-01-01,False,,,7,0,13,semis,semis,"suppliers of SoC products that are embedded into automobiles, autonomous machines, and gaming devices, such as Ambarella, Inc., AMD, Broadcom Inc."
+NVDA,QCOM,COMPETITOR,C1,2001-01-01,False,,,7,0,16,semis,semis,"suppliers of SoC products that are embedded into automobiles, autonomous machines, and gaming devices, such as Ambarella, Inc., AMD, Broadcom Inc., Intel, Qualcomm Incorporated"
+AMPX,ENVX,COMPETITOR,C1,2001-01-01,False,,,3,0,5,industrials,industrials,"Enevate Corporation, Enovix Corporation"
+ZTS,NVS,COMPETITOR,C1,2021-02-16,False,,,3,0,3,pharma/health,pharma/health,Mr. Bettington served as Senior Manager Food Animal Marketing at Novartis Animal Health from February 2006 to March 2008
+WDAY,ORCL,COMPETITOR,C2,2021-03-10,False,,,8,10,25,software/IT,software/IT,"Our primary competitors are Oracle and SAP, well-established providers of financial management and HCM applications"
+WDAY,SAP,COMPETITOR,C1,2020-03-03,False,,,8,0,8,software/IT,software/IT,"Our primary competitors are Oracle and SAP, well-established providers of financial management and HCM applications"
+WDAY,ADP,COMPETITOR,C1,2020-03-03,False,,,5,0,5,software/IT,software/IT,"These vendors include UKG Inc. (formerly The Ultimate Software Group, Inc.); Automatic Data Processing, Inc."
+DIOD,IFNNY,COMPETITOR,C1,2020-02-12,False,,,7,0,7,semis,semis,"Some of our current major competitors are Infineon Technologies A.G., Epson, Kyrocera, NXP Semiconductors N.V., ON Semiconductor Corporation, Renesas Electronics Corporation, Rohm Electronics USA, LLC, Texas Instruments and Vishay Intertechnology, Inc."
+DIOD,NXPI,COMPETITOR,C1,2022-02-18,False,,,5,0,5,semis,semis,"Some of our current major competitors are Infineon Technologies A.G., Epson, Kyrocera, NXP Semiconductors N.V., ON Semiconductor Corporation, Renesas Electronics Corporation, Rohm Electronics USA, LLC, Texas Instruments and Vishay Intertechnology, Inc."
+DIOD,TXN,COMPETITOR,C1,2022-02-18,False,,,5,0,5,semis,semis,"Some of our current major competitors are Infineon Technologies A.G., Epson, Kyrocera, NXP Semiconductors N.V., ON Semiconductor Corporation, Renesas Electronics Corporation, Rohm Electronics USA, LLC, Texas Instruments and Vishay Intertechnology, Inc."
+CHTR,NFLX,COMPETITOR,C1,2021-01-29,False,,,6,0,6,internet/media,internet/media,"subscription video on demand (""SVOD"") services such as Netflix, Apple TV+, Amazon Prime, Hulu Plus, Disney+, HBO Max, Peacock, Paramount+, AMC+, Starz and Showtime Anytime"
+AXP,PYPL,COMPETITOR,C1,2020-02-13,False,,,7,0,7,banks/financials,banks/financials,"payment aggregators (e.g., PayPal, Square and Amazon)"
+AMSC,GE,COMPETITOR,C1,2020-06-02,False,,,6,0,6,industrials,industrials,"indirect competition in the wind energy market from global manufacturers of wind turbines, such as Siemens Gamesa, General Electric, Vestas and Suzlon"
+DD,ESI,COMPETITOR,C1,2020-02-14,False,,,3,0,3,materials,materials,"Key competitors include 3M, CMC Materials, Element Solutions, Entegris, Flint Group, JSR Micro, Merck KGaA, Shin-Etsu and Sun Chemical."
+AMD,LSCC,COMPETITOR,C1,2024-01-31,False,,,3,0,3,semis,semis,"primary FPGA competitors such as Intel, Lattice Semiconductor Corporation"
+AMD,MCHP,COMPETITOR,C1,2024-01-31,False,,,2,0,2,semis,semis,"Microsemi Corporation (Microsemi, acquired by Microchip)"
+AMD,AVGO,COMPETITOR,C1,2001-01-01,False,,,3,0,9,semis,semis,from ASSP vendors such as Broadcom Corporation
+AMD,MRVL,COMPETITOR,C1,2024-01-31,False,,,3,0,3,semis,semis,"Broadcom Corporation, Marvell Technology Group, Ltd."
+AMD,ADI,COMPETITOR,C1,2024-01-31,False,,,3,0,3,semis,semis,"Marvell Technology Group, Ltd., Analog Devices"
+AMD,TXN,COMPETITOR,C1,2024-01-31,False,,,3,0,3,semis,semis,"Analog Devices, Texas Instruments Incorporated"
+AMD,NXPI,COMPETITOR,C1,2024-01-31,False,,,3,0,3,semis,semis,Texas Instruments Incorporated and NXP Semiconductors N.V.
+SLAB,ADI,COMPETITOR,C1,2019-05-03,False,,,4,0,4,semis,semis,"We compete with AltoBeam, Analog Devices, Aura, Broadcom, Cypress, Dialog, Espressif, Infineon, Maxim Integrated Products, MaxLinear, MediaTek, Microchip, Nordic Semiconductor, NXP, Qualcomm, Rafael, Renesas, STMicroelectronics, Synaptics, Telink, Texas Instruments and others."
+NOVA,RUN,COMPETITOR,C1,2001-01-01,False,,,6,0,8,solar/storage/clean energy,solar/storage/clean energy,"we compete with solar companies with vertically integrated business models, such as Vivint Solar, Inc. and Sunrun Inc."
+PPG,AKZOY,COMPETITOR,C1,2022-02-17,False,,,5,0,5,materials,materials,"Global Competitors Akzo Nobel N.V., Axalta Coating Systems Ltd., BASF Corporation, Benjamin Moore, Hempel A/S, Kansai Paints, the Jotun Group, Masco Corporation, Nippon Paint, RPM International Inc, the Sherwin-Williams Company and 3M Company"
+PPG,AXTA,COMPETITOR,C1,2022-02-17,False,,,5,0,5,materials,materials,"Global Competitors Akzo Nobel N.V., Axalta Coating Systems Ltd., BASF Corporation, Benjamin Moore, Hempel A/S, Kansai Paints, the Jotun Group, Masco Corporation, Nippon Paint, RPM International Inc, the Sherwin-Williams Company and 3M Company"
+GILD,NVS,COMPETITOR,C1,2020-02-25,False,,,2,0,2,pharma/health,pharma/health,Our HBV products also compete with products marketed by Bristol-Myers Squibb Company and Novartis Pharmaceuticals Corporation (Novartis)
+ON,AVGO,COMPETITOR,C1,2020-02-19,False,,,4,0,8,semis,semis,"PSG's competitors include: Broadcom Limited (""Broadcom"")"
+ON,IFNNY,COMPETITOR,C1,2020-02-19,False,,,6,0,6,semis,semis,"Diodes Incorporated, Infineon Technologies AG (""Infineon"")"
+ON,SMTC,COMPETITOR,C1,2021-02-16,False,,,3,0,3,semis,semis,"Rohm Semiconductor USA LLC, Semtech Corporation"
+ON,TXN,COMPETITOR,C1,2021-02-16,False,,,6,0,6,semis,semis,"STMicroelectronics N.V. (""STMicroelectronics""), Texas Instruments Incorporated"
+ADBE,SSTK,COMPETITOR,C1,2020-01-21,False,,,3,0,3,software/IT,software/IT,"Key competitors in this segment include Shutterstock, Getty Images and a number of smaller companies."
+ADBE,GETY,COMPETITOR,C1,2020-01-21,False,,,3,0,3,software/IT,software/IT,"Key competitors in this segment include Shutterstock, Getty Images and a number of smaller companies."
+ON,NXPI,COMPETITOR,C1,2020-02-19,False,,,6,0,6,semis,semis,"Competitors for certain of ASG's products and solutions include: Infineon, NXP Semiconductors N.V. (""NXP""), STMicroelectronics and TI."
+DD,GLW,COMPETITOR,C1,2020-02-14,False,,,3,0,3,materials,materials,"Key competitors include 3M, Honeywell, Hydranautics, Kingspan, Lanxess, LG Corp, Owens-Corning, Purolite, Royal DSM, Toray and Teijin."
+CAT,CMI,COMPETITOR,C1,2019-02-14,False,,,7,0,13,industrials,industrials,"Principal global competitors include Cummins Inc., Deutz AG, Rolls-Royce Power Systems AG and Siemens Energy AG."
+CAT,GEV,COMPETITOR,C1,2025-02-14,False,,,2,0,2,industrials,industrials,"Other competitors, such as Volvo Penta AB, FPT Industrial SpA (Iveco Group), INNIO Group, GE Vernova Inc., Kawasaki Heavy Industries Ltd., MAN Energy Solutions SE (VW), Weichai Power Co., Ltd., and other emerging market competitors compete in certain markets in which Caterpillar competes."
+CAT,GNRC,COMPETITOR,C1,2020-02-19,False,,,7,0,7,industrials,industrials,"An additional set of competitors, including Aggreko plc, Generac Holdings Inc., Rehlko Energy, Baker Hughes Co., and others, are primarily packagers who source engines and/or other components from domestic and international suppliers"
+CAT,BKR,COMPETITOR,C1,2020-02-19,False,,,7,0,7,industrials,industrials,"An additional set of competitors, including Aggreko plc, Generac Holdings Inc., Rehlko Energy, Baker Hughes Co., and others, are primarily packagers who source engines and/or other components from domestic and international suppliers"
+CAT,GBX,COMPETITOR,C1,2021-02-17,False,,,6,0,6,industrials,industrials,"In rail-related businesses, our global competitors include Wabtec Corp, Greenbrier Companies, Inc., Voestalpine AG, Vossloh AG, Alstom SA, and Siemens Mobility A/S."
+IBM,DXC,COMPETITOR,C1,2020-02-25,False,,,3,0,3,software/IT,software/IT,"We compete with broad based competitors including: Accenture, Capgemini, DXC Technology (DXC), Fujitsu"
+MSFT,CRM,COMPETITOR,C2,2024-02-28,False,,,9,6,15,software/IT,software/IT,"Dynamics competes with vendors such as Oracle, Salesforce.com, and SAP"
+MSFT,SAP,COMPETITOR,C1,2020-07-30,False,,,6,0,6,software/IT,software/IT,"Dynamics competes with vendors such as Oracle, Salesforce.com, and SAP"
+ORCL,IBM,COMPETITOR,C1,2019-06-21,False,,,8,1,16,software/IT,software/IT,"including Amazon.com, Inc., Microsoft Corporation, International Business Machines Corporation (IBM), Intel Corporation, Cisco Systems, Inc., Adobe Systems Incorporated, Alphabet Inc. and SAP SE"
+ORCL,CSCO,COMPETITOR,C1,2021-06-21,False,,,6,0,6,software/IT,software/IT,"Intel Corporation, Cisco Systems, Inc., Adobe Systems Incorporated, Alphabet Inc. and SAP SE"
+ORCL,ADBE,COMPETITOR,C1,2020-06-22,False,,,6,0,8,software/IT,software/IT,"Cisco Systems, Inc., Adobe Systems Incorporated, Alphabet Inc. and SAP SE"
+ORCL,GOOG,COMPETITOR,C1,2001-01-01,False,,,14,0,16,software/IT,software/IT,"Adobe Systems Incorporated, Alphabet Inc. and SAP SE"
+ORCL,SAP,COMPETITOR,C1,2020-03-12,False,,,15,0,15,software/IT,software/IT,"Alphabet Inc. and SAP SE, as well as other companies like Hewlett-Packard Enterprise, salesforce.com, inc. and Workday, Inc."
+ORCL,WDAY,COMPETITOR,C1,2019-06-21,False,,,17,1,25,software/IT,software/IT,"as well as other companies like Hewlett-Packard Enterprise, salesforce.com, inc. and Workday, Inc."
+MU,SKHY,COMPETITOR,C1,2022-10-07,False,,,5,0,5,semis,semis,"Samsung Electronics Co., Ltd.; SK hynix Inc.; Kioxia Holdings Corporation"
+QCOM,AVGO,COMPETITOR,C1,2001-01-01,False,,,7,0,15,semis,semis,"QCT's current competitors include, but are not limited to, companies such as Broadcom, HiSilicon, MediaTek, Nvidia, NXP Semiconductors, Qorvo, Samsung, Skyworks, Texas Instruments and UNISOC"
+QCOM,NXPI,COMPETITOR,C1,2020-02-27,False,,,7,0,13,semis,semis,"QCT's current competitors include, but are not limited to, companies such as Broadcom, HiSilicon, MediaTek, Nvidia, NXP Semiconductors, Qorvo, Samsung, Skyworks, Texas Instruments and UNISOC"
+QCOM,QRVO,COMPETITOR,C1,2020-11-04,False,,,7,0,7,semis,semis,"QCT's current competitors include, but are not limited to, companies such as Broadcom, HiSilicon, MediaTek, Nvidia, NXP Semiconductors, Qorvo, Samsung, Skyworks, Texas Instruments and UNISOC"
+QCOM,TXN,COMPETITOR,C1,2020-11-04,False,,,6,0,7,semis,semis,"QCT's current competitors include, but are not limited to, companies such as Broadcom, HiSilicon, MediaTek, Nvidia, NXP Semiconductors, Qorvo, Samsung, Skyworks, Texas Instruments and UNISOC"
+CMI,DCI,COMPETITOR,C1,2020-02-11,False,,,6,0,6,industrials,industrials,"Robert Bosch GmbH, Donaldson Company, Inc."
+TSLA,F,COMPETITOR,C1,2021-07-26,False,,,3,0,3,consumer discretionary/retail,consumer discretionary/retail,"Model 3 and Model Y face competition from existing and future automobile manufacturers in the extremely competitive entry-level premium sedan and compact SUV market, including BMW, Ford, Lexus, Mercedes and Volkswagen Group."
+AMT,CCI,COMPETITOR,C1,2020-02-25,False,,,7,0,7,REITs,REITs,"We compete, both for new business and for the acquisition of assets, with other public tower companies, such as Crown Castle International Corp."
+ORCL,CRM,COMPETITOR,C1,2021-03-10,False,,,8,1,10,software/IT,software/IT,"Microsoft Corporation, Salesforce, Inc. and SAP SE"
+LMT,BA,COMPETITOR,C1,2023-01-26,False,,,6,0,6,industrials,industrials,"The Boeing Company, General Dynamics, L3Harris Technologies, Northrop Grumman, and RTX Corporation are some of our primary competitors."
+LMT,GD,COMPETITOR,C1,2024-01-23,False,,,4,0,4,industrials,industrials,"The Boeing Company, General Dynamics, L3Harris Technologies, Northrop Grumman, and RTX Corporation are some of our primary competitors."
+LMT,NOC,COMPETITOR,C1,2024-01-23,False,,,3,0,3,industrials,industrials,"The Boeing Company, General Dynamics, L3Harris Technologies, Northrop Grumman, and RTX Corporation are some of our primary competitors."
+CRM,ORCL,COMPETITOR,C2,2024-09-09,False,,,2,5,10,software/IT,software/IT,"Mr. Block was employed at Oracle Corporation from 1986 to June 2012, where he held a number of positions, including Executive Vice President, North America."
+CMI,BLDP,COMPETITOR,C1,2021-02-10,False,,,5,0,5,industrials,industrials,"Akasol AG and Ballard Power Systems, Inc."
+BOX,OTEX,COMPETITOR,C1,2020-03-19,False,,,2,0,2,software/IT,software/IT,"Our primary competitors in the cloud content management market include, but are not limited to, Microsoft and Open Text (Documentum)."
+CSCO,ANET,COMPETITOR,C1,2020-09-03,False,,,7,0,7,software/IT,software/IT,"Arista Networks, Inc."
+CSCO,CHKP,COMPETITOR,C1,2020-09-03,False,,,4,0,4,software/IT,software/IT,Check Point Software Technologies Ltd.
+CSCO,DELL,COMPETITOR,C1,2020-09-03,False,,,7,0,7,software/IT,software/IT,Dell Technologies Inc.
+CSCO,DT,COMPETITOR,C1,2021-09-09,False,,,6,0,6,software/IT,software/IT,Dynatrace
+CSCO,FTNT,COMPETITOR,C1,2020-09-03,False,,,7,0,7,software/IT,software/IT,"Fortinet, Inc."
+CSCO,MSFT,COMPETITOR,C1,2019-09-05,False,,,7,0,13,software/IT,software/IT,Microsoft Corporation
+CSCO,NTNX,COMPETITOR,C1,2020-09-03,False,,,3,0,3,software/IT,software/IT,"Nutanix, Inc."
+CSCO,PANW,COMPETITOR,C1,2020-09-03,False,,,7,0,7,software/IT,software/IT,"Palo Alto Networks, Inc."
+CSCO,RNG,COMPETITOR,C1,2021-09-09,False,,,6,0,6,software/IT,software/IT,"RingCentral, Inc."
+CSCO,UI,COMPETITOR,C1,2020-09-03,False,,,4,0,4,software/IT,software/IT,Ubiquiti Networks
+CSCO,ZM,COMPETITOR,C1,2020-09-03,False,,,7,0,7,software/IT,software/IT,"Zoom Video Communications, Inc."
+CSCO,ZS,COMPETITOR,C1,2020-09-03,False,,,7,0,7,software/IT,software/IT,"Zscaler, Inc."
+AVGO,ADI,COMPETITOR,C1,2020-12-18,False,,,6,0,6,semis,semis,"Amlogic Inc., Analog Devices, Inc."
+AVGO,AMD,COMPETITOR,C1,2001-01-01,False,,,4,0,9,semis,semis,"Analog Devices, Inc., Advanced Micro Devices, Inc."
+AVGO,INTC,COMPETITOR,C1,2019-12-20,False,,,6,0,8,semis,semis,"iC-Haus Gmbh, Intel Corp."
+AVGO,MTSI,COMPETITOR,C1,2020-12-18,False,,,6,0,6,semis,semis,"Lumentum Holdings Inc., MACOM Technology Solutions Holdings, Inc."
+AVGO,MRVL,COMPETITOR,C1,2020-12-18,False,,,6,0,6,semis,semis,"MaxLinear, Inc., Marvell Technology Inc."
+AVGO,NVDA,COMPETITOR,C1,2001-01-01,False,,,4,0,13,semis,semis,"Mediatek Inc., NVIDIA Corporation"
+AVGO,MCHP,COMPETITOR,C1,2022-12-16,False,,,4,0,4,semis,semis,"NVIDIA Corporation, Microchip Technology Incorporated"
+AVGO,NXPI,COMPETITOR,C1,2020-12-18,False,,,6,0,8,semis,semis,"Murata Manufacturing Co., Ltd., NXP Semiconductors N.V."
+AVGO,ON,COMPETITOR,C1,2020-02-19,False,,,4,0,8,semis,semis,"NXP Semiconductors N.V., ON Semiconductor Corporation"
+AVGO,QRVO,COMPETITOR,C1,2020-12-18,False,,,6,0,6,semis,semis,"OSRAM, Qorvo, Inc."
+AVGO,QCOM,COMPETITOR,C1,2001-01-01,False,,,6,0,15,semis,semis,"Qorvo, Inc., Qualcomm Inc."
+AVGO,SWKS,COMPETITOR,C1,2019-12-20,False,,,6,1,14,semis,semis,"Renesas Electronics Corporation, Skyworks Solutions, Inc."
+AVGO,SYNA,COMPETITOR,C1,2022-12-16,False,,,4,0,4,semis,semis,"Sumitomo Corporation, Synaptics Incorporated"
+AVGO,TXN,COMPETITOR,C1,2019-12-20,False,,,6,0,7,semis,semis,"Toshiba Corporation, Texas Instruments, Inc."
+DE,CAT,COMPETITOR,C1,2019-12-19,False,,,7,0,14,industrials,industrials,Global competitors of the construction and forestry segment include Caterpillar Inc.
+ON,WOLF,COMPETITOR,C1,2020-08-19,False,,,3,0,10,semis,semis,"Infineon Technologies AG (""Infineon""), Wolfspeed"
+T,VZ,COMPETITOR,C2,2021-04-21,False,,,10,8,24,telecom,telecom,"We face a number of international competitors, including Orange Business Services, BT, Singapore Telecommunications Limited and Verizon Communications Inc."
+PH,DCI,COMPETITOR,C1,2020-08-26,False,,,7,0,7,industrials,industrials,"Danfoss A/S, Donaldson Company, Inc."
+PH,EMR,COMPETITOR,C1,2020-08-26,False,,,7,0,7,industrials,industrials,"Eaton Corporation plc, Emerson Climate Technologies, Inc."
+MCHP,MU,COMPETITOR,C1,2025-05-23,False,,,2,0,2,semis,semis,"the Chinese government announced restrictions relating to certain sales of products containing certain products made by Micron, and they may direct companies within China to purchase Chinese-made products. Similar restrictions on our products or the products of our customers or suppliers could negatively impact our business"
+ON,MPWR,COMPETITOR,C1,2020-02-28,False,,,1,0,8,semis,semis,"Renesas Electronics Corporation, Monolithic Power Systems Inc. and NXP Semiconductors N.V."
+DD,CE,COMPETITOR,C1,2020-02-14,False,,,3,0,3,materials,materials,"Key competitors include BASF, Celanese, EMS, Henkel, Kluber, Mitsubishi, Royal DSM, Sika, Victrex and Wacker Chemie."
+C,ATMP,COMPETITOR,C1,2023-02-27,False,,,2,0,2,banks/financials,banks/financials,"MICHAEL O'HIGGINS FX CLASS REPRESENTATIVE LIMITED v. BARCLAYS BANK PLC AND OTHERS, was made to the U.K.'s Competition Appeal Tribunal requesting permission to commence collective proceedings against Citigroup, Citibank and other defendants"
+CMI,CAT,COMPETITOR,C1,2019-02-14,False,,,6,0,13,industrials,industrials,"Our primary competitors in North America are Daimler, Caterpillar Inc. (CAT), Volvo Powertrain, Ford Motor Company (Ford), Navistar, PACCAR and Hino Power."
+AMD,QCOM,COMPETITOR,C1,2001-01-01,False,,,1,1,4,semis,semis,from Qualcomm Incorporated and NVIDIA
+PEP,UTZ,COMPETITOR,C1,2023-02-09,False,,,4,0,4,consumer staples,consumer staples,"Red Bull GmbH and Utz Brands, Inc."
+NVDA,AAOI,COMPETITOR,C1,2022-03-18,False,,,3,0,3,semis,semis,"suppliers of interconnect, switch and cable solutions such as Applied Optoelectronics, Inc."
+NVDA,MRVL,COMPETITOR,C1,2022-03-18,False,,,5,0,5,semis,semis,"Lumentum Holdings, Marvell Technology Group"
+TEAM,IBM,COMPETITOR,C1,2024-08-16,False,,,2,0,2,software/IT,software/IT,"Our principal competitors vary depending on the product category and include Microsoft (including GitHub), IBM"
+CSCO,CRWD,COMPETITOR,C1,2022-09-08,False,,,5,0,5,software/IT,software/IT,"CrowdStrike Holdings, Inc."
+CSCO,DDOG,COMPETITOR,C1,2023-09-07,False,,,4,0,4,software/IT,software/IT,Datadog Inc.
+GILD,PFE,COMPETITOR,C1,2022-02-08,False,,,1,2,3,pharma/health,pharma/health,"Letairis competes with products marketed by Actelion Pharmaceuticals US, Inc., United Therapeutics Corporation and Pfizer Inc."
+IBM,DELL,COMPETITOR,C1,2020-02-25,False,,,7,0,7,software/IT,software/IT,"Our principal competitors include Dell Technologies, Hewlett-Packard Enterprise (HPE), Intel and original device manufacturer systems"
+CMCSA,TMUS,COMPETITOR,C2,2022-07-28,False,,,6,9,22,internet/media,telecom,"We compete with national and regional wireless service providers in the United States, including AT&T, T-Mobile and Verizon"
+AMSC,RTX,COMPETITOR,C1,2020-06-02,False,,,7,0,7,industrials,industrials,"Companies such as Ultra EMS, L3 Harris, and Raytheon have the bulk of the copper-based business today."
+CMI,PLUG,COMPETITOR,C1,2024-02-12,False,,,3,0,3,industrials,industrials,"Our primary competitors include Daimler, PACCAR, Volvo, Traton, BYD Company Limited, Dana Incorporated, BorgWarner Inc., Ballard Power Systems, Inc., Nel ASA, ITM Power, Siemens Energy, Thyssenkrupp and Plug Power Inc."
+LYV,STUB,COMPETITOR,C1,2020-02-27,False,,,7,0,7,internet/media,internet/media,secondary ticketing companies such as StubHub
+LYV,SEAT,COMPETITOR,C1,2020-02-27,False,,,7,0,7,internet/media,internet/media,"secondary ticketing companies such as StubHub, Vivid Seats"
+ADBE,ORCL,COMPETITOR,C1,2020-06-22,False,,,2,0,8,software/IT,software/IT,"Our Adobe Experience Cloud solutions face competition from large companies such as Google, Oracle, salesforce.com, SAP, SAS, Shopify, Sitecore, BigCommerce and others"
+ADBE,SAP,COMPETITOR,C1,2021-01-15,False,,,2,0,2,software/IT,software/IT,"Our Adobe Experience Cloud solutions face competition from large companies such as Google, Oracle, salesforce.com, SAP, SAS, Shopify, Sitecore, BigCommerce and others"
+ADBE,SHOP,COMPETITOR,C1,2021-01-15,False,,,2,0,2,software/IT,software/IT,"Our Adobe Experience Cloud solutions face competition from large companies such as Google, Oracle, salesforce.com, SAP, SAS, Shopify, Sitecore, BigCommerce and others"
+NOVA,SPWR,COMPETITOR,C1,2001-01-01,False,,,3,0,5,solar/storage/clean energy,solar/storage/clean energy,"we compete with solar companies with vertically integrated business models, such as Sunrun Inc. and SunPower Corporation"
+RUN,SPWR,COMPETITOR,C1,2001-01-01,False,,,4,1,7,solar/storage/clean energy,solar/storage/clean energy,"SunPower, which offers home solar service offerings using its own panels a cost advantage over competitors like us"
+QCOM,INTC,COMPETITOR,C1,2019-11-06,False,,,3,0,10,semis,semis,"HiSilicon, Intel, Marvell"
+NXPI,INTC,COMPETITOR,C1,2023-03-01,False,,,2,0,2,semis,semis,Intel Corp.
+NXPI,MRVL,COMPETITOR,C1,2023-03-01,False,,,2,0,2,semis,semis,Marvell Technology
+NXPI,NVDA,COMPETITOR,C1,2023-03-01,False,,,2,0,2,semis,semis,NVIDIA Corp.
+RTX,GE,COMPETITOR,C1,2020-02-06,False,,,2,0,2,industrials,industrials,"Pratt & Whitney's major competitors in the sale of engines are GE Aviation, Honeywell, Safran Helicopter Engines, and CFM International"
+RTX,HON,COMPETITOR,C1,2020-02-06,False,,,2,0,2,industrials,industrials,"Pratt & Whitney's major competitors in the sale of engines are GE Aviation, Honeywell, Safran Helicopter Engines, and CFM International"
+FOXA,ROKU,COMPETITOR,C1,2024-08-08,False,,,3,0,3,internet/media,internet/media,"direct-to-consumer streaming services such as ESPN+, Peacock, Amazon Prime Video, Apple TV+, Paramount+, Max, FuboTV, and Roku"
+MO,CAG,COMPETITOR,C1,2020-02-25,False,,,2,0,2,consumer staples,consumer staples,U.S.-headquartered consumer product companies that are competitors to Altria's operating companies subsidiaries
+MO,GIS,COMPETITOR,C1,2020-02-25,False,,,2,0,2,consumer staples,consumer staples,U.S.-headquartered consumer product companies that are competitors to Altria's operating companies subsidiaries
+MO,HSY,COMPETITOR,C1,2020-02-25,False,,,2,0,2,consumer staples,consumer staples,U.S.-headquartered consumer product companies that are competitors to Altria's operating companies subsidiaries
+MO,KDP,COMPETITOR,C1,2020-02-25,False,,,2,0,2,consumer staples,consumer staples,U.S.-headquartered consumer product companies that are competitors to Altria's operating companies subsidiaries
+MO,KHC,COMPETITOR,C1,2020-02-25,False,,,2,0,2,consumer staples,consumer staples,U.S.-headquartered consumer product companies that are competitors to Altria's operating companies subsidiaries
+AVGO,WOLF,COMPETITOR,C1,2023-12-14,False,,,3,0,3,semis,semis,"Toshiba Corporation, Wolfspeed, Inc. (f/k/a Cree, Inc.)"
+DIOD,KYOCF,COMPETITOR,C1,2024-02-09,False,,,3,0,3,semis,semis,"Infineon Technologies A.G., Epson, Kyocera"
+FORM,ATEYY,COMPETITOR,C1,2020-02-21,False,,,2,0,2,semis,semis,Our primary competitors are Advantest Corporation
+FORM,MU,COMPETITOR,C1,2020-02-21,False,,,2,0,2,semis,semis,"Microfriend Inc., Micronics Japan Co., Ltd."
+CMI,GNRC,COMPETITOR,C1,2020-02-11,False,,,7,0,7,industrials,industrials,"we also compete with INNIO, Generac, Mitsubishi (MHI) and numerous regional generator set assemblers"
+FOXA,NFLX,COMPETITOR,C1,2025-08-06,False,,,2,0,2,internet/media,internet/media,"direct-to-consumer streaming services such as ESPN+, YouTube, Peacock, Amazon Prime Video, Netflix, Apple TV+, Paramount+, HBO Max and Roku"
+CAT,GE,COMPETITOR,C1,2020-02-19,False,,,5,0,5,industrials,industrials,"Principal global competitors include Cummins Inc., Deutz AG, GE Power, Rolls-Royce Power Systems, Siemens Power and Gas, and Wärtsilä Corp."
+LYV,MSGE,COMPETITOR,C1,2022-02-23,False,,,5,0,5,internet/media,internet/media,"Our main competitors in venue management include ASM Global, Madison Square Garden Entertainment Corp."
+ADBE,DBX,COMPETITOR,C1,2020-01-21,False,,,3,0,3,software/IT,software/IT,"Competitors like Microsoft, Google, Box and Dropbox all offer competitive alternatives to our Adobe Document Cloud business"
+MSFT,ADBE,COMPETITOR,C1,2019-08-01,False,,,6,0,9,software/IT,software/IT,"Our products for software developers compete against offerings from Adobe, IBM, Oracle, and other companies"
+SEDG,SPWR,COMPETITOR,C1,2020-02-27,False,,,2,0,2,solar/storage/clean energy,solar/storage/clean energy,Enphase Energy (ENPH) announced its acquisition of SunPower's (SPWR) mincroinverter business
+ADBE,CSCO,COMPETITOR,C1,2020-01-21,False,,,3,0,3,software/IT,software/IT,"our web conferencing product faces competition from a number of established products from other companies, including Cisco, Citrix and Microsoft"
+HRL,GIS,COMPETITOR,C1,2021-12-09,False,,,2,0,2,consumer staples,consumer staples,"for its Grocery Products segment, Conagra Brands, Inc., General Mills, Inc., Campbell Soup Co., J. M. Smucker Co., and Treehouse Foods Inc."
+INTC,AVGO,COMPETITOR,C1,2019-12-20,False,,,1,0,8,semis,semis,a number of business combinations and strategic partnerships in the semiconductor industry have occurred over the last several years
+AMSC,TXT,COMPETITOR,C1,2020-06-02,False,,,3,0,3,industrials,industrials,"Companies such as L3, Excelis, Raytheon, and Textron have the bulk of the copper-based business today."
+NXPI,AVGO,COMPETITOR,C1,2020-12-18,False,,,2,0,8,semis,semis,"Analog Devices Inc., Broadcom Inc."
+LRCX,AMAT,COMPETITOR,C1,2001-01-01,False,,,7,0,9,semis,semis,"Our primary competitor in the dielectric and metals deposition market is Applied Materials, Inc."
+AMD,ARM,COMPETITOR,C1,2025-02-05,False,,,1,0,2,semis,semis,A variety of smaller fabless silicon companies offer proprietary accelerator solutions and Arm based CPUs targeting data center use-cases
+NOW,TEAM,COMPETITOR,C1,2022-04-28,False,,,1,2,5,software/IT,software/IT,"Atlassian's product, are you starting to see them more in your bidding process? or in the competitive landscape"
+LLY,PFE,COMPETITOR,C1,2021-04-27,False,,,3,0,3,pharma/health,pharma/health,following the competitor announcement from Pfizer on one of their two oral GLP-1s
+SNOW,ORCL,COMPETITOR,C1,2020-12-10,False,,,1,5,6,software/IT,software/IT,"accelerate migrations from Oracle, Teradata, and many other systems"
+CRM,MSFT,COMPETITOR,C2,2024-02-28,False,,,6,3,15,software/IT,software/IT,So many customers are so disappointed in what they bought from Microsoft with co-pilots because they're not getting the accuracy and the response that they want. Microsoft has disappointed so many customers with AI.
+CRM,GOOG,COMPETITOR,C1,2024-02-28,False,,,3,0,3,software/IT,software/IT,proprietary models like Gemini from Google and others
+JKS,CSIQ,COMPETITOR,C1,2022-08-26,False,,,3,0,3,solar/storage/clean energy,solar/storage/clean energy,Canadian Solar has a chance of getting out there this year
+PFE,MRNA,COMPETITOR,C1,2023-05-02,False,,,4,0,4,pharma/health,pharma/health,in light of some of the Moderna data on the B antigen side
+CMCSA,DIS,COMPETITOR,C1,2022-04-28,False,,,4,0,4,internet/media,internet/media,Disney's battle in Florida with Governor DeSantis and how that might affect Universal Theme Parks
+PFE,GILD,COMPETITOR,C1,2022-02-08,False,,,2,0,3,pharma/health,pharma/health,"several companies, both large and small, ranging from Gilead to smaller companies, that are planning to develop agents to compete aggressively"
+JPM,PYPL,COMPETITOR,C1,2022-01-14,False,,,2,0,2,banks/financials,banks/financials,There's PayPal competition.
+ORCL,SNOW,COMPETITOR,C1,2020-12-10,False,,,5,1,6,software/IT,software/IT,it doesn't remotely compare to Oracle Autonomous Database
+PG,UL,COMPETITOR,C1,2025-07-29,False,,,2,0,2,consumer staples,consumer staples,"more than our seven closest competitors, Unilever, Chemview, Kimberly-Clark, Colgate, L'Oreal, Clorox, Reckitt, Benckiser combined"
+ABBV,BHVN,COMPETITOR,C1,2022-02-02,False,,,2,0,2,pharma/health,pharma/health,"there's only the two players, it sounds like, here between you and Biohaven"
+ABBV,PFE,COMPETITOR,C1,2020-05-01,False,,,4,0,4,pharma/health,pharma/health,we're well aware of the Pfizer data from their program in atopic dermatitis
+TSLA,GM,COMPETITOR,C1,2025-10-22,False,,,2,0,2,consumer discretionary/retail,consumer discretionary/retail,GM can't make it work
+NFLX,DIS,COMPETITOR,C2,2021-05-13,False,,,11,6,19,internet/media,internet/media,a company like Disney is still ahead of us in some of those dimensions of putting that whole experience together
+MRK,PFE,COMPETITOR,C1,2022-04-28,False,,,4,0,4,pharma/health,pharma/health,"recent deals with the administration, both with Pfizer and Astra"
+T,TMUS,COMPETITOR,C2,2022-10-20,False,,,4,19,30,telecom,telecom,"look at the stock price of AT&T, Verizon and T-Mobile together"
+LLY,NVS,COMPETITOR,C1,2024-10-30,False,,,2,0,2,pharma/health,pharma/health,I can't comment on the back and forth that Novartis had with FDA
+ABBV,AMGN,COMPETITOR,C1,2023-07-27,False,,,2,0,2,pharma/health,pharma/health,we've managed sort of the first half with the Amgen launch
+GOOG,MSFT,COMPETITOR,C1,2001-01-01,False,,,1,0,9,software/IT,software/IT,Microsoft talked about this a little bit last week with their Azure business
+QCOM,AMD,COMPETITOR,C1,2001-01-01,False,,,1,0,4,semis,semis,surpassing Intel and AMD in both speed and power efficiency
+LLY,AMGN,COMPETITOR,C1,2022-11-01,False,,,5,0,5,pharma/health,pharma/health,"first one around obesity, Amgen's data"
+DIS,NFLX,COMPETITOR,C2,2021-05-13,False,,,6,11,19,internet/media,internet/media,"licensing some of their, what would be considered some of their tentpole content, their DC universe to Netflix"
+PFE,NVS,COMPETITOR,C1,2021-02-02,False,,,2,0,2,pharma/health,pharma/health,"some peers, including Novartis and Roche, were not as strong"
+CL,UL,COMPETITOR,C1,2022-04-29,False,,,3,0,3,consumer staples,consumer staples,Unilever brought up yesterday seeing a little more incremental pressure from private label in Europe
+PG,KMB,COMPETITOR,C1,2021-02-11,False,,,1,2,4,consumer staples,consumer staples,how does that impact your decision to follow what we heard from Kimberly Clark on amounts pricing in the US
+MCHP,NXPI,COMPETITOR,C1,2021-02-25,False,,,1,0,7,semis,semis,"they can use our part or they could use, you know, TI or NXP's part"
+ORCL,NOW,COMPETITOR,C1,2022-10-26,False,,,2,1,7,software/IT,software/IT,we're much bigger than Workday or ServiceNow
+SPWR,RUN,COMPETITOR,C1,2001-01-01,False,,,1,2,7,solar/storage/clean energy,solar/storage/clean energy,"Most recently, he was Senior Director of Advanced Products at Sunrun, where he led product development, roadmap, and new product introductions for residential solar, energy storage, and electrification programs."
+TSLA,RIVN,COMPETITOR,C1,2021-10-21,False,,,1,0,2,consumer discretionary/retail,consumer discretionary/retail,Is it just Tesla or Tesla and Rivian or what?
+JKS,FSLR,COMPETITOR,C1,2023-08-14,False,,,1,0,2,solar/storage/clean energy,solar/storage/clean energy,First Solar has made a point of noting that they have a lot of long-term contracts going out multiple years
+PARA,AAPL,COMPETITOR,C1,2022-05-03,False,,,2,0,2,software/IT,software/IT,"the biggest players in streaming Disney, Netflix, Hulu, Apple TV, all sort of focus on D2C"

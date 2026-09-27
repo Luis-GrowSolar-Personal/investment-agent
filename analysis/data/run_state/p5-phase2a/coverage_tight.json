@@ -1,0 +1,71 @@
+{
+ "train_calls": 1217,
+ "covered": 643,
+ "covered_pct": 52.8,
+ "by_rule_selections": {
+  "C1": 559,
+  "S1": 521,
+  "S2": 109,
+  "C2": 27
+ },
+ "by_sector_covered": {
+  "pharma/health": 63,
+  "utilities": 40,
+  "industrials": 91,
+  "banks/financials": 50,
+  "software/IT": 96,
+  "internet/media": 48,
+  "semis": 128,
+  "solar/storage/clean energy": 34,
+  "REITs": 24,
+  "consumer staples": 38,
+  "energy (oil & gas)": 15,
+  "telecom": 16
+ },
+ "mean_peers_per_covered": 1.89,
+ "stop_under_300": false,
+ "top10_links_after": [
+  [
+   "MSFT",
+   127
+  ],
+  [
+   "GOOG",
+   59
+  ],
+  [
+   "INTC",
+   54
+  ],
+  [
+   "SWKS",
+   52
+  ],
+  [
+   "ORCL",
+   49
+  ],
+  [
+   "NVDA",
+   46
+  ],
+  [
+   "AMZN",
+   44
+  ],
+  [
+   "CRM",
+   44
+  ],
+  [
+   "QCOM",
+   42
+  ],
+  [
+   "AVGO",
+   39
+  ]
+ ],
+ "AAPL_before": 529,
+ "AAPL_after": 26
+}
