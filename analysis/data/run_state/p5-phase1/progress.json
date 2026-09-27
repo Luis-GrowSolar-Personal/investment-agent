@@ -42,7 +42,8 @@
     "batch_F_preflight2": 0.0898,
     "batch_C_preflight2": 0.057,
     "batch_F_full": 8.6892,
-    "batch_F_retry": 0.2124
+    "batch_F_retry": 0.2124,
+    "batch_C_full": 10.0416
   },
   "batch_F_preflight2": "msgbatch_01CuTVFvvXyhJgaoSUZdt6mS",
   "batch_F_full": "msgbatch_01CoW61Dfnw4Z6SEMk7UC9BU",
