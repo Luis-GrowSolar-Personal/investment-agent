@@ -20,5 +20,12 @@
   },
   "next_action": "step 2a: list and fetch 10-Ks (selective overflow)",
   "notes": [],
-  "luis_approved_usd": 20
+  "luis_approved_usd": 20,
+  "batch_F_preflight": "msgbatch_01LF9BDM6daZ6Y1W3ZsAWRD4",
+  "spend_by_batch": {
+    "batch_F_preflight": 0.08
+  },
+  "batches_n": {
+    "batch_F_preflight": 40
+  }
 }
