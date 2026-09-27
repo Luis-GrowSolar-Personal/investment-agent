@@ -610,5 +610,84 @@
     "final_verdict": "FINDING \u2014 not a candidate",
     "final_reason": "Opus reads calls differently and is sharper on the downside; kept as a finding under PROMPT_ARCHITECTURE.md 2.3a rule 8, not as a candidate or champion.",
     "cost_usd": 14.06
+  },
+  {
+    "date": "2026-09-27",
+    "label": "P5 peer read-through: tight map lead-lag gate",
+    "change_class": "analyst",
+    "change_class_detail": "input_candidate",
+    "hurdle": "lead-lag gate (design \u00a73 / phase 2a)",
+    "primary_metric": "rank correlation of a linked peer's own pre-call-to-post-call reaction (x) with the target's return before its own call (y1), tight map minus matched same-sector control",
+    "champion": "none (P5 was never a champion or candidate; an input-signal probe)",
+    "challenger": "P5 tight peer map (S1/S2/C1/C2)",
+    "split": "train",
+    "built_by": "hand (p5-close-sector-drift); figures from p5-phase2a/leadlag_report.json",
+    "holdout": "locked \u2014 not touched",
+    "metrics": {
+      "x_to_y1": {
+        "tight": 0.093,
+        "control": 0.063,
+        "diff": 0.03,
+        "range": [
+          -0.027,
+          0.146
+        ],
+        "source": "wrap-ups/P5-phase2a-tight-map-out.md -> Step 2 table"
+      },
+      "x_to_y2": {
+        "tight": 0.005,
+        "control": -0.032,
+        "diff": 0.036,
+        "range": [
+          -0.12,
+          0.275
+        ],
+        "source": "wrap-ups/P5-phase2a-tight-map-out.md"
+      },
+      "by_rule": {
+        "S1": {
+          "diff": 0.066,
+          "range": [
+            -0.012,
+            0.331
+          ]
+        },
+        "S2": {
+          "diff": -0.219,
+          "range": [
+            -0.5,
+            -0.093
+          ],
+          "note": "below zero"
+        },
+        "C1": {
+          "diff": 0.004,
+          "range": [
+            -0.119,
+            0.109
+          ],
+          "note": "flat"
+        },
+        "C2": {
+          "tight": 0.559,
+          "range": [
+            0.21,
+            0.717
+          ],
+          "note": "uncontrolled, n=27"
+        }
+      },
+      "coverage": {
+        "train_calls_covered_tight": 643,
+        "of": 1217,
+        "AAPL_before": 529,
+        "AAPL_after": 26,
+        "source": "wrap-ups/P5-phase2a-tight-map-out.md Step 1"
+      }
+    },
+    "final_verdict": "STOPPED (map gate)",
+    "final_reason": "The pre-registered lead-lag gate (x->y1, tight minus control, range above zero) failed; range includes zero. Per design \u00a73, P5 stops. Tight peer map kept as an allocator input, independent of whether it works as an analyst read-ahead signal.",
+    "cost_usd": 19.26,
+    "cost_note": "phase 1 extraction $19.24 (wrap-ups/P5-phase1-peer-map-out.md) plus phase 0b's link-type read $0.02 (wrap-ups/P5-phase0b-link-sources-out.md); phase 0 and phase 2a were $0 each; corrected from the prompt's suggested ~$19.35 (which I initially over-stated the phase 0b component of, at $0.11) after checking the source wrap-up"
   }
 ]

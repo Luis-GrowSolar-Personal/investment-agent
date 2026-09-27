@@ -53,3 +53,30 @@ names, not suggested pairings.
 with link type COMPETITOR. Phase 1 splits the cell into one link per
 ticker, each with the same type, years, confidence and note. Use a
 separate row only when the type, years or confidence differ.
+
+## The kept allocator input (2026-09-27)
+
+P5 closed at phase 2a: its lead-lag gate failed
+(`wrap-ups/P5-phase2a-tight-map-out.md`), so it is not used to feed the
+analyst. But the **tight, point-in-time, quoted peer map** it built is
+kept as a candidate **allocator** input (correlated-positions, not
+analyst read-ahead):
+
+`analysis/data/run_state/p5-phase2a/peer_links_tight.csv`
+
+| column | meaning |
+|---|---|
+| `company` | the company the link is about |
+| `peer` | the linked company |
+| `relation` | `CUSTOMER`, `SUPPLIER` or `COMPETITOR`, from `company`'s point of view |
+| `rule` | which tight-map rule kept it: `S1` (customer/supplier named in a 10-K), `S2` (named in 3+ calls), `C1` (same-sector competitor, named by the company itself, 2+ sources), `C2` (mutual competitors, 2+ sources each side, any sector) |
+| `qualified_from` | the date the link's evidence first met its rule's threshold; the link applies from this date forward only |
+| `dual_role` | true if the pair is also a competitor pair, superseded here by its supply-chain entry |
+| `n_filing`, `n_call` | distinct filing / call sources (S1/S2 only) |
+| `n_self_named`, `n_peer_named`, `n_total` | distinct competitor-naming sources, by who named it (C1/C2 only) |
+| `sector_company`, `sector_peer` | `docs/peers/SECTOR_MAP.csv` groups at qualification |
+| `quote` | one verbatim supporting quote |
+
+The loose map (`analysis/data/run_state/p5-phase1/peer_links.csv`, 28,902
+rows) and the hand map stay on disk for provenance; the tight file above
+is the one meant for reuse.

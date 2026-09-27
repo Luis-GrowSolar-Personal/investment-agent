@@ -134,7 +134,7 @@ several hours.
 | P2 | Post-call reaction at K≥1, three arms | none (price cache) | §3.1a R3 | blocked |
 | P3 | Thesis / guidance ledger — score QN−1's promises at QN | none (transcripts on disk) | — | ready (unchanged by this edit) |
 | P4 | Tier-conditioned reading of financial facts | XBRL build | P3 | not started |
-| P5 | Peer read-through across cohort members | none (transcripts) | — | design drafted 2026-09-26 (`docs/handoffs/2026-09-26-p5-peer-readthrough-design.md`), under review; phase 0 probes running |
+| P5 | Peer read-through across cohort members | none (transcripts) | — | **closed 2026-09-27 at phase 2a. The lead-lag gate failed (x→y1 +0.030, range −0.027 to +0.146; x→y2 +0.036, range −0.120 to +0.275). Tight peer map kept as an allocator input.** |
 | **P6** | **Output-format round: v6 vs minimal prompt vs continuous score** — three arms, one round | none | flip-count rules corrected (2026-09-23 state of play §4.2) | **done — B held on tune (2026-09-25); research champion.** Arm C **closed** (same signal, 66% more cost) |
 | P7 | Three-voices rubric (CFO numbers / CEO claims / what analysts pressed), **from B** | none | B's noise floor (b-champion-and-noise-floor step 2) | **falsified 2026-09-26 (train; gate 1 31.5% vs 47%)** |
 | P9 | Expected return in percent (with a range) instead of a −5..+5 label, **from B** | none | B's noise floor; §2.3a rule 5 | **falsified 2026-09-26 (train, two draws; ranking non-inferiority failed on draw 2; severity confirmed on both)** |
@@ -295,6 +295,8 @@ exist. Runs only after P6, and starts from B.
 - **Runs on.** Train only. Cost ~$32, hard cap $40; a second draw is not approved.
 
 **P9 — Result, 2026-09-26 (train, two draws; `wrap-ups/P9-expected-return-train-out.md`, `wrap-ups/P9-second-draw-out.md`).** **Falsified:** draw 1 held all three gates but was ambiguous (gate 2 lower end −0.016 vs B draw 1); on draw 2 gate 2 failed against both B draws (−0.020, range −0.071 to +0.032; +0.011, range −0.039 to +0.059), so 5 of 6 checks held. **Severity is confirmed on two draws**: rank correlation inside the bottom 191 was 0.257 and 0.184, both ranges above zero, and the lowest fifth's median was below the second's on both; B's within-bearish ranges include zero. Cause: P9 wobbles more than B between identical runs (17.0% group changes vs 12.5%; rank difference 0.060 vs 0.031; ledger entry 4, cost $60.31). Averaged B vs averaged P9 is in `wrap-ups/P9-close-and-averaged-comparison-out.md` (Step 2).
+
+**P5 — Result, 2026-09-27 (train; `wrap-ups/P5-phase2a-tight-map-out.md`, `wrap-ups/P5-phase1-peer-map-out.md`).** **Stopped at phase 2a's lead-lag gate**: a linked peer's own price reaction did not predict the target's pre-call move above a matched same-sector control (x→y1 tight minus control +0.030, range −0.027 to +0.146, includes zero) and predicted nothing against the target's own six-month return (x→y2 +0.036, range −0.120 to +0.275). By rule: S1 (filing-sourced supply chain) +0.066 (range −0.012 to +0.331), closest to positive; S2 (call-sourced supply chain) **−0.219 (range −0.500 to −0.093), below zero**; C1 (competitors) flat; C2 (mutual competitors) strong (0.559) but uncontrolled, 27 pairs. **The tight, point-in-time, quoted peer map (`peer_links_tight.csv`) is kept as an allocator input**, independent of whether it works as an analyst read-ahead signal.
 
 **P8 — auto-iterate loop. Named, NOT built. Generator, never judge (§2.6),
 with four constraints added 2026-09-24:**
