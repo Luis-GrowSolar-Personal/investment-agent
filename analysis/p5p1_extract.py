@@ -13,7 +13,7 @@ import p5p1_common as C
 from dotenv import load_dotenv
 load_dotenv(C.REPO / ".env")
 import anthropic
-MODEL = "claude-sonnet-4-6"; MAXTOK = 1200
+MODEL = "claude-sonnet-4-6"; MAXTOK = 2000        # v2 (Luis-approved amendment after the v1 pre-flight failed the quote gate): 2000, was 1200
 P_IN, P_OUT, P_CR, P_CW = 1.5, 7.5, 0.15, 1.875       # $/MTok, batch = 0.5 x standard (3 / 15 / 0.30 / 3.75)
 SYSTEM_F = """You will be shown one short passage from a company's annual report (10-K). You are told which company filed it. List every OTHER company that the passage names, and how that named company relates to the filer, judging only from the passage.
 
@@ -25,7 +25,7 @@ Return only this block (the list may be empty):
 
 - named_company: the company exactly as written in the passage.
 - relation, from the FILER's point of view: "CUSTOMER" (the named company buys from the filer), "SUPPLIER" (the named company sells to the filer), "COMPETITOR", "PARTNER" (a collaboration, alliance, investment or joint work that is not a plain sale), or "OTHER" (a lender or bank, an analyst firm, an auditor, a name used only as an example, an acquisition target, a macro or industry reference, or anything that is not a business relation of the filer).
-- quote: the exact words from the passage that support the relation, copied verbatim, as short as possible.
+- quote: ONE contiguous span of the passage that supports the relation, copied verbatim (do not join separate pieces with "..." and do not change any character), as short as possible.
 Do not include the filer itself. Never add a company that is not written in the passage, and never infer a relation the passage does not state."""
 SYSTEM_C = """You will be shown a short passage from an earnings call transcript. You are told which company is holding the call, and nothing else about the call. List every OTHER company that the passage names, and how that named company relates to the company holding the call, judging only from the passage.
 
@@ -37,11 +37,26 @@ Return only this block (the list may be empty):
 
 - named_company: the company exactly as written in the passage.
 - relation, from the CALLING company's point of view: "CUSTOMER" (the named company buys from the calling company), "SUPPLIER" (the named company sells to the calling company), "COMPETITOR", "PARTNER" (a collaboration, alliance, investment or joint work that is not a plain sale), or "OTHER" (an analyst's firm, a name used only as an example or in a macro or market reference, a past employer, or anything that is not a business relation of the calling company).
-- quote: the exact words from the passage that support the relation, copied verbatim, as short as possible.
+- quote: ONE contiguous span of the passage that supports the relation, copied verbatim (do not join separate pieces with "..." and do not change any character), as short as possible.
 Do not include the calling company itself. Never add a company that is not written in the passage, and never infer a relation the passage does not state."""
 
 
-def nws(s): return re.sub(r"\s+", " ", s).strip()
+def nws(s):
+    s = s.replace("\u201c", '"').replace("\u201d", '"').replace("\u2018", "'").replace("\u2019", "'").replace("\u2013", "-").replace("\u2014", "-").replace("\u00a0", " ")
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def quote_ok(q, text):
+    """v2 verifier (Luis-approved amendment): whitespace and quote/dash characters normalised; a quote joined with '...' is accepted only if EVERY segment appears verbatim in order."""
+    t = nws(text); q = nws(q or "")
+    if not q: return False
+    segs = [x.strip(" .") for x in re.split(r"\.\.\.|\u2026", q) if x.strip(" .")]
+    pos = 0
+    for sg in segs:
+        i = t.find(sg, pos)
+        if i < 0: return False
+        pos = i + len(sg)
+    return True
 
 
 def name_of(w):
@@ -132,7 +147,7 @@ def report(kind, raw, sel_ids=None):
         if L is None: bad_parse += 1; continue
         for x in L:
             links += 1; lab[x.get("relation")] = lab.get(x.get("relation"), 0) + 1
-            if not x.get("quote") or nws(x["quote"]) not in nws(us[r["custom_id"]]["text"]): qfail += 1
+            if not quote_ok(x.get("quote"), us[r["custom_id"]]["text"]): qfail += 1
     n = len([1 for r in rows if sel_ids is None or r["custom_id"] in sel_ids])
     top = max(lab.values()) / max(links, 1) if lab else 0
     rep = {"requests": n, "unparseable_or_error": bad_parse, "max_tokens": trunc, "links": links, "quote_fail": qfail, "quote_fail_pct": round(100 * qfail / max(links, 1), 1),
@@ -143,14 +158,14 @@ def report(kind, raw, sel_ids=None):
 
 def main():
     cmd, kind = sys.argv[1], sys.argv[2]; us = units(kind)
-    pre = C.STATE / f"preflight_{kind}.json"
+    pre = C.STATE / f"preflight2_{kind}.json"
     if cmd == "prep":
         print(kind, len(us), "requests; est cost $%.2f" % est_cost(us)); return
     if cmd == "preflight-submit":
-        rng = random.Random(f"p5p1-preflight-{kind}-11"); sel = rng.sample(us, 40); pre.write_text(json.dumps([u["id"] for u in sel])); submit(kind, f"batch_{kind}_preflight", sel)
-    elif cmd == "preflight-poll": poll(kind, f"batch_{kind}_preflight", f"raw_{kind}_preflight.jsonl")
+        rng = random.Random(f"p5p1-preflight2-{kind}-11"); sel = rng.sample(us, 40); pre.write_text(json.dumps([u["id"] for u in sel])); submit(kind, f"batch_{kind}_preflight2", sel)
+    elif cmd == "preflight-poll": poll(kind, f"batch_{kind}_preflight2", f"raw_{kind}_preflight2.jsonl")
     elif cmd == "preflight-report":
-        ids = set(json.loads(pre.read_text())); rep = report(kind, f"raw_{kind}_preflight.jsonl", ids); (C.STATE / f"preflight_report_{kind}.json").write_text(json.dumps(rep, indent=1)); print(json.dumps(rep, indent=1))
+        ids = set(json.loads(pre.read_text())); rep = report(kind, f"raw_{kind}_preflight2.jsonl", ids); (C.STATE / f"preflight2_report_{kind}.json").write_text(json.dumps(rep, indent=1)); print(json.dumps(rep, indent=1))
     elif cmd == "submit-rest":
         ids = set(json.loads(pre.read_text())); submit(kind, f"batch_{kind}_full", [u for u in us if u["id"] not in ids])
     elif cmd == "poll": poll(kind, f"batch_{kind}_full", f"raw_{kind}_full.jsonl")

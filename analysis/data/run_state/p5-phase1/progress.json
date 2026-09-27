@@ -27,5 +27,8 @@
   },
   "batches_n": {
     "batch_F_preflight": 40
+  },
+  "spend_actual_by_batch": {
+    "batch_F_preflight": 0.0891
   }
 }
