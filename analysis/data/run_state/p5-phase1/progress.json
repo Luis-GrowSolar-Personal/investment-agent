@@ -34,7 +34,8 @@
     "batch_F_preflight2": 40,
     "batch_F_full": 3798,
     "batch_C_preflight2": 40,
-    "batch_C_full": 6334
+    "batch_C_full": 6334,
+    "batch_F_retry": 33
   },
   "spend_actual_by_batch": {
     "batch_F_preflight": 0.0891,
@@ -45,5 +46,6 @@
   "batch_F_preflight2": "msgbatch_01CuTVFvvXyhJgaoSUZdt6mS",
   "batch_F_full": "msgbatch_01CoW61Dfnw4Z6SEMk7UC9BU",
   "batch_C_preflight2": "msgbatch_01Y8za3qch9EZDJ346GuUCEG",
-  "batch_C_full": "msgbatch_01ByQDk21ogvwmAdgAXQXwfk"
+  "batch_C_full": "msgbatch_01ByQDk21ogvwmAdgAXQXwfk",
+  "batch_F_retry": "msgbatch_01K7QFruSx6t9KGcXXFQi2m3"
 }
