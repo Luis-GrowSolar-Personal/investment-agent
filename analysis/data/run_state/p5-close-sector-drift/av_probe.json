@@ -1,0 +1,92 @@
+{
+ "MU": {
+  "status": 200,
+  "top_level_keys": [
+   "annualEarnings",
+   "quarterlyEarnings",
+   "symbol"
+  ],
+  "n_quarterly": 122,
+  "earliest_fiscalDateEnding": "1996-02-29",
+  "latest_fiscalDateEnding": "2026-05-31",
+  "fields_present_counts": {
+   "reportedDate": 122,
+   "reportedEPS": 122,
+   "estimatedEPS": 121,
+   "surprise": 122,
+   "surprisePercentage": 121
+  },
+  "n_from_2019_on": 30,
+  "n_from_2019_on_with_estimatedEPS": 30,
+  "note_or_information": null,
+  "sample_row": {
+   "fiscalDateEnding": "2026-05-31",
+   "reportedDate": "2026-06-24",
+   "reportedEPS": "25.11",
+   "estimatedEPS": "20.98",
+   "surprise": "4.13",
+   "surprisePercentage": "19.6854",
+   "reportTime": "post-market"
+  }
+ },
+ "RUN": {
+  "status": 200,
+  "top_level_keys": [
+   "annualEarnings",
+   "quarterlyEarnings",
+   "symbol"
+  ],
+  "n_quarterly": 45,
+  "earliest_fiscalDateEnding": "2015-06-30",
+  "latest_fiscalDateEnding": "2026-06-30",
+  "fields_present_counts": {
+   "reportedDate": 45,
+   "reportedEPS": 45,
+   "estimatedEPS": 45,
+   "surprise": 45,
+   "surprisePercentage": 45
+  },
+  "n_from_2019_on": 30,
+  "n_from_2019_on_with_estimatedEPS": 30,
+  "note_or_information": null,
+  "sample_row": {
+   "fiscalDateEnding": "2026-06-30",
+   "reportedDate": "2026-08-05",
+   "reportedEPS": "0.42",
+   "estimatedEPS": "0.08",
+   "surprise": "0.34",
+   "surprisePercentage": "425",
+   "reportTime": "post-market"
+  }
+ },
+ "JPM": {
+  "status": 200,
+  "top_level_keys": [
+   "annualEarnings",
+   "quarterlyEarnings",
+   "symbol"
+  ],
+  "n_quarterly": 122,
+  "earliest_fiscalDateEnding": "1996-03-31",
+  "latest_fiscalDateEnding": "2026-06-30",
+  "fields_present_counts": {
+   "reportedDate": 122,
+   "reportedEPS": 122,
+   "estimatedEPS": 122,
+   "surprise": 122,
+   "surprisePercentage": 122
+  },
+  "n_from_2019_on": 30,
+  "n_from_2019_on_with_estimatedEPS": 30,
+  "note_or_information": null,
+  "sample_row": {
+   "fiscalDateEnding": "2026-06-30",
+   "reportedDate": "2026-07-14",
+   "reportedEPS": "6.14",
+   "estimatedEPS": "5.59",
+   "surprise": "0.55",
+   "surprisePercentage": "9.839",
+   "reportTime": "pre-market"
+  }
+ }
+}
