@@ -26,22 +26,32 @@ def main():
             for i, tn in enumerate(turns):
                 h = re.match(r"([^:\n]{1,160}?\)):\s", tn); body = tn[h.end():] if h else tn
                 if h and "operator" in h.group(1).lower(): continue
-                ss = SENT.split(body)
-                for si, s in enumerate(ss):
-                    for m in matcher.finditer(s):
+                ss = SENT.split(body); hits = []            # (sentence index, name)
+                for si, s_ in enumerate(ss):
+                    for m in matcher.finditer(s_):
                         nm = m.group(1)
                         if names[nm][0] in own: continue
                         ctx = " ".join(ss[max(0, si - 2): si + 3])
                         if nm in F and not P.REL_STRICT.search(ctx): continue
-                        key = hashlib.sha1(f"{d.name}|{f.stem}|{nm}|{ctx[:120]}".encode()).hexdigest()[:16]
-                        if key in uniq: continue
-                        uniq[key] = {"passage_id": key, "call": d.name, "date": f.stem, "name": nm, "in": "Q&A" if qa_idx is not None and i >= qa_idx else "prepared", "text": ctx[:1600]}
-                        cnt += 1
+                        hits.append((si, nm))
+                if not hits: continue
+                # merge mentions in one turn: overlapping sentence windows (+-2) become ONE passage; cap 1,800 characters
+                segs = []
+                for si, nm in hits:
+                    a, b = max(0, si - 2), si + 3
+                    if segs and a <= segs[-1][1]: segs[-1][1] = max(segs[-1][1], b); segs[-1][2].add(nm)
+                    else: segs.append([a, b, {nm}])
+                for a, b, nms in segs:
+                    txt = " ".join(ss[a:b])[:1800]
+                    key = hashlib.sha1(f"{d.name}|{f.stem}|{i}|{a}".encode()).hexdigest()[:16]
+                    if key in uniq: continue
+                    uniq[key] = {"passage_id": key, "call": d.name, "date": f.stem, "names": sorted(nms), "in": "Q&A" if qa_idx is not None and i >= qa_idx else "prepared", "text": txt}
+                    cnt += 1
             per_call[f"{d.name}_{f.stem}"] = cnt
     with open(C.EV / "call_passages.jsonl", "w") as o:
         for e in uniq.values(): o.write(json.dumps(e) + "\n")
     from collections import Counter
-    c = Counter(e["name"] for e in uniq.values())
+    c = Counter(n for e in uniq.values() for n in e["names"])
     out = {"calls_read": n_calls, "passages": len(uniq), "calls_with_>=1": sum(1 for v in per_call.values() if v), "median_chars": sorted(len(e["text"]) for e in uniq.values())[len(uniq) // 2], "top_names": c.most_common(50)}
     (C.STATE / "prefilter_calls.json").write_text(json.dumps(out, indent=1)); print(json.dumps({k: out[k] for k in out if k != "top_names"}), c.most_common(40))
 
