@@ -1,0 +1,15 @@
+{
+  "run_id": "p5-close-sector-drift",
+  "prompt_sha256": "b209112ff81660d3295dfd8b7a42134706379b8d7aac5a48d65ebaa89ca2ceeb",
+  "cost_usd": 0,
+  "steps": {
+    "step0": "in_progress",
+    "step1": "done",
+    "step2": "pending",
+    "step3": "pending",
+    "step4": "pending",
+    "report": "pending"
+  },
+  "next_action": "step 2 sector score",
+  "notes": []
+}
