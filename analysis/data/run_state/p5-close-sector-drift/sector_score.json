@@ -1,0 +1,119 @@
+{
+ "n_calls_with_sector_score": 691,
+ "n_train_calls": 1217,
+ "coverage_pct": 56.8,
+ "by_sector_coverage": {
+  "banks/financials": 93,
+  "consumer staples": 39,
+  "energy (oil & gas)": 44,
+  "industrials": 162,
+  "internet/media": 20,
+  "materials": 34,
+  "pharma/health": 87,
+  "semis": 79,
+  "software/IT": 69,
+  "solar/storage/clean energy": 37,
+  "utilities": 27
+ },
+ "rho_sector": {
+  "value": 0.03040828833550454,
+  "range": [
+   -0.06297569686547963,
+   0.1247539765029041
+  ]
+ },
+ "rho_own": {
+  "value": 0.10987145549870701,
+  "range": [
+   0.010296730042743327,
+   0.2036786884105538
+  ]
+ },
+ "rho_combined": {
+  "value": 0.0939440771064211,
+  "range": [
+   -0.01363466756349536,
+   0.19210142492346632
+  ]
+ },
+ "combined_minus_own": {
+  "value": -0.015927378392285918,
+  "range": [
+   -0.07107933032467581,
+   0.04269544813468186
+  ]
+ },
+ "sector_minus_own": {
+  "value": -0.07946316716320248,
+  "range": [
+   -0.17470634583498876,
+   0.020689172706216563
+  ]
+ },
+ "bottom15_sector": {
+  "n": 104,
+  "graded": 104,
+  "hit_pct": 48.1,
+  "median_ret": -4.97
+ },
+ "top20_sector": {
+  "n": 138,
+  "graded": 138,
+  "hit_pct": 32.6,
+  "median_ret": -1.72
+ },
+ "bottom15_own": {
+  "n": 104,
+  "graded": 104,
+  "hit_pct": 61.5,
+  "median_ret": -9.05
+ },
+ "top20_own": {
+  "n": 138,
+  "graded": 138,
+  "hit_pct": 42.0,
+  "median_ret": 1.52
+ },
+ "bottom15_combined": {
+  "n": 104,
+  "graded": 104,
+  "hit_pct": 51.9,
+  "median_ret": -5.03
+ },
+ "top20_combined": {
+  "n": 138,
+  "graded": 138,
+  "hit_pct": 36.2,
+  "median_ret": 0.67
+ },
+ "shares": {
+  "n": 691,
+  "n_bottom15": 104,
+  "n_top20": 138
+ },
+ "focus_sectors_pooled": {
+  "n": 185,
+  "sector": {
+   "value": 0.01240995853363438,
+   "range": [
+    -0.18901441590635792,
+    0.2015057679321782
+   ]
+  },
+  "own": {
+   "value": 0.11174347527392367,
+   "range": [
+    -0.06574821697887273,
+    0.2967383233968297
+   ]
+  },
+  "combined": {
+   "value": 0.083544384169033,
+   "range": [
+    -0.10095916698115187,
+    0.2554981995214315
+   ]
+  }
+ },
+ "reading": "no sector gain"
+}
