@@ -12,13 +12,13 @@
   "steps": {
     "step0": "done",
     "step1": "done",
-    "step2": "2a done (1,120 10-K/10-K/A fetched); 2b prefilter next",
-    "step3": "pending",
-    "step4": "pending",
-    "step5": "pending",
-    "report": "pending"
+    "step2": "done",
+    "step3": "done",
+    "step4": "done",
+    "step5": "done",
+    "report": "done"
   },
-  "next_action": "step 2a: list and fetch 10-Ks (selective overflow)",
+  "next_action": "none; run complete",
   "notes": [],
   "luis_approved_usd": 20,
   "batch_F_preflight": "msgbatch_01LF9BDM6daZ6Y1W3ZsAWRD4",
