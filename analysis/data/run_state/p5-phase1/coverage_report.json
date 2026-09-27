@@ -1,0 +1,45 @@
+{
+ "vendor_calls_used": 123,
+ "peers_fetched": 150,
+ "peers_unchecked_at_cap": 170,
+ "peer_priority_top10": [
+  "AMZN",
+  "AAPL",
+  "WMT",
+  "Huawei-none",
+  "Samsung-none",
+  "VWAGY",
+  "NVDA",
+  "ADBE",
+  "SAP",
+  "AMD"
+ ],
+ "headline_covered": 1168,
+ "headline_by_sector": {
+  "pharma/health": 138,
+  "utilities": 42,
+  "banks/financials": 129,
+  "industrials": 199,
+  "other": 25,
+  "software/IT": 113,
+  "internet/media": 64,
+  "consumer staples": 69,
+  "materials": 68,
+  "semis": 129,
+  "solar/storage/clean energy": 80,
+  "REITs": 24,
+  "energy (oil & gas)": 67,
+  "telecom": 21
+ },
+ "headline_by_link_type": {
+  "supply_chain": 1045,
+  "shared_customer_competitor": 859,
+  "partner": 932
+ },
+ "excl_single_source": 1079,
+ "with_hand_added": 1177,
+ "filing_only": 889,
+ "call_only": 1121,
+ "supply_chain_alone_covers": 1045,
+ "stop_rule_under_300": false
+}
