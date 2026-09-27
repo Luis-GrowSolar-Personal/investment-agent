@@ -165,3 +165,34 @@ Southern Company,SO,
 Dominion,D,
 Sempra,SRE,
 Exelon,EXC,
+SAP,SAP,
+SAP SE,SAP,
+GM,GM,General Motors
+HP,HPQ,
+T-Mobile,TMUS,
+GE,GE,General Electric
+Paramount,PARA,
+JPMorgan Chase Bank,JPM,
+Citibank,C,
+Mizuho Bank,MHFC-none,not US listed retail bank arm
+McKesson,MCK,
+McKesson Corporation,MCK,
+AmerisourceBergen,COR,now Cencora
+Cencora,COR,
+Target,TGT,
+Deloitte,Deloitte-none,private
+PACCAR,PCAR,
+Qorvo,QRVO,
+DISH,DISH,
+Charter Communications,CHTR,
+Instacart,CART,
+Databricks,Databricks-none,private
+OpenAI,OpenAI-none,private
+Anthropic,Anthropic-none,private
+XAI,XAI-none,private
+xAI,XAI-none,private
+Red Hat,IBM,IBM subsidiary
+MuleSoft,CRM,Salesforce subsidiary
+Tableau,CRM,Salesforce subsidiary
+Renesas Electronics,Renesas-none,not US listed
+Renesas,Renesas-none,not US listed
