@@ -2,7 +2,7 @@
   "run_id": "p5-phase2a",
   "prompt_sha256": "ab27a9741179e392e0bd71f8b584f37f5f90b79626b57385490051bbe1ca3ac2",
   "cost_usd": 0,
-  "edgar_requests_used": 7,
+  "edgar_requests_used": 175,
   "caps": {
     "edgar": 400
   },
@@ -16,6 +16,7 @@
   },
   "next_action": "wrap-up, push",
   "notes": [
-    "review verified: prompt Step 2 reflects both review changes (peer-sector control excluding all phase1 peers; lead-lag x->y1 gate replacing co-movement) and the cache-name fix; C2 mutual-competitor rule is a Luis addition not in the review file, noted"
+    "review verified: prompt Step 2 reflects both review changes (peer-sector control excluding all phase1 peers; lead-lag x->y1 gate replacing co-movement) and the cache-name fix; C2 mutual-competitor rule is a Luis addition not in the review file, noted",
+    "correction: edgar_requests_used was mistakenly hand-set to 7 in an earlier note; the true total is 175 (173 from p5p2a_tight.py's SIC fetch, tight_report.json -> sec_requests_used; 2 from p5p2a_gaps.py's XOM fetch)"
   ]
 }
