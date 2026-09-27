@@ -57,3 +57,39 @@ def plain(raw):
 
 def tickers_json():
     return {v["ticker"]: v for v in json.loads((REPO / "analysis/data/evals/p5_phase0b/company_tickers.json").read_text()).values()}
+
+
+# ---------------------------------------------------------------- sector groups (Step 1a)
+GROUPS = ["semis", "solar/storage/clean energy", "software/IT", "internet/media", "banks/financials", "pharma/health", "energy (oil & gas)", "utilities", "industrials",
+          "consumer staples", "consumer discretionary/retail", "telecom", "REITs", "materials", "other"]
+
+
+def sic_group(sic):
+    s = int(sic)
+    if s in (3674,): return "semis"
+    if 3570 <= s <= 3579 or s in (3661, 3663, 3669, 3576, 7370, 7371, 7372, 7373, 7374, 7389): return "software/IT"
+    if s in (4832, 4833, 4841, 7310, 7311, 7812, 7841, 7900, 7990, 2711): return "internet/media"
+    if 6000 <= s <= 6499: return "banks/financials"
+    if s == 6798 or 6500 <= s <= 6553: return "REITs"
+    if 2830 <= s <= 2836 or 3841 <= s <= 3845 or 8000 <= s <= 8099 or s in (5912, 3826, 3829, 3823): return "pharma/health"
+    if s in (1311, 1381, 1382, 1389, 2911, 5171, 5172, 4922, 4923, 4610): return "energy (oil & gas)"
+    if 4900 <= s <= 4991: return "utilities"
+    if s in (4812, 4813, 4899): return "telecom"
+    if 2000 <= s <= 2199 or s in (2840, 2844, 2080, 5140, 5141, 5411, 5331, 2670, 2621): return "consumer staples"
+    if s in (3711, 3714, 3021, 5211, 5810, 5812, 5200, 5399) or 5300 <= s <= 5999: return "consumer discretionary/retail"
+    if 1000 <= s <= 1499 or 2800 <= s <= 2829 or 2850 <= s <= 2899 or 3300 <= s <= 3399 or 2600 <= s <= 2699: return "materials"
+    if 3400 <= s <= 3599 or 3600 <= s <= 3699 or 3700 <= s <= 3799 or 4000 <= s <= 4799 or 1500 <= s <= 1799 or 3800 <= s <= 3899 or s in (3089,): return "industrials"
+    return "other"
+
+
+# Overrides where the SIC group is misleading (documented in docs/peers/SECTOR_MAP.csv, basis = override)
+OVERRIDE = {
+    "LRCX": ("semis", "semiconductor equipment (SIC 3559)"), "ENTG": ("semis", "semiconductor materials (SIC 3089)"), "QCOM": ("semis", "fabless chips (SIC 3663)"),
+    "AMAT": ("semis", "semiconductor equipment"), "GOOG": ("internet/media", "internet (SIC 7370)"), "TTD": ("internet/media", "advertising platform (SIC 7370)"),
+    "PYPL": ("banks/financials", "payments (SIC 7389)"), "XYZ": ("banks/financials", "payments (SIC 7372)"), "ACN": ("software/IT", "IT services"),
+    "MMM": ("industrials", "conglomerate (SIC 3841)"), "ROK": ("industrials", "automation (SIC 3829)"), "COST": ("consumer staples", "warehouse retailer (SIC 5331)"),
+    "KMB": ("consumer staples", "paper-based consumer products (SIC 2670)"), "ECL": ("materials", "chemicals (SIC 2840)"), "TSLA": ("consumer discretionary/retail", "autos"),
+    "DD": ("materials", "chemicals"), "NOW": ("software/IT", "software"), "CMCSA": ("internet/media", "cable/media"), "CHTR": ("internet/media", "cable/media"),
+    "UPS": ("industrials", "logistics"), "UNP": ("industrials", "railroad"), "TMO": ("pharma/health", "life-science tools"), "DHR": ("pharma/health", "life-science tools"),
+    "NEM": ("materials", "gold mining"), "FCX": ("materials", "copper mining"), "KHC": ("consumer staples", "food"), "GIS": ("consumer staples", "food"),
+}
