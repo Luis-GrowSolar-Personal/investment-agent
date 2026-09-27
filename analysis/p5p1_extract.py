@@ -219,6 +219,11 @@ def main():
     elif cmd == "submit-rest":
         ids = set(json.loads(pre.read_text())); submit(kind, f"batch_{kind}_full", [u for u in us if u["id"] not in ids])
     elif cmd == "poll": poll(kind, f"batch_{kind}_full", f"raw_{kind}_full.jsonl")
+    elif cmd == "retry": cmd_retry(kind)
+    elif cmd == "retry-poll": cmd_retry_poll(kind)
+    elif cmd == "final-report":
+        rep = final_report(kind); (C.STATE / f"final_report_{kind}.json").write_text(json.dumps(rep, indent=1))
+        print(json.dumps({k: v for k, v in rep.items() if k != "dropped_detail"}, indent=1))
 
 
 if __name__ == "__main__":
