@@ -1,0 +1,335 @@
+{
+ "n_train_calls_57co": 1201,
+ "n_matched": 1171,
+ "match_rate_pct": 97.5,
+ "n_unmatched": 30,
+ "unmatched_sample": [
+  {
+   "ticker": "AEP",
+   "date": "2025-11-05",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "BLK",
+   "date": "2020-01-15",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "BLK",
+   "date": "2020-09-29",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "BLK",
+   "date": "2022-04-27",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "CMI",
+   "date": "2020-11-12",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "CMI",
+   "date": "2021-11-17",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "COST",
+   "date": "2020-03-05",
+   "reason": "missing EPS"
+  },
+  {
+   "ticker": "COST",
+   "date": "2021-05-27",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "COST",
+   "date": "2022-05-26",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "COST",
+   "date": "2023-05-25",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "COST",
+   "date": "2024-05-30",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "COST",
+   "date": "2025-05-29",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "DOW",
+   "date": "2020-01-19",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "JKS",
+   "date": "2020-06-20",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "JKS",
+   "date": "2021-04-09",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "JPM",
+   "date": "2020-06-24",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "KMB",
+   "date": "2023-04-21",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "KMB",
+   "date": "2023-07-21",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "KMB",
+   "date": "2023-10-20",
+   "reason": "no AV quarter within 3 days"
+  },
+  {
+   "ticker": "KMB",
+   "date": "2024-01-19",
+   "reason": "no AV quarter within 3 days"
+  }
+ ],
+ "n_companies": 53,
+ "n_screened_reused": 439,
+ "sector_quarter_fallback_count": 488,
+ "sector_quarter_fallback_pct": 41.7,
+ "primary": {
+  "n": 859,
+  "rho": 0.06927557004427472,
+  "range": [
+   -0.012861146623063731,
+   0.14803226313321544
+  ],
+  "n_B_ge0_of_matched": 859,
+  "passes": false
+ },
+ "direction_check": {
+  "top19_combined_winner_pct": 19.6,
+  "top19_B_winner_pct": 15.3,
+  "diff": 4.300000000000001,
+  "diff_range": [
+   -2.4844720496894404,
+   10.285714285714288
+  ],
+  "n19": 163
+ },
+ "condition_a_unscreened": {
+  "n": 542,
+  "rho": 0.010281819237322144,
+  "range": [
+   -0.08093983131869595,
+   0.11519840358261496
+  ],
+  "positive_point_estimate": true
+ },
+ "condition_b_leave_one_year_out": {
+  "by_year_dropped": {
+   "2020": 0.0739306324598057,
+   "2021": 0.06807386811632546,
+   "2022": 0.07183022734708708,
+   "2023": 0.081912218858294,
+   "2024": 0.0966630885332777,
+   "2025": 0.01998634313864694
+  },
+  "all_positive": true,
+  "min_value": 0.01998634313864694,
+  "min_year_dropped": "2025"
+ },
+ "verdict": {
+  "passes_primary": false,
+  "condition_a": true,
+  "condition_b": true,
+  "clean": false,
+  "borderline": false,
+  "reading": "fail"
+ },
+ "sector_quarter_adjusted_primary": {
+  "rho": 0.05818666721806798,
+  "range": [
+   -0.020355645070344725,
+   0.13579895176396467
+  ]
+ },
+ "sector_label": "n/a (primary did not pass)",
+ "guard_beat_rate": {
+  "B_ge0_beat_rate_pct": 83.1,
+  "flag_near_75": false
+ },
+ "eps_scale_split": {
+  "estimate_ge1pct_price": {
+   "n": 558,
+   "rho": 0.07306781626133083,
+   "range": [
+    -0.03281070785768141,
+    0.1777084871032723
+   ]
+  },
+  "estimate_lt1pct_price": {
+   "n": 301,
+   "rho": 0.04407499420062772,
+   "range": [
+    -0.05314087100883758,
+    0.14028021621661582
+   ]
+  }
+ },
+ "item1_all_matched_reported_only": {
+  "sue_p_adj": {
+   "value": 0.05857620938269297,
+   "range": [
+    -0.0018410213001553671,
+    0.11443824316744607
+   ]
+  },
+  "own": {
+   "value": 0.11212284589988984,
+   "range": [
+    0.0392310224723987,
+    0.18495966259742602
+   ]
+  },
+  "combined": {
+   "value": 0.11321248982733255,
+   "range": [
+    0.053790094483899466,
+    0.1695205567813768
+   ]
+  },
+  "n": 1171
+ },
+ "item2_top19_all": {
+  "n": 222,
+  "hit_pct": 42.3,
+  "big_winner_pct": 22.1,
+  "big_winner_wilson": [
+   17.1,
+   28.0
+  ]
+ },
+ "item3_bottom16_all": {
+  "n": 187,
+  "hit_pct": 47.6
+ },
+ "item4_persistence": {
+  "n_beat_twice": 754,
+  "big_winner_pct_beat_twice": 11.3,
+  "big_winner_pct_others": 15.0
+ },
+ "item5_by_year_all": {
+  "2020": {
+   "n": 153,
+   "rho": 0.03829107482591427
+  },
+  "2021": {
+   "n": 194,
+   "rho": 0.03479200565418979
+  },
+  "2022": {
+   "n": 205,
+   "rho": 0.07074013881284817
+  },
+  "2023": {
+   "n": 207,
+   "rho": 0.0748031376216313
+  },
+  "2024": {
+   "n": 207,
+   "rho": -0.09806839690616952
+  },
+  "2025": {
+   "n": 205,
+   "rho": 0.21044581888321184
+  }
+ },
+ "item5_within_sector_year_all": {
+  "weighted_rho": 0.044937366328221186,
+  "n_cells_ge12": 47,
+  "n_in_cells": 942
+ },
+ "item6_sue_vs_r0_all": {
+  "n": 1171,
+  "rho": 0.2401213315211679
+ },
+ "three_group_all_matched": {
+  "winner_median": 0.03031533948100225,
+  "middle_median": 0.0,
+  "loser_median": -0.012662910101717183,
+  "n_winner": 147,
+  "n_middle": 837,
+  "n_loser": 187
+ },
+ "spotcheck_5_unflagged": [
+  {
+   "ticker": "MS",
+   "date": "2020-07-16",
+   "reportedDate": "2020-07-16",
+   "sue_p_adj": 1.515,
+   "band": "top5%_among_Bge0"
+  },
+  {
+   "ticker": "AIG",
+   "date": "2023-11-02",
+   "reportedDate": "2023-11-01",
+   "sue_p_adj": 3.654,
+   "band": "top5%_among_Bge0"
+  },
+  {
+   "ticker": "HCA",
+   "date": "2020-07-22",
+   "reportedDate": "2020-07-22",
+   "sue_p_adj": 1.533,
+   "band": "top5%_among_Bge0"
+  },
+  {
+   "ticker": "PSX",
+   "date": "2025-04-25",
+   "reportedDate": "2025-04-25",
+   "sue_p_adj": -0.274,
+   "band": "bottom5%_among_Bge0"
+  },
+  {
+   "ticker": "CMI",
+   "date": "2022-02-03",
+   "reportedDate": "2022-02-03",
+   "sue_p_adj": -0.245,
+   "band": "bottom5%_among_Bge0"
+  }
+ ],
+ "spotcheck_3_flagged": [
+  {
+   "ticker": "EOSE",
+   "date": "2023-11-07",
+   "reportedDate": "2023-11-06",
+   "sue_p_adj": 44.608
+  },
+  {
+   "ticker": "EOSE",
+   "date": "2025-11-06",
+   "reportedDate": "2025-11-05",
+   "sue_p_adj": -31.168
+  },
+  {
+   "ticker": "EOSE",
+   "date": "2025-03-05",
+   "reportedDate": "2025-03-04",
+   "sue_p_adj": -25.685
+  }
+ ],
+ "verdict_string": "PROVISIONAL \u2014 pending 8 point-in-time checks. fail"
+}
