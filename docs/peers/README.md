@@ -30,3 +30,26 @@ companies are linked to which. It has a header row and no data rows yet.
   reader knew, versus what the filings said).
 
 Design: `docs/handoffs/2026-09-26-p5-peer-readthrough-design.md`.
+
+
+## Update 2026-09-26: fill the workbook, not the CSV
+
+Edit `docs/peers/HAND_MAP.xlsx`:
+
+- **HAND_MAP tab.** One row per corpus company is pre-seeded, with focus
+  sectors shaded and sorted first. Fill the yellow columns (B–G). Insert
+  a row per extra link, repeating the ticker. Rows left blank are
+  ignored.
+- **CANDIDATES tab.** Companies to pick links from. It lists the whole
+  corpus plus non-corpus names in semis, solar/storage and software,
+  with where each one's transcripts come from.
+- **LEGEND tab.** How to fill it in.
+
+Phase 1 exports the filled rows to `HAND_MAP.csv` itself. The sector
+labels are rough and only for sorting. The CANDIDATES tab is a list of
+names, not suggested pairings.
+
+**Several peers in one cell is fine.** Example: `NVDA` → `AMD, AVGO`
+with link type COMPETITOR. Phase 1 splits the cell into one link per
+ticker, each with the same type, years, confidence and note. Use a
+separate row only when the type, years or confidence differ.
