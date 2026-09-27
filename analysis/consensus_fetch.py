@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 REPO = Path(__file__).resolve().parent.parent
 load_dotenv(REPO / ".env")
 EV = REPO / "analysis/data/evals/consensus_av"; EV.mkdir(parents=True, exist_ok=True)
-KEY = os.environ["AV_API_KEY"]
+KEY = os.environ.get("AV_API_KEY_PREMIUM") or os.environ["AV_API_KEY"]        # full test: premium key (Luis); screen used the free key
 PROBE_REUSE = {"MU": REPO / "analysis/data/run_state/p5-close-sector-drift/av_MU.json", "RUN": REPO / "analysis/data/run_state/p5-close-sector-drift/av_RUN.json",
               "JPM": REPO / "analysis/data/run_state/p5-close-sector-drift/av_JPM.json"}
 
@@ -22,13 +22,21 @@ def fetch_one(tk):
     if tk in PROBE_REUSE and PROBE_REUSE[tk].exists() and not dest.exists():
         dest.write_text(PROBE_REUSE[tk].read_text()); return "reused_probe", None
     url = "https://www.alphavantage.co/query?" + urllib.parse.urlencode({"function": "EARNINGS", "symbol": tk, "apikey": KEY})
-    try:
-        with urllib.request.urlopen(url, timeout=30) as r: st, body = r.status, r.read().decode("utf-8", "replace")
-    except urllib.error.HTTPError as e: st, body = e.code, e.read().decode("utf-8", "replace")
-    dest.write_text(body)
+    def one_call():
+        try:
+            with urllib.request.urlopen(url, timeout=30) as r: return r.status, r.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError as e: return e.code, e.read().decode("utf-8", "replace")
+    st, body = one_call()
     try: d = json.loads(body)
     except json.JSONDecodeError: return "bad_json", None
     note = d.get("Note") or d.get("Information")
+    if note:          # full-test ground rule: wait 60s, retry once; stop only if it recurs
+        time.sleep(60)
+        st, body = one_call()
+        try: d = json.loads(body)
+        except json.JSONDecodeError: return "bad_json", None
+        note = d.get("Note") or d.get("Information")
+    dest.write_text(body)
     return ("rate_limited" if note else "fetched"), note
 
 
