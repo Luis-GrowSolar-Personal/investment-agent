@@ -113,11 +113,11 @@ def main():
                         if cx is not None: ctl_x, ctl_peer, ctl_date = cx, cand, dt; break
             if ctl_x is not None: break
         if ctl_x is None: excl["no_control"] += 1
-        out.append({"target": target, "target_date": td, "peer": peer, "rule": r["rule"], "x": x, "y1": y1, "y1_days": y1_days, "y2": y2,
+        out.append({"target": target, "ticker": target, "target_date": td, "peer": peer, "rule": r["rule"], "x": x, "y1": y1, "y1_days": y1_days, "y2": y2,
                     "ctl_peer": ctl_peer, "ctl_x": ctl_x, "train_target": target in split["train"] or am.get(target, target) in split["train"]})
 
     with open(STATE / "leadlag_pairs.csv", "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(out[0])); w.writeheader(); w.writerows(out)
+        w = csv.DictWriter(f, fieldnames=[k for k in out[0] if k != "ticker"], extrasaction="ignore"); w.writeheader(); w.writerows(out)
 
     def rho(rs, a, b):
         rs2 = [r for r in rs if r[a] is not None and r[b] is not None]

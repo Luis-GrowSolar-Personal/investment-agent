@@ -23,7 +23,7 @@ def main4a():
     by_year = defaultdict(set); quotes = []
     for f in sorted(glob.glob(str(DOCS / "*"))):
         name = Path(f).name
-        m = re.match(r"([A-Z0-9]+)_([\w/]+?)_(\d{4})-\d\d-\d\d_", name)
+        m = re.match(r"([A-Z0-9]+)_([\w/-]+?)_(\d{4})-\d\d-\d\d_", name)
         if not m: continue
         w, form, yr = m.groups()
         text = plain(open(f, errors="replace").read())
