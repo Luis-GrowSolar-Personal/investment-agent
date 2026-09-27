@@ -1,0 +1,23 @@
+{
+  "run_id": "p5-phase1",
+  "prompt_sha256": "bf6f3347f63c7a68a40c456ffc7c34dd58da6ff089c105903b9a874daf6a0e6b",
+  "cost_usd": 0,
+  "caps": {
+    "usd": 20,
+    "edgar_requests": 1600,
+    "vendor_calls": 150
+  },
+  "edgar_requests_used": 0,
+  "vendor_calls_used": 0,
+  "steps": {
+    "step0": "in_progress",
+    "step1": "pending",
+    "step2": "pending",
+    "step3": "pending",
+    "step4": "pending",
+    "step5": "pending",
+    "report": "pending"
+  },
+  "next_action": "commit prompt/review/hand map; validate hand map",
+  "notes": []
+}

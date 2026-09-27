@@ -1,0 +1,1038 @@
+{
+ "rows_total": 165,
+ "rows_kept": 42,
+ "invalid_rows": [],
+ "split_links": 103,
+ "links": [
+  {
+   "company": "AMAT",
+   "linked": "LRCX",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 2
+  },
+  {
+   "company": "AMD",
+   "linked": "NVDA",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 3
+  },
+  {
+   "company": "AMD",
+   "linked": "AVGO",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 3
+  },
+  {
+   "company": "AMD",
+   "linked": "INTC",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 3
+  },
+  {
+   "company": "AMD",
+   "linked": "QCOM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 3
+  },
+  {
+   "company": "AMD",
+   "linked": "ARM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 3
+  },
+  {
+   "company": "AVGO",
+   "linked": "NVDA",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 4
+  },
+  {
+   "company": "AVGO",
+   "linked": "INTC",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 4
+  },
+  {
+   "company": "AVGO",
+   "linked": "AMD",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 4
+  },
+  {
+   "company": "AVGO",
+   "linked": "QCOM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 4
+  },
+  {
+   "company": "AVGO",
+   "linked": "ARM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 4
+  },
+  {
+   "company": "LRCX",
+   "linked": "AMAT",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 9
+  },
+  {
+   "company": "MU",
+   "linked": "AMD",
+   "link_type": "CUSTOMER",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 12
+  },
+  {
+   "company": "MU",
+   "linked": "NVDA",
+   "link_type": "CUSTOMER",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 12
+  },
+  {
+   "company": "MU",
+   "linked": "AVGO",
+   "link_type": "CUSTOMER",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 12
+  },
+  {
+   "company": "NVDA",
+   "linked": "AMD",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 13
+  },
+  {
+   "company": "NVDA",
+   "linked": "AVGO",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 13
+  },
+  {
+   "company": "NVDA",
+   "linked": "INTC",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 13
+  },
+  {
+   "company": "NVDA",
+   "linked": "ARM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 13
+  },
+  {
+   "company": "NVDA",
+   "linked": "QCOM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 13
+  },
+  {
+   "company": "NXPI",
+   "linked": "SLAB",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 14
+  },
+  {
+   "company": "QCOM",
+   "linked": "NVDA",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 16
+  },
+  {
+   "company": "QCOM",
+   "linked": "INTC",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 16
+  },
+  {
+   "company": "QCOM",
+   "linked": "ARM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 16
+  },
+  {
+   "company": "QCOM",
+   "linked": "AVGO",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 16
+  },
+  {
+   "company": "QCOM",
+   "linked": "AMD",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 16
+  },
+  {
+   "company": "SLAB",
+   "linked": "NXPI",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 17
+  },
+  {
+   "company": "SLAB",
+   "linked": "QCOM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 17
+  },
+  {
+   "company": "TXN",
+   "linked": "QCOM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 19
+  },
+  {
+   "company": "TXN",
+   "linked": "SLAB",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 19
+  },
+  {
+   "company": "TXN",
+   "linked": "AVGO",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 19
+  },
+  {
+   "company": "AAPL",
+   "linked": "NFLX",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 21
+  },
+  {
+   "company": "AAPL",
+   "linked": "GOOGL",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 21
+  },
+  {
+   "company": "AAPL",
+   "linked": "AMZN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 21
+  },
+  {
+   "company": "CSCO",
+   "linked": "GOOGL",
+   "link_type": "CUSTOMER",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 26
+  },
+  {
+   "company": "CSCO",
+   "linked": "AMZN",
+   "link_type": "CUSTOMER",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 26
+  },
+  {
+   "company": "CSCO",
+   "linked": "AAPL",
+   "link_type": "CUSTOMER",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 26
+  },
+  {
+   "company": "CSCO",
+   "linked": "ZS",
+   "link_type": "CUSTOMER",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 26
+  },
+  {
+   "company": "CSCO",
+   "linked": "MSFT",
+   "link_type": "CUSTOMER",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "medium",
+   "note": "",
+   "csv_line": 26
+  },
+  {
+   "company": "GOOGL",
+   "linked": "AAPL",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 27
+  },
+  {
+   "company": "GOOGL",
+   "linked": "AMZN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 27
+  },
+  {
+   "company": "GOOGL",
+   "linked": "MSFT",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 27
+  },
+  {
+   "company": "GOOGL",
+   "linked": "ORCL",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 27
+  },
+  {
+   "company": "MSFT",
+   "linked": "GOOGL",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 29
+  },
+  {
+   "company": "MSFT",
+   "linked": "AMZN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 29
+  },
+  {
+   "company": "MSFT",
+   "linked": "AAPL",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 29
+  },
+  {
+   "company": "MSFT",
+   "linked": "ORCL",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 29
+  },
+  {
+   "company": "NFLX",
+   "linked": "DIS",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 30
+  },
+  {
+   "company": "NFLX",
+   "linked": "AMZN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 30
+  },
+  {
+   "company": "ORCL",
+   "linked": "GOOGL",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 32
+  },
+  {
+   "company": "ORCL",
+   "linked": "AMZN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 32
+  },
+  {
+   "company": "ORCL",
+   "linked": "MSFT",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 32
+  },
+  {
+   "company": "PYPL",
+   "linked": "SQ",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 33
+  },
+  {
+   "company": "SQ",
+   "linked": "PYPL",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 35
+  },
+  {
+   "company": "TTD",
+   "linked": "AMZN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 37
+  },
+  {
+   "company": "AMPX",
+   "linked": "ENVX",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 39
+  },
+  {
+   "company": "AMPX",
+   "linked": "QS",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 39
+  },
+  {
+   "company": "AMPX",
+   "linked": "SLDP",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 39
+  },
+  {
+   "company": "ARRY",
+   "linked": "FTCI",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 41
+  },
+  {
+   "company": "ARRY",
+   "linked": "NXT",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 41
+  },
+  {
+   "company": "ENVX",
+   "linked": "AMPX",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 44
+  },
+  {
+   "company": "ENVX",
+   "linked": "QS",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 44
+  },
+  {
+   "company": "ENVX",
+   "linked": "SLDP",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 44
+  },
+  {
+   "company": "EOSE",
+   "linked": "TSLA",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 45
+  },
+  {
+   "company": "EOSE",
+   "linked": "FLNC",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 45
+  },
+  {
+   "company": "JKS",
+   "linked": "MAXN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 47
+  },
+  {
+   "company": "JKS",
+   "linked": "FSLR",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 47
+  },
+  {
+   "company": "MAXN",
+   "linked": "FSLR",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 48
+  },
+  {
+   "company": "MAXN",
+   "linked": "JKS",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 48
+  },
+  {
+   "company": "NOVA",
+   "linked": "RUN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 49
+  },
+  {
+   "company": "NOVA",
+   "linked": "SPWR",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 49
+  },
+  {
+   "company": "QS",
+   "linked": "ENVX",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 50
+  },
+  {
+   "company": "QS",
+   "linked": "AMPX",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 50
+  },
+  {
+   "company": "RUN",
+   "linked": "NOVA",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 51
+  },
+  {
+   "company": "RUN",
+   "linked": "SPWR",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 51
+  },
+  {
+   "company": "RUN",
+   "linked": "ENPH",
+   "link_type": "SUPPLIER",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "buys inverters from ENPH and SEDG",
+   "csv_line": 52
+  },
+  {
+   "company": "RUN",
+   "linked": "SEDG",
+   "link_type": "SUPPLIER",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "buys inverters from ENPH and SEDG",
+   "csv_line": 52
+  },
+  {
+   "company": "SEDG",
+   "linked": "ENPH",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 53
+  },
+  {
+   "company": "SHLS",
+   "linked": "RUN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 54
+  },
+  {
+   "company": "SHLS",
+   "linked": "TSLA",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 54
+  },
+  {
+   "company": "SHLS",
+   "linked": "NOVA",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 54
+  },
+  {
+   "company": "SPWR",
+   "linked": "RUN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 55
+  },
+  {
+   "company": "SPWR",
+   "linked": "NOVA",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 55
+  },
+  {
+   "company": "SPWR",
+   "linked": "TSLA",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 55
+  },
+  {
+   "company": "TSLA",
+   "linked": "FLNC",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 57
+  },
+  {
+   "company": "TSLA",
+   "linked": "RIVN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 57
+  },
+  {
+   "company": "TSLA",
+   "linked": "LCID",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 57
+  },
+  {
+   "company": "GS",
+   "linked": "JPM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 66
+  },
+  {
+   "company": "GS",
+   "linked": "BAC",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 66
+  },
+  {
+   "company": "GS",
+   "linked": "MS",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 66
+  },
+  {
+   "company": "JPM",
+   "linked": "GS",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 67
+  },
+  {
+   "company": "JPM",
+   "linked": "BAC",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 67
+  },
+  {
+   "company": "JPM",
+   "linked": "MS",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 67
+  },
+  {
+   "company": "MS",
+   "linked": "JPM",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 68
+  },
+  {
+   "company": "MS",
+   "linked": "GS",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 68
+  },
+  {
+   "company": "MS",
+   "linked": "BAC",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 68
+  },
+  {
+   "company": "DIS",
+   "linked": "NFLX",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 74
+  },
+  {
+   "company": "DIS",
+   "linked": "AMZN",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 74
+  },
+  {
+   "company": "LOW",
+   "linked": "HD",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 76
+  },
+  {
+   "company": "KO",
+   "linked": "PEP",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 91
+  },
+  {
+   "company": "PEP",
+   "linked": "KO",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 93
+  },
+  {
+   "company": "TMUS",
+   "linked": "VZ",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 156
+  },
+  {
+   "company": "VZ",
+   "linked": "TMUS",
+   "link_type": "COMPETITOR",
+   "valid_from_year": 2001,
+   "valid_to_year": 2026,
+   "confidence": "high",
+   "note": "",
+   "csv_line": 157
+  }
+ ]
+}
