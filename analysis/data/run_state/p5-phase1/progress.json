@@ -26,19 +26,24 @@
     "batch_F_preflight": 0.08,
     "batch_F_preflight2": 0.08,
     "batch_F_full": 7.3,
-    "batch_C_preflight2": 0.08
+    "batch_C_preflight2": 0.08,
+    "batch_C_full": 12.05
   },
   "batches_n": {
     "batch_F_preflight": 40,
     "batch_F_preflight2": 40,
     "batch_F_full": 3798,
-    "batch_C_preflight2": 40
+    "batch_C_preflight2": 40,
+    "batch_C_full": 6334
   },
   "spend_actual_by_batch": {
     "batch_F_preflight": 0.0891,
-    "batch_F_preflight2": 0.0898
+    "batch_F_preflight2": 0.0898,
+    "batch_C_preflight2": 0.057,
+    "batch_F_full": 8.6892
   },
   "batch_F_preflight2": "msgbatch_01CuTVFvvXyhJgaoSUZdt6mS",
   "batch_F_full": "msgbatch_01CoW61Dfnw4Z6SEMk7UC9BU",
-  "batch_C_preflight2": "msgbatch_01Y8za3qch9EZDJ346GuUCEG"
+  "batch_C_preflight2": "msgbatch_01Y8za3qch9EZDJ346GuUCEG",
+  "batch_C_full": "msgbatch_01ByQDk21ogvwmAdgAXQXwfk"
 }
