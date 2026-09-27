@@ -1,0 +1,172 @@
+{
+ "AMPX": {
+  "name": "Amprius Technologies, Inc.",
+  "sic": "3690",
+  "sic_description": "Miscellaneous Electrical Machinery, Equipment & Supplies",
+  "form": "10-K",
+  "filed": "2026-03-06",
+  "quote": "HAPS generally use solar energy and battery storage as the power source to operate for long durations of time.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "EOSE": {
+  "name": "Eos Energy Enterprises, Inc.",
+  "sic": "3690",
+  "sic_description": "Miscellaneous Electrical Machinery, Equipment & Supplies",
+  "form": "10-K",
+  "filed": "2026-02-26",
+  "quote": "Overview We believe the energy storage industry has become a critical component of modern electricity infrastructure.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "JKS": {
+  "name": "JinkoSolar Holding Co., Ltd.",
+  "sic": "3674",
+  "sic_description": "Semiconductors & Related Devices",
+  "form": "20-F",
+  "filed": "2026-04-29",
+  "quote": "In addition, our ingot wafer, solar cell and solar module production and their respective storage facilities are located in close proximity to one another.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "MAXNQ": {
+  "name": "Maxeon Solar Technologies, Ltd.",
+  "sic": "3674",
+  "sic_description": "Semiconductors & Related Devices",
+  "form": "20-F",
+  "filed": "2025-04-30",
+  "quote": "If the demand for our solar products decreases as a result of a deteriorating market environment or as a result of intensifying competition or global trade conflicts, including as result of the policies of the new U.S.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "QS": {
+  "name": "QuantumScape Corp",
+  "sic": "3690",
+  "sic_description": "Miscellaneous Electrical Machinery, Equipment & Supplies",
+  "form": "10-K",
+  "filed": "2026-02-25",
+  "quote": "was founded in 2010 with the mission to revolutionize energy storage to enable a sustainable future.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "RUN": {
+  "name": "Sunrun Inc.",
+  "sic": "1700",
+  "sic_description": "Construction - Special Trade Contractors",
+  "form": "10-K",
+  "filed": "2026-02-26",
+  "quote": "Sunrun transformed the solar industry in 2007 by removing financial barriers and democratizing access to locally-generated, renewable energy.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "SUNW": {
+  "name": "Sunworks, Inc.",
+  "sic": "3690",
+  "sic_description": "Miscellaneous Electrical Machinery, Equipment & Supplies",
+  "form": "10-K",
+  "filed": "2023-03-10",
+  "quote": "(\u201cSunworks United\u201d), and its wholly-owned subsidiaries Solcius, LLC (\u201cSolcius\u201d) and Commercial Solar Energy Inc.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "ARRY": {
+  "name": "Array Technologies, Inc.",
+  "sic": "3674",
+  "sic_description": "Semiconductors & Related Devices",
+  "form": "10-K",
+  "filed": "2026-02-25",
+  "quote": "Business Overview We are a leading global provider of solar tracking technology and fixed-tilt systems to utility-scale and distributed generation customers who construct, develop, and operate solar photovoltaic (\u201cPV\u201d) sites.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "BLDP": {
+  "name": "Ballard Power Systems Inc.",
+  "sic": "3620",
+  "sic_description": "Electrical Industrial Apparatus",
+  "form": "40-F",
+  "filed": "2026-03-12",
+  "quote": null,
+  "quote_says_solar_or_storage": false,
+  "quote_verbatim_in_text": false
+ },
+ "ENVX": {
+  "name": "Enovix Corp",
+  "sic": "3690",
+  "sic_description": "Miscellaneous Electrical Machinery, Equipment & Supplies",
+  "form": "10-K",
+  "filed": "2026-02-25",
+  "quote": "This development was supported by partnerships and investments from several strategic participants in the solar and semiconductor industries, whose experience in precision manufacturing and scalable production informed our approach.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "SEDG": {
+  "name": "SOLAREDGE TECHNOLOGIES, INC.",
+  "sic": "3674",
+  "sic_description": "Semiconductors & Related Devices",
+  "form": "10-K",
+  "filed": "2026-02-25",
+  "quote": "Our solutions address a broad range of solar market segments, from residential solar installations to commercial and small utility scale solar installations.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "SPWR": {
+  "name": "SunPower Inc.",
+  "sic": "1700",
+  "sic_description": "Construction - Special Trade Contractors",
+  "form": "10-K",
+  "filed": "2026-04-14",
+  "quote": "(\u201cComplete Solaria\u201d) was formed in November 2022 through the merger of Complete Solar Holding Corporation, a Delaware corporation (\u201cComplete Solar\u201d), and The Solaria Corporation, a Delaware corporation (such entity, \u201cSolaria,\u201d and such transaction, the \u201cBusiness Combination\u201d).",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "AMSC": {
+  "name": "AMERICAN SUPERCONDUCTOR CORP /DE/",
+  "sic": "3621",
+  "sic_description": "Motors & Generators",
+  "form": "10-K",
+  "filed": "2026-05-27",
+  "quote": "These services often lead to sales of our grid interconnection solutions for wind farms and solar power plants, power quality systems and transmission and distribution cable systems.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "CSIQ": {
+  "name": "Canadian Solar Inc.",
+  "sic": "3674",
+  "sic_description": "Semiconductors & Related Devices",
+  "form": "20-F",
+  "filed": "2026-04-10",
+  "quote": "32 Table of Contents B Business Overview Overview We are one of the world\u2019s largest solar technology and renewable energy companies, a leading manufacturer of solar photovoltaic modules, a provider of battery energy storage solutions, and a developer of utility-scale solar power and battery energy storage projects.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "FSLR": {
+  "name": "FIRST SOLAR, INC.",
+  "sic": "3674",
+  "sic_description": "Semiconductors & Related Devices",
+  "form": "10-K",
+  "filed": "2026-02-24",
+  "quote": "Business Company Overview We are America\u2019s leading PV solar technology and manufacturing company.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "NOVA": {
+  "name": "Sunnova Energy International Inc.",
+  "sic": "4931",
+  "sic_description": "Electric & Other Services Combined",
+  "form": "10-K",
+  "filed": "2025-03-03",
+  "quote": "We offer customers products to power and improve the energy efficiency and sustainability of their homes and businesses with affordable solar energy and related products and services.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ },
+ "SHLS": {
+  "name": "Shoals Technologies Group, Inc.",
+  "sic": "3674",
+  "sic_description": "Semiconductors & Related Devices",
+  "form": "10-K",
+  "filed": "2026-02-24",
+  "quote": "Overview Shoals Technologies Group is a leading design-engineering company and manufacturer of advanced electrical infrastructure solutions for mission\u2011critical applications across solar photovoltaic (PV), BESS, and data center power systems.",
+  "quote_says_solar_or_storage": true,
+  "quote_verbatim_in_text": true
+ }
+}

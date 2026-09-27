@@ -7,7 +7,7 @@
     "edgar_requests": 1600,
     "vendor_calls": 150
   },
-  "edgar_requests_used": 0,
+  "edgar_requests_used": 182,
   "vendor_calls_used": 0,
   "steps": {
     "step0": "in_progress",

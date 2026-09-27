@@ -25,7 +25,10 @@ for orig, w, sp in C.universe():
     start = m0[1] if len(m0) > 1 else (m0[0] if m0 else 0)
     zone = text[start: start + 60000]
     sents = re.split(r"(?<=[.!?])\s+", zone)
-    q = next((s for s in sents if KW.search(s) and 40 < len(s) < 500), None)
-    out[w] = {"name": d.get("name"), "sic": d.get("sic"), "sic_description": d.get("sicDescription"), "form": f, "filed": dt, "quote": q, "quote_verbatim_in_text": bool(q and q in text)}
-    print(w, d.get("sic"), f, dt, "|", (q or "")[:230])
+    STRONG = re.compile(r"\bsolar\b|energy storage|battery storage|storage system|stationary storage|grid storage", re.I)
+    ok = [x for x in sents if 40 < len(x) < 500]
+    q = next((x for x in ok if STRONG.search(x)), None) or next((x for x in ok if KW.search(x)), None)
+    strong = bool(q and STRONG.search(q))
+    out[w] = {"name": d.get("name"), "sic": d.get("sic"), "sic_description": d.get("sicDescription"), "form": f, "filed": dt, "quote": q, "quote_says_solar_or_storage": strong, "quote_verbatim_in_text": bool(q and q in text)}
+    print(w, d.get("sic"), f, dt, strong, "|", (q or "")[:260])
 (C.STATE / "solar_candidates.json").write_text(json.dumps(out, indent=1)); print("requests used", C.prog()["edgar_requests_used"])
