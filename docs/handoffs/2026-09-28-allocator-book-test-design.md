@@ -150,3 +150,48 @@ tune look at the finished allocator (decision 5, as rewritten).
 
 Unchanged: the ruler, the books (200 random, 200 stratified, ALL16 last
 with leave-one-out), arm M, the "never" list, train companies only.
+
+---
+
+## Amendment 1a — 2026-09-28, adopted from review
+
+Source: `docs/handoffs/2026-09-28-book-test-amendment-1-review.md`.
+Amendment 1 items 1–6 stand. Added, all fixed before the run:
+
+1. **Arm 3F, reported only.** Same flag, same t1/t2, but the trim is a
+   **fraction of the position at the call's tradeable entry**: band 1
+   sells 80% of it, band 2 sells 40%. **Speed limit in fractions:** band 1
+   executes as 40% of that starting position at entry and another 40% of
+   the same starting position 21 trading days later (leaving 20%), with
+   the same newer-call cancellation as arm 3. Band 2 executes in one step.
+   Proceeds to QQQ. Not gated.
+
+2. **Per book, under arm 3:** the share of trims that sold the whole
+   position, and the median position size (points of the book) at flag
+   time.
+
+3. **Reading of 3 vs 3F (fixed now, reported only):** if arm 3F beats
+   arm 0 in the random books at a rate within 10 points of arm 3's, "the
+   units do not matter." Otherwise, "the units matter," and position
+   sizing is settled in the sleeve/index decision before P6D.
+
+4. **Band 5 lead, $0, reported only.** From the per-trim data, for the
+   mildest P9 fifth of flagged calls (SPY and QQQ legs): median value per
+   point, mean with its range, and the three companies that contribute
+   most to the mean. Note that the SPY-leg range on the mean was −0.63 to
+   +0.01 per point: it just includes zero, so the "rose 28 points" figure
+   is not yet established. Whatever it shows, the lead earns no train
+   candidate and no tune look. It earns a line in the live forward test:
+   score B and P9 live and grade the cases where B flags and P9 rates
+   mild.
+
+5. **Wrap-up must say** what the book test can show for arm 3: t1/t2 and
+   the flags come from the same train calls the books are drawn from. The
+   test checks whether the signal survives the mechanics (sizes, drift,
+   sequencing, compounding, drawdown, two-step execution). It is not a
+   second look at the signal. Tune is.
+
+6. **Expected mismatch, stated now:** the book test flags on the mean of
+   B's two draws, not each draw separately, so its flagged count and
+   per-trim figures will not match the per-trim run's 374 rows and $342.
+   They should point the same way.
