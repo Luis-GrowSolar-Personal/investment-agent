@@ -1,0 +1,24 @@
+{
+ "canon_sha256_before": "f79cd0da52b317bfbc4b33e5a791a86f88c063f352806d5a229ca1af5551d5e7",
+ "legacy_sha256_before": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+ "spy_span": [
+  "2019-06-03",
+  "2026-09-14"
+ ],
+ "fetch_start": "2019-06-01",
+ "fetch_end_exclusive": "2026-09-15",
+ "qqq_n_dates": 1831,
+ "qqq_span": [
+  "2019-06-03",
+  "2026-09-14"
+ ],
+ "dates_match_spy": true,
+ "date_diff": {
+  "in_spy_not_qqq": [],
+  "in_qqq_not_spy": []
+ },
+ "n_shared_with_legacy": 1591,
+ "max_rel_diff_vs_legacy": 5.708444078500559e-08,
+ "max_rel_diff_date": "2020-07-07",
+ "cross_check_ok_le_0.1pct": true
+}
