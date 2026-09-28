@@ -1,20 +1,23 @@
 {
   "run_id": "per-trim-value-qqq",
   "prompt_sha256": "ae51b34c0d5ce10f011deb4d355dadbc766a28f8348a546e50fcfc780b841662",
-  "driver_commit": null,
+  "driver_commit": "357f468",
   "canonical_cache_sha256_before": "f79cd0da52b317bfbc4b33e5a791a86f88c063f352806d5a229ca1af5551d5e7",
-  "legacy_cache_sha256_before": "50b6b283b4400a6361689b1f9b13f7260e4867a09d2cc12e720698e183b7d1a1",
+  "canonical_cache_sha256_after": "7fe2e23b255968612c993247fceeae9753532ebd61a0b24cb3c2fcf5804b65f3",
+  "legacy_cache_sha256_unchanged": true,
   "steps": {
-    "step_-1_bookend": "in_progress",
-    "step_0_hygiene": "pending",
-    "step_1_add_qqq": "pending",
-    "step_2_rerun_analysis": "pending",
-    "step_3_reading": "pending",
-    "report": "pending"
+    "step_-1_bookend": "done",
+    "step_0_hygiene": "done",
+    "step_1_add_qqq": "done (all asserts passed: dates match SPY, cross-check vs legacy 5.7e-8, non-QQQ keys identical, legacy sha256 unchanged)",
+    "step_2_rerun_analysis": "done (SPY leg reproduces first run exactly; QQQ leg computed, 1217/1217 priced)",
+    "step_3_reading": "done (combined verdict: protection does not pay, both legs)",
+    "report": "done"
   },
-  "next_action": "confirm clean tree, then fetch QQQ via yfinance and append to canonical cache",
+  "next_action": "design session interprets the combined verdict; book test design can now use QQQ prices from the canonical cache",
   "notes": [
-    "prompt already committed by prior session (45d4caa) before this run started",
-    "untracked files present at start unrelated to this run (docs/handoffs/2026-09-27-consensus-findings-for-review.md, prompts/consensus-close-bookkeeping.md) -- not staged or touched"
+    "prompt already committed at 45d4caa by a prior session before this run started",
+    "per_trim_value.py given an optional CLI arg (output run_state dir), committed at 357f468, so this run does not overwrite run_state/per-trim-value/results.json",
+    "SPY leg byte-for-byte identical to the first run's results.json (asserted programmatically)",
+    "QQQ leg: A range includes zero on all three rows (b1, b2, pooled) -- same shape as SPY -- so combined reading is 'protection does not pay' on both destinations"
   ]
 }
