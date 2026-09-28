@@ -79,8 +79,8 @@ def build_rows():
         quarter = f"{d0.year}Q{(d0.month - 1) // 3 + 1}"
         name_ret = price_return_pct(prices, tk, d0)
         spy_ret = price_return_pct(prices, "SPY", d0)
-        qqq_ret = price_return_pct(prices, "QQQ", d0)
-        priced = name_ret is not None and spy_ret is not None and qqq_ret is not None
+        qqq_ret = price_return_pct(prices, "QQQ", d0)  # always None: QQQ absent from this cache (see findings.md)
+        priced = name_ret is not None and spy_ret is not None
         if not priced:
             n_missing_price += 1
         else:
@@ -101,6 +101,11 @@ def build_rows():
 def val(row, dest, size):
     d_ret = row["qqq_ret"] if dest == "QQQ" else row["spy_ret"]
     return size * (d_ret - row["name_ret"]) / 100
+
+
+def dest_pop(pop, dest):
+    key = "qqq_ret" if dest == "QQQ" else "spy_ret"
+    return [r for r in pop if r[key] is not None]
 
 
 # ------------------------------------------------------------------------------------------ bootstrap machinery
@@ -166,12 +171,16 @@ def a_b(pop, draw, dest, size):
 def step1(pop):
     out = {}
     for dest in DESTS:
+        dpop = dest_pop(pop, dest)
+        if not dpop:
+            out[dest] = {"blocked": True, "reason": f"{dest} has zero priced rows in this price cache; see findings.md"}
+            continue
         dtab = {}
         for draw in ("b1", "b2", "pooled"):
-            a_mean, b_mean, ab, unmatched, n = a_b(pop, draw, dest, 2.5)
-            ab_lo, ab_hi, nv = boot_range(pop, lambda s, dr=draw, d=dest: a_b(s, dr, d, 2.5)[2])
-            a_lo, a_hi, _ = boot_range(pop, lambda s, dr=draw, d=dest: a_b(s, dr, d, 2.5)[0])
-            a_rows = flag_rows(pop, draw)
+            a_mean, b_mean, ab, unmatched, n = a_b(dpop, draw, dest, 2.5)
+            ab_lo, ab_hi, nv = boot_range(dpop, lambda s, dr=draw, d=dest: a_b(s, dr, d, 2.5)[2])
+            a_lo, a_hi, _ = boot_range(dpop, lambda s, dr=draw, d=dest: a_b(s, dr, d, 2.5)[0])
+            a_rows = flag_rows(dpop, draw)
             a_vals = sorted(val(r, dest, 2.5) for r in a_rows)
             n10 = max(1, round(0.10 * len(a_vals)))
             total = sum(a_vals)
@@ -218,9 +227,13 @@ def band_sizes(a_rows, seed=SEED):
     return sizes, band_of, bands
 
 
-def step2(pop):
+def step2(full_pop):
     out = {}
     for dest in DESTS:
+        pop = dest_pop(full_pop, dest)
+        if not pop:
+            out[dest] = {"blocked": True, "reason": f"{dest} has zero priced rows in this price cache; see findings.md"}
+            continue
         dtab = {}
         for draw in ("b1", "b2", "pooled"):
             a_rows = flag_rows(pop, draw)
@@ -305,9 +318,13 @@ def step2(pop):
 
 
 # ------------------------------------------------------------------------------------------ Step 3: guidance veto (reported only)
-def step3(pop):
+def step3(full_pop):
     out = {}
     for dest in DESTS:
+        pop = dest_pop(full_pop, dest)
+        if not pop:
+            out[dest] = {"blocked": True, "reason": f"{dest} has zero priced rows in this price cache; see findings.md"}
+            continue
         dtab = {}
         for draw in ("b1", "b2", "pooled"):
             a_rows = flag_rows(pop, draw)

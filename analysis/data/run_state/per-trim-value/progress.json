@@ -1,19 +1,22 @@
 {
   "run_id": "per-trim-value",
   "prompt_sha256": "f590fc12f4fe62caa299f07afb23479ac124d3ee26b68e3c84f14556fd24e3e8",
-  "driver_commit": null,
+  "driver_commit": "f0b5e6a",
   "steps": {
-    "step_-1_bookend": "in_progress",
-    "step_0_hygiene": "pending",
-    "step_0.5_preflight": "pending",
-    "step_1_base_result": "pending",
-    "step_2_p9_layer": "pending",
-    "step_3_veto_layer": "pending",
-    "report": "pending"
+    "step_-1_bookend": "done",
+    "step_0_hygiene": "done",
+    "step_0.5_preflight": "done (QQQ leg failed: absent from analysis/data/corpus_v2/scorer_price_cache_v1.json; SPY leg passed)",
+    "step_1_base_result": "done (SPY only; QQQ blocked, 0 priced rows)",
+    "step_2_p9_layer": "done (SPY only; QQQ blocked)",
+    "step_3_veto_layer": "done (SPY only; QQQ blocked)",
+    "report": "done"
   },
-  "next_action": "confirm clean tree (untracked files unrelated to this run are present but not staged), then write analysis/per_trim_value.py",
+  "next_action": "design session decides whether to add QQQ to the canonical price cache and re-run, drop QQQ as a destination, or something else -- see findings.md",
   "notes": [
-    "prompt already committed at HEAD 5465845 by a prior session before this run started",
-    "untracked files present in working tree at start (docs/handoffs/2026-09-27-consensus-findings-for-review.md, prompts/consensus-close-bookkeeping.md) -- unrelated to this run, not staged or touched"
+    "prompt already committed at 5465845 by a prior session before this run started",
+    "driver + this progress.json committed at f0b5e6a before running",
+    "QQQ is entirely absent (not merely gapped) from analysis/data/corpus_v2/scorer_price_cache_v1.json, the price cache p6_output_format_analysis.py (the named pattern) resolves prices from. A different, unrelated cache (analysis/data/price_cache.json) does hold QQQ, but substituting it was out of scope -- see findings.md Finding 1.",
+    "SPY leg is fully priced (1217/1217 calls) and was computed in full: Step 1 base result, Step 2 P9 severity layer, Step 3 guidance-veto layer.",
+    "the pre-registered reading requires both QQQ and SPY ranges; it cannot be delivered as written with QQQ blocked. Reported instead: which reading bucket the SPY-only evidence falls into."
   ]
 }

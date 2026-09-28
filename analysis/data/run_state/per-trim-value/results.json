@@ -1,0 +1,384 @@
+{
+ "n_calls_total": 1217,
+ "n_priced": 1217,
+ "n_dropped_unpriced": 0,
+ "sanity_max_mismatch_name_minus_spy_vs_fwd_rel_ret_tradeable": 0.0001,
+ "step1_base_result": {
+  "QQQ": {
+   "blocked": true,
+   "reason": "QQQ has zero priced rows in this price cache; see findings.md"
+  },
+  "SPY": {
+   "b1": {
+    "n": 191,
+    "A_mean_pts": 0.1531,
+    "A_mean_range": [
+     -0.0944,
+     0.3876
+    ],
+    "A_mean_usd_on_100k": 153.14,
+    "B_matched_mean_pts": 0.0296,
+    "B_unmatched_mean_pts": 0.0033,
+    "A_minus_B_pts": 0.1235,
+    "A_minus_B_range": [
+     -0.0735,
+     0.3062
+    ],
+    "valid_draws": 2000,
+    "A_minus_B_usd_on_100k": 123.52,
+    "median_pts_reference_only": 0.2597,
+    "tail": {
+     "n_in_10pct": 19,
+     "best10pct_share_of_A_total_pct": 131.1,
+     "worst10pct_share_of_A_total_pct": -173.0,
+     "middle80pct_sum_pts": 41.4906,
+     "n_future_big_winners_beat_spy_20plus": 26,
+     "big_winners_total_value_pts": -55.012
+    }
+   },
+   "b2": {
+    "n": 183,
+    "A_mean_pts": 0.1223,
+    "A_mean_range": [
+     -0.1667,
+     0.3914
+    ],
+    "A_mean_usd_on_100k": 122.33,
+    "B_matched_mean_pts": 0.0269,
+    "B_unmatched_mean_pts": 0.0033,
+    "A_minus_B_pts": 0.0954,
+    "A_minus_B_range": [
+     -0.1319,
+     0.3063
+    ],
+    "valid_draws": 2000,
+    "A_minus_B_usd_on_100k": 95.45,
+    "median_pts_reference_only": 0.2519,
+    "tail": {
+     "n_in_10pct": 18,
+     "best10pct_share_of_A_total_pct": 162.1,
+     "worst10pct_share_of_A_total_pct": -230.4,
+     "middle80pct_sum_pts": 37.6706,
+     "n_future_big_winners_beat_spy_20plus": 26,
+     "big_winners_total_value_pts": -57.2651
+    }
+   },
+   "pooled": {
+    "n": 374,
+    "A_mean_pts": 0.1381,
+    "A_mean_range": [
+     -0.1291,
+     0.3868
+    ],
+    "A_mean_usd_on_100k": 138.06,
+    "B_matched_mean_pts": 0.0283,
+    "B_unmatched_mean_pts": 0.0033,
+    "A_minus_B_pts": 0.1098,
+    "A_minus_B_range": [
+     -0.0998,
+     0.3038
+    ],
+    "valid_draws": 2000,
+    "A_minus_B_usd_on_100k": 109.78,
+    "median_pts_reference_only": 0.2521,
+    "tail": {
+     "n_in_10pct": 37,
+     "best10pct_share_of_A_total_pct": 144.6,
+     "worst10pct_share_of_A_total_pct": -198.1,
+     "middle80pct_sum_pts": 79.2707,
+     "n_future_big_winners_beat_spy_20plus": 52,
+     "big_winners_total_value_pts": -112.277
+    }
+   }
+  }
+ },
+ "step2_p9_severity": {
+  "QQQ": {
+   "blocked": true,
+   "reason": "QQQ has zero priced rows in this price cache; see findings.md"
+  },
+  "SPY": {
+   "b1": {
+    "n": 191,
+    "by_band_value_per_point": [
+     {
+      "band": 1,
+      "n": 39,
+      "trim_size": 5.0,
+      "value_per_point_pts": 0.2915,
+      "range": [
+       0.1091,
+       0.4626
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 2,
+      "n": 38,
+      "trim_size": 2.5,
+      "value_per_point_pts": 0.1684,
+      "range": [
+       0.0304,
+       0.2861
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 3,
+      "n": 38,
+      "trim_size": 0.0,
+      "value_per_point_pts": 0.075,
+      "range": [
+       0.0046,
+       0.223
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 4,
+      "n": 38,
+      "trim_size": 0.0,
+      "value_per_point_pts": 0.043,
+      "range": [
+       -0.1852,
+       0.1773
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 5,
+      "n": 38,
+      "trim_size": 0.0,
+      "value_per_point_pts": -0.2778,
+      "range": [
+       -0.5893,
+       -0.0177
+      ],
+      "valid_draws": 2000
+     }
+    ],
+    "sized_A_mean_pts": 0.3814,
+    "sized_A_mean_range": [
+     0.1685,
+     0.5826
+    ],
+    "sized_A_minus_B_pts": 0.3546,
+    "sized_A_minus_B_range": [
+     0.1489,
+     0.5098
+    ],
+    "sized_A_minus_B_valid_draws": 2000,
+    "sized_A_minus_B_per_point_pts": 0.2335,
+    "sized_A_minus_B_per_point_range": [
+     0.0993,
+     0.3349
+    ],
+    "step1_A_minus_B_per_point_pts": 0.0494,
+    "p9_adds_value_vs_step1": true
+   },
+   "b2": {
+    "n": 183,
+    "by_band_value_per_point": [
+     {
+      "band": 1,
+      "n": 37,
+      "trim_size": 5.0,
+      "value_per_point_pts": 0.2714,
+      "range": [
+       0.114,
+       0.4662
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 2,
+      "n": 37,
+      "trim_size": 2.5,
+      "value_per_point_pts": 0.1454,
+      "range": [
+       0.0376,
+       0.2981
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 3,
+      "n": 37,
+      "trim_size": 0.0,
+      "value_per_point_pts": 0.1354,
+      "range": [
+       -0.005,
+       0.2322
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 4,
+      "n": 36,
+      "trim_size": 0.0,
+      "value_per_point_pts": -0.0429,
+      "range": [
+       -0.2328,
+       0.1203
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 5,
+      "n": 36,
+      "trim_size": 0.0,
+      "value_per_point_pts": -0.2759,
+      "range": [
+       -0.6716,
+       0.0466
+      ],
+      "valid_draws": 2000
+     }
+    ],
+    "sized_A_mean_pts": 0.3478,
+    "sized_A_mean_range": [
+     0.1657,
+     0.5901
+    ],
+    "sized_A_minus_B_pts": 0.3212,
+    "sized_A_minus_B_range": [
+     0.1499,
+     0.5201
+    ],
+    "sized_A_minus_B_valid_draws": 2000,
+    "sized_A_minus_B_per_point_pts": 0.2118,
+    "sized_A_minus_B_per_point_range": [
+     0.0983,
+     0.3438
+    ],
+    "step1_A_minus_B_per_point_pts": 0.0382,
+    "p9_adds_value_vs_step1": true
+   },
+   "pooled": {
+    "n": 374,
+    "by_band_value_per_point": [
+     {
+      "band": 1,
+      "n": 75,
+      "trim_size": 5.0,
+      "value_per_point_pts": 0.3029,
+      "range": [
+       0.1139,
+       0.4612
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 2,
+      "n": 75,
+      "trim_size": 2.5,
+      "value_per_point_pts": 0.1308,
+      "range": [
+       0.0415,
+       0.2835
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 3,
+      "n": 75,
+      "trim_size": 0.0,
+      "value_per_point_pts": 0.1182,
+      "range": [
+       0.004,
+       0.2242
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 4,
+      "n": 75,
+      "trim_size": 0.0,
+      "value_per_point_pts": -0.0029,
+      "range": [
+       -0.2055,
+       0.1421
+      ],
+      "valid_draws": 2000
+     },
+     {
+      "band": 5,
+      "n": 74,
+      "trim_size": 0.0,
+      "value_per_point_pts": -0.2775,
+      "range": [
+       -0.6271,
+       0.0118
+      ],
+      "valid_draws": 2000
+     }
+    ],
+    "sized_A_mean_pts": 0.3693,
+    "sized_A_mean_range": [
+     0.165,
+     0.5802
+    ],
+    "sized_A_minus_B_pts": 0.342,
+    "sized_A_minus_B_range": [
+     0.146,
+     0.5158
+    ],
+    "sized_A_minus_B_valid_draws": 2000,
+    "sized_A_minus_B_per_point_pts": 0.2274,
+    "sized_A_minus_B_per_point_range": [
+     0.0968,
+     0.3412
+    ],
+    "step1_A_minus_B_per_point_pts": 0.0439,
+    "p9_adds_value_vs_step1": true
+   }
+  }
+ },
+ "step3_guidance_veto_reported_only": {
+  "QQQ": {
+   "blocked": true,
+   "reason": "QQQ has zero priced rows in this price cache; see findings.md"
+  },
+  "SPY": {
+   "b1": {
+    "n_A": 191,
+    "n_removed": 0,
+    "n_kept": 191,
+    "vetoed_A_mean_pts": 0.1531,
+    "vetoed_A_minus_B_pts": 0.1235,
+    "vetoed_A_minus_B_range": [
+     -0.0735,
+     0.3062
+    ],
+    "valid_draws": 2000,
+    "removed_calls_mean_value_pts": null
+   },
+   "b2": {
+    "n_A": 183,
+    "n_removed": 1,
+    "n_kept": 182,
+    "vetoed_A_mean_pts": 0.1225,
+    "vetoed_A_minus_B_pts": 0.0959,
+    "vetoed_A_minus_B_range": [
+     -0.1339,
+     0.3065
+    ],
+    "valid_draws": 2000,
+    "removed_calls_mean_value_pts": 0.084
+   },
+   "pooled": {
+    "n_A": 374,
+    "n_removed": 1,
+    "n_kept": 373,
+    "vetoed_A_mean_pts": 0.1382,
+    "vetoed_A_minus_B_pts": 0.11,
+    "vetoed_A_minus_B_range": [
+     -0.1,
+     0.3047
+    ],
+    "valid_draws": 2000,
+    "removed_calls_mean_value_pts": 0.084
+   }
+  }
+ }
+}
