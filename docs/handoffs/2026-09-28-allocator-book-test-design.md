@@ -87,3 +87,66 @@ Trims add value across books → P6D is written against this base book.
 Trims fail → the allocator rebuild leans on the veto and severity before
 B, and the live forward test decides. Matrix costs money → production
 changes before anything else does.
+
+---
+
+## Amendment 1 — 2026-09-28, after the per-trim value run
+
+**Why.** `wrap-ups/per-trim-value-out.md` (SPY leg) found that trimming
+every name B flags does not clearly pay: +$138 per trim on $100,000,
+range −$129 to +$387, and only +$110 more than a random trim in the same
+quarter (range −$100 to +$304). The losses are clipped winners: 52 of 374
+flagged calls went on to beat the S&P by 20+ points. Sizing the trim by
+P9's severity turned it around: trims only on the two most severe fifths
+of flagged calls earned +$342 per flagged call more than random trims
+(range +$146 to +$516), the same on both draws. The flagged calls P9
+rates mildest beat the S&P by 28 points on average.
+
+That P9 result is on the same train calls where P9's severity was first
+found. It is a strong lead, not a confirmation. The confirmation is the
+tune look at the finished allocator (decision 5, as rewritten).
+
+**Changes, all fixed before the run:**
+
+1. **Arm 3 is the candidate.** The headline reading becomes
+   **"Severity-sized trims add value"**: arm 3 beats arm 0 by the existing
+   rule (at least 70% of random books, and the median gain's range above
+   zero; stratified reported separately). Arm 2 vs arm 0 and arm 3 vs
+   arm 2 stay in, reported with their own readings. On the per-trim
+   evidence, arm 2 is expected to fail or be mixed. That is a prediction,
+   not a gate.
+
+2. **Arm 3's sizing must not look ahead.** The per-trim run cut flagged
+   calls into fifths *after* seeing all of them. A book cannot do that at
+   trim time. So, before any arm runs:
+   - Flag = the mean of B's two draws ≤ −2 (as in the design).
+   - Among the flagged train calls, take averaged P9 (mean of P9's two
+     `expectedReturn` draws). Record the value at the 20% mark and the
+     40% mark, counting from most negative: **t1** and **t2**.
+   - Rule: averaged P9 ≤ t1 → trim 5 points; ≤ t2 → 2.5 points; else 0.
+   - Write t1 and t2 to `results.json` before any arm runs. **These two
+     numbers carry unchanged to the tune look.**
+
+3. **Speed limit.** No trim moves more than 2.5 points at once (X). A
+   5-point trim executes as 2.5 points at the call's tradeable entry and
+   2.5 points 21 trading days later, unless a newer call on that name
+   arrives first, in which case the newer call's rule governs and the
+   second half is cancelled. A trim larger than the position sells the
+   whole position.
+
+4. **Arm 4 (the guidance veto) is dropped.** Only one flagged train call
+   carries the beat-and-raise tag, so arm 4 would equal arm 3. The veto
+   is closed. (The earlier "15 calls" counted a raise *or* a beat; that
+   wider tag was found after the fact and is not being tested.)
+
+5. **One reported-only variant, arm 3S:** arm 3 with proceeds to SPY
+   instead of QQQ. It separates the rule's value from QQQ's lead over the
+   S&P in this period. Not gated.
+
+6. **Prerequisite.** QQQ must be in
+   `analysis/data/corpus_v2/scorer_price_cache_v1.json`
+   (`prompts/per-trim-value-qqq.md` adds it). If it is absent, the book
+   test stops before running any arm.
+
+Unchanged: the ruler, the books (200 random, 200 stratified, ALL16 last
+with leave-one-out), arm M, the "never" list, train companies only.
