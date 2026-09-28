@@ -1,0 +1,19 @@
+{
+  "run_id": "per-trim-value",
+  "prompt_sha256": "f590fc12f4fe62caa299f07afb23479ac124d3ee26b68e3c84f14556fd24e3e8",
+  "driver_commit": null,
+  "steps": {
+    "step_-1_bookend": "in_progress",
+    "step_0_hygiene": "pending",
+    "step_0.5_preflight": "pending",
+    "step_1_base_result": "pending",
+    "step_2_p9_layer": "pending",
+    "step_3_veto_layer": "pending",
+    "report": "pending"
+  },
+  "next_action": "confirm clean tree (untracked files unrelated to this run are present but not staged), then write analysis/per_trim_value.py",
+  "notes": [
+    "prompt already committed at HEAD 5465845 by a prior session before this run started",
+    "untracked files present in working tree at start (docs/handoffs/2026-09-27-consensus-findings-for-review.md, prompts/consensus-close-bookkeeping.md) -- unrelated to this run, not staged or touched"
+  ]
+}
