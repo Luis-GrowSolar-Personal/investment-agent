@@ -14,9 +14,10 @@ screen on Opus found it **sharper on the downside**, and no better on
 winners. **Decided:** research stays on Sonnet, B stays the incumbent,
 Opus and Fable are held back to confirm finished work, and each tune
 look is reserved for a candidate that finds winners. Next: a live
-forward test on Sonnet and Opus, two free diagnostics on where the
-winners sit (§4a), then peer read-through (P5) as the next bullish
-candidate. Start at §3.
+forward test on Sonnet and Opus, and, added 2026-09-28 after every
+bullish route closed, the **allocator book test** (§4): does trimming
+what B flags beat holding the book, across hundreds of 16-name books?
+Start at §3.
 
 ---
 
@@ -206,6 +207,14 @@ B's prompt, unchanged, on `claude-opus-5-5`, 300 train calls, one run:
 ---
 
 ## §4 Next
+
+**Top of the queue (added 2026-09-28): the allocator book test.** Hold a
+16-name book, let it drift like an index, trim only what B flags, send
+proceeds to QQQ. Test it on 200 random and 200 stratified books drawn
+from the 55 train companies, at $0, with the current production
+allocator on the same books as a cost check. Design and pre-registered
+readings: `docs/handoffs/2026-09-28-allocator-book-test-design.md`. It
+runs before the allocator rebuild (row 5) and shapes P6D.
 
 | # | step | cost | why |
 |---|---|---|---|
