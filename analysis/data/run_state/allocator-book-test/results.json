@@ -1,0 +1,48 @@
+{
+ "n_calls_total": 1217,
+ "n_companies": 55,
+ "n_flagged": 160,
+ "t1": -10.0,
+ "t2": -8.0,
+ "idx1_0based": 31,
+ "idx2_0based": 63,
+ "megacap_pool": [
+  "ABBV",
+  "BLK",
+  "CMCSA",
+  "COST",
+  "DUK",
+  "EMR",
+  "HON",
+  "INTC",
+  "LLY",
+  "MRK",
+  "MS",
+  "QCOM",
+  "TMO",
+  "TMUS",
+  "UPS",
+  "MSFT"
+ ],
+ "mid_pool": [
+  "BOX",
+  "DIOD",
+  "IBM",
+  "JKS",
+  "MU",
+  "NOW",
+  "NXPI",
+  "SLAB",
+  "TEAM"
+ ],
+ "spec_pool": [
+  "FRC",
+  "SUNW",
+  "AMPX",
+  "EOSE",
+  "QS",
+  "RUN",
+  "TTD"
+ ],
+ "note": "expected mismatch vs per-trim-value(-qqq): this flags on the mean of B's two draws, not each draw separately -- amendment 1a item 6."
+}
