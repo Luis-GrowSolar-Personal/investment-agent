@@ -411,6 +411,10 @@ def run_book_all(book_tickers, book_id, schedules, arrays, first_date, start, en
         m0 = metrics_from_snaps(r0["snaps"], fp, start, end)
         per_phase["0"].append({**m0, "n_trims": 0, "points_moved": 0.0, "full_sells": 0, "flag_pcts": []})
 
+        r1 = simulate(["QQQ"], INITIAL, sessions, "QQQ", fp, first_date, [], "pct", fixed_resolver)
+        m1 = metrics_from_snaps(r1["snaps"], fp, start, end)
+        per_phase["1"].append({**m1, "n_trims": 0, "points_moved": 0.0, "full_sells": 0, "flag_pcts": []})
+
         r2 = simulate(book_tickers, weight, sessions, "QQQ", fp, first_date, arm2_groups_book, "pct", fixed_resolver)
         per_phase["2"].append({**metrics_from_snaps(r2["snaps"], fp, start, end),
                                 "n_trims": r2["n_trims"], "points_moved": r2["points_moved"],
