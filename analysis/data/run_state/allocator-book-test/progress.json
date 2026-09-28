@@ -1,20 +1,25 @@
 {
   "run_id": "allocator-book-test",
   "prompt_sha256": "ffd1555b23b668b1d81fedba98aa8fb335c10662a9d16907e8406a03624ad44a",
-  "driver_commit": null,
+  "driver_commit": "8cb7040",
   "steps": {
-    "step_-1_bookend": "in_progress",
-    "step_0.5_preflight": "pending",
-    "step_1_freeze_t1_t2": "pending",
-    "step_2_arms": "pending",
-    "step_2b_arm_M_feasibility": "pending",
-    "step_3_books": "pending",
-    "step_4_band5_lead": "pending",
-    "report": "pending"
+    "step_-1_bookend": "done",
+    "step_0.5_preflight": "done (QQQ present, window 2020-01-02..2026-06-17, late listings match spec, 0 unresolved entries)",
+    "step_1_freeze_t1_t2": "done (committed e105aba before any arm ran: n_flagged=160, t1=-10.0, t2=-8.0)",
+    "step_2_arms": "done (0,1,2,3,3F,3S,2R,3R x 200 random + 200 stratified + TRAIN6 + 6-way LOO x 3 phases)",
+    "step_2b_arm_M_feasibility": "done (not run -- DB-and-ALL16-hardcoded loader, no workaround built)",
+    "step_3_books": "done",
+    "step_4_band5_lead": "done",
+    "report": "done"
   },
-  "next_action": "check clean tree, then write analysis/allocator_book_test.py",
+  "next_action": "design session interprets: headline 'own more QQQ' on random books, stratified disagrees on the skill leg, arm2 beats arm3 decisively on both sets",
   "notes": [
     "prompt already committed at 17b1125 by a prior session before this run started",
-    "untracked files present at start unrelated to this run (docs/handoffs/2026-09-27-consensus-findings-for-review.md, prompts/consensus-close-bookkeeping.md) -- not staged or touched"
+    "bug found and fixed mid-run: arm 1 (QQQ alone) was declared but never simulated in the first pass, giving NaN -- fixed (fb522bf), full run repeated",
+    "band5_lead top-3 contributor sort direction fixed (8cb7040) before final results committed",
+    "key finding: arm 3 (severity-sized) loses to arm 2 (fixed trim) decisively at the book level on both random and stratified books, opposite of the per-trim-level finding -- reported as a finding, not resolved",
+    "key finding: 55% of arm 3's raw trim events (random books) land on positions already fully sold by an earlier flag -- real trim rate is about half the raw count",
+    "headline (random books, the gated set): 'own more QQQ' -- 1a (arm3 vs arm0) passes, 1b (arm3 vs arm3R) fails on win share (69.0%<70%) and company-removal floor (59.6%<70%)",
+    "stratified books read differently: 1b passes there (85.5%, floor 72.0%) -- reported as a real, unresolved disagreement between book sets, not adjudicated"
   ]
 }
