@@ -35,7 +35,7 @@ import r4_horizon_driver as r4  # noqa: E402
 
 RS = REPO / "analysis/data/run_state"
 ORIG = RS / "p6-output-format-round"
-STATE = RS / "per-trim-value"
+STATE = RS / (sys.argv[1] if len(sys.argv) > 1 else "per-trim-value")
 BOOT_B, SEED, H = 2000, 11, 182
 DESTS = ("QQQ", "SPY")
 
