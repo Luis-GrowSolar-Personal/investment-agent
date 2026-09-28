@@ -543,7 +543,9 @@ def band5_lead():
         by_ticker = defaultdict(list)
         for r, v in zip(band5_rows, vals):
             by_ticker[r["ticker"]].append(v)
-        contrib = sorted(((t, sum(vs)) for t, vs in by_ticker.items()), key=lambda x: -x[1])[:3]
+        # "contributes most" = most negative (this band's mean is negative on both
+        # legs -- these are the biggest-winner names trimming would have cost the most on)
+        contrib = sorted(((t, sum(vs)) for t, vs in by_ticker.items()), key=lambda x: x[1])[:3]
         out[dest] = {"n": len(band5_rows), "median_value_per_point_pts": round(median_v, 4),
                      "mean_value_per_point_pts": round(mean_v, 4), "range": [round(lo, 4), round(hi, 4)],
                      "valid_draws": nv,
