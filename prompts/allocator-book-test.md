@@ -10,18 +10,23 @@
 
 ---
 
-## For the reviewer: four points where this prompt departs from or settles the design
+## Settled with review
 
-These were found while writing the prompt, from the repo, and are **not
-yet agreed.** Each is marked **[R1]–[R4]** where it applies below.
+Reviewed in `docs/handoffs/2026-09-28-allocator-book-test-prompt-review.md`.
+R1–R3 agreed (R1's reason corrected below). R4 changed to 8 / 4 / 4.
+**Added: no-skill control arms 3R and 2R**, and the headline now needs
+arm 3 to beat both holding the book **and** random trims. Each point is
+marked **[R1]–[R4]** where it applies below.
 
 - **[R1] ALL16 cannot run on train data.** Only 6 of the 16 names are
   train companies (MSFT, AMPX, EOSE, QS, RUN, TTD). Five are tune
   (GOOGL, ORCL, TSLA, ENVX, SPWR) and five are **holdout** (AAPL, AMD,
-  AVGO, NVDA, FSLR) (`SPLIT_V7_RESERVE_REPLACEMENTS.json`). B has two
-  draws and P9 has scores only on train. Running ALL16 would mean
-  scoring tune and holdout companies, which breaks the lock. **This
-  prompt drops ALL16** and runs a **TRAIN6** book (the six train names),
+  AVGO, NVDA, FSLR) (`SPLIT_V7_RESERVE_REPLACEMENTS.json`). B's scores
+  on all 195 ALL16 calls already exist from the end-to-end run, so the
+  lock is not the blocker. **P9 has no ALL16 scores**, and making them is
+  about $10 of new spend outside a $0 run. ALL16 with P9 scored is the
+  tune/holdout confirmation of the finished allocator. **This prompt
+  drops ALL16** and runs a **TRAIN6** book (the six train names),
   reported only. ALL16 belongs with the tune/holdout confirmation of the
   finished allocator.
 - **[R2] Timing.** The design's ruler is phase-averaged over monthly
@@ -36,11 +41,13 @@ yet agreed.** Each is marked **[R1]–[R4]** where it applies below.
   ALL16 result once flipped on FSLR alone. **Added to the pass rule:**
   the win share must stay at 70% or above when each single company is
   removed (dropping every book that contains it).
-- **[R4] Stratified pools, fixed here.** Megacap = S1 + MSFT (16 names);
+- **[R4] Stratified pools, 8 / 4 / 4.** Megacap = S1 + MSFT (16 names);
   mid = S2 (9); speculative = S4 + AMPX, EOSE, QS, RUN, TTD (7). S3 (out
-  of domain) is not used. With only 7 speculative names, 6 per book, the
-  speculative side of the stratified books barely varies. State this as
-  a limit.
+  of domain) is not used. Luis's shape is 8 / 2 / 6, but with 7
+  speculative names there are only 7 ways to pick 6, so every book would
+  hold nearly the same speculative names, and that is where the trims
+  land. **8 megacap, 4 mid, 4 speculative** gives 35 speculative
+  combinations instead of 7. The wrap-up states the change and the reason.
 
 ---
 
@@ -48,8 +55,15 @@ yet agreed.** Each is marked **[R1]–[R4]** where it applies below.
 
 **The question.** On a book that is bought once and then left alone,
 does trimming the names B flags **and** P9 rates severe, with the money
-sent to QQQ, beat simply holding the book? The measure is return per
+sent to QQQ, beat simply holding the book? And does it beat the same
+number of trims on calls picked at random? The measure is return per
 unit of maximum drawdown.
+
+**Why the second part.** Moving money from single names into QQQ lowers
+drawdown almost by itself: QQQ swings less than any single name and beat
+most of the corpus over the period. So arm 3 could beat arm 0 whatever B
+and P9 say. Arm 3R keeps everything about arm 3 except the analyst's
+choice of which call to trim. Only arm 3 vs arm 3R measures that choice.
 
 **What earlier runs settled; do not rediscover.**
 - Trimming every name B flags does not pay, into either index
@@ -139,6 +153,8 @@ targets.
 | **2** | arm 0, plus: a flagged call trims 2.5 points |
 | **3** | arm 0, plus: a flagged call with `p9_avg` ≤ t1 trims 5 points (2.5 at that session, 2.5 at the next); ≤ t2 trims 2.5; otherwise nothing. If a newer call on the name acts before the second half, the second half is cancelled and the newer call's rule applies |
 | **3F** | as arm 3, but trims are **fractions of the position** at the first session: band 1 sells 40% of that position, then another 40% of **that same starting position** at the next session (20% left); band 2 sells 40% in one step. Reported only |
+| **3R** | **no-skill control for arm 3.** For each trim arm 3 makes on this book (session, size, one or two steps), trim instead a call picked at random from the book's calls whose action session falls in the **same calendar quarter**, among names still held at that session (any call, flagged or not; seed 11, one draw per book). If no such call exists, no trim. Same sizes, same two-step execution, proceeds to QQQ |
+| **2R** | the same control for arm 2 |
 | **3S** | arm 3 with proceeds to SPY. Reported only |
 | **M** | the production allocator. See Step 2b |
 
@@ -165,8 +181,8 @@ the DB**.
 ## Step 3 — the books
 
 - **Random:** 200 books of 16 drawn from the 55 companies, seed 11.
-- **Stratified [R4]:** 200 books of 8 megacap (S1 + MSFT), 2 mid (S2) and
-  6 speculative (S4 + AMPX, EOSE, QS, RUN, TTD), seed 11.
+- **Stratified [R4]:** 200 books of 8 megacap (S1 + MSFT), 4 mid (S2) and
+  4 speculative (S4 + AMPX, EOSE, QS, RUN, TTD), seed 11.
 - **TRAIN6 [R1]:** MSFT, AMPX, EOSE, QS, RUN, TTD at equal weight.
   Reported only, with a 6-way leave-one-out.
 
@@ -178,14 +194,22 @@ the DB**.
 **Win share** = the share of books where the gain is above zero. **Range
 on the median gain** = 2,000 resamples of books, seed 11.
 
-1. **Headline — "Severity-sized trims add value"** if, in the random
-   books, arm 3 beats arm 0 in **at least 70%** of books, **and** the
-   median gain's range is above zero, **and [R3]** the win share stays
-   at or above 70% when each single company is removed in turn. Report
-   the lowest win share and the company that caused it. The same test
-   runs on the stratified books and is reported separately.
-2. **"Plain trims add value"** — arm 2 vs arm 0, same rule. Expected to
-   fail. A prediction, not a gate.
+**The pass rule**, for "arm X beats arm Y": in the random books, X beats
+Y in **at least 70%** of books, **and** the median gain's range is above
+zero, **and [R3]** the win share stays at or above 70% when each single
+company is removed in turn (report the lowest share and the company that
+caused it). The same test runs on the stratified books, reported
+separately.
+
+1. **Headline — "Severity-sized trims add value"** requires **both**:
+   - **1a. "Beat holding":** arm 3 beats arm 0. The practical question.
+   - **1b. "The analyst chose the trims":** arm 3 beats arm 3R. The
+     skill question.
+   If 1a passes and 1b does not, the reading is **"own more QQQ"**: a
+   real result, but a different allocator, and it goes to the
+   sleeve/index decision, not to P6D.
+2. **"Plain trims add value"** — arm 2 vs arm 0, and arm 2 vs arm 2R,
+   same rule. Expected to fail. A prediction, not a gate.
 3. **"Severity adds over plain"** — arm 3 vs arm 2, same rule.
 4. **"The matrix costs money"** — arm 0 beats arm M in at least 70% of
    books. Reported whatever the others say, if arm M ran.
@@ -217,9 +241,11 @@ feeds the live forward test only.
 > Frozen before any arm ran: t1 = ___, t2 = ___ (___ flagged train calls).
 > In ___ random 16-name books, trimming the names B flags and P9 rates
 > severe (arm 3) beat holding the book (arm 0) on return per drawdown in
-> ___% of books. The median gain was ___ (range ___ to ___), and the win
-> share fell no lower than ___% with any one company removed (lowest:
-> ___). **Headline: [severity-sized trims add value / do not].** Plain
+> ___% of books (median gain ___, range ___ to ___; lowest with one
+> company removed ___%, ___). It beat the same trims on random calls
+> (arm 3R) in ___% of books (median gain ___, range ___ to ___; lowest
+> with one company removed ___%, ___). **Headline: [severity-sized trims
+> add value / own more QQQ / do not add value].** Plain
 > trims (arm 2): ___%. Stratified books: arm 3 ___%. Final value, arm 3
 > vs arm 0, median across random books: $___ vs $___. Daily drawdown:
 > ___% vs ___%. Arm M: [ran — the matrix ___ / not run — ___ missing].
@@ -235,6 +261,9 @@ deviations.
 that ALL16 was not run and why **[R1]**.
 
 **Close with what it means**, in plain words:
+- 1a passes, 1b fails → "own more QQQ." The analyst did not choose the
+  trims; the index did the work. This goes to the sleeve/index decision,
+  not P6D.
 - Headline passes and units don't matter → P6D is written against
   "flagged and severe, trimmed into the index," with t1/t2 frozen. The
   tune look goes to that allocator on tune-company books, with ALL16's
