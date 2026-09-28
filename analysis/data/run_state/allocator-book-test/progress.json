@@ -1,0 +1,20 @@
+{
+  "run_id": "allocator-book-test",
+  "prompt_sha256": "ffd1555b23b668b1d81fedba98aa8fb335c10662a9d16907e8406a03624ad44a",
+  "driver_commit": null,
+  "steps": {
+    "step_-1_bookend": "in_progress",
+    "step_0.5_preflight": "pending",
+    "step_1_freeze_t1_t2": "pending",
+    "step_2_arms": "pending",
+    "step_2b_arm_M_feasibility": "pending",
+    "step_3_books": "pending",
+    "step_4_band5_lead": "pending",
+    "report": "pending"
+  },
+  "next_action": "check clean tree, then write analysis/allocator_book_test.py",
+  "notes": [
+    "prompt already committed at 17b1125 by a prior session before this run started",
+    "untracked files present at start unrelated to this run (docs/handoffs/2026-09-27-consensus-findings-for-review.md, prompts/consensus-close-bookkeeping.md) -- not staged or touched"
+  ]
+}
