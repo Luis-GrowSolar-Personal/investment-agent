@@ -414,10 +414,10 @@ def main():
         return {
             "2": {"median_diff": round(float(np.median(diffs2)), 4), "max_diff": round(max(diffs2), 4),
                   "pct_within_0.5": round(100 * sum(d <= 0.5 for d in diffs2) / len(diffs2), 1),
-                  "shortfall_total": round(sum(b["match_check"]["2"]["shortfall"] for b in results), 2)},
+                  "shortfall_total": round(sum(b["match_check"]["2"]["shortfall_total"] for b in results), 2)},
             "3": {"median_diff": round(float(np.median(diffs3)), 4), "max_diff": round(max(diffs3), 4),
                   "pct_within_0.5": round(100 * sum(d <= 0.5 for d in diffs3) / len(diffs3), 1),
-                  "shortfall_total": round(sum(b["match_check"]["3"]["shortfall"] for b in results), 2)},
+                  "shortfall_total": round(sum(b["match_check"]["3"]["shortfall_total"] for b in results), 2)},
         }
     match_random = match_stats(random_results)
     match_strat = match_stats(strat_results)
