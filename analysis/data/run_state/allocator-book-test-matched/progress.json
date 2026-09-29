@@ -1,18 +1,20 @@
 {
   "run_id": "allocator-book-test-matched",
   "prompt_sha256": "3628884366209f40ed1d97bae31ae2500a84b9cb682847ce3c5c93ccdf68877d",
-  "driver_commit": null,
+  "driver_commit": "d2802a0",
   "steps": {
     "step_-1_bookend": "done",
-    "step_1_reproduction": "pending",
-    "step_2_money_matched_controls": "pending",
-    "readings": "pending",
-    "report": "pending"
+    "step_1_reproduction": "done (random: exact match, 4800/4800 figures, max diff 0.0; stratified: aggregate check only -- first run did not save per-book stratified figures -- max diff 0.0042)",
+    "step_2_money_matched_controls": "done (100% of books within 0.5pp, both arms, both book sets, shortfall 0.0)",
+    "readings": "done",
+    "report": "done"
   },
-  "next_action": "extend analysis/allocator_book_test.py with traced simulate() + money-matched control builder, commit, then run",
+  "next_action": "design session interprets: headline technically 'severity-sized trims add value' (1a+1b pass) but reading 3 fails on both book sets -- the honest read per the prompt's own decision menu is 'the rule is plain trims; P9 does not earn a place'",
   "notes": [
-    "does not overwrite analysis/data/run_state/allocator-book-test/ -- separate state dir per ground rule 2",
-    "t1/t2 read from first run's results.json, not recomputed",
-    "untracked files present at start unrelated to this run (docs/handoffs/2026-09-27-consensus-findings-for-review.md, prompts/consensus-close-bookkeeping.md) -- not staged or touched"
+    "prompt committed at b42fd5b (this session, before any output)",
+    "corrects wrap-ups/allocator-book-test-out.md's headline: the first run's count-matched controls moved far more money than their arms (55% of arm 3's trims re-flag already-sold names), biasing 1b against arm 3",
+    "two bugs found and fixed before the reported run: stratified repro KeyError (no per-book figures in first run), and a shortfall/shortfall_total key mismatch",
+    "key finding: arm 2 and arm 3 earn essentially the same per-point gain over arm 0 (0.001547 vs 0.001548, random books) -- severity sizing does not make each point moved more effective; the headline's 1b pass comes from arm 3M's control earning slightly less per point than arm 2M's, not from P9 adding skill",
+    "both book sets agree this time (random and stratified) on 1b passing and on reading 3 (severity over plain) failing -- resolves the first run's random/stratified disagreement"
   ]
 }
