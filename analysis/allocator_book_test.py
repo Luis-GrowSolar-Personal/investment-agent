@@ -267,13 +267,18 @@ def precompute_schedules(calls, start, end, t1, t2, acache):
 
 
 # ============================================================== simulation core
-def simulate(tickers, weight_dollar, sessions, dest, fp, first_date, base_groups, mode, resolver):
+def simulate(tickers, weight_dollar, sessions, dest, fp, first_date, base_groups, mode, resolver, trace_out=None):
     """base_groups: list of (orig_ticker, [session_idx,...]) any order.
     resolver(orig_ticker, first_idx, shares) -> target_ticker or None.
     mode 'pct': each step trims X_PP% of total book value from target, capped at position.
     mode 'frac': each step trims FRAC_STEP fraction of a reference value (the
       position's own pre-trim value for a single-step group or a group's first
-      step; the value captured at the first step, for a group's second step)."""
+      step; the value captured at the first step, for a group's second step).
+    trace_out: optional list; if given, one dict per step is appended --
+      {"group_id": (orig_ticker, first_session_idx), "step_no": 1|2,
+       "session_idx": i, "points_moved": actual pct of book moved (0 if the
+       position was already empty)} -- used by allocator_book_test_matched.py
+      to build the money-matched no-skill controls (prompts/allocator-book-test-matched.md)."""
     shares = {t: 0.0 for t in tickers}
     embryo = {t: 0.0 for t in tickers}
     bought_in = {t: False for t in tickers}
@@ -318,15 +323,16 @@ def simulate(tickers, weight_dollar, sessions, dest, fp, first_date, base_groups
             target = resolver(ot, i, shares)
             if target is None:
                 continue
-            dynamic_steps[i].append((target, False))
+            gid = (ot, g[0])
+            dynamic_steps[i].append((target, False, gid))
             if len(g) == 2:
-                dynamic_steps[g[1]].append((target, True))
+                dynamic_steps[g[1]].append((target, True, gid))
 
         total_val = (sum(shares[t] * (fp.price_on(t, sd) or 0.0) for t in tickers if bought_in[t])
                      + sum(embryo[t] * (fp.price_on("QQQ", sd) or 0.0) for t in tickers if not bought_in[t])
                      + dest_shares * (fp.price_on(dest, sd) or 0.0))
 
-        for target, is_step2 in dynamic_steps.get(i, []):
+        for target, is_step2, gid in dynamic_steps.get(i, []):
             price_t = fp.price_on(target, sd)
             pos_val = shares.get(target, 0.0) * (price_t or 0.0)
             if mode == "pct":
@@ -346,9 +352,13 @@ def simulate(tickers, weight_dollar, sessions, dest, fp, first_date, base_groups
             n_trims += 1
             if full:
                 full_sells += 1
+            actual_pct = 100 * sell_val / total_val if total_val > 0 else 0.0
             if total_val > 0:
-                points_moved += 100 * sell_val / total_val
+                points_moved += actual_pct
                 flag_pcts.append(100 * pos_val / total_val)
+            if trace_out is not None:
+                trace_out.append({"group_id": gid, "step_no": 2 if is_step2 else 1,
+                                   "session_idx": i, "points_moved": actual_pct})
 
         pv = {}
         for t in tickers:
